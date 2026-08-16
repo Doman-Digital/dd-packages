@@ -1,0 +1,468 @@
+// src/ids.ts
+function createGraphIds(siteUrl) {
+  const url = siteUrl.replace(/\/$/, "");
+  return {
+    org: `${url}/#organization`,
+    website: `${url}/#website`,
+    person: (slug) => `${url}/#person-${slug}`,
+    service: (slug) => `${url}/#service-${slug}`,
+    product: (slug) => `${url}/#product-${slug}`,
+    place: (slug) => `${url}/#place-${slug}`,
+    article: (slug) => `${url}/#article-${slug}`,
+    breadcrumb: (path) => `${url}${path}#breadcrumb`,
+    /** Page-identity nodes (WebPage/ContactPage/CollectionPage) are inherently
+     * page-scoped, same reasoning as `breadcrumb`. */
+    webpage: (path) => `${url}${path}#webpage`
+  };
+}
+
+// src/graph.ts
+function buildGraph(nodes) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": nodes.filter((n) => Boolean(n))
+  };
+}
+function isPureRef(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const keys = Object.keys(value);
+  return keys.length === 1 && keys[0] === "@id" && typeof value["@id"] === "string";
+}
+function findGraphIssues(graph) {
+  const issues = [];
+  const idCounts = /* @__PURE__ */ new Map();
+  for (const node of graph["@graph"]) {
+    const id = node["@id"];
+    if (typeof id === "string") {
+      idCounts.set(id, (idCounts.get(id) || 0) + 1);
+    }
+  }
+  for (const [id, count] of idCounts) {
+    if (count > 1) issues.push(`duplicate @id (${count}\xD7): ${id}`);
+  }
+  const definedIds = new Set(idCounts.keys());
+  const walk = (value, path) => {
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => walk(item, `${path}[${index}]`));
+      return;
+    }
+    if (isPureRef(value)) {
+      if (!definedIds.has(value["@id"])) {
+        issues.push(`unresolved @id ref at ${path}: ${value["@id"]}`);
+      }
+      return;
+    }
+    if (value && typeof value === "object") {
+      for (const [key, child] of Object.entries(value)) {
+        walk(child, `${path}.${key}`);
+      }
+    }
+  };
+  graph["@graph"].forEach((node, index) => walk(node, `@graph[${index}]`));
+  return issues;
+}
+
+// src/nodes.ts
+function buildOrganization(input, ids, types = "LocalBusiness") {
+  const node = {
+    "@type": types,
+    "@id": ids.org,
+    name: input.name,
+    description: input.description,
+    url: input.url
+  };
+  if (input.legalName) node.legalName = input.legalName;
+  if (input.alternateName) node.alternateName = input.alternateName;
+  if (input.phone) node.telephone = input.phone;
+  if (input.email) node.email = input.email;
+  if (input.logoUrl) node.logo = input.logoUrl;
+  if (input.image && input.image.length > 0) node.image = input.image;
+  if (input.address) {
+    const a = input.address;
+    node.address = {
+      "@type": "PostalAddress",
+      ...a.streetAddress ? { streetAddress: a.streetAddress } : {},
+      // schema.org's PostalAddress properties are addressLocality/
+      // addressRegion/addressCountry, NOT the bare locality/region/country
+      // this input type uses -- input field names stay ergonomic, output
+      // keys must match the vocabulary or parsers silently ignore them.
+      ...a.locality ? { addressLocality: a.locality } : {},
+      ...a.region ? { addressRegion: a.region } : {},
+      ...a.postalCode ? { postalCode: a.postalCode } : {},
+      ...a.country ? { addressCountry: a.country } : {}
+    };
+  }
+  if (input.geo) node.geo = { "@type": "GeoCoordinates", ...input.geo };
+  if (input.priceRange) node.priceRange = input.priceRange;
+  if (input.openingHours) node.openingHours = input.openingHours;
+  if (input.openingHoursSpecification && input.openingHoursSpecification.length > 0) {
+    node.openingHoursSpecification = input.openingHoursSpecification.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      ...h
+    }));
+  }
+  if (input.areaServedIds && input.areaServedIds.length > 0) {
+    node.areaServed = input.areaServedIds.map((id) => ({ "@id": id }));
+  } else if (input.areaServedGeoCircle) {
+    const g = input.areaServedGeoCircle;
+    node.areaServed = {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: g.latitude, longitude: g.longitude },
+      geoRadius: g.radiusMeters
+    };
+  } else if (input.areaServed) {
+    node.areaServed = Array.isArray(input.areaServed) ? input.areaServed.map((name) => ({ "@type": "City", name })) : input.areaServed;
+  }
+  if (input.sameAs && input.sameAs.length > 0) node.sameAs = input.sameAs;
+  if (input.foundingDate) node.foundingDate = input.foundingDate;
+  if (input.aggregateRating) {
+    node.aggregateRating = {
+      "@type": "AggregateRating",
+      bestRating: 5,
+      worstRating: 1,
+      ...input.aggregateRating
+    };
+  }
+  if (input.hasOfferCatalog) node.hasOfferCatalog = input.hasOfferCatalog;
+  if (input.founderId) node.founder = { "@id": input.founderId };
+  if (input.contactPoint && input.contactPoint.length > 0) {
+    node.contactPoint = input.contactPoint.map((c) => ({ "@type": "ContactPoint", ...c }));
+  }
+  if (input.identifiers && input.identifiers.length > 0) {
+    node.identifier = input.identifiers.map((i) => ({ "@type": "PropertyValue", ...i }));
+  }
+  if (input.hasMap) node.hasMap = input.hasMap;
+  if (input.paymentAccepted) node.paymentAccepted = input.paymentAccepted;
+  if (input.currenciesAccepted) node.currenciesAccepted = input.currenciesAccepted;
+  return node;
+}
+function buildWebsite(input, ids) {
+  const node = {
+    "@type": "WebSite",
+    "@id": ids.website,
+    name: input.name,
+    url: input.url,
+    publisher: { "@id": ids.org }
+  };
+  if (input.description) node.description = input.description;
+  if (input.inLanguage) node.inLanguage = input.inLanguage;
+  if (input.potentialAction) {
+    node.potentialAction = {
+      "@type": input.potentialAction.type,
+      target: { "@type": "EntryPoint", urlTemplate: input.potentialAction.targetUrlTemplate },
+      ...input.potentialAction.resultType ? { result: { "@type": input.potentialAction.resultType } } : {}
+    };
+  }
+  if (input.speakable) {
+    node.speakable = { "@type": "SpeakableSpecification", cssSelector: input.speakable.cssSelector };
+  }
+  return node;
+}
+function buildSpine(organizationInput, websiteInput, ids, types) {
+  return [buildOrganization(organizationInput, ids, types), buildWebsite(websiteInput, ids)];
+}
+function buildPerson(input, ids) {
+  const node = {
+    "@type": "Person",
+    "@id": ids.person(input.slug),
+    name: input.name,
+    worksFor: { "@id": ids.org }
+  };
+  if (input.jobTitle) node.jobTitle = input.jobTitle;
+  if (input.description) node.description = input.description;
+  if (input.imageUrl) node.image = input.imageUrl;
+  if (input.sameAs && input.sameAs.length > 0) node.sameAs = input.sameAs;
+  if (input.credentials && input.credentials.length > 0) {
+    node.identifier = input.credentials.filter((c) => c.number).map((c) => ({
+      "@type": "PropertyValue",
+      propertyID: c.label,
+      value: c.number,
+      ...c.url ? { url: c.url } : {}
+    }));
+  }
+  if (input.hasCredential && input.hasCredential.length > 0) {
+    node.hasCredential = input.hasCredential.map((c) => ({
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: c.category,
+      name: c.name,
+      ...c.identifier ? { identifier: c.identifier } : {},
+      ...c.url ? { url: c.url } : {}
+    }));
+  }
+  if (input.hasOfferCatalog) node.hasOfferCatalog = input.hasOfferCatalog;
+  return node;
+}
+function buildPlace(input, ids) {
+  const node = {
+    "@type": "Place",
+    "@id": ids.place(input.slug),
+    name: input.name
+  };
+  if (input.description) node.description = input.description;
+  if (input.postcodeArea) {
+    node.additionalProperty = {
+      "@type": "PropertyValue",
+      name: "postcodeArea",
+      value: input.postcodeArea
+    };
+  } else if (input.postcodes && input.postcodes.length > 0) {
+    node.additionalProperty = {
+      "@type": "PropertyValue",
+      name: "postcodes",
+      value: input.postcodes.join(", ")
+    };
+  }
+  if (input.county) {
+    node.containedInPlace = { "@type": "AdministrativeArea", name: input.county };
+  }
+  return node;
+}
+function buildService(input, ids) {
+  const node = {
+    "@type": "Service",
+    "@id": ids.service(input.slug),
+    name: input.name,
+    url: input.url,
+    provider: { "@id": ids.org },
+    isPartOf: { "@id": ids.website }
+  };
+  if (input.description) node.description = input.description;
+  if (input.serviceType) node.serviceType = input.serviceType;
+  if (input.priceFromMinor) {
+    node.offers = {
+      "@type": "Offer",
+      price: (input.priceFromMinor / 100).toFixed(2),
+      priceCurrency: "GBP",
+      ...input.priceUnit ? { description: input.priceUnit } : {}
+    };
+  }
+  return node;
+}
+function buildOfferCatalog(name, services, ids) {
+  return {
+    "@type": "OfferCatalog",
+    name,
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: { "@id": ids.service(s.slug) }
+    }))
+  };
+}
+function buildFAQPage(faqs, opts) {
+  if (faqs.length === 0) return null;
+  const node = {
+    "@type": "FAQPage",
+    ...opts?.id ? { "@id": opts.id } : {},
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answerText }
+    }))
+  };
+  if (opts?.speakable) {
+    node.speakable = {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["[data-speakable-question]", "[data-speakable-answer]"]
+    };
+  }
+  return node;
+}
+function buildBreadcrumbs(items, id) {
+  return {
+    "@type": "BreadcrumbList",
+    ...id ? { "@id": id } : {},
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      ...item.url ? { item: item.url } : {}
+    }))
+  };
+}
+function buildItemList(items) {
+  return {
+    "@type": "ItemList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: item.url
+    }))
+  };
+}
+function buildArticle(input, ids) {
+  const node = {
+    "@type": "Article",
+    "@id": ids.article(input.slug),
+    headline: input.headline,
+    publisher: { "@id": ids.org },
+    isPartOf: { "@id": ids.website }
+  };
+  if (input.description) node.description = input.description;
+  if (input.datePublished) node.datePublished = input.datePublished;
+  if (input.dateModified) node.dateModified = input.dateModified;
+  if (input.imageUrl) node.image = [input.imageUrl];
+  if (input.authorSlug) node.author = { "@id": ids.person(input.authorSlug) };
+  if (input.speakable) {
+    node.speakable = { "@type": "SpeakableSpecification", cssSelector: input.speakable.cssSelector };
+  }
+  return node;
+}
+function buildWebPage(input, ids) {
+  const node = {
+    "@type": "WebPage",
+    "@id": ids.webpage(input.path),
+    url: input.url,
+    name: input.name,
+    isPartOf: { "@id": ids.website },
+    about: { "@id": ids.org }
+  };
+  if (input.description) node.description = input.description;
+  if (input.dateModified) node.dateModified = input.dateModified;
+  if (input.inLanguage) node.inLanguage = input.inLanguage;
+  return node;
+}
+function buildContactPage(input, ids) {
+  return {
+    "@type": "ContactPage",
+    "@id": ids.webpage(input.path),
+    url: input.url,
+    name: input.name,
+    isPartOf: { "@id": ids.website },
+    mainEntity: { "@id": ids.org }
+  };
+}
+function buildCollectionPage(input, ids) {
+  const node = {
+    "@type": "CollectionPage",
+    "@id": ids.webpage(input.path),
+    url: input.url,
+    name: input.name,
+    isPartOf: { "@id": ids.website },
+    about: { "@id": ids.org },
+    mainEntity: buildItemList(input.items)
+  };
+  if (input.inLanguage) node.inLanguage = input.inLanguage;
+  return node;
+}
+function buildReview(input, ids) {
+  const node = {
+    "@type": "Review",
+    itemReviewed: { "@id": ids.org },
+    author: { "@type": "Person", name: input.authorName },
+    reviewBody: input.reviewBody
+  };
+  if (typeof input.ratingValue === "number" && input.ratingValue >= 1 && input.ratingValue <= 5) {
+    node.reviewRating = {
+      "@type": "Rating",
+      ratingValue: input.ratingValue,
+      bestRating: 5,
+      worstRating: 1
+    };
+  }
+  if (input.url) node.url = input.url;
+  if (input.datePublished) node.datePublished = input.datePublished;
+  if (input.reply?.text) {
+    const comment = {
+      "@type": "Comment",
+      text: input.reply.text,
+      author: { "@id": ids.org }
+    };
+    if (input.reply.dateCreated) comment.dateCreated = input.reply.dateCreated;
+    node.comment = comment;
+  }
+  return node;
+}
+function buildProduct(input, ids) {
+  const node = {
+    "@type": "Product",
+    "@id": ids.product(input.slug),
+    name: input.name,
+    url: input.url
+  };
+  if (input.imageUrl) node.image = input.imageUrl;
+  if (input.brandName) node.brand = { "@type": "Brand", name: input.brandName };
+  if (input.category) node.category = input.category;
+  if (input.description) node.description = input.description;
+  if (input.additionalProperty && input.additionalProperty.length > 0) {
+    node.additionalProperty = input.additionalProperty.map((p) => ({
+      "@type": "PropertyValue",
+      ...p
+    }));
+  }
+  if (input.offers) {
+    const offer = {
+      "@type": "Offer",
+      priceCurrency: input.offers.priceCurrency,
+      price: input.offers.price,
+      availability: input.offers.availability ?? "https://schema.org/InStock",
+      url: input.url
+    };
+    if (input.offers.unitText) {
+      offer.priceSpecification = {
+        "@type": "UnitPriceSpecification",
+        price: input.offers.price,
+        priceCurrency: input.offers.priceCurrency,
+        unitText: input.offers.unitText
+      };
+    }
+    if (input.offers.sellerId) offer.seller = { "@id": input.offers.sellerId };
+    node.offers = offer;
+  }
+  if (input.aggregateRating) {
+    node.aggregateRating = { "@type": "AggregateRating", ...input.aggregateRating };
+  }
+  return node;
+}
+function buildSoftwareApplication(input, ids) {
+  const node = {
+    "@type": "SoftwareApplication",
+    "@id": ids.product(input.slug),
+    name: input.name,
+    applicationCategory: input.applicationCategory
+  };
+  if (input.operatingSystem) node.operatingSystem = input.operatingSystem;
+  if (input.description) node.description = input.description;
+  if (input.url) node.url = input.url;
+  if (input.publisherId) node.publisher = { "@id": input.publisherId };
+  if (input.offers && input.offers.length > 0) {
+    node.offers = input.offers.map((o) => ({
+      "@type": "Offer",
+      name: o.name,
+      price: o.price,
+      priceCurrency: o.priceCurrency,
+      ...o.url ? { url: o.url } : {}
+    }));
+  }
+  return node;
+}
+
+// src/escape.ts
+var LINE_SEPARATOR = String.fromCharCode(8232);
+var PARAGRAPH_SEPARATOR = String.fromCharCode(8233);
+function escapeJsonLdForScript(json) {
+  return json.split("<").join("\\u003c").split(">").join("\\u003e").split("&").join("\\u0026").split(LINE_SEPARATOR).join("\\u2028").split(PARAGRAPH_SEPARATOR).join("\\u2029");
+}
+export {
+  buildArticle,
+  buildBreadcrumbs,
+  buildCollectionPage,
+  buildContactPage,
+  buildFAQPage,
+  buildGraph,
+  buildItemList,
+  buildOfferCatalog,
+  buildOrganization,
+  buildPerson,
+  buildPlace,
+  buildProduct,
+  buildReview,
+  buildService,
+  buildSoftwareApplication,
+  buildSpine,
+  buildWebPage,
+  buildWebsite,
+  createGraphIds,
+  escapeJsonLdForScript,
+  findGraphIssues
+};
