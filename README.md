@@ -20,36 +20,40 @@ traffic) shipped indexable and simply never got submitted to the sitemap.
 Nobody noticed for weeks.
 
 This package is the fix: pure functions over route data the consuming repo
-still owns. It does not know your CMS, your framework, or your route data —
-it only knows how to look entries up, derive edges between them, and flag
+still owns. It does not know your CMS, your framework, or your route data.
+It only knows how to look entries up, derive edges between them, and flag
 when the two don't line up.
 
 **What's per-repo, on purpose:** the actual `RoutePolicyEntry[]` array, the
 actual `PageTarget[]` list, the actual link declarations, Sanity queries, and
-every component. This package ships none of that — see `## Deliberately not
+every component. This package ships none of that. See `## Deliberately not
 in scope` below.
 
 ## Install
 
-Not published to npm. Consumed as a git dependency pinned to a tag:
-
-```json
-{
-  "dependencies": {
-    "@domandigital/seo": "github:Doman-Digital/dd-seo#v0.1.0"
-  }
-}
+```bash
+pnpm add @domandigital/seo
 ```
 
-`dist/` is committed to this repo (no CI build step runs on a git-dependency
-install), so no build step is required in the consuming project beyond a
-normal `pnpm install`.
+Public on npm, Apache-2.0, published with provenance from a tagged release.
+ESM and CJS builds ship together, each with its own types. Requires Node 20 or
+newer.
 
-### Known gotcha: Vitest + pnpm git dependencies
+Upgrading a repo that still pins `github:Doman-Digital/dd-seo#vX.Y.Z`? Swap it
+for a semver range, and drop `resolve.preserveSymlinks: true` from
+`vitest.config.ts` if it was added for this package. See
+`@domandigital/graph`'s README for why that workaround existed and why registry
+installs don't need it.
 
-Same as `@domandigital/graph`: if a consuming project uses Vitest and a test
-imports a real value (not just a type) from this package, add
-`resolve.preserveSymlinks: true` to `vitest.config.ts`.
+## API stability
+
+`policy.ts`, `links.ts` and `validate.ts` are exercised by a real consumer and
+are treated as stable for the rest of `0.1.x`.
+
+`targets.ts` and `trail.ts` are provisional. They're built and tested, but no
+repo has adopted them in production yet, so their shapes may change once a
+second consumer shows what they actually need. Pin exactly if you depend on
+them today.
 
 ## API
 
@@ -61,8 +65,8 @@ getRoutePolicy(policy: RoutePolicyEntry[], path: string): RoutePolicyEntry | und
 isRouteIndexable(policy: RoutePolicyEntry[], path: string): boolean
 ```
 
-`isRouteIndexable` defaults to `true` for an unknown route, deliberately —
-see the comment in `src/policy.ts`. The corresponding failure belongs to
+`isRouteIndexable` defaults to `true` for an unknown route, deliberately.
+See the comment in `src/policy.ts`. The corresponding failure belongs to
 `validateCoverage`, which runs in CI, not at request time.
 
 ### `targets.ts`
@@ -72,7 +76,7 @@ getTargetForRoute(targets: PageTarget[], routeKey: string): PageTarget | undefin
 findKeywordCannibalization(targets: PageTarget[], allowlist?: string[]): KeywordCannibalization[]
 ```
 
-### `links.ts` — the internal-link graph
+### `links.ts`: the internal-link graph
 
 ```ts
 getRelatedLinks(declarations: LinkDeclaration[], routeKey: string, opts?: { limit?: number }): RelatedLinks
@@ -81,7 +85,7 @@ getRelatedLinks(declarations: LinkDeclaration[], routeKey: string, opts?: { limi
 A page declares `supports: string[]` (which money pages it should send
 authority to) and optionally a `pillar` for same-topic fallback linking.
 Calling `getRelatedLinks` on the money page returns every declaration that
-named it — the reverse edge, derived once, not declared twice. Calling it on
+named it: the reverse edge, derived once, not declared twice. Calling it on
 the content page returns its own `supports`, topped up with pillar siblings
 if under `opts.limit`.
 
@@ -92,7 +96,7 @@ getBreadcrumbTrail(labels: TrailLabel[], path: string): TrailEntry[]
 ```
 
 Walks path segments, picking up the registered label at each level that has
-one. Feed the result to `@domandigital/graph`'s `buildBreadcrumbs` — this is
+one. Feed the result to `@domandigital/graph`'s `buildBreadcrumbs`. That's
 the one touchpoint between the two packages (see PRINCIPLES.md in dd-graph).
 
 ### `validate.ts`
@@ -101,11 +105,11 @@ the one touchpoint between the two packages (see PRINCIPLES.md in dd-graph).
 validateCoverage(input: ValidateCoverageInput): CoverageIssue[]
 ```
 
-Pure — the caller does the filesystem enumeration (a per-router concern) and
+Pure: the caller does the filesystem enumeration (a per-router concern) and
 passes `routesOnDisk` in. Flags: a route on disk with no policy entry (the
 six-missing-case-studies bug), a sitemap-eligible policy entry with no
-corresponding page (an orphan), and — if `moneyRoutes`/`targets` are
-supplied — a money route with no keyword target declared.
+corresponding page (an orphan), and, if `moneyRoutes`/`targets` are
+supplied, a money route with no keyword target declared.
 
 ## Deliberately not in v0.1
 

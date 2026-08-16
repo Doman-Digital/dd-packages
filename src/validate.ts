@@ -21,7 +21,7 @@ export type ValidateCoverageInput = {
   /** Routes found on disk, e.g. every app/**\/page.tsx resolved to its URL path. Dynamic segments excluded by the caller. */
   routesOnDisk: string[];
   policy: RoutePolicyEntry[];
-  /** Routes that must have a target declared (the pages the business actually wants to rank), e.g. ["/audit", "/work/sensphere"]. */
+  /** Routes that must have a target declared (the pages the business actually wants to rank), e.g. ["/pricing", "/services/rewiring"]. */
   moneyRoutes?: string[];
   targets?: PageTarget[];
 };

@@ -45,7 +45,7 @@ type PageTarget = {
     primaryKeyword: string;
     secondaryKeywords?: string[];
     intent?: TargetIntent;
-    /** Free-text geo qualifier, e.g. "Brackley" or "High Wycombe". Present on local-intent targets. */
+    /** Free-text geo qualifier, e.g. a town or city name. Present on local-intent targets. */
     geo?: string;
 };
 declare function getTargetForRoute(targets: PageTarget[], routeKey: string): PageTarget | undefined;
@@ -138,7 +138,7 @@ type ValidateCoverageInput = {
     /** Routes found on disk, e.g. every app/**\/page.tsx resolved to its URL path. Dynamic segments excluded by the caller. */
     routesOnDisk: string[];
     policy: RoutePolicyEntry[];
-    /** Routes that must have a target declared (the pages the business actually wants to rank), e.g. ["/audit", "/work/sensphere"]. */
+    /** Routes that must have a target declared (the pages the business actually wants to rank), e.g. ["/pricing", "/services/rewiring"]. */
     moneyRoutes?: string[];
     targets?: PageTarget[];
 };

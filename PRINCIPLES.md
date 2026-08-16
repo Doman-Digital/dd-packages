@@ -48,7 +48,18 @@ coupled to every other consumer's routes.
 
 ## Version discipline
 
-Same as dd-graph: tag-based, no npm registry, never a branch. Consumers pin
-`"@domandigital/seo": "github:Doman-Digital/dd-seo#vX.Y.Z"` to an exact tag.
-`dist/` is committed because there's no CI build step on a git-dependency
-install — always rebuild and commit `dist/` before tagging.
+Same as dd-graph: semver on npm, published from a `vX.Y.Z` tag, never a branch.
+Consumers use a normal range against the registry
+(`"@domandigital/seo": "^0.1.1"`).
+
+One rule specific to this package while it's `0.1.x`: `policy.ts`, `links.ts`
+and `validate.ts` have a real production consumer and are treated as stable.
+`targets.ts` and `trail.ts` don't yet, so they stay provisional and may change
+shape once a second consumer shows what's actually needed. That's the same "not
+before" discipline the porting checklist applies to new features, turned on the
+package's own API.
+
+*Superseded, kept for context:* until 2026-08-16 this was a git dependency
+pinned to a tag, and `dist/` was committed because a git-dependency install runs
+no build step. CI builds now, so removing the committed `dist/` is tracked
+separately.

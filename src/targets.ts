@@ -13,7 +13,7 @@ export type PageTarget = {
   primaryKeyword: string;
   secondaryKeywords?: string[];
   intent?: TargetIntent;
-  /** Free-text geo qualifier, e.g. "Brackley" or "High Wycombe". Present on local-intent targets. */
+  /** Free-text geo qualifier, e.g. a town or city name. Present on local-intent targets. */
   geo?: string;
 };
 
