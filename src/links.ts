@@ -25,10 +25,19 @@ export type RelatedLinks = {
   linkedFrom: string[];
 };
 
+export type GetRelatedLinksOptions = {
+  /** Caps `linksTo` only. Explicit supports are kept first, then pillar
+   * siblings top it up to this many. Omit for no cap. */
+  limit?: number;
+  /** Caps `linkedFrom` independently of `limit`. Omit for no cap -- every
+   * page that declared this one as a support is returned. */
+  linkedFromLimit?: number;
+};
+
 export function getRelatedLinks(
   declarations: LinkDeclaration[],
   routeKey: string,
-  opts: { limit?: number } = {},
+  opts: GetRelatedLinksOptions = {},
 ): RelatedLinks {
   const self = declarations.find((d) => d.routeKey === routeKey);
 
@@ -39,6 +48,9 @@ export function getRelatedLinks(
   const explicit = self?.supports ?? [];
   let linksTo = [...explicit];
 
+  // `opts.limit` caps `linksTo` only -- it never applied to `linkedFrom`,
+  // which is an unrelated list (every page that named this one, not this
+  // page's own outbound picks). `linkedFromLimit` is independent and opt-in.
   const limit = opts.limit;
   const needsTopUp = limit === undefined || linksTo.length < limit;
   if (needsTopUp && self?.pillar) {
@@ -53,8 +65,10 @@ export function getRelatedLinks(
     linksTo = linksTo.slice(0, limit);
   }
 
+  const linkedFromLimit = opts.linkedFromLimit;
+
   return {
     linksTo,
-    linkedFrom: limit === undefined ? linkedFrom : linkedFrom.slice(0, limit),
+    linkedFrom: linkedFromLimit === undefined ? linkedFrom : linkedFrom.slice(0, linkedFromLimit),
   };
 }

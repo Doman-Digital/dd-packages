@@ -79,7 +79,7 @@ findKeywordCannibalization(targets: PageTarget[], allowlist?: string[]): Keyword
 ### `links.ts`: the internal-link graph
 
 ```ts
-getRelatedLinks(declarations: LinkDeclaration[], routeKey: string, opts?: { limit?: number }): RelatedLinks
+getRelatedLinks(declarations: LinkDeclaration[], routeKey: string, opts?: GetRelatedLinksOptions): RelatedLinks
 ```
 
 A page declares `supports: string[]` (which money pages it should send
@@ -88,6 +88,11 @@ Calling `getRelatedLinks` on the money page returns every declaration that
 named it: the reverse edge, derived once, not declared twice. Calling it on
 the content page returns its own `supports`, topped up with pillar siblings
 if under `opts.limit`.
+
+`opts.limit` caps `linksTo` only. `opts.linkedFromLimit` caps `linkedFrom`,
+independently: the two are unrelated lists (a page's own outbound picks versus
+every page that named it), so one option was never meant to cap both. Omit
+either for no cap.
 
 ### `trail.ts`
 

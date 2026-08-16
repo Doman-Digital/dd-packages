@@ -37,4 +37,30 @@ describe("getRelatedLinks", () => {
     expect(linksTo.length).toBeLessThanOrEqual(2);
     expect(linksTo).toContain("treatments/biab-nails");
   });
+
+  test("limit caps linksTo only -- linkedFrom is untouched, since the two are unrelated lists", () => {
+    const declsWithThreeSupporters: LinkDeclaration[] = [
+      ...DECLS,
+      { routeKey: "journal/removal-tips", supports: ["treatments/biab-nails"], pillar: "nails" },
+    ];
+
+    const { linkedFrom } = getRelatedLinks(declsWithThreeSupporters, "treatments/biab-nails", { limit: 2 });
+
+    expect(linkedFrom.sort()).toEqual(
+      ["journal/biab-vs-gel", "journal/nail-aftercare", "journal/removal-tips"].sort(),
+    );
+  });
+
+  test("linkedFromLimit caps linkedFrom independently of limit", () => {
+    const declsWithThreeSupporters: LinkDeclaration[] = [
+      ...DECLS,
+      { routeKey: "journal/removal-tips", supports: ["treatments/biab-nails"], pillar: "nails" },
+    ];
+
+    const { linkedFrom } = getRelatedLinks(declsWithThreeSupporters, "treatments/biab-nails", {
+      linkedFromLimit: 1,
+    });
+
+    expect(linkedFrom).toHaveLength(1);
+  });
 });
