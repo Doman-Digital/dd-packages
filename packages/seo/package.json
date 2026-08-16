@@ -1,0 +1,55 @@
+{
+  "name": "@domandigital/seo",
+  "version": "0.1.3",
+  "private": false,
+  "description": "Route-fact primitives shared across Doman Digital and client properties: sitemap/indexability policy, per-page keyword targets, the internal-link graph, breadcrumb trail derivation, and a filesystem-vs-policy coverage validator.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.9",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doman-Digital/dd-seo.git"
+  },
+  "homepage": "https://github.com/Doman-Digital/dd-seo#readme",
+  "bugs": {
+    "url": "https://github.com/Doman-Digital/dd-seo/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
