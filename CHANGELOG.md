@@ -10,6 +10,8 @@ file was written retroactively from that tag history.
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-08-16
+
 ### Added
 
 - `GetRelatedLinksOptions.linkedFromLimit`, capping `linkedFrom` independently
@@ -90,7 +92,8 @@ file was written retroactively from that tag history.
   `buildBreadcrumbs`. That's the one deliberate touchpoint between the two
   packages, and neither depends on the other.
 
-[Unreleased]: https://github.com/Doman-Digital/dd-seo/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/Doman-Digital/dd-seo/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/Doman-Digital/dd-seo/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/Doman-Digital/dd-seo/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/Doman-Digital/dd-seo/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Doman-Digital/dd-seo/releases/tag/v0.1.0
