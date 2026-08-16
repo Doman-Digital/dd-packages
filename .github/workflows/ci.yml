@@ -1,12 +1,8 @@
 name: CI
 
-# Runs on every push to main and every pull request. This is the gate that was
-# missing: before it, tests only ran when someone remembered to run them
-# locally, and `release.yml` only fires on a tag -- long after a bad commit has
-# already been merged.
-#
-# The Node matrix is not decoration. `engines` claims >=20, and a claim nothing
-# executes is a guess; this is what makes the declared floor true.
+# Runs on every push to main and every pull request, across all three
+# packages. Before this repo existed, each package had its own copy of this
+# file to maintain separately; one workspace-wide workflow replaces all three.
 
 on:
   push:

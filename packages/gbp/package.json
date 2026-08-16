@@ -43,11 +43,12 @@
   "packageManager": "pnpm@9.15.9",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Doman-Digital/dd-gbp.git"
+    "url": "git+https://github.com/Doman-Digital/dd-packages.git",
+    "directory": "packages/gbp"
   },
-  "homepage": "https://github.com/Doman-Digital/dd-gbp#readme",
+  "homepage": "https://github.com/Doman-Digital/dd-packages/tree/main/packages/gbp#readme",
   "bugs": {
-    "url": "https://github.com/Doman-Digital/dd-gbp/issues"
+    "url": "https://github.com/Doman-Digital/dd-packages/issues"
   },
   "publishConfig": {
     "access": "public",
