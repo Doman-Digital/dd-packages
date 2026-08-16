@@ -1,0 +1,71 @@
+name: Release
+
+# Versioning and publishing for all three packages, via Changesets. Each
+# package versions independently (see .changeset/config.json) -- this one
+# workflow replaces the three separate tag-triggered release.yml files the
+# packages had before they shared a repo.
+#
+# On every push to main:
+#   - If there are pending changesets, changesets/action opens or updates a
+#     "Version Packages" PR that bumps the affected package(s) and updates
+#     their CHANGELOG.md.
+#   - Once that PR is merged (no pending changesets, but a package's
+#     package.json version is ahead of what's published), it runs `pnpm run
+#     release`, which builds and runs `changeset publish`. That publishes
+#     only the packages that changed, tags each one `<name>@<version>`, and
+#     pushes the tags.
+#
+# Publishing uses npm trusted publishing (OIDC): no npm token is stored
+# anywhere, GitHub mints a short-lived OIDC token scoped to this workflow
+# run, and npm verifies it against each package's trusted-publisher config.
+# That also produces a provenance attestation per package. Requires a public
+# source repo -- provenance verification fails against a private one.
+#
+# One-time setup before the first release from this repo: the trusted
+# publisher on npmjs.com for each of the three packages must be re-pointed
+# from the old per-package repo + release.yml to
+# Doman-Digital/dd-packages + this file. Do that first -- publishing before
+# it's done just fails with a 404/403 from the registry.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      # Trusted publishing needs npm >= 11.5.1, newer than the npm bundled
+      # with the Node 22 runner image.
+      - name: Use an npm that understands trusted publishing
+        run: npm install -g npm@latest
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Version or publish
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

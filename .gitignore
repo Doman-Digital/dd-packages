@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+
+# CI builds before publish, and prepublishOnly rebuilds again -- a committed
+# dist/ was only ever needed for the git-dependency era. Keeping it out avoids
+# a second source of truth that can drift from src/ silently.
+packages/*/dist/
