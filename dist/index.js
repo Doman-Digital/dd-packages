@@ -47,9 +47,10 @@ function getRelatedLinks(declarations, routeKey, opts = {}) {
   } else if (limit !== void 0) {
     linksTo = linksTo.slice(0, limit);
   }
+  const linkedFromLimit = opts.linkedFromLimit;
   return {
     linksTo,
-    linkedFrom: limit === void 0 ? linkedFrom : linkedFrom.slice(0, limit)
+    linkedFrom: linkedFromLimit === void 0 ? linkedFrom : linkedFrom.slice(0, linkedFromLimit)
   };
 }
 

@@ -5,7 +5,7 @@ export { getTargetForRoute, findKeywordCannibalization } from "./targets";
 export type { PageTarget, TargetIntent, KeywordCannibalization } from "./targets";
 
 export { getRelatedLinks } from "./links";
-export type { LinkDeclaration, RelatedLinks } from "./links";
+export type { LinkDeclaration, RelatedLinks, GetRelatedLinksOptions } from "./links";
 
 export { getBreadcrumbTrail } from "./trail";
 export type { TrailLabel, TrailEntry } from "./trail";

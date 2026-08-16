@@ -87,9 +87,15 @@ type RelatedLinks = {
     /** Pages that declared this route in their own supports — the reverse edge, derived, not declared twice. */
     linkedFrom: string[];
 };
-declare function getRelatedLinks(declarations: LinkDeclaration[], routeKey: string, opts?: {
+type GetRelatedLinksOptions = {
+    /** Caps `linksTo` only. Explicit supports are kept first, then pillar
+     * siblings top it up to this many. Omit for no cap. */
     limit?: number;
-}): RelatedLinks;
+    /** Caps `linkedFrom` independently of `limit`. Omit for no cap -- every
+     * page that declared this one as a support is returned. */
+    linkedFromLimit?: number;
+};
+declare function getRelatedLinks(declarations: LinkDeclaration[], routeKey: string, opts?: GetRelatedLinksOptions): RelatedLinks;
 
 /**
  * Breadcrumb trail derivation: given a site's known path -> label entries
@@ -144,4 +150,4 @@ type ValidateCoverageInput = {
 };
 declare function validateCoverage(input: ValidateCoverageInput): CoverageIssue[];
 
-export { type CoverageIssue, type KeywordCannibalization, type LinkDeclaration, type PageTarget, type RelatedLinks, type RoutePolicyEntry, type TargetIntent, type TrailEntry, type TrailLabel, type ValidateCoverageInput, findKeywordCannibalization, getBreadcrumbTrail, getRelatedLinks, getRoutePolicy, getSitemapRoutes, getTargetForRoute, isRouteIndexable, validateCoverage };
+export { type CoverageIssue, type GetRelatedLinksOptions, type KeywordCannibalization, type LinkDeclaration, type PageTarget, type RelatedLinks, type RoutePolicyEntry, type TargetIntent, type TrailEntry, type TrailLabel, type ValidateCoverageInput, findKeywordCannibalization, getBreadcrumbTrail, getRelatedLinks, getRoutePolicy, getSitemapRoutes, getTargetForRoute, isRouteIndexable, validateCoverage };

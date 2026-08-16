@@ -10,6 +10,25 @@ file was written retroactively from that tag history.
 
 ## [Unreleased]
 
+### Added
+
+- `GetRelatedLinksOptions.linkedFromLimit`, capping `linkedFrom` independently
+  of `limit`.
+
+### Fixed
+
+- **`getRelatedLinks`'s `limit` capped `linkedFrom` as well as `linksTo`.**
+  The two are unrelated lists: `linksTo` is a page's own outbound picks,
+  `linkedFrom` is every page that named it as a support, derived rather than
+  declared twice. Passing `limit` to cap outbound links on a content page also
+  silently truncated the reverse edge on any money page queried with the same
+  options, which is very likely not what was intended. Neither of this
+  package's two current consumers happened to trigger it -- one only reads
+  `linkedFrom` and never passes `limit`, the other only reads `linksTo` -- so
+  this shipped as a latent bug rather than an observed one. `limit`'s
+  behaviour for existing callers is unchanged; `linkedFrom` is now uncapped by
+  default, use the new option if you need a cap on it.
+
 ## [0.1.2] - 2026-08-16
 
 ### Added
