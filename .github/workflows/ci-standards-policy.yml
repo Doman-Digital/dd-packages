@@ -1,0 +1,20 @@
+name: ci-standards policy
+
+# Anti-drift gate — fails visibly (does not yet block merge; no repo in the
+# portfolio has branch protection enabled) when a PR reintroduces the CI
+# waste patterns found in the 2026-08-16 audit. See
+# https://github.com/Doman-Digital/ci-standards for what it checks and why.
+
+on:
+  pull_request:
+
+# The gate holds itself to its own [missing-concurrency] rule. Without this
+# block the policy workflow flagged its own file on every PR, which is the
+# fastest way to teach people the gate is noise.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  policy:
+    uses: Doman-Digital/ci-standards/.github/workflows/policy.yml@v1
