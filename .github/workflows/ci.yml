@@ -4,9 +4,10 @@ name: CI
 # packages. Before this repo existed, each package had its own copy of this
 # file to maintain separately; one workspace-wide workflow replaces all three.
 
+# PR-only. The push-to-main run re-tested the exact merge result the PR had
+# already tested, and release.yml independently runs the full test + build
+# before `npm publish`, so nothing shipped on the strength of that second run.
 on:
-  push:
-    branches: [main]
   pull_request:
 
 permissions:
@@ -19,6 +20,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
