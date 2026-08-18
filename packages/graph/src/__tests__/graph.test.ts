@@ -498,6 +498,48 @@ describe("buildProduct", () => {
     });
   });
 
+  it("emits availabilityStarts verbatim alongside a PreOrder availability", () => {
+    const ids = createGraphIds(SITE_URL);
+    const product = buildProduct(
+      {
+        slug: "the-self-love-journal",
+        name: "The Self-Love Journal",
+        url: `${SITE_URL}/journal`,
+        offers: {
+          price: "32",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/PreOrder",
+          availabilityStarts: "2026-09-09T18:00:00+01:00",
+        },
+      },
+      ids,
+    );
+
+    expect(product.offers).toEqual({
+      "@type": "Offer",
+      priceCurrency: "GBP",
+      price: "32",
+      availability: "https://schema.org/PreOrder",
+      url: `${SITE_URL}/journal`,
+      availabilityStarts: "2026-09-09T18:00:00+01:00",
+    });
+  });
+
+  it("omits availabilityStarts when unset, so a plain offer gains no empty key", () => {
+    const ids = createGraphIds(SITE_URL);
+    const product = buildProduct(
+      {
+        slug: "huracan-london",
+        name: "Huracán hire, London",
+        url: `${SITE_URL}/huracan-london`,
+        offers: { price: "1500", priceCurrency: "GBP" },
+      },
+      ids,
+    );
+
+    expect(product.offers).not.toHaveProperty("availabilityStarts");
+  });
+
   it("preserves a string-typed aggregateRating verbatim, with no bestRating/worstRating defaults", () => {
     const ids = createGraphIds(SITE_URL);
     const product = buildProduct(
