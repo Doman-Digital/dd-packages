@@ -21,11 +21,19 @@ name: Release
 # That also produces a provenance attestation per package. Requires a public
 # source repo -- provenance verification fails against a private one.
 #
-# One-time setup before the first release from this repo: the trusted
-# publisher on npmjs.com for each of the three packages must be re-pointed
-# from the old per-package repo + release.yml to
-# Doman-Digital/dd-packages + this file. Do that first -- publishing before
-# it's done just fails with a 404/403 from the registry.
+# Each package needs a trusted publisher on npmjs.com naming
+# Doman-Digital/dd-packages + release.yml. THIS COMMENT DOES NOT RECORD
+# WHETHER THAT IS DONE, and an earlier version of it did -- it said the setup
+# was still outstanding, was read months later as current state, and was wrong.
+# A comment cannot know what npm's config says.
+#
+# Check it, do not infer it:
+#
+#   npm trust list @domandigital/<package>     # prompts for 2FA
+#
+# A missing or wrong publisher fails at the registry with a 404/403 AFTER the
+# build, which is how you tell it apart from the flag-parsing failure the npm
+# pin below fixes.
 
 on:
   push:
