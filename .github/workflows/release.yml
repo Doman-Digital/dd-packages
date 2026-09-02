@@ -55,10 +55,25 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
-      # Trusted publishing needs npm >= 11.5.1, newer than the npm bundled
-      # with the Node 22 runner image.
+      # Trusted publishing needs npm >= 11.5.1, newer than the npm bundled with
+      # the Node 22 runner image. Pinned to the 11.x major, NOT `npm@latest`.
+      #
+      # `npm@latest` floated to npm 12 and broke every publish from this repo
+      # with `EUNKNOWNCONFIG Unknown cli flag: --git-checks`. The chain:
+      # changesets detects pnpm and passes pnpm's `--no-git-checks`; pnpm 9.15.9
+      # forwards that flag to npm when it delegates the publish; npm 11 silently
+      # tolerated the unknown flag, npm 12 hard-errors on it. So the leak was
+      # always there and an npm major bump turned it into a hard failure.
+      #
+      # Confirmed by running the real publish path in CI on both majors: npm
+      # 12.0.2 dies on flag parsing, npm 11.19.1 reaches the registry.
+      #
+      # The upstream fix is @changesets/cli 3.x ("route package manager calls
+      # through their respective CLIs during pnpm publish"), which needs pnpm
+      # >= 10 and Node >= 22.11 -- the latter would drop the 20.x leg in ci.yml.
+      # Do that deliberately, not as a side effect of a version float.
       - name: Use an npm that understands trusted publishing
-        run: npm install -g npm@latest
+        run: npm install -g "npm@^11.5.1"
 
       - name: Install
         run: pnpm install --frozen-lockfile
