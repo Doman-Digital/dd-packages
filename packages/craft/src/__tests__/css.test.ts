@@ -53,6 +53,37 @@ describe("craft.css", () => {
     expect(block).not.toMatch(/animation:\s*none/);
   });
 
+  it("never uses the `text-wrap` shorthand, which silently resets wrap mode", () => {
+    // `text-wrap: pretty` is shorthand for text-wrap-mode + text-wrap-style, so
+    // it resets the MODE to `wrap`. `white-space: nowrap` is itself shorthand
+    // setting text-wrap-mode: nowrap — so the shorthand defeats it, and any
+    // `text-overflow: ellipsis` truncation that depended on it.
+    //
+    // This shipped: `li { text-wrap: pretty }` expanded a truncated breadcrumb
+    // from one line to three and pushed the page 40px taller.
+    // Comments stripped first: this file explains the trap in prose, and the
+    // explanation must not trip the check that enforces it.
+    const declarations = CRAFT_CSS.replace(/\/\*[\s\S]*?\*\//g, "");
+    const shorthand = [...declarations.matchAll(/(^|[;{\s])text-wrap\s*:/g)];
+    expect(shorthand.map((m) => m[0].trim())).toEqual([]);
+  });
+
+  it("uses text-wrap-style for balance and pretty", () => {
+    expect(CRAFT_CSS).toMatch(/text-wrap-style:\s*balance/);
+    expect(CRAFT_CSS).toMatch(/text-wrap-style:\s*pretty/);
+  });
+
+  it("keeps orphan control off non-prose list items", () => {
+    // Breadcrumbs, navs, tab strips and menus are all `li` and none are body
+    // copy. A bare `li` selector is what broke the breadcrumb.
+    const prettyRule = CRAFT_CSS.slice(
+      CRAFT_CSS.lastIndexOf("{", CRAFT_CSS.indexOf("text-wrap-style: pretty")) - 200,
+      CRAFT_CSS.indexOf("text-wrap-style: pretty"),
+    );
+    expect(prettyRule).not.toMatch(/(^|,)\s*li\s*,/m);
+    expect(prettyRule).toMatch(/\.craft-prose li/);
+  });
+
   it("holds the LCP element still", () => {
     expect(CRAFT_CSS).toMatch(/\[data-craft-lcp\]/);
   });
