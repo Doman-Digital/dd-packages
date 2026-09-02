@@ -1,0 +1,145 @@
+/*
+ * @domandigital/craft — base stylesheet.
+ *
+ * Works with or without Tailwind. Nothing here depends on a build step, a
+ * preprocessor, or a utility class layer; it is the typographic and interaction
+ * floor every Doman Digital surface stands on.
+ *
+ * Pair with the generated token block (see `craftTokens()`), which supplies the
+ * `--craft-*` custom properties this file references.
+ */
+
+/* ---------------------------------------------------------------------------
+ * Typography floor
+ * ------------------------------------------------------------------------- */
+
+html {
+  /* Kerning and ligatures are off by default in several engines at body sizes.
+     Turning them on is the single cheapest legibility win available. */
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+/* A heading that wraps one word onto its own line looks like a mistake.
+   `balance` evens the lines; it is capped at ~6 lines by the spec, which is why
+   it is scoped to headings and not applied to body copy. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.craft-balance {
+  text-wrap: balance;
+}
+
+/* `pretty` is the body-copy counterpart: it only prevents orphans, so it stays
+   cheap on long text where `balance` would not. */
+p,
+li,
+figcaption,
+blockquote {
+  text-wrap: pretty;
+}
+
+.craft-prose {
+  max-inline-size: var(--craft-measure-body, 65ch);
+  hanging-punctuation: first last;
+}
+
+.craft-measure-narrow {
+  max-inline-size: var(--craft-measure-narrow, 45ch);
+}
+
+.craft-measure-wide {
+  max-inline-size: var(--craft-measure-wide, 75ch);
+}
+
+/* Numbers in a column must line up. Proportional figures in a table are the
+   tell that nobody looked at the table. */
+.craft-numeric,
+[data-numeric] {
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: end;
+}
+
+/*
+ * Descender mask.
+ *
+ * A tight display line clipped by `overflow: hidden` (a reveal wrapper, a
+ * gradient text fill) loses the tails of g, j, p, q and y. Padding the box and
+ * pulling the same amount back off the margin gives the descenders room without
+ * moving anything on the page.
+ */
+.craft-descender-mask {
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+
+/* ---------------------------------------------------------------------------
+ * Interaction
+ * ------------------------------------------------------------------------- */
+
+.craft-press {
+  transition: transform var(--craft-duration-press, 120ms)
+    var(--craft-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+.craft-press:active {
+  transform: scale(var(--craft-scale-press, 0.97));
+}
+
+/* Hover affordances only where hover exists. On touch, a hover-lift fires on tap
+   and sticks, which reads as a stuck element rather than feedback. */
+@media (hover: hover) and (pointer: fine) {
+  .craft-hover-lift {
+    transition:
+      transform var(--craft-duration-dropdown, 200ms)
+        var(--craft-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+      box-shadow var(--craft-duration-dropdown, 200ms)
+        var(--craft-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  }
+
+  .craft-hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion budget, rule 1: the LCP element never animates.
+ *
+ * Whatever the largest contentful paint turns out to be, animating it delays the
+ * metric by exactly the animation's duration. Mark it and it is held still.
+ * ------------------------------------------------------------------------- */
+
+[data-craft-lcp] {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+ * Reduced motion.
+ *
+ * COLLAPSE durations. Never `animation: none`.
+ *
+ * This is not a style preference. A forwards-filled entrance keyframe starts at
+ * `opacity: 0` and ends at `opacity: 1`; `animation: none` removes the animation
+ * *and* its fill, so the element keeps the `opacity: 0` from its own base rule
+ * and the content is invisible — permanently, for exactly the users who asked
+ * for less motion. Collapsing the duration to 0.01ms runs the animation to
+ * completion within a frame, so the end state applies and nothing moves.
+ * ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
