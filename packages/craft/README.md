@@ -51,6 +51,26 @@ stylesheet:
 
 `craft.css` needs no build step and works with or without Tailwind.
 
+On Tailwind v4, also import the theme bridge:
+
+```css
+@import "@domandigital/craft/craft.tailwind.css";
+```
+
+On Tailwind v3, add the preset:
+
+```js
+const { tailwindV3Preset } = require("@domandigital/craft");
+module.exports = { presets: [tailwindV3Preset()] };
+```
+
+## The standard itself
+
+[STANDARD.md](./STANDARD.md) is the eleven-section house standard, every numeric
+rule cited, including a section on what is deliberately *not* a rule. Its
+canonical numbers are compared against the code on every test run, so the
+document cannot drift from what ships.
+
 ## The anchor guarantee
 
 Every hex you pass in comes back out unchanged — the same string, byte for byte.
@@ -73,6 +93,11 @@ checkable rather than asserted.
 | Contrast | `wcagContrast`, `apcaContrast`, `checkPair` |
 | Semantic | `semantic`, `accentFork` |
 | Motion | `EASE`, `EASE_TUPLE`, `DURATION_MS`, `DURATION_S`, `SPRING`, `SCALE`, `exitDuration`, `shouldAnimate` |
+| Type | `fluidType`, `fluidClamp`, `typeFeatureTokens`, `HOUSE_TYPE`, `TYPE_STEPS` |
+| Space | `fluidSpace`, `sectionRhythm`, `SPACE_STEPS` |
+| Density | `densityCss`, `densityTokens`, `DENSITIES` |
+| Restraint | `checkRestraint`, `HOUSE_BUDGET` |
+| Tailwind | `tailwindV3Preset` (v3), `tailwindV4Theme` / `craft.tailwind.css` (v4) |
 | Emit | `craftTokens`, `emitCss`, `motionTokens` |
 
 ## Licence

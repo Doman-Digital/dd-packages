@@ -63,3 +63,42 @@ export {
   emitCss,
   motionTokens,
 } from "./css/emit.js";
+export {
+  type FluidTypeOptions,
+  type FluidTypeResult,
+  type TypeStep,
+  TYPE_STEPS,
+  fluidClamp,
+  fluidType,
+} from "./type/scale.js";
+export { HOUSE_TYPE, typeFeatureTokens } from "./type/features.js";
+export {
+  type FluidSpaceOptions,
+  type SectionRhythmOptions,
+  type SpaceStep,
+  SPACE_STEPS,
+  fluidSpace,
+  sectionRhythm,
+} from "./space/scale.js";
+export {
+  type DensityCssOptions,
+  type DensityName,
+  DENSITIES,
+  densityCss,
+  densityTokens,
+} from "./density/index.js";
+export {
+  type CheckRestraintInput,
+  type RestraintBudget,
+  type RestraintReport,
+  type RestraintSeverity,
+  type RestraintViolation,
+  HOUSE_BUDGET,
+  checkRestraint,
+} from "./restraint/index.js";
+export {
+  type TailwindPreset,
+  DENSITY_NAMES,
+  tailwindV3Preset,
+  tailwindV4Theme,
+} from "./css/tailwind.js";

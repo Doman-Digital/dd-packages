@@ -33,14 +33,7 @@ describe("craft.css", () => {
     const referenced = [...CRAFT_CSS.matchAll(/var\((--craft-[a-z0-9-]+)/g)].map((m) => m[1]);
     expect(referenced.length).toBeGreaterThan(0);
 
-    const measureTokens = new Set([
-      // Supplied by the type layer in v0.2.0; craft.css carries a literal
-      // fallback for each so v0.1.0 renders correctly on its own.
-      "--craft-measure-body",
-      "--craft-measure-narrow",
-      "--craft-measure-wide",
-    ]);
-    const unknown = referenced.filter((n) => !emitted.has(n) && !measureTokens.has(n));
+    const unknown = referenced.filter((n) => !emitted.has(n));
     expect(unknown).toEqual([]);
   });
 
@@ -121,5 +114,28 @@ describe("craftTokens", () => {
       expect(check.text.startsWith("#")).toBe(true);
       expect(check.background.startsWith("#")).toBe(true);
     }
+  });
+});
+
+describe("craft.tailwind.css", () => {
+  it("matches what tailwindV4Theme() and densityCss() currently generate", async () => {
+    // Committed artefact, so a consumer can import it without a build step.
+    // If this fails, regenerate rather than editing the file by hand.
+    const { tailwindV4Theme } = await import("../css/tailwind.js");
+    const { densityCss } = await import("../density/index.js");
+    const onDisk = readFileSync(
+      fileURLToPath(new URL("../../css/craft.tailwind.css", import.meta.url)),
+      "utf8",
+    );
+    expect(onDisk).toContain(tailwindV4Theme().trim());
+    expect(onDisk).toContain(densityCss().trim());
+  });
+
+  it("uses @theme inline, not bare @theme", () => {
+    const onDisk = readFileSync(
+      fileURLToPath(new URL("../../css/craft.tailwind.css", import.meta.url)),
+      "utf8",
+    );
+    expect(onDisk).toMatch(/@theme inline \{/);
   });
 });
