@@ -21,6 +21,25 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+/*
+ * THE LONGHAND, NOT `text-wrap`. This matters.
+ *
+ * `text-wrap` is a shorthand for `text-wrap-mode` + `text-wrap-style`, so
+ * `text-wrap: pretty` silently resets the MODE to `wrap`. `white-space: nowrap`
+ * is itself shorthand for `white-space-collapse: collapse` + `text-wrap-mode:
+ * nowrap`, so any element the shorthand touches loses its nowrap — and with it
+ * any `text-overflow: ellipsis` truncation that depended on it.
+ *
+ * That is not hypothetical: `li { text-wrap: pretty }` broke a breadcrumb that
+ * truncates to one line, expanding it to three and pushing the page 40px taller.
+ * `text-wrap-style` sets only the style and leaves the mode alone, so an element
+ * that asked not to wrap still does not.
+ *
+ * Browsers without `text-wrap-style` simply get no orphan control, which is the
+ * correct degradation. A `text-wrap` shorthand fallback would reintroduce the
+ * bug, so there deliberately isn't one.
+ */
+
 /* A heading that wraps one word onto its own line looks like a mistake.
    `balance` evens the lines; it is capped at ~6 lines by the spec, which is why
    it is scoped to headings and not applied to body copy. */
@@ -31,16 +50,22 @@ h4,
 h5,
 h6,
 .craft-balance {
-  text-wrap: balance;
+  text-wrap-style: balance;
 }
 
-/* `pretty` is the body-copy counterpart: it only prevents orphans, so it stays
-   cheap on long text where `balance` would not. */
+/*
+ * `pretty` is the body-copy counterpart: it only prevents orphans, so it stays
+ * cheap on long text where `balance` would not.
+ *
+ * `li` is deliberately scoped to prose. Breadcrumbs, navs, tab strips and menus
+ * are all `li` and none of them are body copy; orphan control there is at best
+ * meaningless and at worst fights a deliberate truncation.
+ */
 p,
-li,
 figcaption,
-blockquote {
-  text-wrap: pretty;
+blockquote,
+.craft-prose li {
+  text-wrap-style: pretty;
 }
 
 .craft-prose {
