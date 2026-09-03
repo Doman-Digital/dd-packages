@@ -39,6 +39,9 @@ on:
   push:
     branches: [main]
 
+# The Version PR is opened with a GitHub App token rather than GITHUB_TOKEN —
+# see the step below for why. `pull-requests: write` here still matters: it
+# scopes GITHUB_TOKEN for the fallback path when the app is unavailable.
 permissions:
   contents: write
   pull-requests: write
@@ -53,9 +56,32 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # A GitHub App token, not GITHUB_TOKEN.
+      #
+      # changesets versions and pushes correctly with GITHUB_TOKEN and then
+      # fails on the last step with "GitHub Actions is not permitted to create
+      # or approve pull requests" — an org/repo setting that governs
+      # GITHUB_TOKEN specifically. A GitHub App is not subject to it, so this
+      # opens the Version PR without loosening that setting for every workflow.
+      #
+      # continue-on-error, and the `||` fallbacks below, are deliberate: if the
+      # app secrets are absent or the app is not installed here, the run
+      # degrades to exactly today's behaviour (versions, pushes, fails to open
+      # the PR) rather than failing earlier and breaking publishing outright.
+      - name: Mint a token that may open pull requests
+        id: app-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.CI_GH_APP_ID }}
+          private-key: ${{ secrets.CI_GH_APP_PRIVATE_KEY }}
+          owner: Doman-Digital
+          repositories: dd-packages
+
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v5
         with:
@@ -92,4 +118,4 @@ jobs:
           version: pnpm run version
           publish: pnpm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
