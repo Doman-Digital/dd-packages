@@ -168,3 +168,157 @@ describe("HOUSE_BUDGET", () => {
     expect(HOUSE_BUDGET.accentHueClusterDeg).toBe(15);
   });
 });
+
+describe("ease-in is judged by where the curve ends, not where it starts", () => {
+  /**
+   * The table that matters. Every entry is a curve this estate actually ships
+   * or shipped, so a regression here is a regression somewhere real.
+   */
+  const curves: [name: string, curve: string, rejected: boolean][] = [
+    ["EASE.out", "cubic-bezier(0.23, 1, 0.32, 1)", false],
+    ["EASE.inOut", "cubic-bezier(0.77, 0, 0.175, 1)", false],
+    ["EASE.drawer", "cubic-bezier(0.32, 0.72, 0, 1)", false],
+    ["EASE.reveal", "cubic-bezier(0.22, 0.61, 0.36, 1)", false],
+    ["Tailwind's default", "cubic-bezier(0.4, 0, 0.2, 1)", false],
+    ["Tailwind's pulse", "cubic-bezier(0.4, 0, 0.6, 1)", false],
+    ["linear", "cubic-bezier(0, 0, 1, 1)", false],
+    ["the CSS ease-in keyword's curve", "cubic-bezier(0.42, 0, 1, 1)", true],
+    ["the portal's old --ease-exit", "cubic-bezier(0.4, 0, 1, 1)", true],
+    ["a back-loaded custom curve", "cubic-bezier(0.5, 0.1, 0.9, 0.2)", true],
+  ];
+
+  for (const [name, curve, rejected] of curves) {
+    it(`${rejected ? "rejects" : "accepts"} ${name}`, () => {
+      const report = checkRestraint({ css: `.x { transition-timing-function: ${curve}; }` });
+      const flagged = report.violations.some((v) => v.rule === "ease-in");
+      expect(flagged).toBe(rejected);
+    });
+  }
+
+  it("still rejects the ease-in keyword", () => {
+    const report = checkRestraint({ css: `.x { transition: opacity 120ms ease-in; }` });
+    expect(report.violations.some((v) => v.rule === "ease-in")).toBe(true);
+  });
+
+  it("does not confuse ease-in-out for ease-in", () => {
+    const report = checkRestraint({ css: `.x { transition: opacity 120ms ease-in-out; }` });
+    expect(report.violations.some((v) => v.rule === "ease-in")).toBe(false);
+  });
+});
+
+describe("framework reset and theme layers are not the surface's vocabulary", () => {
+  /** Reduced from a compiled Tailwind v4 sheet, keeping the shape that misled. */
+  const COMPILED = `
+@layer theme, base, components, utilities;
+@layer theme {
+  :root {
+    --animate-spin: spin 1s linear infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@layer base {
+  small { font-size: 80%; }
+  sub, sup { font-size: 75%; }
+  code { font-size: 1em; }
+}
+@layer utilities {
+  .text-\\[11px\\] { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; }
+}
+`;
+
+  it("counts only the utilities the author wrote", () => {
+    const report = checkRestraint({ css: COMPILED });
+    expect(report.counts.fontSizes).toBe(1);
+  });
+
+  it("counts every layer when asked to", () => {
+    const report = checkRestraint({ css: COMPILED, ignoreAtLayers: [] });
+    expect(report.counts.fontSizes).toBe(4);
+  });
+
+  it("keeps unlayered rules, which is where a hand-written sheet lives", () => {
+    const report = checkRestraint({
+      css: `${COMPILED}\n@media (prefers-reduced-motion: reduce) { .a { animation: none; } }`,
+    });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+  });
+
+  it("strips a whole layer, not just up to its first nested closing brace", () => {
+    const css = `@layer base {
+      .a { font-size: 1px; }
+      @media (min-width: 40em) { .b { font-size: 2px; } }
+      .c { font-size: 3px; }
+    }
+    .d { font-size: 4px; }`;
+    expect(checkRestraint({ css }).counts.fontSizes).toBe(1);
+  });
+
+  it("reaches an ignored layer nested inside a kept one", () => {
+    const css = `@layer components { .a { font-size: 1px; } @layer base { .b { font-size: 2px; } } }`;
+    expect(checkRestraint({ css }).counts.fontSizes).toBe(1);
+  });
+
+  it("leaves a bare @layer order declaration alone", () => {
+    const css = `@layer theme, base, utilities;\n.a { font-size: 1px; }`;
+    expect(checkRestraint({ css }).counts.fontSizes).toBe(1);
+  });
+});
+
+describe("the reduced-motion check reads the block, not the rest of the file", () => {
+  it("does not flag `animation: none` that sits after the block", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+/* Section 7: the LCP element never animates. This is craft's own rule. */
+[data-craft-lcp] { animation: none !important; }
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(false);
+  });
+
+  it("still flags it inside the block", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; }
+  .enter { animation: none; }
+}
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+  });
+
+  it("reads a nested rule inside the block, not just its first level", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; }
+  @supports (animation: none) { .enter { animation: none; } }
+}
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+  });
+
+  it("reads every such block, not only the first", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; } }
+.between { animation: none; }
+@media screen and (prefers-reduced-motion: reduce) { .enter { animation: none; } }
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+  });
+});
+
+describe("keywords that defer to the cascade are not vocabulary", () => {
+  for (const keyword of ["inherit", "initial", "unset", "revert", "revert-layer"]) {
+    it(`does not count \`font-size: ${keyword}\` as a size`, () => {
+      const report = checkRestraint({ css: `.a { font-size: 1rem; } .b { font-size: ${keyword}; }` });
+      expect(report.counts.fontSizes).toBe(1);
+    });
+  }
+});

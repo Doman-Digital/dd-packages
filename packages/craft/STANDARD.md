@@ -83,7 +83,10 @@ needs. Set once on a shell via `[data-density]`, inherited below.
 - **Transform and opacity only.** Everything else cannot be composited.
 - **Exits run at 0.75× their entrance.** Arriving content is asking to be read;
   leaving content lingering reads as lag.
-- **No ease-in for UI, ever.** It accelerates away from the user.
+- **No ease-in for UI, ever.** It accelerates away from the user. The objection
+  is about the *end* of the movement, not the start, which is why ease-in-out is
+  fine: a curve is rejected when its end tangent is steeper than the diagonal,
+  meaning it covers more ground per unit time arriving than it averaged.
 - **UI durations ≤ 300ms.** Drawers and one gated reveal may exceed it.
 - **Don't animate what fires 100×/day**, and never animate a keyboard-triggered
   interaction — the user is moving faster than the animation.
@@ -96,7 +99,7 @@ needs. Set once on a shell via `[data-density]`, inherited below.
 `@media (prefers-reduced-motion: reduce)` sets `animation-duration` and
 `transition-duration` to **0.01ms** and `animation-iteration-count` to 1.
 
-**Never `animation: none`.** That drops the `forwards` fill along with the
+**Never `animation: none` inside the block.** That drops the `forwards` fill along with the
 animation, so a forwards-filled entrance never applies its end state and the
 element keeps `opacity: 0` from its base rule — permanently invisible, for
 exactly the users who asked for less motion. This shipped.
@@ -114,7 +117,13 @@ Differentiation guards pass anything that differs from its siblings, however
 ugly. What they cannot see is accumulation — eighteen font sizes, six shadows,
 four competing accents, each added reasonably, together reading as noise.
 
-*Source: measured against the estate; the budget is the observed ceiling of the surfaces that read as designed.*
+The budget counts the vocabulary a surface **chose**. A compiled stylesheet also
+carries the framework's reset and theme, and `@layer theme` / `@layer base` are
+excluded by default for that reason — counting them reports a surface as over
+budget for values its author never wrote, and real findings then get triaged
+away with the noise.
+
+*Source: measured against the estate; the budget is the observed ceiling of the surfaces that read as designed. The layer exclusion is measured too — Tailwind v4's reset and theme contribute three font sizes and two timing functions to every sheet built with it.*
 
 ## 10. What is deliberately not a rule
 
