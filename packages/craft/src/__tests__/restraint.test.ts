@@ -322,3 +322,135 @@ describe("keywords that defer to the cascade are not vocabulary", () => {
     });
   }
 });
+
+describe("a token reference is resolved, not skipped", () => {
+  /*
+   * The original rule skipped any value starting with `var(`. On a hand-written
+   * sheet that is right -- the token layer is doing its job. On a Tailwind v4
+   * sheet it is catastrophic: every utility compiles to a token reference, so a
+   * surface shipping 27 font sizes reported 19, and one shipping 17 shadows
+   * reported 5. The exclusion was never really about layers. It was about
+   * whether the surface used the value.
+   */
+  it("counts a theme token that a kept layer actually uses", () => {
+    const css = `
+@layer theme { :root { --text-sm: 0.875rem; --text-lg: 1.125rem; } }
+@layer utilities { .text-sm { font-size: var(--text-sm); } }
+`;
+    const report = checkRestraint({ css });
+    expect(report.counts.fontSizes).toBe(1);
+    expect(checkRestraint({ css, budget: { maxFontSizes: 0 } }).violations[0]?.found).toEqual([
+      "0.875rem",
+    ]);
+  });
+
+  it("still ignores a theme token nothing uses", () => {
+    const css = `
+@layer theme { :root { --text-sm: 0.875rem; --text-lg: 1.125rem; --text-xl: 1.25rem; } }
+@layer utilities { .text-sm { font-size: var(--text-sm); } }
+`;
+    // Three defined, one used. The two nobody reached for are not vocabulary.
+    expect(checkRestraint({ css }).counts.fontSizes).toBe(1);
+  });
+
+  it("follows a chain of aliases to the value that renders", () => {
+    const css = `
+@layer theme { :root { --radius-18: 18px; } }
+:root { --radius-lg: var(--radius-18); --radius-card: var(--radius-lg); }
+@layer utilities { .card { border-radius: var(--radius-card); } }
+`;
+    expect(checkRestraint({ css, budget: { maxRadii: 0 } }).violations[0]?.found).toEqual(["18px"]);
+  });
+
+  it("dedupes two names that resolve to the same value", () => {
+    const css = `
+:root { --radius-card: 14px; --radius-image: 14px; }
+.a { border-radius: var(--radius-card); }
+.b { border-radius: var(--radius-image); }
+`;
+    // Two tokens, one radius. A reader meets one corner, so the budget sees one.
+    expect(checkRestraint({ css }).counts.radii).toBe(1);
+  });
+
+  it("takes the last definition when a token is declared twice", () => {
+    // Marketing redefines --shadow-elevated after the shared package sets it.
+    // Last-wins approximates the cascade; the shipped value is the later one.
+    const css = `
+:root { --shadow-elevated: 0 10px 28px rgba(0,0,0,0.34); }
+:root { --shadow-elevated: 0 8px 24px rgba(0,0,0,0.4); }
+.card { box-shadow: var(--shadow-elevated); }
+`;
+    expect(checkRestraint({ css, budget: { maxShadows: 0 } }).violations[0]?.found).toEqual([
+      "0 8px 24px rgba(0,0,0,0.4)",
+    ]);
+  });
+
+  it("stops rather than looping when tokens reference each other", () => {
+    const css = `:root { --a: var(--b); --b: var(--a); } .x { font-size: var(--a); }`;
+    expect(() => checkRestraint({ css })).not.toThrow();
+    expect(checkRestraint({ css }).counts.fontSizes).toBe(0);
+  });
+});
+
+describe("shadows Tailwind routes through --tw-shadow", () => {
+  /*
+   * `shadow-[0_30px_90px_rgba(0,0,0,.55)]` emits no literal `box-shadow` at
+   * all. It assigns `--tw-shadow` and lets one shared composite read it, so a
+   * scan for `box-shadow:` sees a single plumbing string no matter how many
+   * elevations ship. Nine were hiding behind it on the estate.
+   */
+  const composite =
+    "box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)";
+
+  it("counts each arbitrary shadow behind the composite", () => {
+    const css = `
+.s1 { --tw-shadow: 0 30px 90px var(--tw-shadow-color, rgba(0,0,0,0.55)); ${composite}; }
+.s2 { --tw-shadow: 0 4px 30px var(--tw-shadow-color, rgba(0,0,0,0.4)); ${composite}; }
+`;
+    const report = checkRestraint({ css, budget: { maxShadows: 0 } });
+    expect(report.counts.shadows).toBe(2);
+    // --tw-shadow-color is plumbing; the report names what a reader would see.
+    expect(report.violations[0]?.found).toEqual([
+      "0 30px 90px rgba(0,0,0,0.55)",
+      "0 4px 30px rgba(0,0,0,0.4)",
+    ]);
+  });
+
+  it("does not count the composite itself, or the reset's empty initial", () => {
+    const css = `* { --tw-shadow: 0 0 #0000; } .s { --tw-shadow: 0 1px 2px #0003; ${composite}; }`;
+    expect(checkRestraint({ css }).counts.shadows).toBe(1);
+  });
+
+  it("dedupes a --tw-shadow against the same value written literally", () => {
+    const css = `
+:root { --shadow-soft: 0 2px 8px rgba(0,0,0,0.25); }
+.a { box-shadow: var(--shadow-soft); }
+.b { --tw-shadow: var(--shadow-soft); ${composite}; }
+`;
+    expect(checkRestraint({ css }).counts.shadows).toBe(1);
+  });
+});
+
+describe("a reference that resolves to nothing is a bug, not vocabulary", () => {
+  it("reports an undefined token instead of counting it", () => {
+    // Shipped: `.prose-resources h1 { font-size: var(--text-h2) }`, where
+    // --text-h2 is defined nowhere. It applies nothing, silently.
+    const css = `.a { font-size: 1rem; } .b { font-size: var(--text-h2); }`;
+    const report = checkRestraint({ css });
+    expect(report.counts.fontSizes).toBe(1);
+    const found = report.violations.find((v) => v.rule === "unresolved-token")?.found;
+    expect(found).toEqual(["font-size: var(--text-h2)"]);
+  });
+
+  it("uses the fallback when one is given, and says nothing", () => {
+    const css = `.a { border-radius: var(--nope, 12px); }`;
+    const report = checkRestraint({ css, budget: { maxRadii: 0 } });
+    expect(report.violations[0]?.found).toEqual(["12px"]);
+    expect(report.violations.some((v) => v.rule === "unresolved-token")).toBe(false);
+  });
+
+  it("is a warning, not an error -- it costs no vocabulary", () => {
+    const report = checkRestraint({ css: `.b { font-size: var(--missing); }` });
+    expect(report.violations.find((v) => v.rule === "unresolved-token")?.severity).toBe("warning");
+  });
+});
