@@ -113,6 +113,14 @@ Images: AVIF and WebP, in that order.
 Per surface: **≤10 font sizes, ≤3 weights, ≤2 families** (plus mono),
 **≤4 radii, ≤4 shadows**, accent hues clustered within **15° OKLCh**.
 
+A size written in `em` or `%` counts separately, **≤3**. It is a ratio, not a
+step: `code { font-size: 0.875em }` states one relationship and applies it
+wherever code appears, rather than adding a rung to the ladder. Counting it
+against the scale is the same category error as counting the framework's theme.
+It is still counted, because eight competing ratios is as unreadable as eight
+competing steps — split, not dropped. A value that stops being reported is a
+value that grows.
+
 Differentiation guards pass anything that differs from its siblings, however
 ugly. What they cannot see is accumulation — eighteen font sizes, six shadows,
 four competing accents, each added reasonably, together reading as noise.
@@ -168,6 +176,7 @@ A rule here has to be one that is wrong to break. Everything else is a default.
 {
   "budget": {
     "maxFontSizes": 10,
+    "maxRelativeFontSizes": 3,
     "maxFontWeights": 3,
     "maxFontFamilies": 2,
     "maxRadii": 4,

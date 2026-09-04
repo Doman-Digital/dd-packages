@@ -15,6 +15,8 @@ import { hexToOklch } from "../color/oklch.js";
 
 export interface RestraintBudget {
   maxFontSizes: number;
+  /** Context-relative font sizes (`em`, `%`) -- ratios, not steps. See section 9. */
+  maxRelativeFontSizes: number;
   maxFontWeights: number;
   /** Excludes the monospace face, which is a functional choice not a stylistic one. */
   maxFontFamilies: number;
@@ -28,6 +30,7 @@ export interface RestraintBudget {
 
 export const HOUSE_BUDGET: RestraintBudget = {
   maxFontSizes: 10,
+  maxRelativeFontSizes: 3,
   maxFontWeights: 3,
   maxFontFamilies: 2,
   maxRadii: 4,
@@ -349,7 +352,31 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
   };
 
   // --- Vocabulary size -----------------------------------------------------
-  const fontSizes = distinctValues(css, "font-size", props, unresolved);
+  /*
+   * `em` and `%` are ratios, not steps.
+   *
+   * `.prose code { font-size: 0.875em }` does not add a step to the scale. It
+   * states one relationship -- code is 87.5% of whatever it sits in -- and
+   * applies it wherever code appears. Counting it as a step is the same
+   * category error this section already corrected once for the framework's
+   * theme: a number that is not part of the vocabulary a reader has to hold.
+   *
+   * They are still counted, in their own budget, because the failure they can
+   * cause is real: eight competing ratios is as unreadable as eight competing
+   * steps. Split, not dropped -- a value that stops being reported is a value
+   * that grows.
+   */
+  const allSizes = distinctValues(css, "font-size", props, unresolved);
+  const relativeSizes = allSizes.filter((v) => /^[\d.]+(em|%)$/.test(v));
+  const fontSizes = allSizes.filter((v) => !relativeSizes.includes(v));
+  if (relativeSizes.length > budget.maxRelativeFontSizes) {
+    push(
+      "relative-font-sizes",
+      "error",
+      `${relativeSizes.length} context-relative font sizes, budget ${budget.maxRelativeFontSizes}. A ratio is a relationship; more than a few and it is a second scale nobody named.`,
+      relativeSizes
+    );
+  }
   if (fontSizes.length > budget.maxFontSizes) {
     push(
       "font-sizes",
@@ -561,6 +588,7 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
     violations,
     counts: {
       fontSizes: fontSizes.length,
+      relativeFontSizes: relativeSizes.length,
       fontWeights: allWeights.length,
       fontFamilies: families.length,
       radii: radii.length,
