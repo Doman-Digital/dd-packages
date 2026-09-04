@@ -99,7 +99,7 @@ needs. Set once on a shell via `[data-density]`, inherited below.
 `@media (prefers-reduced-motion: reduce)` sets `animation-duration` and
 `transition-duration` to **0.01ms** and `animation-iteration-count` to 1.
 
-**Never `animation: none`.** That drops the `forwards` fill along with the
+**Never `animation: none` inside the block.** That drops the `forwards` fill along with the
 animation, so a forwards-filled entrance never applies its end state and the
 element keeps `opacity: 0` from its base rule — permanently invisible, for
 exactly the users who asked for less motion. This shipped.

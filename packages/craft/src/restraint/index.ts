@@ -130,6 +130,38 @@ function stripLayers(css: string, ignored: readonly string[]): string {
   return out;
 }
 
+/** Values that name no value: they defer to the cascade rather than choosing. */
+const CSS_WIDE_KEYWORDS = new Set(["inherit", "initial", "unset", "revert", "revert-layer"]);
+
+/**
+ * The bodies of every at-rule whose prelude matches, brace-matched.
+ *
+ * The reduced-motion check used to slice from the first match to the end of the
+ * sheet, so every rule in the file after that point counted as being inside the
+ * block. On a real sheet that meant `[data-craft-lcp] { animation: none }` —
+ * this package's own section 7 rule, correctly outside any media query — was
+ * reported as a section 8 violation. The standard failing its own checker, for
+ * the second time in one file.
+ */
+function atRuleBodies(css: string, prelude: RegExp): string[] {
+  const out: string[] = [];
+  const pattern = new RegExp(prelude.source, prelude.flags.includes("g") ? prelude.flags : `${prelude.flags}g`);
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(css)) !== null) {
+    const start = match.index + match[0].length;
+    let depth = 1;
+    let i = start;
+    while (i < css.length && depth > 0) {
+      if (css[i] === "{") depth += 1;
+      else if (css[i] === "}") depth -= 1;
+      i += 1;
+    }
+    out.push(css.slice(start, i - 1));
+    pattern.lastIndex = i;
+  }
+  return out;
+}
+
 /** Distinct values of a property, ignoring whitespace and case. */
 function distinctValues(css: string, property: string): string[] {
   const pattern = new RegExp(`(?:^|[;{\\s])${property}\\s*:\\s*([^;}]+)`, "gi");
@@ -137,7 +169,10 @@ function distinctValues(css: string, property: string): string[] {
   for (const match of css.matchAll(pattern)) {
     const value = match[1].trim().replace(/\s+/g, " ").toLowerCase();
     // A var() reference is the token layer doing its job, not a new value.
-    if (value.startsWith("var(") || value === "inherit" || value === "initial") continue;
+    // A var() reference is the token layer doing its job; the CSS-wide keywords
+    // name no value at all. Counting either inflates the vocabulary with things
+    // a reader never meets as a distinct choice.
+    if (value.startsWith("var(") || CSS_WIDE_KEYWORDS.has(value)) continue;
     seen.add(value);
   }
   return [...seen];
@@ -310,8 +345,8 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
   }
 
   // --- Reduced motion ------------------------------------------------------
-  const reducedMotionAt = css.search(/@media[^{]*prefers-reduced-motion:\s*reduce/i);
-  if (reducedMotionAt === -1) {
+  const reducedMotionBlocks = atRuleBodies(css, /@media[^{]*prefers-reduced-motion:\s*reduce[^{]*\{/gi);
+  if (reducedMotionBlocks.length === 0) {
     if (/@keyframes|animation\s*:|transition\s*:/.test(css)) {
       push(
         "reduced-motion-missing",
@@ -321,7 +356,7 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
       );
     }
   } else {
-    const block = css.slice(reducedMotionAt);
+    const block = reducedMotionBlocks.join("\n");
     if (/animation\s*:\s*none/i.test(block)) {
       push(
         "reduced-motion-animation-none",

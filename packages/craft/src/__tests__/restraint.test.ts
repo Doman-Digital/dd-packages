@@ -267,3 +267,58 @@ describe("framework reset and theme layers are not the surface's vocabulary", ()
     expect(checkRestraint({ css }).counts.fontSizes).toBe(1);
   });
 });
+
+describe("the reduced-motion check reads the block, not the rest of the file", () => {
+  it("does not flag `animation: none` that sits after the block", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+/* Section 7: the LCP element never animates. This is craft's own rule. */
+[data-craft-lcp] { animation: none !important; }
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(false);
+  });
+
+  it("still flags it inside the block", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; }
+  .enter { animation: none; }
+}
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+  });
+
+  it("reads a nested rule inside the block, not just its first level", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; }
+  @supports (animation: none) { .enter { animation: none; } }
+}
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+  });
+
+  it("reads every such block, not only the first", () => {
+    const css = `
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; } }
+.between { animation: none; }
+@media screen and (prefers-reduced-motion: reduce) { .enter { animation: none; } }
+`;
+    const report = checkRestraint({ css });
+    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+  });
+});
+
+describe("keywords that defer to the cascade are not vocabulary", () => {
+  for (const keyword of ["inherit", "initial", "unset", "revert", "revert-layer"]) {
+    it(`does not count \`font-size: ${keyword}\` as a size`, () => {
+      const report = checkRestraint({ css: `.a { font-size: 1rem; } .b { font-size: ${keyword}; }` });
+      expect(report.counts.fontSizes).toBe(1);
+    });
+  }
+});
