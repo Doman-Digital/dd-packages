@@ -61,7 +61,10 @@ const FAILS: { name: string; rule: string; css: string }[] = [
     rule: "font-sizes",
     css:
       PASS +
-      Array.from({ length: 12 }, (_, i) => `.f${i} { font-size: ${10 + i}px; }`).join("\n"),
+      Array.from(
+        { length: 12 },
+        (_, i) => `.f${i} { font-size: ${10 + i}px; }`
+      ).join("\n"),
   },
   {
     name: "split accent hues",
@@ -78,7 +81,7 @@ const FAILS: { name: string; rule: string; css: string }[] = [
     rule: "reduced-motion-animation-none",
     css: PASS.replace(
       "* { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }",
-      "* { animation: none !important; }",
+      "* { animation: none !important; }"
     ),
   },
   {
@@ -100,7 +103,9 @@ describe.each(FAILS)("fail fixture: $name", ({ rule, css }) => {
   });
 
   it("names the offending values rather than only a count", () => {
-    const violation = checkRestraint({ css }).violations.find((v) => v.rule === rule)!;
+    const violation = checkRestraint({ css }).violations.find(
+      (v) => v.rule === rule
+    )!;
     expect(violation.message.length).toBeGreaterThan(20);
   });
 });
@@ -108,52 +113,68 @@ describe.each(FAILS)("fail fixture: $name", ({ rule, css }) => {
 describe("checkRestraint details", () => {
   it("ignores commented-out rules", () => {
     const commented = `${PASS}\n/* .x { transition: all 200ms; } */`;
-    expect(checkRestraint({ css: commented }).violations.map((v) => v.rule)).not.toContain(
-      "transition-all",
-    );
+    expect(
+      checkRestraint({ css: commented }).violations.map((v) => v.rule)
+    ).not.toContain("transition-all");
   });
 
   it("does not count var() references as new values", () => {
     const viaTokens =
-      PASS + Array.from({ length: 12 }, (_, i) => `.v${i}{font-size:var(--s${i})}`).join("\n");
+      PASS +
+      Array.from(
+        { length: 12 },
+        (_, i) => `.v${i}{font-size:var(--s${i})}`
+      ).join("\n");
     expect(checkRestraint({ css: viaTokens }).counts.fontSizes).toBe(3);
   });
 
   it("exempts the monospace face from the family budget", () => {
     const withMono = `${PASS}\ncode { font-family: "JetBrains Mono", monospace; }`;
-    expect(checkRestraint({ css: withMono }).violations.map((v) => v.rule)).not.toContain(
-      "font-families",
-    );
+    expect(
+      checkRestraint({ css: withMono }).violations.map((v) => v.rule)
+    ).not.toContain("font-families");
   });
 
   it("flags numeric cells with no tabular-nums anywhere", () => {
-    const report = checkRestraint({ css: PASS, markup: '<td data-numeric>1,204</td>' });
+    const report = checkRestraint({
+      css: PASS,
+      markup: "<td data-numeric>1,204</td>",
+    });
     expect(report.violations.map((v) => v.rule)).toContain("tabular-nums");
   });
 
   it("accepts numeric cells once tabular-nums is declared", () => {
     const report = checkRestraint({
       css: `${PASS}\n[data-numeric]{font-variant-numeric:tabular-nums}`,
-      markup: '<td data-numeric>1,204</td>',
+      markup: "<td data-numeric>1,204</td>",
     });
     expect(report.violations.map((v) => v.rule)).not.toContain("tabular-nums");
   });
 
   it("honours a caller-supplied budget", () => {
-    expect(checkRestraint({ css: PASS, budget: { maxFontSizes: 2 } }).ok).toBe(false);
+    expect(checkRestraint({ css: PASS, budget: { maxFontSizes: 2 } }).ok).toBe(
+      false
+    );
   });
 
   it("treats a duration overrun as a warning, not a hard failure", () => {
     // Drawers and one gated reveal legitimately exceed 300ms.
-    const report = checkRestraint({ css: `${PASS}\n.d{transition:transform 400ms}` });
-    expect(report.violations.find((v) => v.rule === "duration")?.severity).toBe("warning");
+    const report = checkRestraint({
+      css: `${PASS}\n.d{transition:transform 400ms}`,
+    });
+    expect(report.violations.find((v) => v.rule === "duration")?.severity).toBe(
+      "warning"
+    );
     expect(report.ok).toBe(true);
   });
 
   it("passes the package's own craft.css", async () => {
     const { readFileSync } = await import("node:fs");
     const { fileURLToPath } = await import("node:url");
-    const css = readFileSync(fileURLToPath(new URL("../../css/craft.css", import.meta.url)), "utf8");
+    const css = readFileSync(
+      fileURLToPath(new URL("../../css/craft.css", import.meta.url)),
+      "utf8"
+    );
     const report = checkRestraint({ css });
     expect(report.violations.filter((v) => v.severity === "error")).toEqual([]);
   });
@@ -189,19 +210,25 @@ describe("ease-in is judged by where the curve ends, not where it starts", () =>
 
   for (const [name, curve, rejected] of curves) {
     it(`${rejected ? "rejects" : "accepts"} ${name}`, () => {
-      const report = checkRestraint({ css: `.x { transition-timing-function: ${curve}; }` });
+      const report = checkRestraint({
+        css: `.x { transition-timing-function: ${curve}; }`,
+      });
       const flagged = report.violations.some((v) => v.rule === "ease-in");
       expect(flagged).toBe(rejected);
     });
   }
 
   it("still rejects the ease-in keyword", () => {
-    const report = checkRestraint({ css: `.x { transition: opacity 120ms ease-in; }` });
+    const report = checkRestraint({
+      css: `.x { transition: opacity 120ms ease-in; }`,
+    });
     expect(report.violations.some((v) => v.rule === "ease-in")).toBe(true);
   });
 
   it("does not confuse ease-in-out for ease-in", () => {
-    const report = checkRestraint({ css: `.x { transition: opacity 120ms ease-in-out; }` });
+    const report = checkRestraint({
+      css: `.x { transition: opacity 120ms ease-in-out; }`,
+    });
     expect(report.violations.some((v) => v.rule === "ease-in")).toBe(false);
   });
 });
@@ -237,14 +264,19 @@ describe("framework reset and theme layers are not the surface's vocabulary", ()
 
   it("counts every layer when asked to", () => {
     const report = checkRestraint({ css: COMPILED, ignoreAtLayers: [] });
-    expect(report.counts.fontSizes).toBe(4);
+    // Preflight's three -- `small` 80%, `sub`/`sup` 75%, `code` 1em -- are all
+    // ratios, so they land in the relative bucket. One real step is left.
+    expect(report.counts.fontSizes).toBe(1);
+    expect(report.counts.relativeFontSizes).toBe(3);
   });
 
   it("keeps unlayered rules, which is where a hand-written sheet lives", () => {
     const report = checkRestraint({
       css: `${COMPILED}\n@media (prefers-reduced-motion: reduce) { .a { animation: none; } }`,
     });
-    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+    expect(
+      report.violations.some((v) => v.rule === "reduced-motion-animation-none")
+    ).toBe(true);
   });
 
   it("strips a whole layer, not just up to its first nested closing brace", () => {
@@ -278,7 +310,9 @@ describe("the reduced-motion check reads the block, not the rest of the file", (
 [data-craft-lcp] { animation: none !important; }
 `;
     const report = checkRestraint({ css });
-    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(false);
+    expect(
+      report.violations.some((v) => v.rule === "reduced-motion-animation-none")
+    ).toBe(false);
   });
 
   it("still flags it inside the block", () => {
@@ -289,7 +323,9 @@ describe("the reduced-motion check reads the block, not the rest of the file", (
 }
 `;
     const report = checkRestraint({ css });
-    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+    expect(
+      report.violations.some((v) => v.rule === "reduced-motion-animation-none")
+    ).toBe(true);
   });
 
   it("reads a nested rule inside the block, not just its first level", () => {
@@ -300,7 +336,9 @@ describe("the reduced-motion check reads the block, not the rest of the file", (
 }
 `;
     const report = checkRestraint({ css });
-    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+    expect(
+      report.violations.some((v) => v.rule === "reduced-motion-animation-none")
+    ).toBe(true);
   });
 
   it("reads every such block, not only the first", () => {
@@ -310,14 +348,24 @@ describe("the reduced-motion check reads the block, not the rest of the file", (
 @media screen and (prefers-reduced-motion: reduce) { .enter { animation: none; } }
 `;
     const report = checkRestraint({ css });
-    expect(report.violations.some((v) => v.rule === "reduced-motion-animation-none")).toBe(true);
+    expect(
+      report.violations.some((v) => v.rule === "reduced-motion-animation-none")
+    ).toBe(true);
   });
 });
 
 describe("keywords that defer to the cascade are not vocabulary", () => {
-  for (const keyword of ["inherit", "initial", "unset", "revert", "revert-layer"]) {
+  for (const keyword of [
+    "inherit",
+    "initial",
+    "unset",
+    "revert",
+    "revert-layer",
+  ]) {
     it(`does not count \`font-size: ${keyword}\` as a size`, () => {
-      const report = checkRestraint({ css: `.a { font-size: 1rem; } .b { font-size: ${keyword}; }` });
+      const report = checkRestraint({
+        css: `.a { font-size: 1rem; } .b { font-size: ${keyword}; }`,
+      });
       expect(report.counts.fontSizes).toBe(1);
     });
   }
@@ -339,9 +387,9 @@ describe("a token reference is resolved, not skipped", () => {
 `;
     const report = checkRestraint({ css });
     expect(report.counts.fontSizes).toBe(1);
-    expect(checkRestraint({ css, budget: { maxFontSizes: 0 } }).violations[0]?.found).toEqual([
-      "0.875rem",
-    ]);
+    expect(
+      checkRestraint({ css, budget: { maxFontSizes: 0 } }).violations[0]?.found
+    ).toEqual(["0.875rem"]);
   });
 
   it("still ignores a theme token nothing uses", () => {
@@ -359,7 +407,9 @@ describe("a token reference is resolved, not skipped", () => {
 :root { --radius-lg: var(--radius-18); --radius-card: var(--radius-lg); }
 @layer utilities { .card { border-radius: var(--radius-card); } }
 `;
-    expect(checkRestraint({ css, budget: { maxRadii: 0 } }).violations[0]?.found).toEqual(["18px"]);
+    expect(
+      checkRestraint({ css, budget: { maxRadii: 0 } }).violations[0]?.found
+    ).toEqual(["18px"]);
   });
 
   it("dedupes two names that resolve to the same value", () => {
@@ -380,9 +430,9 @@ describe("a token reference is resolved, not skipped", () => {
 :root { --shadow-elevated: 0 8px 24px rgba(0,0,0,0.4); }
 .card { box-shadow: var(--shadow-elevated); }
 `;
-    expect(checkRestraint({ css, budget: { maxShadows: 0 } }).violations[0]?.found).toEqual([
-      "0 8px 24px rgba(0,0,0,0.4)",
-    ]);
+    expect(
+      checkRestraint({ css, budget: { maxShadows: 0 } }).violations[0]?.found
+    ).toEqual(["0 8px 24px rgba(0,0,0,0.4)"]);
   });
 
   it("stops rather than looping when tokens reference each other", () => {
@@ -438,7 +488,9 @@ describe("a reference that resolves to nothing is a bug, not vocabulary", () => 
     const css = `.a { font-size: 1rem; } .b { font-size: var(--text-h2); }`;
     const report = checkRestraint({ css });
     expect(report.counts.fontSizes).toBe(1);
-    const found = report.violations.find((v) => v.rule === "unresolved-token")?.found;
+    const found = report.violations.find(
+      (v) => v.rule === "unresolved-token"
+    )?.found;
     expect(found).toEqual(["font-size: var(--text-h2)"]);
   });
 
@@ -446,11 +498,50 @@ describe("a reference that resolves to nothing is a bug, not vocabulary", () => 
     const css = `.a { border-radius: var(--nope, 12px); }`;
     const report = checkRestraint({ css, budget: { maxRadii: 0 } });
     expect(report.violations[0]?.found).toEqual(["12px"]);
-    expect(report.violations.some((v) => v.rule === "unresolved-token")).toBe(false);
+    expect(report.violations.some((v) => v.rule === "unresolved-token")).toBe(
+      false
+    );
   });
 
   it("is a warning, not an error -- it costs no vocabulary", () => {
     const report = checkRestraint({ css: `.b { font-size: var(--missing); }` });
-    expect(report.violations.find((v) => v.rule === "unresolved-token")?.severity).toBe("warning");
+    expect(
+      report.violations.find((v) => v.rule === "unresolved-token")?.severity
+    ).toBe("warning");
+  });
+});
+
+describe("a ratio is not a step", () => {
+  /*
+   * `.prose code { font-size: 0.875em }` does not add a step to the scale. It
+   * states one relationship and applies it wherever code appears. Counting it
+   * against the scale budget is the same category error as counting the
+   * framework's theme -- a number that is not part of the vocabulary a reader
+   * has to hold.
+   */
+  it("keeps em and % out of the scale count", () => {
+    const css = `.a { font-size: 1rem; } .b { font-size: 0.875em; } .c { font-size: 75%; }`;
+    const report = checkRestraint({ css });
+    expect(report.counts.fontSizes).toBe(1);
+    expect(report.counts.relativeFontSizes).toBe(2);
+  });
+
+  it("still budgets them, because eight ratios is also a scale nobody named", () => {
+    const css = [0.5, 0.6, 0.7, 0.8]
+      .map((n, i) => `.r${i} { font-size: ${n}em; }`)
+      .join("\n");
+    const report = checkRestraint({ css, budget: { maxRelativeFontSizes: 3 } });
+    const violation = report.violations.find(
+      (v) => v.rule === "relative-font-sizes"
+    );
+    expect(violation?.severity).toBe("error");
+    expect(violation?.found).toHaveLength(4);
+  });
+
+  it("does not let a ratio bucket hide an absolute one", () => {
+    // rem is absolute however small; only em and % are context-relative.
+    const report = checkRestraint({ css: `.a { font-size: 0.875rem; }` });
+    expect(report.counts.relativeFontSizes).toBe(0);
+    expect(report.counts.fontSizes).toBe(1);
   });
 });
