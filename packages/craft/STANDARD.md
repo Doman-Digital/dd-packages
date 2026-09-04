@@ -117,13 +117,34 @@ Differentiation guards pass anything that differs from its siblings, however
 ugly. What they cannot see is accumulation — eighteen font sizes, six shadows,
 four competing accents, each added reasonably, together reading as noise.
 
-The budget counts the vocabulary a surface **chose**. A compiled stylesheet also
-carries the framework's reset and theme, and `@layer theme` / `@layer base` are
-excluded by default for that reason — counting them reports a surface as over
-budget for values its author never wrote, and real findings then get triaged
-away with the noise.
+The budget counts the vocabulary a surface **chose**, and the whole difficulty
+is telling that apart from what the framework brought.
 
-*Source: measured against the estate; the budget is the observed ceiling of the surfaces that read as designed. The layer exclusion is measured too — Tailwind v4's reset and theme contribute three font sizes and two timing functions to every sheet built with it.*
+The first rule drew the line at the layer: `@layer theme` and `@layer base` were
+excluded, because counting them reported a surface as over budget for values its
+author never wrote. Right about the noise, wrong about the boundary. Tailwind v4
+compiles `text-sm` to `font-size: var(--text-sm)` and `rounded-lg` to
+`border-radius: var(--radius-lg)`, so with the definitions excluded *and* token
+references skipped, a surface using `text-sm` seven hundred times reported it
+zero times. One estate measured 19 font sizes and shipped 28; 5 shadows and
+shipped 18. A count wrong in the under-reporting direction is worse than the
+over-reporting kind it replaced: the first buries real findings in noise, the
+second reports a pass.
+
+The line is **used versus unused**, which is not a property of the layer:
+
+- References are **resolved**, not skipped — through the token chain, to the
+  value that renders.
+- A definition is only ever reached from a declaration in a kept layer, so a
+  framework default nothing uses still counts for nothing.
+- `--tw-shadow` assignments count as shadows. `shadow-[…]` emits no literal
+  `box-shadow` at all; it assigns that property and lets one shared composite
+  read it.
+- A reference that resolves to nothing is **not** vocabulary. It is a
+  declaration that silently applies nothing, and it is reported as its own
+  warning.
+
+*Source: measured against the estate. The budget is the observed ceiling of the surfaces that read as designed; the resolution rule is what it took to measure them at all.*
 
 ## 10. What is deliberately not a rule
 
