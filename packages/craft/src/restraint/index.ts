@@ -59,11 +59,107 @@ export interface CheckRestraintInput {
   /** Concatenated markup or component source, for class-level rules. */
   markup?: string;
   budget?: Partial<RestraintBudget>;
+  /**
+   * Cascade layers to exclude before counting, by name.
+   *
+   * A restraint budget measures the vocabulary a surface *chose*. A compiled
+   * stylesheet also carries the framework's reset and theme, and counting those
+   * makes the report wrong in the one direction that matters: it reports a
+   * surface as over budget for values its author never wrote, so the real
+   * findings get triaged away with the noise. Measured on this estate, Tailwind
+   * v4 contributes three font sizes nobody chose (`small` at 80%, `sub`/`sup` at
+   * 75%) and two timing functions (`--default-transition-timing-function`,
+   * `--animate-pulse`) from `@layer theme` and `@layer base` alone.
+   *
+   * The default is those two names, which is the convention every layered
+   * framework follows and the one Tailwind enforces. A rule placed in the reset
+   * layer is a reset by the author's own declaration; put it outside the layer
+   * to have it counted as vocabulary. Pass `[]` to count everything.
+   */
+  ignoreAtLayers?: string[];
 }
+
+/** Layers that hold a framework's reset and theme rather than a design vocabulary. */
+export const DEFAULT_IGNORED_LAYERS = ["theme", "base"] as const;
 
 /** Strip comments so a commented-out rule is not counted as shipped. */
 function stripComments(css: string): string {
   return css.replace(/\/\*[\s\S]*?\*\//g, "");
+}
+
+/**
+ * Remove the body of every `@layer <name> { ... }` block whose name is ignored.
+ *
+ * Brace-matched rather than regex-terminated: a layer body contains nested
+ * blocks, and a lazy `\{[^}]*\}` stops at the first inner `}` — which would
+ * leave most of the layer behind and silently under-strip. The bare form
+ * `@layer a, b;` declares an order and carries no declarations, so it is left
+ * alone.
+ */
+function stripLayers(css: string, ignored: readonly string[]): string {
+  if (ignored.length === 0) return css;
+  const names = new Set(ignored.map((n) => n.trim().toLowerCase()));
+  let out = "";
+  let i = 0;
+  const pattern = /@layer\s+([a-zA-Z0-9_-]+)\s*\{/gi;
+  while (i < css.length) {
+    pattern.lastIndex = i;
+    const match = pattern.exec(css);
+    if (match === null) {
+      out += css.slice(i);
+      break;
+    }
+    out += css.slice(i, match.index);
+    const bodyStart = match.index + match[0].length;
+    let depth = 1;
+    let j = bodyStart;
+    while (j < css.length && depth > 0) {
+      if (css[j] === "{") depth += 1;
+      else if (css[j] === "}") depth -= 1;
+      j += 1;
+    }
+    if (!names.has(match[1].toLowerCase())) {
+      // Keep the layer, dropping only its wrapper. Recurse rather than emitting
+      // the body verbatim: a kept layer can hold an ignored one, and this loop
+      // has already advanced past the body by the time it emits it. Written
+      // without recursion first, and the test for exactly this case caught it.
+      out += stripLayers(css.slice(bodyStart, j - 1), ignored);
+    }
+    i = j;
+  }
+  return out;
+}
+
+/** Values that name no value: they defer to the cascade rather than choosing. */
+const CSS_WIDE_KEYWORDS = new Set(["inherit", "initial", "unset", "revert", "revert-layer"]);
+
+/**
+ * The bodies of every at-rule whose prelude matches, brace-matched.
+ *
+ * The reduced-motion check used to slice from the first match to the end of the
+ * sheet, so every rule in the file after that point counted as being inside the
+ * block. On a real sheet that meant `[data-craft-lcp] { animation: none }` —
+ * this package's own section 7 rule, correctly outside any media query — was
+ * reported as a section 8 violation. The standard failing its own checker, for
+ * the second time in one file.
+ */
+function atRuleBodies(css: string, prelude: RegExp): string[] {
+  const out: string[] = [];
+  const pattern = new RegExp(prelude.source, prelude.flags.includes("g") ? prelude.flags : `${prelude.flags}g`);
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(css)) !== null) {
+    const start = match.index + match[0].length;
+    let depth = 1;
+    let i = start;
+    while (i < css.length && depth > 0) {
+      if (css[i] === "{") depth += 1;
+      else if (css[i] === "}") depth -= 1;
+      i += 1;
+    }
+    out.push(css.slice(start, i - 1));
+    pattern.lastIndex = i;
+  }
+  return out;
 }
 
 /** Distinct values of a property, ignoring whitespace and case. */
@@ -73,7 +169,10 @@ function distinctValues(css: string, property: string): string[] {
   for (const match of css.matchAll(pattern)) {
     const value = match[1].trim().replace(/\s+/g, " ").toLowerCase();
     // A var() reference is the token layer doing its job, not a new value.
-    if (value.startsWith("var(") || value === "inherit" || value === "initial") continue;
+    // A var() reference is the token layer doing its job; the CSS-wide keywords
+    // name no value at all. Counting either inflates the vocabulary with things
+    // a reader never meets as a distinct choice.
+    if (value.startsWith("var(") || CSS_WIDE_KEYWORDS.has(value)) continue;
     seen.add(value);
   }
   return [...seen];
@@ -98,7 +197,10 @@ function durationsMs(css: string): { value: string; ms: number }[] {
  */
 export function checkRestraint(input: CheckRestraintInput): RestraintReport {
   const budget = { ...HOUSE_BUDGET, ...input.budget };
-  const css = stripComments(input.css);
+  const css = stripLayers(
+    stripComments(input.css),
+    input.ignoreAtLayers ?? DEFAULT_IGNORED_LAYERS,
+  );
   const violations: RestraintViolation[] = [];
 
   const push = (
@@ -203,13 +305,15 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
 
   const easeIn = [
     ...css.matchAll(/(?:transition|animation)[^;}]*\b(ease-in)\b(?!-out)/gi),
-    ...css.matchAll(/cubic-bezier\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,/gi),
+    ...css.matchAll(
+      /cubic-bezier\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)/gi,
+    ),
   ]
     .map((m) => {
       if (m[1] === "ease-in") return "ease-in";
-      const x1 = Number(m[1]);
-      const y1 = Number(m[2]);
-      return Number.isFinite(x1) && Number.isFinite(y1) && y1 < x1 ? m[0] : null;
+      const p = [m[1], m[2], m[3], m[4]].map(Number);
+      if (!p.every((n) => Number.isFinite(n))) return null;
+      return acceleratesIntoTheEnd(p[0], p[1], p[2], p[3]) ? m[0] : null;
     })
     .filter((v): v is string => v !== null);
   if (easeIn.length > 0) {
@@ -241,8 +345,8 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
   }
 
   // --- Reduced motion ------------------------------------------------------
-  const reducedMotionAt = css.search(/@media[^{]*prefers-reduced-motion:\s*reduce/i);
-  if (reducedMotionAt === -1) {
+  const reducedMotionBlocks = atRuleBodies(css, /@media[^{]*prefers-reduced-motion:\s*reduce[^{]*\{/gi);
+  if (reducedMotionBlocks.length === 0) {
     if (/@keyframes|animation\s*:|transition\s*:/.test(css)) {
       push(
         "reduced-motion-missing",
@@ -252,7 +356,7 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
       );
     }
   } else {
-    const block = css.slice(reducedMotionAt);
+    const block = reducedMotionBlocks.join("\n");
     if (/animation\s*:\s*none/i.test(block)) {
       push(
         "reduced-motion-animation-none",
@@ -290,6 +394,38 @@ export function checkRestraint(input: CheckRestraintInput): RestraintReport {
       accentHexes: accentHexes.length,
     },
   };
+}
+
+/**
+ * Does this curve arrive at its destination faster than it travelled?
+ *
+ * Section 7's objection to ease-in is about the *end* of the movement: a curve
+ * that accelerates into its final position reads as the interface pulling away
+ * from you. Nothing in that objection concerns the start, which is why ease-in-
+ * out is fine — it starts slowly and still settles.
+ *
+ * The test this replaces compared only the first control point (`y1 < x1`) and
+ * so could not tell the two apart. It rejected `EASE.inOut`, one of the four
+ * curves in this package's own canonical block: the standard failed its own
+ * checker, on every surface that adopted the token it recommends.
+ *
+ * The end tangent of a cubic Bezier from (0,0) to (1,1) points along P3 - P2,
+ * unless P2 sits exactly on the endpoint, in which case the tangent is set by
+ * the previous distinct control point. A slope above 1 means the curve is
+ * covering more distance per unit time at the end than it averaged — that is
+ * the acceleration being objected to. Slope 1 is linear and is left alone.
+ */
+function acceleratesIntoTheEnd(x1: number, y1: number, x2: number, y2: number): boolean {
+  const EPSILON = 1e-6;
+  let dx = 1 - x2;
+  let dy = 1 - y2;
+  if (Math.abs(dx) < EPSILON && Math.abs(dy) < EPSILON) {
+    dx = 1 - x1;
+    dy = 1 - y1;
+  }
+  // A vertical end tangent is infinite slope: it snaps into place.
+  if (Math.abs(dx) < EPSILON) return Math.abs(dy) > EPSILON;
+  return dy / dx > 1 + EPSILON;
 }
 
 /** Widest gap between hues on the circle, as a spread in degrees. */
