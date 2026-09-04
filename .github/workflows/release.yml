@@ -68,6 +68,18 @@ jobs:
       # app secrets are absent or the app is not installed here, the run
       # degrades to exactly today's behaviour (versions, pushes, fails to open
       # the PR) rather than failing earlier and breaking publishing outright.
+      #
+      # Where the two secrets come from, because the names differ everywhere
+      # they are stored and that cost a session to work out: the source values
+      # live in Doppler as GITHUB_APP_ID / GITHUB_APP_PRIVATE_KEY in project
+      # `doman-digital-shared`. They belong to the `doman-digital` GitHub App,
+      # installed org-wide on Doman-Digital with pull_requests: write. They are
+      # copied here under the CI_GH_APP_* names that ci-standards already uses.
+      # Repo-level, not org-level: org Actions secrets on a Free plan reach
+      # public repositories only. Read the values, never retype them:
+      #
+      #   doppler secrets get GITHUB_APP_PRIVATE_KEY --plain \
+      #     -p doman-digital-shared -c prd
       - name: Mint a token that may open pull requests
         id: app-token
         continue-on-error: true
