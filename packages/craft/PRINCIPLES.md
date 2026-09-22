@@ -91,3 +91,17 @@ instead: a piecewise-linear map pinned at 0 and 1 that passes through
 (curve value, actual value) for the anchor. Monotonic by construction, and every
 other step keeps its relative position. The anchors define the ramp; the curve
 only sets the spacing between them.
+
+## Well made is not the same as decided
+
+A surface can clear every number in the standard and still read as generated.
+The craft rules measure quality; they cannot see that the accent, the face and
+the section order are the ones a model picks for every brief it knows nothing
+about. That is a different question, so it is a different document:
+[CHARACTER.md](./CHARACTER.md).
+
+Two things keep it from becoming a taste police. It only ever changes the look,
+never the page grammar, because a page that looks typical for its category is
+the one visitors trust first. And it never asks for novelty. It asks for a
+reason: every expressive choice records where it came from in the client's own
+world, and a choice with no reason is the one flagged.
