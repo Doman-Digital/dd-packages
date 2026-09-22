@@ -164,7 +164,10 @@ The package emits **plain CSS custom properties** precisely so these stay free:
   so Framer Motion, GSAP and CSS agree without the package choosing one.
 - **Where tokens live.** A `:root` block, a generated file, a Tailwind theme —
   the package does not care.
-- **Layout, grid and component structure.** Out of scope.
+- **Layout, grid and component structure.** Not a rule. Layout *defaults*
+  (hero straight into a trust strip, three icon cards, a reveal on every
+  section) are measured as character in [CHARACTER.md](./CHARACTER.md), as
+  warnings with a declared-exception path, never as rules here.
 - **Brand voice, copy, and photography grading.** Separate standards.
 
 A rule here has to be one that is wrong to break. Everything else is a default.

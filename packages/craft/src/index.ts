@@ -102,3 +102,37 @@ export {
   tailwindV3Preset,
   tailwindV4Theme,
 } from "./css/tailwind.js";
+export {
+  type CheckOptions,
+  type CheckReport,
+  type CopyTell,
+  type Finding,
+  type Generation,
+  type Hit,
+  type Severity,
+  type SourceFile,
+  type SourceTell,
+  type Surface,
+  type Tell,
+  type TellException,
+} from "./character/types.js";
+export {
+  CATALOGUE,
+  CATALOGUE_VERSION,
+  catalogueTable,
+  checkCopy,
+  runTell,
+  scanSource,
+  tellById,
+} from "./character/check.js";
+export { formatReport } from "./character/format.js";
+export { AI_VIOLET, findColours, isAiViolet, isCream, parseColour } from "./character/color.js";
+export {
+  PILL_LIMIT,
+  REFLEX_FONTS_1,
+  REFLEX_FONTS_2,
+  REVEAL_LIMIT,
+  SHADCN_LIMIT,
+  SHADCN_PRIMITIVES,
+} from "./character/tells/source.js";
+export { AI_WORDS, STOCK_PHRASES } from "./character/tells/copy.js";
