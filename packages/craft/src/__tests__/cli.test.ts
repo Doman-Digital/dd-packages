@@ -71,7 +71,14 @@ describe("craft copy", () => {
   it("checks prose", () => {
     write("content/home.md", "Look no further.");
     expect(run(["copy", "content", "--strict"], io())).toBe(1);
-    expect(out.join("\n")).toMatch(/stock-phrase/);
+    expect(out.join("\n")).toMatch(/ai-phrase/);
+  });
+
+  it("reads a Sanity export as JSON lines, one document per line", () => {
+    write("copy.jsonl", [JSON.stringify({ _id: "a", body: "Plain facts about us." }), JSON.stringify({ _id: "b", body: "Look no further for nails." })].join("\n"));
+    run(["copy", "copy.jsonl", "--json"], io());
+    const report = JSON.parse(out.join(""));
+    expect(report.findings.map((x: { tell: string; line: number }) => [x.tell, x.line])).toEqual([["ai-phrase", 2]]);
   });
 
   it("skips build documentation and _notes when walking, but reads a file named outright", () => {

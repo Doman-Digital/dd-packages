@@ -26,6 +26,10 @@ export function formatReport(report: CheckReport, title: string): string {
     lines.push("", `Excepted: ${e.count} × ${e.tell}, because ${e.because}`);
   }
 
+  if (report.suppressed.length > 0) {
+    lines.push("", `Suppressed: ${report.suppressed.length} marked copy-ok or craft-ok (${report.suppressed.map((s) => `${s.path}:${s.line}`).join(", ")})`);
+  }
+
   const { summary } = report;
   const gens = `gen 1: ${summary.byGeneration[1]}, gen 2: ${summary.byGeneration[2]}, gen 3: ${summary.byGeneration[3]}`;
   lines.push(

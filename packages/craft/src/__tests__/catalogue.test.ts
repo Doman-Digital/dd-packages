@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CATALOGUE, CATALOGUE_VERSION, runTell, tellById } from "../character/check.js";
-import { AI_WORDS, STOCK_PHRASES } from "../character/tells/copy.js";
+import { AI_PHRASES, AI_WORDS, BUZZWORDS, NEGATIVE_REASSURANCE, PLAINER_WORDS, REVIEW_PHRASES, STOCK_PHRASES, VAGUE_WORDS } from "../character/tells/copy.js";
 import type { FixtureCase } from "../character/types.js";
 
 const files = (c: FixtureCase) => (Array.isArray(c) ? c : [c]);
@@ -63,5 +63,28 @@ describe("the copy lists", () => {
 
   it.each([...STOCK_PHRASES])("stock-phrase matches %s", (phrase) => {
     expect(runTell(tellById("stock-phrase")!, [{ path: "a.md", text: `Honestly, ${phrase} here.` }])).toHaveLength(1);
+  });
+
+  const lists: [string, readonly string[]][] = [
+    ["ai-phrase", AI_PHRASES],
+    ["plainer-word", PLAINER_WORDS],
+    ["buzzword", BUZZWORDS],
+    ["negative-reassurance", NEGATIVE_REASSURANCE],
+    ["vague-word", VAGUE_WORDS],
+    ["review-phrase", REVIEW_PHRASES],
+  ];
+  describe.each(lists)("%s", (id, list) => {
+    it.each([...list])("matches %s, straight or curly", (phrase) => {
+      const tell = tellById(id)!;
+      expect(runTell(tell, [{ path: "a.md", text: `Well, ${phrase} here.` }])).toHaveLength(1);
+      const curly = phrase.replace(/'/g, "’");
+      expect(runTell(tell, [{ path: "a.md", text: `Well, ${curly} here.` }])).toHaveLength(1);
+    });
+  });
+
+  it("gives each word and phrase to exactly one tell, so a finding names its tier", () => {
+    const all = [...AI_WORDS, ...STOCK_PHRASES, ...AI_PHRASES, ...PLAINER_WORDS, ...BUZZWORDS, ...NEGATIVE_REASSURANCE, ...VAGUE_WORDS, ...REVIEW_PHRASES];
+    const lists = [AI_WORDS, STOCK_PHRASES, AI_PHRASES, PLAINER_WORDS, BUZZWORDS, NEGATIVE_REASSURANCE, VAGUE_WORDS, REVIEW_PHRASES];
+    for (const phrase of all) expect(lists.filter((l) => (l as readonly string[]).includes(phrase)), phrase).toHaveLength(1);
   });
 });

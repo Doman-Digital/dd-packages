@@ -135,4 +135,13 @@ export {
   SHADCN_LIMIT,
   SHADCN_PRIMITIVES,
 } from "./character/tells/source.js";
-export { AI_WORDS, STOCK_PHRASES } from "./character/tells/copy.js";
+export {
+  AI_PHRASES,
+  AI_WORDS,
+  BUZZWORDS,
+  NEGATIVE_REASSURANCE,
+  PLAINER_WORDS,
+  REVIEW_PHRASES,
+  STOCK_PHRASES,
+  VAGUE_WORDS,
+} from "./character/tells/copy.js";
