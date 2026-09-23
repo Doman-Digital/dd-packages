@@ -126,6 +126,32 @@ export {
   tellById,
 } from "./character/check.js";
 export { formatReport } from "./character/format.js";
+export { auditSnapshot } from "./character/check.js";
+export { RENDERED_PATHS } from "./snapshot/rendered.js";
+export { makeSnapshot, type SnapshotPatch } from "./snapshot/fixture.js";
+export { fontClass, normaliseFamily, type FontClass } from "./snapshot/fonts.js";
+export {
+  SNAPSHOT_VERSION,
+  type SectionKind,
+  type Snapshot,
+  type SnapshotColour,
+  type SnapshotControl,
+  type SnapshotEffects,
+  type SnapshotFont,
+  type SnapshotGradient,
+  type SnapshotHeading,
+  type SnapshotMotion,
+  type SnapshotSection,
+} from "./snapshot/types.js";
+export {
+  DISTANCE_WEIGHTS,
+  FINGERPRINT_VERSION,
+  fingerprint,
+  fingerprintDistance,
+  nearest,
+  type Fingerprint,
+  type FingerprintDistance,
+} from "./fingerprint/index.js";
 export { AI_VIOLET, findColours, isAiViolet, isCream, parseColour } from "./character/color.js";
 export {
   PILL_LIMIT,

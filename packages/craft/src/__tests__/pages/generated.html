@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Generated</title>
+<style>
+  body { margin: 0; font-family: Inter, sans-serif; background: rgb(250, 246, 238); color: #1c1c1a; }
+  .intro { position: fixed; inset: 0; background: #111; z-index: 50; }
+  .hero { position: relative; min-height: 800px; padding: 120px 80px; background: linear-gradient(135deg, rgb(37, 99, 235), rgb(147, 51, 234)); }
+  .glow { position: absolute; width: 600px; height: 600px; left: 300px; top: 100px; filter: blur(80px); background: rgb(167, 139, 250); }
+  .glass { position: relative; width: 640px; padding: 40px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px); }
+  .chip { display: inline-block; height: 28px; line-height: 28px; padding: 0 12px; border: 1px solid #ddd; border-radius: 9999px; font-size: 13px; }
+  h1 { font-family: "Instrument Serif", serif; font-size: 72px; font-weight: 400; margin: 16px 0; }
+  .grad { background-image: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .btn { display: inline-block; height: 48px; line-height: 48px; padding: 0 24px; border-radius: 9999px; background: rgb(79, 70, 229); color: #fff; border: 0; font-size: 16px; }
+  section { min-height: 300px; padding: 80px; }
+  .logos { min-height: 120px; padding: 24px 80px; display: flex; gap: 40px; overflow: hidden; }
+  .track { display: flex; gap: 40px; animation: slide 20s linear infinite; }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .logos svg { width: 100px; height: 40px; }
+  .cards { display: flex; gap: 24px; }
+  .card { width: 300px; padding: 24px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); border-radius: 16px; background: #fff; }
+  .card svg { width: 40px; height: 40px; }
+  .reveal { opacity: 0; transform: translateY(24px); }
+</style></head>
+<body>
+<div class="intro" id="intro"></div>
+<script>setTimeout(() => document.getElementById("intro").remove(), 800);</script>
+<main>
+  <section class="hero">
+    <div class="glow"></div>
+    <div class="glass">
+      <p class="chip">New · Now booking</p>
+      <h1>Beauty, <em>reimagined</em></h1>
+      <p class="grad" style="font-size: 32px">Where luxury meets comfort</p>
+      <a class="btn" href="#">Get started</a> <button class="btn">Book now</button>
+    </div>
+  </section>
+  <section class="logos"><div class="track">
+    <svg viewBox="0 0 100 40"><rect width="100" height="40"/></svg><svg viewBox="0 0 100 40"><rect width="100" height="40"/></svg>
+    <svg viewBox="0 0 100 40"><rect width="100" height="40"/></svg><svg viewBox="0 0 100 40"><rect width="100" height="40"/></svg>
+    <svg viewBox="0 0 100 40"><rect width="100" height="40"/></svg><svg viewBox="0 0 100 40"><rect width="100" height="40"/></svg>
+  </div></section>
+  <section class="reveal"><h2>Our services</h2>
+    <div class="cards">
+      <div class="card"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20"/></svg><h3>Nails</h3><p>Gel and acrylic sets for every look.</p></div>
+      <div class="card"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20"/></svg><h3>Brows</h3><p>Lamination, tint and shaping done well.</p></div>
+      <div class="card"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20"/></svg><h3>Skin</h3><p>Facials tailored to your skin today.</p></div>
+    </div>
+    <a class="btn" href="#">Explore services</a>
+  </section>
+  <section class="reveal"><h2>Why us</h2><p>We care about every detail of your visit, from start to finish.</p><a class="btn" href="#">Learn more</a></section>
+  <section class="reveal"><h2>Reviews</h2><p>Clients love the calm studio and the friendly team who work there.</p></section>
+  <section class="reveal"><h2>Book today</h2><p>Choose a time that suits you and we will confirm by email straight away.</p></section>
+</main>
+</body></html>
