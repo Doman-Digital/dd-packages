@@ -119,6 +119,7 @@ export {
 export {
   CATALOGUE,
   CATALOGUE_VERSION,
+  applyHouseGate,
   catalogueTable,
   checkCopy,
   runTell,
@@ -127,6 +128,7 @@ export {
   wordListsJson,
 } from "./character/check.js";
 export { formatReport } from "./character/format.js";
+export { HOUSE, houseRule, type HouseRule, type HouseTier } from "./character/house.js";
 export { auditSnapshot } from "./character/check.js";
 export { RENDERED_PATHS } from "./snapshot/rendered.js";
 export { makeSnapshot, type SnapshotPatch } from "./snapshot/fixture.js";

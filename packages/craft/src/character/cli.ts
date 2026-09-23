@@ -8,7 +8,8 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
-import { CATALOGUE, CATALOGUE_VERSION, checkCopy, scanSource } from "./check.js";
+import { CATALOGUE, CATALOGUE_VERSION, applyHouseGate, checkCopy, scanSource } from "./check.js";
+import { houseRule } from "./house.js";
 import { formatReport } from "./format.js";
 import { fileKind } from "./parse.js";
 import type { CheckReport, SourceFile, TellException } from "./types.js";
@@ -28,7 +29,7 @@ const HELP = `craft: find the AI look and say what to do instead.
 
 Usage
   craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>]
-  craft copy <paths...> [--json] [--strict] [--direction <file>]
+  craft copy <paths...> [--gate] [--json] [--strict] [--direction <file>]
   craft tells list [--json]
   craft tells harvest <null.json | dir>... [--share 0.25] [--json]
   craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
@@ -45,6 +46,8 @@ Usage
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
 copy      The prose in Markdown, markup and content files.
+          --gate applies the house copy policy: the blocking tier of COPY.md
+          fails the run. What copy-check and the pre-commit hook run.
 tells     The catalogue this build judges against. harvest reads null models
           for choices the model keeps making that the catalogue does not know.
 snapshot  Render a page in a browser and save what it looks like, as JSON.
@@ -76,6 +79,7 @@ export interface Flags {
   json: boolean;
   strict: boolean;
   staged: boolean;
+  gate: boolean;
   direction?: string;
   out?: string;
   repo?: string;
@@ -112,12 +116,13 @@ const VALUE_FLAGS = {
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
-  const flags: Flags = { positional: [], json: false, strict: false, staged: false };
+  const flags: Flags = { positional: [], json: false, strict: false, staged: false, gate: false };
   for (let i = 0; i < args.length; i += 1) {
     const a = args[i];
     if (a === "--json") flags.json = true;
     else if (a === "--strict") flags.strict = true;
     else if (a === "--staged") flags.staged = true;
+    else if (a === "--gate") flags.gate = true;
     else if (a in VALUE_FLAGS) {
       const value = args[i + 1];
       i += 1;
@@ -229,7 +234,11 @@ export function run(argv: string[], io: Io): number | Promise<number> {
       if (typeof flags === "string") throw new Error(flags);
       if (flags.positional[0] !== "list") throw new Error("usage: craft tells list [--json] | craft tells harvest <null.json>...");
       if (flags.json) {
-        const data = CATALOGUE.map(({ id, name, generation, surface, severity, why, fix }) => ({ id, name, generation, surface, severity, why, fix }));
+        // `house` is the copy policy: copy-check reads it rather than keeping its own list.
+        const data = CATALOGUE.map(({ id, name, generation, surface, severity, why, fix }) => ({
+          id, name, generation, surface, severity, why, fix,
+          ...(surface === "copy" ? { house: houseRule(id, name).tier, houseLabel: houseRule(id, name).label } : {}),
+        }));
         io.out(JSON.stringify({ version: CATALOGUE_VERSION, tells: data }, null, 2));
       } else {
         io.out(`Catalogue ${CATALOGUE_VERSION}`);
@@ -247,7 +256,8 @@ export function run(argv: string[], io: Io): number | Promise<number> {
         ? readStaged(io.cwd, wanted)
         : readPaths(flags.positional.length > 0 ? flags.positional : ["."], io.cwd, wanted, command === "copy" ? NOT_COPY_DIR : undefined);
       const exceptions = loadExceptions(flags, io.cwd);
-      const report = command === "scan" ? scanSource(files, { exceptions }) : checkCopy(files, { exceptions });
+      let report = command === "scan" ? scanSource(files, { exceptions }) : checkCopy(files, { exceptions });
+      if (command === "copy" && flags.gate) report = applyHouseGate(report);
       return finish(report, flags, command === "scan" ? "craft scan" : "craft copy", io);
     }
 

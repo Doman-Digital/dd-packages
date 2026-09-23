@@ -16,8 +16,11 @@ import {
   REVIEW_PHRASES,
   STOCK_PHRASES,
   VAGUE_WORDS,
+  RESEARCH_TELLS,
 } from "./tells/copy.js";
+import { DENSITY_TELLS } from "./tells/density.js";
 import { SOURCE_TELLS } from "./tells/source.js";
+import { houseRule } from "./house.js";
 import { excerptAt, lineAt, parseFile } from "./parse.js";
 import { extractCopy, extractStrings } from "./prose.js";
 import { RENDERED_PATHS } from "../snapshot/rendered.js";
@@ -37,9 +40,9 @@ import type {
  * Bumped whenever an entry is added, removed or its detection changes, so a
  * report can say which list it was judged against.
  */
-export const CATALOGUE_VERSION = "2026.09.3";
+export const CATALOGUE_VERSION = "2026.09.4";
 
-export const CATALOGUE: readonly Tell[] = [...SOURCE_TELLS, ...COPY_TELLS].map((t) =>
+export const CATALOGUE: readonly Tell[] = [...SOURCE_TELLS, ...COPY_TELLS, ...RESEARCH_TELLS, ...DENSITY_TELLS].map((t) =>
   RENDERED_PATHS[t.id] ? { ...t, rendered: RENDERED_PATHS[t.id] } : t,
 );
 
@@ -89,6 +92,7 @@ function toFinding(tell: Tell, hit: Hit, texts: Map<string, string>): Finding {
     excerpt: hit.excerpt ?? excerptAt(text, hit.offset),
     message: hit.message,
     fix: tell.fix,
+    ...(tell.surface === "copy" ? { house: houseRule(tell.id, tell.name).tier } : {}),
   };
 }
 
@@ -149,6 +153,16 @@ function report(
       blocking: findings.filter((x) => x.severity === "block").length,
     },
   };
+}
+
+/**
+ * Apply the house copy policy (`house.ts`): a finding from a house-blocking
+ * tell becomes a block, so the run fails on it. Everything else keeps its
+ * catalogue severity, which is `warn`.
+ */
+export function applyHouseGate(result: CheckReport): CheckReport {
+  const findings = result.findings.map((f) => (f.house === "block" ? { ...f, severity: "block" as const } : f));
+  return { ...result, findings, summary: { ...result.summary, blocking: findings.filter((f) => f.severity === "block").length } };
 }
 
 /** Scan markup, component code and stylesheets for design tells. */

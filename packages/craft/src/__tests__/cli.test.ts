@@ -93,6 +93,20 @@ describe("craft copy", () => {
   it("needs a path", () => {
     expect(run(["copy"], io())).toBe(2);
   });
+
+  it("--gate fails on the house blocking tier and passes the review tier", () => {
+    // A guard that cannot fail is not a guard: prove both directions.
+    write("content/block.md", "Walk-ins welcome — ring first.");
+    write("content/review.md", "Elevate your nails in our bustling studio.");
+    expect(run(["copy", "content/block.md"], io())).toBe(0);
+    expect(run(["copy", "content/block.md", "--gate"], io())).toBe(1);
+    expect(run(["copy", "content/review.md", "--gate"], io())).toBe(0);
+    out = [];
+    run(["copy", "content/block.md", "--gate", "--json"], io());
+    const report = JSON.parse(out.join(""));
+    expect(report.summary.blocking).toBe(1);
+    expect(report.findings[0]).toMatchObject({ tell: "em-dash", house: "block", severity: "block" });
+  });
 });
 
 describe("craft tells list", () => {
@@ -101,5 +115,17 @@ describe("craft tells list", () => {
     const data = JSON.parse(out.join(""));
     expect(data.tells.length).toBeGreaterThan(20);
     expect(data.tells[0]).toHaveProperty("fix");
+  });
+
+  it("publishes the house tier of every copy tell, and none for design tells", () => {
+    run(["tells", "list", "--json"], io());
+    const tells = JSON.parse(out.join("")).tells as { id: string; surface: string; house?: string; houseLabel?: string }[];
+    for (const t of tells) {
+      if (t.surface === "copy") expect(["block", "review", "explicit"], t.id).toContain(t.house);
+      else expect(t.house, t.id).toBeUndefined();
+    }
+    expect(tells.filter((t) => t.house === "block").map((t) => t.id).sort()).toEqual(
+      ["ai-phrase", "buzzword", "em-dash", "emoji", "negative-reassurance", "no-x-badge", "no-x-no-y", "not-just-but", "plain-english", "plainer-word"],
+    );
   });
 });
