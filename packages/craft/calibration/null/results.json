@@ -40,7 +40,7 @@
     {
       "site": "harrison-james",
       "own": 0.1,
-      "pooled": 0.1,
+      "pooled": 0.09,
       "distance": 0.277,
       "baseline": 0.112,
       "shared": [
@@ -55,7 +55,7 @@
       "own": 0.05,
       "pooled": 0,
       "distance": 0.442,
-      "baseline": 0.217,
+      "baseline": 0.216,
       "shared": [
         "motion no scroll reveals (20/20)",
         "ground white (16/20)",
@@ -132,8 +132,8 @@
     },
     {
       "brief": "cafe",
-      "score": 0.1,
-      "typical": true,
+      "score": 0.09,
+      "typical": false,
       "tells": [
         "cream-palette",
         "glass-panel",
@@ -170,7 +170,7 @@
     },
     {
       "brief": "dog-groomer",
-      "score": 0.05,
+      "score": 0.06,
       "typical": false,
       "tells": [
         "cream-palette",
@@ -206,7 +206,7 @@
     },
     {
       "brief": "florist",
-      "score": 0.49,
+      "score": 0.48,
       "typical": true,
       "tells": [
         "cream-palette",
@@ -217,7 +217,7 @@
     },
     {
       "brief": "gym",
-      "score": 0.05,
+      "score": 0.06,
       "typical": false,
       "tells": [
         "glass-panel",
@@ -238,7 +238,7 @@
     },
     {
       "brief": "music-teacher",
-      "score": 0.5,
+      "score": 0.49,
       "typical": true,
       "tells": [
         "cream-palette",
@@ -286,8 +286,8 @@
     },
     {
       "brief": "solicitor",
-      "score": 0.1,
-      "typical": true,
+      "score": 0.09,
+      "typical": false,
       "tells": [
         "cream-palette",
         "grid-background",
@@ -297,7 +297,7 @@
     },
     {
       "brief": "tattoo",
-      "score": 0.33,
+      "score": 0.31,
       "typical": true,
       "tells": [
         "cream-palette",
@@ -318,7 +318,7 @@
     },
     {
       "brief": "yoga",
-      "score": 0.38,
+      "score": 0.36,
       "typical": true,
       "tells": [
         "cream-palette",
@@ -363,13 +363,13 @@
     {
       "brief": "chair-and-blade",
       "pages": 20,
-      "typical": 5,
+      "typical": 4,
       "flagged": 18
     },
     {
       "brief": "rmp",
       "pages": 20,
-      "typical": 5,
+      "typical": 2,
       "flagged": 15
     }
   ]

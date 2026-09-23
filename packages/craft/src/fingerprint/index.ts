@@ -38,6 +38,8 @@ export interface Fingerprint {
 
 /** Below this chroma a colour reads as grey. A dark forest green (about 0.04) is still a choice. */
 const CHROMATIC = 0.03;
+/** CSS px²: a 200 by 100 panel. */
+const MIN_ACCENT_AREA = 20_000;
 const oklch = (value: string): Oklch | null => {
   const parsed = parseColour(value);
   return parsed && parsed.alpha > 0.5 ? parsed.oklch : null;
@@ -51,7 +53,10 @@ function accentOf(s: Snapshot): Oklch | null {
   }
   const topButton = [...buttons].sort((a, b) => b[1] - a[1])[0];
   if (topButton) return oklch(topButton[0]);
-  const bg = s.colours.backgrounds.map((b) => ({ o: oklch(b.value), w: b.area })).filter((x) => x.o && x.o.c >= CHROMATIC).sort((a, b) => b.w - a.w)[0];
+  // A painted colour has to cover a panel's worth of page to be the accent.
+  // A floating chat button (a 48px WhatsApp green) is the only saturated
+  // paint on many monochrome sites, and would otherwise be read as the brand.
+  const bg = s.colours.backgrounds.map((b) => ({ o: oklch(b.value), w: b.area })).filter((x) => x.o && x.o.c >= CHROMATIC && x.w >= MIN_ACCENT_AREA).sort((a, b) => b.w - a.w)[0];
   if (bg) return bg.o;
   const text = s.colours.text.map((t) => ({ o: oklch(t.value), w: t.chars })).filter((x) => x.o && x.o.c >= CHROMATIC).sort((a, b) => b.w - a.w)[0];
   return text ? text.o : null;

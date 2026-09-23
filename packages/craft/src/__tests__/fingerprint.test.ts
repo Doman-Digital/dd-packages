@@ -24,6 +24,19 @@ describe("font names as a browser reports them", () => {
 });
 
 describe("the fingerprint", () => {
+  it("does not take a floating chat button for the accent", () => {
+    // Seen on DD, 2026-09-23: a 48px WhatsApp button was the only saturated
+    // paint on the page, and one snapshot read it as the brand's green.
+    const plain = makeSnapshot();
+    const mono = makeSnapshot({
+      controls: plain.controls.map((c) => ({ ...c, background: "rgb(21, 23, 26)" })),
+      colours: { backgrounds: [{ value: "rgb(255, 255, 255)", area: 2_400_000, chars: 0 }, { value: "rgb(37, 211, 102)", area: 2304, chars: 0 }], text: [{ value: "rgb(21, 23, 26)", area: 0, chars: 5000 }] },
+    });
+    expect(fingerprint(mono).accent).toBeNull();
+    const panel = makeSnapshot({ ...mono, colours: { ...mono.colours, backgrounds: [...mono.colours.backgrounds, { value: "rgb(31, 90, 60)", area: 180_000, chars: 0 }] } });
+    expect(fingerprint(panel).accent?.h).toBeGreaterThan(140);
+  });
+
   const plain = makeSnapshot();
   const violet = makeSnapshot({
     controls: plain.controls.map((c) => ({ ...c, background: "rgb(79, 70, 229)", radiusPx: 9999 })),
