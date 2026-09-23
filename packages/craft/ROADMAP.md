@@ -17,7 +17,7 @@ Update this file in the same PR that moves a phase.
 | E | Estate register, `craft estate add\|compare` | Merged: dd-packages #22. |
 | F | Character report, `craft retrofit`, the character skill, trawl and drift-guards switches | Merged: dd-packages #23, drift-guards #4, trawl #6, claude-kit #8. |
 | G | Retrofits, one session per site | Ready to start. Each site's checklist is in `calibration/report/`. |
-| H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, eight research tells (including `chatbot-residue` and `placeholder`), the `craft copy compare` preservation gate, the copy-check skill rebuilt | Standard, gate, density tier and first four research tells merged: dd-packages #24, claude-kit #10. Residue, placeholders and `craft copy compare` in review. Runs alongside G and does not block it. |
+| H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, eight research tells, the `craft copy compare` preservation gate, the copy-check skill rebuilt, and `@domandigital/sanity-copy` for the Studio | Merged: dd-packages #24 and #26, claude-kit #10 and #11. `sanity-copy` in review; installing it in the DD Studio waits on its first npm release. Runs alongside G and does not block it. |
 
 ## Rules that hold for every phase
 
@@ -59,6 +59,16 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   and craft stays zero-dependency.
 
 ## Baselines to read before anything blocks
+
+- DD live Sanity content, 2026-09-23: `sanity-copy` over all 137 published
+  documents of project `6xogwbpo`. Two house-rule findings (a "No proof" card
+  title on the homepage; "disciplined, not complicated" in an article) and 154
+  worth a look. **Ten `chatbot-residue` findings in one live article**,
+  `website-builder-vs-freelancer-vs-agency`: ChatGPT citation tokens pasted in
+  whole, rendering on domandigital.co.uk. The first live proof for that tell.
+  The run also tuned four tells (catalogue `2026.09.6`): 7 of 7 placeholder
+  hits were templates in quotes, and 57 of 68 label-list hits were definition
+  lists, all now passing.
 
 Recorded with dates in `CHARACTER.md` under Calibration once run.
 
