@@ -66,6 +66,8 @@ export interface Finding {
   excerpt: string;
   message: string;
   fix: string;
+  /** The house copy tier (`house.ts`), on copy findings only. */
+  house?: "block" | "review" | "explicit";
 }
 
 /** A class list as it applies to one element, with where it starts. */
