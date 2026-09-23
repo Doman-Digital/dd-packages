@@ -93,6 +93,20 @@ person reading decides which instance earns its place.
 | `closing-summary` | "Overall,", "In conclusion,", "In short," opening a paragraph that restates what came before |
 | `false-range` | "from first-time buyers to seasoned investors alike", "everyone from students to retirees" |
 | `vague-word` | innovative, scalable, end-to-end, streamline, solutions. Reported only when a file is named outright |
+| `question-reveal` | "The result? Twice the bookings.", "What does this mean for you? It means...": a staged reveal |
+| `inline-label-list` | three or more bullets in a row opening "**Label:**", where the label repeats the line |
+| `placeholder` | "[Insert client name]", lorem ipsum, `TODO_PLACEHOLDER`. Fine in a draft commit; **zero in anything delivered** |
+| `chatbot-residue` | "Certainly! Here's a revised version", "as an AI language model", "let me know if you'd like me to", chat citation tokens, links tracked `utm_source=chatgpt.com`. **Zero in anything delivered**, and the first candidate for the blocking tier |
+
+### Style is not evidence
+
+Most tells here are house style: they make copy generic, whoever wrote it. The
+research is clear that an em dash, a rule of three or a rhetorical question
+proves nothing about authorship, and em dash rates even run in opposite
+directions between models. Only `chatbot-residue` is evidence that a chat reply
+was pasted. Report findings as an editorial diagnosis ("three benefit claims
+lack a mechanism; two stock phrases recur"), never as a score or an
+accusation.
 
 Two more review patterns no regex can separate from honest English, so they
 are for the read-through only:
@@ -237,6 +251,21 @@ For genuine exceptions only, and the reason matters more than the mechanism:
 
 Reaching for these more than occasionally means a rule is miscalibrated. Fix
 it here and in craft, not in forty repos.
+
+## Rewriting without losing facts
+
+A rewrite that removes every tell and drops the price is worse than the
+draft. Before handing over any rewrite, compare it with the original:
+
+```bash
+craft copy compare original.md rewrite.md
+```
+
+It lists every protected fact (prices, numbers, dates, times, phone numbers,
+emails, links, postcodes, names) the rewrite **lost**, and every one it
+**added**. Exit 1 if either list is not empty. Restore a lost fact or say why
+it went; source an added fact or remove it, because an unsourced number is an
+invented one.
 
 ## Changing a rule
 

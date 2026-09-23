@@ -109,6 +109,22 @@ describe("craft copy", () => {
   });
 });
 
+describe("craft copy compare", () => {
+  it("exits 1 on a lost or invented fact and 0 when every fact is kept", () => {
+    write("before.md", "Rewires from £1,250 since 2009. Call 01280 700123.");
+    write("kept.md", "Since 2009, rewires from £1,250. Ring 01280 700 123.");
+    write("lost.md", "Rewires at a fair price. Ring us, rated 4.9.");
+    expect(run(["copy", "compare", "before.md", "kept.md"], io())).toBe(0);
+    out = [];
+    expect(run(["copy", "compare", "before.md", "lost.md"], io())).toBe(1);
+    expect(out.join("\n")).toMatch(/Lost \(3\)[\s\S]*£1,250[\s\S]*Added \(1\)[\s\S]*4\.9/);
+  });
+
+  it("needs exactly two paths", () => {
+    expect(run(["copy", "compare", "a.md"], io())).toBe(2);
+  });
+});
+
 describe("craft tells list", () => {
   it("lists the catalogue", () => {
     expect(run(["tells", "list", "--json"], io())).toBe(0);

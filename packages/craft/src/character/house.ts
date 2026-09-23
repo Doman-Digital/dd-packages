@@ -57,6 +57,12 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "vague-attribution": { tier: "review", label: "unnamed source" },
   "closing-summary": { tier: "review", label: "closing summary" },
   "false-range": { tier: "review", label: "false range" },
+  // The first candidate for block: evidence of a pasted chat reply, not a
+  // matter of style. Blocks once its estate hits have been read (ROADMAP.md).
+  "chatbot-residue": { tier: "review", label: "chatbot residue" },
+  "placeholder": { tier: "review", label: "unfilled placeholder" },
+  "question-reveal": { tier: "review", label: "staged reveal" },
+  "inline-label-list": { tier: "review", label: "bold-label bullets" },
   "phrase-density": { tier: "review", label: "density" },
   "aphorism-density": { tier: "review", label: "density" },
   "contraction-scarcity": { tier: "review", label: "density" },
