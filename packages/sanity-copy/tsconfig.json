@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Typecheck against craft's source, so a fresh checkout does not need
+    // craft built first (CI typechecks before it builds). The published
+    // build still imports @domandigital/craft as a normal dependency.
+    "paths": { "@domandigital/craft": ["../craft/src/index.ts"] }
+  },
+  "include": ["src"]
+}
