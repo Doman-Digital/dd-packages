@@ -20,6 +20,11 @@ function fingerprintFrom(path: string | undefined, cwd: string): Fingerprint | u
 function estateFrom(dir: string | undefined, cwd: string): { id: string; fingerprint: Fingerprint }[] {
   if (!dir) return [];
   const root = resolve(cwd, dir);
+  // The estate register, or a folder of snapshots.
+  if (root.endsWith(".json")) {
+    const register = readJson<{ sites?: { id: string; fingerprint: Fingerprint }[] }>(root);
+    return (register.sites ?? []).map((s) => ({ id: s.id, fingerprint: s.fingerprint }));
+  }
   return readdirSync(root)
     .filter((f) => f.endsWith(".json"))
     .flatMap((f) => {
