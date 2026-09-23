@@ -1,5 +1,30 @@
 # @domandigital/craft
 
+## 0.7.0
+
+### Minor Changes
+
+- dbdef56: Signal 2, the counterfactual. `craft null build --brief "..." --out <dir>` asks `claude -p` for about 20 home pages from the brief alone, renders and fingerprints each, and writes `null.json`. `craft audit <url> --null <dir>` scores how typical a page is against them: the share of the model's own pages that sit further out than this one, typical at 0.10 or above, with the choices it shares with most of them. `craft tells harvest <dir>` lists what recurs across null pages and which tell already catches it, so the next generation of tells comes from what the model builds now. `snapshotUrls` in `@domandigital/craft/audit` snapshots several pages through one browser. The rendered reveal check now also reads the text blocks inside a section, so reveals on cards two levels down are no longer read as a still page.
+- f765c69: Signal 3, the estate. `craft estate add <url | snapshot.json> --id <id>` fingerprints a shipped site into `estate.json`; `craft estate compare` lists every pair, or one site against the rest, closest first, and marks siblings: two sites closer together than two pages Claude builds for one brief (0.31, or measured again from `--null`). What a pair shares is named in plain words ("Fraunces headline", "no accent"). `--strict` exits 1 on a sibling. `craft direction propose --estate estate.json` reads the register. The fingerprint no longer takes a small painted patch, such as a floating chat button, for the accent: a painted colour needs a panel's worth of area.
+- f3c3dc0: The character report. `craft report <url | snapshot.json>` reads a site against all three signals and the reason rule (`--repo`, `--null`, `--estate`, `--direction`) and gives a verdict: default, mixed, decided, or unproven when something was not measured. The actions come in retrofit order, one per choice, with every reason that points at it. `craft retrofit` writes them as a Markdown checklist that names the art-direction choice settling each change, shows the decided value, and ends with what to leave alone. `characterReport` and `retrofitPlan` are exported. System font keywords such as `ui-monospace` no longer read as CSS variable names.
+
+### Patch Changes
+
+- 235b558: Export the copy catalogue's word and phrase lists as portable JSON
+  (`wordListsJson()`, checked in at `word-lists.json`), so a non-TypeScript
+  consumer can source from them instead of duplicating them by hand.
+
+  `claude-kit`'s `copy_check.py` hardcoded its own copies of these same lists
+  and had drifted from this package (documented in claude-kit's
+  `house-style/copy-rules.md`, "Note the enforcement gap"). `word-lists.json` is
+  the file that ends the drift: `install/sync-copy-wordlists.sh` on that side
+  copies it in verbatim, the same shape `sync-craft-standard.sh` already uses
+  for `STANDARD.md`.
+
+  No tell's detection or severity changed. Regenerate the checked-in file with
+  `pnpm --filter @domandigital/craft run docs` after editing any list in
+  `tells/copy.ts`.
+
 ## 0.6.0
 
 ### Minor Changes
