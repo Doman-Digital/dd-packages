@@ -594,6 +594,20 @@ const VAGUE_ATTRIBUTION = [
   /\bit\s+is\s+(?:widely|generally|commonly)\s+(?:known|accepted|believed|agreed)\b/i,
 ];
 
+/**
+ * A claim that names its source is not vague: "BrightLocal's research shows",
+ * "ONS figures show", or a sentence that ends in a footnote or a link. Found
+ * on the DD site's own guides, 2026-09-23, where footnoted claims were flagged.
+ */
+function sourced(block: CopyBlock, _match: string, index: number): boolean {
+  const before = block.text.slice(Math.max(0, index - 40), index);
+  if (/(?:\b[A-Z][\w&]*[’']s|\b[A-Z]{2,}[a-z]*)\s+$/.test(before)) return true;
+  const rest = block.text.slice(index, index + 400);
+  const end = rest.search(/[.!?](?:\s|$)/);
+  const sentence = rest.slice(0, end === -1 ? rest.length : end + 16);
+  return /\[\^\w+\]|\]\(https?:|\(source|according to [A-Z]|\bper [A-Z]/.test(sentence);
+}
+
 /** A paragraph that opens by announcing it is summing up. */
 const CLOSING_SUMMARY = /(?:^|[.!?]\s+|\n\s*|>\s*)(?:Overall|In conclusion|In summary|To sum up|All in all|In short|To summari[sz]e),/;
 
@@ -622,7 +636,10 @@ const RESIDUE = [
   /\b(?:my|the) (?:knowledge|training) cut-?off\b|\bas of my last (?:update|training)\b/i,
   /\bI hope this helps\b/i,
   // Citation tokens a chat tool leaves in copied text.
-  /\b(?:cite)?turn\d+(?:search|news|view|fetch|file)\d+\b/,
+  // A run of them is one paste: "citeturn11search1turn10view0" is one finding.
+  // ChatGPT wraps them in invisible private-use characters (U+E200 to U+E202),
+  // which survive a copy and paste into a CMS: found live, 2026-09-23.
+  /[\uE200-\uE2FF]*(?:cite)?[\uE200-\uE2FF]*(?:turn\d+(?:search|news|view|fetch|file|image)\d+[\uE200-\uE2FF]*)+/,
   /:?contentReference\[oaicite:\d+\](?:\{index=\d+\})?/,
   /【\d+(?:[:†][^】]{0,40})?】/,
 ];
@@ -652,8 +669,22 @@ const PLACEHOLDER = [
  */
 const PLACEHOLDER_ELEMENT = />\s*(\[(?:insert|your|add|company|client|business|customer|name of|placeholder)\b[^\]\n<]{0,40}\])\s*</gi;
 
+/**
+ * Inside quotation marks a placeholder is a template being taught, not a gap:
+ * a guide telling the reader to search "plumber [your town]" or to send
+ * "Thanks, [Your name]". Counted on the line: an odd number of quote marks
+ * before the match means it sits inside a quotation.
+ */
+function insideQuotes(block: CopyBlock, _match: string, index: number): boolean {
+  const lineStart = block.text.lastIndexOf("\n", index - 1) + 1;
+  const before = block.text.slice(lineStart, index);
+  const straight = (before.match(/"/g) ?? []).length;
+  const curly = (before.match(/“/g) ?? []).length - (before.match(/”/g) ?? []).length;
+  return straight % 2 === 1 || curly > 0;
+}
+
 function placeholderHits(ctx: CopyContext): Hit[] {
-  const hits = phrases(PLACEHOLDER, quoted, allText)(ctx);
+  const hits = phrases(PLACEHOLDER, quoted, allText, insideQuotes)(ctx);
   const seen = new Set(hits.map((h) => `${h.path}:${h.offset}`));
   for (const file of ctx.files) {
     if (isProsePath(file.path)) continue;
@@ -684,7 +715,10 @@ function inlineLabelHits(ctx: CopyContext): Hit[] {
       run = [];
     };
     for (const line of lines) {
-      if (/^\s*(?:[-*+]|\d+\.)\s+\*\*[^*]{1,40}:?\*\*:?\s+\S/.test(line)) run.push(offset);
+      // A short restatement after the label is the tell. A definition list,
+      // "**CQC**: the regulator of health and social care in England", is not.
+      const m = /^\s*(?:[-*+]|\d+\.)\s+\*\*[^*]{1,40}:?\*\*:?\s+(\S.*)$/.exec(line);
+      if (m && m[1].trim().split(/\s+/).length <= 6) run.push(offset);
       else flush();
       offset += line.length + 1;
     }
@@ -709,6 +743,8 @@ export const RESEARCH_TELLS: CopyTell[] = [
         f("content/home.md", "As an AI language model, I cannot visit your salon."),
         f("content/home.md", "Let me know if you'd like me to shorten it."),
         f("content/home.md", "Prices start at £40 citeturn0search3 for a full set."),
+        f("content/home.md", "Prices start at £40. citeturn11search1turn10view0turn2view3"),
+        f("content/home.md", "Prices start at £40. \uE200cite\uE202turn11search1\uE202turn10view0\uE201"),
         f("content/home.md", "Prices start at £40 :contentReference[oaicite:2]{index=2} for a full set."),
         f("content/home.md", "Prices start at £40【4†source】 for a full set."),
         f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=chatgpt.com">Read the guide</a>;`),
@@ -739,6 +775,8 @@ export const RESEARCH_TELLS: CopyTell[] = [
       ],
       pass: [
         f("content/home.md", "Manage bookings in [your account](/account)."),
+        f("content/guide.md", 'After 90 days, check your ranking for "[your trade] [your town]" on Google.'),
+        f("content/guide.md", "Send a short message: “Thanks for choosing [Business Name]! Leave us a review.”"),
         f("content/home.md", "Rated 4.9 from 212 Google reviews."),
       ],
     },
@@ -763,7 +801,7 @@ export const RESEARCH_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "'**Speed:** Faster pages' three times in a row: a label that repeats what the line says, in the list shape generated copy defaults to.",
+    why: "'**Speed:** Faster pages' three times in a row: a short label restated in a few words, the list shape generated copy defaults to. A definition list, with a real explanation after each label, is not this.",
     fix: "Drop the labels and write each bullet as the fact: 'Pages load in under a second'. Keep labels only where they help a reader navigate, as in a specification.",
     detect: inlineLabelHits,
     fixtures: {
@@ -771,6 +809,7 @@ export const RESEARCH_TELLS: CopyTell[] = [
       pass: [
         f("content/home.md", "- Pages load in under a second\n- Card details never touch our server\n- Support by phone until 8pm\n"),
         f("content/home.md", "- **Speed:** Faster pages\n- **Security:** Safer data\n"),
+        f("content/guide.md", "- **GDC**: The statutory regulator for all dental professionals.\n- **GCC**: The statutory regulator for chiropractors in the UK.\n- **CQC**: The independent regulator of health and social care in England.\n"),
       ],
     },
   },
@@ -802,7 +841,7 @@ export const RESEARCH_TELLS: CopyTell[] = [
     surface: "copy",
     why: "'Studies show', 'experts agree', 'it is widely known': a claim credited to nobody. A reader cannot check it, and the house proof rule forbids a claim nobody can check.",
     fix: "Name the source and the number ('A 2023 Which? survey of 2,000 drivers found...') or cut the claim.",
-    detect: phrases(VAGUE_ATTRIBUTION, quoted),
+    detect: phrases(VAGUE_ATTRIBUTION, quoted, (ctx) => ctx.blocks, sourced),
     fixtures: {
       flag: [
         f("content/home.md", "Studies show that regular servicing saves money."),
@@ -811,6 +850,8 @@ export const RESEARCH_TELLS: CopyTell[] = [
       ],
       pass: [
         f("content/home.md", "A 2023 Which? survey of 2,000 owners found serviced boilers failed half as often."),
+        f("content/home.md", "BrightLocal's research shows that reviews drive 20% of local ranking."),
+        f("content/home.md", "Research shows 62% of consumers avoid a business with wrong hours.[^7]"),
         f("content/home.md", "Our customers rate us 4.9 from 212 Google reviews."),
       ],
     },
