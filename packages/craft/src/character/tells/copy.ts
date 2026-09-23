@@ -65,7 +65,13 @@ function phrases(
   };
 }
 
-const escape = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/'/g, "['’]?");
+/**
+ * A phrase as a pattern: either apostrophe, and any run of whitespace between
+ * words, because a formatter wraps JSX text at the print width and a phrase
+ * split across two lines is still the phrase.
+ */
+const escape = (s: string): string =>
+  s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/'/g, "['’]?").replace(/ /g, "\\s+");
 const wordList = (words: readonly string[]): RegExp => new RegExp(`\\b(?:${[...words].sort((a, b) => b.length - a.length).map(escape).join("|")})\\b`, "i");
 const quoted = (m: string): string => `"${m}"`;
 
@@ -156,15 +162,15 @@ export const REVIEW_PHRASES = [
 const NEGATION: RegExp[] = [
   // "It's not just a haircut, it's an experience."
   /\b(?:it['’]?s|it is|this is|this isn['’]t|we['’]re|we are|they['’]re)\s+(?:not|more than)\s+(?:just|only|merely|simply)?\s*[^.!?\n]{1,60}?[,;.—-]\s*(?:it['’]?s|it is|this is|we['’]re|we are|they['’]re)\b/i,
-  /\bmore than just\b/i,
+  /\bmore\s+than\s+just\b/i,
   // copular: "It's not a website, it's a growth engine"
   /\b(?:it|that|this|you|we|they|she|he)(?:’s|'s|’re|'re)\s+not\s+[^.;:]{2,50}[,:]\s*(?:it|that|this|you|we|they|she|he)(?:’s|'s|’re|'re)/i,
   // verbal: "I don't teach the treatment you'd choose: I teach the standard"
   /\b(i|we|you|they|she|he)\s+(?:do|does|did|would|will|ca|wo)(?:n’t|n't)\s+(\w+)\b[^.;:]{2,60}[,:]\s*(?:i|we|you|they|she|he)\s+\2\b/i,
-  /\bnot just\b|\bnot merely\b|\bnot simply\b/i,
+  /\bnot\s+(?:just|merely|simply)\b/i,
   // "X isn't a job, it's art"
   /\b(?:is|are|was|were)(?:n’t|n't)\b[^.;]{2,60},\s*(?:it|they|that|this)(?:’s|'s|’re|'re)\b/i,
-  /\bless about\b[^.;]{2,50}\bmore about\b/i,
+  /\bless\s+about\b[^.;]{2,50}\bmore\s+about\b/i,
   // parallel participle, no repeated subject: "dispatched from here, not shipped in from Seoul"
   /\b\w{3,}ed\b[^,.;:]{0,40},\s*not\s+\w{3,}ed\b/i,
 ];

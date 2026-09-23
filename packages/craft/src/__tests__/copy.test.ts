@@ -111,6 +111,12 @@ describe("checking copy", () => {
     expect(tells).toEqual(["em-dash", "emoji", "no-x-badge"]);
   });
 
+  it("catches a template a formatter has wrapped across two lines", () => {
+    const tsx = ["<p className=\"mt-4\">", "  A prioritised fix plan for the whole site, not", "  just three headlines. Look no", "  further.", "</p>"].join("\n");
+    const tells = checkCopy([{ path: "app/x.tsx", text: tsx }]).findings.map((x) => [x.tell, x.line]);
+    expect(tells).toEqual([["not-just-but", 2], ["ai-phrase", 3]]);
+  });
+
   it("passes plain, specific copy", () => {
     const md = "Gel nails that last three weeks. Book online, or ring 01280 000000. Open Tuesday to Saturday, 9 till 5.";
     expect(checkCopy([{ path: "home.md", text: md }]).findings).toEqual([]);
