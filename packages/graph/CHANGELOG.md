@@ -16,6 +16,24 @@ describe what shipped rather than what was recorded at the time.
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-08-18
+
+### Added
+
+- `ProductInput.offers.availabilityStarts` — an ISO 8601 date or datetime,
+  emitted verbatim onto the `Offer` node when set and omitted entirely when
+  not. It pairs with a `PreOrder` availability to state *when* a pre-order
+  becomes a sale, which search consumers use to schedule a listing rather
+  than treating "available to pre-order" as an open-ended state.
+
+  The value is passed through without parsing. Round-tripping it through a
+  `Date` would resolve a launch authored as a local wall-clock time against
+  the build machine's timezone, which is exactly the class of bug that makes
+  a launch appear an hour early. The consumer owns the timezone decision.
+
+  `availabilityEnds` is deliberately not added. No consumer needs it yet, and
+  the pair reads as speculative surface until one does.
+
 ## [0.5.2] - 2026-08-16
 
 ### Added
@@ -229,7 +247,8 @@ describe what shipped rather than what was recorded at the time.
   `findGraphIssues` to catch unresolved `@id` references and duplicate `@id`s
   before they ship.
 
-[Unreleased]: https://github.com/Doman-Digital/dd-graph/compare/v0.5.2...HEAD
+[Unreleased]: https://github.com/Doman-Digital/dd-packages/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/Doman-Digital/dd-packages/compare/v0.5.2...v0.6.0
 [0.5.2]: https://github.com/Doman-Digital/dd-graph/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/Doman-Digital/dd-graph/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/Doman-Digital/dd-graph/compare/v0.4.4...v0.5.0
