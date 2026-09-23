@@ -8,8 +8,12 @@ process.stdout.on("error", (error: NodeJS.ErrnoException) => {
   throw error;
 });
 
-process.exitCode = run(process.argv.slice(2), {
-  cwd: process.cwd(),
-  out: (text) => process.stdout.write(`${text}\n`),
-  err: (text) => process.stderr.write(`${text}\n`),
+void Promise.resolve(
+  run(process.argv.slice(2), {
+    cwd: process.cwd(),
+    out: (text) => process.stdout.write(`${text}\n`),
+    err: (text) => process.stderr.write(`${text}\n`),
+  }),
+).then((code) => {
+  process.exitCode = code;
 });

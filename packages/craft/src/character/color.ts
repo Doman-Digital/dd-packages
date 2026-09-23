@@ -18,7 +18,7 @@ export interface FoundColour {
 }
 
 const COLOUR =
-  /#[0-9a-fA-F]{8}\b|#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3,4}\b|\b(?:rgba?|hsla?|oklch)\([^)]*\)/g;
+  /#[0-9a-fA-F]{8}\b|#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3,4}\b|\b(?:rgba?|hsla?|oklch|oklab)\([^)]*\)|\bcolor\(\s*srgb\b[^)]*\)/g;
 
 function num(token: string, percentOf: number): number {
   const t = token.trim();
@@ -54,6 +54,13 @@ export function parseColour(raw: string): { oklch: Oklch; alpha: number } | null
       return { oklch: hexToOklch(raw), alpha };
     }
     const fn = raw.slice(0, raw.indexOf("(")).toLowerCase();
+    if (fn === "color") {
+      // What a browser returns for color-mix() and wide-gamut sRGB: color(srgb r g b / a).
+      const { channels, alpha } = parts(raw.replace(/^color\(\s*srgb\s+/i, "srgb("));
+      const [r, g, b] = channels.map((c) => clamp01(num(c, 1)));
+      if (![r, g, b].every(Number.isFinite)) return null;
+      return { oklch: hexToOklch(formatHex({ r, g, b })), alpha };
+    }
     const { channels, alpha } = parts(raw);
     if (channels.length < 3 || channels.some((c) => c.startsWith("var"))) return null;
     if (fn === "oklch") {
@@ -62,6 +69,15 @@ export function parseColour(raw: string): { oklch: Oklch; alpha: number } | null
       const h = parseFloat(channels[2]);
       if (![l, c].every(Number.isFinite)) return null;
       return { oklch: { l, c, h: Number.isFinite(h) ? h : 0 }, alpha };
+    }
+    if (fn === "oklab") {
+      const l = num(channels[0], 1);
+      const a = num(channels[1], 0.4);
+      const b = num(channels[2], 0.4);
+      if (![l, a, b].every(Number.isFinite)) return null;
+      const c = Math.sqrt(a * a + b * b);
+      const h = c < 1e-7 ? 0 : (((Math.atan2(b, a) * 180) / Math.PI) % 360 + 360) % 360;
+      return { oklch: { l, c, h }, alpha };
     }
     if (fn === "rgb" || fn === "rgba") {
       const [r, g, b] = channels.map((c) => clamp01(num(c, 255) / 255));

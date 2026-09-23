@@ -1,3 +1,5 @@
+import type { Snapshot } from "../snapshot/types.js";
+
 /**
  * The shapes shared by the tell catalogue, the source scanner and the copy
  * engine.
@@ -22,7 +24,7 @@
  */
 export type Generation = 1 | 2 | 3;
 
-/** Where a tell is detected. `rendered` arrives with the snapshot in phase B. */
+/** Where a tell is detected first. A source tell may also carry a rendered path. */
 export type Surface = "source" | "copy";
 
 /**
@@ -59,7 +61,7 @@ export interface Finding {
   generation: Generation;
   severity: Severity;
   path: string;
-  /** 1-indexed. */
+  /** 1-indexed. 0 for a finding on a rendered page, where `path` is the URL. */
   line: number;
   excerpt: string;
   message: string;
@@ -128,6 +130,17 @@ interface TellBase {
    * path that breaks cannot hide behind one that still works.
    */
   fixtures: { flag: FixtureCase[]; pass: FixtureCase[] };
+  /** Present when the tell can also be seen on a live page. */
+  rendered?: RenderedPath;
+}
+
+/**
+ * The same tell measured on a rendered page: pure over a Snapshot, with its
+ * own flag and pass snapshots, proved on their own like any other path.
+ */
+export interface RenderedPath {
+  detect(snapshot: Snapshot): Hit[];
+  fixtures: { flag: Snapshot[]; pass: Snapshot[] };
 }
 
 export interface SourceTell extends TellBase {

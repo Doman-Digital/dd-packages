@@ -28,9 +28,9 @@ model defaults move.
 
 | Signal | Question | Status |
 | --- | --- | --- |
-| 1. Known tells | Does it use a choice on the catalogue below? | **Shipped** (source and copy). Rendered checks arrive with the snapshot. |
+| 1. Known tells | Does it use a choice on the catalogue below? | **Shipped**: source, copy, and on the rendered page for 18 tells (`craft audit`). |
 | 2. Counterfactual typicality | Would Claude have built this anyway, for this brief? | Planned. About 20 `claude -p` runs per brief; distance from those answers. |
-| 3. Distance from the estate | Does it look like the agency's other sites? | Planned. The agency's biggest tell is its clients looking like siblings. |
+| 3. Distance from the estate | Does it look like the agency's other sites? | Fingerprint and distance shipped; the estate register is planned. The agency's biggest tell is its clients looking like siblings. |
 
 **The reason rule.** Every expressive choice records a `because`, with evidence
 from the client's real world: the shopfront, the van, the trade's own look, the
@@ -84,6 +84,8 @@ craft scan                 # markup, components and stylesheets under .
 craft scan --staged        # the git index, for a pre-commit hook
 craft copy app content     # the prose a visitor reads
 craft tells list           # the catalogue this build judges against
+craft audit https://example.co.uk --repo .   # the rendered page and its source, one report
+craft snapshot https://example.co.uk --out home.json
 ```
 
 `--json` gives the full report. Exit code is 0 on warnings, 1 on a block (or
@@ -109,6 +111,30 @@ A real person's own words, a review or a testimonial, must never be edited to
 pass. Mark the line, or the line above it, with `copy-ok` or `craft-ok`. Marked
 findings are listed in every report with where they are, never hidden. The
 same markers work for `craft scan`.
+
+## The rendered page
+
+`craft audit` opens the page in Chromium, waits five seconds, and records what
+a visitor gets as a snapshot: the faces that set the text and the headline,
+the colours by painted area, the buttons' shape, the sections in running
+order and which ones wait for a scroll, and the effects (glass, glows,
+marquees, an intro that covers the page at load). The same tells then judge
+it, so a report can say "Inter in source and on the page", or catch the
+violet a CMS sets that no source file names.
+
+It needs Playwright, as an optional peer dependency: `npm i -D playwright`.
+The core import never loads a browser. A saved snapshot can be judged again
+anywhere with `craft audit home.json`. `HTTPS_PROXY` is honoured, and a
+`localhost` or `NO_PROXY` host is reached directly.
+
+Every audit also prints a **fingerprint**: accent and ground in OKLCh, the
+display and body faces, button roundness, reveal density, the effects and the
+running order. `fingerprintDistance` compares two of them, 0 to 1, weighted
+towards accent and type. Signals 2 and 3 are both this distance, measured
+against different sets.
+
+Known limit: a computed font family is the family the stylesheet asked for.
+A face that failed to load is still reported under its name.
 
 ## The house copy rules live here
 
@@ -141,7 +167,7 @@ The targets, recorded here with the date once each has been run:
 - **Human set** (the ten references in claude-kit's `reference-set.md`): zero
   block hits and low typicality. *Not yet run.*
 - **Estate baseline** (all seven client repos and live URLs): every hit read by
-  a person before any rule blocks. *Not yet run.*
+  a person before any rule blocks. **First run 2026-09-23**, below.
 
 A first read of one internal repo (dd-library, 157 source files, 2026-09-22)
 found Inter Tight and Fraunces in the base template, 21 scroll reveals and 31
@@ -149,37 +175,96 @@ pills, and one false positive: Tailwind's `amber-50`, the stock warning-notice
 fill, read as a cream page ground. That rule now matches named cream tokens and
 measured colour only.
 
+### Estate baseline, 2026-09-23
+
+`craft scan` over each repo and `craft audit` on each live home page at
+1440 x 900. Snapshots and the table are in `calibration/estate/2026-09-23/`.
+Cells read *source findings / R if seen on the rendered page*. Nothing here
+blocks; it is for a person to read.
+
+| Tell | DD | MMM | Sensphere | Harrison James | HJ Beauty | Chair and Blade | RMP |
+|---|---|---|---|---|---|---|---|
+| `reflex-font` | 15 / · | 2 / · | 3 / R | 2 / R | 2 / · | 1 / · |  |
+| `reflex-font-2` | 7 / R | 34 / R | 2 / · | 1 / R | 3 / R | 4 / R | 12 / R |
+| `ai-violet` | 36 / · | 9 / · | 18 / R |  |  |  |  |
+| `gradient-text` |  | 2 / · |  |  |  |  |  |
+| `glass-panel` | 9 / · | 45 / · | 13 / · |  | 1 / · |  |  |
+| `hero-then-proof` | 9 / · | 1 / R | · / R |  | 1 / · | 1 / · | 2 / R |
+| `icon-tile-grid` | 1 / R | 9 / · | · / R |  | · / R |  | 1 / R |
+| `reveal-everywhere` | 1 / · | 1 / · |  |  |  |  |  |
+| `pill-everything` | 1 / R | 1 / · | 1 / · |  |  |  | 1 / R |
+| `shadcn-dump` |  | 1 / · |  |  |  |  |  |
+| `cream-palette` |  | 3 / · |  |  |  |  | 18 / R |
+| `italic-serif-display` |  | 4 / · |  |  |  | 8 / · | 1 / R |
+| `hero-eyebrow-chip` | 1 / · | 1 / · |  |  |  |  | · / R |
+| `icon-tile-stack` | 1 / · | 93 / · | 4 / · |  |  |  | 18 / · |
+| `radial-spotlight-glow` | 6 / R | 14 / R | 5 / R |  |  |  |  |
+| `grid-background` |  | 2 / · |  |  |  |  |  |
+| `marquee` | 1 / · |  |  |  | 3 / R | · / R |  |
+| `thin-border-wide-shadow` |  | 2 / · | 4 / R |  |  |  |  |
+| `intro-cinematic` |  | · / R |  |  |  | 2 / · |  |
+
+What it shows:
+
+- **The three survey findings reproduce where they can.** Sensphere's violet
+  is found in source (18) and on its buttons; MMM's intro, glows and glass are
+  in source and its intro and glows on the page; MMM reveals 60% of the
+  sections below its fold on scroll, three of five, one short of the rendered
+  threshold, and its source is over the reveal limit. Rise & Bloom's glass
+  hero and icon grid could not be checked: that repo is not attached to this
+  session.
+- **Every site ships a reflex face.** Twelve of fourteen site-face pairs are
+  on one of the two lists. Fraunces sets the headline on DD, HJ Beauty and RMP.
+- **DD and RMP are the closest pair** (fingerprint distance 0.46: Fraunces
+  headlines, pill buttons, a green accent). Chair and Blade is furthest from
+  everything (0.59 to 0.77). This is signal 3's first measurement.
+- **DD's violet is its brand.** Its 36 source hits wait for the exception in
+  its `art-direction.json`.
+
+False positives found and fixed in this run:
+
+- `glass-panel` on the page fired on five of seven sites. Every one was a
+  sticky or fixed nav bar with a blurred background, which is ordinary chrome.
+  The rendered path now ignores anything in a `header` or `nav`, fixed or
+  sticky, and anything smaller than a panel.
+- `next/font` and CSS-variable family names (`__Inter_d65c78`,
+  `cormorantGaramond`) are now read back to the face's name, or every Next.js
+  site would have passed the font tells.
+
+Not yet read by a person: the source counts for `icon-tile-stack` (MMM 93)
+and `glass-panel` (MMM 45) look high and are the first to check.
+
 ## The catalogue
 
 Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.2`, 39 tells.
+Catalogue version `2026.09.3`, 39 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
-| `reflex-font` | 1 | source | warn | Reflex font | Inter, Roboto, Poppins and friends are what a model sets when nothing in the brief names a face. Every site in the estate ships one. |
-| `reflex-font-2` | 2 | source | warn | Second-wave reflex font | Ban Inter and a model reaches for Inter Tight, DM Sans, Manrope, Space Grotesk or an Instrument/Fraunces serif. A swap inside the reflex list is not a decision. |
-| `ai-violet` | 1 | source | warn | Indigo-violet accent | Tailwind's indigo and violet are the accent a model picks for any brand it knows nothing about. Hue is read in OKLCh, so a hex violet is caught as well as a class name. |
-| `blue-purple-gradient` | 1 | source | warn | Blue-to-purple gradient | The first-wave hero background. It says 'software product' on a plumber's site. |
-| `gradient-text` | 1 | source | warn | Gradient-filled heading | Gradient text is the model's way of making a heading look designed without deciding what it should look like. |
-| `glass-panel` | 1 | source | warn | Glass panel | A translucent blurred card over a busy background is the stock way to put text on a hero image. It costs contrast and says nothing about the client. |
-| `hero-then-proof` | 1 | source | warn | Hero straight into a trust strip | Six of seven estate sites go hero, then logos or stats. It is the landing-page template's order, not the client's story. |
-| `icon-tile-grid` | 1 | source | warn | Three-column icon-card grid | Three cards, each an icon, a heading and two lines, is what a model builds for any list of services. |
-| `reveal-everywhere` | 1 | source | warn | Reveal on every section | When every block fades up on scroll, the motion stops meaning anything and the page feels slow. MMM had 70, DD 40, sen-sphere 27. |
-| `pill-everything` | 1 | source | warn | Pills everywhere | rounded-full on every button, badge and tag is the framework's friendliest default. MMM had 162, DD 125. A shape used everywhere is not a shape language. |
+| `reflex-font` | 1 | source + rendered | warn | Reflex font | Inter, Roboto, Poppins and friends are what a model sets when nothing in the brief names a face. Every site in the estate ships one. |
+| `reflex-font-2` | 2 | source + rendered | warn | Second-wave reflex font | Ban Inter and a model reaches for Inter Tight, DM Sans, Manrope, Space Grotesk or an Instrument/Fraunces serif. A swap inside the reflex list is not a decision. |
+| `ai-violet` | 1 | source + rendered | warn | Indigo-violet accent | Tailwind's indigo and violet are the accent a model picks for any brand it knows nothing about. Hue is read in OKLCh, so a hex violet is caught as well as a class name. |
+| `blue-purple-gradient` | 1 | source + rendered | warn | Blue-to-purple gradient | The first-wave hero background. It says 'software product' on a plumber's site. |
+| `gradient-text` | 1 | source + rendered | warn | Gradient-filled heading | Gradient text is the model's way of making a heading look designed without deciding what it should look like. |
+| `glass-panel` | 1 | source + rendered | warn | Glass panel | A translucent blurred card over a busy background is the stock way to put text on a hero image. It costs contrast and says nothing about the client. |
+| `hero-then-proof` | 1 | source + rendered | warn | Hero straight into a trust strip | Six of seven estate sites go hero, then logos or stats. It is the landing-page template's order, not the client's story. |
+| `icon-tile-grid` | 1 | source + rendered | warn | Three-column icon-card grid | Three cards, each an icon, a heading and two lines, is what a model builds for any list of services. |
+| `reveal-everywhere` | 1 | source + rendered | warn | Reveal on every section | When every block fades up on scroll, the motion stops meaning anything and the page feels slow. MMM had 70, DD 40, sen-sphere 27. |
+| `pill-everything` | 1 | source + rendered | warn | Pills everywhere | rounded-full on every button, badge and tag is the framework's friendliest default. MMM had 162, DD 125. A shape used everywhere is not a shape language. |
 | `shadcn-dump` | 1 | source | warn | Stock component dump | A generator exports the whole shadcn/ui kit whether the site uses it or not. Rise & Bloom ships a full set under its own book, vine and petal assets. |
-| `cream-palette` | 2 | source | warn | Cream ground | Once white-and-violet was named, models moved to a warm off-white: parchment, linen, oat. It reads as 'tasteful' in the same way everywhere. |
-| `italic-serif-display` | 2 | source | warn | Italic serif display | A serif heading with one italic word ('Beauty, reimagined') is the second wave's signature move. |
-| `hero-eyebrow-chip` | 2 | source | warn | Eyebrow chip above the hero | A small bordered pill ('New · Now booking') above the headline is in almost every generated hero. |
+| `cream-palette` | 2 | source + rendered | warn | Cream ground | Once white-and-violet was named, models moved to a warm off-white: parchment, linen, oat. It reads as 'tasteful' in the same way everywhere. |
+| `italic-serif-display` | 2 | source + rendered | warn | Italic serif display | A serif heading with one italic word ('Beauty, reimagined') is the second wave's signature move. |
+| `hero-eyebrow-chip` | 2 | source + rendered | warn | Eyebrow chip above the hero | A small bordered pill ('New · Now booking') above the headline is in almost every generated hero. |
 | `icon-tile-stack` | 2 | source | warn | Icon in a tinted tile | A library icon in a soft rounded square, stacked above a heading, is the stock card header. |
 | `bento-grid` | 2 | source | warn | Bento grid | Mixed-size tiles in a grid became the default 'features' layout of the second wave. |
-| `radial-spotlight-glow` | 2 | source | warn | Radial glow | A soft blurred blob or radial spotlight behind the hero is atmosphere without a subject. |
-| `grid-background` | 2 | source | warn | Graph-paper background | A faint 1px line or dot grid behind the hero is the developer-tool look, borrowed by everyone. |
-| `marquee` | 2 | source | warn | Scrolling marquee | An endless strip of logos or words is the second wave's trust strip. It moves so it looks alive. |
-| `thin-border-wide-shadow` | 2 | source | warn | Hairline border, wide shadow | A near-invisible border under a large soft shadow is the stock 'elevated card'. |
-| `intro-cinematic` | 2 | source | warn | Intro cinematic | A logo animation that runs before the page is something a model adds to make a site feel premium. Three estate sites open with one. It delays the page for every visitor. |
+| `radial-spotlight-glow` | 2 | source + rendered | warn | Radial glow | A soft blurred blob or radial spotlight behind the hero is atmosphere without a subject. |
+| `grid-background` | 2 | source + rendered | warn | Graph-paper background | A faint 1px line or dot grid behind the hero is the developer-tool look, borrowed by everyone. |
+| `marquee` | 2 | source + rendered | warn | Scrolling marquee | An endless strip of logos or words is the second wave's trust strip. It moves so it looks alive. |
+| `thin-border-wide-shadow` | 2 | source + rendered | warn | Hairline border, wide shadow | A near-invisible border under a large soft shadow is the stock 'elevated card'. |
+| `intro-cinematic` | 2 | source + rendered | warn | Intro cinematic | A logo animation that runs before the page is something a model adds to make a site feel premium. Three estate sites open with one. It delays the page for every visitor. |
 | `ai-vocabulary` | 1 | copy | warn | AI vocabulary | Tapestry, elevate, nestled, unparalleled: words that appear in generated copy far more than in anything a business owner writes. |
 | `stock-phrase` | 1 | copy | warn | Stock phrase | Phrases every generated services page uses. They fill space where a fact should be. |
 | `ai-phrase` | 1 | copy | warn | AI phrase | Let's dive in, here's the thing, at its core, seamless, rest assured: the phrase list of the house copy rules. A reader has seen each one in a thousand generated pages. |

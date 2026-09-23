@@ -30,34 +30,47 @@ Usage
   craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>]
   craft copy <paths...> [--json] [--strict] [--direction <file>]
   craft tells list [--json]
+  craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
+  craft audit <url | snapshot.json> [--repo <dir>] [--out <file>] [--json] [--strict]
 
-scan    Markup, component code and stylesheets (source and compiled CSS).
-        --staged reads the git index, for a pre-commit hook.
-copy    The prose in Markdown, markup and content files.
-tells   The catalogue this build judges against.
+scan      Markup, component code and stylesheets (source and compiled CSS).
+          --staged reads the git index, for a pre-commit hook.
+copy      The prose in Markdown, markup and content files.
+tells     The catalogue this build judges against.
+snapshot  Render a page in a browser and save what it looks like, as JSON.
+audit     Judge a rendered page (live, or a saved snapshot) and fingerprint it.
+          --repo also scans that site's source, so one report covers both.
+          snapshot and audit need Playwright: npm i -D playwright.
 
 Exceptions come from art-direction.json in the working directory, or --direction.
 Every tell ships as warn: exit 1 only on a block, or on any finding with --strict.`;
 
-interface Flags {
+export interface Flags {
   positional: string[];
   json: boolean;
   strict: boolean;
   staged: boolean;
   direction?: string;
+  out?: string;
+  repo?: string;
+  width?: string;
+  height?: string;
 }
 
-function parseFlags(args: string[]): Flags | string {
+const VALUE_FLAGS = { "--direction": "direction", "--out": "out", "--repo": "repo", "--width": "width", "--height": "height" } as const;
+
+export function parseFlags(args: string[]): Flags | string {
   const flags: Flags = { positional: [], json: false, strict: false, staged: false };
   for (let i = 0; i < args.length; i += 1) {
     const a = args[i];
     if (a === "--json") flags.json = true;
     else if (a === "--strict") flags.strict = true;
     else if (a === "--staged") flags.staged = true;
-    else if (a === "--direction") {
-      flags.direction = args[i + 1];
+    else if (a in VALUE_FLAGS) {
+      const value = args[i + 1];
       i += 1;
-      if (!flags.direction) return "--direction needs a file";
+      if (!value || value.startsWith("--")) return `${a} needs a value`;
+      flags[VALUE_FLAGS[a as keyof typeof VALUE_FLAGS]] = value;
     } else if (a.startsWith("--")) return `unknown option ${a}`;
     else flags.positional.push(a);
   }
@@ -83,7 +96,7 @@ function walk(root: string, cwd: string, into: SourceFile[], wanted: (name: stri
  * A path named on the command line is always read. Filters apply only to what
  * a directory walk finds, so `craft copy README.md` still checks the README.
  */
-function readPaths(paths: string[], cwd: string, wanted: (name: string) => boolean, skipDir?: (name: string) => boolean): SourceFile[] {
+export function readPaths(paths: string[], cwd: string, wanted: (name: string) => boolean, skipDir?: (name: string) => boolean): SourceFile[] {
   const files: SourceFile[] = [];
   for (const p of paths) {
     const abs = resolve(cwd, p);
@@ -104,7 +117,7 @@ function readStaged(cwd: string, wanted: (path: string) => boolean): SourceFile[
   }));
 }
 
-function loadExceptions(flags: Flags, cwd: string): TellException[] {
+export function loadExceptions(flags: Flags, cwd: string): TellException[] {
   const path = resolve(cwd, flags.direction ?? "art-direction.json");
   if (!existsSync(path)) {
     if (flags.direction) throw new Error(`no such file: ${flags.direction}`);
@@ -114,21 +127,25 @@ function loadExceptions(flags: Flags, cwd: string): TellException[] {
   return Array.isArray(data.exceptions) ? data.exceptions : [];
 }
 
-function finish(report: CheckReport, flags: Flags, title: string, io: Io): number {
+export function finish(report: CheckReport, flags: Flags, title: string, io: Io): number {
   io.out(flags.json ? JSON.stringify(report, null, 2) : formatReport(report, title));
   if (report.summary.blocking > 0) return 1;
   if (flags.strict && report.summary.findings > 0) return 1;
   return 0;
 }
 
-const SOURCE_FILE = (p: string): boolean => ["markup", "script", "css"].includes(fileKind(p)) && !/\.d\.ts$|\.min\.js$/.test(p);
+export const SOURCE_FILE = (p: string): boolean => ["markup", "script", "css"].includes(fileKind(p)) && !/\.d\.ts$|\.min\.js$/.test(p);
 const COPY_FILE = (p: string): boolean =>
   (["markup", "prose", "script"].includes(fileKind(p)) || /\.jsonl?$/i.test(p)) && !NOT_SITE_COPY.test(p.split("/").pop() ?? p) && !/(?:^|\/)(?:package(?:-lock)?|tsconfig[\w.-]*|art-direction)\.json$/.test(p);
 /** Folders prefixed `_` hold notes and drafts by convention. */
 const NOT_COPY_DIR = (name: string): boolean => name.startsWith("_");
 
-export function run(argv: string[], io: Io): number {
+export function run(argv: string[], io: Io): number | Promise<number> {
   const [command, ...rest] = argv;
+  if (command === "snapshot" || command === "audit") {
+    // Loaded only here: the browser half never touches a scan or a copy check.
+    return import("../audit/cli.js").then((m) => m.runAudit(command, rest, io));
+  }
   if (!command || command === "help" || command === "--help" || command === "-h") {
     io.out(HELP);
     return command ? 0 : 2;
