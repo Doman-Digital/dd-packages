@@ -51,6 +51,23 @@ describe("the tell catalogue", () => {
     it("stays quiet on every pass case", () => {
       for (const c of tell.fixtures.pass) expect(runTell(tell, files(c))).toEqual([]);
     });
+
+    if (tell.rendered) {
+      const rendered = tell.rendered;
+      it("fires on every rendered flag snapshot, each on its own", () => {
+        expect(rendered.fixtures.flag.length).toBeGreaterThan(0);
+        for (const s of rendered.fixtures.flag) {
+          const hits = rendered.detect(s);
+          expect(hits.length, JSON.stringify(s).slice(0, 80)).toBeGreaterThan(0);
+          for (const hit of hits) expect(hit.message.length).toBeGreaterThan(0);
+        }
+      });
+
+      it("stays quiet on every rendered pass snapshot", () => {
+        expect(rendered.fixtures.pass.length).toBeGreaterThan(0);
+        for (const s of rendered.fixtures.pass) expect(rendered.detect(s)).toEqual([]);
+      });
+    }
   });
 });
 

@@ -135,3 +135,15 @@ describe("exceptions", () => {
     expect(report.findings.map((f) => f.path)).toEqual(["site/b.css"]);
   });
 });
+
+describe("colour as a browser returns it", () => {
+  it("reads oklab() and color(srgb) as well as rgb() and oklch()", async () => {
+    const { parseColour, isAiViolet } = await import("../character/color.js");
+    expect(isAiViolet(parseColour("rgb(90, 53, 209)")!.oklch)).toBe(true);
+    expect(isAiViolet(parseColour("oklch(0.541 0.281 293.009)")!.oklch)).toBe(true);
+    expect(isAiViolet(parseColour("color(srgb 0.353 0.208 0.82)")!.oklch)).toBe(true);
+    expect(isAiViolet(parseColour("oklab(0.5 0.05 -0.2)")!.oklch)).toBe(true);
+    expect(parseColour("color(srgb 0.353 0.208 0.82 / 0.5)")!.alpha).toBeCloseTo(0.5);
+    expect(isAiViolet(parseColour("rgb(15, 118, 110)")!.oklch)).toBe(false);
+  });
+});
