@@ -20,6 +20,14 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./audit": {
+      "types": "./dist/audit.d.ts",
+      "import": "./dist/audit.js",
+      "require": {
+        "types": "./dist/audit.d.cts",
+        "default": "./dist/audit.cjs"
+      }
+    },
     "./package.json": "./package.json",
     "./craft.css": "./css/craft.css",
     "./craft.tailwind.css": "./css/craft.tailwind.css"
@@ -62,5 +70,13 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "peerDependencies": {
+    "playwright": ">=1.40"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": true
+    }
   }
 }

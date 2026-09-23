@@ -10,6 +10,8 @@ import { COPY_TELLS } from "./tells/copy.js";
 import { SOURCE_TELLS } from "./tells/source.js";
 import { excerptAt, lineAt, parseFile } from "./parse.js";
 import { extractCopy, extractStrings } from "./prose.js";
+import { RENDERED_PATHS } from "../snapshot/rendered.js";
+import type { Snapshot } from "../snapshot/types.js";
 import type {
   CheckOptions,
   CheckReport,
@@ -25,9 +27,11 @@ import type {
  * Bumped whenever an entry is added, removed or its detection changes, so a
  * report can say which list it was judged against.
  */
-export const CATALOGUE_VERSION = "2026.09.2";
+export const CATALOGUE_VERSION = "2026.09.3";
 
-export const CATALOGUE: readonly Tell[] = [...SOURCE_TELLS, ...COPY_TELLS];
+export const CATALOGUE: readonly Tell[] = [...SOURCE_TELLS, ...COPY_TELLS].map((t) =>
+  RENDERED_PATHS[t.id] ? { ...t, rendered: RENDERED_PATHS[t.id] } : t,
+);
 
 export function tellById(id: string): Tell | undefined {
   return CATALOGUE.find((t) => t.id === id);
@@ -71,7 +75,7 @@ function toFinding(tell: Tell, hit: Hit, texts: Map<string, string>): Finding {
     generation: tell.generation,
     severity: tell.severity,
     path: hit.path,
-    line: lineAt(text, hit.offset),
+    line: texts.has(hit.path) ? lineAt(text, hit.offset) : 0,
     excerpt: hit.excerpt ?? excerptAt(text, hit.offset),
     message: hit.message,
     fix: tell.fix,
@@ -155,6 +159,17 @@ export function checkCopy(files: SourceFile[], options: CheckOptions = {}): Chec
   return report(tells, files, (tell) => (tell.surface === "copy" ? tell.detect(ctx) : []), options);
 }
 
+/**
+ * Judge a rendered page. Every tell with a rendered path runs over the
+ * snapshot; findings carry the URL as their path and line 0.
+ */
+export function auditSnapshot(snapshot: Snapshot, options: CheckOptions = {}): CheckReport {
+  const tells = CATALOGUE.filter((t) => t.rendered);
+  const result = report(tells, [], (tell) => tell.rendered!.detect(snapshot), options);
+  result.summary.files = 1;
+  return result;
+}
+
 /** Run one tell's detector over some files. What the fixture test calls. */
 export function runTell(tell: Tell, files: SourceFile[]): Hit[] {
   if (tell.surface === "source") return tell.detect({ files: files.map(parseFile) });
@@ -167,7 +182,8 @@ export function runTell(tell: Tell, files: SourceFile[]): Hit[] {
  */
 export function catalogueTable(): string {
   const rows = CATALOGUE.map(
-    (t) => `| \`${t.id}\` | ${t.generation} | ${t.surface} | ${t.severity} | ${t.name} | ${t.why.replace(/\|/g, "\\|")} |`,
+    (t) =>
+      `| \`${t.id}\` | ${t.generation} | ${t.surface}${t.rendered ? " + rendered" : ""} | ${t.severity} | ${t.name} | ${t.why.replace(/\|/g, "\\|")} |`,
   );
   return [
     `Catalogue version \`${CATALOGUE_VERSION}\`, ${CATALOGUE.length} tells.`,
