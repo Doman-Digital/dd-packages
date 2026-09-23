@@ -279,14 +279,15 @@ navigation, the order of sections, where the call to action sits.
 
 ## The house copy rules live here
 
-Since catalogue `2026.09.2` the rule lists of claude-kit's
-`house-style/copy-rules.md` are carried by tells in this catalogue:
-`ai-phrase`, `plainer-word`, `plain-english`, `buzzword`,
-`negative-reassurance`, `em-dash`, `emoji`, `not-just-but`, `no-x-no-y` and
-`no-x-badge` are its blocking tier; `review-phrase` and `vague-word` its review
-tier. craft ships all of them as `warn`. `copy-check` in claude-kit is a thin
-wrapper over `craft copy --json` and decides which tells fail a commit, so the
-lists exist once, here, with a test per entry.
+The house copy standard is [COPY.md](./COPY.md), in this package. Its
+blocking tier is carried by ten tells here: `ai-phrase`, `plainer-word`,
+`plain-english`, `buzzword`, `negative-reassurance`, `em-dash`, `emoji`,
+`not-just-but`, `no-x-no-y` and `no-x-badge`. craft ships every tell as
+`warn`; the house policy in `src/character/house.ts` says which fail a commit,
+and `craft copy --gate` applies it. `copy-check` in claude-kit is a thin
+wrapper that reads the same policy from `craft tells list --json`, so the
+lists and the policy exist once, here, with a test per entry. Since catalogue
+`2026.09.4` the density tier and four research tells are here too, all review.
 
 The swap was checked against the old checker on 2,570 files across the seven
 client repos (2026-09-23). The old checker found 193 issues, craft finds every
@@ -532,7 +533,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.3`, 39 tells.
+Catalogue version `2026.09.4`, 50 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -575,4 +576,15 @@ Catalogue version `2026.09.3`, 39 tells.
 | `no-x-badge` | 2 | copy | warn | 'No X' badge | 'No catch.', 'NO JARGON GUIDE': a short standalone 'No X' reads as a slapped-on kicker, and worse when the same one is reused across pieces. |
 | `staccato-triplet` | 2 | copy | warn | Staccato triplet | Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm. |
 | `where-x-meets-y` | 2 | copy | warn | 'Where X meets Y' | 'Where luxury meets comfort' is a tagline shape that fits every business and so describes none. |
+| `ing-tail` | 2 | copy | warn | Empty -ing tail | '..., ensuring peace of mind', '..., highlighting our commitment': a participle tacked on the end that claims significance and names no mechanism. One of the most common shapes in the Wikipedia guide to AI writing. |
+| `vague-attribution` | 1 | copy | warn | Unnamed source | 'Studies show', 'experts agree', 'it is widely known': a claim credited to nobody. A reader cannot check it, and the house proof rule forbids a claim nobody can check. |
+| `closing-summary` | 1 | copy | warn | Closing summary | 'Overall,', 'In conclusion,', 'In short,': a paragraph that announces it is summing up, then restates what the reader has just read. |
+| `false-range` | 1 | copy | warn | False range | 'From first-time buyers to seasoned investors alike' names two ends of no real scale, to sound as if it covers everyone. It describes nobody. |
+| `phrase-density` | 2 | copy | warn | Leaned-on phrase | 'Rather than', 'actually', 'That is...' openers, participle triads: each is ordinary English once, and a document that uses one far above its rate has one move and repeats it. |
+| `aphorism-density` | 2 | copy | warn | Aphorism cadence | Two clipped sentences alone on a line ('All of this already exists. The job is making it findable.') land once. Closing every section, they are a cadence a reader learns to hear. |
+| `contraction-scarcity` | 1 | copy | warn | No contractions | A long document with almost no contractions reads stiff and machine-made. People write 'we're' and 'don't'. |
+| `sentence-rhythm` | 2 | copy | warn | Metronomic rhythm | Sentence after sentence of the same length reads generated. A person's sentences run long, then short, then long again. |
+| `repeated-sentence` | 1 | copy | warn | Repeated sentence | The same sentence on two pages, or the same nine words lightly edited, is one of the strongest signs a document was assembled rather than written. |
+| `heading-shape` | 2 | copy | warn | One heading shape | Headings that all share one shape ('X, and Y', 'X, because Y', 'Keep, rewrite, consolidate, retire') read as a template filled in section by section. |
+| `heading-echo` | 2 | copy | warn | Heading echoed | A heading repeated word for word as the first line under it spends the reader's attention twice on the same words. |
 <!-- craft:catalogue:end -->
