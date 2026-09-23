@@ -29,6 +29,19 @@ function allText(ctx: CopyContext): CopyBlock[] {
 }
 
 /**
+ * Addresses are not copy: `https://example.com/seamless-booking` or a
+ * Markdown link target `(/seamless-booking)` is a slug, like an asset key,
+ * and a word inside it says nothing about the prose around it.
+ */
+const LINK = /\b(?:https?:\/\/|www\.)[^\s<>"'`)\]]+|\]\([^)\s]+\)/gi;
+
+function linkSpans(text: string): [number, number][] {
+  return [...text.matchAll(LINK)].map((m) => [m.index ?? 0, (m.index ?? 0) + m[0].length]);
+}
+
+const insideLink = (spans: [number, number][], at: number): boolean => spans.some(([a, b]) => at >= a && at < b);
+
+/**
  * Build a detector from patterns. Every match is a hit; `label` names it.
  * Overlapping matches from different patterns are one hit, so a sentence that
  * fits two forms of the same template is reported once.
@@ -43,10 +56,12 @@ function phrases(
     const hits: Hit[] = [];
     for (const block of source(ctx)) {
       const spans: [number, number, string][] = [];
+      const links = linkSpans(block.text);
       for (const pattern of patterns) {
         const global = new RegExp(pattern.source, pattern.flags.includes("g") ? pattern.flags : `${pattern.flags}g`);
         for (const m of block.text.matchAll(global)) {
           if (skip(block, m[0], m.index ?? 0)) continue;
+          if (insideLink(links, m.index ?? 0)) continue;
           spans.push([m.index ?? 0, (m.index ?? 0) + m[0].length, m[0]]);
         }
       }
@@ -295,7 +310,11 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/home.md", "In today's rapidly evolving market, we help."),
         f("content/home.md", "Whether you're a landlord or a tenant, call us."),
       ],
-      pass: [f("content/home.md", "Book in three taps. We confirm by text within the hour.")],
+      pass: [
+        f("content/home.md", "Book in three taps. We confirm by text within the hour."),
+        f("content/home.md", "Book at https://example.com/seamless-booking today."),
+        f("content/home.md", "[Book a slot](/seamless-booking) today."),
+      ],
     },
   },
   {
