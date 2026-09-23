@@ -171,3 +171,18 @@ export {
   STOCK_PHRASES,
   VAGUE_WORDS,
 } from "./character/tells/copy.js";
+export {
+  CHOICE_KEYS,
+  DIRECTION_VERSION,
+  SOURCE_KINDS,
+  type ArtDirection,
+  type ChoiceKey,
+  type DirectionChoice,
+  type DirectionProblem,
+  type DirectionReport,
+  type DirectionSource,
+  type SourceKind,
+} from "./direction/types.js";
+export { validateDirection, type ValidateContext } from "./direction/validate.js";
+export { initDirection } from "./direction/init.js";
+export { PROPOSED, paletteFromPixels, propose, type PaletteColour, type Proposal, type ProposeInput } from "./direction/propose.js";

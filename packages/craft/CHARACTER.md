@@ -55,6 +55,55 @@ the rule tuned against them. A rule that blocks on day one gets switched off by
 day three. `--strict` fails on any finding, for a surface that has been
 cleaned and should stay clean.
 
+## Declaring the direction
+
+`art-direction.json` at the site root records the seven expressive choices
+(accent, ground, display face, body face, shape, motif, signature moment), the
+sources in the client's world they come from, and why. Layout and navigation
+are not choices here: they stay conventional.
+
+```json
+{
+  "version": 1,
+  "client": "RMP Electrical",
+  "brief": "A two-person electrical contractor in Brackley doing rewires and EV chargers.",
+  "sources": [
+    { "id": "van", "kind": "livery", "note": "The Transit van, bottle green with cream sign-writing.", "path": "brand/van.png" }
+  ],
+  "choices": {
+    "accent": {
+      "value": "#1f4d3a",
+      "because": "The bottle green is the van's own paint, and the van is what people in Brackley recognise.",
+      "evidence": ["van"]
+    }
+  }
+}
+```
+
+`craft direction validate` applies the reason rule. A choice is decided only
+when its reason is at least a sentence, cites a declared source, and mentions
+what that source shows (naming only the colour does not count). It rejects a
+preference ("the client likes it"), a mood board (two or more of modern,
+clean, premium, elegant and the rest), and a value on the tell catalogue
+without an exception carrying the same reason. Given a snapshot, it warns
+where the page does not show what the file declares.
+
+`craft direction init` writes what the site does today with every reason
+empty, so the first thing it produces is the list of things nobody decided.
+Run on RMP's live home page (2026-09-23) it records Fraunces, Manrope, a cream
+ground and pill buttons, three of them on the catalogue, and zero of seven
+choices decided.
+
+`craft direction propose` reads the dominant colours off each source's PNG
+photo, ranks accent candidates away from the reflex violet band and from the
+rest of the estate (`--estate` a folder of snapshots), and drafts choices.
+Every draft reason starts `PROPOSED:`, which validate rejects: a person looks
+at the van, agrees the green is the van's green, and says so in their own
+words.
+
+The editor schema ships as `@domandigital/craft/art-direction.schema.json`.
+A file from phase A that holds only exceptions stays valid.
+
 ## Declaring an exception
 
 Doman Digital's own brand is violet. A hue rule with no way to say so flags the

@@ -32,6 +32,9 @@ Usage
   craft tells list [--json]
   craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
   craft audit <url | snapshot.json> [--repo <dir>] [--out <file>] [--json] [--strict]
+  craft direction init [--snapshot <file>] [--client <name>] [--out <file>]
+  craft direction validate [--snapshot <file>] [--direction <file>] [--json]
+  craft direction propose [--snapshot <file>] [--estate <dir>] [--out <file>]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
@@ -41,6 +44,10 @@ snapshot  Render a page in a browser and save what it looks like, as JSON.
 audit     Judge a rendered page (live, or a saved snapshot) and fingerprint it.
           --repo also scans that site's source, so one report covers both.
           snapshot and audit need Playwright: npm i -D playwright.
+direction The site's art-direction.json: every choice with a reason from the
+          client's world. init writes today's choices with empty reasons;
+          validate applies the reason rule; propose reads colours off the
+          sources' PNG photos and drafts choices for a person to confirm.
 
 Exceptions come from art-direction.json in the working directory, or --direction.
 Every tell ships as warn: exit 1 only on a block, or on any finding with --strict.`;
@@ -55,9 +62,21 @@ export interface Flags {
   repo?: string;
   width?: string;
   height?: string;
+  snapshot?: string;
+  estate?: string;
+  client?: string;
 }
 
-const VALUE_FLAGS = { "--direction": "direction", "--out": "out", "--repo": "repo", "--width": "width", "--height": "height" } as const;
+const VALUE_FLAGS = {
+  "--direction": "direction",
+  "--out": "out",
+  "--repo": "repo",
+  "--width": "width",
+  "--height": "height",
+  "--snapshot": "snapshot",
+  "--estate": "estate",
+  "--client": "client",
+} as const;
 
 export function parseFlags(args: string[]): Flags | string {
   const flags: Flags = { positional: [], json: false, strict: false, staged: false };
@@ -142,6 +161,9 @@ const NOT_COPY_DIR = (name: string): boolean => name.startsWith("_");
 
 export function run(argv: string[], io: Io): number | Promise<number> {
   const [command, ...rest] = argv;
+  if (command === "direction") {
+    return import("../direction/cli.js").then((m) => m.runDirection(rest, io));
+  }
   if (command === "snapshot" || command === "audit") {
     // Loaded only here: the browser half never touches a scan or a copy check.
     return import("../audit/cli.js").then((m) => m.runAudit(command, rest, io));
