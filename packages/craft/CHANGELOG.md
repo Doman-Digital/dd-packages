@@ -1,5 +1,16 @@
 # @domandigital/craft
 
+## 0.8.0
+
+### Minor Changes
+
+- 2b6f823: The house copy standard moves into craft. `COPY.md` ships in the package, `craft copy --gate` applies the house policy (the blocking tier fails the run), and `craft tells list --json` publishes each copy tell's house tier so `copy-check` reads the policy instead of keeping its own list. Catalogue 2026.09.4 adds the density tier (`phrase-density`, `aphorism-density`, `contraction-scarcity`, `sentence-rhythm`, `repeated-sentence`, `heading-shape`, `heading-echo`) and four review tells from research (`ing-tail`, `vague-attribution`, `closing-summary`, `false-range`), all warn. The emoji tell now catches sparkles, the green tick box and other emoji in the older symbol blocks.
+
+  Words inside a URL or a Markdown link target are no longer read as copy, so a slug such as `/seamless-booking` no longer blocks.
+
+- 7765dda: Catalogue 2026.09.6, tuned against the Doman Digital site's live Sanity content. `chatbot-residue` reads a run of ChatGPT citation tokens as one finding, through the invisible private-use characters ChatGPT wraps them in. `placeholder` skips a placeholder inside quotation marks, which is a template being taught. `vague-attribution` skips a claim that names its source or carries a footnote or link. `inline-label-list` fires only when the text after the label is six words or fewer, so a definition list passes.
+- ef5b85b: Catalogue 2026.09.5. Four more review tells: `chatbot-residue` (pasted chat replies, chat citation tokens, links tracked `utm_source=chatgpt.com`), `placeholder` (`[Insert ...]`, lorem ipsum, `TODO_PLACEHOLDER`, including a placeholder that is a whole element), `question-reveal` and `inline-label-list`. New command `craft copy compare <before> <after>`: the preservation gate, listing the protected facts (prices, numbers, dates, times, phones, emails, links, postcodes, names) a rewrite lost or added, exit 1 if any. Exported as `compareFacts` and `protectedFacts`.
+
 ## 0.7.0
 
 ### Minor Changes
