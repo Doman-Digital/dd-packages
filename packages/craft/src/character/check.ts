@@ -6,7 +6,17 @@
  * answer.
  */
 
-import { COPY_TELLS } from "./tells/copy.js";
+import {
+  AI_PHRASES,
+  AI_WORDS,
+  BUZZWORDS,
+  COPY_TELLS,
+  NEGATIVE_REASSURANCE,
+  PLAINER_WORDS,
+  REVIEW_PHRASES,
+  STOCK_PHRASES,
+  VAGUE_WORDS,
+} from "./tells/copy.js";
 import { SOURCE_TELLS } from "./tells/source.js";
 import { excerptAt, lineAt, parseFile } from "./parse.js";
 import { extractCopy, extractStrings } from "./prose.js";
@@ -192,4 +202,43 @@ export function catalogueTable(): string {
     "| --- | --- | --- | --- | --- | --- |",
     ...rows,
   ].join("\n");
+}
+
+/**
+ * The copy word and phrase lists, as portable JSON.
+ *
+ * These are the only part of the copy catalogue a non-TypeScript consumer can
+ * use directly: a word list is data, a regex-shaped tell (contrastive
+ * negation, the "No X" badge, em dash, emoji) is not something worth
+ * re-deriving from a JSON export, so those stay TypeScript-only here.
+ *
+ * `claude-kit`'s `copy_check.py` is the reason this exists. It hardcoded its
+ * own copies of these same lists rather than reading this package, and the
+ * two drifted (documented in claude-kit's `house-style/copy-rules.md`, "Note
+ * the enforcement gap"). `word-lists.json` is the file that ends the drift:
+ * `install/sync-copy-wordlists.sh` on that side copies it in verbatim, same
+ * shape as `sync-craft-standard.sh` does for `STANDARD.md`. Regenerate the
+ * checked-in `word-lists.json` with `pnpm --filter @domandigital/craft run
+ * docs` after changing any list in `tells/copy.ts`.
+ */
+export function wordListsJson(): string {
+  return (
+    JSON.stringify(
+      {
+        catalogueVersion: CATALOGUE_VERSION,
+        lists: {
+          aiWords: AI_WORDS,
+          stockPhrases: STOCK_PHRASES,
+          aiPhrases: AI_PHRASES,
+          plainerWords: PLAINER_WORDS,
+          buzzwords: BUZZWORDS,
+          negativeReassurance: NEGATIVE_REASSURANCE,
+          vagueWords: VAGUE_WORDS,
+          reviewPhrases: REVIEW_PHRASES,
+        },
+      },
+      null,
+      2,
+    ) + "\n"
+  );
 }
