@@ -96,9 +96,41 @@ It reads colour in hex, `rgb()`, `hsl()` and `oklch()`, in raw CSS, Tailwind v4
 own palette definitions are ignored: a colour counts when a site uses it, not
 when the framework defines it.
 
-`copy` reads Markdown outside code, text between tags, and string literals that
-read as sentences. It skips READMEs, changelogs and `_`-prefixed folders when
-walking a directory, because those are for the people who build the site.
+`copy` reads Markdown outside code, text between tags (including text that
+runs into an expression, such as a label followed by `{count}`), string literals that
+read as sentences, and the text inside HTML held in a string, such as an email
+template. Short strings are read too, for the tells that fit in a label: an em
+dash, an emoji, a "No catch." badge. Comments are never copy. It reads `.json`
+and `.jsonl`, so a Sanity export can be checked a document per line. It skips
+READMEs, changelogs and `_`-prefixed folders when walking a directory, because
+those are for the people who build the site.
+
+A real person's own words, a review or a testimonial, must never be edited to
+pass. Mark the line, or the line above it, with `copy-ok` or `craft-ok`. Marked
+findings are listed in every report with where they are, never hidden. The
+same markers work for `craft scan`.
+
+## The house copy rules live here
+
+Since catalogue `2026.09.2` the rule lists of claude-kit's
+`house-style/copy-rules.md` are carried by tells in this catalogue:
+`ai-phrase`, `plainer-word`, `plain-english`, `buzzword`,
+`negative-reassurance`, `em-dash`, `emoji`, `not-just-but`, `no-x-no-y` and
+`no-x-badge` are its blocking tier; `review-phrase` and `vague-word` its review
+tier. craft ships all of them as `warn`. `copy-check` in claude-kit is a thin
+wrapper over `craft copy --json` and decides which tells fail a commit, so the
+lists exist once, here, with a test per entry.
+
+The swap was checked against the old checker on 2,570 files across the seven
+client repos (2026-09-23). The old checker found 193 issues, craft finds every
+one of them that is visitor copy. The rest, 29, were the old checker reading
+code comments, asset keys (`brows-hero-seamless`), a regex that strips em
+dashes, and three words (`truly`, `genuinely`, `deeply`) that the house rules
+keep in the review tier and the old list had drifted into blocking. Four real
+misses in craft were fixed on the way: em dashes in JSX text next to an
+expression, a lone dash placeholder in a table cell, prose inside HTML held in
+a string, and the contrastive negation in a live welcome email that is the
+reason that rule exists.
 
 ## Calibration
 
@@ -123,7 +155,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.1`, 29 tells.
+Catalogue version `2026.09.2`, 39 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -148,12 +180,22 @@ Catalogue version `2026.09.1`, 29 tells.
 | `marquee` | 2 | source | warn | Scrolling marquee | An endless strip of logos or words is the second wave's trust strip. It moves so it looks alive. |
 | `thin-border-wide-shadow` | 2 | source | warn | Hairline border, wide shadow | A near-invisible border under a large soft shadow is the stock 'elevated card'. |
 | `intro-cinematic` | 2 | source | warn | Intro cinematic | A logo animation that runs before the page is something a model adds to make a site feel premium. Three estate sites open with one. It delays the page for every visitor. |
-| `ai-vocabulary` | 1 | copy | warn | AI vocabulary | Delve, elevate, seamless, unlock: words that appear in generated copy far more than in anything a business owner writes. |
+| `ai-vocabulary` | 1 | copy | warn | AI vocabulary | Tapestry, elevate, nestled, unparalleled: words that appear in generated copy far more than in anything a business owner writes. |
 | `stock-phrase` | 1 | copy | warn | Stock phrase | Phrases every generated services page uses. They fill space where a fact should be. |
+| `ai-phrase` | 1 | copy | warn | AI phrase | Let's dive in, here's the thing, at its core, seamless, rest assured: the phrase list of the house copy rules. A reader has seen each one in a thousand generated pages. |
+| `plainer-word` | 1 | copy | warn | A plainer word exists | Empower, leverage, harness, delve: each stands in for a plainer verb, and the swap is a reliable sign nobody chose the word. |
+| `plain-english` | 2 | copy | warn | 'Plain English' | Told to avoid jargon, a model announces that it is avoiding jargon. 'Explained plainly' swaps a synonym and keeps the tell. |
+| `buzzword` | 1 | copy | warn | Buzzword | Cutting-edge, world-class, reach out, turnkey: corporate filler older than any model, and still the first thing a model writes about a business it knows nothing about. |
+| `negative-reassurance` | 1 | copy | warn | Negative reassurance | 'No hidden fees', 'no surprises', 'never locked in' reassure by naming the fear, and plant it in a reader who did not have it. |
+| `vague-word` | 1 | copy | warn | Vague word | Innovative, scalable, end-to-end, solutions: each can be true, and each is used where the writer had nothing specific to say. |
+| `review-phrase` | 1 | copy | warn | Review-tier phrase | Truly, genuinely, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking. |
 | `hollow-imperative` | 1 | copy | warn | Hollow imperative | 'Discover', 'Experience', 'Transform your' as the opening verb of a heading or button is a call to action with nothing in it. |
 | `rhetorical-opener` | 1 | copy | warn | Rhetorical question opener | 'Looking for...?', 'Tired of...?', 'Ready to...?' opens with the model guessing at the reader instead of telling them something. |
 | `em-dash` | 2 | copy | warn | Em dash | Generated copy leans on the em dash to join clauses. House copy does not use it. |
-| `not-just-but` | 2 | copy | warn | 'Not just X, it's Y' | The contrast-and-reveal sentence ('It's not just a haircut, it's an experience') is the most recognisable construction in generated copy. |
+| `emoji` | 1 | copy | warn | Emoji in copy | A sparkle or a rocket beside a heading is decoration a model adds to seem friendly. It dates the page and reads as a social post. |
+| `not-just-but` | 2 | copy | warn | Contrastive negation | 'It's not just a haircut, it's an experience', 'dispatched from here, not shipped in': the contrast-and-reveal template is the most recognisable construction in generated copy. |
+| `no-x-no-y` | 2 | copy | warn | 'No X, no Y' list | 'No obligation, no spam.' Defining the business by what it is not, itemised, is the same template as contrastive negation. |
+| `no-x-badge` | 2 | copy | warn | 'No X' badge | 'No catch.', 'NO JARGON GUIDE': a short standalone 'No X' reads as a slapped-on kicker, and worse when the same one is reused across pieces. |
 | `staccato-triplet` | 2 | copy | warn | Staccato triplet | Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm. |
 | `where-x-meets-y` | 2 | copy | warn | 'Where X meets Y' | 'Where luxury meets comfort' is a tagline shape that fits every business and so describes none. |
 <!-- craft:catalogue:end -->

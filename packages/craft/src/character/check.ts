@@ -9,7 +9,7 @@
 import { COPY_TELLS } from "./tells/copy.js";
 import { SOURCE_TELLS } from "./tells/source.js";
 import { excerptAt, lineAt, parseFile } from "./parse.js";
-import { extractCopy } from "./prose.js";
+import { extractCopy, extractStrings } from "./prose.js";
 import type {
   CheckOptions,
   CheckReport,
@@ -25,7 +25,7 @@ import type {
  * Bumped whenever an entry is added, removed or its detection changes, so a
  * report can say which list it was judged against.
  */
-export const CATALOGUE_VERSION = "2026.09.1";
+export const CATALOGUE_VERSION = "2026.09.2";
 
 export const CATALOGUE: readonly Tell[] = [...SOURCE_TELLS, ...COPY_TELLS];
 
@@ -50,6 +50,17 @@ function validateExceptions(exceptions: TellException[]): {
     }
   }
   return { applied, rejected };
+}
+
+/**
+ * A one-off exception written where it applies: `copy-ok` or `craft-ok` on the
+ * finding's line or the line directly above. For a real person's own words, a
+ * testimonial or a quoted review, which must never be edited to pass.
+ */
+const MARKER = /\b(?:copy|craft)-ok\b/;
+
+function marked(lines: string[], line: number): boolean {
+  return MARKER.test(lines[line - 1] ?? "") || MARKER.test(lines[line - 2] ?? "");
 }
 
 function toFinding(tell: Tell, hit: Hit, texts: Map<string, string>): Finding {
@@ -78,6 +89,13 @@ function report(
   const selected = options.only ? tells.filter((t) => options.only!.includes(t.id)) : tells;
 
   const findings: Finding[] = [];
+  const suppressed: CheckReport["suppressed"] = [];
+  const lineCache = new Map<string, string[]>();
+  const linesOf = (path: string): string[] => {
+    let lines = lineCache.get(path);
+    if (!lines) lineCache.set(path, (lines = (texts.get(path) ?? "").split("\n")));
+    return lines;
+  };
   const excepted = new Map<TellException, number>();
   for (const tell of selected) {
     for (const hit of run(tell)) {
@@ -86,7 +104,12 @@ function report(
         excepted.set(exception, (excepted.get(exception) ?? 0) + 1);
         continue;
       }
-      findings.push(toFinding(tell, hit, texts));
+      const finding = toFinding(tell, hit, texts);
+      if (marked(linesOf(hit.path), finding.line)) {
+        suppressed.push({ tell: tell.id, path: finding.path, line: finding.line });
+        continue;
+      }
+      findings.push(finding);
     }
   }
   findings.sort((a, b) => a.path.localeCompare(b.path) || a.line - b.line || a.tell.localeCompare(b.tell));
@@ -103,6 +126,7 @@ function report(
     findings,
     rejectedExceptions: rejected,
     excepted: [...excepted].map(([e, count]) => ({ tell: e.tell, because: e.because, count })),
+    suppressed,
     summary: {
       files: files.length,
       findings: findings.length,
@@ -120,9 +144,13 @@ export function scanSource(files: SourceFile[], options: CheckOptions = {}): Che
   return report(tells, files, (tell) => (tell.surface === "source" ? tell.detect(ctx) : []), options);
 }
 
+function copyContext(files: SourceFile[]) {
+  return { files, blocks: files.flatMap(extractCopy), strings: files.flatMap(extractStrings) };
+}
+
 /** Check the prose in files for copy tells. */
 export function checkCopy(files: SourceFile[], options: CheckOptions = {}): CheckReport {
-  const ctx = { files, blocks: files.flatMap(extractCopy) };
+  const ctx = copyContext(files);
   const tells = CATALOGUE.filter((t) => t.surface === "copy");
   return report(tells, files, (tell) => (tell.surface === "copy" ? tell.detect(ctx) : []), options);
 }
@@ -130,7 +158,7 @@ export function checkCopy(files: SourceFile[], options: CheckOptions = {}): Chec
 /** Run one tell's detector over some files. What the fixture test calls. */
 export function runTell(tell: Tell, files: SourceFile[]): Hit[] {
   if (tell.surface === "source") return tell.detect({ files: files.map(parseFile) });
-  return tell.detect({ files, blocks: files.flatMap(extractCopy) });
+  return tell.detect(copyContext(files));
 }
 
 /**
