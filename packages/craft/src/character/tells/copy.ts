@@ -29,6 +29,19 @@ function allText(ctx: CopyContext): CopyBlock[] {
 }
 
 /**
+ * Addresses are not copy: `https://example.com/seamless-booking` or a
+ * Markdown link target `(/seamless-booking)` is a slug, like an asset key,
+ * and a word inside it says nothing about the prose around it.
+ */
+const LINK = /\b(?:https?:\/\/|www\.)[^\s<>"'`)\]]+|\]\([^)\s]+\)/gi;
+
+function linkSpans(text: string): [number, number][] {
+  return [...text.matchAll(LINK)].map((m) => [m.index ?? 0, (m.index ?? 0) + m[0].length]);
+}
+
+const insideLink = (spans: [number, number][], at: number): boolean => spans.some(([a, b]) => at >= a && at < b);
+
+/**
  * Build a detector from patterns. Every match is a hit; `label` names it.
  * Overlapping matches from different patterns are one hit, so a sentence that
  * fits two forms of the same template is reported once.
@@ -43,10 +56,12 @@ function phrases(
     const hits: Hit[] = [];
     for (const block of source(ctx)) {
       const spans: [number, number, string][] = [];
+      const links = linkSpans(block.text);
       for (const pattern of patterns) {
         const global = new RegExp(pattern.source, pattern.flags.includes("g") ? pattern.flags : `${pattern.flags}g`);
         for (const m of block.text.matchAll(global)) {
           if (skip(block, m[0], m.index ?? 0)) continue;
+          if (insideLink(links, m.index ?? 0)) continue;
           spans.push([m.index ?? 0, (m.index ?? 0) + m[0].length, m[0]]);
         }
       }
@@ -88,6 +103,9 @@ export const AI_WORDS = [
   "unleash", "unlocks", "unlocking", "elevate", "elevates", "elevated", "elevating",
   "bustling", "nestled", "meticulous", "meticulously", "paramount",
   "furthermore", "moreover", "navigating", "ever-evolving", "unparalleled",
+  // Measured: Kobak et al. 2024 (arXiv 2406.07016) found these 10 to 14 times
+  // above their expected rate in post-ChatGPT abstracts. Academic, so warn only.
+  "underscore", "underscores", "underscoring", "showcasing", "pivotal",
 ] as const;
 
 export const STOCK_PHRASES = [
@@ -103,6 +121,7 @@ export const STOCK_PHRASES = [
   "crafted with care",
   "tailored to your",
   "peace of mind",
+  "so here's",
 ] as const;
 
 /**
@@ -197,8 +216,14 @@ const emptyState = (block: CopyBlock, match: string, index = 0): boolean =>
 const NO_X_NO_Y = /\bno\s+[\w'’ ]{2,30},\s*no\s+\w/i;
 const NO_X_BADGE = /^no\s+[\w'’\- ]{2,28}[.!]?$/i;
 
-/** Pictographic emoji. Stars, ticks, arrows and middots are typography, not emoji. */
-const EMOJI = /[\u{1F300}-\u{1FAFF}\u{1F1E6}-\u{1F1FF}]+/u;
+/**
+ * Pictographic emoji. Stars, ticks, arrows and middots are typography, not
+ * emoji: `★`, `✓`, `→`, `·` pass. The older symbol blocks hold a few that are
+ * emoji in every font a visitor has (sparkles, the green tick box, the red
+ * cross, the high-voltage sign, the heart), and any symbol a string forces
+ * into emoji presentation with U+FE0F is one too.
+ */
+const EMOJI = /(?:[\u{1F300}-\u{1FAFF}\u{1F1E6}-\u{1F1FF}\u2728\u2705\u274C\u274E\u2757\u2753\u26A1\u2B50\u2764]|[\u2600-\u27BF]\uFE0F)+/u;
 
 /**
  * A dash alone in a quoted string is a null-value placeholder (`{x ?? "—"}`)
@@ -251,10 +276,16 @@ export const COPY_TELLS: CopyTell[] = [
     surface: "copy",
     why: "Phrases every generated services page uses. They fill space where a fact should be.",
     fix: "Replace the phrase with the fact behind it: a number, a name, a place, a time.",
-    detect: phrases([wordList(STOCK_PHRASES)], quoted),
+    detect: phrases([wordList(STOCK_PHRASES), /\b(?:in|on|along)\s+(?:its|their|his|her)\s+journey\b/i], quoted),
     fixtures: {
-      flag: [f("content/home.md", "Take your plumbing to the next level with peace of mind.")],
-      pass: [f("content/home.md", "Gas Safe registered since 2009. Same-day callouts in Brackley.")],
+      flag: [
+        f("content/home.md", "Take your plumbing to the next level with peace of mind."),
+        f("content/home.md", "We meet each practice where it is in its journey."),
+      ],
+      pass: [
+        f("content/home.md", "Gas Safe registered since 2009. Same-day callouts in Brackley."),
+        f("content/home.md", "We mapped the patient journey from booking to aftercare."),
+      ],
     },
   },
   {
@@ -279,7 +310,11 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/home.md", "In today's rapidly evolving market, we help."),
         f("content/home.md", "Whether you're a landlord or a tenant, call us."),
       ],
-      pass: [f("content/home.md", "Book in three taps. We confirm by text within the hour.")],
+      pass: [
+        f("content/home.md", "Book in three taps. We confirm by text within the hour."),
+        f("content/home.md", "Book at https://example.com/seamless-booking today."),
+        f("content/home.md", "[Book a slot](/seamless-booking) today."),
+      ],
     },
   },
   {
@@ -428,8 +463,14 @@ export const COPY_TELLS: CopyTell[] = [
     fix: "Remove it. Typographic marks are fine: a star for a rating, a middot as a separator, an arrow in a link.",
     detect: phrases([new RegExp(EMOJI.source, "u")], (m) => `emoji ${m}`, (ctx) => ctx.strings),
     fixtures: {
-      flag: [f("content/home.md", "New treatments this month ✨🚀"), f("app/cta.tsx", `export const label = "Book 🚀";`)],
-      pass: [f("content/home.md", "Rated ★★★★★ · Book now →")],
+      flag: [
+        f("content/home.md", "New treatments this month ✨🚀"),
+        f("app/cta.tsx", `export const label = "Book 🚀";`),
+        f("content/home.md", "New treatments this month ✨"),
+        f("content/home.md", "Same-day callouts ✅"),
+        f("content/home.md", "Open Sundays ☀️"),
+      ],
+      pass: [f("content/home.md", "Rated ★★★★★ · Book now →"), f("content/home.md", "✓ Gas Safe registered")],
     },
   },
   {
@@ -523,6 +564,123 @@ export const COPY_TELLS: CopyTell[] = [
     fixtures: {
       flag: [f("content/home.md", "Where luxury meets comfort.")],
       pass: [f("content/home.md", "A two-chair studio above the bakery on Market Place.")],
+    },
+  },
+];
+
+// ------------------------------------------------------------ research tells
+//
+// Added 2026.09.4 from the Wikipedia "Signs of AI writing" guide, checked
+// against commercial copy. That guide is written for neutral encyclopaedia
+// text and flags persuasion itself, which sales copy needs. So each pattern
+// here is narrowed to the empty form, and each carries a pass case that is
+// real persuasive copy: persuasion backed by a fact passes.
+
+/**
+ * A participle tacked on the end of a sentence that adds significance and no
+ * mechanism: "..., ensuring peace of mind". Participles that carry a fact
+ * ("..., carrying the parts for most boilers") are not on the list.
+ */
+const ING_TAIL = /,\s+(?:ensuring|highlighting|underscoring|showcasing|reflecting|demonstrating|emphasi[sz]ing|fostering|cementing|solidifying|reinforcing|symboli[sz]ing|signalling|signaling)\b[^.!?\n]{0,80}/i;
+
+/** A claim credited to nobody. A named source ("A 2023 Which? survey") is not matched. */
+const VAGUE_ATTRIBUTION = [
+  /\b(?:studies|research|experts|scientists|surveys|statistics|the data)\s+(?:show|shows|suggest|suggests|agree|say|says|confirm|confirms|prove|proves|indicate|indicates)\b/i,
+  /\b(?:many|most)\s+(?:experts|people|customers|professionals|homeowners)\s+(?:agree|say|believe)\b/i,
+  /\bit\s+is\s+(?:widely|generally|commonly)\s+(?:known|accepted|believed|agreed)\b/i,
+];
+
+/** A paragraph that opens by announcing it is summing up. */
+const CLOSING_SUMMARY = /(?:^|[.!?]\s+|\n\s*|>\s*)(?:Overall|In conclusion|In summary|To sum up|All in all|In short|To summari[sz]e),/;
+
+/**
+ * A range with no scale: "from first-time buyers to seasoned investors
+ * alike". Real ranges ("from 9am to 5pm", "everything from small repairs to
+ * full rewires") are left alone; only the "alike" form and "everyone from",
+ * a range of people, fire.
+ */
+const FALSE_RANGE = [
+  /\bfrom\s+(?:[\w'’-]+\s+){0,3}[\w'’-]+\s+to\s+(?:[\w'’-]+\s+){0,3}[\w'’-]+\s+alike\b/i,
+  /\b(?:everyone|anyone)\s+from\s+(?:[\w'’-]+\s+){0,3}[\w'’-]+\s+to\s+(?:[\w'’-]+\s*){1,4}/i,
+];
+
+export const RESEARCH_TELLS: CopyTell[] = [
+  {
+    id: "ing-tail",
+    name: "Empty -ing tail",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'..., ensuring peace of mind', '..., highlighting our commitment': a participle tacked on the end that claims significance and names no mechanism. One of the most common shapes in the Wikipedia guide to AI writing.",
+    fix: "Cut the tail, or replace it with the mechanism: 'so you can drop the car off before work'.",
+    detect: phrases([ING_TAIL], (m) => quoted(m.replace(/^,\s*/, ""))),
+    fixtures: {
+      flag: [
+        f("content/home.md", "Every engineer is Gas Safe registered, ensuring complete peace of mind."),
+        f("app/about.tsx", `export const About = () => <p>We have served Brackley since 2009, highlighting our commitment to the town.</p>;`),
+      ],
+      pass: [
+        f("content/home.md", "We open at 7am, so you can drop the car off before work."),
+        f("content/home.md", "Engineers arrive by 9, carrying the parts for most boilers."),
+      ],
+    },
+  },
+  {
+    id: "vague-attribution",
+    name: "Unnamed source",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'Studies show', 'experts agree', 'it is widely known': a claim credited to nobody. A reader cannot check it, and the house proof rule forbids a claim nobody can check.",
+    fix: "Name the source and the number ('A 2023 Which? survey of 2,000 drivers found...') or cut the claim.",
+    detect: phrases(VAGUE_ATTRIBUTION, quoted),
+    fixtures: {
+      flag: [
+        f("content/home.md", "Studies show that regular servicing saves money."),
+        f("content/home.md", "Most experts agree a boiler lasts fifteen years."),
+        f("content/home.md", "It is widely known that gel damages nails."),
+      ],
+      pass: [
+        f("content/home.md", "A 2023 Which? survey of 2,000 owners found serviced boilers failed half as often."),
+        f("content/home.md", "Our customers rate us 4.9 from 212 Google reviews."),
+      ],
+    },
+  },
+  {
+    id: "closing-summary",
+    name: "Closing summary",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'Overall,', 'In conclusion,', 'In short,': a paragraph that announces it is summing up, then restates what the reader has just read.",
+    fix: "Cut the summary. End on the last new fact, or on the next step: 'Book a survey and we'll quote within two days'.",
+    detect: phrases([CLOSING_SUMMARY], (m) => quoted(m.replace(/^[.!?>\s]+/, ""))),
+    fixtures: {
+      flag: [
+        f("content/home.md", "We rewire, test and certify.\n\nOverall, we are the right choice for your home."),
+        f("content/home.md", "Prices start at £40. In conclusion, we offer great value."),
+      ],
+      pass: [f("content/home.md", "We rewire, test and certify.\n\nBook a survey and we'll quote within two days.")],
+    },
+  },
+  {
+    id: "false-range",
+    name: "False range",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'From first-time buyers to seasoned investors alike' names two ends of no real scale, to sound as if it covers everyone. It describes nobody.",
+    fix: "Say who you actually serve, or cut it. A real range is fine: 'from 9am to 5pm', 'from small repairs to full rewires'.",
+    detect: phrases(FALSE_RANGE, quoted),
+    fixtures: {
+      flag: [
+        f("content/home.md", "We help clients from first-time buyers to seasoned investors alike."),
+        f("content/home.md", "Everyone from students to retirees loves our cakes."),
+      ],
+      pass: [
+        f("content/home.md", "Open from 9am to 5pm, Monday to Saturday."),
+        f("content/home.md", "We take on everything from small repairs to full rewires."),
+      ],
     },
   },
 ];

@@ -94,6 +94,17 @@ reason, in `art-direction.json`:
 { "exceptions": [{ "tell": "ai-violet", "because": "Violet is on the van, the cards and the fascia." }] }
 ```
 
+### Copy
+
+[COPY.md](./COPY.md) is the house copy standard: the blocking tier, the review
+tier, the density tier that reads whole documents, and what to write instead.
+`craft copy --gate` applies the house policy, so the blocking tier fails the
+run. A test fails if a phrase the standard blocks does not block.
+
+```bash
+npx craft copy --gate content   # the house gate: exit 1 on the blocking tier
+```
+
 The same checks run in code:
 
 ```ts
