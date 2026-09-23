@@ -586,7 +586,7 @@ export const SOURCE_TELLS: SourceTell[] = [
     severity: "warn",
     surface: "source",
     why: "Ban Inter and a model reaches for Inter Tight, DM Sans, Manrope, Space Grotesk or an Instrument/Fraunces serif. A swap inside the reflex list is not a decision.",
-    fix: "Same as reflex-font. If this face really is the right one, declare an exception with the reason and the evidence.",
+    fix: "Pick the display face from the client's world (signage, packaging, the trade's lettering) and record why in art-direction.json. If this face really is the right one, declare an exception with the reason and the evidence.",
     detect: fontTell(REFLEX_FONTS_2),
     fixtures: {
       flag: [f("src/styles.css", `@theme {\n  --font-sans: "DM Sans", system-ui, sans-serif;\n}`)],
