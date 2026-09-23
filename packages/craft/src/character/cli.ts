@@ -35,8 +35,10 @@ Usage
   craft audit <url | snapshot.json> [--repo <dir>] [--null <null.json>] [--out <file>] [--json] [--strict]
   craft direction init [--snapshot <file>] [--client <name>] [--out <file>]
   craft direction validate [--snapshot <file>] [--direction <file>] [--json]
-  craft direction propose [--snapshot <file>] [--estate <dir>] [--out <file>]
+  craft direction propose [--snapshot <file>] [--estate <estate.json | dir>] [--out <file>]
   craft null build --brief "<text>" --out <dir> [--runs 20] [--parallel 4] [--model <name>]
+  craft estate add <url | snapshot.json> --id <id> [--client <name>] [--estate <file>]
+  craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--json] [--strict]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
@@ -55,6 +57,9 @@ direction The site's art-direction.json: every choice with a reason from the
           sources' PNG photos and drafts choices for a person to confirm.
 null      The counterfactual: about 20 pages \`claude -p\` builds from the brief
           alone, snapshotted and fingerprinted into null.json. Resumable.
+estate    The register of shipped sites (estate.json). add fingerprints a site;
+          compare lists the nearest, and marks siblings: two sites closer than
+          two pages Claude builds for one brief. --strict exits 1 on a sibling.
 
 Exceptions come from art-direction.json in the working directory, or --direction.
 Every tell ships as warn: exit 1 only on a block, or on any finding with --strict.`;
@@ -78,6 +83,7 @@ export interface Flags {
   model?: string;
   share?: string;
   null?: string;
+  id?: string;
 }
 
 const VALUE_FLAGS = {
@@ -95,6 +101,7 @@ const VALUE_FLAGS = {
   "--model": "model",
   "--share": "share",
   "--null": "null",
+  "--id": "id",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
@@ -182,6 +189,9 @@ export function run(argv: string[], io: Io): number | Promise<number> {
   const [command, ...rest] = argv;
   if (command === "direction") {
     return import("../direction/cli.js").then((m) => m.runDirection(rest, io));
+  }
+  if (command === "estate") {
+    return import("../estate/cli.js").then((m) => m.runEstate(rest, io));
   }
   if (command === "null") {
     return import("../null/cli.js").then((m) => m.runNull(rest, io));

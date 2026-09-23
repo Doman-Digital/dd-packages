@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "sites": [
+    {
+      "id": "chair",
+      "client": "Chair and Blade",
+      "url": "https://www.chairandblade.co.uk/",
+      "fingerprint": {
+        "version": 1,
+        "accent": {
+          "l": 0.6606294529024049,
+          "c": 0.0749872177195022,
+          "h": 152.25697064968472
+        },
+        "ground": {
+          "l": 0.1531545489315863,
+          "c": 0.0016782268983985757,
+          "h": 196.980941733382
+        },
+        "display": {
+          "family": "Bebas Neue",
+          "class": "sans"
+        },
+        "body": {
+          "family": "DM Sans",
+          "class": "sans"
+        },
+        "roundness": 0,
+        "motion": 0.6666666666666666,
+        "effects": [
+          "marquee"
+        ],
+        "layout": [
+          "hero",
+          "text",
+          "text",
+          "text",
+          "text",
+          "cards",
+          "text",
+          "text",
+          "logos",
+          "text"
+        ]
+      },
+      "tells": [
+        "marquee",
+        "reflex-font-2",
+        "reveal-everywhere"
+      ],
+      "addedAt": "2026-09-23T11:18:18.121Z"
+    },
+    {
+      "id": "dd",
+      "client": "Doman Digital",
+      "url": "https://www.domandigital.co.uk/",
+      "fingerprint": {
+        "version": 1,
+        "accent": null,
+        "ground": {
+          "l": 0.9693164945650143,
+          "c": 0.00396968728741135,
+          "h": 106.47327732034933
+        },
+        "display": {
+          "family": "Fraunces",
+          "class": "serif"
+        },
+        "body": {
+          "family": "Inter Tight",
+          "class": "sans"
+        },
+        "roundness": 0.5,
+        "motion": 0,
+        "effects": [],
+        "layout": [
+          "hero",
+          "cards",
+          "text",
+          "cards",
+          "cards",
+          "cards",
+          "stats",
+          "text",
+          "text",
+          "text",
+          "text"
+        ]
+      },
+      "tells": [
+        "icon-tile-grid",
+        "pill-everything",
+        "reflex-font-2"
+      ],
+      "addedAt": "2026-09-23T11:18:18.036Z"
+    },
+    {
+      "id": "hj",
+      "client": "Harrison James",
+      "url": "https://www.harrisonjamesltd.co.uk/",
+      "fingerprint": {
+        "version": 1,
+        "accent": {
+          "l": 0.728005067806557,
+          "c": 0.13798294966314018,
+          "h": 89.72628816728746
+        },
+        "ground": {
+          "l": 0.9726661659096866,
+          "c": 0.0017112633286220837,
+          "h": 247.83921201712778
+        },
+        "display": {
+          "family": "Sora",
+          "class": "sans"
+        },
+        "body": {
+          "family": "Inter",
+          "class": "sans"
+        },
+        "roundness": 0.1076923076923077,
+        "motion": 0,
+        "effects": [],
+        "layout": [
+          "hero",
+          "cards",
+          "cards",
+          "cards",
+          "text"
+        ]
+      },
+      "tells": [
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "addedAt": "2026-09-23T11:18:16.894Z"
+    },
+    {
+      "id": "hjbeauty",
+      "client": "Harrisons Beauty",
+      "url": "https://www.harrisonsbeauty.com/",
+      "fingerprint": {
+        "version": 1,
+        "accent": null,
+        "ground": {
+          "l": 0.9999999934735462,
+          "c": 3.727399553519285e-8,
+          "h": 0
+        },
+        "display": {
+          "family": "Fraunces",
+          "class": "serif"
+        },
+        "body": {
+          "family": "Archivo",
+          "class": "sans"
+        },
+        "roundness": 0.25,
+        "motion": 0,
+        "effects": [
+          "marquee"
+        ],
+        "layout": [
+          "hero",
+          "cards",
+          "logos",
+          "text",
+          "text",
+          "text",
+          "cards",
+          "text",
+          "text"
+        ]
+      },
+      "tells": [
+        "icon-tile-grid",
+        "marquee",
+        "reflex-font-2"
+      ],
+      "addedAt": "2026-09-23T11:18:15.124Z"
+    },
+    {
+      "id": "mmm",
+      "client": "MMM Beauty",
+      "url": "https://www.mmm-beauty.co.uk/",
+      "fingerprint": {
+        "version": 1,
+        "accent": {
+          "l": 0.8996953848889294,
+          "c": 0.07822882389549882,
+          "h": 164.88884979395755
+        },
+        "ground": {
+          "l": 0.9789322245544005,
+          "c": 0.0028651394202394136,
+          "h": 264.54207416460844
+        },
+        "display": {
+          "family": "Cormorant Garamond",
+          "class": "serif"
+        },
+        "body": {
+          "family": "DM Sans",
+          "class": "sans"
+        },
+        "roundness": 0.36363636363636365,
+        "motion": 1,
+        "effects": [
+          "intro-cinematic",
+          "radial-spotlight-glow"
+        ],
+        "layout": [
+          "hero",
+          "stats",
+          "cards",
+          "cards",
+          "cards"
+        ]
+      },
+      "tells": [
+        "hero-then-proof",
+        "intro-cinematic",
+        "radial-spotlight-glow",
+        "reflex-font-2"
+      ],
+      "addedAt": "2026-09-23T11:18:17.323Z"
+    },
+    {
+      "id": "rmp",
+      "client": "RMP Electrical",
+      "url": "https://www.rmp-electrical.co.uk/",
+      "fingerprint": {
+        "version": 1,
+        "accent": {
+          "l": 0.44792468976576777,
+          "c": 0.10832057206122002,
+          "h": 151.32767935087702
+        },
+        "ground": {
+          "l": 0.9593087800585209,
+          "c": 0.010256130581941775,
+          "h": 81.7950615899831
+        },
+        "display": {
+          "family": "Fraunces",
+          "class": "serif"
+        },
+        "body": {
+          "family": "Manrope",
+          "class": "sans"
+        },
+        "roundness": 0.5,
+        "motion": 0.4,
+        "effects": [
+          "hero-eyebrow-chip"
+        ],
+        "layout": [
+          "hero",
+          "logos",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "text"
+        ]
+      },
+      "tells": [
+        "cream-palette",
+        "hero-eyebrow-chip",
+        "hero-then-proof",
+        "icon-tile-grid",
+        "italic-serif-display",
+        "pill-everything",
+        "reflex-font-2"
+      ],
+      "addedAt": "2026-09-23T11:18:19.816Z"
+    },
+    {
+      "id": "sensphere",
+      "client": "Sensphere",
+      "url": "https://sensphere.co.uk/",
+      "fingerprint": {
+        "version": 1,
+        "accent": {
+          "l": 0.4778847733325181,
+          "c": 0.22199474174545347,
+          "h": 285.21732511576033
+        },
+        "ground": {
+          "l": 0.9772684231375691,
+          "c": 0.005295802336335307,
+          "h": 286.30134192672733
+        },
+        "display": {
+          "family": "Inter",
+          "class": "sans"
+        },
+        "body": {
+          "family": "Inter",
+          "class": "sans"
+        },
+        "roundness": 0.2,
+        "motion": 0,
+        "effects": [
+          "radial-spotlight-glow",
+          "thin-border-wide-shadow"
+        ],
+        "layout": [
+          "hero",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "text",
+          "cards",
+          "cards",
+          "text"
+        ]
+      },
+      "tells": [
+        "ai-violet",
+        "icon-tile-grid",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "thin-border-wide-shadow"
+      ],
+      "addedAt": "2026-09-23T11:18:17.321Z"
+    }
+  ]
+}

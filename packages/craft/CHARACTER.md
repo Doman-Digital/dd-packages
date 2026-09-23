@@ -30,7 +30,7 @@ model defaults move.
 | --- | --- | --- |
 | 1. Known tells | Does it use a choice on the catalogue below? | **Shipped**: source, copy, and on the rendered page for 18 tells (`craft audit`). |
 | 2. Counterfactual typicality | Would Claude have built this anyway, for this brief? | **Shipped**: `craft null build` generates about 20 pages from the brief; `craft audit --null` scores a page against them. |
-| 3. Distance from the estate | Does it look like the agency's other sites? | Fingerprint and distance shipped; the estate register is planned. The agency's biggest tell is its clients looking like siblings. |
+| 3. Distance from the estate | Does it look like the agency's other sites? | **Shipped**: `craft estate add` fingerprints each shipped site into `estate.json`; `craft estate compare` marks siblings. The agency's biggest tell is its clients looking like each other. |
 
 **The reason rule.** Every expressive choice records a `because`, with evidence
 from the client's real world: the shopfront, the van, the trade's own look, the
@@ -226,6 +226,30 @@ Known limits: a user-level `CLAUDE.md` on the machine that builds the null
 still reaches the model. The null is only as current as its build date; rebuild
 it when the model changes.
 
+## The estate
+
+The agency's biggest tell is not on any one site. It is its clients looking
+like each other. `estate.json` holds one fingerprint per shipped site:
+
+```bash
+craft estate add https://www.rmp-electrical.co.uk --id rmp --client "RMP Electrical"
+craft estate compare            # every pair, closest first
+craft estate compare rmp        # one site against the rest
+craft estate compare https://staging.example.test   # a new build before it ships
+```
+
+**Siblings** are two sites closer together than two pages Claude builds for
+the same brief usually are: the median of that distance over the null models,
+0.31 on 2026-09-23 (`--null` measures it again from any null models given).
+If a barber and an electrician look more alike than two drafts of one barber,
+neither look was chosen. The report says what the pair shares in plain words
+("Fraunces headline", "no accent", "pill buttons"), which is where to start
+pulling them apart. A sibling is a warning; `--strict` exits 1 on one, for a
+pipeline that has decided to hold the line.
+
+`craft direction propose --estate estate.json` reads the register too, so a
+proposed accent steers away from one a sibling already uses.
+
 ## The house copy rules live here
 
 Since catalogue `2026.09.2` the rule lists of claude-kit's
@@ -305,9 +329,11 @@ What it shows:
   session.
 - **Every site ships a reflex face.** Twelve of fourteen site-face pairs are
   on one of the two lists. Fraunces sets the headline on DD, HJ Beauty and RMP.
-- **DD and RMP are the closest pair** (fingerprint distance 0.46: Fraunces
-  headlines, pill buttons, a green accent). Chair and Blade is furthest from
-  everything (0.59 to 0.77). This is signal 3's first measurement.
+- **DD and RMP were read as the closest pair** (0.46) on the first run, with
+  a green accent in common. DD's "green" was its floating WhatsApp button,
+  48px square, the only saturated paint on a near-black and white page. The
+  fingerprint now needs a panel's worth of area before a painted colour
+  counts as the accent. The corrected pairs are under *The estate*, below.
 - **DD's violet is its brand.** Its 36 source hits wait for the exception in
   its `art-direction.json`.
 
@@ -347,7 +373,7 @@ design tells), a rule fixed before any result was read.
 | | Pages | Share |
 |---|---|---|
 | Flagged | 19 of 20 | 95% (target 90%) |
-| Typical on its own | 15 of 20 | 75% |
+| Typical on its own | 13 of 20 | 65% |
 | Tell-heavy on its own | 16 of 20 | 80% |
 
 The one miss is the landscaper: dark forest green on a cream ground,
@@ -357,7 +383,7 @@ pooled null because no estate brief is a garden business. Neither signal alone r
 target; together they do, which is the reason for having more than one.
 
 **The model's look depends on the brief.** Each brief's null pages scored
-against the other six briefs' pages are typical only 5 to 13 times in 20.
+against the other six briefs' pages are typical only 2 to 13 times in 20.
 A barber and an electrician get different pages. So a site is scored against
 the null built from its own brief, and pooling briefs is a weaker test.
 
@@ -398,6 +424,25 @@ The catalogue tells the model still produces most: `reflex-font-2` 103 of
 `glass-panel` at 100 of 140 includes source hits on blurred sticky navs, the
 same false positive fixed on the rendered path. The source rule needs the same
 fix before that count means anything.
+
+### Signal 3 first read, 2026-09-23
+
+`craft estate add` on the seven live snapshots, then `craft estate compare
+--null calibration/null/*` (the line measured again: 0.31). Register and output
+in `calibration/estate/`.
+
+| Pair | Distance | Shares |
+|---|---|---|
+| DD + HJ Beauty | **0.28, siblings** | no accent, Fraunces headline, no reveals |
+| DD + RMP | 0.49 | Fraunces headline, grey ground, pill buttons |
+| Harrison James + Sensphere | 0.50 | white ground, square buttons, no reveals |
+| HJ Beauty + RMP | 0.56 | Fraunces headline |
+| Chair and Blade + anything | 0.60 to 0.86 | at most a marquee (with HJ Beauty) |
+
+One sibling pair in twenty-one, and it is the agency's own site with one of
+its clients: the same Fraunces headline over a near-black and white page with
+no colour of its own. Fraunces sets the headline on three of the seven. Chair
+and Blade shares nothing with anyone but a marquee. Not yet read by a person.
 
 ## The catalogue
 

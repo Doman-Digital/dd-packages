@@ -207,3 +207,17 @@ export {
   type HarvestOptions,
   type CandidateKind,
 } from "./null/index.js";
+export {
+  ESTATE_VERSION,
+  SIBLING_AT,
+  emptyEstate,
+  addSite,
+  compareToEstate,
+  estatePairs,
+  sharedParts,
+  siblingLine,
+  type EstateRegister,
+  type EstateSite,
+  type EstateMatch,
+  type EstatePair,
+} from "./estate/index.js";
