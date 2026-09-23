@@ -1,0 +1,69 @@
+{
+  "name": "@domandigital/sanity-copy",
+  "version": "0.1.0",
+  "private": false,
+  "description": "The Doman Digital house copy check in Sanity Studio: every document type gains craft's copy rules as validation warnings on the field that caused them. Also a pure checker for a document or an export. No Sanity dependency.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.9",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doman-Digital/dd-packages.git",
+    "directory": "packages/sanity-copy"
+  },
+  "homepage": "https://github.com/Doman-Digital/dd-packages/tree/main/packages/sanity-copy#readme",
+  "bugs": {
+    "url": "https://github.com/Doman-Digital/dd-packages/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "@domandigital/craft": "workspace:^"
+  },
+  "keywords": [
+    "sanity",
+    "sanity-plugin",
+    "copy",
+    "linter",
+    "ai-writing"
+  ],
+  "bin": {
+    "sanity-copy": "dist/cli.js"
+  }
+}

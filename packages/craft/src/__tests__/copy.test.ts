@@ -122,3 +122,15 @@ describe("checking copy", () => {
     expect(checkCopy([{ path: "home.md", text: md }]).findings).toEqual([]);
   });
 });
+
+describe("chatbot-residue on a run of citation tokens", () => {
+  it("reports a run as one finding, not one per token", () => {
+    const report = checkCopy([{ path: "content/a.md", text: "Fees vary. citeturn11search1turn10view0turn10view1turn2view3\n" }]);
+    expect(report.findings.filter((f) => f.tell === "chatbot-residue")).toHaveLength(1);
+  });
+
+  it("reads through the invisible characters ChatGPT wraps them in", () => {
+    const text = "Fees vary. \uE200cite\uE202turn11search1\uE202turn10view0\uE202turn2view3\uE201\n";
+    expect(checkCopy([{ path: "content/a.md", text }]).findings.filter((f) => f.tell === "chatbot-residue")).toHaveLength(1);
+  });
+});
