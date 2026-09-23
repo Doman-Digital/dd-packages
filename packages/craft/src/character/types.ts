@@ -96,11 +96,16 @@ export interface CopyBlock {
   text: string;
   /** Offset of `text[0]` in the original file, so hits land on real lines. */
   offset: number;
+  /** A quoted string in code, as opposed to text a reader sees in place. */
+  literal?: boolean;
 }
 
 export interface CopyContext {
   files: SourceFile[];
+  /** Sentences: what word and phrase tells read. */
   blocks: CopyBlock[];
+  /** Every visible string on its own, however short: what badge, dash and emoji tells read. */
+  strings: CopyBlock[];
 }
 
 interface TellBase {
@@ -166,6 +171,11 @@ export interface CheckReport {
   rejectedExceptions: { exception: TellException; reason: string }[];
   /** Findings each applied exception silenced, so an exception stays visible. */
   excepted: { tell: string; because: string; count: number }[];
+  /**
+   * Findings silenced by a `copy-ok` or `craft-ok` marker on the line or the
+   * line above. Listed, never hidden: a marker nobody can see is a hole.
+   */
+  suppressed: { tell: string; path: string; line: number }[];
   summary: {
     files: number;
     findings: number;
