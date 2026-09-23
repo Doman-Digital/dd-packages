@@ -1,0 +1,97 @@
+{
+  "site": "https://www.chairandblade.co.uk/",
+  "verdict": "mixed",
+  "summary": "1 of 4 signals raised: tells.",
+  "signals": [
+    {
+      "id": "tells",
+      "raised": true,
+      "detail": "7 distinct design tells: reflex-font, reflex-font-2, intro-cinematic, hero-then-proof, italic-serif-display, marquee, reveal-everywhere"
+    },
+    {
+      "id": "typicality",
+      "raised": false,
+      "detail": "score 0.05, not typical of what Claude builds for this brief"
+    },
+    {
+      "id": "estate",
+      "raised": false,
+      "detail": "nearest hj at 0.60, no sibling"
+    },
+    {
+      "id": "reasons",
+      "raised": null,
+      "detail": "not measured: no art-direction.json"
+    }
+  ],
+  "actions": [
+    {
+      "area": "direction",
+      "what": "Write art-direction.json: run craft direction init, then give every choice a reason from the client's world.",
+      "why": "the reason rule",
+      "priority": 1
+    },
+    {
+      "area": "type",
+      "what": "Pick the display face from the client's world (signage, packaging, the trade's lettering), record why in art-direction.json, and keep it unique across the estate.",
+      "why": "Reflex font (reflex-font, gen 1); Second-wave reflex font (reflex-font-2, gen 2), in source and on the page; Italic serif display (italic-serif-display, gen 2)",
+      "priority": 1,
+      "choice": "display"
+    },
+    {
+      "area": "motion",
+      "what": "Remove it. Spend the signature moment on something the visitor came for.",
+      "why": "Intro cinematic (intro-cinematic, gen 2); Scrolling marquee (marquee, gen 2); Reveal on every section (reveal-everywhere, gen 1)",
+      "priority": 2,
+      "choice": "signature"
+    },
+    {
+      "area": "layout",
+      "what": "Follow the hero with the thing only this business has: the work, the place, the person. Put proof where a doubt arises.",
+      "why": "Hero straight into a trust strip (hero-then-proof, gen 1)",
+      "priority": 2
+    },
+    {
+      "area": "copy",
+      "what": "Use a full stop, a comma, or a colon. Two sentences are clearer than one sentence with a dash in it.",
+      "why": "Em dash (em-dash), 57 places, first at .claude/brand-voice-guidelines.md:1",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Cut the phrase and start with the point it was introducing. 'Seamless booking' becomes 'Book in three taps'.",
+      "why": "AI phrase (ai-phrase), 2 places, first at .claude/skills/copy-check/SKILL.md:65",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Name the mechanism instead. 'Empower your team' becomes 'Your team can publish without us'.",
+      "why": "A plainer word exists (plainer-word), 4 places, first at .claude/skills/copy-check/SKILL.md:65",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say the positive claim and drop the contrast.",
+      "why": "Contrastive negation (not-just-but), 1 place, first at .claude/skills/copy-check/SKILL.md:98",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what they get: 'We reply within a day and only about your enquiry'.",
+      "why": "'No X, no Y' list (no-x-no-y), 1 place, first at app/cookies/page.tsx:30",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Keep the one that lands hardest and cut the rest. 'What is genuinely excellent' reads better as 'what is excellent'.",
+      "why": "Review-tier phrase (review-phrase), 2 places, first at app/terms/page.tsx:42",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace the phrase with the fact behind it: a number, a name, a place, a time.",
+      "why": "Stock phrase (stock-phrase), 1 place, first at constants/content.ts:114",
+      "priority": 3
+    }
+  ]
+}

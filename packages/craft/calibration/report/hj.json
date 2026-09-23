@@ -1,0 +1,87 @@
+{
+  "site": "https://www.harrisonjamesltd.co.uk/",
+  "verdict": "mixed",
+  "summary": "1 of 4 signals raised: typicality.",
+  "signals": [
+    {
+      "id": "tells",
+      "raised": false,
+      "detail": "2 distinct design tells: reflex-font, reflex-font-2"
+    },
+    {
+      "id": "typicality",
+      "raised": true,
+      "detail": "score 0.10, typical of what Claude builds for this brief"
+    },
+    {
+      "id": "estate",
+      "raised": false,
+      "detail": "nearest sensphere at 0.50, no sibling"
+    },
+    {
+      "id": "reasons",
+      "raised": null,
+      "detail": "not measured: no art-direction.json"
+    }
+  ],
+  "actions": [
+    {
+      "area": "direction",
+      "what": "Write art-direction.json: run craft direction init, then give every choice a reason from the client's world.",
+      "why": "the reason rule",
+      "priority": 1
+    },
+    {
+      "area": "type",
+      "what": "Pick the display face from the client's world (signage, packaging, the trade's lettering), record why in art-direction.json, and keep it unique across the estate.",
+      "why": "Reflex font (reflex-font, gen 1), in source and on the page; Second-wave reflex font (reflex-font-2, gen 2), in source and on the page",
+      "priority": 1,
+      "choice": "display"
+    },
+    {
+      "area": "type",
+      "what": "Move off the model's pick for this brief: body Inter.",
+      "why": "18 of 20 null pages chose it",
+      "priority": 1,
+      "choice": "body"
+    },
+    {
+      "area": "colour",
+      "what": "Move off the model's pick for this brief: accent yellow.",
+      "why": "16 of 20 null pages chose it",
+      "priority": 1,
+      "choice": "accent"
+    },
+    {
+      "area": "shape",
+      "what": "Move off the model's pick for this brief: shape square.",
+      "why": "12 of 20 null pages chose it",
+      "priority": 1,
+      "choice": "shape"
+    },
+    {
+      "area": "copy",
+      "what": "Open with the answer.",
+      "why": "Rhetorical question opener (rhetorical-opener), 4 places, first at app/(site)/about/page.tsx:164",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Use a full stop, a comma, or a colon. Two sentences are clearer than one sentence with a dash in it.",
+      "why": "Em dash (em-dash), 18 places, first at app/(site)/pricing/page.tsx:51",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace the phrase with the fact behind it: a number, a name, a place, a time.",
+      "why": "Stock phrase (stock-phrase), 1 place, first at app/(site)/terms/page.tsx:47",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say the positive claim and drop the contrast.",
+      "why": "Contrastive negation (not-just-but), 1 place, first at CONTENT-PACK-PLAN.md:45",
+      "priority": 3
+    }
+  ]
+}

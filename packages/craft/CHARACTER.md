@@ -250,6 +250,33 @@ pipeline that has decided to hold the line.
 `craft direction propose --estate estate.json` reads the register too, so a
 proposed accent steers away from one a sibling already uses.
 
+## The character report
+
+`craft report` reads one site against everything above and gives a verdict:
+
+```bash
+craft report https://www.rmp-electrical.co.uk --repo . --null null/rmp --estate ../estate.json
+craft retrofit https://www.rmp-electrical.co.uk --repo . --null null/rmp --estate ../estate.json --out RETROFIT.md
+```
+
+| Verdict | When |
+|---|---|
+| default | Two or more signals raised: three or more design tells, typical of the brief's null, a sibling in the estate, or fewer than five choices decided with a reason. |
+| mixed | One raised. |
+| decided | None raised, and all four measured. |
+| unproven | None raised, but something was not measured. Unverified is never a pass. |
+
+The actions come in the order a retrofit works: decide first, then type,
+colour, shape, effects, motion, how sections look, and copy. Where a tell, the
+null model and a sibling all point at one choice, they are one action with
+three reasons. Sharing a white page or a still one with the null is never
+an action: that would reward strangeness.
+
+`craft retrofit` writes the same as a checklist. Each change names the
+art-direction choice that settles it, and shows the decided value and its
+reason, or says it waits on that decision. It ends with what to leave alone:
+navigation, the order of sections, where the call to action sits.
+
 ## The house copy rules live here
 
 Since catalogue `2026.09.2` the rule lists of claude-kit's
@@ -443,6 +470,27 @@ One sibling pair in twenty-one, and it is the agency's own site with one of
 its clients: the same Fraunces headline over a near-black and white page with
 no colour of its own. Fraunces sets the headline on three of the seven. Chair
 and Blade shares nothing with anyone but a marquee. Not yet read by a person.
+
+### Character report first read, 2026-09-23
+
+`craft report` on each live snapshot with its repo, its own brief's null and
+the register. Reports and retrofit plans are in `calibration/report/`.
+
+| Site | Verdict | Raised | Actions |
+|---|---|---|---|
+| DD | default | tells (12), typical (0.15), sibling of HJ Beauty | 26 |
+| HJ Beauty | default | tells (6), sibling of DD | 18 |
+| MMM | mixed | tells (18) | 27 |
+| Sensphere | mixed | tells (9) | 18 |
+| Chair and Blade | mixed | tells (7) | 11 |
+| RMP | mixed | tells (8) | 18 |
+| Harrison James | mixed | typical (0.10) | 9 |
+
+No site has an `art-direction.json`, so the reasons are not measured on any of
+them and none can be *decided* yet. The first change after deciding is the
+same on all seven: the display face. It is the estate's common default, and
+the one choice the retrofits (phase G) should settle first. Not yet read by a
+person.
 
 ## The catalogue
 
