@@ -124,6 +124,7 @@ export {
   runTell,
   scanSource,
   tellById,
+  wordListsJson,
 } from "./character/check.js";
 export { formatReport } from "./character/format.js";
 export { auditSnapshot } from "./character/check.js";

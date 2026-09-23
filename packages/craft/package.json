@@ -41,6 +41,7 @@
     "PRINCIPLES.md",
     "README.md",
     "STANDARD.md",
+    "word-lists.json",
     "css",
     "dist"
   ],
@@ -49,7 +50,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "prepublishOnly": "pnpm run build",
-    "docs": "tsup && node scripts/write-catalogue.mjs"
+    "docs": "tsup && node scripts/write-catalogue.mjs && node scripts/write-word-lists.mjs"
   },
   "devDependencies": {
     "tsup": "^8.3.5",
