@@ -221,3 +221,15 @@ export {
   type EstateMatch,
   type EstatePair,
 } from "./estate/index.js";
+export {
+  characterReport,
+  TELL_HEAVY,
+  MIN_DECIDED,
+  type CharacterReport,
+  type CharacterInputs,
+  type SignalResult,
+  type Action,
+  type Area,
+  type Verdict,
+} from "./report/index.js";
+export { retrofitPlan } from "./report/retrofit.js";

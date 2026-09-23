@@ -10,11 +10,15 @@
 
 export type FontClass = "serif" | "sans" | "mono" | "script" | "system";
 
+const SYSTEM = /^(?:system-ui|-apple-system|BlinkMacSystemFont|ui-sans-serif|ui-serif|ui-monospace|ui-rounded|sans-serif|serif|monospace|cursive)$/i;
+
 export function normaliseFamily(raw: string): string {
   let name = raw.replace(/["']/g, "").trim();
   const next = name.match(/^__(.+?)(?:_Fallback)?_[0-9a-f]{5,8}$/i);
   if (next) name = next[1].replace(/_/g, " ");
   name = name.replace(/\s+Fallback$/i, "").replace(/\s+Variable$/i, "");
+  // System keywords first: `ui-monospace` is not a CSS variable name.
+  if (SYSTEM.test(name)) return "system-ui";
   // A CSS variable name used as a family: `cormorantGaramond`, `dm-sans`.
   if (!/\s/.test(name) && (/[a-z][A-Z]/.test(name) || /^[a-z]+(?:-[a-z]+)+$/.test(name))) {
     name = name
@@ -23,7 +27,6 @@ export function normaliseFamily(raw: string): string {
       .replace(/\b([a-z])/g, (c) => c.toUpperCase())
       .replace(/\bDm\b/, "DM");
   }
-  if (/^(?:system-ui|-apple-system|BlinkMacSystemFont|ui-sans-serif|ui-serif|ui-monospace|sans-serif|serif|monospace)$/i.test(name)) return "system-ui";
   return name;
 }
 

@@ -39,6 +39,8 @@ Usage
   craft null build --brief "<text>" --out <dir> [--runs 20] [--parallel 4] [--model <name>]
   craft estate add <url | snapshot.json> --id <id> [--client <name>] [--estate <file>]
   craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--json] [--strict]
+  craft report <url | snapshot.json> [--repo <dir>] [--null <dir>] [--estate <file>] [--direction <file>] [--json] [--strict]
+  craft retrofit <url | snapshot.json> [the same] [--out RETROFIT.md]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
@@ -60,6 +62,11 @@ null      The counterfactual: about 20 pages \`claude -p\` builds from the brief
 estate    The register of shipped sites (estate.json). add fingerprints a site;
           compare lists the nearest, and marks siblings: two sites closer than
           two pages Claude builds for one brief. --strict exits 1 on a sibling.
+report    Every signal for one site: tells, typicality, the estate, the reasons.
+          A verdict (default, mixed, decided, unproven) and what to do, in order.
+          Anything not given is "not measured", and never counts as a pass.
+retrofit  The report as a checklist: decide, then change type, colour, shape,
+          effects, motion and copy. Never the page grammar.
 
 Exceptions come from art-direction.json in the working directory, or --direction.
 Every tell ships as warn: exit 1 only on a block, or on any finding with --strict.`;
@@ -180,15 +187,18 @@ export function finish(report: CheckReport, flags: Flags, title: string, io: Io)
 }
 
 export const SOURCE_FILE = (p: string): boolean => ["markup", "script", "css"].includes(fileKind(p)) && !/\.d\.ts$|\.min\.js$/.test(p);
-const COPY_FILE = (p: string): boolean =>
+export const COPY_FILE = (p: string): boolean =>
   (["markup", "prose", "script"].includes(fileKind(p)) || /\.jsonl?$/i.test(p)) && !NOT_SITE_COPY.test(p.split("/").pop() ?? p) && !/(?:^|\/)(?:package(?:-lock)?|tsconfig[\w.-]*|art-direction)\.json$/.test(p);
 /** Folders prefixed `_` hold notes and drafts by convention. */
-const NOT_COPY_DIR = (name: string): boolean => name.startsWith("_");
+export const NOT_COPY_DIR = (name: string): boolean => name.startsWith("_");
 
 export function run(argv: string[], io: Io): number | Promise<number> {
   const [command, ...rest] = argv;
   if (command === "direction") {
     return import("../direction/cli.js").then((m) => m.runDirection(rest, io));
+  }
+  if (command === "report" || command === "retrofit") {
+    return import("../report/cli.js").then((m) => m.runReport(command, rest, io));
   }
   if (command === "estate") {
     return import("../estate/cli.js").then((m) => m.runEstate(rest, io));
