@@ -26,6 +26,7 @@ export interface SnapshotOptions {
 }
 
 interface MinimalPage {
+  close?(): Promise<void>;
   goto(url: string, options?: { waitUntil?: string; timeout?: number }): Promise<unknown>;
   evaluate<R>(fn: () => R): Promise<R>;
   waitForTimeout(ms: number): Promise<void>;
@@ -72,9 +73,7 @@ export async function snapshotPage(page: MinimalPage, url: string, options: Snap
   };
 }
 
-/** Launch a browser, open `url`, and capture a snapshot. */
-export async function snapshotUrl(url: string, options: SnapshotOptions = {}): Promise<Snapshot> {
-  const pw = await loadPlaywright();
+async function launch(pw: Launcher, url: string, options: SnapshotOptions): Promise<MinimalBrowser> {
   // Read without Node's types, so the declarations build for any consumer.
   const env = (globalThis as { process?: { env: Record<string, string | undefined> } }).process?.env ?? {};
   const executablePath = options.executablePath ?? env.CRAFT_CHROMIUM ?? undefined;
@@ -86,11 +85,46 @@ export async function snapshotUrl(url: string, options: SnapshotOptions = {}): P
   const noProxy = [`localhost`, `127.0.0.1`, `::1`, ...(env.NO_PROXY ?? env.no_proxy ?? "").split(",")].map((h) => h.trim().replace(/^\*?\./, "")).filter(Boolean);
   const direct = /^(?:localhost|127\.|\[?::1\]?$)/.test(host) || noProxy.some((h) => host === h || host.endsWith(`.${h}`));
   const proxy = direct ? undefined : env.HTTPS_PROXY ?? env.https_proxy;
-  const browser = await pw.chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}), ...(proxy ? { proxy: { server: proxy } } : {}) });
+  return pw.chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}), ...(proxy ? { proxy: { server: proxy } } : {}) });
+}
+
+/** Launch a browser, open `url`, and capture a snapshot. */
+export async function snapshotUrl(url: string, options: SnapshotOptions = {}): Promise<Snapshot> {
+  const [result] = await snapshotUrls([url], options);
+  if (!result.snapshot) throw new Error(result.error);
+  return result.snapshot;
+}
+
+export interface SnapshotResult {
+  url: string;
+  snapshot?: Snapshot;
+  /** Why this page has no snapshot. The others are still taken. */
+  error?: string;
+}
+
+/**
+ * Several pages through one browser, in order. A null model is twenty pages;
+ * launching Chromium twenty times is most of the wait. One page that will not
+ * load costs that page, not the batch.
+ */
+export async function snapshotUrls(urls: string[], options: SnapshotOptions = {}): Promise<SnapshotResult[]> {
+  if (urls.length === 0) return [];
+  const pw = await loadPlaywright();
+  const browser = await launch(pw, urls[0], options);
+  const out: SnapshotResult[] = [];
   try {
-    const page = await browser.newPage({ viewport: options.viewport ?? { width: 1440, height: 900 } });
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: options.timeoutMs ?? 45000 });
-    return await snapshotPage(page, url, options);
+    for (const url of urls) {
+      const page = await browser.newPage({ viewport: options.viewport ?? { width: 1440, height: 900 } });
+      try {
+        await page.goto(url, { waitUntil: "domcontentloaded", timeout: options.timeoutMs ?? 45000 });
+        out.push({ url, snapshot: await snapshotPage(page, url, options) });
+      } catch (error) {
+        out.push({ url, error: (error as Error).message });
+      } finally {
+        await page.close?.();
+      }
+    }
+    return out;
   } finally {
     await browser.close();
   }

@@ -30,24 +30,31 @@ Usage
   craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>]
   craft copy <paths...> [--json] [--strict] [--direction <file>]
   craft tells list [--json]
+  craft tells harvest <null.json | dir>... [--share 0.25] [--json]
   craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
-  craft audit <url | snapshot.json> [--repo <dir>] [--out <file>] [--json] [--strict]
+  craft audit <url | snapshot.json> [--repo <dir>] [--null <null.json>] [--out <file>] [--json] [--strict]
   craft direction init [--snapshot <file>] [--client <name>] [--out <file>]
   craft direction validate [--snapshot <file>] [--direction <file>] [--json]
   craft direction propose [--snapshot <file>] [--estate <dir>] [--out <file>]
+  craft null build --brief "<text>" --out <dir> [--runs 20] [--parallel 4] [--model <name>]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
 copy      The prose in Markdown, markup and content files.
-tells     The catalogue this build judges against.
+tells     The catalogue this build judges against. harvest reads null models
+          for choices the model keeps making that the catalogue does not know.
 snapshot  Render a page in a browser and save what it looks like, as JSON.
 audit     Judge a rendered page (live, or a saved snapshot) and fingerprint it.
           --repo also scans that site's source, so one report covers both.
+          --null scores how typical it is against a null model (comma-separate
+          several to pool them).
           snapshot and audit need Playwright: npm i -D playwright.
 direction The site's art-direction.json: every choice with a reason from the
           client's world. init writes today's choices with empty reasons;
           validate applies the reason rule; propose reads colours off the
           sources' PNG photos and drafts choices for a person to confirm.
+null      The counterfactual: about 20 pages \`claude -p\` builds from the brief
+          alone, snapshotted and fingerprinted into null.json. Resumable.
 
 Exceptions come from art-direction.json in the working directory, or --direction.
 Every tell ships as warn: exit 1 only on a block, or on any finding with --strict.`;
@@ -65,6 +72,12 @@ export interface Flags {
   snapshot?: string;
   estate?: string;
   client?: string;
+  brief?: string;
+  runs?: string;
+  parallel?: string;
+  model?: string;
+  share?: string;
+  null?: string;
 }
 
 const VALUE_FLAGS = {
@@ -76,6 +89,12 @@ const VALUE_FLAGS = {
   "--snapshot": "snapshot",
   "--estate": "estate",
   "--client": "client",
+  "--brief": "brief",
+  "--runs": "runs",
+  "--parallel": "parallel",
+  "--model": "model",
+  "--share": "share",
+  "--null": "null",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
@@ -164,6 +183,17 @@ export function run(argv: string[], io: Io): number | Promise<number> {
   if (command === "direction") {
     return import("../direction/cli.js").then((m) => m.runDirection(rest, io));
   }
+  if (command === "null") {
+    return import("../null/cli.js").then((m) => m.runNull(rest, io));
+  }
+  if (command === "tells" && rest[0] === "harvest") {
+    return import("../null/cli.js")
+      .then((m) => m.runHarvest(rest, io))
+      .catch((error: Error) => {
+        io.err(`craft: ${error.message}`);
+        return 2;
+      });
+  }
   if (command === "snapshot" || command === "audit") {
     // Loaded only here: the browser half never touches a scan or a copy check.
     return import("../audit/cli.js").then((m) => m.runAudit(command, rest, io));
@@ -177,7 +207,7 @@ export function run(argv: string[], io: Io): number | Promise<number> {
     if (command === "tells") {
       const flags = parseFlags(rest);
       if (typeof flags === "string") throw new Error(flags);
-      if (flags.positional[0] !== "list") throw new Error("usage: craft tells list [--json]");
+      if (flags.positional[0] !== "list") throw new Error("usage: craft tells list [--json] | craft tells harvest <null.json>...");
       if (flags.json) {
         const data = CATALOGUE.map(({ id, name, generation, surface, severity, why, fix }) => ({ id, name, generation, surface, severity, why, fix }));
         io.out(JSON.stringify({ version: CATALOGUE_VERSION, tells: data }, null, 2));

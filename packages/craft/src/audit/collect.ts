@@ -202,13 +202,24 @@ export function collectInPage(): InPageSnapshot {
   const header = document.querySelector("body > header, header");
   const h1 = document.querySelector("h1");
 
+  const waiting = (c: HTMLElement): boolean => {
+    const cs = style(c);
+    const op = parseFloat(cs.opacity);
+    return op < 0.1 || (op < 1 && cs.transform !== "none") || c.hasAttribute("data-aos") || /\breveal\b|\bfade-?(?:in|up)\b|\banimate-on-scroll\b/i.test(typeof c.className === "string" ? c.className : "");
+  };
   const hiddenAtLoad = (el: HTMLElement): boolean => {
-    const check = [el, ...(Array.from(el.children) as HTMLElement[]).slice(0, 6)];
-    return check.some((c) => {
-      const cs = style(c);
-      const op = parseFloat(cs.opacity);
-      return op < 0.1 || (op < 1 && cs.transform !== "none") || c.hasAttribute("data-aos") || /\breveal\b|\bfade-?(?:in|up)\b|\banimate-on-scroll\b/i.test(typeof c.className === "string" ? c.className : "");
-    });
+    if ([el, ...(Array.from(el.children) as HTMLElement[]).slice(0, 6)].some(waiting)) return true;
+    // A reveal is as often on the cards two levels down as on the section.
+    // Only blocks that carry text and take up room count, and nothing fixed,
+    // so a closed menu or a modal waiting at opacity 0 is not a reveal.
+    const blocks = (Array.from(el.querySelectorAll("div, article, li, figure, p, h2, h3")) as HTMLElement[])
+      .slice(0, 200)
+      .filter((d) => {
+        const b = box(d);
+        return b.width > 100 && b.height > 40 && (d.textContent ?? "").trim().length > 12 && style(d).position !== "fixed";
+      })
+      .slice(0, 12);
+    return blocks.filter(waiting).length >= Math.min(2, blocks.length) && blocks.some(waiting);
   };
 
   const cardsIn = (section: HTMLElement): { cards: number; iconCards: number } => {
