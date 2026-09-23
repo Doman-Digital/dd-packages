@@ -17,7 +17,7 @@ Update this file in the same PR that moves a phase.
 | E | Estate register, `craft estate add\|compare` | Merged: dd-packages #22. |
 | F | Character report, `craft retrofit`, the character skill, trawl and drift-guards switches | Merged: dd-packages #23, drift-guards #4, trawl #6, claude-kit #8. |
 | G | Retrofits, one session per site | Ready to start. Each site's checklist is in `calibration/report/`. |
-| H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, four research tells, the copy-check skill rebuilt | In review. Runs alongside G and does not block it. |
+| H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, eight research tells (including `chatbot-residue` and `placeholder`), the `craft copy compare` preservation gate, the copy-check skill rebuilt | Standard, gate, density tier and first four research tells merged: dd-packages #24, claude-kit #10. Residue, placeholders and `craft copy compare` in review. Runs alongside G and does not block it. |
 
 ## Rules that hold for every phase
 
@@ -42,6 +42,22 @@ blocking tier of `COPY.md`, and `craft copy --gate` fails on any of them.
 --json`. `src/__tests__/copy-doc.test.ts` fails if a phrase in the blocking
 tier does not block, or if a copy tell is not written up in `COPY.md`.
 
+## Candidates for the blocking tier
+
+- **`chatbot-residue`**, first. It is evidence of a pasted chat reply, not a
+  matter of style, and the research treats it as an error on first
+  occurrence. Zero hits on the 160 generated pages. Read its hits on the
+  estate, then move it to `block` in `house.ts` and `COPY.md` together.
+
+## Not built yet, on purpose
+
+- Document metrics as diagnostics (sentence-length spread, MATTR, trigram
+  repetition, bullet share), shown against a house corpus by document type.
+  Worth building once there is a corpus of real proposals to compare against;
+  without one, a number has nothing to mean.
+- Semantic comparison of an introduction with its conclusion. Needs a model,
+  and craft stays zero-dependency.
+
 ## Baselines to read before anything blocks
 
 Recorded with dates in `CHARACTER.md` under Calibration once run.
@@ -65,8 +81,9 @@ Recorded with dates in `CHARACTER.md` under Calibration once run.
   `calibration/` (20 AI-set, 140 null model). `repeated-sentence` 82 hits on 25
   pages, every one read and real: one page carries its whole body twice, and
   most others reuse a hero line in the footer. `phrase-density` 41 hits on 38
-  pages, mostly "actually" and "genuinely" inside generated testimonials. The
-  other nine new tells: zero hits, because they are built for long documents
+  pages, mostly "actually" and "genuinely" inside generated testimonials.
+  `chatbot-residue`, `placeholder`, `question-reveal` and `inline-label-list`:
+  zero hits, so zero false positives on this set. The other nine: zero hits, because they are built for long documents
   (proposals, emails, articles) and these are landing pages. **Not yet measured
   on long-form or on the estate.** Run the estate sweep before any of them is
   considered for `block`.

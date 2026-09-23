@@ -287,7 +287,8 @@ blocking tier is carried by ten tells here: `ai-phrase`, `plainer-word`,
 and `craft copy --gate` applies it. `copy-check` in claude-kit is a thin
 wrapper that reads the same policy from `craft tells list --json`, so the
 lists and the policy exist once, here, with a test per entry. Since catalogue
-`2026.09.4` the density tier and four research tells are here too, all review.
+`2026.09.4` the density tier and four research tells are here too, and since
+`2026.09.5` four more, including `chatbot-residue` and `placeholder`. All review.
 
 The swap was checked against the old checker on 2,570 files across the seven
 client repos (2026-09-23). The old checker found 193 issues, craft finds every
@@ -533,7 +534,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.4`, 50 tells.
+Catalogue version `2026.09.5`, 54 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -576,6 +577,10 @@ Catalogue version `2026.09.4`, 50 tells.
 | `no-x-badge` | 2 | copy | warn | 'No X' badge | 'No catch.', 'NO JARGON GUIDE': a short standalone 'No X' reads as a slapped-on kicker, and worse when the same one is reused across pieces. |
 | `staccato-triplet` | 2 | copy | warn | Staccato triplet | Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm. |
 | `where-x-meets-y` | 2 | copy | warn | 'Where X meets Y' | 'Where luxury meets comfort' is a tagline shape that fits every business and so describes none. |
+| `chatbot-residue` | 1 | copy | warn | Chatbot residue | 'Certainly! Here's a revised version', 'as an AI language model', a citeturn0search0 token, a link tracked utm_source=chatgpt.com: text that exists only because a chat reply was pasted whole. This is evidence, not style. |
+| `placeholder` | 1 | copy | warn | Unfilled placeholder | '[Insert testimonial]', '[Your Name]', lorem ipsum, TODO_PLACEHOLDER: scaffolding a reader must never see, and the clearest sign a page shipped before anyone read it. |
+| `question-reveal` | 2 | copy | warn | Staged reveal | 'The result? Faster growth.', 'What does this mean for you? It means...': the writer asks the reader's question for them and answers it. An infomercial hook, and a favourite of generated copy. |
+| `inline-label-list` | 2 | copy | warn | Bold-label bullets | '**Speed:** Faster pages' three times in a row: a label that repeats what the line says, in the list shape generated copy defaults to. |
 | `ing-tail` | 2 | copy | warn | Empty -ing tail | '..., ensuring peace of mind', '..., highlighting our commitment': a participle tacked on the end that claims significance and names no mechanism. One of the most common shapes in the Wikipedia guide to AI writing. |
 | `vague-attribution` | 1 | copy | warn | Unnamed source | 'Studies show', 'experts agree', 'it is widely known': a claim credited to nobody. A reader cannot check it, and the house proof rule forbids a claim nobody can check. |
 | `closing-summary` | 1 | copy | warn | Closing summary | 'Overall,', 'In conclusion,', 'In short,': a paragraph that announces it is summing up, then restates what the reader has just read. |
