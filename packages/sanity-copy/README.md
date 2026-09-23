@@ -11,6 +11,12 @@ belongs.
 
 ## In a Studio
 
+Works in any Sanity Studio, v3 or later. Nothing in it is specific to one
+site. Two steps:
+
+1. `pnpm add @domandigital/sanity-copy` (or npm, or yarn) in the Studio's app.
+2. Wrap the types array in `sanity.config.ts`, as below.
+
 ```ts
 import { defineConfig } from "sanity";
 import { withCopyCheck } from "@domandigital/sanity-copy";
@@ -45,7 +51,7 @@ What is not: slugs, links, references, enum values, asset data.
 ## Sweeping a whole dataset
 
 ```bash
-npx @domandigital/sanity-copy --project 6xogwbpo            # a public dataset
+npx @domandigital/sanity-copy --project <id>                 # a public dataset
 SANITY_API_TOKEN=... npx @domandigital/sanity-copy --project <id> --types homepage,service
 npx @domandigital/sanity-copy --file export.json --json
 ```

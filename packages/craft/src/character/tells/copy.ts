@@ -641,6 +641,9 @@ const RESIDUE = [
   // which survive a copy and paste into a CMS: found live, 2026-09-23.
   /[\uE200-\uE2FF]*(?:cite)?[\uE200-\uE2FF]*(?:turn\d+(?:search|news|view|fetch|file|image)\d+[\uE200-\uE2FF]*)+/,
   /:?contentReference\[oaicite:\d+\](?:\{index=\d+\})?/,
+  // Entity markers from the same paste: entity["company","Bark","services
+  // marketplace"] shows on the page where the plain name "Bark" belongs.
+  /[\uE200-\uE2FF]*entity[\uE200-\uE2FF]*\["[a-z_]+"\s*,\s*"[^"\n]{1,80}"(?:\s*,\s*"[^"\n]{0,160}")*\][\uE200-\uE2FF]*/,
   /【\d+(?:[:†][^】]{0,40})?】/,
 ];
 
