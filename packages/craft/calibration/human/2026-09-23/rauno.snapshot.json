@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "url": "https://rauno.me/",
+  "capturedAt": "2026-09-23T16:07:00.690Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6108,
+  "ground": "rgb(237, 237, 237)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 4708650,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 2)",
+        "area": 1748927,
+        "chars": 0
+      },
+      {
+        "value": "color(display-p3 0.99 0.4 0.02)",
+        "area": 403599,
+        "chars": 0
+      },
+      {
+        "value": "rgb(143, 143, 143)",
+        "area": 360,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 130
+      },
+      {
+        "value": "rgb(23, 23, 23)",
+        "area": 0,
+        "chars": 119
+      },
+      {
+        "value": "rgb(111, 111, 111)",
+        "area": 0,
+        "chars": 67
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "X",
+      "chars": 316,
+      "displayChars": 249,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "X",
+      "sizePx": 32,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Rauno Freibergis an Estonianinteractiondesignerworking with Verceland Devouring Details",
+      "top": 180
+    },
+    {
+      "level": 3,
+      "family": "X",
+      "sizePx": 720,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "DD",
+      "top": 69
+    },
+    {
+      "level": 3,
+      "family": "X",
+      "sizePx": 720,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Craft",
+      "top": 69
+    },
+    {
+      "level": 3,
+      "family": "X",
+      "sizePx": 720,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Projects",
+      "top": 69
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 12,
+      "heightPx": 90,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "EmailCopied"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 6108,
+      "kind": "hero",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 180,
+      "height": 540,
+      "kind": "hero",
+      "label": "Rauno Freibergis an Estonianinteractiondesignerworking with ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 69,
+      "height": 762,
+      "kind": "text",
+      "label": "DD",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 69,
+      "height": 762,
+      "kind": "text",
+      "label": "Craft",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 132,
+      "height": 635,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 69,
+      "height": 762,
+      "kind": "text",
+      "label": "Projects",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 132,
+      "height": 635,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 132,
+      "height": 635,
+      "kind": "text",
+      "label": "Twitter20232022GitHubEmailCopied",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 132,
+      "height": 635,
+      "kind": "text",
+      "label": "Make it fast. Make it beautiful. Make it consistent. Make it",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 7,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      14,
+      75,
+      85,
+      720
+    ],
+    "fontWeights": [
+      400
+    ],
+    "radii": [
+      "12px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 50,
+    "bodyLineLengthCh": null,
+    "bodyFontSizePx": null
+  }
+}

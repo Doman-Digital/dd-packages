@@ -1,0 +1,709 @@
+{
+  "version": 1,
+  "url": "https://animations.dev/",
+  "capturedAt": "2026-09-23T16:07:08.195Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 14013,
+  "ground": "rgb(253, 253, 252)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 12075971,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 253, 252)",
+        "area": 258011,
+        "chars": 0
+      },
+      {
+        "value": "rgb(247, 247, 247)",
+        "area": 220587,
+        "chars": 0
+      },
+      {
+        "value": "rgb(241, 240, 239)",
+        "area": 12517,
+        "chars": 0
+      },
+      {
+        "value": "rgb(23, 23, 23)",
+        "area": 7248,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 2800,
+        "chars": 0
+      },
+      {
+        "value": "rgb(222, 222, 222)",
+        "area": 268,
+        "chars": 0
+      },
+      {
+        "value": "rgb(248, 78, 59)",
+        "area": 144,
+        "chars": 0
+      },
+      {
+        "value": "rgb(218, 217, 214)",
+        "area": 56,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(77, 77, 77)",
+        "area": 0,
+        "chars": 18833
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 10207
+      },
+      {
+        "value": "rgb(130, 130, 124)",
+        "area": 0,
+        "chars": 353
+      },
+      {
+        "value": "rgb(67, 66, 61)",
+        "area": 0,
+        "chars": 245
+      },
+      {
+        "value": "rgb(33, 32, 28)",
+        "area": 0,
+        "chars": 169
+      },
+      {
+        "value": "rgb(141, 141, 134)",
+        "area": 0,
+        "chars": 38
+      },
+      {
+        "value": "rgb(152, 152, 152)",
+        "area": 0,
+        "chars": 23
+      },
+      {
+        "value": "rgb(0, 122, 255)",
+        "area": 0,
+        "chars": 15
+      },
+      {
+        "value": "rgb(153, 153, 153)",
+        "area": 0,
+        "chars": 11
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 10
+      },
+      {
+        "value": "rgb(89, 89, 89)",
+        "area": 0,
+        "chars": 9
+      },
+      {
+        "value": "rgb(194, 194, 194)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "inter",
+      "chars": 29848,
+      "displayChars": 572,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        575,
+        600
+      ]
+    },
+    {
+      "family": "mono",
+      "chars": 64,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "serifInline",
+      "chars": 7,
+      "displayChars": 0,
+      "italicChars": 7,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "inter",
+      "sizePx": 48,
+      "weight": 575,
+      "italic": false,
+      "italicPart": false,
+      "text": "How do you craft animations that feel right?",
+      "top": 503
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Enrollment is closed",
+      "top": 903
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "What if you knew exactly how to craft great animations?",
+      "top": 2085
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The interactive learning experience where you’ll learn the theory and practice behind great animations",
+      "top": 2470
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 15,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted by developers and designers at",
+      "top": 3500
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hey, I’m Emil",
+      "top": 4718
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 28,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "What you’ll learn",
+      "top": 5788
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Animation Theory",
+      "top": 6008
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "CSS animations",
+      "top": 7184
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Framer Motion (now Motion)",
+      "top": 7990
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Good vs Great animations",
+      "top": 8669
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The Oddysey",
+      "top": 8863
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Angry Rabbits",
+      "top": 8938
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ghost town",
+      "top": 9013
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Pirates in the jungle",
+      "top": 9088
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lost in the mountains",
+      "top": 9163
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Walkthroughs",
+      "top": 9752
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Family’s drawer",
+      "top": 10114
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dynamic Island",
+      "top": 10466
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "You’ll also get…",
+      "top": 10854
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 28,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Join 13000+ designers and engineers learning animation.",
+      "top": 12101
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Course",
+      "top": 12654
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Purchasing",
+      "top": 13068
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Help",
+      "top": 13540
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Send me the course preview"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 48,
+      "background": "rgb(255, 255, 255)",
+      "text": "Show more reviews"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Render a toast"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Open Drawer"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 40,
+      "background": "rgb(23, 23, 23)",
+      "text": "Paste"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 40,
+      "background": "rgb(23, 23, 23)",
+      "text": "Paste"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 24,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Add toast"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 36,
+      "background": "rgb(255, 255, 255)",
+      "text": "Feedback"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Try it out"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Idle"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Ring"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Timer"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get two free chapters"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Is this course for designers or engineers?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Is there an online community for the course?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What’s the format of the course?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Will this course stay up to date?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Will the coding parts be using Framer Motion only?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do you provide a certificate of completion?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do I need to pay for future updates?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Can I purchase multiple licenses, for my team or group?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Does the skill file require an additional payment?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What if I don’t like it?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Can I get an invoice?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do you support Purchasing Power Parity (PPP)?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Is there a student discount?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What if I get stuck? Can I ask questions?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Can’t find the answer you’re looking for?"
+    }
+  ],
+  "sections": [
+    {
+      "top": 80,
+      "height": 13885,
+      "kind": "marquee",
+      "label": "How do you craft animations that feel right?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(253, 253, 252)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 105853,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(253, 253, 252)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 936880,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 7,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 1,
+    "animations": 7,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      24,
+      26,
+      28,
+      48
+    ],
+    "fontWeights": [
+      400,
+      500,
+      575,
+      600
+    ],
+    "radii": [
+      "12px",
+      "2px",
+      "3.35544e+07px",
+      "8px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px 0px",
+      "rgba(255, 255, 255, 0.14) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px 0px, rgb(250, 200, 62) 0px 0px 0px 1px"
+    ],
+    "spacingOnScalePct": 97.4,
+    "bodyLineLengthCh": 82,
+    "bodyFontSizePx": 17
+  }
+}
