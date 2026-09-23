@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unpkg.com/@domandigital/craft/art-direction.schema.json",
+  "title": "art-direction.json",
+  "description": "What a site decided about how it looks, and why. Every choice carries a reason from the client's real world and cites a source that shows it. The reason rule itself is enforced by `craft direction validate`; this schema only checks the shape.",
+  "type": "object",
+  "required": ["version", "client", "brief", "sources", "choices"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "const": 1 },
+    "client": { "type": "string", "minLength": 1 },
+    "brief": { "type": "string", "description": "Who, where, and what they do, in a sentence or two." },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "note"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+          "kind": { "enum": ["livery", "shopfront", "signage", "packaging", "product", "uniform", "interior", "place", "material", "trade", "print", "photo", "founder"] },
+          "note": { "type": "string" },
+          "path": { "type": "string" },
+          "colours": { "type": "array", "items": { "type": "string" } },
+          "lettering": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "choices": {
+      "type": "object",
+      "propertyNames": { "enum": ["accent", "ground", "display", "body", "shape", "motif", "signature"] },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["value", "because", "evidence"],
+        "properties": {
+          "value": { "type": "string" },
+          "because": { "type": "string" },
+          "evidence": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tell", "because"],
+        "properties": {
+          "tell": { "type": "string" },
+          "because": { "type": "string" },
+          "evidence": { "type": "string" },
+          "path": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
