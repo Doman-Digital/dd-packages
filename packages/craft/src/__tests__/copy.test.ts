@@ -133,4 +133,17 @@ describe("chatbot-residue on a run of citation tokens", () => {
     const text = "Fees vary. \uE200cite\uE202turn11search1\uE202turn10view0\uE202turn2view3\uE201\n";
     expect(checkCopy([{ path: "content/a.md", text }]).findings.filter((f) => f.tell === "chatbot-residue")).toHaveLength(1);
   });
+
+  it("finds an entity marker where a plain name belongs, with or without its invisible wrapper", () => {
+    for (const text of [
+      'Try \uE200entity\uE202["company","Bark","services marketplace"]\uE201 for leads.\n',
+      'Try entity["company","Clutch UK"] for reviews.\n',
+    ]) {
+      expect(checkCopy([{ path: "content/a.md", text }]).findings.filter((f) => f.tell === "chatbot-residue")).toHaveLength(1);
+    }
+  });
+
+  it("leaves the word entity alone in ordinary copy", () => {
+    expect(checkCopy([{ path: "content/a.md", text: "Each legal entity [a company or a trust] files its own return.\n" }]).findings.filter((f) => f.tell === "chatbot-residue")).toEqual([]);
+  });
 });

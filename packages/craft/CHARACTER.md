@@ -534,7 +534,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.6`, 54 tells.
+Catalogue version `2026.09.7`, 54 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |

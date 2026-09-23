@@ -69,7 +69,7 @@ describe("checking a document", () => {
   });
 
   it("finds a ChatGPT citation run pasted into a field, invisible characters and all", () => {
-    const doc = { _type: "resourceArticle", bodyMarkdown: "Fees vary by plan. \uE200cite\uE202turn11search1\uE202turn10view0\uE201\n" };
+    const doc = { _type: "resourceArticle", bodyMarkdown: "Fees vary by plan. citeturn11search1turn10view0\n" };
     expect(checkDocumentCopy(doc).filter((f) => f.tell === "chatbot-residue")).toHaveLength(1);
   });
 

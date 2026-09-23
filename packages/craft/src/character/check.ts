@@ -40,7 +40,7 @@ import type {
  * Bumped whenever an entry is added, removed or its detection changes, so a
  * report can say which list it was judged against.
  */
-export const CATALOGUE_VERSION = "2026.09.6";
+export const CATALOGUE_VERSION = "2026.09.7";
 
 export const CATALOGUE: readonly Tell[] = [...SOURCE_TELLS, ...COPY_TELLS, ...RESEARCH_TELLS, ...DENSITY_TELLS].map((t) =>
   RENDERED_PATHS[t.id] ? { ...t, rendered: RENDERED_PATHS[t.id] } : t,
