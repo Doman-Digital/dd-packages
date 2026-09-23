@@ -4,7 +4,8 @@ The Doman Digital house craft standard, as numbers.
 
 OKLCh colour ramps that snap to colours you already ship, semantic tokens derived
 with measured WCAG **and** APCA contrast, one motion vocabulary shared by CSS and
-JS, and a base stylesheet. Zero runtime dependencies.
+JS, a base stylesheet, and a scanner that finds the AI look in source and copy.
+Zero runtime dependencies.
 
 Read [PRINCIPLES.md](./PRINCIPLES.md) for why each rule is a rule.
 
@@ -71,6 +72,37 @@ rule cited, including a section on what is deliberately *not* a rule. Its
 canonical numbers are compared against the code on every test run, so the
 document cannot drift from what ships.
 
+## Character: finding the AI look
+
+The standard asks whether a surface is well made. [CHARACTER.md](./CHARACTER.md)
+asks whether anyone decided how it looks, or whether it is what a model builds
+when nobody told it otherwise.
+
+```bash
+npx craft scan            # markup, components, stylesheets
+npx craft scan --staged   # pre-commit: the git index only
+npx craft copy app content
+npx craft tells list
+```
+
+Every finding names the tell, its generation (1: indigo, Inter, glass; 2: cream,
+italic serif, eyebrow chips, bento), the line, and what to do instead. Every
+tell ships as a warning. A brand that really is violet declares it, with a
+reason, in `art-direction.json`:
+
+```json
+{ "exceptions": [{ "tell": "ai-violet", "because": "Violet is on the van, the cards and the fascia." }] }
+```
+
+The same checks run in code:
+
+```ts
+import { checkCopy, formatReport, scanSource } from "@domandigital/craft";
+
+const report = scanSource([{ path: "app/page.tsx", text }]);
+console.log(formatReport(report, "craft scan"));
+```
+
 ## The anchor guarantee
 
 Every hex you pass in comes back out unchanged — the same string, byte for byte.
@@ -99,6 +131,9 @@ checkable rather than asserted.
 | Restraint | `checkRestraint`, `HOUSE_BUDGET` |
 | Tailwind | `tailwindV3Preset` (v3), `tailwindV4Theme` / `craft.tailwind.css` (v4) |
 | Emit | `craftTokens`, `emitCss`, `motionTokens` |
+| Character | `scanSource`, `checkCopy`, `formatReport`, `CATALOGUE`, `CATALOGUE_VERSION`, `catalogueTable`, `runTell`, `tellById` |
+| Character colour | `parseColour`, `findColours`, `isAiViolet`, `isCream`, `AI_VIOLET` |
+| Character lists | `REFLEX_FONTS_1`, `REFLEX_FONTS_2`, `SHADCN_PRIMITIVES`, `AI_WORDS`, `STOCK_PHRASES`, `REVEAL_LIMIT`, `PILL_LIMIT`, `SHADCN_LIMIT` |
 
 ## Licence
 

@@ -597,6 +597,12 @@ export type ProductInput = {
      * alongside the flat Offer price when set. */
     unitText?: Nullable<string>;
     availability?: Nullable<string>;
+    /** ISO 8601 date or datetime the offer becomes available -- pairs with a
+     * `PreOrder` availability to say *when* the pre-order turns into a sale.
+     * Passed through verbatim rather than parsed: the consumer owns the
+     * timezone decision, and a Date round-trip here would silently move a
+     * launch that was authored as a local wall-clock time. */
+    availabilityStarts?: Nullable<string>;
     /** @id ref to the Organization node selling this product -- without
      * this, consumers fall back to a disconnected `{'@type':
      * 'Organization', name: ...}` literal, the exact "island" bug this
@@ -645,6 +651,7 @@ export function buildProduct(input: ProductInput, ids: GraphIds) {
         unitText: input.offers.unitText,
       };
     }
+    if (input.offers.availabilityStarts) offer.availabilityStarts = input.offers.availabilityStarts;
     if (input.offers.sellerId) offer.seller = { "@id": input.offers.sellerId };
     node.offers = offer;
   }

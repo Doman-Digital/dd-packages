@@ -102,3 +102,87 @@ export {
   tailwindV3Preset,
   tailwindV4Theme,
 } from "./css/tailwind.js";
+export {
+  type CheckOptions,
+  type CheckReport,
+  type CopyTell,
+  type Finding,
+  type Generation,
+  type Hit,
+  type Severity,
+  type SourceFile,
+  type SourceTell,
+  type Surface,
+  type Tell,
+  type TellException,
+} from "./character/types.js";
+export {
+  CATALOGUE,
+  CATALOGUE_VERSION,
+  catalogueTable,
+  checkCopy,
+  runTell,
+  scanSource,
+  tellById,
+} from "./character/check.js";
+export { formatReport } from "./character/format.js";
+export { auditSnapshot } from "./character/check.js";
+export { RENDERED_PATHS } from "./snapshot/rendered.js";
+export { makeSnapshot, type SnapshotPatch } from "./snapshot/fixture.js";
+export { fontClass, normaliseFamily, type FontClass } from "./snapshot/fonts.js";
+export {
+  SNAPSHOT_VERSION,
+  type SectionKind,
+  type Snapshot,
+  type SnapshotColour,
+  type SnapshotControl,
+  type SnapshotEffects,
+  type SnapshotFont,
+  type SnapshotGradient,
+  type SnapshotHeading,
+  type SnapshotMotion,
+  type SnapshotSection,
+} from "./snapshot/types.js";
+export {
+  DISTANCE_WEIGHTS,
+  FINGERPRINT_VERSION,
+  fingerprint,
+  fingerprintDistance,
+  nearest,
+  type Fingerprint,
+  type FingerprintDistance,
+} from "./fingerprint/index.js";
+export { AI_VIOLET, findColours, isAiViolet, isCream, parseColour } from "./character/color.js";
+export {
+  PILL_LIMIT,
+  REFLEX_FONTS_1,
+  REFLEX_FONTS_2,
+  REVEAL_LIMIT,
+  SHADCN_LIMIT,
+  SHADCN_PRIMITIVES,
+} from "./character/tells/source.js";
+export {
+  AI_PHRASES,
+  AI_WORDS,
+  BUZZWORDS,
+  NEGATIVE_REASSURANCE,
+  PLAINER_WORDS,
+  REVIEW_PHRASES,
+  STOCK_PHRASES,
+  VAGUE_WORDS,
+} from "./character/tells/copy.js";
+export {
+  CHOICE_KEYS,
+  DIRECTION_VERSION,
+  SOURCE_KINDS,
+  type ArtDirection,
+  type ChoiceKey,
+  type DirectionChoice,
+  type DirectionProblem,
+  type DirectionReport,
+  type DirectionSource,
+  type SourceKind,
+} from "./direction/types.js";
+export { validateDirection, type ValidateContext } from "./direction/validate.js";
+export { initDirection } from "./direction/init.js";
+export { PROPOSED, paletteFromPixels, propose, type PaletteColour, type Proposal, type ProposeInput } from "./direction/propose.js";
