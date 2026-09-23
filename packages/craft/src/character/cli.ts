@@ -10,6 +10,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import { CATALOGUE, CATALOGUE_VERSION, applyHouseGate, checkCopy, scanSource } from "./check.js";
 import { houseRule } from "./house.js";
+import { compareFacts, formatComparison, visibleText } from "./facts.js";
 import { formatReport } from "./format.js";
 import { fileKind } from "./parse.js";
 import type { CheckReport, SourceFile, TellException } from "./types.js";
@@ -30,6 +31,7 @@ const HELP = `craft: find the AI look and say what to do instead.
 Usage
   craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>]
   craft copy <paths...> [--gate] [--json] [--strict] [--direction <file>]
+  craft copy compare <before> <after> [--json]
   craft tells list [--json]
   craft tells harvest <null.json | dir>... [--share 0.25] [--json]
   craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
@@ -48,6 +50,9 @@ scan      Markup, component code and stylesheets (source and compiled CSS).
 copy      The prose in Markdown, markup and content files.
           --gate applies the house copy policy: the blocking tier of COPY.md
           fails the run. What copy-check and the pre-commit hook run.
+          compare lists the protected facts (prices, numbers, dates, times,
+          phones, emails, links, postcodes, names) a rewrite lost or added.
+          Exit 1 if any: restore it, source it, or say why.
 tells     The catalogue this build judges against. harvest reads null models
           for choices the model keeps making that the catalogue does not know.
 snapshot  Render a page in a browser and save what it looks like, as JSON.
@@ -245,6 +250,20 @@ export function run(argv: string[], io: Io): number | Promise<number> {
         for (const t of CATALOGUE) io.out(`  ${t.id.padEnd(24)} gen ${t.generation}  ${t.surface.padEnd(6)}  ${t.name}`);
       }
       return 0;
+    }
+
+    if (command === "copy" && rest[0] === "compare") {
+      const flags = parseFlags(rest.slice(1));
+      if (typeof flags === "string") throw new Error(flags);
+      if (flags.positional.length !== 2) throw new Error("usage: craft copy compare <before> <after> [--json]");
+      const [before, after] = flags.positional.map((p) => {
+        const abs = resolve(io.cwd, p);
+        if (!existsSync(abs)) throw new Error(`no such path: ${p}`);
+        return visibleText({ path: p, text: readFileSync(abs, "utf8") });
+      });
+      const result = compareFacts(before, after);
+      io.out(flags.json ? JSON.stringify(result, null, 2) : formatComparison(result, flags.positional[0], flags.positional[1]));
+      return result.lost.length || result.added.length ? 1 : 0;
     }
 
     if (command === "scan" || command === "copy") {
