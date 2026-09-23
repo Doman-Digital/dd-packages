@@ -122,6 +122,9 @@ export const STOCK_PHRASES = [
   "tailored to your",
   "peace of mind",
   "so here's",
+  "in an era where",
+  "the future looks bright",
+  "only time will tell",
 ] as const;
 
 /**
@@ -570,7 +573,8 @@ export const COPY_TELLS: CopyTell[] = [
 
 // ------------------------------------------------------------ research tells
 //
-// Added 2026.09.4 from the Wikipedia "Signs of AI writing" guide, checked
+// Added 2026.09.4 and 2026.09.5 from the Wikipedia "Signs of AI writing"
+// guide and a second research pass, checked
 // against commercial copy. That guide is written for neutral encyclopaedia
 // text and flags persuasion itself, which sales copy needs. So each pattern
 // here is narrowed to the empty form, and each carries a pass case that is
@@ -604,7 +608,172 @@ const FALSE_RANGE = [
   /\b(?:everyone|anyone)\s+from\s+(?:[\w'’-]+\s+){0,3}[\w'’-]+\s+to\s+(?:[\w'’-]+\s*){1,4}/i,
 ];
 
+/**
+ * Chatbot residue: text that only exists because a chat assistant's reply was
+ * pasted whole. Unlike every other copy tell this is evidence, not style: a
+ * person writing their own page never types "Certainly! Here's a revised
+ * version". The research treats it as an error on first occurrence.
+ */
+const RESIDUE = [
+  /\bas an AI(?:\s+language)?\s+(?:model|assistant)\b/i,
+  /(?:^|\n|>)\s*(?:Certainly|Sure|Absolutely|Of course|Great question)[!,.]\s+(?:Here(?:['’]s| is| are)|Below)\b/i,
+  /\bhere(?:['’]s| is)\s+(?:a|an|the|your)\s+(?:revised|rewritten|updated|polished|refined|improved|draft|more concise)\s+(?:version|draft|copy)\b/i,
+  /\blet me know if you(?:['’]d| would) like me to\b/i,
+  /\b(?:my|the) (?:knowledge|training) cut-?off\b|\bas of my last (?:update|training)\b/i,
+  /\bI hope this helps\b/i,
+  // Citation tokens a chat tool leaves in copied text.
+  /\b(?:cite)?turn\d+(?:search|news|view|fetch|file)\d+\b/,
+  /:?contentReference\[oaicite:\d+\](?:\{index=\d+\})?/,
+  /【\d+(?:[:†][^】]{0,40})?】/,
+];
+
+/** A link whose tracking says it was copied out of a chat assistant. */
+const AI_UTM = /utm_source=(?:chatgpt\.com|chat\.openai\.com|openai|perplexity(?:\.ai)?|claude\.ai|copilot(?:\.microsoft\.com)?|gemini(?:\.google\.com)?)\b/gi;
+
+function residueHits(ctx: CopyContext): Hit[] {
+  const hits = phrases(RESIDUE, quoted, allText)(ctx);
+  for (const file of ctx.files) {
+    for (const m of file.text.matchAll(AI_UTM)) hits.push({ path: file.path, offset: m.index ?? 0, message: `link tracked as copied from a chat assistant: "${m[0]}"` });
+  }
+  return hits;
+}
+
+/** Scaffolding that must never reach a reader: fill-in brackets, lorem ipsum, the house TODO marker. */
+const PLACEHOLDER = [
+  /\[(?:insert|your|add|company|client|business|customer|name of|placeholder)\b[^\]\n]{0,40}\](?!\()/i,
+  /\blorem ipsum\b/i,
+  /\bTODO_PLACEHOLDER\b/,
+];
+
+/**
+ * A placeholder that is the whole of an element, `<p>[Insert testimonial]</p>`,
+ * never reaches the prose extraction, which drops a bracketed run as code. It
+ * is the commonest shape of all, so markup is also read for it directly.
+ */
+const PLACEHOLDER_ELEMENT = />\s*(\[(?:insert|your|add|company|client|business|customer|name of|placeholder)\b[^\]\n<]{0,40}\])\s*</gi;
+
+function placeholderHits(ctx: CopyContext): Hit[] {
+  const hits = phrases(PLACEHOLDER, quoted, allText)(ctx);
+  const seen = new Set(hits.map((h) => `${h.path}:${h.offset}`));
+  for (const file of ctx.files) {
+    if (isProsePath(file.path)) continue;
+    for (const m of file.text.matchAll(PLACEHOLDER_ELEMENT)) {
+      const offset = (m.index ?? 0) + m[0].indexOf(m[1]);
+      if (!seen.has(`${file.path}:${offset}`)) hits.push({ path: file.path, offset, message: quoted(m[1]) });
+    }
+  }
+  return hits;
+}
+
+/** "The result? Faster growth." A staged reveal: the writer asks the reader's question, then answers it. */
+const QUESTION_REVEAL = [
+  /\b(?:The|Our|What['’]s the|Here['’]s the)\s+(?:result|catch|secret|answer|difference|best part|twist|kicker|bottom line|upshot)\?\s+[A-Z0-9]/,
+  /\?\s+It means\b/,
+];
+
+/** Three or more adjacent "**Label:** text" bullets: a label that repeats what the line says. */
+function inlineLabelHits(ctx: CopyContext): Hit[] {
+  const hits: Hit[] = [];
+  for (const file of ctx.files) {
+    if (!isProsePath(file.path)) continue;
+    const lines = file.text.split("\n");
+    let run: number[] = [];
+    let offset = 0;
+    const flush = () => {
+      if (run.length >= 3) hits.push({ path: file.path, offset: run[0], message: `${run.length} bullets in a row open with a bold label and a colon` });
+      run = [];
+    };
+    for (const line of lines) {
+      if (/^\s*(?:[-*+]|\d+\.)\s+\*\*[^*]{1,40}:?\*\*:?\s+\S/.test(line)) run.push(offset);
+      else flush();
+      offset += line.length + 1;
+    }
+    flush();
+  }
+  return hits;
+}
+
 export const RESEARCH_TELLS: CopyTell[] = [
+  {
+    id: "chatbot-residue",
+    name: "Chatbot residue",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'Certainly! Here's a revised version', 'as an AI language model', a citeturn0search0 token, a link tracked utm_source=chatgpt.com: text that exists only because a chat reply was pasted whole. This is evidence, not style.",
+    fix: "Delete the residue. Then read the whole passage again, because the rest of it came from the same paste.",
+    detect: residueHits,
+    fixtures: {
+      flag: [
+        f("content/home.md", "Certainly! Here's a revised version of your home page."),
+        f("content/home.md", "As an AI language model, I cannot visit your salon."),
+        f("content/home.md", "Let me know if you'd like me to shorten it."),
+        f("content/home.md", "Prices start at £40 citeturn0search3 for a full set."),
+        f("content/home.md", "Prices start at £40 :contentReference[oaicite:2]{index=2} for a full set."),
+        f("content/home.md", "Prices start at £40【4†source】 for a full set."),
+        f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=chatgpt.com">Read the guide</a>;`),
+        f("content/home.md", "Here's a more concise version for the hero."),
+      ],
+      pass: [
+        f("content/home.md", "Certainly the busiest week of the year: book early."),
+        f("content/home.md", "Here's the price list for 2026."),
+        f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=newsletter">Read the guide</a>;`),
+      ],
+    },
+  },
+  {
+    id: "placeholder",
+    name: "Unfilled placeholder",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'[Insert testimonial]', '[Your Name]', lorem ipsum, TODO_PLACEHOLDER: scaffolding a reader must never see, and the clearest sign a page shipped before anyone read it.",
+    fix: "Fill it from the client or the proof source, or remove the element. Never invent the missing fact to close it.",
+    detect: placeholderHits,
+    fixtures: {
+      flag: [
+        f("content/home.md", "Rated 5 stars by [Insert client name] and others."),
+        f("content/home.md", "Lorem ipsum dolor sit amet."),
+        f("content/home.md", "Rated TODO_PLACEHOLDER: google_rating from our reviews."),
+        f("app/card.tsx", `export const Quote = () => <blockquote>[Insert testimonial here]</blockquote>;`),
+      ],
+      pass: [
+        f("content/home.md", "Manage bookings in [your account](/account)."),
+        f("content/home.md", "Rated 4.9 from 212 Google reviews."),
+      ],
+    },
+  },
+  {
+    id: "question-reveal",
+    name: "Staged reveal",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'The result? Faster growth.', 'What does this mean for you? It means...': the writer asks the reader's question for them and answers it. An infomercial hook, and a favourite of generated copy.",
+    fix: "State the answer: 'Most customers book again within six weeks.'",
+    detect: phrases(QUESTION_REVEAL, quoted),
+    fixtures: {
+      flag: [f("content/home.md", "We rebuilt the booking flow. The result? Twice the bookings."), f("content/home.md", "What does this mean for you? It means fewer missed calls.")],
+      pass: [f("content/faq.md", "How long does a set last? About three weeks with gel."), f("content/home.md", "We rebuilt the booking flow, and bookings doubled in a month.")],
+    },
+  },
+  {
+    id: "inline-label-list",
+    name: "Bold-label bullets",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'**Speed:** Faster pages' three times in a row: a label that repeats what the line says, in the list shape generated copy defaults to.",
+    fix: "Drop the labels and write each bullet as the fact: 'Pages load in under a second'. Keep labels only where they help a reader navigate, as in a specification.",
+    detect: inlineLabelHits,
+    fixtures: {
+      flag: [f("content/home.md", "- **Speed:** Faster pages\n- **Security:** Safer data\n- **Support:** Help when you need it\n")],
+      pass: [
+        f("content/home.md", "- Pages load in under a second\n- Card details never touch our server\n- Support by phone until 8pm\n"),
+        f("content/home.md", "- **Speed:** Faster pages\n- **Security:** Safer data\n"),
+      ],
+    },
+  },
   {
     id: "ing-tail",
     name: "Empty -ing tail",

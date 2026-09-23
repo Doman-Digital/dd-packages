@@ -103,6 +103,7 @@ run. A test fails if a phrase the standard blocks does not block.
 
 ```bash
 npx craft copy --gate content   # the house gate: exit 1 on the blocking tier
+npx craft copy compare draft.md rewrite.md   # facts a rewrite lost or added
 ```
 
 The same checks run in code:
