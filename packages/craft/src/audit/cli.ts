@@ -34,7 +34,7 @@ export function describeFingerprint(fp: Fingerprint): string {
 }
 
 /** Two reports as one: the source scan and the rendered page. */
-function merge(a: CheckReport, b: CheckReport): CheckReport {
+export function merge(a: CheckReport, b: CheckReport): CheckReport {
   const byTell: Record<string, number> = { ...a.summary.byTell };
   for (const [k, v] of Object.entries(b.summary.byTell)) byTell[k] = (byTell[k] ?? 0) + v;
   return {

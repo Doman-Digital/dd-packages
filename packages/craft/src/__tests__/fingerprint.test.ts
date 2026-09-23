@@ -13,6 +13,9 @@ describe("font names as a browser reports them", () => {
     // Seen live on MMM: the face arrives under its CSS variable's name.
     expect(normaliseFamily("cormorantGaramond")).toBe("Cormorant Garamond");
     expect(normaliseFamily("dm-sans")).toBe("DM Sans");
+    // A system keyword is not a CSS variable name. Seen on MMM through trawl.
+    expect(normaliseFamily("ui-monospace")).toBe("system-ui");
+    expect(normaliseFamily("ui-serif")).toBe("system-ui");
   });
 
   it("classes a face by name where the name says, and by list where it does not", () => {

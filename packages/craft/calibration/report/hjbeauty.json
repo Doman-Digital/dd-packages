@@ -1,0 +1,141 @@
+{
+  "site": "https://www.harrisonsbeauty.com/",
+  "verdict": "default",
+  "summary": "2 of 4 signals raised: nobody chose how this looks.",
+  "signals": [
+    {
+      "id": "tells",
+      "raised": true,
+      "detail": "6 distinct design tells: hero-then-proof, marquee, glass-panel, reflex-font, reflex-font-2, icon-tile-grid"
+    },
+    {
+      "id": "typicality",
+      "raised": false,
+      "detail": "score 0.05, not typical of what Claude builds for this brief"
+    },
+    {
+      "id": "estate",
+      "raised": true,
+      "detail": "sibling of dd (0.28)"
+    },
+    {
+      "id": "reasons",
+      "raised": null,
+      "detail": "not measured: no art-direction.json"
+    }
+  ],
+  "actions": [
+    {
+      "area": "direction",
+      "what": "Write art-direction.json: run craft direction init, then give every choice a reason from the client's world.",
+      "why": "the reason rule",
+      "priority": 1
+    },
+    {
+      "area": "type",
+      "what": "Pick the display face from the client's world (signage, packaging, the trade's lettering), record why in art-direction.json, and keep it unique across the estate.",
+      "why": "Reflex font (reflex-font, gen 1); Second-wave reflex font (reflex-font-2, gen 2), in source and on the page; Differ from dd: both have Fraunces headline (sibling at 0.28)",
+      "priority": 1,
+      "choice": "display"
+    },
+    {
+      "area": "colour",
+      "what": "Differ from dd: both have no accent.",
+      "why": "sibling at 0.28",
+      "priority": 1,
+      "choice": "accent"
+    },
+    {
+      "area": "motion",
+      "what": "Show proof still and in context: one named review, one accreditation, where the doubt arises.",
+      "why": "Scrolling marquee (marquee, gen 2), in source and on the page",
+      "priority": 1,
+      "choice": "signature"
+    },
+    {
+      "area": "effects",
+      "what": "Give text a solid ground, or crop the image so the text sits on a quiet area.",
+      "why": "Glass panel (glass-panel, gen 1)",
+      "priority": 2,
+      "choice": "motif"
+    },
+    {
+      "area": "layout",
+      "what": "Follow the hero with the thing only this business has: the work, the place, the person. Put proof where a doubt arises.",
+      "why": "Hero straight into a trust strip (hero-then-proof, gen 1)",
+      "priority": 2
+    },
+    {
+      "area": "layout",
+      "what": "Show the services as the client would: a price list, a menu board, photographs of the work, a sequence.",
+      "why": "Three-column icon-card grid (icon-tile-grid, gen 1)",
+      "priority": 2
+    },
+    {
+      "area": "copy",
+      "what": "Use a full stop, a comma, or a colon. Two sentences are clearer than one sentence with a dash in it.",
+      "why": "Em dash (em-dash), 86 places, first at design/redesign-handoff.md:3",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say the positive claim and drop the contrast.",
+      "why": "Contrastive negation (not-just-but), 7 places, first at design/redesign-handoff.md:114",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what is actually true. 'World-class service' becomes 'We answer the phone until 8pm'. 'Reach out' becomes 'get in touch'.",
+      "why": "Buzzword (buzzword), 1 place, first at design/redesign-handoff.md:237",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Cut the phrase and start with the point it was introducing. 'Seamless booking' becomes 'Book in three taps'.",
+      "why": "AI phrase (ai-phrase), 1 place, first at design/redesign-handoff.md:552",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace the phrase with the fact behind it: a number, a name, a place, a time.",
+      "why": "Stock phrase (stock-phrase), 2 places, first at design/redesign-handoff.md:649",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what they get: 'We reply within a day and only about your enquiry'.",
+      "why": "'No X, no Y' list (no-x-no-y), 3 places, first at design/redesign-handoff.md:704",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Write one sentence that says which of the three is true, and how you know.",
+      "why": "Staccato triplet (staccato-triplet), 1 place, first at design/redesign-handoff.md:814",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace it with the positive fact it hints at, or cut it.",
+      "why": "'No X' badge (no-x-badge), 43 places, first at drizzle/meta/0000_snapshot.json:98",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Remove it. Typographic marks are fine: a star for a rating, a middot as a separator, an arrow in a link.",
+      "why": "Emoji in copy (emoji), 3 places, first at scripts/images-sync.mjs:92",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Keep the one that lands hardest and cut the rest. 'What is genuinely excellent' reads better as 'what is excellent'.",
+      "why": "Review-tier phrase (review-phrase), 5 places, first at src/components/Spotlight.test.ts:41",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Open with the answer.",
+      "why": "Rhetorical question opener (rhetorical-opener), 1 place, first at src/lib/cms/seed-content.ts:462",
+      "priority": 3
+    }
+  ]
+}

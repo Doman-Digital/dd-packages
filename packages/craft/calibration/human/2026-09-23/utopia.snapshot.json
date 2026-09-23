@@ -1,0 +1,309 @@
+{
+  "version": 1,
+  "url": "https://utopia.fyi/type/calculator/",
+  "capturedAt": "2026-09-23T16:06:58.940Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 2488,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(241, 242, 243)",
+        "area": 907270,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 31, 53)",
+        "area": 738251,
+        "chars": 0
+      },
+      {
+        "value": "rgb(229, 233, 235)",
+        "area": 161422,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 44258,
+        "chars": 0
+      },
+      {
+        "value": "rgba(230, 235, 240, 0.5)",
+        "area": 42483,
+        "chars": 0
+      },
+      {
+        "value": "rgb(204, 210, 215)",
+        "area": 7662,
+        "chars": 0
+      },
+      {
+        "value": "rgb(133, 112, 71)",
+        "area": 1568,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(0, 31, 53)",
+        "area": 0,
+        "chars": 1099
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 86
+      },
+      {
+        "value": "rgb(133, 112, 71)",
+        "area": 0,
+        "chars": 71
+      },
+      {
+        "value": "rgb(102, 121, 134)",
+        "area": 0,
+        "chars": 60
+      },
+      {
+        "value": "rgb(34, 34, 34)",
+        "area": 0,
+        "chars": 48
+      },
+      {
+        "value": "rgb(157, 141, 108)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgb(51, 76, 93)",
+        "area": 0,
+        "chars": 30
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "monospace",
+      "chars": 604,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "garamond-premier-pro-caption",
+      "chars": 425,
+      "displayChars": 61,
+      "italicChars": 61,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "source-sans-pro",
+      "chars": 401,
+      "displayChars": 25,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "garamond-premier-pro-caption",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fluid type scale calculator",
+      "top": 134
+    },
+    {
+      "level": 2,
+      "family": "garamond-premier-pro-caption",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Calculated font sizes",
+      "top": 506
+    },
+    {
+      "level": 2,
+      "family": "garamond-premier-pro-caption",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "CSS Generator",
+      "top": 1496
+    },
+    {
+      "level": 3,
+      "family": "source-sans-pro",
+      "sizePx": 15,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Configuration options",
+      "top": 1633
+    },
+    {
+      "level": 3,
+      "family": "source-sans-pro",
+      "sizePx": 15,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Code",
+      "top": 1805
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "viewport width"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgb(133, 112, 71)",
+      "text": "Add another positive step"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Remove step 5"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Remove step -2"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgb(133, 112, 71)",
+      "text": "Add another negative step"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 38,
+      "heightPx": 46,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Copy"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 86,
+      "kind": "hero",
+      "label": "Type Space Grid Clamp Blog Showcase Merch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 212,
+      "height": 246,
+      "kind": "stats",
+      "label": "Min viewport Width Font size Type scale 1.067 1.125 1.2 1.25",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 506,
+      "height": 276,
+      "kind": "text",
+      "label": "Calculated font sizes",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 880,
+      "height": 569,
+      "kind": "logos",
+      "label": "Scale step Viewport width Insert width Add another positive ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1605,
+      "height": 549,
+      "kind": "text",
+      "label": "Configuration options",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2226,
+      "height": 262,
+      "kind": "text",
+      "label": "Created by James Gilyead & Trys Mudford Supported by Clearle",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 6,
+    "animations": 1,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      15,
+      19,
+      24,
+      30,
+      36
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "100%",
+      "38.4px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 32.5,
+    "bodyLineLengthCh": 87,
+    "bodyFontSizePx": 24
+  }
+}

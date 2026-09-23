@@ -1,0 +1,190 @@
+{
+  "site": "https://www.domandigital.co.uk/",
+  "verdict": "default",
+  "summary": "3 of 4 signals raised: nobody chose how this looks.",
+  "signals": [
+    {
+      "id": "tells",
+      "raised": true,
+      "detail": "12 distinct design tells: pill-everything, ai-violet, hero-then-proof, reflex-font-2, radial-spotlight-glow, reflex-font, glass-panel, icon-tile-grid, icon-tile-stack, hero-eyebrow-chip, marquee, reveal-everywhere"
+    },
+    {
+      "id": "typicality",
+      "raised": true,
+      "detail": "score 0.15, typical of what Claude builds for this brief"
+    },
+    {
+      "id": "estate",
+      "raised": true,
+      "detail": "sibling of hjbeauty (0.28)"
+    },
+    {
+      "id": "reasons",
+      "raised": null,
+      "detail": "not measured: no art-direction.json"
+    }
+  ],
+  "actions": [
+    {
+      "area": "direction",
+      "what": "Write art-direction.json: run craft direction init, then give every choice a reason from the client's world.",
+      "why": "the reason rule",
+      "priority": 1
+    },
+    {
+      "area": "type",
+      "what": "Pick the display face from the client's world (signage, packaging, the trade's lettering) and record why in art-direction.json. If this face really is the right one, declare an exception with the reason and the evidence.",
+      "why": "Second-wave reflex font (reflex-font-2, gen 2), in source and on the page; Reflex font (reflex-font, gen 1); Move off the model's pick for this brief: display Fraunces (13 of 20 null pages chose it); Differ from hjbeauty: both have Fraunces headline (sibling at 0.28)",
+      "priority": 1,
+      "choice": "display"
+    },
+    {
+      "area": "colour",
+      "what": "Derive the accent from something the client owns (livery, shopfront, product). If violet is the brand, declare it: `{ \"tell\": \"ai-violet\", \"because\": \"...\" }`.",
+      "why": "Indigo-violet accent (ai-violet, gen 1); Differ from hjbeauty: both have no accent (sibling at 0.28)",
+      "priority": 1,
+      "choice": "accent"
+    },
+    {
+      "area": "shape",
+      "what": "Choose the shape language on purpose (and record it), then use the pill only where it means something. The limit here is 30 per scan.",
+      "why": "Pills everywhere (pill-everything, gen 1), in source and on the page; Move off the model's pick for this brief: shape pill (19 of 20 null pages chose it)",
+      "priority": 1,
+      "choice": "shape"
+    },
+    {
+      "area": "layout",
+      "what": "Show the services as the client would: a price list, a menu board, photographs of the work, a sequence.",
+      "why": "Three-column icon-card grid (icon-tile-grid, gen 1), in source and on the page",
+      "priority": 1
+    },
+    {
+      "area": "effects",
+      "what": "Light the page with real imagery, or leave the ground flat.",
+      "why": "Radial glow (radial-spotlight-glow, gen 2); Glass panel (glass-panel, gen 1); Icon in a tinted tile (icon-tile-stack, gen 2)",
+      "priority": 2,
+      "choice": "motif"
+    },
+    {
+      "area": "motion",
+      "what": "Show proof still and in context: one named review, one accreditation, where the doubt arises.",
+      "why": "Scrolling marquee (marquee, gen 2); Reveal on every section (reveal-everywhere, gen 1)",
+      "priority": 2,
+      "choice": "signature"
+    },
+    {
+      "area": "layout",
+      "what": "Follow the hero with the thing only this business has: the work, the place, the person. Put proof where a doubt arises.",
+      "why": "Hero straight into a trust strip (hero-then-proof, gen 1)",
+      "priority": 2
+    },
+    {
+      "area": "layout",
+      "what": "Drop it. If the fact matters, put it in the headline or the first line of copy.",
+      "why": "Eyebrow chip above the hero (hero-eyebrow-chip, gen 2)",
+      "priority": 2
+    },
+    {
+      "area": "copy",
+      "what": "Use a full stop, a comma, or a colon. Two sentences are clearer than one sentence with a dash in it.",
+      "why": "Em dash (em-dash), 505 places, first at .agents/skills/posthog-integration-nextjs-app-router/references/identify-users.md:7",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Keep the one that lands hardest and cut the rest. 'What is genuinely excellent' reads better as 'what is excellent'.",
+      "why": "Review-tier phrase (review-phrase), 46 places, first at .claude/agents/cco.md:10",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Cut the phrase and start with the point it was introducing. 'Seamless booking' becomes 'Book in three taps'.",
+      "why": "AI phrase (ai-phrase), 4 places, first at .claude/agents/cco.md:17",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say the positive claim and drop the contrast.",
+      "why": "Contrastive negation (not-just-but), 28 places, first at .claude/agents/cco.md:17",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Name the mechanism instead. 'Empower your team' becomes 'Your team can publish without us'.",
+      "why": "A plainer word exists (plainer-word), 13 places, first at .claude/agents/cco.md:17",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace it with the specific thing. 'Innovative solutions' becomes the actual product and what it does.",
+      "why": "Vague word (vague-word), 34 places, first at .claude/agents/cmo.md:15",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what they get: 'We reply within a day and only about your enquiry'.",
+      "why": "'No X, no Y' list (no-x-no-y), 6 places, first at .claude/agents/cmo.md:19",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Open with the answer.",
+      "why": "Rhetorical question opener (rhetorical-opener), 22 places, first at apps/marketing/app/client-preview/page.tsx:208",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say the plain thing. 'Elevate your look' becomes what actually happens: 'Gel that lasts three weeks'.",
+      "why": "AI vocabulary (ai-vocabulary), 29 places, first at apps/marketing/app/pricing/managed/page.tsx:197",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace the phrase with the fact behind it: a number, a name, a place, a time.",
+      "why": "Stock phrase (stock-phrase), 8 places, first at apps/marketing/components/FAQ.stories.tsx:11",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Name the action and the outcome: 'Book a 45-minute facial', not 'Experience the difference'.",
+      "why": "Hollow imperative (hollow-imperative), 4 places, first at apps/marketing/content/blogPosts.ts:215",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what is actually true. 'World-class service' becomes 'We answer the phone until 8pm'. 'Reach out' becomes 'get in touch'.",
+      "why": "Buzzword (buzzword), 17 places, first at apps/marketing/content/google-reviews.md:65",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Remove it. Typographic marks are fine: a star for a rating, a middot as a separator, an arrow in a link.",
+      "why": "Emoji in copy (emoji), 15 places, first at apps/marketing/content/google-reviews.md:101",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Write one sentence that says which of the three is true, and how you know.",
+      "why": "Staccato triplet (staccato-triplet), 5 places, first at apps/marketing/content/resources/google-ads-for-tradespeople.md:92",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace it with the positive fact it hints at, or cut it.",
+      "why": "'No X' badge (no-x-badge), 21 places, first at apps/marketing/lib/review/checks/business-profile.ts:44",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what they get: 'The price on the quote is the price you pay', 'Cancel any month'.",
+      "why": "Negative reassurance (negative-reassurance), 4 places, first at apps/marketing/scripts/seed-sanity.ts:127",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Use the house replacement, 'properly explained', or drop the claim and let the copy show it.",
+      "why": "'Plain English' (plain-english), 1 place, first at apps/marketing/studio/schemas/documents/jargonTerm.ts:20",
+      "priority": 3
+    }
+  ]
+}

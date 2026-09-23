@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "url": "https://starr-luxury.vercel.app/",
+  "capturedAt": "2026-09-23T16:07:01.054Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 900,
+  "ground": "rgb(20, 18, 16)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(20, 18, 16)",
+        "area": 1296000,
+        "chars": 0
+      },
+      {
+        "value": "rgb(27, 23, 20)",
+        "area": 289450,
+        "chars": 0
+      },
+      {
+        "value": "rgb(244, 240, 232)",
+        "area": 22248,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 240, 232, 0.07)",
+        "area": 16645,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(138, 131, 120)",
+        "area": 0,
+        "chars": 134
+      },
+      {
+        "value": "rgb(95, 89, 79)",
+        "area": 0,
+        "chars": 49
+      },
+      {
+        "value": "rgb(205, 186, 147)",
+        "area": 0,
+        "chars": 46
+      },
+      {
+        "value": "rgb(244, 240, 232)",
+        "area": 0,
+        "chars": 40
+      },
+      {
+        "value": "rgb(176, 147, 94)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "rgb(20, 18, 16)",
+        "area": 0,
+        "chars": 18
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 267,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        300,
+        400
+      ]
+    },
+    {
+      "family": "Schibsted Grotesk",
+      "chars": 40,
+      "displayChars": 40,
+      "italicChars": 0,
+      "weights": [
+        500
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Schibsted Grotesk",
+      "sizePx": 27,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Your new site is ready for a first look.",
+      "top": 297
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 2,
+      "heightPx": 52,
+      "background": "rgb(244, 240, 232)",
+      "text": "Unlock the preview"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 900,
+      "kind": "hero",
+      "label": "Your new site is ready for a first look.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(44, 74, 58, 0.22)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 1296000,
+        "radial": true
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 1,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      15,
+      27
+    ],
+    "fontWeights": [
+      300,
+      400,
+      500
+    ],
+    "radii": [
+      "2px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 26.7,
+    "bodyLineLengthCh": 40,
+    "bodyFontSizePx": 15
+  }
+}

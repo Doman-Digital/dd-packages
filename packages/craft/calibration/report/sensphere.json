@@ -1,0 +1,142 @@
+{
+  "site": "https://sensphere.co.uk/",
+  "verdict": "mixed",
+  "summary": "1 of 4 signals raised: tells.",
+  "signals": [
+    {
+      "id": "tells",
+      "raised": true,
+      "detail": "9 distinct design tells: reflex-font, glass-panel, pill-everything, ai-violet, radial-spotlight-glow, thin-border-wide-shadow, icon-tile-stack, reflex-font-2, icon-tile-grid"
+    },
+    {
+      "id": "typicality",
+      "raised": false,
+      "detail": "score 0.00, not typical of what Claude builds for this brief"
+    },
+    {
+      "id": "estate",
+      "raised": false,
+      "detail": "nearest hj at 0.50, no sibling"
+    },
+    {
+      "id": "reasons",
+      "raised": null,
+      "detail": "not measured: no art-direction.json"
+    }
+  ],
+  "actions": [
+    {
+      "area": "direction",
+      "what": "Write art-direction.json: run craft direction init, then give every choice a reason from the client's world.",
+      "why": "the reason rule",
+      "priority": 1
+    },
+    {
+      "area": "type",
+      "what": "Pick the display face from the client's world (signage, packaging, the trade's lettering), record why in art-direction.json, and keep it unique across the estate.",
+      "why": "Reflex font (reflex-font, gen 1), in source and on the page; Second-wave reflex font (reflex-font-2, gen 2)",
+      "priority": 1,
+      "choice": "display"
+    },
+    {
+      "area": "colour",
+      "what": "Derive the accent from something the client owns (livery, shopfront, product). If violet is the brand, declare it: `{ \"tell\": \"ai-violet\", \"because\": \"...\" }`.",
+      "why": "Indigo-violet accent (ai-violet, gen 1), in source and on the page",
+      "priority": 1,
+      "choice": "accent"
+    },
+    {
+      "area": "effects",
+      "what": "Give text a solid ground, or crop the image so the text sits on a quiet area.",
+      "why": "Glass panel (glass-panel, gen 1); Radial glow (radial-spotlight-glow, gen 2), in source and on the page; Icon in a tinted tile (icon-tile-stack, gen 2)",
+      "priority": 1,
+      "choice": "motif"
+    },
+    {
+      "area": "effects",
+      "what": "Pick one: a border that is visible, or a shadow the light source explains. Keep within the four-shadow budget.",
+      "why": "Hairline border, wide shadow (thin-border-wide-shadow, gen 2), in source and on the page",
+      "priority": 1,
+      "choice": "shape"
+    },
+    {
+      "area": "shape",
+      "what": "Choose the shape language on purpose (and record it), then use the pill only where it means something. The limit here is 30 per scan.",
+      "why": "Pills everywhere (pill-everything, gen 1)",
+      "priority": 2,
+      "choice": "shape"
+    },
+    {
+      "area": "layout",
+      "what": "Show the services as the client would: a price list, a menu board, photographs of the work, a sequence.",
+      "why": "Three-column icon-card grid (icon-tile-grid, gen 1)",
+      "priority": 2
+    },
+    {
+      "area": "copy",
+      "what": "Use a full stop, a comma, or a colon. Two sentences are clearer than one sentence with a dash in it.",
+      "why": "Em dash (em-dash), 72 places, first at apps/portal/scripts/parity-test-db.ts:141",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say the plain thing. 'Elevate your look' becomes what actually happens: 'Gel that lasts three weeks'.",
+      "why": "AI vocabulary (ai-vocabulary), 28 places, first at apps/portal/src/app/admin/(protected)/customers/[clientId]/clinical/clinical-vault-manager.tsx:56",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Name the action and the outcome: 'Book a 45-minute facial', not 'Experience the difference'.",
+      "why": "Hollow imperative (hollow-imperative), 3 places, first at apps/portal/src/app/admin/(protected)/customers/[clientId]/page.tsx:452",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say the positive claim and drop the contrast.",
+      "why": "Contrastive negation (not-just-but), 12 places, first at apps/portal/src/app/admin/(protected)/referrals/actions.test.ts:137",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace the phrase with the fact behind it: a number, a name, a place, a time.",
+      "why": "Stock phrase (stock-phrase), 2 places, first at apps/portal/src/app/portal/(protected)/portal-dashboard-body.tsx:278",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Keep the one that lands hardest and cut the rest. 'What is genuinely excellent' reads better as 'what is excellent'.",
+      "why": "Review-tier phrase (review-phrase), 8 places, first at apps/web/src/app/[locale]/complaints/actions.test.ts:100",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Open with the answer.",
+      "why": "Rhetorical question opener (rhetorical-opener), 8 places, first at apps/web/src/app/[locale]/resources/[slug]/page.tsx:206",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Replace it with the positive fact it hints at, or cut it.",
+      "why": "'No X' badge (no-x-badge), 4 places, first at apps/web/src/lib/email.test.ts:433",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what they get: 'We reply within a day and only about your enquiry'.",
+      "why": "'No X, no Y' list (no-x-no-y), 2 places, first at scripts/guards/portal-route-contract.mjs:191",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Say what is actually true. 'World-class service' becomes 'We answer the phone until 8pm'. 'Reach out' becomes 'get in touch'.",
+      "why": "Buzzword (buzzword), 1 place, first at scripts/populate-sanity-content.ts:59",
+      "priority": 3
+    },
+    {
+      "area": "copy",
+      "what": "Remove it. Typographic marks are fine: a star for a rating, a middot as a separator, an arrow in a link.",
+      "why": "Emoji in copy (emoji), 4 places, first at Social/SEN-Sphere-Instagram-Launch/CAPTIONS.md:10",
+      "priority": 3
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "url": "https://candy-aesthetics.vercel.app/",
+  "capturedAt": "2026-09-23T16:07:04.144Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 900,
+  "ground": "rgb(251, 248, 243)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(28, 24, 19)",
+        "area": 1296000,
+        "chars": 0
+      },
+      {
+        "value": "rgb(198, 163, 90)",
+        "area": 9074,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgba(251, 248, 243, 0.8)",
+        "area": 0,
+        "chars": 118
+      },
+      {
+        "value": "rgb(195, 172, 126)",
+        "area": 0,
+        "chars": 24
+      },
+      {
+        "value": "rgb(251, 248, 243)",
+        "area": 0,
+        "chars": 23
+      },
+      {
+        "value": "rgb(28, 24, 19)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "rgba(251, 248, 243, 0.6)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "rgba(251, 248, 243, 0.5)",
+        "area": 0,
+        "chars": 15
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Nunito Sans",
+      "chars": 177,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "Cormorant Garamond",
+      "chars": 23,
+      "displayChars": 23,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "ui-monospace",
+      "chars": 20,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Cormorant Garamond",
+      "sizePx": 30,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "This preview has ended.",
+      "top": 382
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgb(198, 163, 90)",
+      "text": "Skip to main content"
+    }
+  ],
+  "sections": [],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 0,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      16,
+      30
+    ],
+    "fontWeights": [
+      400,
+      700
+    ],
+    "radii": [
+      "6px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 100,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 14
+  }
+}
