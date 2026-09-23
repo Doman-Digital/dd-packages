@@ -50,7 +50,6 @@
     "docs": "tsup && node scripts/write-catalogue.mjs"
   },
   "devDependencies": {
-    "playwright-core": "1.56.1",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "vitest": "^2.1.9"
