@@ -1,0 +1,570 @@
+{
+  "version": 1,
+  "url": "pages/03.html",
+  "capturedAt": "2026-09-23T11:18:22.166Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6250,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(247, 244, 238)",
+        "area": 2051073,
+        "chars": 0
+      },
+      {
+        "value": "rgb(15, 36, 56)",
+        "area": 1946031,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1087741,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 357271,
+        "chars": 0
+      },
+      {
+        "value": "rgb(179, 146, 74)",
+        "area": 48758,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 114, 128)",
+        "area": 0,
+        "chars": 2226
+      },
+      {
+        "value": "rgb(15, 36, 56)",
+        "area": 0,
+        "chars": 877
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 609
+      },
+      {
+        "value": "rgb(207, 216, 226)",
+        "area": 0,
+        "chars": 492
+      },
+      {
+        "value": "rgb(55, 65, 81)",
+        "area": 0,
+        "chars": 482
+      },
+      {
+        "value": "rgb(169, 182, 195)",
+        "area": 0,
+        "chars": 293
+      },
+      {
+        "value": "rgb(219, 227, 236)",
+        "area": 0,
+        "chars": 201
+      },
+      {
+        "value": "rgb(132, 147, 163)",
+        "area": 0,
+        "chars": 177
+      },
+      {
+        "value": "rgb(216, 194, 148)",
+        "area": 0,
+        "chars": 126
+      },
+      {
+        "value": "rgb(179, 146, 74)",
+        "area": 0,
+        "chars": 74
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4812,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 727,
+      "displayChars": 701,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 18,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 46,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Accounting and tax advice built around ambitious people, not just their numbers.",
+      "top": 231
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why clients switch to us",
+      "top": 298
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Specialist advice for the people who need it most",
+      "top": 964
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "SMEs",
+      "top": 1310
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contractors & Freelancers",
+      "top": 1310
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlords",
+      "top": 1310
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "High Earners",
+      "top": 1310
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything you need under one roof",
+      "top": 1750
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Annual Accounts & Corporation Tax",
+      "top": 2013
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Self-Assessment Tax Returns",
+      "top": 2013
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tax Planning & Advisory",
+      "top": 2013
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bookkeeping & VAT",
+      "top": 2266
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Payroll & Pensions",
+      "top": 2266
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "IR35 & Company Formation",
+      "top": 2266
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Switching accountants in four simple steps",
+      "top": 2651
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free Consultation",
+      "top": 2938
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fixed Fee Quote",
+      "top": 2938
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "We Handle the Handover",
+      "top": 2938
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing Support",
+      "top": 2938
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Chartered accountants who understand ambition",
+      "top": 3262
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sector experience includes",
+      "top": 3456
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted by businesses and individuals across the UK",
+      "top": 4181
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for an accountant who works as hard as you do?",
+      "top": 4833
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get in touch",
+      "top": 5199
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 56,
+      "background": "rgb(179, 146, 74)",
+      "text": "Get Your Free Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore Our Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 56,
+      "background": "rgb(179, 146, 74)",
+      "text": "Speak to Our Team"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 56,
+      "background": "rgb(15, 36, 56)",
+      "text": "Book Your Free Consultation"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 4,
+      "heightPx": 46,
+      "background": "rgb(179, 146, 74)",
+      "text": "Request a Callback"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 92,
+      "kind": "hero",
+      "label": "HarrisonJames Who We Help Services About Reviews Contact 012",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 92,
+      "height": 676,
+      "kind": "hero",
+      "label": "Accounting and tax advice built around ambitious people, not",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 836,
+      "height": 785,
+      "kind": "cards",
+      "label": "Specialist advice for the people who need it most",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1621,
+      "height": 901,
+      "kind": "cards",
+      "label": "Everything you need under one roof",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2522,
+      "height": 611,
+      "kind": "stats",
+      "label": "Switching accountants in four simple steps",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3134,
+      "height": 919,
+      "kind": "text",
+      "label": "Chartered accountants who understand ambition",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4053,
+      "height": 711,
+      "kind": "cards",
+      "label": "Trusted by businesses and individuals across the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4763,
+      "height": 346,
+      "kind": "text",
+      "label": "Ready for an accountant who works as hard as you do?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5109,
+      "height": 720,
+      "kind": "text",
+      "label": "Get in touch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5829,
+      "height": 421,
+      "kind": "text",
+      "label": "HarrisonJames Chartered accountants providing compliance and",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 2,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(15, 36, 56)",
+          "rgb(23, 54, 84)"
+        ],
+        "area": 973575,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(179, 146, 74)",
+          "rgb(201, 167, 92)"
+        ],
+        "area": 497790,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      24,
+      32,
+      34,
+      35,
+      38,
+      46
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "10px",
+      "12px",
+      "4px",
+      "50%"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 25.7,
+    "bodyLineLengthCh": 55,
+    "bodyFontSizePx": 18
+  }
+}

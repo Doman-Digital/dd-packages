@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doman Digital — Websites for UK Small Businesses, Built & Hosted Monthly</title>
+<meta name="description" content="Doman Digital designs, builds and runs websites for small UK businesses on simple monthly plans. No big upfront bill, no faff — just a site that works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOoKv0hLLhTUCxdwVeENEmqp5AblSDA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{
+    --ink:#1c1f1e;
+    --ink-soft:#4a5250;
+    --paper:#faf8f3;
+    --paper-dim:#f1ede3;
+    --line:#e2dccb;
+    --brand:#2f6b57;
+    --brand-dark:#204a3d;
+    --accent:#e8734a;
+    --white:#ffffff;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--brand);color:#fff;box-shadow:0 8px 20px -8px rgba(32,74,61,0.55);}
+  .btn-primary:hover{background:var(--brand-dark);}
+  .btn-outline{background:transparent;border-color:var(--ink);color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:#fff;}
+  .btn-light{background:#fff;color:var(--brand-dark);}
+  .btn-light:hover{background:var(--paper-dim);}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,243,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Fraunces',serif;font-weight:600;font-size:20px;
+    text-decoration:none;color:var(--ink);
+  }
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(135deg,var(--brand),var(--brand-dark));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:16px;font-weight:700;font-family:'Inter',sans-serif;
+    flex-shrink:0;
+  }
+  nav.links{display:flex;gap:32px;align-items:center;}
+  nav.links a{
+    text-decoration:none;color:var(--ink-soft);font-weight:500;font-size:15px;
+  }
+  nav.links a:hover{color:var(--ink);}
+  .nav-cta{display:flex;align-items:center;gap:12px;}
+  .menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+
+  @media (max-width:860px){
+    nav.links{
+      position:fixed;top:66px;left:0;right:0;
+      background:var(--paper);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0;overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    nav.links.open{max-height:320px;}
+    nav.links a{width:100%;padding:14px 24px;border-bottom:1px solid var(--line);}
+    .menu-toggle{display:block;}
+    .nav-cta .btn-outline{display:none;}
+  }
+
+  /* Hero */
+  .hero{
+    padding:76px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-120px;right:-160px;
+    width:480px;height:480px;
+    background:radial-gradient(circle,rgba(47,107,87,0.13),transparent 70%);
+    z-index:0;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+    position:relative;z-index:1;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    padding:6px 14px;border-radius:100px;
+    font-size:13px;font-weight:600;color:var(--brand-dark);
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .hero h1{
+    font-size:clamp(34px,4.8vw,52px);
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--brand);
+  }
+  .hero p.lede{
+    font-size:18px;color:var(--ink-soft);
+    max-width:520px;
+    margin-bottom:30px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px;}
+  .hero-trust{
+    display:flex;gap:28px;flex-wrap:wrap;
+    font-size:13.5px;color:var(--ink-soft);
+  }
+  .hero-trust span{display:flex;align-items:center;gap:7px;}
+  .hero-trust i{color:var(--brand);}
+
+  .hero-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:6px;
+    box-shadow:0 30px 60px -30px rgba(28,31,30,0.25);
+    transform:rotate(1.2deg);
+  }
+  .hero-card-inner{
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .browser-bar{
+    background:var(--paper-dim);
+    padding:10px 14px;
+    display:flex;align-items:center;gap:6px;
+    border-bottom:1px solid var(--line);
+  }
+  .browser-bar .dotc{width:9px;height:9px;border-radius:50%;background:#d8d2c2;}
+  .mock-site{padding:24px;background:#fff;}
+  .mock-site .mheader{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+  .mock-site .mlogo{width:70px;height:12px;border-radius:4px;background:var(--brand);}
+  .mock-site .mnav{display:flex;gap:10px;}
+  .mock-site .mnav span{width:34px;height:8px;border-radius:4px;background:var(--line);}
+  .mock-hero{
+    background:linear-gradient(135deg,var(--paper-dim),#fff);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:26px 20px;
+    margin-bottom:14px;
+  }
+  .mock-hero .mtitle{width:70%;height:16px;border-radius:4px;background:var(--ink);opacity:0.85;margin-bottom:10px;}
+  .mock-hero .msub{width:50%;height:10px;border-radius:4px;background:var(--line);margin-bottom:16px;}
+  .mock-hero .mbtn{width:100px;height:28px;border-radius:100px;background:var(--accent);}
+  .mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .mock-grid div{
+    height:56px;border-radius:8px;background:var(--paper-dim);border:1px solid var(--line);
+  }
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-card{order:-1;}
+  }
+
+  /* Sections */
+  section{padding:80px 0;}
+  .section-head{max-width:640px;margin:0 auto 48px;text-align:center;}
+  .section-head h2{font-size:clamp(28px,3.6vw,38px);margin-bottom:14px;}
+  .section-head p{color:var(--ink-soft);font-size:16.5px;}
+  .kicker{
+    display:inline-block;
+    font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--brand);margin-bottom:12px;
+  }
+
+  /* Logos strip */
+  .strip{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:28px 0;background:var(--paper-dim);
+  }
+  .strip .wrap{
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+  }
+  .strip p{font-size:13.5px;color:var(--ink-soft);font-weight:600;white-space:nowrap;}
+  .strip-tags{display:flex;flex-wrap:wrap;gap:14px;}
+  .strip-tags span{
+    font-size:14px;color:var(--ink-soft);
+    padding:7px 14px;background:#fff;border:1px solid var(--line);border-radius:100px;
+  }
+
+  /* Services */
+  .cards-3{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .card:hover{box-shadow:0 20px 40px -24px rgba(28,31,30,0.25);transform:translateY(-3px);}
+  .card .icon{
+    width:46px;height:46px;border-radius:12px;
+    background:var(--paper-dim);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--brand);font-size:19px;margin-bottom:18px;
+  }
+  .card h3{font-size:19px;margin-bottom:10px;}
+  .card p{color:var(--ink-soft);font-size:15px;margin:0;}
+  @media (max-width:860px){.cards-3{grid-template-columns:1fr;}}
+
+  /* How it works */
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+    counter-reset:step;
+  }
+  .step{position:relative;padding:28px 22px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);}
+  .step .num{
+    font-family:'Fraunces',serif;font-size:34px;color:var(--line);
+    position:absolute;top:14px;right:18px;
+  }
+  .step h3{font-size:17px;margin-bottom:8px;padding-right:20px;}
+  .step p{color:var(--ink-soft);font-size:14.5px;margin:0;}
+  @media (max-width:900px){.steps{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.steps{grid-template-columns:1fr;}}
+
+  /* Pricing */
+  .pricing{background:var(--paper-dim);}
+  .plans{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    align-items:stretch;
+  }
+  .plan{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:32px 28px;display:flex;flex-direction:column;
+    position:relative;
+  }
+  .plan.featured{
+    border:2px solid var(--brand);
+    box-shadow:0 24px 48px -24px rgba(47,107,87,0.35);
+  }
+  .plan .tag{
+    position:absolute;top:-13px;left:28px;
+    background:var(--brand);color:#fff;
+    font-size:12px;font-weight:700;padding:5px 14px;border-radius:100px;
+  }
+  .plan h3{font-size:20px;margin-bottom:6px;}
+  .plan .desc{color:var(--ink-soft);font-size:14px;margin-bottom:20px;}
+  .plan .price{font-family:'Fraunces',serif;font-size:40px;margin-bottom:2px;}
+  .plan .price span{font-size:15px;font-family:'Inter',sans-serif;color:var(--ink-soft);font-weight:500;}
+  .plan .setup{font-size:13px;color:var(--ink-soft);margin-bottom:22px;}
+  .plan ul{list-style:none;padding:0;margin:0 0 26px;flex-grow:1;}
+  .plan li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:14.5px;color:var(--ink);padding:7px 0;
+  }
+  .plan li i{color:var(--brand);margin-top:3px;font-size:13px;}
+  .plan .btn{justify-content:center;width:100%;}
+  @media (max-width:900px){.plans{grid-template-columns:1fr;}.plan.featured{order:-1;}}
+
+  /* Testimonials */
+  .testis{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .testi{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 26px;
+  }
+  .stars{color:var(--accent);font-size:13px;margin-bottom:14px;}
+  .testi p.quote{font-size:15.5px;color:var(--ink);margin-bottom:20px;}
+  .testi .person{display:flex;align-items:center;gap:12px;}
+  .avatar{
+    width:40px;height:40px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:14px;font-family:'Fraunces',serif;
+  }
+  .person .name{font-weight:600;font-size:14px;}
+  .person .role{font-size:12.5px;color:var(--ink-soft);}
+  @media (max-width:900px){.testis{grid-template-columns:1fr;}}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto;}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:18px 22px;margin-bottom:12px;
+  }
+  details summary{
+    font-weight:600;font-size:16px;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{
+    content:"+";font-size:20px;color:var(--brand);font-weight:400;flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{color:var(--ink-soft);font-size:14.5px;margin:14px 0 2px;}
+
+  /* CTA band */
+  .cta-band{
+    background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+    border-radius:24px;
+    padding:56px 48px;
+    display:flex;justify-content:space-between;align-items:center;gap:32px;
+    color:#fff;
+  }
+  .cta-band h2{color:#fff;font-size:clamp(24px,3vw,32px);margin-bottom:10px;}
+  .cta-band p{color:rgba(255,255,255,0.85);font-size:15.5px;max-width:420px;}
+  @media (max-width:760px){
+    .cta-band{flex-direction:column;text-align:center;padding:40px 26px;}
+  }
+
+  /* Footer */
+  footer{background:var(--ink);color:#cfd3d1;padding:56px 0 28px;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;
+    margin-bottom:40px;
+  }
+  .footer-grid h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:16px;}
+  .footer-grid ul{list-style:none;padding:0;margin:0;}
+  .footer-grid li{margin-bottom:10px;}
+  .footer-grid a{text-decoration:none;color:#9aa19e;font-size:14px;}
+  .footer-grid a:hover{color:#fff;}
+  .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .footer-logo .logo-mark{background:linear-gradient(135deg,var(--brand),#3fa385);}
+  .footer-logo span{font-family:'Fraunces',serif;color:#fff;font-size:19px;font-weight:600;}
+  .footer-grid p.about{font-size:14px;color:#9aa19e;max-width:280px;}
+  .footer-bottom{
+    border-top:1px solid #33383a;padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:13px;color:#8c928f;
+  }
+  .socials{display:flex;gap:14px;}
+  .socials a{color:#9aa19e;font-size:16px;}
+  .socials a:hover{color:#fff;}
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <a href="#top" class="logo">
+      <span class="logo-mark">DD</span>
+      Doman Digital
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Plans</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-outline">Book a call</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Based in the UK, working nationwide</span>
+      <h1>A proper website for your business, <em>without the big upfront bill.</em></h1>
+      <p class="lede">Doman Digital designs, builds and hosts websites for small businesses on one simple monthly plan. No £3,000 invoice, no template left half-finished, no mystery hosting fees — just a site that's looked after.</p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn btn-primary">See our plans <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-outline">Get a free mock-up</a>
+      </div>
+      <div class="hero-trust">
+        <span><i class="fa-solid fa-circle-check"></i> No contract lock-in</span>
+        <span><i class="fa-solid fa-circle-check"></i> Live in 2–3 weeks</span>
+        <span><i class="fa-solid fa-circle-check"></i> Hosted &amp; maintained by us</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-inner">
+        <div class="browser-bar">
+          <div class="dotc"></div><div class="dotc"></div><div class="dotc"></div>
+        </div>
+        <div class="mock-site">
+          <div class="mheader">
+            <div class="mlogo"></div>
+            <div class="mnav"><span></span><span></span><span></span></div>
+          </div>
+          <div class="mock-hero">
+            <div class="mtitle"></div>
+            <div class="msub"></div>
+            <div class="mbtn"></div>
+          </div>
+          <div class="mock-grid">
+            <div></div><div></div><div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <p>Built for small businesses like:</p>
+    <div class="strip-tags">
+      <span>Cafés &amp; restaurants</span>
+      <span>Salons &amp; therapists</span>
+      <span>Tradespeople</span>
+      <span>Consultants</span>
+      <span>Local shops</span>
+      <span>Clinics &amp; practices</span>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">What we do</span>
+      <h2>Everything your website needs, in one place</h2>
+      <p>We handle the design, the build, the hosting and the fixes — so you're not stuck trying to update your own site or chasing a freelancer who's gone quiet.</p>
+    </div>
+    <div class="cards-3">
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-pen-ruler"></i></div>
+        <h3>Design &amp; build</h3>
+        <p>A clean, fast website written around what your business actually does — not a generic template stuffed with stock photos of people who aren't you.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-server"></i></div>
+        <h3>Hosting, included</h3>
+        <p>Your site lives on fast, secure UK-friendly hosting. Domain, SSL certificate and backups are all sorted and covered by your plan.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>Ongoing changes</h3>
+        <p>Menu updated, new prices, new opening hours, new photos — send us the details and we make the change. No web developer required on your end.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <h3>Local SEO basics</h3>
+        <p>Your site is built to be found — proper page titles, fast load times, and a Google Business Profile set up so local customers can find you.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <h3>Contact &amp; booking</h3>
+        <p>Contact forms, click-to-call, WhatsApp links or a booking widget — whatever gets customers reaching out to you, built in from day one.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Kept up to date</h3>
+        <p>We monitor uptime, keep software patched, and renew your domain and certificates automatically. You'll never get a "site is down" phone call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">How it works</span>
+      <h2>From first chat to live site in a few weeks</h2>
+      <p>Straightforward, no jargon, no 40-page proposal document.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="num">01</span><h3>Free call</h3><p>15 minutes to understand your business and what you need the site to do.</p></div>
+      <div class="step"><span class="num">02</span><h3>Mock-up</h3><p>We send over a design based on your brand — no cost, no obligation.</p></div>
+      <div class="step"><span class="num">03</span><h3>Build &amp; review</h3><p>You give feedback, we refine it, and we get your content and pages in place.</p></div>
+      <div class="step"><span class="num">04</span><h3>Go live</h3><p>Your site goes live on your domain, and your monthly plan starts.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Pricing</span>
+      <h2>One monthly fee. Everything included.</h2>
+      <p>No hidden hosting bills, no separate invoice for every small change. Cancel with 30 days' notice, whenever you like.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter</h3>
+        <p class="desc">A solid one-to-five page site for getting your business online properly.</p>
+        <div class="price">£39<span>/month</span></div>
+        <div class="setup">£299 one-off setup</div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Up to 5 pages</li>
+          <li><i class="fa-solid fa-check"></i> Mobile-friendly design</li>
+          <li><i class="fa-solid fa-check"></i> Hosting, domain &amp; SSL</li>
+          <li><i class="fa-solid fa-check"></i> Contact form</li>
+          <li><i class="fa-solid fa-check"></i> 1 content update per month</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Start with Starter</a>
+      </div>
+      <div class="plan featured">
+        <span class="tag">Most popular</span>
+        <h3>Growth</h3>
+        <p class="desc">For businesses that need more pages, more updates, and a bit more polish.</p>
+        <div class="price">£79<span>/month</span></div>
+        <div class="setup">£499 one-off setup</div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Up to 12 pages</li>
+          <li><i class="fa-solid fa-check"></i> Custom design &amp; copywriting help</li>
+          <li><i class="fa-solid fa-check"></i> Hosting, domain &amp; SSL</li>
+          <li><i class="fa-solid fa-check"></i> Booking or ordering integration</li>
+          <li><i class="fa-solid fa-check"></i> Google Business Profile set-up</li>
+          <li><i class="fa-solid fa-check"></i> Unlimited small content updates</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Start with Growth</a>
+      </div>
+      <div class="plan">
+        <h3>Established</h3>
+        <p class="desc">For multi-location or larger businesses that want a proper partner on tap.</p>
+        <div class="price">£149<span>/month</span></div>
+        <div class="setup">£799 one-off setup</div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Unlimited pages</li>
+          <li><i class="fa-solid fa-check"></i> Priority design &amp; development</li>
+          <li><i class="fa-solid fa-check"></i> Hosting, domain &amp; SSL</li>
+          <li><i class="fa-solid fa-check"></i> Blog &amp; basic SEO reporting</li>
+          <li><i class="fa-solid fa-check"></i> Monthly strategy check-in</li>
+          <li><i class="fa-solid fa-check"></i> Unlimited content updates</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Kind words</span>
+      <h2>What business owners say</h2>
+    </div>
+    <div class="testis">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"I'd been putting off getting a website for two years because I thought it'd cost thousands. Doman had us live in three weeks and I actually understand what I'm paying for each month."</p>
+        <div class="person">
+          <div class="avatar" style="background:#c2703f;">RH</div>
+          <div><div class="name">Rachel Hughes</div><div class="role">Owner, The Willow Room Salon</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Whenever I need the menu updated I just message the team and it's done same week. No faff, no invoice, it's just part of the plan. Wish I'd done this years ago."</p>
+        <div class="person">
+          <div class="avatar" style="background:#2f6b57;">MK</div>
+          <div><div class="name">Marcus Kelly</div><div class="role">Owner, Kelly's Fish &amp; Chips</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"We switched from a big agency that charged us for every tiny edit. Doman Digital's monthly plan is a fraction of the cost and honestly the site looks better too."</p>
+        <div class="person">
+          <div class="avatar" style="background:#7a5cb8;">SP</div>
+          <div><div class="name">Sana Patel</div><div class="role">Director, Patel &amp; Co Accountants</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Why monthly instead of a one-off price?</summary>
+        <p>Most agencies charge a big fee upfront and then leave you to sort hosting, security, and updates yourself. Our monthly plan covers the build, hosting, maintenance and small edits together — so your site keeps working, and keeps being looked after, long after launch.</p>
+      </details>
+      <details>
+        <summary>Is there a contract?</summary>
+        <p>No lock-in contracts. Plans run month to month, and you can cancel with 30 days' notice. We'd rather earn your business every month than tie you into something long.</p>
+      </details>
+      <details>
+        <summary>What if I already have a website?</summary>
+        <p>We can often move your existing content across to a new build, or take over hosting and maintenance of your current site if it's in good shape. Get in touch and we'll take a look for free.</p>
+      </details>
+      <details>
+        <summary>Do I own my website?</summary>
+        <p>Yes. Your domain is registered in your name, and if you ever leave, we'll hand over your files and content so you can take them elsewhere.</p>
+      </details>
+      <details>
+        <summary>How many changes are included each month?</summary>
+        <p>It depends on your plan — Starter includes one update a month, while Growth and Established include unlimited small content updates (text, images, prices, opening hours). Bigger changes, like new page types, are quoted separately.</p>
+      </details>
+      <details>
+        <summary>How long does it take to go live?</summary>
+        <p>Most sites are designed, built and live within two to three weeks of our first call, depending on how quickly we get your content and any feedback back from you.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Ready to get your business online properly?</h2>
+        <p>Book a free 15-minute call or send us your details — we'll put together a mock-up before you spend a penny.</p>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="tel:+441134960221" class="btn btn-light"><i class="fa-solid fa-phone"></i> 0113 496 0221</a>
+        <a href="mailto:hello@domandigital.co.uk" class="btn" style="background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.5);"><i class="fa-solid fa-envelope"></i> hello@domandigital.co.uk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="logo-mark">DD</span>
+          <span>Doman Digital</span>
+        </div>
+        <p class="about">A small web studio building and running websites for small businesses across the UK, on simple monthly plans.</p>
+        <div class="socials" style="margin-top:18px;">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Plans</h4>
+        <ul>
+          <li><a href="#pricing">Starter — £39/mo</a></li>
+          <li><a href="#pricing">Growth — £79/mo</a></li>
+          <li><a href="#pricing">Established — £149/mo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@domandigital.co.uk">hello@domandigital.co.uk</a></li>
+          <li><a href="tel:+441134960221">0113 496 0221</a></li>
+          <li><a href="#">Leeds, West Yorkshire, UK</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Doman Digital Ltd. All rights reserved.</span>
+      <span>Company No. 15834271 · Registered in England &amp; Wales</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.links a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

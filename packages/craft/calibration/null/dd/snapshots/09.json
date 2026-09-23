@@ -1,0 +1,635 @@
+{
+  "version": 1,
+  "url": "pages/09.html",
+  "capturedAt": "2026-09-23T11:18:58.367Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7117,
+  "ground": "rgb(250, 249, 246)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(242, 239, 232)",
+        "area": 3052440,
+        "chars": 0
+      },
+      {
+        "value": "rgb(19, 20, 23)",
+        "area": 2054641,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1816591,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 90, 54)",
+        "area": 484975,
+        "chars": 0
+      },
+      {
+        "value": "rgb(28, 29, 34)",
+        "area": 420217,
+        "chars": 0
+      },
+      {
+        "value": "rgb(32, 31, 34)",
+        "area": 222899,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 249, 246)",
+        "area": 135139,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 249, 246, 0.9)",
+        "area": 128610,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 240, 234)",
+        "area": 50126,
+        "chars": 0
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.35)",
+        "area": 9585,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 90, 54, 0.15)",
+        "area": 5699,
+        "chars": 0
+      },
+      {
+        "value": "rgb(231, 228, 221)",
+        "area": 5182,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(74, 77, 87)",
+        "area": 0,
+        "chars": 2615
+      },
+      {
+        "value": "rgb(19, 20, 23)",
+        "area": 0,
+        "chars": 1296
+      },
+      {
+        "value": "rgb(215, 214, 218)",
+        "area": 0,
+        "chars": 476
+      },
+      {
+        "value": "rgb(185, 184, 191)",
+        "area": 0,
+        "chars": 437
+      },
+      {
+        "value": "rgb(169, 168, 174)",
+        "area": 0,
+        "chars": 289
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 187
+      },
+      {
+        "value": "rgb(244, 242, 238)",
+        "area": 0,
+        "chars": 138
+      },
+      {
+        "value": "rgb(225, 70, 32)",
+        "area": 0,
+        "chars": 112
+      },
+      {
+        "value": "rgb(255, 227, 216)",
+        "area": 0,
+        "chars": 92
+      },
+      {
+        "value": "rgb(127, 126, 133)",
+        "area": 0,
+        "chars": 66
+      },
+      {
+        "value": "rgb(255, 138, 91)",
+        "area": 0,
+        "chars": 47
+      },
+      {
+        "value": "rgb(255, 90, 54)",
+        "area": 0,
+        "chars": 33
+      },
+      {
+        "value": "rgb(240, 165, 0)",
+        "area": 0,
+        "chars": 15
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 5165,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Sora",
+      "chars": 626,
+      "displayChars": 548,
+      "italicChars": 0,
+      "weights": [
+        500,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Sora",
+      "sizePx": 46,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "A great website, built for you and looked after every month.",
+      "top": 233
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything your website needs, in one plan",
+      "top": 1025
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Website design & build",
+      "top": 1324
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hosting & maintenance",
+      "top": 1324
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing edits",
+      "top": 1324
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Online bookings & shops",
+      "top": 1602
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO",
+      "top": 1602
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Monthly reporting",
+      "top": 1602
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "From first call to live site in about two weeks",
+      "top": 1991
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free consultation",
+      "top": 2276
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "We design & build",
+      "top": 2276
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Go live",
+      "top": 2276
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "We keep it running",
+      "top": 2276
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "One flat fee. No surprise invoices.",
+      "top": 2655
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Starter",
+      "top": 2853
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growth",
+      "top": 2845
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Storefront",
+      "top": 2853
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small businesses, real results",
+      "top": 3732
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 32,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "A small studio that only builds for small businesses",
+      "top": 4367
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 5094
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 34,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a website that actually works for you?",
+      "top": 5835
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 30,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get in touch",
+      "top": 6159
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(255, 90, 54)",
+      "text": "Get a free quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(255, 90, 54)",
+      "text": "See our plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Start with Starter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(255, 90, 54)",
+      "text": "Start with Growth"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Start with Storefront"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(19, 20, 23)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Email us instead"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 45,
+      "background": "rgb(255, 90, 54)",
+      "text": "Send message"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 89,
+      "kind": "hero",
+      "label": "Doman.Digital Services Pricing Work FAQ Contact Get a free q",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 89,
+      "height": 661,
+      "kind": "hero",
+      "label": "A great website, built for you and looked after every month.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 751,
+      "height": 135,
+      "kind": "cards",
+      "label": "⭐ 4.9/5 from 60+ small business owners 🛠️ 120+ websites bui",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 885,
+      "height": 966,
+      "kind": "cards",
+      "label": "Everything your website needs, in one plan",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1851,
+      "height": 664,
+      "kind": "stats",
+      "label": "From first call to live site in about two weeks",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2515,
+      "height": 1078,
+      "kind": "cards",
+      "label": "One flat fee. No surprise invoices.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3593,
+      "height": 610,
+      "kind": "cards",
+      "label": "Small businesses, real results",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4203,
+      "height": 751,
+      "kind": "cards",
+      "label": "A small studio that only builds for small businesses",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4954,
+      "height": 811,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5765,
+      "height": 304,
+      "kind": "text",
+      "label": "Ready for a website that actually works for you?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6069,
+      "height": 705,
+      "kind": "text",
+      "label": "Get in touch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6774,
+      "height": 343,
+      "kind": "text",
+      "label": "Doman.Digital Websites for small businesses, designed, built",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 90, 54)",
+          "rgb(31, 111, 92)"
+        ],
+        "area": 261276,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      26,
+      27,
+      30,
+      32,
+      34,
+      35,
+      38,
+      46
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 42.9,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  }
+}

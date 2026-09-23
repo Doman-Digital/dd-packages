@@ -1,0 +1,669 @@
+{
+  "version": 1,
+  "url": "pages/04.html",
+  "capturedAt": "2026-09-23T11:18:27.356Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7469,
+  "ground": "rgb(250, 247, 241)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3105689,
+        "chars": 0
+      },
+      {
+        "value": "rgb(22, 58, 48)",
+        "area": 1546734,
+        "chars": 0
+      },
+      {
+        "value": "rgb(228, 221, 206)",
+        "area": 595485,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 247, 241)",
+        "area": 588869,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 248818,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 247, 241, 0.92)",
+        "area": 121028,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 252, 250)",
+        "area": 71348,
+        "chars": 0
+      },
+      {
+        "value": "rgb(31, 77, 63)",
+        "area": 52515,
+        "chars": 0
+      },
+      {
+        "value": "rgb(238, 243, 238)",
+        "area": 10816,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(61, 77, 79)",
+        "area": 0,
+        "chars": 3132
+      },
+      {
+        "value": "rgb(19, 32, 34)",
+        "area": 0,
+        "chars": 1692
+      },
+      {
+        "value": "rgb(201, 216, 207)",
+        "area": 0,
+        "chars": 601
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 326
+      },
+      {
+        "value": "rgb(227, 236, 230)",
+        "area": 0,
+        "chars": 188
+      },
+      {
+        "value": "rgb(138, 148, 144)",
+        "area": 0,
+        "chars": 162
+      },
+      {
+        "value": "rgb(31, 77, 63)",
+        "area": 0,
+        "chars": 138
+      },
+      {
+        "value": "rgb(185, 138, 59)",
+        "area": 0,
+        "chars": 120
+      },
+      {
+        "value": "rgb(142, 165, 154)",
+        "area": 0,
+        "chars": 108
+      },
+      {
+        "value": "rgb(169, 188, 178)",
+        "area": 0,
+        "chars": 105
+      },
+      {
+        "value": "rgb(73, 90, 84)",
+        "area": 0,
+        "chars": 80
+      },
+      {
+        "value": "rgb(251, 238, 212)",
+        "area": 0,
+        "chars": 78
+      },
+      {
+        "value": "rgb(217, 194, 138)",
+        "area": 0,
+        "chars": 30
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 5769,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 973,
+      "displayChars": 697,
+      "italicChars": 139,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 18,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 50,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Accountancy that actually understands your business.",
+      "top": 216
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 21,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Speak to an accountant",
+      "top": 248
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Specialist advice, whoever you are",
+      "top": 1093
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "SMEs",
+      "top": 1366
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contractors",
+      "top": 1366
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlords",
+      "top": 1366
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "High earners",
+      "top": 1366
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything from day-to-day compliance to long-term strategy",
+      "top": 1858
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Annual accounts & corporation tax",
+      "top": 2104
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Self-assessment tax returns",
+      "top": 2104
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bookkeeping & VAT",
+      "top": 2104
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Payroll & auto-enrolment",
+      "top": 2280
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "IR35 & contractor set-up",
+      "top": 2280
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Property & landlord tax",
+      "top": 2280
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tax planning & advisory",
+      "top": 2456
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Company formation",
+      "top": 2456
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "HMRC enquiries & support",
+      "top": 2456
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Proactive advice, not just annual paperwork",
+      "top": 2831
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Onboarding in four simple steps",
+      "top": 3559
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted by business owners across the UK",
+      "top": 4195
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Simple, fixed monthly fees",
+      "top": 4867
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sole Trader & Contractor",
+      "top": 5072
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growing Business",
+      "top": 5073
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Established & High Net Worth",
+      "top": 5072
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions",
+      "top": 5916
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for accountants who plan ahead?",
+      "top": 6766
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 47,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 54,
+      "background": "rgb(31, 77, 63)",
+      "text": "Get your free consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See our services"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 100,
+      "heightPx": 47,
+      "background": "rgb(31, 77, 63)",
+      "text": "Request a callback"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose this plan"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 54,
+      "background": "rgb(31, 77, 63)",
+      "text": "Choose this plan"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Request a quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 54,
+      "background": "rgb(255, 255, 255)",
+      "text": "Call 0161 740 0221"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 84,
+      "kind": "hero",
+      "label": "Harrison James Who we help Services Pricing FAQs Contact 016",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 84,
+      "height": 775,
+      "kind": "hero",
+      "label": "Accountancy that actually understands your business.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 859,
+      "height": 96,
+      "kind": "text",
+      "label": "Regulated & recognised by ICAEW HMRC Agent Registered Xero G",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 955,
+      "height": 764,
+      "kind": "cards",
+      "label": "Specialist advice, whoever you are",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1719,
+      "height": 974,
+      "kind": "cards",
+      "label": "Everything from day-to-day compliance to long-term strategy",
+      "cards": 9,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2693,
+      "height": 728,
+      "kind": "text",
+      "label": "Proactive advice, not just annual paperwork",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3421,
+      "height": 637,
+      "kind": "stats",
+      "label": "Onboarding in four simple steps",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4057,
+      "height": 672,
+      "kind": "cards",
+      "label": "Trusted by business owners across the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4729,
+      "height": 1048,
+      "kind": "cards",
+      "label": "Simple, fixed monthly fees",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5778,
+      "height": 833,
+      "kind": "text",
+      "label": "Common questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6610,
+      "height": 450,
+      "kind": "text",
+      "label": "Ready for accountants who plan ahead?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 7060,
+      "height": 409,
+      "kind": "text",
+      "label": "Harrison James Chartered accountants supporting SMEs, contra",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(31, 77, 63)",
+          "rgb(22, 58, 48)"
+        ],
+        "area": 1115618,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(233, 226, 209)",
+          "rgb(244, 239, 228)"
+        ],
+        "area": 190917,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(185, 138, 59)",
+          "rgb(143, 106, 42)"
+        ],
+        "area": 292021,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      22,
+      27,
+      32,
+      34,
+      35,
+      37,
+      50
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "100px",
+      "14px",
+      "20px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.25) 0px 30px 60px 0px",
+      "rgba(31, 77, 63, 0.15) 0px 20px 50px 0px"
+    ],
+    "spacingOnScalePct": 46.2,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 18
+  }
+}

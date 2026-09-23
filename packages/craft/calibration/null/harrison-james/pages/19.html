@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harrison James | Chartered Accountants for SMEs, Contractors, Landlords & High Earners</title>
+<meta name="description" content="Harrison James are UK chartered accountants specialising in SMEs, contractors, landlords and high-earning individuals. Fixed fees, straight talk, real results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f1f2e;
+    --navy-light:#16324a;
+    --gold:#b8934c;
+    --gold-light:#d9b978;
+    --cream:#faf7f2;
+    --grey:#6b7280;
+    --border:#e7e2d9;
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--navy);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.15;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;border-radius:2px;font-weight:600;font-size:0.95rem;
+    transition:all .2s ease;cursor:pointer;border:1px solid transparent;
+  }
+  .btn-gold{background:var(--gold);color:#1a1a1a;}
+  .btn-gold:hover{background:var(--gold-light);}
+  .btn-outline{border-color:rgba(255,255,255,0.4);color:#fff;}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+  .btn-outline-navy{border-color:var(--navy);color:var(--navy);}
+  .btn-outline-navy:hover{background:var(--navy);color:#fff;}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;
+    font-weight:700;color:var(--gold);margin-bottom:14px;display:block;
+  }
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:100;background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{
+    color:#fff;font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;
+    letter-spacing:.02em;
+  }
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:34px;align-items:center;}
+  .nav-links a{color:#e6e6e6;font-size:.92rem;font-weight:500;}
+  .nav-links a:hover{color:var(--gold-light);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .nav-phone{color:#fff;font-size:.9rem;font-weight:600;}
+  .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;}
+
+  @media (max-width:900px){
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;background:var(--navy);
+      flex-direction:column;gap:0;max-height:0;overflow:hidden;
+      transition:max-height .3s ease;border-top:1px solid rgba(255,255,255,0.08);
+    }
+    .nav-links.open{max-height:400px;}
+    .nav-links a{padding:16px 24px;width:100%;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .nav-phone{display:none;}
+    .menu-toggle{display:block;}
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;padding:100px 0 120px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+    border:1px solid rgba(184,147,76,0.25);border-radius:50%;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;position:relative;}
+  .hero h1{font-size:3.1rem;color:#fff;margin-bottom:22px;}
+  .hero h1 em{font-style:normal;color:var(--gold-light);}
+  .hero p.lead{font-size:1.15rem;color:#c9d2da;max-width:520px;margin-bottom:34px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-stats{display:flex;gap:40px;flex-wrap:wrap;}
+  .hero-stats div{border-left:2px solid var(--gold);padding-left:14px;}
+  .hero-stats .num{font-family:'Fraunces',serif;font-size:1.8rem;color:#fff;font-weight:700;}
+  .hero-stats .label{font-size:.8rem;color:#a9b4bd;}
+  .hero-card{
+    background:#fff;color:var(--navy);border-radius:6px;padding:34px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.25);
+  }
+  .hero-card h3{font-size:1.3rem;margin-bottom:6px;}
+  .hero-card p.small{color:var(--grey);font-size:.9rem;margin-bottom:22px;}
+  .hero-card ul{list-style:none;margin-bottom:26px;}
+  .hero-card ul li{
+    display:flex;gap:10px;align-items:flex-start;font-size:.94rem;margin-bottom:12px;
+  }
+  .hero-card ul li::before{
+    content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:2.3rem;}
+    .hero{padding:60px 0 80px;}
+  }
+
+  /* CLIENT BAR */
+  .clientbar{background:#fff;border-bottom:1px solid var(--border);padding:26px 0;}
+  .clientbar .wrap{
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+  }
+  .clientbar p{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--grey);font-weight:600;}
+  .clientbar .tags{display:flex;gap:28px;flex-wrap:wrap;}
+  .clientbar .tags span{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--navy);}
+
+  /* SECTIONS */
+  section{padding:96px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:2.3rem;margin-bottom:16px;}
+  .section-head p{color:var(--grey);font-size:1.05rem;}
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+  .service-card{background:#fff;padding:38px 32px;transition:background .2s ease;}
+  .service-card:hover{background:#fff6ea;}
+  .service-num{font-family:'Fraunces',serif;color:var(--gold);font-size:1rem;font-weight:700;margin-bottom:18px;}
+  .service-card h3{font-size:1.3rem;margin-bottom:12px;}
+  .service-card p{color:var(--grey);font-size:.93rem;margin-bottom:18px;}
+  .service-card a{font-size:.85rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:2px;}
+  @media (max-width:900px){.services-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.services-grid{grid-template-columns:1fr;}}
+
+  /* WHY */
+  .why{background:var(--navy);color:#fff;}
+  .why .section-head h2, .why .section-head p{color:#fff;}
+  .why .section-head p{color:#c9d2da;}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  .why-item{padding:30px 0;border-top:1px solid rgba(255,255,255,0.15);}
+  .why-item .icon{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--gold-light);margin-bottom:16px;display:block;}
+  .why-item h3{font-size:1.15rem;color:#fff;margin-bottom:10px;}
+  .why-item p{color:#b7c2ca;font-size:.92rem;}
+  @media (max-width:900px){.why-grid{grid-template-columns:1fr;}}
+
+  /* PROCESS */
+  .process-list{counter-reset:step;}
+  .process-item{
+    display:grid;grid-template-columns:80px 1fr;gap:24px;padding:28px 0;
+    border-bottom:1px solid var(--border);align-items:start;
+  }
+  .process-item:first-child{border-top:1px solid var(--border);}
+  .process-item .step-num{
+    counter-increment:step;font-family:'Fraunces',serif;font-size:2.2rem;color:var(--gold);
+  }
+  .process-item h3{font-size:1.2rem;margin-bottom:8px;}
+  .process-item p{color:var(--grey);font-size:.95rem;max-width:600px;}
+
+  /* TESTIMONIALS */
+  .testimonials{background:#fff;}
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .test-card{
+    background:var(--cream);border:1px solid var(--border);padding:32px;border-radius:4px;
+  }
+  .test-card .stars{color:var(--gold);letter-spacing:2px;margin-bottom:16px;font-size:.9rem;}
+  .test-card p.quote{font-size:.98rem;color:var(--navy);margin-bottom:22px;font-style:italic;}
+  .test-card .who{font-size:.85rem;font-weight:700;color:var(--navy);}
+  .test-card .role{font-size:.8rem;color:var(--grey);}
+  @media (max-width:900px){.test-grid{grid-template-columns:1fr;}}
+
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .price-card{
+    background:#fff;border:1px solid var(--border);border-radius:4px;padding:36px;
+    display:flex;flex-direction:column;
+  }
+  .price-card.featured{border-color:var(--gold);box-shadow:0 20px 40px rgba(184,147,76,0.15);position:relative;}
+  .price-card.featured::before{
+    content:"MOST POPULAR";position:absolute;top:-13px;left:36px;background:var(--gold);
+    color:#1a1a1a;font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:5px 12px;border-radius:2px;
+  }
+  .price-card h3{font-size:1.3rem;margin-bottom:8px;}
+  .price-card .price{font-family:'Fraunces',serif;font-size:2.1rem;margin:14px 0;}
+  .price-card .price span{font-size:.9rem;font-family:'Inter',sans-serif;color:var(--grey);font-weight:400;}
+  .price-card p.desc{color:var(--grey);font-size:.9rem;margin-bottom:20px;}
+  .price-card ul{list-style:none;margin-bottom:28px;flex-grow:1;}
+  .price-card ul li{
+    display:flex;gap:10px;font-size:.9rem;margin-bottom:12px;color:var(--navy);
+  }
+  .price-card ul li::before{content:"✓";color:var(--gold);font-weight:700;}
+  @media (max-width:900px){.pricing-grid{grid-template-columns:1fr;}}
+
+  /* FAQ */
+  .faq{max-width:820px;}
+  details{border-bottom:1px solid var(--border);padding:22px 0;}
+  summary{
+    cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:1.4rem;color:var(--gold);font-weight:400;}
+  details[open] summary::after{content:"–";}
+  details p{color:var(--grey);margin-top:14px;font-size:.95rem;max-width:680px;}
+
+  /* CTA BAND */
+  .cta-band{
+    background:linear-gradient(120deg,var(--navy),var(--navy-light));color:#fff;
+    padding:70px 0;text-align:center;
+  }
+  .cta-band h2{color:#fff;font-size:2rem;margin-bottom:14px;}
+  .cta-band p{color:#c9d2da;margin-bottom:30px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{background:#0a1520;color:#8f9ba5;padding:64px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+  .footer-logo{color:#fff;font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:14px;}
+  .footer-logo span{color:var(--gold);}
+  footer p.about{font-size:.88rem;line-height:1.7;max-width:280px;}
+  footer h4{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;}
+  footer ul{list-style:none;}
+  footer ul li{margin-bottom:11px;font-size:.9rem;}
+  footer ul li a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.08);padding-top:26px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem;
+  }
+  @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">Harrison<span>James</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-phone">0161 234 5678</span>
+      <a href="#contact" class="btn btn-gold">Book a Call</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--gold-light);">Chartered Accountants, Manchester &amp; Nationwide</span>
+      <h1>Accounting that actually <em>saves you money</em> — not just files your return.</h1>
+      <p class="lead">Harrison James is built for SMEs, contractors, landlords and high-earning individuals who want a proactive accountant, not a once-a-year phone call. Fixed fees. Real advice. No jargon.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-gold">Get a Fixed-Fee Quote</a>
+        <a href="#services" class="btn btn-outline">Explore Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">1,200+</div><div class="label">Clients across the UK</div></div>
+        <div><div class="num">£3.6m</div><div class="label">Tax saved last year</div></div>
+        <div><div class="num">4.9/5</div><div class="label">Average client rating</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Free 20-Minute Consultation</h3>
+      <p class="small">No obligation. No sales script. Just a straight conversation about your numbers.</p>
+      <ul>
+        <li>Review of your current setup and tax position</li>
+        <li>Clear, fixed-fee quote — no hourly surprises</li>
+        <li>Practical suggestions you can use immediately</li>
+      </ul>
+      <a href="#contact" class="btn btn-gold" style="width:100%;justify-content:center;">Book My Free Call</a>
+    </div>
+  </div>
+</section>
+
+<div class="clientbar">
+  <div class="wrap">
+    <p>Trusted by</p>
+    <div class="tags">
+      <span>Contractors</span>
+      <span>Limited Companies</span>
+      <span>Buy-to-Let Landlords</span>
+      <span>Sole Traders</span>
+      <span>Company Directors</span>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What We Do</span>
+      <h2>Specialist accounting, built around who you are</h2>
+      <p>We don't try to be everything to everyone. Every service below is shaped around the four types of client we understand best.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>SMEs &amp; Limited Companies</h3>
+        <p>Annual accounts, corporation tax, payroll, VAT and management information that helps you actually run the business — not just report on it.</p>
+        <a href="#contact">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Contractors &amp; Freelancers</h3>
+        <p>IR35 assessments, dividend planning, expense guidance and same-day company formations, so you keep more of what you earn.</p>
+        <a href="#contact">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Landlords &amp; Property Investors</h3>
+        <p>Section 24 planning, incorporation advice, CGT on disposals, and portfolio-level tax strategy for one property or fifty.</p>
+        <a href="#contact">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>High-Earning Individuals</h3>
+        <p>Self-assessment, pension and allowance planning, tapering mitigation and personal tax strategy for those in the higher and additional rate bands.</p>
+        <a href="#contact">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why Harrison James</span>
+      <h2>The accountant you wish you'd hired years ago</h2>
+      <p>We're chartered, regulated and insured — but what clients actually tell us they value is this:</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="icon">01</span>
+        <h3>Fixed fees, always</h3>
+        <p>You'll know the exact cost before we start. No hourly billing, no invoice shocks at year end.</p>
+      </div>
+      <div class="why-item">
+        <span class="icon">02</span>
+        <h3>A named accountant, not a call centre</h3>
+        <p>You deal with one qualified person who knows your business, reachable directly by phone or email.</p>
+      </div>
+      <div class="why-item">
+        <span class="icon">03</span>
+        <h3>Proactive, not reactive</h3>
+        <p>We flag tax-saving opportunities and deadlines before they become problems, not after.</p>
+      </div>
+      <div class="why-item">
+        <span class="icon">04</span>
+        <h3>Cloud accounting fluent</h3>
+        <p>Xero, QuickBooks and FreeAgent certified — real-time numbers, not year-old spreadsheets.</p>
+      </div>
+      <div class="why-item">
+        <span class="icon">05</span>
+        <h3>ICAEW regulated</h3>
+        <p>Fully chartered and professionally indemnified, so your affairs are always in properly qualified hands.</p>
+      </div>
+      <div class="why-item">
+        <span class="icon">06</span>
+        <h3>UK-wide, remote-first</h3>
+        <p>Based in Manchester, working with clients across England, Scotland and Wales via video, phone and email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How It Works</span>
+      <h2>Switching accountants in four simple steps</h2>
+      <p>We handle the admin of moving from your current accountant — it typically takes less than two weeks and requires almost nothing from you.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item">
+        <div class="step-num">1</div>
+        <div><h3>Free consultation</h3><p>We learn about your business or personal situation and give you a clear, fixed quote on the spot.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="step-num">2</div>
+        <div><h3>We contact your old accountant</h3><p>With your authorisation, we request professional clearance and transfer your records — no awkward conversations for you.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="step-num">3</div>
+        <div><h3>Onboarding &amp; setup</h3><p>We get you set up on cloud software if you're not already, and agree your reporting and deadline schedule.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="step-num">4</div>
+        <div><h3>Ongoing support</h3><p>Regular check-ins, proactive tax planning, and a real person who picks up the phone when you call.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Client Stories</span>
+      <h2>What our clients say</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Harrison James restructured my contracting setup and saved me over £4,000 in tax in the first year alone. Wish I'd switched sooner."</p>
+        <div class="who">David Okonkwo</div>
+        <div class="role">IT Contractor, Leeds</div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"They talked me through incorporating my property portfolio in plain English and handled the whole transfer. Genuinely stress-free."</p>
+        <div class="who">Sarah Whitfield</div>
+        <div class="role">Landlord, 6 properties, Yorkshire</div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Finally an accountant who calls me before a deadline, not after. Our management accounts now actually help us make decisions."</p>
+        <div class="who">Priya Shah</div>
+        <div class="role">Managing Director, Shah Retail Ltd</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Pricing</span>
+      <h2>Straightforward, fixed-fee packages</h2>
+      <p>Every client is quoted individually, but here's what most people pay to start.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Sole Trader &amp; Personal</h3>
+        <div class="price">£30<span>/month</span></div>
+        <p class="desc">For sole traders, landlords with 1–2 properties, and individuals needing self-assessment support.</p>
+        <ul>
+          <li>Self-assessment tax return</li>
+          <li>Annual tax planning review</li>
+          <li>Unlimited email support</li>
+          <li>HMRC correspondence handled</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-navy" style="justify-content:center;">Get This Plan</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Limited Company</h3>
+        <div class="price">£95<span>/month</span></div>
+        <p class="desc">Our most popular package — for contractors and small limited companies.</p>
+        <ul>
+          <li>Annual accounts &amp; corporation tax</li>
+          <li>Director's self-assessment included</li>
+          <li>VAT returns &amp; payroll (up to 2 staff)</li>
+          <li>Xero or FreeAgent licence included</li>
+          <li>Quarterly check-in calls</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold" style="justify-content:center;">Get This Plan</a>
+      </div>
+      <div class="price-card">
+        <h3>Growing Business</h3>
+        <div class="price">From £250<span>/month</span></div>
+        <p class="desc">For established SMEs and property portfolios needing deeper support.</p>
+        <ul>
+          <li>Everything in Limited Company</li>
+          <li>Monthly management accounts</li>
+          <li>Payroll for larger teams</li>
+          <li>Dedicated tax planning strategy</li>
+          <li>Priority phone access to your accountant</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline-navy" style="justify-content:center;">Get a Custom Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FAQs</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Do I need to be based near Manchester to work with you?</summary>
+        <p>Not at all. Around 70% of our clients work with us entirely remotely — by phone, video call and cloud software — from across England, Scotland and Wales.</p>
+      </details>
+      <details>
+        <summary>How long does switching accountants take?</summary>
+        <p>Typically 10–14 days. We handle professional clearance with your current accountant and manage the transfer of records, so it requires very little from you.</p>
+      </details>
+      <details>
+        <summary>Are your fees really fixed, with no hidden extras?</summary>
+        <p>Yes. We agree your fee upfront based on your specific circumstances, and it won't change unless your circumstances materially change — we'll always discuss that with you first.</p>
+      </details>
+      <details>
+        <summary>Do you help with IR35 and contractor status?</summary>
+        <p>Yes, this is one of our core specialisms. We review contracts, assess status, and advise on the most tax-efficient way to operate as a contractor under current legislation.</p>
+      </details>
+      <details>
+        <summary>Can you help landlords decide whether to incorporate?</summary>
+        <p>Yes. We model the tax impact of holding property personally versus through a limited company, factoring in Section 24, CGT, and stamp duty, so you can make an informed decision.</p>
+      </details>
+      <details>
+        <summary>What software do you use?</summary>
+        <p>We're certified partners for Xero, QuickBooks and FreeAgent, and we're happy to work with whichever platform suits you best — or recommend one if you're starting fresh.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Let's talk about your numbers</h2>
+    <p>Book a free, no-obligation consultation and get a clear, fixed-fee quote within 24 hours.</p>
+    <div class="cta-actions">
+      <a href="tel:01612345678" class="btn btn-gold">Call 0161 234 5678</a>
+      <a href="mailto:hello@harrisonjames.co.uk" class="btn btn-outline">Email hello@harrisonjames.co.uk</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Harrison<span>James</span></div>
+        <p class="about">Chartered accountants for SMEs, contractors, landlords and high-earning individuals across the UK. Fixed fees, proactive advice, and a named accountant who actually picks up the phone.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">SMEs &amp; Limited Companies</a></li>
+          <li><a href="#services">Contractors</a></li>
+          <li><a href="#services">Landlords</a></li>
+          <li><a href="#services">High Earners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li>Harrison James LLP</li>
+          <li>14 Deansgate, Manchester, M3 2FN</li>
+          <li>0161 234 5678</li>
+          <li>hello@harrisonjames.co.uk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Harrison James LLP. All rights reserved.</span>
+      <span>Registered in England &amp; Wales. Regulated by ICAEW.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

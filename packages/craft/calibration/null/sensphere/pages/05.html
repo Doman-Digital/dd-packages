@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensphere | Occupational Therapy for Children &amp; Young People</title>
+<meta name="description" content="Sensphere provides occupational therapy assessments and therapy for children and young people across the UK, working closely with families and schools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-900:#1b3c3a;
+    --teal-700:#2f6b63;
+    --teal-500:#4f9188;
+    --sand-50:#faf7f1;
+    --sand-100:#f3ede1;
+    --coral-500:#e8825f;
+    --coral-600:#d76e4b;
+    --ink:#25302f;
+    --line:#e3ddce;
+    --radius:18px;
+    --shadow:0 20px 40px -20px rgba(27,60,58,0.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--sand-50);
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Fraunces',serif;
+    color:var(--teal-900);
+    line-height:1.15;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,247,241,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{font-size:1.4rem;font-weight:600;display:flex;align-items:center;gap:8px;text-decoration:none;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:50%;
+    background:linear-gradient(135deg,var(--teal-500),var(--coral-500));
+    display:inline-block;
+  }
+  nav.links{display:flex;gap:28px;font-weight:500;font-size:0.98rem;}
+  nav.links a{text-decoration:none;color:var(--teal-900);position:relative;padding:4px 0;}
+  nav.links a:hover{color:var(--coral-600);}
+  .cta-btn{
+    background:var(--coral-500);color:#fff;
+    padding:11px 22px;border-radius:999px;
+    text-decoration:none;font-weight:600;font-size:0.95rem;
+    white-space:nowrap;
+    transition:background .2s ease;
+    border:none;cursor:pointer;
+    display:inline-block;
+  }
+  .cta-btn:hover{background:var(--coral-600);}
+  .cta-outline{
+    border:1.5px solid var(--teal-700);color:var(--teal-700);
+    padding:9.5px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:0.95rem;
+  }
+  .cta-outline:hover{background:var(--teal-700);color:#fff;}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--teal-900);}
+
+  /* Hero */
+  .hero{
+    padding:72px 0 90px;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(232,130,95,0.14), transparent 45%),
+      radial-gradient(circle at 10% 80%, rgba(79,145,136,0.16), transparent 50%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--sand-100);border:1px solid var(--line);
+    padding:6px 14px;border-radius:999px;font-size:0.85rem;font-weight:600;color:var(--teal-700);
+    margin-bottom:20px;
+  }
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--coral-500);}
+  .hero h1{font-size:2.9rem;margin:0 0 20px;font-weight:600;}
+  .hero p.lead{font-size:1.15rem;color:#4a5654;max-width:520px;margin-bottom:30px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px;}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stats div{border-left:2px solid var(--coral-500);padding-left:12px;}
+  .hero-stats strong{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--teal-900);}
+  .hero-stats span{font-size:0.85rem;color:#5b6664;}
+  .hero-visual{
+    position:relative;background:var(--teal-900);
+    border-radius:28px;padding:34px;color:#f4efe4;
+    box-shadow:var(--shadow);
+    min-height:380px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(79,145,136,0.55), transparent 55%),
+      radial-gradient(circle at 75% 70%, rgba(232,130,95,0.4), transparent 50%);
+  }
+  .hero-visual-content{position:relative;z-index:1;}
+  .hero-visual .quote{font-family:'Fraunces',serif;font-size:1.25rem;line-height:1.4;margin-bottom:16px;}
+  .hero-visual .who{font-size:0.9rem;opacity:0.75;}
+  .badge-row{position:relative;z-index:1;display:flex;gap:10px;margin-bottom:auto;flex-wrap:wrap;}
+  .badge{
+    background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);
+    padding:6px 12px;border-radius:999px;font-size:0.78rem;font-weight:500;
+  }
+
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:2.1rem;margin:0 0 14px;font-weight:600;}
+  .section-head p{color:#4a5654;font-size:1.05rem;}
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  /* Who we help */
+  .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .audience-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px 28px;
+  }
+  .audience-card .icon{
+    width:52px;height:52px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--sand-100);margin-bottom:18px;
+  }
+  .audience-card h3{font-size:1.2rem;margin:0 0 10px;}
+  .audience-card p{color:#4a5654;font-size:0.96rem;margin:0;}
+
+  /* Services */
+  .services{background:var(--sand-100);}
+  .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  .service-card{
+    background:#fff;border-radius:var(--radius);padding:34px;
+    border:1px solid var(--line);
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .service-tag{
+    align-self:flex-start;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--coral-600);
+  }
+  .service-card h3{font-size:1.35rem;margin:0;}
+  .service-card p{color:#4a5654;margin:0;}
+  .service-card ul{margin:6px 0 0;padding-left:18px;color:#3f4a48;font-size:0.94rem;}
+  .service-card ul li{margin-bottom:6px;}
+  .service-foot{margin-top:auto;padding-top:10px;font-weight:600;color:var(--teal-700);text-decoration:none;font-size:0.94rem;}
+  .service-foot:hover{color:var(--coral-600);}
+
+  /* Process */
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    counter-reset:step;
+    position:relative;
+  }
+  .step{padding:0 20px;position:relative;}
+  .step:not(:first-child)::before{
+    content:"";position:absolute;left:0;top:24px;width:100%;height:1px;
+    background:var(--line);
+    transform:translateX(-50%);
+  }
+  .step-num{
+    width:46px;height:46px;border-radius:50%;
+    background:var(--teal-900);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:18px;
+    position:relative;z-index:1;
+  }
+  .step h3{font-size:1.05rem;margin:0 0 8px;}
+  .step p{font-size:0.92rem;color:#4a5654;margin:0;}
+
+  /* Schools */
+  .schools{
+    background:var(--teal-900);color:#f4efe4;border-radius:28px;
+    padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  }
+  .schools h2{color:#f4efe4;}
+  .schools p{color:rgba(244,239,228,0.8);}
+  .schools-list{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:14px;}
+  .schools-list li{display:flex;gap:12px;align-items:flex-start;font-size:0.96rem;}
+  .schools-list svg{flex-shrink:0;margin-top:3px;}
+  .schools-card{
+    background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);
+    border-radius:18px;padding:30px;
+  }
+  .schools-card h4{font-family:'Fraunces',serif;font-size:1.15rem;margin:0 0 12px;color:#f4efe4;}
+  .schools-card p{color:rgba(244,239,228,0.75);font-size:0.94rem;margin:0 0 20px;}
+
+  /* Testimonials */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .testi-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .stars{color:var(--coral-500);letter-spacing:2px;font-size:1.1rem;}
+  .testi-card p{color:#3f4a48;font-size:0.98rem;margin:0;}
+  .testi-name{font-weight:600;color:var(--teal-900);font-size:0.92rem;}
+  .testi-role{font-size:0.82rem;color:#7c8886;}
+
+  /* Team */
+  .team{background:var(--sand-100);}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .team-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .team-photo{
+    height:180px;background:linear-gradient(135deg,var(--teal-500),var(--teal-900));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-family:'Fraunces',serif;font-size:2.2rem;
+  }
+  .team-body{padding:22px;}
+  .team-body h3{font-size:1.1rem;margin:0 0 2px;}
+  .team-role{color:var(--coral-600);font-size:0.85rem;font-weight:600;margin-bottom:10px;}
+  .team-body p{font-size:0.92rem;color:#4a5654;margin:0;}
+
+  /* FAQ */
+  .faq-list{max-width:780px;margin:0 auto;display:grid;gap:14px;}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;
+  }
+  summary{
+    cursor:pointer;font-weight:600;color:var(--teal-900);list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:1.3rem;color:var(--coral-500);flex-shrink:0;}
+  details[open] summary::after{content:"–";}
+  details p{margin:14px 0 2px;color:#4a5654;font-size:0.96rem;}
+
+  /* CTA banner */
+  .cta-banner{
+    background:linear-gradient(135deg,var(--coral-500),var(--coral-600));
+    border-radius:28px;padding:56px;color:#fff;
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+  }
+  .cta-banner h2{color:#fff;font-size:1.9rem;margin:0 0 10px;}
+  .cta-banner p{color:rgba(255,255,255,0.9);margin:0;max-width:440px;}
+  .cta-banner .cta-btn{background:#fff;color:var(--coral-600);}
+  .cta-banner .cta-btn:hover{background:var(--sand-50);}
+
+  /* Footer */
+  footer{background:var(--teal-900);color:rgba(244,239,228,0.8);padding:64px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+  .footer-brand .brand{color:#f4efe4;}
+  .footer-brand p{font-size:0.9rem;color:rgba(244,239,228,0.65);max-width:280px;margin-top:14px;}
+  footer h4{color:#f4efe4;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 16px;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:0.92rem;}
+  footer a{text-decoration:none;color:rgba(244,239,228,0.75);}
+  footer a:hover{color:#fff;}
+  .footer-bottom{
+    border-top:1px solid rgba(244,239,228,0.15);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:rgba(244,239,228,0.55);
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .audience-grid,.service-grid,.testi-grid,.team-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;gap:28px;}
+    .step:not(:first-child)::before{display:none;}
+    .schools{grid-template-columns:1fr;padding:36px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .cta-banner{padding:36px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a href="#" class="brand"><span class="brand-mark"></span>Sensphere</a>
+    <nav class="links">
+      <a href="#services">Our Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#schools">Schools</a>
+      <a href="#team">Our Team</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <a href="#contact" class="cta-outline" style="display:none;">0161 123 4567</a>
+      <a href="#contact" class="cta-btn">Book a Consultation</a>
+      <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">HCPC-registered occupational therapists</span>
+      <h1>Helping children move, focus and feel steadier — at home, at school, in life.</h1>
+      <p class="lead">Sensphere provides occupational therapy assessments and therapy for children and young people across the UK. We work alongside families and schools to build practical, everyday strategies that stick.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="cta-btn">Book a Free 15-Minute Call</a>
+        <a href="#services" class="cta-outline">Explore Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>500+</strong><span>Children assessed since 2018</span></div>
+        <div><strong>60+</strong><span>Partner schools nationwide</span></div>
+        <div><strong>4–19</strong><span>Age range we support</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="badge-row">
+        <span class="badge">Sensory Processing</span>
+        <span class="badge">Fine Motor Skills</span>
+        <span class="badge">School Readiness</span>
+      </div>
+      <div class="hero-visual-content">
+        <p class="quote">"Our OT didn't just assess our son — she showed his teachers how to actually support him. It changed his whole term."</p>
+        <p class="who">Parent, Year 3 pupil, Manchester</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Who we work with</span>
+      <h2>Support built around the whole child</h2>
+      <p>Every referral is different. We tailor our approach to the child in front of us — and to the people who know them best.</p>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f6b63" stroke-width="1.8"><circle cx="12" cy="7" r="3.2"/><path d="M4.5 20c1-3.8 4-6 7.5-6s6.5 2.2 7.5 6"/></svg>
+        </div>
+        <h3>Families</h3>
+        <p>Private assessments and one-to-one therapy for children with sensory, motor, or self-regulation difficulties — with clear, jargon-free reports.</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f6b63" stroke-width="1.8"><path d="M4 20V10l8-5 8 5v10"/><path d="M9 20v-6h6v6"/></svg>
+        </div>
+        <h3>Schools</h3>
+        <p>Whole-class screening, EHCP-linked assessments, staff training, and sensory circuit programmes that fit real classroom timetables.</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f6b63" stroke-width="1.8"><path d="M12 3v18M5 8h14M5 16h14"/></svg>
+        </div>
+        <h3>Professionals</h3>
+        <p>Reports and joint working with paediatricians, SENCOs, speech and language therapists, and educational psychologists.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">What we offer</span>
+      <h2>Assessment and therapy, done thoroughly</h2>
+      <p>Every service starts with genuinely understanding the child — not a checklist.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="service-tag">Assessment</span>
+        <h3>Comprehensive OT Assessment</h3>
+        <p>A full picture of your child's sensory processing, motor skills, and daily functioning, drawing on standardised tools and real-world observation.</p>
+        <ul>
+          <li>Clinical interview with parents/carers</li>
+          <li>Standardised sensory &amp; motor assessments</li>
+          <li>Classroom or home observation</li>
+          <li>Detailed written report with recommendations</li>
+        </ul>
+        <a href="#contact" class="service-foot">Ask about assessments →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Therapy</span>
+        <h3>1:1 Therapy Programmes</h3>
+        <p>Regular sessions targeting the specific goals identified at assessment, from handwriting to emotional regulation, delivered in clinic or at school.</p>
+        <ul>
+          <li>Fine and gross motor skill development</li>
+          <li>Sensory regulation strategies</li>
+          <li>Handwriting and pencil-grip programmes</li>
+          <li>Progress reviewed every 6 sessions</li>
+        </ul>
+        <a href="#contact" class="service-foot">Ask about therapy →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Schools</span>
+        <h3>Sensory Circuits &amp; Group Programmes</h3>
+        <p>Structured movement-based sessions run within school, designed with staff so they continue to run long after we've handed them over.</p>
+        <ul>
+          <li>Whole-class or targeted small groups</li>
+          <li>Staff-led after initial set-up and training</li>
+          <li>Termly check-ins to adjust the programme</li>
+        </ul>
+        <a href="#contact" class="service-foot">Ask about school programmes →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Training</span>
+        <h3>Staff &amp; Parent Training</h3>
+        <p>Practical workshops that build confidence in supporting sensory and motor needs day-to-day, not just in therapy sessions.</p>
+        <ul>
+          <li>INSET days and staff CPD sessions</li>
+          <li>Parent workshops (in person or online)</li>
+          <li>Bespoke content for your setting</li>
+        </ul>
+        <a href="#contact" class="service-foot">Ask about training →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From first enquiry to lasting change</h2>
+      <p>A straightforward, transparent process — you'll always know what's happening next.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Free consultation call</h3>
+        <p>A 15-minute chat to understand your concerns and check we're the right fit.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Assessment</h3>
+        <p>In-depth assessment at our clinic, your child's school, or at home.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Report &amp; plan</h3>
+        <p>A clear written report with practical, prioritised recommendations.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Ongoing therapy</h3>
+        <p>Regular sessions with reviews to track progress and adjust goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="schools" style="padding-top:0;">
+  <div class="wrap">
+    <div class="schools">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#f4efe4;">For schools &amp; settings</span>
+        <h2>A partner that understands school life</h2>
+        <p>We know timetables, EHCPs, and staff capacity are real constraints. Our school programmes are designed to work within them.</p>
+        <ul class="schools-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8825f" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg> EHCP-aligned assessments and reports</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8825f" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg> Termly sensory circuits set up with your staff</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8825f" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg> Staff CPD and INSET training</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8825f" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg> Ongoing email support between visits</li>
+        </ul>
+      </div>
+      <div class="schools-card">
+        <h4>Currently working with 60+ schools</h4>
+        <p>Primary, secondary, and specialist settings across Greater Manchester, Yorkshire, and the North West — with remote consultation available UK-wide.</p>
+        <a href="#contact" class="cta-btn">Request a School Pack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Families' experiences</span>
+      <h2>What parents and schools tell us</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"The assessment report was the first document that actually explained why my daughter struggles with certain things — and what to do about it."</p>
+        <div><div class="testi-name">Rachel M.</div><div class="testi-role">Parent, Stockport</div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Sensphere trained our whole SEN team in one afternoon and left us with a sensory circuit we still run every morning, a year later."</p>
+        <div><div class="testi-name">Mrs. Aisha Patel</div><div class="testi-role">SENCO, primary school</div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Sessions were relaxed but focused. Within a term, my son's handwriting and confidence had both come on so much."</p>
+        <div><div class="testi-name">David T.</div><div class="testi-role">Parent, Leeds</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Meet the team</span>
+      <h2>Experienced, HCPC-registered occupational therapists</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">EH</div>
+        <div class="team-body">
+          <h3>Emma Hargreaves</h3>
+          <div class="team-role">Founder &amp; Clinical Director</div>
+          <p>15 years' experience in paediatric OT across NHS and independent practice, specialising in sensory processing.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">JO</div>
+        <div class="team-body">
+          <h3>Jamal Osei</h3>
+          <div class="team-role">Senior Occupational Therapist</div>
+          <p>Leads our schools programme, working closely with SENCOs to design sustainable in-class support.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">LC</div>
+        <div class="team-body">
+          <h3>Lucy Carrington</h3>
+          <div class="team-role">Occupational Therapist</div>
+          <p>Focuses on fine motor and handwriting programmes for children aged 4 to 11.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Common questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>Do I need a referral to book an assessment?</summary>
+        <p>No. Families can self-refer directly for a private assessment. A GP or school referral isn't required, though we're happy to liaise with other professionals already involved.</p>
+      </details>
+      <details>
+        <summary>How long does an assessment take, and when will we get the report?</summary>
+        <p>Assessments typically last 90 minutes to 2 hours, depending on the child's needs. Written reports are usually delivered within 3 weeks.</p>
+      </details>
+      <details>
+        <summary>Can you assess or provide therapy within a school setting?</summary>
+        <p>Yes. Many of our assessments and therapy sessions take place in school, with parental consent, so we can observe your child in their everyday environment.</p>
+      </details>
+      <details>
+        <summary>What areas do you cover?</summary>
+        <p>We're based in the North West and see families across Greater Manchester, Yorkshire, and the wider North West in person, with remote consultations available across the rest of the UK.</p>
+      </details>
+      <details>
+        <summary>Do you support EHCP applications?</summary>
+        <p>Yes. Our assessment reports are written to a standard suitable for inclusion in EHCP applications and reviews, and we can attend annual review meetings where needed.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-banner">
+      <div>
+        <h2>Ready to talk about your child?</h2>
+        <p>Book a free 15-minute call with one of our therapists — no obligation, just a conversation about how we can help.</p>
+      </div>
+      <a href="mailto:hello@sensphere.co.uk" class="cta-btn">Email hello@sensphere.co.uk</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand"><span class="brand-mark"></span>Sensphere</a>
+        <p>Occupational therapy assessments and therapy for children and young people, working with families and schools across the UK.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">OT Assessments</a></li>
+          <li><a href="#services">1:1 Therapy</a></li>
+          <li><a href="#schools">School Programmes</a></li>
+          <li><a href="#services">Staff Training</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>hello@sensphere.co.uk</li>
+          <li>0161 123 4567</li>
+          <li>Manchester, United Kingdom</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sensphere Occupational Therapy Ltd. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · HCPC-registered practitioners</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

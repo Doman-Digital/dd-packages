@@ -1,0 +1,464 @@
+{
+  "version": 1,
+  "url": "pages/01.html",
+  "capturedAt": "2026-09-23T11:18:13.843Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4125,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(253, 246, 243)",
+        "area": 2748083,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1132841,
+        "chars": 0
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 568298,
+        "chars": 0
+      },
+      {
+        "value": "rgb(34, 27, 24)",
+        "area": 540023,
+        "chars": 0
+      },
+      {
+        "value": "rgb(224, 185, 160)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 211, 189)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(231, 195, 201)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(217, 203, 184)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(232, 135, 155)",
+        "area": 14257,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(84, 73, 67)",
+        "area": 0,
+        "chars": 863
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 0,
+        "chars": 577
+      },
+      {
+        "value": "rgb(122, 109, 103)",
+        "area": 0,
+        "chars": 417
+      },
+      {
+        "value": "rgb(203, 191, 186)",
+        "area": 0,
+        "chars": 278
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 232
+      },
+      {
+        "value": "rgb(217, 207, 201)",
+        "area": 0,
+        "chars": 172
+      },
+      {
+        "value": "rgb(169, 154, 146)",
+        "area": 0,
+        "chars": 146
+      },
+      {
+        "value": "rgb(143, 130, 124)",
+        "area": 0,
+        "chars": 91
+      },
+      {
+        "value": "rgb(232, 135, 155)",
+        "area": 0,
+        "chars": 73
+      },
+      {
+        "value": "rgb(224, 169, 56)",
+        "area": 0,
+        "chars": 55
+      },
+      {
+        "value": "rgb(253, 246, 243)",
+        "area": 0,
+        "chars": 45
+      },
+      {
+        "value": "rgb(179, 164, 157)",
+        "area": 0,
+        "chars": 12
+      },
+      {
+        "value": "rgb(244, 166, 183)",
+        "area": 0,
+        "chars": 9
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 2676,
+      "displayChars": 24,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 285,
+      "displayChars": 183,
+      "italicChars": 0,
+      "weights": [
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 9,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 45,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Korean skincare that actually arrives on time.",
+      "top": 219
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Shop by Skin Concern",
+      "top": 795
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bestsellers This Month",
+      "top": 1349
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "10-step routines shouldn't mean 10-day waits.",
+      "top": 2509
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What our customers say",
+      "top": 2987
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 3521
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 52,
+      "background": "rgb(43, 35, 32)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 51,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Find Your Routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 52,
+      "background": "rgb(232, 135, 155)",
+      "text": "Start Shopping"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 40,
+      "heightPx": 49,
+      "background": "rgb(43, 35, 32)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 115,
+      "height": 470,
+      "kind": "hero",
+      "label": "Korean skincare that actually arrives on time.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 585,
+      "height": 140,
+      "kind": "cards",
+      "label": "🇬🇧 Shipped from UK stock — no customs fees ⚡ Order by 3pm,",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 725,
+      "height": 555,
+      "kind": "cards",
+      "label": "Shop by Skin Concern",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1279,
+      "height": 1169,
+      "kind": "cards",
+      "label": "Bestsellers This Month",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2449,
+      "height": 338,
+      "kind": "text",
+      "label": "10-step routines shouldn't mean 10-day waits.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2786,
+      "height": 131,
+      "kind": "text",
+      "label": "COSRX Beauty of Joseon Anua Round Lab Torriden SKIN1004 Isnt",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2917,
+      "height": 534,
+      "kind": "cards",
+      "label": "What our customers say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3451,
+      "height": 299,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3750,
+      "height": 375,
+      "kind": "text",
+      "label": "Harrisons Beauty Authentic Korean skincare, held in UK stock",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(253, 241, 240)",
+          "rgb(253, 246, 243)",
+          "rgb(243, 246, 238)"
+        ],
+        "area": 676710,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(253, 241, 240)",
+          "rgb(243, 246, 238)"
+        ],
+        "area": 430898,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      24,
+      30,
+      42,
+      45
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "16px",
+      "18px",
+      "24px",
+      "40px",
+      "50%"
+    ],
+    "shadows": [
+      "rgba(43, 35, 32, 0.18) 0px 30px 60px -20px"
+    ],
+    "spacingOnScalePct": 45.2,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 17
+  }
+}

@@ -1,0 +1,828 @@
+I'll write the file to the scratchpad and reply with the HTML only.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marsh and Webb | Chartered Accountants in Exeter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14293d;
+    --navy-dark: #0d1c2b;
+    --gold: #b58a3f;
+    --cream: #f7f4ee;
+    --ink: #26313d;
+    --grey: #6b7684;
+    --line: #e2ddd1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+  a { color: inherit; }
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+  }
+  .logo span { color: var(--gold); }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+  nav a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--navy);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  .nav-cta:hover { background: var(--navy-dark); color: #fff !important; }
+  .menu-toggle { display: none; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: #fff;
+    padding: 100px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -120px;
+    top: -120px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(181, 138, 63, 0.12);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+  .hero .eyebrow {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 2.75rem;
+    color: #fff;
+    margin-bottom: 22px;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 34px;
+    max-width: 540px;
+  }
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy-dark);
+  }
+  .btn-primary:hover { background: #c79a4f; }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+  }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+  /* Trust bar */
+  .trust {
+    background: var(--cream);
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .trust-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 0.88rem;
+    color: var(--grey);
+    font-weight: 500;
+  }
+  .trust-inner strong { color: var(--navy); }
+
+  /* Sections */
+  section { padding: 90px 0; }
+  .section-head {
+    max-width: 620px;
+    margin: 0 auto 56px;
+    text-align: center;
+  }
+  .section-head .eyebrow {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-head h2 { font-size: 2.1rem; margin-bottom: 14px; }
+  .section-head p { color: var(--grey); font-size: 1.02rem; }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .service-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 32px 28px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .service-card:hover {
+    box-shadow: 0 12px 32px rgba(20,41,61,0.08);
+    transform: translateY(-3px);
+  }
+  .service-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: var(--gold);
+  }
+  .service-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+  .service-card p { color: var(--grey); font-size: 0.95rem; }
+
+  /* Who we help */
+  .audience {
+    background: var(--cream);
+  }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .audience-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 36px;
+    border: 1px solid var(--line);
+  }
+  .audience-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .audience-card ul {
+    list-style: none;
+  }
+  .audience-card li {
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 12px;
+    color: var(--ink);
+    font-size: 0.96rem;
+  }
+  .audience-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* Partners */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .partner-card {
+    display: flex;
+    gap: 22px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 30px;
+  }
+  .partner-photo {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--gold));
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .partner-card h3 { font-size: 1.15rem; margin-bottom: 2px; }
+  .partner-role {
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .partner-card p { color: var(--grey); font-size: 0.93rem; }
+
+  /* Process */
+  .process {
+    background: var(--navy);
+    color: #fff;
+  }
+  .process .section-head h2 { color: #fff; }
+  .process .section-head p { color: #b7c1cd; }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .process-step {
+    padding: 8px;
+  }
+  .process-step .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .process-step h3 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
+  .process-step p { color: #b7c1cd; font-size: 0.92rem; }
+
+  /* Testimonials */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .testimonial {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 0.95rem;
+  }
+  .testimonial p.quote {
+    color: var(--ink);
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .testimonial .stars { color: var(--gold); margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial .author { font-weight: 600; color: var(--navy); font-size: 0.9rem; }
+  .testimonial .role { color: var(--grey); font-size: 0.85rem; }
+
+  /* Pricing */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .price-card {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 34px 28px;
+    text-align: center;
+  }
+  .price-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 16px 40px rgba(181,138,63,0.14);
+    position: relative;
+  }
+  .price-card.featured::before {
+    content: 'Most popular';
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .price-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .price-card .price {
+    font-family: 'Fraunces', serif;
+    font-size: 2.3rem;
+    color: var(--navy);
+    margin: 14px 0 4px;
+  }
+  .price-card .price span { font-size: 1rem; color: var(--grey); font-family: 'Inter', sans-serif; }
+  .price-card .price-note { color: var(--grey); font-size: 0.85rem; margin-bottom: 22px; }
+  .price-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 26px;
+  }
+  .price-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  .price-card li:last-child { border-bottom: none; }
+  .price-card .btn { width: 100%; text-align: center; }
+
+  /* FAQ */
+  .faq {
+    background: var(--cream);
+  }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .faq-item summary {
+    padding: 20px 24px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--navy);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--gold);
+    font-weight: 400;
+    transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p {
+    padding: 0 24px 20px;
+    color: var(--grey);
+    font-size: 0.94rem;
+  }
+
+  /* CTA */
+  .cta-band {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-band h2 { color: #fff; font-size: 2rem; margin-bottom: 16px; }
+  .cta-band p { color: #cbd5e1; margin-bottom: 30px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+  /* Footer */
+  footer {
+    background: var(--navy-dark);
+    color: #b7c1cd;
+    padding: 60px 0 26px;
+    font-size: 0.9rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+  .footer-grid h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .footer-grid ul { list-style: none; }
+  .footer-grid li { margin-bottom: 10px; }
+  .footer-grid a { text-decoration: none; color: #b7c1cd; }
+  .footer-grid a:hover { color: var(--gold); }
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: #8494a3;
+  }
+
+  @media (max-width: 900px) {
+    nav ul, .nav-cta { display: none; }
+    .services-grid, .partners-grid, .testimonial-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 2.1rem; }
+    section { padding: 60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-wrap">
+    <div class="logo">Marsh <span>&amp;</span> Webb</div>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#who-we-help">Who we help</a></li>
+        <li><a href="#partners">Our partners</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="nav-cta">Book a free call</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="eyebrow">Chartered Accountants &middot; Exeter</div>
+    <h1>Straightforward accountancy for Exeter's sole traders and small companies.</h1>
+    <p>Marsh and Webb is a two-partner practice based in the city centre, built around fixed fees, plain-English advice, and actually answering the phone. We handle the numbers so you can get on with running your business.</p>
+    <div class="btn-row">
+      <a href="#contact" class="btn btn-primary">Book a free consultation</a>
+      <a href="#services" class="btn btn-outline">See our services</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="container trust-inner">
+    <div><strong>25+ years</strong> combined experience</div>
+    <div><strong>180+</strong> local businesses supported</div>
+    <div><strong>ICAEW</strong> chartered accountants</div>
+    <div><strong>Fixed-fee</strong> pricing, no surprises</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What we do</div>
+      <h2>Accountancy services built for small business</h2>
+      <p>From your first self-assessment to full management accounts, we cover the essentials well rather than trying to be everything to everyone.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Annual accounts</h3>
+        <p>Statutory and management accounts prepared on time, checked properly, and explained in a call — not just emailed over.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧾</div>
+        <h3>Self-assessment</h3>
+        <p>Personal tax returns for sole traders, landlords and directors, with reminders well before the January rush.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Company tax &amp; Corporation Tax</h3>
+        <p>CT600 preparation and filing, plus year-round advice on allowances and reliefs you're entitled to claim.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💷</div>
+        <h3>Bookkeeping &amp; VAT</h3>
+        <p>Monthly or quarterly bookkeeping using Xero or QuickBooks, with MTD-compliant VAT returns filed for you.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💼</div>
+        <h3>Payroll</h3>
+        <p>Weekly or monthly payroll runs, payslips, and pension auto-enrolment handled for teams of any size.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>Company formation &amp; start-up advice</h3>
+        <p>Thinking of going limited? We'll talk you through the structure, register the company, and get your bookkeeping set up from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="audience" id="who-we-help">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Who we help</div>
+      <h2>Two client types. Our full attention either way.</h2>
+      <p>We deliberately keep our client list focused so every business gets a partner who knows them, not a rotating cast of juniors.</p>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <h3>🔧 Sole traders &amp; freelancers</h3>
+        <ul>
+          <li>Self-assessment tax returns, done right and filed early</li>
+          <li>Simple bookkeeping so you're never chasing receipts in December</li>
+          <li>Advice on expenses, mileage and what you can actually claim</li>
+          <li>Support deciding when — or if — to move to a limited company</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <h3>🏬 Small limited companies</h3>
+        <ul>
+          <li>Statutory accounts and Corporation Tax returns filed with Companies House and HMRC</li>
+          <li>Payroll and director remuneration planning</li>
+          <li>VAT returns and Making Tax Digital compliance</li>
+          <li>Cash flow and management accounts to help you make decisions, not just report on the past</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The people</div>
+      <h2>Meet the partners</h2>
+      <p>Two names on the door, and two people you'll actually deal with — no account gets passed between staff you've never met.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-photo">RM</div>
+        <div>
+          <h3>Rachel Marsh FCA</h3>
+          <div class="partner-role">Founding Partner</div>
+          <p>Rachel trained with a top-ten firm in Bristol before returning to Devon to set up Marsh and Webb in 2011. She leads on company accounts and tax planning, and still personally reviews every set of accounts before it goes out.</p>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-photo">TW</div>
+        <div>
+          <h3>Tom Webb ACA</h3>
+          <div class="partner-role">Founding Partner</div>
+          <p>Tom's background is in practice work with small and growing businesses across the South West. He heads up bookkeeping, VAT and payroll, and is the one you'll usually speak to about day-to-day queries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Getting started</div>
+      <h2>How working with us actually works</h2>
+      <p>No lengthy onboarding forms or automated ticket queues — just a straightforward process from first call to filed return.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="num">01</div>
+        <h3>Free consultation</h3>
+        <p>A 30-minute call or coffee to understand your business and what you need help with.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">02</div>
+        <h3>Fixed-fee quote</h3>
+        <p>We agree a clear monthly or annual fee upfront — no surprise invoices later.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">03</div>
+        <h3>Switch made simple</h3>
+        <p>If you're moving from another accountant, we handle the handover and HMRC authorisation.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">04</div>
+        <h3>Ongoing support</h3>
+        <p>Direct access to your partner by phone and email, all year round — not just at deadline time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What clients say</div>
+      <h2>Trusted by businesses across Exeter and Devon</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Switched to Marsh and Webb two years ago after my old accountant went quiet every January. Tom answers his phone. That alone is worth it."</p>
+        <div class="author">Dan Coles</div>
+        <div class="role">Electrician, sole trader</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Rachel talked us through incorporating without any of the jargon. Our accounts and payroll have run smoothly ever since."</p>
+        <div class="author">Priya Anand</div>
+        <div class="role">Director, Anand Design Studio Ltd</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Fixed monthly fee, no hidden extras, and they actually chase me before deadlines instead of after. Exactly what a small business needs."</p>
+        <div class="author">Mark Ferris</div>
+        <div class="role">Owner, Ferris Joinery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Fees</div>
+      <h2>Simple, fixed-fee pricing</h2>
+      <p>Every business is different, so these are starting prices — your consultation ends with an exact, fixed quote in writing.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Sole Trader</h3>
+        <div class="price">£35<span>/month</span></div>
+        <div class="price-note">Billed monthly, no contract tie-in</div>
+        <ul>
+          <li>Annual self-assessment return</li>
+          <li>Basic bookkeeping review</li>
+          <li>Unlimited email support</li>
+          <li>HMRC correspondence handled</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="border-color:var(--navy); color:var(--navy);">Get a quote</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Small Company</h3>
+        <div class="price">£95<span>/month</span></div>
+        <div class="price-note">Our most popular package</div>
+        <ul>
+          <li>Statutory accounts &amp; Corporation Tax</li>
+          <li>Monthly bookkeeping (Xero/QuickBooks)</li>
+          <li>VAT returns &amp; MTD compliance</li>
+          <li>Director's self-assessment included</li>
+          <li>Quarterly check-in call</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Get a quote</a>
+      </div>
+      <div class="price-card">
+        <h3>Growing Business</h3>
+        <div class="price">Custom</div>
+        <div class="price-note">Tailored to your needs</div>
+        <ul>
+          <li>Everything in Small Company</li>
+          <li>Payroll for your team</li>
+          <li>Management accounts &amp; forecasting</li>
+          <li>Dedicated partner access</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="border-color:var(--navy); color:var(--navy);">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Questions</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Do you only work with businesses in Exeter?</summary>
+        <p>Most of our clients are based in Exeter and the surrounding Devon area, but we work with businesses across the South West and beyond — everything can be handled by phone, email and video call where needed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What software do you use?</summary>
+        <p>We primarily work with Xero and QuickBooks, and can support most other major cloud accounting packages. If you're not using software yet, we'll help you get set up as part of onboarding.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much does it cost to switch accountants?</summary>
+        <p>Nothing. We handle the professional clearance and HMRC authorisation directly with your existing accountant, and there's no charge for the switch itself.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can you help if I'm just starting out?</summary>
+        <p>Yes — a good number of our clients come to us before they've even registered as self-employed or incorporated. We'll advise on the right structure from the outset.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the initial consultation really free?</summary>
+        <p>Yes, with no obligation. It's a chance for us to understand your business and for you to decide if we're the right fit before any fees are agreed.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="container">
+    <h2>Ready for an accountant who picks up the phone?</h2>
+    <p>Book a free, no-obligation consultation with Rachel or Tom and get a fixed-fee quote within 48 hours.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a href="tel:01392000000" class="btn btn-primary">Call 01392 000 000</a>
+      <a href="mailto:hello@marshandwebb.co.uk" class="btn btn-outline">Email us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Marsh <span>&amp;</span> Webb</div>
+        <p>Chartered accountants for sole traders and small limited companies, based in the heart of Exeter.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Annual accounts</a></li>
+          <li><a href="#services">Self-assessment</a></li>
+          <li><a href="#services">Bookkeeping &amp; VAT</a></li>
+          <li><a href="#services">Payroll</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#partners">Our partners</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <ul>
+          <li>14 Cathedral Yard</li>
+          <li>Exeter, EX1 1HB</li>
+          <li><a href="tel:01392000000">01392 000 000</a></li>
+          <li><a href="mailto:hello@marshandwebb.co.uk">hello@marshandwebb.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Marsh and Webb Accountancy Ltd. All rights reserved.</div>
+      <div>Registered in England &amp; Wales &middot; ICAEW regulated</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+```

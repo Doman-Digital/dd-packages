@@ -1,0 +1,627 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lantern — Cafe in Leith, Edinburgh</title>
+<meta name="description" content="The Lantern is a neighbourhood cafe on Leith Walk, Edinburgh, serving breakfast, lunch and good coffee daily.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6f1e7;
+    --paper:#fbf8f2;
+    --ink:#242019;
+    --brown:#4a3624;
+    --rust:#b5502e;
+    --olive:#5f6b4a;
+    --line:#e2d8c3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--brown);
+    line-height:1.15;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;
+    background:rgba(246,241,231,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    z-index:100;
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;
+    max-width:1100px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    font-weight:700;
+    color:var(--brown);
+    text-decoration:none;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo span.dot{
+    display:inline-block;width:10px;height:10px;border-radius:50%;
+    background:var(--rust);
+  }
+  nav ul{
+    list-style:none;display:flex;gap:28px;
+  }
+  nav ul a{
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:500;
+    color:var(--brown);
+    position:relative;
+  }
+  nav ul a:hover{color:var(--rust);}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--brown);cursor:pointer;}
+
+  @media (max-width:720px){
+    nav ul{
+      display:none;
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--paper);
+      flex-direction:column;
+      padding:16px 24px;
+      border-bottom:1px solid var(--line);
+      gap:16px;
+    }
+    nav ul.open{display:flex;}
+    .nav-toggle{display:block;}
+  }
+
+  /* Hero */
+  .hero{
+    position:relative;
+    padding:90px 24px 70px;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(181,80,46,0.12), transparent 55%),
+      radial-gradient(circle at 10% 80%, rgba(95,107,74,0.12), transparent 50%);
+  }
+  .hero-inner{
+    max-width:1100px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
+  }
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--rust);
+    margin-bottom:14px;
+    display:block;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem,5vw,3.4rem);
+    margin-bottom:20px;
+  }
+  .hero p.lead{
+    font-size:1.1rem;
+    max-width:46ch;
+    color:#4a4436;
+    margin-bottom:30px;
+  }
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary{
+    background:var(--rust);
+    color:#fff;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(181,80,46,0.3);}
+  .btn-ghost{
+    border:1.5px solid var(--brown);
+    color:var(--brown);
+  }
+  .btn-ghost:hover{background:var(--brown);color:#fff;}
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:24px;
+    background:
+      linear-gradient(160deg, #d9c9a3 0%, #c7a97c 45%, #a9762f 100%);
+    box-shadow:0 25px 50px -20px rgba(74,54,36,0.4);
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-art::before{
+    content:"☕";
+    position:absolute;
+    top:20px;right:24px;
+    font-size:2.2rem;
+    opacity:0.5;
+  }
+  .hero-art .caption{
+    background:rgba(36,32,25,0.55);
+    color:#fff;
+    padding:16px 20px;
+    width:100%;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+  }
+
+  section{padding:80px 24px;}
+  .section-head{
+    text-align:center;
+    max-width:600px;
+    margin:0 auto 48px;
+  }
+  .section-head .eyebrow{text-align:center;}
+  .section-head h2{font-size:clamp(1.8rem,3.5vw,2.4rem);}
+  .section-head p{color:#5c5648;margin-top:12px;}
+
+  /* About */
+  .about{
+    background:var(--paper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  }
+  .about-grid h2{font-size:clamp(1.8rem,3.5vw,2.3rem);margin-bottom:18px;}
+  .about-grid p{color:#4a4436;margin-bottom:16px;}
+  .about-photo{
+    aspect-ratio:1/1;
+    border-radius:20px;
+    background:linear-gradient(150deg,#efe3c8,#d7c194);
+    display:flex;align-items:center;justify-content:center;
+    font-size:3rem;
+  }
+
+  /* Menu */
+  .menu-tabs{
+    display:flex;justify-content:center;gap:10px;margin-bottom:40px;flex-wrap:wrap;
+  }
+  .menu-tab{
+    padding:10px 20px;
+    border-radius:30px;
+    border:1.5px solid var(--brown);
+    background:transparent;
+    color:var(--brown);
+    font-family:'Work Sans',sans-serif;
+    font-weight:600;
+    font-size:0.9rem;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .menu-tab.active,.menu-tab:hover{background:var(--brown);color:#fff;}
+
+  .menu-panel{display:none;}
+  .menu-panel.active{display:block;animation:fade 0.3s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  .menu-list{
+    display:grid;grid-template-columns:1fr 1fr;gap:28px 48px;
+    max-width:900px;margin:0 auto;
+  }
+  .menu-item{
+    border-bottom:1px dashed var(--line);
+    padding-bottom:16px;
+  }
+  .menu-item-top{
+    display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+  }
+  .menu-item-top h3{font-size:1.05rem;color:var(--ink);font-weight:600;}
+  .menu-item-top .price{
+    font-family:'Fraunces',serif;
+    color:var(--rust);
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .menu-item p{font-size:0.9rem;color:#655f4f;margin-top:4px;}
+  @media (max-width:700px){.menu-list{grid-template-columns:1fr;}}
+
+  /* Coffee highlight */
+  .coffee-strip{
+    background:var(--brown);
+    color:#f3ead9;
+  }
+  .coffee-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center;
+  }
+  .coffee-grid h3{color:#f3ead9;font-size:1.2rem;margin-bottom:8px;}
+  .coffee-grid p{color:#d8c8ac;font-size:0.92rem;}
+  .coffee-grid .icon{font-size:1.8rem;margin-bottom:12px;}
+  @media (max-width:700px){.coffee-grid{grid-template-columns:1fr;}}
+
+  /* Gallery */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  .gallery-grid div{
+    aspect-ratio:1/1;
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;
+  }
+  .g1{background:linear-gradient(135deg,#e7d3a5,#c99f5f);}
+  .g2{background:linear-gradient(135deg,#cdd3b0,#8fa06c);}
+  .g3{background:linear-gradient(135deg,#e3b79a,#b5502e);color:#fff;}
+  .g4{background:linear-gradient(135deg,#d7c9b0,#a68a5c);}
+  @media (max-width:700px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* Info / hours & find us */
+  .info{
+    background:var(--paper);
+    border-top:1px solid var(--line);
+  }
+  .info-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  }
+  .info-card h3{
+    font-size:1.3rem;margin-bottom:16px;
+  }
+  .hours-table{width:100%;border-collapse:collapse;}
+  .hours-table td{
+    padding:8px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.95rem;
+  }
+  .hours-table td:last-child{text-align:right;color:var(--rust);font-weight:600;}
+  address{font-style:normal;color:#4a4436;margin-bottom:16px;}
+  .info-card p.note{font-size:0.88rem;color:#7a7360;margin-top:16px;}
+  @media (max-width:720px){.info-grid,.about-grid{grid-template-columns:1fr;}}
+
+  /* Newsletter/CTA */
+  .cta{
+    background:var(--olive);
+    color:#f3f1e6;
+    text-align:center;
+  }
+  .cta h2{color:#fff;font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:12px;}
+  .cta p{color:#e2e6d4;margin-bottom:26px;}
+  .cta-form{
+    display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
+  }
+  .cta-form input{
+    padding:13px 18px;
+    border-radius:30px;
+    border:none;
+    width:280px;
+    max-width:100%;
+    font-family:'Work Sans',sans-serif;
+  }
+  .cta-form button{
+    padding:13px 26px;
+    border-radius:30px;
+    border:none;
+    background:var(--rust);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .cta-form button:hover{background:#9c4223;}
+
+  footer{
+    background:var(--ink);
+    color:#c9c3b4;
+    padding:50px 24px 30px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;
+    margin-bottom:30px;
+  }
+  .footer-grid h4{color:#f3f1e6;font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:14px;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid ul li{margin-bottom:8px;font-size:0.9rem;}
+  .footer-grid ul a{text-decoration:none;color:#c9c3b4;}
+  .footer-grid ul a:hover{color:#fff;}
+  .footer-logo{font-family:'Fraunces',serif;color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:10px;display:block;}
+  .footer-bottom{
+    border-top:1px solid #3a352a;
+    padding-top:20px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:0.82rem;color:#8b8570;
+  }
+  @media (max-width:700px){.footer-grid{grid-template-columns:1fr;}}
+
+  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}.hero-art{max-width:420px;margin:0 auto;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="logo"><span class="dot"></span> The Lantern</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul id="navMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner wrap" style="padding:0;">
+    <div>
+      <span class="eyebrow">Leith Walk, Edinburgh</span>
+      <h1>A warm corner of Leith for breakfast, lunch and proper coffee.</h1>
+      <p class="lead">The Lantern is a small neighbourhood cafe where the coffee is taken seriously and the toast is thick. Come for the flat whites, stay for the soup.</p>
+      <div class="btn-row">
+        <a href="#menu" class="btn btn-primary">See the menu</a>
+        <a href="#visit" class="btn btn-ghost">Find us</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="caption">Open every day from 8am on Leith Walk</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo" aria-hidden="true">🥐</div>
+    <div>
+      <span class="eyebrow">Our story</span>
+      <h2>Started by two neighbours who wanted better coffee on the walk.</h2>
+      <p>The Lantern opened in 2019 in a converted shopfront halfway up Leith Walk, when Edinburgh's answer to a decent flat white was still a bus ride away. We roast with a small supplier in Fife, bake most of our own pastries, and keep the menu short so everything on it is done properly.</p>
+      <p>We're dog-friendly, laptop-tolerant before noon, and busiest on Saturday mornings — come early or come for a late lunch if you'd rather have the place to yourself.</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">On the menu</span>
+      <h2>Breakfast &amp; lunch, made simply</h2>
+      <p>A short, seasonal menu. Everything can be made gluten-free on request — just ask.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab active" data-tab="breakfast">Breakfast</button>
+      <button class="menu-tab" data-tab="lunch">Lunch</button>
+      <button class="menu-tab" data-tab="drinks">Coffee &amp; Drinks</button>
+    </div>
+
+    <div class="menu-panel active" id="breakfast">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Sourdough toast, salted butter &amp; jam</h3><span class="price">£4.50</span></div>
+          <p>Our own sourdough, toasted thick, with butter and seasonal jam from Dunbar.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>The Lantern fry-up</h3><span class="price">£11.50</span></div>
+          <p>Ayrshire bacon, Stornoway black pudding, egg, tomato, beans, toast.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Baked eggs, tomato &amp; feta</h3><span class="price">£9.00</span></div>
+          <p>Slow-baked tomato sauce, two eggs, crumbled feta, flatbread on the side.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Porridge, honey &amp; stewed fruit</h3><span class="price">£5.50</span></div>
+          <p>Scott's porridge oats, oat milk, honey and whatever fruit is in season.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Smoked salmon &amp; scrambled eggs</h3><span class="price">£10.50</span></div>
+          <p>Soft scrambled eggs, hot-smoked salmon, chives, toasted rye.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Granola, yoghurt &amp; poached rhubarb</h3><span class="price">£7.00</span></div>
+          <p>House-made granola, thick yoghurt, rhubarb poached with orange.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="lunch">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Soup of the day</h3><span class="price">£6.50</span></div>
+          <p>Changes daily, served with a thick slice of sourdough.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Cullen skink</h3><span class="price">£8.50</span></div>
+          <p>Smoked haddock, potato and leek — a Lantern favourite through the colder months.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Rarebit on sourdough</h3><span class="price">£8.00</span></div>
+          <p>Sharp cheddar, mustard and ale grilled onto thick-cut sourdough.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Roast squash &amp; grain salad</h3><span class="price">£9.50</span></div>
+          <p>Spelt, roast squash, kale, feta, toasted pumpkin seeds, lemon dressing.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>The Lantern club sandwich</h3><span class="price">£10.00</span></div>
+          <p>Chicken, bacon, tomato, lettuce, mayonnaise, on toasted bloomer.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Mature cheddar &amp; chutney toastie</h3><span class="price">£7.50</span></div>
+          <p>Scottish cheddar and our own tomato chutney, served with dressed leaves.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="drinks">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Espresso</h3><span class="price">£2.40</span></div>
+          <p>Single origin, roasted for us in Fife. Ask what's on this week.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Flat white</h3><span class="price">£3.30</span></div>
+          <p>Our most-ordered drink, made with whichever milk you prefer.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Filter coffee</h3><span class="price">£2.80</span></div>
+          <p>Batch brewed each morning, changes with the espresso rotation.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Pot of loose-leaf tea</h3><span class="price">£3.00</span></div>
+          <p>Sourced from Eteaket, just up the road in Edinburgh.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Hot chocolate</h3><span class="price">£3.50</span></div>
+          <p>Made with real melted chocolate, not powder. Ask for a marshmallow.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h3>Fresh orange juice</h3><span class="price">£3.60</span></div>
+          <p>Pressed to order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="coffee-strip">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:#e3a888;">Behind the counter</span>
+      <h2 style="color:#f3ead9;">Coffee, taken seriously</h2>
+    </div>
+    <div class="coffee-grid">
+      <div>
+        <div class="icon">🌱</div>
+        <h3>Small-batch roasted</h3>
+        <p>Beans roasted in small batches by a supplier in Fife, changed every few weeks.</p>
+      </div>
+      <div>
+        <div class="icon">🧑‍🍳</div>
+        <h3>Trained baristas</h3>
+        <p>Our team trains on every machine before they're let loose on your order.</p>
+      </div>
+      <div>
+        <div class="icon">🥛</div>
+        <h3>Any milk you like</h3>
+        <p>Whole, oat, soya or almond, at no extra charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">A peek inside</span>
+      <h2>Life at The Lantern</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g1">☕</div>
+      <div class="g2">🥗</div>
+      <div class="g3">🍳</div>
+      <div class="g4">🥐</div>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="visit">
+  <div class="wrap info-grid">
+    <div class="info-card">
+      <h3>Opening hours</h3>
+      <table class="hours-table">
+        <tr><td>Monday – Friday</td><td>8:00am – 4:00pm</td></tr>
+        <tr><td>Saturday</td><td>8:30am – 4:30pm</td></tr>
+        <tr><td>Sunday</td><td>9:00am – 3:00pm</td></tr>
+      </table>
+      <p class="note">Kitchen closes 30 minutes before the doors.</p>
+    </div>
+    <div class="info-card">
+      <h3>Find us</h3>
+      <address>
+        142 Leith Walk<br>
+        Edinburgh, EH6 5DT<br>
+        Scotland
+      </address>
+      <p>Just a few minutes' walk from Foot of the Walk, on the bus route from the city centre. Step-free access, with a small seating area outside in the warmer months.</p>
+      <p class="note">Tables are first-come, first-served — we don't take bookings.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Hear about our seasonal menu changes</h2>
+    <p>The odd email when the menu changes, or when we've a new coffee in. Nothing more.</p>
+    <form class="cta-form" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for signing up — keep an eye on your inbox.');">
+      <input type="email" placeholder="Your email address" required aria-label="Email address">
+      <button type="submit">Sign up</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo">The Lantern</span>
+        <p>142 Leith Walk, Edinburgh EH6 5DT<br>A neighbourhood cafe serving breakfast, lunch and good coffee, every day.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441315550142">0131 555 0142</a></li>
+          <li><a href="mailto:hello@thelanterncafe.co.uk">hello@thelanterncafe.co.uk</a></li>
+          <li><a href="#visit">Get directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 The Lantern Cafe, Leith. All rights reserved.</span>
+      <span>Made with care in Edinburgh.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+  navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+  const tabs = document.querySelectorAll('.menu-tab');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
+```

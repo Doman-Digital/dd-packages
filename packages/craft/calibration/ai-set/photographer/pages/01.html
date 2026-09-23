@@ -1,0 +1,642 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laura Finch Photography | Cotswolds Wedding Photographer</title>
+<meta name="description" content="Laura Finch is a wedding photographer based in the Cotswolds, capturing timeless, natural moments for couples across Gloucestershire, Oxfordshire and beyond.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #faf6f0;
+    --charcoal: #2e2a26;
+    --stone: #8a8073;
+    --gold: #b89b6a;
+    --line: #e3dcd0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 26px 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0));
+    transition: background 0.3s ease, padding 0.3s ease;
+  }
+
+  header.scrolled {
+    background: var(--cream);
+    box-shadow: 0 1px 0 var(--line);
+    padding: 16px 0;
+  }
+
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  header.scrolled .logo { color: var(--charcoal); }
+
+  nav ul {
+    display: flex;
+    gap: 38px;
+    list-style: none;
+  }
+
+  nav a {
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.3s ease, opacity 0.2s ease;
+  }
+
+  header.scrolled nav a { color: var(--charcoal); }
+
+  nav a:hover { opacity: 0.65; }
+
+  .nav-toggle { display: none; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background:
+      linear-gradient(180deg, rgba(20,17,14,0.35) 0%, rgba(20,17,14,0.15) 45%, rgba(20,17,14,0.55) 100%),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+  }
+
+  .hero-content { max-width: 720px; padding: 0 24px; }
+
+  .hero-eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.1;
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.95;
+    max-width: 520px;
+    margin: 0 auto 34px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 38px;
+    border: 1px solid #fff;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .btn:hover { background: #fff; color: var(--charcoal); }
+
+  .btn-dark {
+    border-color: var(--charcoal);
+    color: var(--charcoal);
+  }
+
+  .btn-dark:hover { background: var(--charcoal); color: #fff; }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .scroll-cue::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 34px;
+    background: #fff;
+    margin: 10px auto 0;
+    opacity: 0.7;
+  }
+
+  /* Section basics */
+  section { padding: 120px 0; }
+
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 64px;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 20px;
+  }
+
+  .section-head p {
+    color: var(--stone);
+    font-size: 1.02rem;
+  }
+
+  /* Intro / about */
+  .intro {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+  }
+
+  .intro img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+  }
+
+  .intro .eyebrow { margin-bottom: 16px; }
+
+  .intro h2 { font-size: clamp(2rem, 4vw, 2.7rem); margin-bottom: 26px; }
+
+  .intro p { margin-bottom: 20px; color: #4a463f; }
+
+  .signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    margin-top: 28px;
+    color: var(--charcoal);
+  }
+
+  /* Gallery */
+  .gallery-section { background: #fff; }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 220px;
+    gap: 14px;
+  }
+
+  .gallery figure {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .gallery figure:hover img { transform: scale(1.06); }
+
+  .gallery figure:nth-child(1) { grid-column: span 3; grid-row: span 2; }
+  .gallery figure:nth-child(2) { grid-column: span 3; }
+  .gallery figure:nth-child(3) { grid-column: span 3; }
+  .gallery figure:nth-child(4) { grid-column: span 2; grid-row: span 2;}
+  .gallery figure:nth-child(5) { grid-column: span 2; grid-row: span 2;}
+  .gallery figure:nth-child(6) { grid-column: span 2; grid-row: span 2;}
+
+  .gallery-cta {
+    text-align: center;
+    margin-top: 56px;
+  }
+
+  /* Services */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 44px;
+  }
+
+  .service {
+    text-align: center;
+    padding: 46px 30px;
+    border: 1px solid var(--line);
+    background: var(--cream);
+  }
+
+  .service .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+
+  .service h3 {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+  }
+
+  .service p { color: var(--stone); font-size: 0.96rem; }
+
+  /* Testimonials */
+  .testimonials {
+    background: var(--charcoal);
+    color: #f2ede3;
+  }
+
+  .testimonials .section-head p { color: #c8c1b3; }
+  .testimonials .eyebrow { color: var(--gold); }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+
+  .testi blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .testi cite {
+    font-style: normal;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Regions */
+  .regions {
+    background: #fff;
+    text-align: center;
+  }
+
+  .region-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .region-list span {
+    padding: 10px 22px;
+    border: 1px solid var(--line);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--stone);
+  }
+
+  /* CTA band */
+  .cta-band {
+    position: relative;
+    padding: 140px 0;
+    text-align: center;
+    color: #fff;
+    background:
+      linear-gradient(rgba(20,17,14,0.55), rgba(20,17,14,0.55)),
+      url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat fixed;
+  }
+
+  .cta-band h2 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom: 22px;
+  }
+
+  .cta-band p {
+    max-width: 520px;
+    margin: 0 auto 36px;
+    opacity: 0.92;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--charcoal);
+    color: #cfc9bd;
+    padding: 70px 0 30px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+  }
+
+  .footer-grid .logo {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+
+  .footer-grid p { font-size: 0.92rem; color: #a9a293; max-width: 320px; }
+
+  footer h4 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  footer ul { list-style: none; }
+
+  footer li { margin-bottom: 12px; font-size: 0.92rem; }
+
+  footer a:hover { color: #fff; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 26px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #857f72;
+    letter-spacing: 0.03em;
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .intro { grid-template-columns: 1fr; gap: 40px; }
+    .intro img { height: 420px; }
+    .services { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; gap: 44px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+    .gallery figure:nth-child(n) { grid-column: span 1 !important; grid-row: span 1 !important; }
+    .gallery figure:nth-child(1) { grid-column: span 2 !important; grid-row: span 2 !important; }
+  }
+
+  @media (max-width: 720px) {
+    nav { display: none; }
+    .nav-toggle {
+      display: block;
+      color: #fff;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid #fff;
+      padding: 9px 16px;
+    }
+    header.scrolled .nav-toggle { color: var(--charcoal); border-color: var(--charcoal); }
+    section { padding: 80px 0; }
+    .region-list span { font-size: 0.78rem; padding: 8px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="container">
+    <a href="#top" class="logo">Laura Finch</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Weddings</a></li>
+        <li><a href="#testimonials">Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="nav-toggle">Enquire</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Cotswolds &amp; Beyond</span>
+    <h1>Wedding photography, told honestly</h1>
+    <p>Documentary-style wedding photography across the Cotswolds — quiet moments, real laughter, and the light exactly as it fell that day.</p>
+    <a href="#contact" class="btn">Check My Date</a>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<section id="about">
+  <div class="container intro">
+    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80" alt="Laura Finch photographing a wedding in the Cotswolds">
+    <div>
+      <span class="eyebrow">The Photographer</span>
+      <h2>Hello, I'm Laura</h2>
+      <p>I've spent the last nine years photographing weddings in the fields, farmhouses and honey-stone villages of the Cotswolds — and I still get the same flutter of excitement every single time.</p>
+      <p>My approach is unobtrusive. I'm not one for lengthy posed line-ups; instead, I spend the day watching for the moments that actually matter — your dad's hands shaking as he does up your buttons, the speech that goes slightly wrong, the first dance you didn't rehearse enough. Those are the photographs you'll still be looking at in thirty years.</p>
+      <p>I shoot on film and digital, work with a small and considered kit so I can move quietly through your day, and I always arrive with tea, not an agenda.</p>
+      <p class="signature">Laura x</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section" id="portfolio">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recent Weddings</span>
+      <h2>A few favourite moments</h2>
+      <p>Barns near Bourton, marquees in Broadway, quiet churches in the Coln Valley — a small selection from recent Cotswold weddings.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=900&q=80" alt="Bride and groom walking through a Cotswold field"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding rings on a stone wall"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=700&q=80" alt="Bride laughing with bridesmaids"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=700&q=80" alt="Wedding reception in a barn"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Groom's speech during wedding breakfast"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80" alt="Confetti thrown over bride and groom"></figure>
+    </div>
+    <div class="gallery-cta">
+      <a href="#contact" class="btn btn-dark">View Full Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How We Work Together</span>
+      <h2>Coverage that fits your day</h2>
+      <p>Every wedding is different, so every package starts as a conversation. Here's the shape most days take.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <div class="num">01</div>
+        <h3>The Full Day</h3>
+        <p>From the last curler in your hair through to your first dance — full coverage of getting ready, ceremony, speeches and the party, usually 10–12 hours.</p>
+      </div>
+      <div class="service">
+        <div class="num">02</div>
+        <h3>The Ceremony &amp; Party</h3>
+        <p>For couples who'd rather I arrive as guests do. Coverage from just before the ceremony through to the first dance, roughly 6–8 hours.</p>
+      </div>
+      <div class="service">
+        <div class="num">03</div>
+        <h3>Elopements</h3>
+        <p>Small, intimate and often unlicensed ceremonies in beautiful corners of the Cotswolds. A few relaxed hours, just the two of you (or a handful of guests).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Kind Words</span>
+      <h2>From couples I've walked alongside</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <blockquote>"Laura disappeared into the background all day and somehow still caught everything. We cried looking through the gallery — it felt exactly like being back there."</blockquote>
+        <cite>Charlotte &amp; James, Barnsley House</cite>
+      </div>
+      <div class="testi">
+        <blockquote>"We were dreading the 'photo bit' of the day and Laura made it the easiest part. Fifteen minutes, a laugh about the wind, and the results were stunning."</blockquote>
+        <cite>Emily &amp; Tom, Cripps Barn</cite>
+      </div>
+      <div class="testi">
+        <blockquote>"Not a single posed, stiff photo in the whole gallery. It's just us — our families, our friends, our actual wedding day."</blockquote>
+        <cite>Hannah &amp; Sam, Stow-on-the-Wold</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="regions">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Where I Shoot</span>
+      <h2>Based in the Cotswolds, happy to travel</h2>
+      <p>Home is a cottage just outside Stow-on-the-Wold, but I regularly photograph weddings across the wider region — and further afield for the right day.</p>
+    </div>
+    <div class="region-list">
+      <span>Stow-on-the-Wold</span>
+      <span>Bourton-on-the-Water</span>
+      <span>Broadway</span>
+      <span>Cirencester</span>
+      <span>Chipping Campden</span>
+      <span>Tetbury</span>
+      <span>Gloucestershire</span>
+      <span>Oxfordshire</span>
+      <span>Destination &amp; UK-wide</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="container">
+    <h2>Let's talk about your day</h2>
+    <p>I take on a limited number of weddings each year to make sure every couple gets my full attention. Get in touch and let's see if your date is free.</p>
+    <a href="mailto:hello@laurafinchphotography.co.uk" class="btn">hello@laurafinchphotography.co.uk</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo">Laura Finch</a>
+        <p>Documentary wedding photography based in the Cotswolds, capturing honest, unposed moments for couples across the Gloucestershire and Oxfordshire countryside.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Weddings</a></li>
+          <li><a href="#testimonials">Stories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><a href="mailto:hello@laurafinchphotography.co.uk">hello@laurafinchphotography.co.uk</a></li>
+          <li><a href="tel:+441451800000">01451 800 000</a></li>
+          <li>Stow-on-the-Wold, Gloucestershire</li>
+          <li><a href="#">Instagram</a> &nbsp;·&nbsp; <a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Laura Finch Photography. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+
+</body>
+</html>
+```

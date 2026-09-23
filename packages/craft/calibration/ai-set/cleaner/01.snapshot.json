@@ -1,0 +1,607 @@
+{
+  "version": 1,
+  "url": "pages/01.html",
+  "capturedAt": "2026-09-23T11:20:36.788Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6921,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(247, 248, 250)",
+        "area": 3928158,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1971638,
+        "chars": 0
+      },
+      {
+        "value": "rgb(18, 35, 63)",
+        "area": 785450,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 201, 60)",
+        "area": 87657,
+        "chars": 0
+      },
+      {
+        "value": "rgba(42, 166, 160, 0.12)",
+        "area": 24552,
+        "chars": 0
+      },
+      {
+        "value": "rgb(239, 239, 239)",
+        "area": 19027,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.1)",
+        "area": 10067,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "area": 3888,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 114, 128)",
+        "area": 0,
+        "chars": 1801
+      },
+      {
+        "value": "rgb(59, 71, 88)",
+        "area": 0,
+        "chars": 1290
+      },
+      {
+        "value": "rgb(18, 35, 63)",
+        "area": 0,
+        "chars": 986
+      },
+      {
+        "value": "rgb(185, 196, 214)",
+        "area": 0,
+        "chars": 403
+      },
+      {
+        "value": "rgb(34, 48, 63)",
+        "area": 0,
+        "chars": 274
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 246
+      },
+      {
+        "value": "rgb(214, 222, 234)",
+        "area": 0,
+        "chars": 184
+      },
+      {
+        "value": "rgb(199, 209, 224)",
+        "area": 0,
+        "chars": 144
+      },
+      {
+        "value": "rgb(42, 166, 160)",
+        "area": 0,
+        "chars": 48
+      },
+      {
+        "value": "rgb(255, 201, 60)",
+        "area": 0,
+        "chars": 23
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4507,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 861,
+      "displayChars": 599,
+      "italicChars": 0,
+      "weights": [
+        500,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 31,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 50,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Reading's most reliable cleaning service, for home and office",
+      "top": 251
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get your free, no-obligation quote",
+      "top": 305
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleaning services built around your space",
+      "top": 1011
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Domestic Cleaning",
+      "top": 1321
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Office & Commercial",
+      "top": 1321
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Deep Cleaning",
+      "top": 1321
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "End of Tenancy",
+      "top": 1710
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Carpet & Upholstery",
+      "top": 1710
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Window Cleaning",
+      "top": 1710
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleaning you can trust, from people who live in Reading too",
+      "top": 2195
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Booked in four simple steps",
+      "top": 2888
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Simple, transparent pricing",
+      "top": 3351
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Domestic Cleaning",
+      "top": 3546
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Office Cleaning",
+      "top": 3541
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Deep & End of Tenancy",
+      "top": 3546
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What Reading customers say",
+      "top": 4078
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Proudly serving Reading and the surrounding area",
+      "top": 4613
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 28,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a brighter, cleaner space?",
+      "top": 5110
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions",
+      "top": 5425
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's get your free quote sorted",
+      "top": 6035
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Request your free quote",
+      "top": 6041
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 52,
+      "background": "rgb(18, 35, 63)",
+      "text": "Get a Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgb(255, 201, 60)",
+      "text": "Get a Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Call 0118 900 1234"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 50,
+      "heightPx": 45,
+      "background": "rgb(255, 201, 60)",
+      "text": "Request My Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 52,
+      "background": "rgb(18, 35, 63)",
+      "text": "Get This Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 54,
+      "background": "rgb(255, 201, 60)",
+      "text": "Get This Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 52,
+      "background": "rgb(18, 35, 63)",
+      "text": "Get This Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgb(255, 201, 60)",
+      "text": "Get a Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "0118 900 1234"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 50,
+      "heightPx": 45,
+      "background": "rgb(255, 201, 60)",
+      "text": "Send My Request"
+    }
+  ],
+  "sections": [
+    {
+      "top": 26,
+      "height": 85,
+      "kind": "hero",
+      "label": "Brightside Cleaning Services Why Us Pricing Reviews Areas Co",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 111,
+      "height": 789,
+      "kind": "hero",
+      "label": "Reading's most reliable cleaning service, for home and offic",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 900,
+      "height": 1125,
+      "kind": "cards",
+      "label": "Cleaning services built around your space",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2025,
+      "height": 752,
+      "kind": "text",
+      "label": "Cleaning you can trust, from people who live in Reading too",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2777,
+      "height": 463,
+      "kind": "cards",
+      "label": "Booked in four simple steps",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3240,
+      "height": 727,
+      "kind": "cards",
+      "label": "Simple, transparent pricing",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3967,
+      "height": 535,
+      "kind": "cards",
+      "label": "What Reading customers say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4503,
+      "height": 471,
+      "kind": "text",
+      "label": "Proudly serving Reading and the surrounding area",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4974,
+      "height": 341,
+      "kind": "text",
+      "label": "Ready for a brighter, cleaner space?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5314,
+      "height": 615,
+      "kind": "text",
+      "label": "Common questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5929,
+      "height": 601,
+      "kind": "text",
+      "label": "Let's get your free quote sorted",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6530,
+      "height": 365,
+      "kind": "text",
+      "label": "Brightside Cleaning Trusted domestic and office cleaning acr",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(18, 35, 63)",
+          "rgb(28, 53, 92)",
+          "rgb(35, 74, 120)"
+        ],
+        "area": 1136363,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 166, 160)",
+          "rgb(18, 35, 63)"
+        ],
+        "area": 280122,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      24,
+      28,
+      34,
+      36,
+      50
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "50%",
+      "50px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.25) 0px 30px 60px 0px",
+      "rgba(18, 35, 63, 0.12) 0px 20px 40px 0px",
+      "rgba(255, 201, 60, 0.35) 0px 8px 20px 0px"
+    ],
+    "spacingOnScalePct": 30.7,
+    "bodyLineLengthCh": 57,
+    "bodyFontSizePx": 17
+  }
+}

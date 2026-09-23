@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "url": "pages/20.html",
+  "capturedAt": "2026-09-23T11:19:55.462Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4981,
+  "ground": "rgb(244, 239, 232)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(239, 231, 219)",
+        "area": 1701180,
+        "chars": 0
+      },
+      {
+        "value": "rgb(22, 20, 18)",
+        "area": 1168873,
+        "chars": 0
+      },
+      {
+        "value": "rgb(228, 219, 203)",
+        "area": 223140,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.92)",
+        "area": 115268,
+        "chars": 0
+      },
+      {
+        "value": "rgb(169, 131, 79)",
+        "area": 12791,
+        "chars": 0
+      },
+      {
+        "value": "rgb(124, 95, 57)",
+        "area": 512,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(58, 54, 48)",
+        "area": 0,
+        "chars": 876
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.85)",
+        "area": 0,
+        "chars": 581
+      },
+      {
+        "value": "rgb(107, 101, 92)",
+        "area": 0,
+        "chars": 562
+      },
+      {
+        "value": "rgb(22, 20, 18)",
+        "area": 0,
+        "chars": 359
+      },
+      {
+        "value": "rgb(244, 239, 232)",
+        "area": 0,
+        "chars": 131
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.7)",
+        "area": 0,
+        "chars": 127
+      },
+      {
+        "value": "rgb(169, 131, 79)",
+        "area": 0,
+        "chars": 87
+      },
+      {
+        "value": "rgb(124, 95, 57)",
+        "area": 0,
+        "chars": 66
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Work Sans",
+      "chars": 2584,
+      "displayChars": 20,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "family": "Bebas Neue",
+      "chars": 205,
+      "displayChars": 148,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Bebas Neue",
+      "sizePx": 74,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber.One chair.Your full attention.",
+      "top": 238
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 38,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "A studio built around one client at a time",
+      "top": 951
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cuts & Grooming",
+      "top": 1732
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Inside Chair and Blade",
+      "top": 2914
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "What clients say",
+      "top": 3623
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get in touch",
+      "top": 4246
+    },
+    {
+      "level": 3,
+      "family": "Work Sans",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Booking",
+      "top": 4378
+    },
+    {
+      "level": 3,
+      "family": "Work Sans",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opening Hours",
+      "top": 4527
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 43,
+      "background": "rgb(22, 20, 18)",
+      "text": "Book a Chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(169, 131, 79)",
+      "text": "Book Your Appointment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View Services & Prices"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 80,
+      "kind": "hero",
+      "label": "Chair & Blade About Services Studio Reviews Contact Book a C",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 80,
+      "height": 696,
+      "kind": "hero",
+      "label": "One barber.One chair.Your full attention.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 776,
+      "height": 822,
+      "kind": "text",
+      "label": "A studio built around one client at a time",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1598,
+      "height": 1181,
+      "kind": "text",
+      "label": "Cuts & Grooming",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2780,
+      "height": 709,
+      "kind": "text",
+      "label": "Inside Chair and Blade",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3489,
+      "height": 622,
+      "kind": "cards",
+      "label": "What clients say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4112,
+      "height": 684,
+      "kind": "text",
+      "label": "Get in touch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4795,
+      "height": 185,
+      "kind": "text",
+      "label": "Chair & Blade About Services Studio Reviews Contact © 2026 C",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(22, 20, 18, 0.82)",
+          "rgba(22, 20, 18, 0.55)"
+        ],
+        "area": 1002825,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 38, 34)",
+          "rgb(26, 24, 21)"
+        ],
+        "area": 317520,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(44, 41, 36)",
+          "rgb(28, 26, 23)"
+        ],
+        "area": 120171,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(44, 41, 36)",
+          "rgb(28, 26, 23)"
+        ],
+        "area": 120181,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(44, 41, 36)",
+          "rgb(28, 26, 23)"
+        ],
+        "area": 120171,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 1,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      22,
+      26,
+      38,
+      48,
+      74
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "3px",
+      "4px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 46.9,
+    "bodyLineLengthCh": 50,
+    "bodyFontSizePx": 18
+  }
+}

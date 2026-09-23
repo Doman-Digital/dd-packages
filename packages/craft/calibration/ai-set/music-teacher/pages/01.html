@@ -1,0 +1,545 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hannah Cole | Piano & Singing Lessons in Cambridge</title>
+<meta name="description" content="Piano and singing lessons in Cambridge for children and adults, taught by Hannah Cole, ABRSM-qualified music teacher with over 15 years' experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2b2420;
+    --cream: #faf6f0;
+    --gold: #b08d57;
+    --deep-green: #3c4a3e;
+    --soft-line: #e4dccf;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--deep-green);
+    font-weight: 600;
+  }
+  a { color: inherit; }
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 246, 240, 0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--soft-line);
+    z-index: 100;
+  }
+  .nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--deep-green);
+    letter-spacing: 0.5px;
+  }
+  .logo span { color: var(--gold); }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+  nav a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--gold); }
+  .nav-toggle { display: none; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #f3ece0, #faf6f0);
+    padding: 90px 24px 80px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+    max-width: 700px;
+    margin: 0 auto 18px;
+  }
+  .hero p.lead {
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    color: #4a4238;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--deep-green);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: #2b3730; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1.5px solid var(--deep-green);
+    color: var(--deep-green);
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 12px;
+  }
+  .btn-outline:hover { background: var(--deep-green); color: #fff; }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  section.alt { background: #f3ece0; }
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 50px;
+    color: #5a5248;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 8px;
+    background: linear-gradient(160deg, #d9c9a8, #b08d57);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+  .about-text h2 { font-size: 1.8rem; margin-bottom: 18px; }
+  .about-text p { margin-bottom: 16px; color: #453f36; }
+  .credentials {
+    list-style: none;
+    margin-top: 20px;
+  }
+  .credentials li {
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 10px;
+    color: #453f36;
+  }
+  .credentials li::before {
+    content: "♪";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+
+  /* Lessons / cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    padding: 34px 28px;
+    text-align: left;
+  }
+  .card .icon {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+  .card p { color: #5a5248; font-size: 0.98rem; }
+
+  /* Pricing */
+  .pricing-table {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--soft-line);
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  .pricing-row .label { font-weight: 700; color: var(--deep-green); }
+  .pricing-row .desc { color: #5a5248; font-size: 0.92rem; margin-top: 4px; }
+  .pricing-row .price { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--ink); white-space: nowrap; margin-left: 20px; }
+  .pricing-note {
+    text-align: center;
+    margin-top: 24px;
+    color: #5a5248;
+    font-size: 0.95rem;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial {
+    background: #fff;
+    border-radius: 8px;
+    padding: 28px;
+    border: 1px solid var(--soft-line);
+    font-style: italic;
+    color: #453f36;
+  }
+  .testimonial .stars { color: var(--gold); margin-bottom: 10px; font-style: normal; }
+  .testimonial .who {
+    display: block;
+    margin-top: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--deep-green);
+    font-size: 0.9rem;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--soft-line);
+    padding: 22px 0;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .faq-item p { color: #5a5248; }
+
+  /* Contact */
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+  .contact-info h2 { font-size: 1.8rem; margin-bottom: 18px; }
+  .contact-info p { color: #453f36; margin-bottom: 20px; }
+  .contact-detail { margin-bottom: 14px; }
+  .contact-detail strong { color: var(--deep-green); display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+
+  form {
+    background: #fff;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    padding: 32px;
+  }
+  form .field { margin-bottom: 18px; }
+  form label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 700; color: var(--deep-green); }
+  form input, form select, form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--soft-line);
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    background: var(--cream);
+  }
+  form textarea { resize: vertical; min-height: 100px; }
+  form button {
+    width: 100%;
+    padding: 14px;
+    background: var(--deep-green);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  form button:hover { background: #2b3730; }
+
+  footer {
+    background: var(--deep-green);
+    color: #f0ece3;
+    text-align: center;
+    padding: 40px 24px;
+  }
+  footer .logo { color: #fff; margin-bottom: 8px; }
+  footer p { font-size: 0.85rem; color: #cfd6cf; }
+
+  @media (max-width: 800px) {
+    nav ul { display: none; }
+    .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+    .cards, .testimonials { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo">Hannah Cole <span>Music</span></div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#lessons">Lessons</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Piano &amp; Singing Lessons in Cambridge, for All Ages</h1>
+    <p class="lead">Warm, encouraging, and rooted in proper technique — helping children and adults build real musical skill and genuine confidence, one lesson at a time.</p>
+    <a href="#contact" class="btn">Book a Trial Lesson</a>
+    <a href="#lessons" class="btn-outline">See What's on Offer</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-photo">HC</div>
+    <div class="about-text">
+      <h2>Hello, I'm Hannah</h2>
+      <p>I'm a piano and singing teacher based in Cambridge, and I've spent the last fifteen years helping people of all ages discover what they can do with music. My own training began at the piano stool aged six, and it's taken me through a music degree, an ABRSM diploma, and more recitals, choirs, and exam rooms than I can count.</p>
+      <p>These days, my favourite part of the job is watching that moment when a piece finally clicks, or when a nervous first-time singer hits a note they didn't think they had in them. Whether you're five or fifty-five, a complete beginner or working towards Grade 8, I'll meet you where you are and build a plan that actually fits your life.</p>
+      <ul class="credentials">
+        <li>BMus (Hons), Music, University of Leeds</li>
+        <li>ABRSM Piano Teaching Diploma (DipABRSM)</li>
+        <li>15+ years' teaching experience, ages 5 to 75</li>
+        <li>Enhanced DBS checked</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="lessons" class="alt">
+  <div class="container">
+    <h2 class="section-title">Lessons Tailored to You</h2>
+    <p class="section-sub">Every student learns differently, so every lesson plan is built around your goals, your pace, and the music you actually want to play or sing.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🎹</div>
+        <h3>Piano, for Children</h3>
+        <p>A friendly, structured introduction to the piano covering reading, technique, and theory through pieces children genuinely enjoy playing — from film themes to first classical pieces.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎤</div>
+        <h3>Singing, for Children</h3>
+        <p>Healthy vocal technique taught in a fun, low-pressure way, building breath support, pitch, and confidence — ideal for school choirs, shows, or simply the love of singing.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎼</div>
+        <h3>Piano, for Adults</h3>
+        <p>Whether you're returning after years away or starting from scratch, adult lessons focus on steady, satisfying progress at whatever pace suits your schedule and ambitions.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🗣️</div>
+        <h3>Singing, for Adults</h3>
+        <p>Technique-led lessons that build range, control, and stage confidence, suited to everything from choir auditions to weddings, musical theatre, or simply singing for pleasure.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📖</div>
+        <h3>Exam Preparation</h3>
+        <p>Structured, exam-focused teaching for ABRSM and Trinity piano and singing exams, from Initial Grade through to Grade 8, including theory support alongside your practical work.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏠</div>
+        <h3>In-Person &amp; Online</h3>
+        <p>Lessons at my teaching studio in Cambridge, or online via video call for students further afield or those who prefer the flexibility of learning from home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2 class="section-title">Lesson Prices</h2>
+    <p class="section-sub">Straightforward pricing with no hidden costs. Lessons are billed termly, in line with the local school term dates.</p>
+    <div class="pricing-table">
+      <div class="pricing-row">
+        <div>
+          <div class="label">30-minute lesson</div>
+          <div class="desc">Best suited to younger beginners</div>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <div class="label">45-minute lesson</div>
+          <div class="desc">Most popular for children and adults alike</div>
+        </div>
+        <div class="price">£38</div>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <div class="label">60-minute lesson</div>
+          <div class="desc">Ideal for exam preparation and advanced study</div>
+        </div>
+        <div class="price">£48</div>
+      </div>
+      <div class="pricing-row">
+        <div>
+          <div class="label">Trial lesson</div>
+          <div class="desc">A no-obligation first lesson to see if we're a good fit</div>
+        </div>
+        <div class="price">£15</div>
+      </div>
+    </div>
+    <p class="pricing-note">Sibling and block-booking discounts available. Get in touch for details.</p>
+  </div>
+</section>
+
+<section id="testimonials" class="alt">
+  <div class="container">
+    <h2 class="section-title">What Students &amp; Parents Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        "My daughter has been having piano lessons with Hannah for three years now and has gone from total beginner to passing Grade 3 with distinction. She's patient, organised, and genuinely cares."
+        <span class="who">— Sarah T., parent</span>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        "I started singing lessons at 40 having never had one before. Hannah made it feel completely un-intimidating and I've since joined a local choir, which I wouldn't have had the confidence to do otherwise."
+        <span class="who">— Mark D., adult student</span>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        "Brilliant with children who lose focus easily. My son actually asks to practise now, which I never thought I'd say. Highly recommend Hannah to any Cambridge family looking for a teacher."
+        <span class="who">— Priya N., parent</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>What age can my child start lessons?</h3>
+      <p>Most children start piano from around age 6 and singing from around age 7, once they have the concentration and physical coordination to get real benefit from lessons. I'm happy to have a short chat beforehand if you're not sure whether your child is ready.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need my own piano or keyboard?</h3>
+      <p>Yes, regular practice between lessons makes a big difference to progress. A full-size, weighted keyboard is a good minimum requirement for piano students; I'm happy to advise on suitable options if you're buying one.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where do lessons take place?</h3>
+      <p>In-person lessons are held at my teaching studio in central Cambridge, with free on-street parking nearby. Online lessons are available via Zoom for those who prefer to learn from home.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I pay for lessons?</h3>
+      <p>Lessons are invoiced termly by bank transfer, in line with local school term dates. Full details are provided once your regular lesson slot is confirmed.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if we need to cancel a lesson?</h3>
+      <p>I ask for at least 24 hours' notice where possible. Lessons cancelled with less notice can't usually be refunded, but I'll always try to offer a makeup slot where I have availability.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="container contact-wrap">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>Whether you'd like to book a trial lesson, ask about availability, or just find out more, I'd love to hear from you. I usually reply within a day.</p>
+      <div class="contact-detail">
+        <strong>Studio Location</strong>
+        Central Cambridge, CB1 (exact address given on booking)
+      </div>
+      <div class="contact-detail">
+        <strong>Phone</strong>
+        01223 456 789
+      </div>
+      <div class="contact-detail">
+        <strong>Email</strong>
+        hannah@hannahcolemusic.co.uk
+      </div>
+      <div class="contact-detail">
+        <strong>Lesson Times</strong>
+        Weekdays 3pm–8pm, Saturdays 9am–1pm
+      </div>
+    </div>
+    <form>
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest">
+          <option>Piano lessons for a child</option>
+          <option>Piano lessons for an adult</option>
+          <option>Singing lessons for a child</option>
+          <option>Singing lessons for an adult</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me a bit about yourself or your child, and what you'd like to get from lessons."></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Hannah Cole Music</div>
+  <p>Piano &amp; singing lessons in Cambridge &middot; © 2026 Hannah Cole. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+```

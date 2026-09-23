@@ -1,0 +1,851 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Works | Independent Strength Gym, Sheffield</title>
+<meta name="description" content="Iron Works is an independent strength gym in Sheffield offering open gym membership and personal training in a no-nonsense, community-driven space.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --black: #0d0d0d;
+    --charcoal: #161616;
+    --steel: #2a2a2a;
+    --rust: #c65d2e;
+    --rust-light: #e07640;
+    --off-white: #f3efe9;
+    --grey: #9a9a9a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.9);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    font-size: 1.7rem;
+    color: var(--off-white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand span { color: var(--rust); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links a {
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-links a:hover { color: var(--rust-light); }
+
+  .nav-cta {
+    background: var(--rust);
+    color: var(--off-white);
+    padding: 10px 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--rust-light); }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--off-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 90px;
+    background:
+      linear-gradient(180deg, rgba(13,13,13,0.55) 0%, rgba(13,13,13,0.85) 70%, var(--black) 100%),
+      url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    color: var(--rust-light);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    margin-bottom: 22px;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    color: #d8d3cb;
+    max-width: 520px;
+    margin-bottom: 34px;
+  }
+
+  .btn-row { display: flex; gap: 18px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary { background: var(--rust); color: var(--off-white); }
+  .btn-primary:hover { background: var(--rust-light); }
+
+  .btn-outline { border-color: var(--off-white); color: var(--off-white); }
+  .btn-outline:hover { background: var(--off-white); color: var(--black); }
+
+  /* SECTION HEADINGS */
+  .section { padding: 110px 0; }
+  .section-alt { background: var(--charcoal); }
+
+  .eyebrow {
+    color: var(--rust-light);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .section h2 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    margin-bottom: 20px;
+  }
+
+  .section-intro {
+    max-width: 640px;
+    color: var(--grey);
+    font-size: 1.05rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-img {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+
+  .about-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+    border-top: 1px solid var(--steel);
+    padding-top: 30px;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.6rem;
+    color: var(--rust-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+  }
+
+  /* SERVICES */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 50px;
+  }
+
+  .card {
+    background: var(--black);
+    border: 1px solid var(--steel);
+    padding: 40px 30px;
+    border-radius: 4px;
+    transition: transform 0.25s, border-color 0.25s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--rust);
+  }
+
+  .card i {
+    font-size: 1.8rem;
+    color: var(--rust-light);
+    margin-bottom: 20px;
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .card p { color: var(--grey); font-size: 0.95rem; }
+
+  .section-alt .card { background: var(--charcoal); }
+  .section-alt .card:hover { background: var(--steel); }
+
+  /* TRAINERS */
+  .trainers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .trainer-img {
+    aspect-ratio: 3/4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    filter: grayscale(30%);
+  }
+  .trainer-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .trainer h3 { font-size: 1.5rem; margin-bottom: 4px; }
+  .trainer-role {
+    color: var(--rust-light);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .trainer p { color: var(--grey); font-size: 0.92rem; }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 50px;
+  }
+
+  .price-card {
+    background: var(--black);
+    border: 1px solid var(--steel);
+    padding: 44px 32px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-card.featured {
+    border-color: var(--rust);
+    background: linear-gradient(180deg, rgba(198,93,46,0.08), transparent 60%);
+    position: relative;
+  }
+
+  .featured-tag {
+    position: absolute;
+    top: -14px; left: 32px;
+    background: var(--rust);
+    color: var(--off-white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .price-card h3 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--off-white);
+    margin: 12px 0;
+  }
+  .price span {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--grey);
+    font-weight: 400;
+  }
+
+  .price-features {
+    list-style: none;
+    margin: 24px 0 32px;
+    flex-grow: 1;
+  }
+  .price-features li {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--steel);
+    font-size: 0.92rem;
+    color: #cfcac2;
+  }
+  .price-features i {
+    color: var(--rust-light);
+    margin-right: 10px;
+    width: 14px;
+  }
+
+  .price-card .btn { text-align: center; }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 50px;
+  }
+
+  .testimonial {
+    background: var(--charcoal);
+    border-left: 3px solid var(--rust);
+    padding: 32px;
+    border-radius: 2px;
+  }
+
+  .testimonial p {
+    font-style: italic;
+    color: #d8d3cb;
+    margin-bottom: 20px;
+    font-size: 0.98rem;
+  }
+
+  .testimonial-author {
+    font-weight: 700;
+    color: var(--off-white);
+    font-size: 0.9rem;
+  }
+  .testimonial-role {
+    color: var(--grey);
+    font-size: 0.82rem;
+  }
+
+  .stars { color: var(--rust-light); margin-bottom: 14px; font-size: 0.85rem; }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+
+  .contact-info-item i {
+    color: var(--rust-light);
+    font-size: 1.3rem;
+    margin-top: 4px;
+  }
+
+  .contact-info-item h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .contact-info-item p { color: var(--grey); font-size: 0.95rem; }
+
+  .map-frame {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--steel);
+    height: 100%;
+    min-height: 320px;
+  }
+  .map-frame iframe { width: 100%; height: 100%; border: 0; filter: grayscale(80%) invert(92%) contrast(85%); }
+
+  .social-row { display: flex; gap: 16px; margin-top: 20px; }
+  .social-row a {
+    width: 42px; height: 42px;
+    border: 1px solid var(--steel);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .social-row a:hover { background: var(--rust); border-color: var(--rust); }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--rust);
+    padding: 70px 0;
+    text-align: center;
+  }
+  .cta-band h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+    color: var(--black);
+  }
+  .cta-band p {
+    color: rgba(13,13,13,0.8);
+    max-width: 500px;
+    margin: 0 auto 30px;
+    font-weight: 500;
+  }
+  .cta-band .btn-outline {
+    border-color: var(--black);
+    color: var(--black);
+  }
+  .cta-band .btn-outline:hover {
+    background: var(--black);
+    color: var(--off-white);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 50px 0 24px;
+    border-top: 1px solid var(--steel);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-grid h4 {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+    color: var(--off-white);
+  }
+
+  .footer-grid ul { list-style: none; }
+  .footer-grid ul li { margin-bottom: 10px; }
+  .footer-grid ul a { color: var(--grey); font-size: 0.92rem; transition: color 0.2s; }
+  .footer-grid ul a:hover { color: var(--rust-light); }
+
+  .footer-about p { color: var(--grey); font-size: 0.92rem; max-width: 340px; margin-bottom: 20px; }
+
+  .footer-bottom {
+    text-align: center;
+    color: var(--grey);
+    font-size: 0.82rem;
+    padding-top: 24px;
+    border-top: 1px solid var(--steel);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .cards, .trainers, .pricing-grid, .testimonials { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .menu-toggle { display: block; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--charcoal);
+      flex-direction: column;
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--steel);
+    }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="brand"><i class="fa-solid fa-dumbbell"></i> IRON<span>WORKS</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Training</a></li>
+      <li><a href="#trainers">Coaches</a></li>
+      <li><a href="#pricing">Membership</a></li>
+      <li><a href="#contact">Visit Us</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book a Tour</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Independent Strength Gym — Sheffield</span>
+      <h1>TRAIN HARD.<br>OWN YOUR STRENGTH.</h1>
+      <p>Iron Works is a no-frills strength gym tucked into a converted steelworks unit in Kelham Island. Free weights, real coaching, and a community that pushes each other to lift more than they thought possible.</p>
+      <div class="btn-row">
+        <a href="#pricing" class="btn btn-primary">See Membership Plans</a>
+        <a href="#contact" class="btn btn-outline">Book a Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Strength training area at Iron Works gym in Sheffield">
+    </div>
+    <div>
+      <span class="eyebrow">Our Story</span>
+      <h2>Built by lifters, for lifters</h2>
+      <p style="color:var(--grey); font-size:1.05rem; margin-bottom:20px;">Iron Works opened in 2016 in a disused steel unit off Alma Street, and we've kept the bones of the building — exposed brick, girders, and a floor that's seen more chalk than paint. We're not a chain gym. There's no smoothie bar, no tanning beds, and no sales pitch waiting at the door.</p>
+      <p style="color:var(--grey); font-size:1.05rem;">What you'll find is proper equipment — power racks, deadlift platforms, and enough plates to go around — plus a small team of coaches who actually know your name and your numbers. Whether you're chasing your first pull-up or your next competition total, this is a gym built around getting stronger, safely and consistently.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">2016</div>
+          <div class="stat-label">Est. in Kelham Island</div>
+        </div>
+        <div>
+          <div class="stat-num">9</div>
+          <div class="stat-label">Power Racks</div>
+        </div>
+        <div>
+          <div class="stat-num">400+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="services">
+  <div class="container">
+    <span class="eyebrow">What We Offer</span>
+    <h2>Training that fits how you want to work</h2>
+    <p class="section-intro">From solo barbell sessions to fully coached programmes, everything at Iron Works is built around strength — how you build it, keep it, and use it.</p>
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-key"></i>
+        <h3>Open Gym Access</h3>
+        <p>24/7 key-fob entry to our full floor of power racks, platforms, dumbbells up to 60kg, and a dedicated conditioning corner. Train on your own schedule, day or night.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-user"></i>
+        <h3>Personal Training</h3>
+        <p>One-to-one coaching with a qualified strength coach who builds your programme around your goals, your schedule, and your joints. Ideal for beginners and competitive lifters alike.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-people-group"></i>
+        <h3>Small Group Coaching</h3>
+        <p>Semi-private sessions of up to four people, run three times a week. Get hands-on coaching and the accountability of training alongside others, at a fraction of the cost of 1-to-1.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Powerlifting Programming</h3>
+        <p>Remote or in-person programming for squat, bench, and deadlift, written and adjusted weekly by our coaches. Includes video form checks and meet-day support.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-child-reaching"></i>
+        <h3>Beginner Foundations</h3>
+        <p>A four-week introduction covering the big lifts, gym etiquette, and how to structure your own training. The starting point for every new member who's new to lifting.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <h3>Nutrition Check-ins</h3>
+        <p>Fortnightly check-ins with a coach to keep your eating in line with your training goals — no fad diets, just consistent, sustainable habits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="trainers">
+  <div class="container">
+    <span class="eyebrow">Meet The Team</span>
+    <h2>Coaches who lift alongside you</h2>
+    <p class="section-intro">Every coach at Iron Works trains here themselves. You're learning from people who compete, not just people who certify.</p>
+    <div class="trainers">
+      <div class="trainer">
+        <div class="trainer-img">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=500&q=80" alt="Marcus Reid, head coach at Iron Works">
+        </div>
+        <h3>Marcus Reid</h3>
+        <span class="trainer-role">Head Coach & Founder</span>
+        <p>Competing powerlifter of 12 years and a British Powerlifting-accredited coach. Marcus built Iron Works after years of training in gyms that didn't take strength seriously.</p>
+      </div>
+      <div class="trainer">
+        <div class="trainer-img">
+          <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=500&q=80" alt="Aisha Bello, personal trainer at Iron Works">
+        </div>
+        <h3>Aisha Bello</h3>
+        <span class="trainer-role">Personal Trainer</span>
+        <p>Specialises in beginner foundations and post-injury return to training. Aisha has a background in sports rehabilitation and a knack for making technique clear and simple.</p>
+      </div>
+      <div class="trainer">
+        <div class="trainer-img">
+          <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=500&q=80" alt="Tom Hargreaves, strength coach at Iron Works">
+        </div>
+        <h3>Tom Hargreaves</h3>
+        <span class="trainer-role">Strength Coach</span>
+        <p>Runs our small group sessions and remote programming. Tom competed in strongman for six years and brings that same event-based conditioning into general strength work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="pricing">
+  <div class="container">
+    <span class="eyebrow">Membership</span>
+    <h2>Straightforward pricing, no contracts</h2>
+    <p class="section-intro">Every plan is rolling monthly — cancel any time with 14 days' notice. No joining fee, no lock-in.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Open Gym</h3>
+        <div class="price">£45<span>/month</span></div>
+        <ul class="price-features">
+          <li><i class="fa-solid fa-check"></i>24/7 key-fob access</li>
+          <li><i class="fa-solid fa-check"></i>Full use of racks & platforms</li>
+          <li><i class="fa-solid fa-check"></i>Free foundations induction</li>
+          <li><i class="fa-solid fa-check"></i>Monthly member socials</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <span class="featured-tag">Most Popular</span>
+        <h3>Coached Membership</h3>
+        <div class="price">£95<span>/month</span></div>
+        <ul class="price-features">
+          <li><i class="fa-solid fa-check"></i>Everything in Open Gym</li>
+          <li><i class="fa-solid fa-check"></i>2x small group sessions weekly</li>
+          <li><i class="fa-solid fa-check"></i>Monthly programme review</li>
+          <li><i class="fa-solid fa-check"></i>Fortnightly nutrition check-in</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="price-card">
+        <h3>Personal Training</h3>
+        <div class="price">£40<span>/session</span></div>
+        <ul class="price-features">
+          <li><i class="fa-solid fa-check"></i>1-to-1 with your own coach</li>
+          <li><i class="fa-solid fa-check"></i>Fully bespoke programming</li>
+          <li><i class="fa-solid fa-check"></i>Video form analysis</li>
+          <li><i class="fa-solid fa-check"></i>Packages of 5 & 10 available</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="testimonials">
+  <div class="container">
+    <span class="eyebrow">Member Stories</span>
+    <h2>What our members say</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"I'd never touched a barbell before walking in. Eighteen months on I've pulled a 130kg deadlift and actually look forward to leg day. The coaching here is worth every penny."</p>
+        <div class="testimonial-author">Rachel Foster</div>
+        <div class="testimonial-role">Member since 2023</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"No mirrors full of people taking selfies, no queue for equipment. Just a proper gym with proper kit. Marcus and the team know every regular by name."</p>
+        <div class="testimonial-author">Daniel Osei</div>
+        <div class="testimonial-role">Member since 2019</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Tom's remote programming got me from a 90kg squat to competing at my first meet within a year. Honest feedback, quick replies, and he actually watches every video."</p>
+        <div class="testimonial-author">Sophie Whitfield</div>
+        <div class="testimonial-role">Remote coaching client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>First session is on us</h2>
+    <p>Come and see the gym floor, meet a coach, and try a session before you commit to anything.</p>
+    <a href="#contact" class="btn btn-outline">Claim Your Free Trial</a>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Come and see the floor</h2>
+      <div style="margin-top:40px;">
+        <div class="contact-info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h4>Address</h4>
+            <p>Unit 4, Alma Steel Works, Alma Street, Kelham Island, Sheffield S3 8SG</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <h4>Hours</h4>
+            <p>Open gym: 24/7 for members<br>Staffed hours: Mon–Fri 6am–8pm, Sat–Sun 8am–2pm</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>0114 496 2213</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>train@ironworks-sheffield.co.uk</p>
+          </div>
+        </div>
+      </div>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="map-frame">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-1.4780%2C53.3900%2C-1.4650%2C53.3970&layer=mapnik&marker=53.3935%2C-1.4715" title="Map showing Iron Works gym location in Kelham Island, Sheffield"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#top" class="brand"><i class="fa-solid fa-dumbbell"></i> IRON<span>WORKS</span></a>
+        <p style="margin-top:16px;">An independent strength gym in Kelham Island, Sheffield. Free weights, honest coaching, and a community built around getting stronger.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Training</a></li>
+          <li><a href="#trainers">Coaches</a></li>
+          <li><a href="#pricing">Membership</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:01144962213">0114 496 2213</a></li>
+          <li><a href="mailto:train@ironworks-sheffield.co.uk">train@ironworks-sheffield.co.uk</a></li>
+          <li><a href="#contact">Alma Street, Sheffield S3</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Iron Works Gym. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,512 @@
+{
+  "version": 1,
+  "url": "pages/01.html",
+  "capturedAt": "2026-09-23T11:21:52.619Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4905,
+  "ground": "rgb(251, 247, 239)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(241, 230, 211)",
+        "area": 971544,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 907794,
+        "chars": 0
+      },
+      {
+        "value": "rgb(47, 90, 78)",
+        "area": 817808,
+        "chars": 0
+      },
+      {
+        "value": "rgb(34, 63, 55)",
+        "area": 600551,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 111, 74)",
+        "area": 511108,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 247, 239)",
+        "area": 107415,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(90, 106, 99)",
+        "area": 0,
+        "chars": 1631
+      },
+      {
+        "value": "rgb(34, 63, 55)",
+        "area": 0,
+        "chars": 490
+      },
+      {
+        "value": "rgb(36, 50, 45)",
+        "area": 0,
+        "chars": 478
+      },
+      {
+        "value": "rgb(215, 227, 219)",
+        "area": 0,
+        "chars": 390
+      },
+      {
+        "value": "rgb(238, 243, 239)",
+        "area": 0,
+        "chars": 268
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 259
+      },
+      {
+        "value": "rgb(231, 237, 233)",
+        "area": 0,
+        "chars": 253
+      },
+      {
+        "value": "rgb(207, 219, 211)",
+        "area": 0,
+        "chars": 157
+      },
+      {
+        "value": "rgb(178, 92, 57)",
+        "area": 0,
+        "chars": 145
+      },
+      {
+        "value": "rgb(253, 236, 225)",
+        "area": 0,
+        "chars": 106
+      },
+      {
+        "value": "rgb(169, 188, 177)",
+        "area": 0,
+        "chars": 102
+      },
+      {
+        "value": "rgb(147, 168, 155)",
+        "area": 0,
+        "chars": 100
+      },
+      {
+        "value": "rgb(244, 201, 168)",
+        "area": 0,
+        "chars": 70
+      },
+      {
+        "value": "rgb(201, 111, 74)",
+        "area": 0,
+        "chars": 15
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Nunito Sans",
+      "chars": 3973,
+      "displayChars": 0,
+      "italicChars": 393,
+      "weights": [
+        400,
+        600,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 491,
+      "displayChars": 438,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 44,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Gentle, expert veterinary care for the pets you love",
+      "top": 263
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opening Hours",
+      "top": 256
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Out of Hours",
+      "top": 440
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Complete care under one roof",
+      "top": 855
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Health Check-ups",
+      "top": 1115
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Vaccinations",
+      "top": 1115
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dental Care",
+      "top": 1115
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Neutering & Surgery",
+      "top": 1375
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "In-house Diagnostics",
+      "top": 1375
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small Pet & Rabbit Care",
+      "top": 1375
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "A practice that still feels like Kendal",
+      "top": 1668
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "The people behind the care",
+      "top": 2266
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dr Alison Reeve",
+      "top": 2697
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dr Tom Whitfield",
+      "top": 2697
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dr Priya Nair",
+      "top": 2697
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Claire Bousfield",
+      "top": 2697
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted by pet owners across South Lakeland",
+      "top": 3027
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to register your pet with us?",
+      "top": 3590
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Visit or contact the practice",
+      "top": 3951
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 46,
+      "background": "rgb(201, 111, 74)",
+      "text": "Book an Appointment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(201, 111, 74)",
+      "text": "Book an Appointment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Call 01539 722 145"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(34, 63, 55)",
+      "text": "Register or Book Now"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(201, 111, 74)",
+      "text": "Book an Appointment"
+    }
+  ],
+  "sections": [
+    {
+      "top": 138,
+      "height": 543,
+      "kind": "hero",
+      "label": "Gentle, expert veterinary care for the pets you love",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 749,
+      "height": 843,
+      "kind": "cards",
+      "label": "Complete care under one roof",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1592,
+      "height": 568,
+      "kind": "text",
+      "label": "A practice that still feels like Kendal",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2160,
+      "height": 761,
+      "kind": "cards",
+      "label": "The people behind the care",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2921,
+      "height": 593,
+      "kind": "cards",
+      "label": "Trusted by pet owners across South Lakeland",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3514,
+      "height": 331,
+      "kind": "text",
+      "label": "Ready to register your pet with us?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3845,
+      "height": 662,
+      "kind": "text",
+      "label": "Visit or contact the practice",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4508,
+      "height": 372,
+      "kind": "text",
+      "label": "Meadowbank Vets Independent small-animal veterinary practice",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(47, 90, 78, 0.88)",
+          "rgba(34, 63, 55, 0.82)"
+        ],
+        "area": 781853,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(61, 107, 92)",
+          "rgb(39, 74, 62)"
+        ],
+        "area": 156765,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      24,
+      30,
+      32,
+      44
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "10px",
+      "16px",
+      "18px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.18) 0px 20px 40px 0px"
+    ],
+    "spacingOnScalePct": 48,
+    "bodyLineLengthCh": 55,
+    "bodyFontSizePx": 18
+  }
+}

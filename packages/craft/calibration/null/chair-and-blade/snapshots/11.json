@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "url": "pages/11.html",
+  "capturedAt": "2026-09-23T11:19:08.037Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5853,
+  "ground": "rgb(244, 239, 232)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(17, 17, 17)",
+        "area": 2244173,
+        "chars": 0
+      },
+      {
+        "value": "rgb(176, 83, 43)",
+        "area": 903014,
+        "chars": 0
+      },
+      {
+        "value": "rgb(30, 28, 26)",
+        "area": 514575,
+        "chars": 0
+      },
+      {
+        "value": "rgba(17, 17, 17, 0.15)",
+        "area": 265960,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(63, 59, 54)",
+        "area": 0,
+        "chars": 986
+      },
+      {
+        "value": "rgb(244, 239, 232)",
+        "area": 0,
+        "chars": 680
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.6)",
+        "area": 0,
+        "chars": 543
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.9)",
+        "area": 0,
+        "chars": 218
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.75)",
+        "area": 0,
+        "chars": 183
+      },
+      {
+        "value": "rgb(17, 17, 17)",
+        "area": 0,
+        "chars": 123
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.55)",
+        "area": 0,
+        "chars": 106
+      },
+      {
+        "value": "rgb(176, 83, 43)",
+        "area": 0,
+        "chars": 68
+      },
+      {
+        "value": "rgb(143, 66, 34)",
+        "area": 0,
+        "chars": 22
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Work Sans",
+      "chars": 2685,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600
+      ]
+    },
+    {
+      "family": "Bebas Neue",
+      "chars": 244,
+      "displayChars": 203,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Bebas Neue",
+      "sizePx": 88,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber.One chair.No rush.",
+      "top": 340
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Just one barber. That's the point.",
+      "top": 1164
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every service, one-to-one",
+      "top": 1966
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "The chair, the tools, the work",
+      "top": 3254
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What clients say",
+      "top": 4126
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "St John Street, Manchester",
+      "top": 4729
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "One chair. Your time.",
+      "top": 5392
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 40,
+      "background": "rgb(176, 83, 43)",
+      "text": "Book Now"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(176, 83, 43)",
+      "text": "Call to Book — 0161 234 5678"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(176, 83, 43)",
+      "text": "Call 0161 234 5678"
+    }
+  ],
+  "sections": [
+    {
+      "top": 77,
+      "height": 935,
+      "kind": "hero",
+      "label": "One barber.One chair.No rush.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1012,
+      "height": 820,
+      "kind": "text",
+      "label": "Just one barber. That's the point.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1832,
+      "height": 1288,
+      "kind": "text",
+      "label": "Every service, one-to-one",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3120,
+      "height": 872,
+      "kind": "text",
+      "label": "The chair, the tools, the work",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3991,
+      "height": 604,
+      "kind": "cards",
+      "label": "What clients say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4595,
+      "height": 707,
+      "kind": "text",
+      "label": "St John Street, Manchester",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5302,
+      "height": 357,
+      "kind": "text",
+      "label": "One chair. Your time.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(17, 17, 17, 0.55)",
+          "rgba(17, 17, 17, 0.75)"
+        ],
+        "area": 1346310,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 7,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      22,
+      26,
+      29,
+      48,
+      51,
+      88
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "4px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 23.7,
+    "bodyLineLengthCh": 48,
+    "bodyFontSizePx": 18
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "version": 1,
+  "url": "pages/11.html",
+  "capturedAt": "2026-09-23T11:19:08.977Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6185,
+  "ground": "rgb(250, 246, 241)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 5477860,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 42, 40)",
+        "area": 361235,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 246, 241, 0.92)",
+        "area": 108563,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 238, 242)",
+        "area": 28924,
+        "chars": 0
+      },
+      {
+        "value": "rgb(58, 55, 51)",
+        "area": 16404,
+        "chars": 0
+      },
+      {
+        "value": "rgb(226, 156, 176)",
+        "area": 5823,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(90, 86, 82)",
+        "area": 0,
+        "chars": 1702
+      },
+      {
+        "value": "rgb(44, 42, 40)",
+        "area": 0,
+        "chars": 897
+      },
+      {
+        "value": "rgb(138, 133, 128)",
+        "area": 0,
+        "chars": 873
+      },
+      {
+        "value": "rgb(74, 70, 66)",
+        "area": 0,
+        "chars": 485
+      },
+      {
+        "value": "rgb(244, 236, 230)",
+        "area": 0,
+        "chars": 248
+      },
+      {
+        "value": "rgb(201, 123, 145)",
+        "area": 0,
+        "chars": 244
+      },
+      {
+        "value": "rgb(207, 199, 191)",
+        "area": 0,
+        "chars": 90
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 73
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Jost",
+      "chars": 3886,
+      "displayChars": 0,
+      "italicChars": 485,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 717,
+      "displayChars": 249,
+      "italicChars": 25,
+      "weights": [
+        400,
+        600
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 9,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 58,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "Korean skincare, done properly, delivered fast.",
+      "top": 315
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build your routine, one step at a time",
+      "top": 1169
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "This month's bestsellers",
+      "top": 1763
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "All the joy of K-beauty, none of the hassle",
+      "top": 3217
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Loved by skin all over the UK",
+      "top": 3878
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tag us in your routine",
+      "top": 4351
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Shipping & returns",
+      "top": 4843
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 28,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 5558
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(44, 42, 40)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Why Harrisons?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "+"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View All Products"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 50,
+      "background": "rgb(226, 156, 176)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 114,
+      "height": 884,
+      "kind": "hero",
+      "label": "Korean skincare, done properly, delivered fast.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1047,
+      "height": 594,
+      "kind": "logos",
+      "label": "Build your routine, one step at a time",
+      "cards": 6,
+      "iconCards": 6,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1641,
+      "height": 1454,
+      "kind": "cards",
+      "label": "This month's bestsellers",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3095,
+      "height": 661,
+      "kind": "text",
+      "label": "All the joy of K-beauty, none of the hassle",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3757,
+      "height": 563,
+      "kind": "cards",
+      "label": "Loved by skin all over the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4320,
+      "height": 401,
+      "kind": "text",
+      "label": "Tag us in your routine",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4721,
+      "height": 684,
+      "kind": "text",
+      "label": "Shipping & returns",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5404,
+      "height": 373,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5777,
+      "height": 408,
+      "kind": "text",
+      "label": "Harrisons Beauty Authentic Korean skincare, imported and hel",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(250, 246, 241)"
+        ],
+        "area": 1273545,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(226, 156, 176)",
+          "rgb(251, 238, 242)"
+        ],
+        "area": 144400,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68906,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 242)",
+          "rgb(226, 156, 176)"
+        ],
+        "area": 215472,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 1,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 2,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      24,
+      28,
+      40,
+      58
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "50%",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 47.5,
+    "bodyLineLengthCh": 58,
+    "bodyFontSizePx": 17
+  }
+}

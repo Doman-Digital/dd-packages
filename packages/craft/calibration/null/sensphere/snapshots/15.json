@@ -1,0 +1,596 @@
+{
+  "version": 1,
+  "url": "pages/15.html",
+  "capturedAt": "2026-09-23T11:19:32.816Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6516,
+  "ground": "rgb(253, 250, 243)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3514353,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 250, 243)",
+        "area": 1120139,
+        "chars": 0
+      },
+      {
+        "value": "rgb(35, 50, 56)",
+        "area": 506215,
+        "chars": 0
+      },
+      {
+        "value": "rgb(246, 185, 59)",
+        "area": 492885,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 253, 251)",
+        "area": 130404,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.1)",
+        "area": 125515,
+        "chars": 0
+      },
+      {
+        "value": "rgba(253, 250, 243, 0.94)",
+        "area": 102803,
+        "chars": 0
+      },
+      {
+        "value": "rgb(47, 156, 149)",
+        "area": 40879,
+        "chars": 0
+      },
+      {
+        "value": "rgba(47, 156, 149, 0.12)",
+        "area": 33772,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "area": 3888,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(90, 107, 112)",
+        "area": 0,
+        "chars": 4506
+      },
+      {
+        "value": "rgb(35, 50, 56)",
+        "area": 0,
+        "chars": 1396
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 311
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 303
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 229
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "area": 0,
+        "chars": 128
+      },
+      {
+        "value": "rgb(90, 74, 30)",
+        "area": 0,
+        "chars": 126
+      },
+      {
+        "value": "rgb(32, 114, 108)",
+        "area": 0,
+        "chars": 115
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Karla",
+      "chars": 6347,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        700
+      ]
+    },
+    {
+      "family": "Quicksand",
+      "chars": 755,
+      "displayChars": 450,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Quicksand",
+      "sizePx": 43,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Helping children and young people thrive, at home and at school.",
+      "top": 192
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Our Services",
+      "top": 877
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "OT Assessments",
+      "top": 1145
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sensory Integration Therapy",
+      "top": 1145
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fine Motor & Handwriting",
+      "top": 1145
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Gross Motor & Coordination",
+      "top": 1443
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Independence & Self-Care",
+      "top": 1443
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Parent & Carer Coaching",
+      "top": 1443
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "How We Work",
+      "top": 1768
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Who We Work With",
+      "top": 2272
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Children & Young People",
+      "top": 2517
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Families",
+      "top": 2517
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Schools",
+      "top": 2517
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "About Sensphere",
+      "top": 2817
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What Families Tell Us",
+      "top": 3421
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Working With Schools",
+      "top": 3993
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Book a School Consultation",
+      "top": 4048
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently Asked Questions",
+      "top": 4449
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to talk about your child's needs?",
+      "top": 5167
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get In Touch",
+      "top": 5509
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 38,
+      "background": "rgb(47, 156, 149)",
+      "text": "Make a Referral"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 57,
+      "background": "rgb(47, 156, 149)",
+      "text": "Make a Referral"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore Our Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 53,
+      "background": "rgb(255, 255, 255)",
+      "text": "Get in Touch"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 53,
+      "background": "rgb(35, 50, 56)",
+      "text": "Make a Referral"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 46,
+      "background": "rgb(47, 156, 149)",
+      "text": "Send Enquiry"
+    }
+  ],
+  "sections": [
+    {
+      "top": 71,
+      "height": 595,
+      "kind": "hero",
+      "label": "Helping children and young people thrive, at home and at sch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 666,
+      "height": 131,
+      "kind": "cards",
+      "label": "HCPC-registered occupational therapists Home, school and cli",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 797,
+      "height": 890,
+      "kind": "cards",
+      "label": "Our Services",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1688,
+      "height": 505,
+      "kind": "cards",
+      "label": "How We Work",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2192,
+      "height": 545,
+      "kind": "cards",
+      "label": "Who We Work With",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2737,
+      "height": 604,
+      "kind": "text",
+      "label": "About Sensphere",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3341,
+      "height": 572,
+      "kind": "cards",
+      "label": "What Families Tell Us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3913,
+      "height": 456,
+      "kind": "text",
+      "label": "Working With Schools",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4369,
+      "height": 718,
+      "kind": "text",
+      "label": "Frequently Asked Questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5087,
+      "height": 342,
+      "kind": "text",
+      "label": "Ready to talk about your child's needs?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5429,
+      "height": 742,
+      "kind": "text",
+      "label": "Get In Touch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6171,
+      "height": 345,
+      "kind": "text",
+      "label": "Sensphere Occupational therapy assessments and therapy for c",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(139, 124, 216, 0.15)",
+          "rgba(0, 0, 0, 0)",
+          "rgba(246, 185, 59, 0.18)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 856485,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(251, 246, 234)"
+        ],
+        "area": 83151,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(251, 246, 234)"
+        ],
+        "area": 83151,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(251, 246, 234)"
+        ],
+        "area": 83154,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(47, 156, 149)",
+          "rgb(139, 124, 216)"
+        ],
+        "area": 220578,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(32, 114, 108)",
+          "rgb(47, 156, 149)"
+        ],
+        "area": 656685,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      24,
+      30,
+      32,
+      34,
+      43
+    ],
+    "fontWeights": [
+      400,
+      500,
+      700
+    ],
+    "radii": [
+      "16px",
+      "18px",
+      "30px",
+      "50%"
+    ],
+    "shadows": [
+      "rgba(35, 50, 56, 0.06) 0px 10px 30px 0px",
+      "rgba(47, 156, 149, 0.28) 0px 10px 24px 0px"
+    ],
+    "spacingOnScalePct": 45.4,
+    "bodyLineLengthCh": 56,
+    "bodyFontSizePx": 18
+  }
+}

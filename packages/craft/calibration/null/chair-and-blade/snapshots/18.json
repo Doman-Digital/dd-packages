@@ -1,0 +1,503 @@
+{
+  "version": 1,
+  "url": "pages/18.html",
+  "capturedAt": "2026-09-23T11:19:45.147Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4981,
+  "ground": "rgb(246, 241, 233)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(236, 228, 214)",
+        "area": 2154075,
+        "chars": 0
+      },
+      {
+        "value": "rgb(27, 24, 21)",
+        "area": 1977375,
+        "chars": 0
+      },
+      {
+        "value": "rgb(246, 241, 233)",
+        "area": 759799,
+        "chars": 0
+      },
+      {
+        "value": "rgb(169, 119, 47)",
+        "area": 526405,
+        "chars": 0
+      },
+      {
+        "value": "rgba(27, 24, 21, 0.14)",
+        "area": 432586,
+        "chars": 0
+      },
+      {
+        "value": "rgb(18, 16, 14)",
+        "area": 419063,
+        "chars": 0
+      },
+      {
+        "value": "rgba(246, 241, 233, 0.05)",
+        "area": 211992,
+        "chars": 0
+      },
+      {
+        "value": "rgba(246, 241, 233, 0.06)",
+        "area": 121039,
+        "chars": 0
+      },
+      {
+        "value": "rgba(23, 21, 18, 0.55)",
+        "area": 18829,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(58, 52, 44)",
+        "area": 0,
+        "chars": 1144
+      },
+      {
+        "value": "rgb(107, 98, 85)",
+        "area": 0,
+        "chars": 561
+      },
+      {
+        "value": "rgb(241, 235, 224)",
+        "area": 0,
+        "chars": 367
+      },
+      {
+        "value": "rgb(27, 24, 21)",
+        "area": 0,
+        "chars": 359
+      },
+      {
+        "value": "rgb(231, 224, 211)",
+        "area": 0,
+        "chars": 358
+      },
+      {
+        "value": "rgb(90, 82, 69)",
+        "area": 0,
+        "chars": 326
+      },
+      {
+        "value": "rgb(168, 158, 140)",
+        "area": 0,
+        "chars": 285
+      },
+      {
+        "value": "rgb(246, 241, 233)",
+        "area": 0,
+        "chars": 220
+      },
+      {
+        "value": "rgb(74, 66, 56)",
+        "area": 0,
+        "chars": 188
+      },
+      {
+        "value": "rgb(216, 180, 121)",
+        "area": 0,
+        "chars": 66
+      },
+      {
+        "value": "rgb(124, 87, 35)",
+        "area": 0,
+        "chars": 63
+      },
+      {
+        "value": "rgb(58, 44, 20)",
+        "area": 0,
+        "chars": 59
+      },
+      {
+        "value": "rgb(183, 172, 151)",
+        "area": 0,
+        "chars": 51
+      },
+      {
+        "value": "rgb(169, 119, 47)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3101,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 952,
+      "displayChars": 396,
+      "italicChars": 465,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 58,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A barber studio built around one appointment at a time.",
+      "top": 324
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why there's only one chair",
+      "top": 1047
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every appointment is one-to-one",
+      "top": 1766
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Classic Cut",
+      "top": 1999
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Skin Fade",
+      "top": 1999
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cut & Beard",
+      "top": 2135
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Beard Trim & Line-up",
+      "top": 2135
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hot Towel Shave",
+      "top": 2272
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cut & Colour Consult",
+      "top": 2272
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "No app, no online calendar — just a message",
+      "top": 2658
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get in touch",
+      "top": 2911
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get a time",
+      "top": 2911
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Come in",
+      "top": 2911
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fewer clients, more attention",
+      "top": 3267
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "St John Street, Manchester",
+      "top": 3810
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 14,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Address",
+      "top": 3872
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 14,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hours",
+      "top": 3979
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 14,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Getting there",
+      "top": 4112
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 35,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "One chair. Your time. Let's get you booked in.",
+      "top": 4420
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 43,
+      "background": "rgb(27, 24, 21)",
+      "text": "Book a slot"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(169, 119, 47)",
+      "text": "Book your slot"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See services & prices"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(27, 24, 21)",
+      "text": "Jump to contact details"
+    }
+  ],
+  "sections": [
+    {
+      "top": 80,
+      "height": 804,
+      "kind": "hero",
+      "label": "A barber studio built around one appointment at a time.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 884,
+      "height": 736,
+      "kind": "text",
+      "label": "Why there's only one chair",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1620,
+      "height": 908,
+      "kind": "text",
+      "label": "Every appointment is one-to-one",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2528,
+      "height": 593,
+      "kind": "stats",
+      "label": "No app, no online calendar — just a message",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3121,
+      "height": 556,
+      "kind": "cards",
+      "label": "Fewer clients, more attention",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3677,
+      "height": 655,
+      "kind": "text",
+      "label": "St John Street, Manchester",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4332,
+      "height": 358,
+      "kind": "text",
+      "label": "One chair. Your time. Let's get you booked in.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 1,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(216, 180, 121)",
+          "rgba(0, 0, 0, 0)",
+          "rgb(42, 37, 33)",
+          "rgb(23, 21, 18)"
+        ],
+        "area": 251090,
+        "radial": true
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 7,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      24,
+      26,
+      35,
+      38,
+      58
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 49,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  }
+}

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "url": "https://www.harrisonjamesltd.co.uk/",
-  "capturedAt": "2026-09-23T02:53:15.552Z",
+  "capturedAt": "2026-09-23T11:18:16.894Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -17,7 +17,7 @@
       },
       {
         "value": "rgb(255, 255, 255)",
-        "area": 2116992,
+        "area": 1850592,
         "chars": 0
       },
       {
@@ -27,7 +27,7 @@
       },
       {
         "value": "rgb(201, 162, 39)",
-        "area": 47410,
+        "area": 41466,
         "chars": 0
       },
       {
@@ -45,12 +45,7 @@
       {
         "value": "rgb(10, 26, 63)",
         "area": 0,
-        "chars": 752
-      },
-      {
-        "value": "rgba(31, 32, 35, 0.8)",
-        "area": 0,
-        "chars": 455
+        "chars": 713
       },
       {
         "value": "rgba(245, 246, 247, 0.8)",
@@ -66,6 +61,11 @@
         "value": "rgba(245, 246, 247, 0.6)",
         "area": 0,
         "chars": 152
+      },
+      {
+        "value": "rgba(31, 32, 35, 0.8)",
+        "area": 0,
+        "chars": 90
       },
       {
         "value": "rgb(31, 32, 35)",
@@ -87,7 +87,7 @@
   "fonts": [
     {
       "family": "Inter",
-      "chars": 2670,
+      "chars": 2278,
       "displayChars": 0,
       "italicChars": 0,
       "weights": [
@@ -97,8 +97,8 @@
     },
     {
       "family": "Sora",
-      "chars": 430,
-      "displayChars": 384,
+      "chars": 418,
+      "displayChars": 372,
       "italicChars": 0,
       "weights": [
         600,
@@ -286,16 +286,6 @@
       "italicPart": false,
       "text": "Ready to transform your financial management?",
       "top": 2509
-    },
-    {
-      "level": 2,
-      "family": "Sora",
-      "sizePx": 18,
-      "weight": 600,
-      "italic": false,
-      "italicPart": false,
-      "text": "Your privacy",
-      "top": 740
     }
   ],
   "controls": [
@@ -304,7 +294,7 @@
       "radiusPx": 4,
       "heightPx": 40,
       "background": "rgba(0, 0, 0, 0)",
-      "text": "Switch to dark mode"
+      "text": "Theme toggle"
     },
     {
       "kind": "link",
@@ -340,20 +330,6 @@
       "heightPx": 52,
       "background": "rgba(0, 0, 0, 0)",
       "text": "View Our Services"
-    },
-    {
-      "kind": "button",
-      "radiusPx": 6,
-      "heightPx": 48,
-      "background": "rgb(201, 162, 39)",
-      "text": "Accept all"
-    },
-    {
-      "kind": "button",
-      "radiusPx": 6,
-      "heightPx": 52,
-      "background": "rgba(0, 0, 0, 0)",
-      "text": "Reject all"
     }
   ],
   "sections": [
@@ -441,11 +417,10 @@
       "8px"
     ],
     "shadows": [
-      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
-      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(10, 26, 63, 0.35) 0px -8px 24px -16px"
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
     ],
-    "spacingOnScalePct": 97.1,
-    "bodyLineLengthCh": 102,
-    "bodyFontSizePx": 14
+    "spacingOnScalePct": 96.9,
+    "bodyLineLengthCh": null,
+    "bodyFontSizePx": null
   }
 }

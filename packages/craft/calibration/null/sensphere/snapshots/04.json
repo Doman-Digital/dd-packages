@@ -1,0 +1,559 @@
+{
+  "version": 1,
+  "url": "pages/04.html",
+  "capturedAt": "2026-09-23T11:18:31.574Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6513,
+  "ground": "rgb(250, 246, 239)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(241, 231, 216)",
+        "area": 1983105,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 78, 74)",
+        "area": 1918952,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1383471,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 598009,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 246, 239, 0.92)",
+        "area": 237555,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 246, 239)",
+        "area": 110848,
+        "chars": 0
+      },
+      {
+        "value": "rgb(232, 138, 109)",
+        "area": 66209,
+        "chars": 0
+      },
+      {
+        "value": "rgb(63, 109, 105)",
+        "area": 8100,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 101, 94)",
+        "area": 0,
+        "chars": 1840
+      },
+      {
+        "value": "rgb(207, 222, 217)",
+        "area": 0,
+        "chars": 772
+      },
+      {
+        "value": "rgb(44, 78, 74)",
+        "area": 0,
+        "chars": 737
+      },
+      {
+        "value": "rgb(44, 42, 40)",
+        "area": 0,
+        "chars": 640
+      },
+      {
+        "value": "rgb(216, 228, 225)",
+        "area": 0,
+        "chars": 520
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 243
+      },
+      {
+        "value": "rgb(169, 188, 184)",
+        "area": 0,
+        "chars": 120
+      },
+      {
+        "value": "rgb(211, 113, 79)",
+        "area": 0,
+        "chars": 115
+      },
+      {
+        "value": "rgb(255, 240, 232)",
+        "area": 0,
+        "chars": 113
+      },
+      {
+        "value": "rgb(244, 239, 230)",
+        "area": 0,
+        "chars": 42
+      },
+      {
+        "value": "rgb(63, 109, 105)",
+        "area": 0,
+        "chars": 39
+      },
+      {
+        "value": "rgb(246, 201, 168)",
+        "area": 0,
+        "chars": 13
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Nunito Sans",
+      "chars": 4557,
+      "displayChars": 0,
+      "italicChars": 368,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 625,
+      "displayChars": 607,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 45,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Helping children move, focus and thrive — at home, at school, and everywhere in between.",
+      "top": 245
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Support built around your child",
+      "top": 942
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Children & young people",
+      "top": 1199
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Families",
+      "top": 1199
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Schools & settings",
+      "top": 1199
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessments and therapy that fit real life",
+      "top": 1559
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Occupational Therapy Assessment",
+      "top": 1744
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sensory Integration Therapy",
+      "top": 1744
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Handwriting & Fine Motor Groups",
+      "top": 2070
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "School & EHCP Consultation",
+      "top": 2070
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A clear path, from first call to first steps forward",
+      "top": 2481
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Initial enquiry",
+      "top": 2674
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessment",
+      "top": 2674
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Report & plan",
+      "top": 2674
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing therapy",
+      "top": 2674
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Practical support your teaching staff can actually use",
+      "top": 2992
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What working with Sensphere is like",
+      "top": 3586
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 4213
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 30,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to talk about your child?",
+      "top": 5036
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 29,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's start with a conversation",
+      "top": 5500
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 53,
+      "background": "rgb(232, 138, 109)",
+      "text": "Book an assessment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(232, 138, 109)",
+      "text": "Book an assessment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore our services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Enquire as a school"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(255, 255, 255)",
+      "text": "Book a call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Call 0113 496 0112"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 46,
+      "background": "rgb(232, 138, 109)",
+      "text": "Send message"
+    }
+  ],
+  "sections": [
+    {
+      "top": 165,
+      "height": 662,
+      "kind": "hero",
+      "label": "Helping children move, focus and thrive — at home, at school",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 827,
+      "height": 616,
+      "kind": "cards",
+      "label": "Support built around your child",
+      "cards": 3,
+      "iconCards": 3,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1444,
+      "height": 923,
+      "kind": "text",
+      "label": "Assessments and therapy that fit real life",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2366,
+      "height": 511,
+      "kind": "cards",
+      "label": "A clear path, from first call to first steps forward",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2877,
+      "height": 594,
+      "kind": "text",
+      "label": "Practical support your teaching staff can actually use",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3471,
+      "height": 627,
+      "kind": "cards",
+      "label": "What working with Sensphere is like",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4098,
+      "height": 802,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4900,
+      "height": 485,
+      "kind": "text",
+      "label": "Ready to talk about your child?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5385,
+      "height": 705,
+      "kind": "text",
+      "label": "Let's start with a conversation",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(250, 246, 239)",
+          "rgb(241, 231, 216)"
+        ],
+        "area": 953753,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 217, 196)",
+          "rgb(207, 227, 223)"
+        ],
+        "area": 229261,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(232, 138, 109)",
+          "rgb(211, 113, 79)"
+        ],
+        "area": 452074,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 3,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      29,
+      30,
+      32,
+      45
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(232, 138, 109, 0.35) 0px 6px 16px 0px",
+      "rgba(44, 78, 74, 0.06) 0px 8px 20px 0px",
+      "rgba(44, 78, 74, 0.06) 0px 8px 24px 0px"
+    ],
+    "spacingOnScalePct": 53.7,
+    "bodyLineLengthCh": 56,
+    "bodyFontSizePx": 18
+  }
+}

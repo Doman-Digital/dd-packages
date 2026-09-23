@@ -1,0 +1,857 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castle Dental | Family Dentist in Warwick | NHS & Private</title>
+<meta name="description" content="Castle Dental is a friendly family dental practice in Warwick, welcoming both NHS and private patients. Book your check-up today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #12293f;
+    --navy-dark: #0b1c2c;
+    --teal: #2f7d6b;
+    --teal-light: #e6f2ee;
+    --cream: #faf7f1;
+    --gold: #c8a35a;
+    --text: #223140;
+    --muted: #5a6b78;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .logo {
+    font-family: 'Fraunces', serif;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Top bar */
+  .topbar {
+    background: var(--navy-dark);
+    color: #cfe0dc;
+    font-size: 0.85rem;
+  }
+  .topbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar a { color: #cfe0dc; }
+  .topbar a:hover { color: #fff; }
+  .topbar-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+  /* Header */
+  header.site-header {
+    background: var(--cream);
+    border-bottom: 1px solid #e7ded0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo span {
+    color: var(--teal);
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .nav-links a { position: relative; padding: 4px 0; }
+  .nav-links a:hover { color: var(--teal); }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #266b5c;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(47,125,107,0.3);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+  }
+  .btn-outline:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+  .btn-light {
+    background: #fff;
+    color: var(--navy);
+  }
+  .btn-light:hover {
+    background: var(--gold);
+    color: #fff;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .hero {
+    background:
+      linear-gradient(120deg, rgba(11,28,44,0.88), rgba(18,41,63,0.72)),
+      url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 0 110px;
+  }
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: #dbe6e2;
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+  .hero-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    color: var(--gold);
+  }
+  .hero-card ul { list-style: none; }
+  .hero-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+  }
+  .hero-card li:last-child { border-bottom: none; }
+  .hero-card .label { color: #cfe0dc; }
+
+  /* Trust bar */
+  .trust-bar {
+    background: #fff;
+    border-bottom: 1px solid #eee3d3;
+  }
+  .trust-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .trust-item .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  /* Sections */
+  section { padding: 90px 0; }
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: 2.2rem;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .section-head p { color: var(--muted); }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .service-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 34px 28px;
+    border: 1px solid #eee3d3;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(18,41,63,0.08);
+  }
+  .service-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: var(--teal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+  .service-card h3 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .service-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  /* Split section - about */
+  .about {
+    background: #fff;
+  }
+  .about .container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .about img {
+    border-radius: var(--radius);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 460px;
+  }
+  .about .eyebrow { margin-top: 0; }
+  .about h2 {
+    font-size: 2.1rem;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .about p {
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .about-list {
+    list-style: none;
+    margin-top: 24px;
+    display: grid;
+    gap: 14px;
+  }
+  .about-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .check {
+    color: var(--teal);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* NHS vs Private */
+  .plans {
+    background: var(--navy);
+    color: #fff;
+  }
+  .plans .section-head h2 { color: #fff; }
+  .plans .section-head p { color: #b9c9d3; }
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .plan-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 36px;
+  }
+  .plan-card.featured {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+  .plan-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+  .plan-card .price {
+    font-size: 2rem;
+    font-family: 'Fraunces', serif;
+    margin: 14px 0;
+  }
+  .plan-card .price span {
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    color: #cfe0dc;
+    font-weight: 400;
+  }
+  .plan-card ul {
+    list-style: none;
+    margin: 20px 0 26px;
+    display: grid;
+    gap: 10px;
+    font-size: 0.94rem;
+  }
+  .plan-card li { color: #dfe9e5; }
+  .plan-card.featured li { color: #eafaf3; }
+
+  /* Testimonials */
+  .testimonials {
+    background: var(--teal-light);
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .testimonial-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 30px;
+    border: 1px solid #dcece7;
+  }
+  .stars { color: var(--gold); margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial-card p {
+    color: var(--text);
+    font-size: 0.96rem;
+    margin-bottom: 18px;
+  }
+  .testimonial-name {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.9rem;
+  }
+  .testimonial-role {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  /* CTA */
+  .cta {
+    background: linear-gradient(120deg, var(--navy), var(--navy-dark));
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 0 24px;
+  }
+  .cta h2 { font-size: 1.8rem; margin-bottom: 8px; }
+  .cta p { color: #cfe0dc; }
+  .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* Contact / Map */
+  .contact {
+    background: #fff;
+  }
+  .contact .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .contact-info h2 {
+    font-size: 2rem;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+  .contact-info > p {
+    color: var(--muted);
+    margin-bottom: 30px;
+  }
+  .info-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .info-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    background: var(--teal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+  .info-row h4 {
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .info-row p, .info-row a {
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+  }
+  .hours-table td {
+    padding: 4px 0;
+    font-size: 0.94rem;
+    color: var(--muted);
+  }
+  .hours-table td:last-child {
+    text-align: right;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .map-embed {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #eee3d3;
+    min-height: 420px;
+  }
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: 0;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--navy-dark);
+    color: #b9c9d3;
+    padding: 56px 0 24px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 32px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-grid h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+  .footer-grid ul { list-style: none; display: grid; gap: 10px; }
+  .footer-grid a:hover { color: #fff; }
+  .footer-brand .logo { color: #fff; margin-bottom: 12px; }
+  .footer-brand p { font-size: 0.9rem; max-width: 280px; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22px;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .hero .container, .about .container, .contact .container {
+      grid-template-columns: 1fr;
+    }
+    .about img { max-height: 320px; }
+    .services-grid, .plans-grid, .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links, .topbar-links { display: none; }
+    .menu-toggle { display: block; }
+    .cta { padding: 36px; }
+  }
+
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 2.1rem; }
+    section { padding: 60px 0; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .cta { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links">
+      <a href="tel:01926123456">📞 01926 123 456</a>
+      <a href="mailto:hello@castledentalwarwick.co.uk">✉️ hello@castledentalwarwick.co.uk</a>
+    </div>
+    <div>Emergency dental care available for existing patients</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <nav class="container">
+    <a href="#top" class="logo">Castle<span>Dental</span></a>
+    <div class="nav-links">
+      <a href="#services">Treatments</a>
+      <a href="#about">About Us</a>
+      <a href="#plans">NHS & Private</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="container">
+    <div>
+      <div class="hero-eyebrow">Warwick's Family Dental Practice</div>
+      <h1>Gentle, honest dental care for every member of your family</h1>
+      <p>From your child's first check-up to complex restorative work, Castle Dental has been looking after Warwick smiles for over 15 years. We welcome both NHS and private patients, with new patients accepted every week.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book Your Check-up</a>
+        <a href="#plans" class="btn btn-outline" style="border-color:#fff; color:#fff;">NHS & Private Options</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Currently Accepting</h3>
+      <ul>
+        <li><span class="label">NHS Patients</span><span>Adults & Children</span></li>
+        <li><span class="label">Private Patients</span><span>All Ages</span></li>
+        <li><span class="label">New Patient Slots</span><span>Open Now</span></li>
+        <li><span class="label">Emergency Appointments</span><span>Same-day if seen before</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-item"><span class="dot"></span>GDC Registered Dentists</div>
+    <div class="trust-item"><span class="dot"></span>NHS & Private Care</div>
+    <div class="trust-item"><span class="dot"></span>Free On-Site Parking</div>
+    <div class="trust-item"><span class="dot"></span>Wheelchair Accessible</div>
+    <div class="trust-item"><span class="dot"></span>Open 6 Days a Week</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Treatments</div>
+      <h2>Dental care for every stage of life</h2>
+      <p>Whether you need a routine check-up or a full smile makeover, our team takes the time to explain your options clearly, with no pressure and no surprises.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🦷</div>
+        <h3>Routine Check-ups</h3>
+        <p>Regular NHS and private examinations, scale and polish, and preventative advice to keep small problems from becoming big ones.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👨‍👩‍👧‍👦</div>
+        <h3>Family & Children's Dentistry</h3>
+        <p>A calm, friendly environment for nervous patients and children, with NHS care available for under-18s.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3>Cosmetic Dentistry</h3>
+        <p>Teeth whitening, veneers and composite bonding to help you feel confident about your smile.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🦴</div>
+        <h3>Dental Implants</h3>
+        <p>Permanent, natural-looking replacements for missing teeth, carried out by our experienced implant dentists.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">😬</div>
+        <h3>Invisalign & Orthodontics</h3>
+        <p>Clear aligners and orthodontic treatment for teenagers and adults who want straighter teeth discreetly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚨</div>
+        <h3>Emergency Dental Care</h3>
+        <p>Toothache, breakages or lost fillings — we hold appointments each day for urgent dental problems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1000&auto=format&fit=crop" alt="Friendly dentist consulting with a patient at Castle Dental Warwick">
+    <div>
+      <div class="eyebrow">About Castle Dental</div>
+      <h2>A trusted, local practice for the whole of Warwick</h2>
+      <p>Castle Dental was founded to give Warwick families a genuine choice: dependable NHS care alongside private treatments, all under one roof, delivered by a team who remember your name and your history.</p>
+      <p>We're based just a short walk from Warwick town centre, with easy parking for patients who prefer to drive. Our practice was designed to feel relaxed rather than clinical, because we know a trip to the dentist isn't everyone's favourite outing.</p>
+      <ul class="about-list">
+        <li><span class="check">✓</span> Experienced NHS and private dentists</li>
+        <li><span class="check">✓</span> Flexible appointments, including early mornings</li>
+        <li><span class="check">✓</span> Modern digital X-rays for lower radiation exposure</li>
+        <li><span class="check">✓</span> Nervous patient support and sedation options</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="plans">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Your Options</div>
+      <h2>NHS or private — the choice is yours</h2>
+      <p>We believe good dental care shouldn't be complicated. Here's a simple breakdown of what's available to you at Castle Dental.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <h3>NHS Dental Care</h3>
+        <div class="price">Band 1–3 <span>/ per NHS charge band</span></div>
+        <ul>
+          <li>Check-ups, X-rays and preventative advice</li>
+          <li>Fillings, extractions and root canal treatment</li>
+          <li>Crowns, dentures and bridges</li>
+          <li>Charges set nationally by the NHS</li>
+          <li>Free for eligible children, pregnant women and exemption groups</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="border-color:#fff; color:#fff; width:100%;">Register as an NHS Patient</a>
+      </div>
+      <div class="plan-card featured">
+        <h3>Private Dental Care</h3>
+        <div class="price">From £65 <span>/ examination</span></div>
+        <ul>
+          <li>Longer appointments with more flexibility</li>
+          <li>Cosmetic treatments: whitening, veneers, Invisalign</li>
+          <li>Dental implants and advanced restorative work</li>
+          <li>Wider choice of appointment times</li>
+          <li>Optional membership plans for regular care</li>
+        </ul>
+        <a href="#contact" class="btn btn-light" style="width:100%;">Enquire About Private Care</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Patient Reviews</div>
+      <h2>What our patients say</h2>
+      <p>We're proud of the relationships we've built with families across Warwick over the years.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"My son used to dread the dentist, but the team at Castle Dental made him feel completely at ease. He now actually looks forward to his check-ups."</p>
+        <div class="testimonial-name">Rebecca H.</div>
+        <div class="testimonial-role">NHS Patient, Warwick</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I switched to private care for my Invisalign treatment and couldn't be happier with the result. Clear communication throughout and no hidden costs."</p>
+        <div class="testimonial-name">James P.</div>
+        <div class="testimonial-role">Private Patient</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Chipped a tooth on a Sunday and they saw me first thing Monday morning. Genuinely reassuring to know a practice like this is nearby."</p>
+        <div class="testimonial-name">Sandra M.</div>
+        <div class="testimonial-role">Emergency Appointment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <div>
+      <h2>Ready to join the Castle Dental family?</h2>
+      <p>New NHS and private patients are welcome. Get in touch and we'll find an appointment that suits you.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="tel:01926123456" class="btn btn-light">Call 01926 123 456</a>
+      <a href="#contact" class="btn btn-outline" style="border-color:#fff; color:#fff;">Enquire Online</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-info">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Visit or contact our Warwick practice</h2>
+      <p>Send us a message, give us a call, or drop by — our reception team is happy to help with NHS registrations, private enquiries and appointment bookings.</p>
+
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p>14 Castle Hill, Warwick, CV34 4BW</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <a href="tel:01926123456">01926 123 456</a>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:hello@castledentalwarwick.co.uk">hello@castledentalwarwick.co.uk</a>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🕒</div>
+        <div style="width:100%;">
+          <h4>Opening Hours</h4>
+          <table class="hours-table">
+            <tr><td>Monday – Thursday</td><td>8:30am – 5:30pm</td></tr>
+            <tr><td>Friday</td><td>8:30am – 4:30pm</td></tr>
+            <tr><td>Saturday</td><td>9:00am – 1:00pm</td></tr>
+            <tr><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps?q=Castle%20Hill%2C%20Warwick%2C%20CV34%204BW&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map showing Castle Dental location in Warwick">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">Castle Dental</a>
+        <p>A family dental practice in the heart of Warwick, providing NHS and private care since 2009.</p>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Treatments</a></li>
+          <li><a href="#reviews">Patient Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Patients</h4>
+        <ul>
+          <li><a href="#plans">NHS Care</a></li>
+          <li><a href="#plans">Private Care</a></li>
+          <li><a href="#contact">Register as a Patient</a></li>
+          <li><a href="#contact">Emergency Appointments</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>14 Castle Hill, Warwick, CV34 4BW</li>
+          <li><a href="tel:01926123456">01926 123 456</a></li>
+          <li><a href="mailto:hello@castledentalwarwick.co.uk">hello@castledentalwarwick.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Castle Dental, Warwick. All rights reserved.</div>
+      <div>Regulated by the General Dental Council</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+```

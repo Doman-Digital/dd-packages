@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Nested reveals</title>
+<style>
+  body { margin: 0; font-family: Georgia, serif; }
+  section { min-height: 700px; padding: 60px 40px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { padding: 24px; border: 1px solid #ccc; }
+  /* The shape a model writes: the section shows, the cards inside wait for a scroll. */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<section><h1>Tidewell Plumbing, Norwich</h1><p>Boilers fitted and leaks fixed across the city.</p></section>
+<section><div class="container"><h2>Boilers</h2><div class="grid"><div class="card reveal">Fitted and serviced by the same engineer.</div><div class="card reveal">Annual service with a written report.</div><div class="card reveal">Breakdown visits the same day where we can.</div></div></div></section>
+<section><div class="container"><h2>Leaks</h2><div class="grid"><div class="card reveal">Traced and fixed without lifting the whole floor.</div><div class="card reveal">Insurance reports written for you.</div><div class="card reveal">Emergency call-outs across Norwich.</div></div></div></section>
+<section><div class="container"><h2>Bathrooms</h2><div class="grid"><div class="card reveal">Full refits planned room by room.</div><div class="card reveal">Showers, baths and towel rails.</div><div class="card reveal">Tiling done by our own fitter.</div></div></div></section>
+<section><div class="container"><h2>Reviews</h2><div class="grid"><div class="card reveal">Turned up when he said he would.</div><div class="card reveal">Fixed a leak two others missed.</div><div class="card reveal">Clear price before any work started.</div></div></div></section>
+<section><div class="container"><h2>Get in touch</h2><div class="grid"><div class="card reveal">Call 01603 000000 between eight and six.</div><div class="card reveal">Email and we reply the same day.</div><div class="card reveal">Or book a visit online in a minute.</div></div></div></section>
+</body>
+</html>

@@ -1,0 +1,578 @@
+{
+  "version": 1,
+  "url": "pages/10.html",
+  "capturedAt": "2026-09-23T11:19:03.770Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5218,
+  "ground": "rgb(251, 246, 241)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3427106,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 1200705,
+        "chars": 0
+      },
+      {
+        "value": "rgb(243, 217, 220)",
+        "area": 241072,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 157015,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 246, 241)",
+        "area": 115704,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 25200,
+        "chars": 0
+      },
+      {
+        "value": "rgb(231, 180, 187)",
+        "area": 18348,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.6)",
+        "area": 10437,
+        "chars": 0
+      },
+      {
+        "value": "rgb(169, 182, 161)",
+        "area": 4332,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(92, 83, 76)",
+        "area": 0,
+        "chars": 1054
+      },
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 0,
+        "chars": 857
+      },
+      {
+        "value": "rgb(74, 66, 60)",
+        "area": 0,
+        "chars": 698
+      },
+      {
+        "value": "rgb(207, 196, 186)",
+        "area": 0,
+        "chars": 335
+      },
+      {
+        "value": "rgb(119, 111, 103)",
+        "area": 0,
+        "chars": 289
+      },
+      {
+        "value": "rgb(184, 173, 163)",
+        "area": 0,
+        "chars": 261
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 255
+      },
+      {
+        "value": "rgb(148, 139, 131)",
+        "area": 0,
+        "chars": 223
+      },
+      {
+        "value": "rgb(201, 138, 125)",
+        "area": 0,
+        "chars": 134
+      },
+      {
+        "value": "rgb(138, 128, 121)",
+        "area": 0,
+        "chars": 98
+      },
+      {
+        "value": "rgb(119, 112, 106)",
+        "area": 0,
+        "chars": 54
+      },
+      {
+        "value": "rgb(244, 237, 230)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgb(224, 161, 58)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(168, 159, 150)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 3609,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 726,
+      "displayChars": 501,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 50,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Glass skin, without the customs form.",
+      "top": 250
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 35,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything for a proper K-beauty routine",
+      "top": 879
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleansers",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Toners & Essences",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Serums & Ampoules",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sheet Masks",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "SPF & Sun Care",
+      "top": 1477
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Moisturisers",
+      "top": 1477
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Eye Care",
+      "top": 1477
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lip & Tint",
+      "top": 1477
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 35,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "What our customers keep reordering",
+      "top": 1783
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Relief Sun: Rice + Probiotics SPF50+",
+      "top": 2187
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Advanced Snail 96 Mucin Power Essence",
+      "top": 2187
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Heartleaf 77% Soothing Toner",
+      "top": 2187
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Madagascar Centella Ampoule",
+      "top": 2187
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Not sure where to start? We'll build your routine.",
+      "top": 2578
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Korean skincare, made simple for the UK",
+      "top": 3160
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 35,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Loved by skin all over the UK",
+      "top": 3815
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 4378
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 40,
+      "background": "rgb(44, 38, 34)",
+      "text": "Bag (0)"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 54,
+      "background": "rgb(44, 38, 34)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Build Your Routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 54,
+      "background": "rgb(231, 180, 187)",
+      "text": "Take the 2-Minute Skin Quiz"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 40,
+      "heightPx": 53,
+      "background": "rgb(44, 38, 34)",
+      "text": "Get My Code"
+    }
+  ],
+  "sections": [
+    {
+      "top": 114,
+      "height": 522,
+      "kind": "hero",
+      "label": "Glass skin, without the customs form.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 636,
+      "height": 133,
+      "kind": "text",
+      "label": "🇬🇧 Shipped from UK stock — no customs charges ⚡ Order by 2",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 769,
+      "height": 905,
+      "kind": "cards",
+      "label": "Everything for a proper K-beauty routine",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1673,
+      "height": 736,
+      "kind": "cards",
+      "label": "What our customers keep reordering",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2409,
+      "height": 639,
+      "kind": "text",
+      "label": "Not sure where to start? We'll build your routine.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3048,
+      "height": 657,
+      "kind": "cards",
+      "label": "Korean skincare, made simple for the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3705,
+      "height": 613,
+      "kind": "cards",
+      "label": "Loved by skin all over the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4318,
+      "height": 501,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4819,
+      "height": 399,
+      "kind": "text",
+      "label": "Harrisons Beauty Authentic Korean skincare, shipped from our",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(243, 217, 220)",
+          "rgb(248, 233, 230)",
+          "rgb(251, 246, 241)"
+        ],
+        "area": 751590,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(231, 180, 187)"
+        ],
+        "area": 115600,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(243, 217, 220)",
+          "rgb(248, 233, 230)"
+        ],
+        "area": 476961,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      24,
+      26,
+      27,
+      29,
+      32,
+      34,
+      35,
+      50
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "30px",
+      "40px",
+      "50%"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 31.9,
+    "bodyLineLengthCh": 47,
+    "bodyFontSizePx": 17
+  }
+}

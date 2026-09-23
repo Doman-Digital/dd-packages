@@ -1,0 +1,474 @@
+{
+  "version": 1,
+  "url": "pages/13.html",
+  "capturedAt": "2026-09-23T11:19:18.741Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5053,
+  "ground": "rgb(244, 239, 232)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(22, 19, 17)",
+        "area": 3260063,
+        "chars": 0
+      },
+      {
+        "value": "rgb(234, 226, 214)",
+        "area": 2160225,
+        "chars": 0
+      },
+      {
+        "value": "rgb(169, 128, 63)",
+        "area": 520038,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.05)",
+        "area": 220095,
+        "chars": 0
+      },
+      {
+        "value": "rgb(36, 31, 25)",
+        "area": 214217,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.06)",
+        "area": 129501,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.92)",
+        "area": 113400,
+        "chars": 0
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.55)",
+        "area": 6121,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgba(22, 19, 17, 0.75)",
+        "area": 0,
+        "chars": 746
+      },
+      {
+        "value": "rgb(22, 19, 17)",
+        "area": 0,
+        "chars": 449
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.6)",
+        "area": 0,
+        "chars": 444
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.68)",
+        "area": 0,
+        "chars": 344
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.6)",
+        "area": 0,
+        "chars": 284
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.78)",
+        "area": 0,
+        "chars": 250
+      },
+      {
+        "value": "rgb(244, 239, 232)",
+        "area": 0,
+        "chars": 234
+      },
+      {
+        "value": "rgb(169, 128, 63)",
+        "area": 0,
+        "chars": 151
+      },
+      {
+        "value": "rgb(125, 94, 44)",
+        "area": 0,
+        "chars": 135
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.72)",
+        "area": 0,
+        "chars": 125
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.7)",
+        "area": 0,
+        "chars": 106
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.55)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.65)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.65)",
+        "area": 0,
+        "chars": 30
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 2841,
+      "displayChars": 27,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 529,
+      "displayChars": 229,
+      "italicChars": 48,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 58,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "One chair. One barber. Your full hour.",
+      "top": 226
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cutting hair on St John Street since day one",
+      "top": 865
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every service, full attention",
+      "top": 1593
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fewer chairs. Better haircuts.",
+      "top": 3177
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "No handovers",
+      "top": 3403
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fixed appointments",
+      "top": 3403
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A private room",
+      "top": 3403
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Find us on St John Street",
+      "top": 3779
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 12,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Address",
+      "top": 3855
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 12,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opening Hours",
+      "top": 3990
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 12,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contact",
+      "top": 4171
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 42,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for your hour?",
+      "top": 4438
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 42,
+      "background": "rgb(22, 19, 17)",
+      "text": "Book a Chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgb(169, 128, 63)",
+      "text": "Book Your Appointment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View Services & Prices"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 51,
+      "background": "rgb(22, 19, 17)",
+      "text": "Call 0161 496 0142"
+    }
+  ],
+  "sections": [
+    {
+      "top": 79,
+      "height": 603,
+      "kind": "hero",
+      "label": "One chair. One barber. Your full hour.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 682,
+      "height": 786,
+      "kind": "text",
+      "label": "Cutting hair on St John Street since day one",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1468,
+      "height": 1050,
+      "kind": "text",
+      "label": "Every service, full attention",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2518,
+      "height": 535,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3052,
+      "height": 602,
+      "kind": "cards",
+      "label": "Fewer chairs. Better haircuts.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3654,
+      "height": 714,
+      "kind": "text",
+      "label": "Find us on St John Street",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4368,
+      "height": 353,
+      "kind": "text",
+      "label": "Ready for your hour?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4721,
+      "height": 332,
+      "kind": "text",
+      "label": "Chair & Blade A one-to-one barber studio on St John Street, ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(169, 128, 63, 0.16)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 868298,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(60, 52, 42)",
+          "rgb(22, 19, 17)"
+        ],
+        "area": 297680,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 1,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      24,
+      38,
+      42,
+      58
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "6px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 46.9,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 17
+  }
+}

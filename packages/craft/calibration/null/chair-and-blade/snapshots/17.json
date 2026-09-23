@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "url": "pages/17.html",
+  "capturedAt": "2026-09-23T11:19:39.986Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5296,
+  "ground": "rgb(20, 19, 16)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgba(20, 19, 16, 0.92)",
+        "area": 115268,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 163, 93)",
+        "area": 27388,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(169, 163, 151)",
+        "area": 0,
+        "chars": 2158
+      },
+      {
+        "value": "rgb(216, 211, 198)",
+        "area": 0,
+        "chars": 1073
+      },
+      {
+        "value": "rgb(245, 241, 232)",
+        "area": 0,
+        "chars": 579
+      },
+      {
+        "value": "rgb(201, 163, 93)",
+        "area": 0,
+        "chars": 246
+      },
+      {
+        "value": "rgb(20, 19, 16)",
+        "area": 0,
+        "chars": 44
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3725,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 375,
+      "displayChars": 337,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 61,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber. One chair. Your full appointment, uninterrupted.",
+      "top": 228
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Run by one barber, on purpose.",
+      "top": 932
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every price is fixed. Every slot is yours alone.",
+      "top": 1686
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "The whole appointment is about you, not the schedule.",
+      "top": 2973
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "No overlap",
+      "top": 3313
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Same barber, always",
+      "top": 3313
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Private by design",
+      "top": 3313
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Find the studio",
+      "top": 3661
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opening hours",
+      "top": 3803
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Getting here",
+      "top": 3707
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Regulars, not just repeat customers.",
+      "top": 4186
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Book your time with Theo",
+      "top": 4707
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 43,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(201, 163, 93)",
+      "text": "Book your slot"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See services & prices"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 52,
+      "background": "rgb(201, 163, 93)",
+      "text": "Open in Maps"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(201, 163, 93)",
+      "text": "Call 0161 823 4471"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "@chairandbladehq"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 80,
+      "kind": "hero",
+      "label": "Chair & Blade Services About Location Contact Book a chair ☰",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 80,
+      "height": 728,
+      "kind": "hero",
+      "label": "One barber. One chair. Your full appointment, uninterrupted.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 808,
+      "height": 755,
+      "kind": "text",
+      "label": "Run by one barber, on purpose.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1562,
+      "height": 1287,
+      "kind": "text",
+      "label": "Every price is fixed. Every slot is yours alone.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2849,
+      "height": 722,
+      "kind": "stats",
+      "label": "The whole appointment is about you, not the schedule.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3571,
+      "height": 491,
+      "kind": "text",
+      "label": "Find the studio",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4062,
+      "height": 565,
+      "kind": "cards",
+      "label": "Regulars, not just repeat customers.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4627,
+      "height": 355,
+      "kind": "text",
+      "label": "Book your time with Theo",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4982,
+      "height": 314,
+      "kind": "text",
+      "label": "Chair and Blade 24 St John StreetManchester, M3 4DT A one-to",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.08)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 1047600,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.05)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 194866,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.06)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 153714,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.06)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 511043,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      22,
+      24,
+      26,
+      42,
+      61
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 34.7,
+    "bodyLineLengthCh": 59,
+    "bodyFontSizePx": 18
+  }
+}

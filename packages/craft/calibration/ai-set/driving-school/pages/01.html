@@ -1,0 +1,1011 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearway Driving School | Manual & Automatic Driving Lessons in Coventry</title>
+<meta name="description" content="Clearway Driving School offers manual and automatic driving lessons in Coventry with DVSA-approved instructors. Book your first lesson today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #10233f;
+    --blue: #1d63d1;
+    --blue-light: #eaf1fd;
+    --amber: #f6a623;
+    --grey: #5b6472;
+    --bg: #f7f9fc;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .logo {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(16, 35, 63, 0.06);
+  }
+
+  .nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo span {
+    color: var(--blue);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--navy);
+    transition: color 0.2s;
+  }
+
+  nav a:hover {
+    color: var(--blue);
+  }
+
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .phone-link {
+    font-weight: 600;
+    color: var(--blue);
+    white-space: nowrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--navy);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(246, 166, 35, 0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+  }
+
+  .btn-outline:hover {
+    background: var(--white);
+    color: var(--navy);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--navy);
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a63 100%);
+    color: var(--white);
+    padding: 80px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -120px;
+    top: -80px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(246,166,35,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: 2.9rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--amber);
+  }
+
+  .hero p.lead {
+    font-size: 1.1rem;
+    color: #d6e1f0;
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats div strong {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--amber);
+    font-weight: 800;
+  }
+
+  .hero-stats div span {
+    font-size: 0.85rem;
+    color: #c3d1e5;
+  }
+
+  .hero-card {
+    background: var(--white);
+    color: var(--navy);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  }
+
+  .hero-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-card p {
+    color: var(--grey);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .hero-card input, .hero-card select {
+    padding: 13px 14px;
+    border-radius: 10px;
+    border: 1px solid #dde4ee;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--bg);
+  }
+
+  .hero-card .btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    margin-top: 4px;
+  }
+
+  .hero-card .fine-print {
+    font-size: 0.78rem;
+    color: var(--grey);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* Trust bar */
+  .trust-bar {
+    background: var(--blue-light);
+    padding: 20px 0;
+  }
+
+  .trust-bar .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .trust-bar .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Section common */
+  section {
+    padding: 90px 0;
+  }
+
+  .section-tag {
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  .section-head.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .section-head h2 {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+  }
+
+  .section-head p {
+    color: var(--grey);
+    font-size: 1.05rem;
+  }
+
+  /* Lesson types */
+  .lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .lesson-card {
+    background: var(--bg);
+    border-radius: 18px;
+    padding: 36px 30px;
+    border: 1px solid #edf1f7;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .lesson-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(16,35,63,0.08);
+  }
+
+  .lesson-card .icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: var(--blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .lesson-card.featured .icon {
+    background: var(--amber);
+  }
+
+  .lesson-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .lesson-card p {
+    color: var(--grey);
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+
+  .lesson-card ul {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .lesson-card li {
+    font-size: 0.9rem;
+    color: var(--navy);
+    padding: 6px 0;
+    border-top: 1px solid #e4e9f1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .lesson-card li:first-child {
+    border-top: none;
+  }
+
+  .lesson-card .price {
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  /* Why us */
+  .why-section {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.06);
+    padding: 30px 24px;
+    border-radius: 16px;
+  }
+
+  .why-card .icon {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+
+  .why-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .why-card p {
+    font-size: 0.9rem;
+    color: #c3d1e5;
+  }
+
+  .why-section .section-head h2,
+  .why-section .section-head p {
+    color: var(--white);
+  }
+
+  .why-section .section-head p {
+    color: #c3d1e5;
+  }
+
+  /* Areas */
+  .areas-section {
+    background: var(--bg);
+  }
+
+  .areas-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .areas-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+    margin-top: 24px;
+  }
+
+  .areas-list div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    padding: 10px 0;
+    border-bottom: 1px solid #e4e9f1;
+  }
+
+  .areas-list div::before {
+    content: "📍";
+  }
+
+  .map-box {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    border-radius: 18px;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(16,35,63,0.15);
+  }
+
+  .map-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  /* Testimonials */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .testi-card {
+    background: var(--white);
+    border: 1px solid #edf1f7;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(16,35,63,0.05);
+  }
+
+  .stars {
+    color: var(--amber);
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .testi-card p.quote {
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testi-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .testi-author strong {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  .testi-author span {
+    font-size: 0.8rem;
+    color: var(--grey);
+  }
+
+  /* FAQ */
+  .faq-section {
+    background: var(--bg);
+  }
+
+  .faq-item {
+    background: var(--white);
+    border: 1px solid #e4e9f1;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    padding: 20px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: var(--blue);
+    font-weight: 400;
+  }
+
+  .faq-item[open] summary::after {
+    content: "–";
+  }
+
+  .faq-item .faq-body {
+    padding: 0 24px 20px;
+    color: var(--grey);
+    font-size: 0.95rem;
+  }
+
+  /* CTA band */
+  .cta-band {
+    background: linear-gradient(135deg, var(--blue) 0%, #144a9c 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 70px 0;
+  }
+
+  .cta-band h2 {
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+
+  .cta-band p {
+    color: #d6e1f0;
+    margin-bottom: 30px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--navy);
+    color: #c3d1e5;
+    padding: 60px 0 24px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 36px;
+    margin-bottom: 40px;
+  }
+
+  .footer-grid h4 {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
+  .footer-grid ul {
+    list-style: none;
+  }
+
+  .footer-grid li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+
+  .footer-grid a:hover {
+    color: var(--white);
+  }
+
+  .footer-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .footer-logo span {
+    color: var(--amber);
+  }
+
+  .footer-grid p {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.82rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { order: -1; }
+    .lesson-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .areas-flex { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+    .menu-toggle { display: block; }
+    .phone-link { display: none; }
+    .hero h1 { font-size: 2.1rem; }
+    .lesson-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 22px; }
+    section { padding: 60px 0; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap container">
+    <a href="#top" class="logo">Clearway <span>Driving School</span></a>
+    <nav>
+      <ul>
+        <li><a href="#lessons">Lessons</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:02476000123" class="phone-link">024 7600 0123</a>
+      <a href="#contact" class="btn btn-primary">Book a Lesson</a>
+      <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div>
+      <span class="badge">🚗 DVSA Approved Driving Instructor</span>
+      <h1>Learn to drive in Coventry with <em>confidence</em>, not stress.</h1>
+      <p class="lead">Clearway Driving School offers patient, structured manual and automatic lessons across Coventry and the surrounding areas — with a proven pass rate and instructors who actually explain things properly.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Book Your First Lesson</a>
+        <a href="tel:02476000123" class="btn btn-outline">Call 024 7600 0123</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>94%</strong><span>First-time test pass rate</span></div>
+        <div><strong>1,200+</strong><span>Learners taught since 2011</span></div>
+        <div><strong>4.9★</strong><span>Average pupil rating</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Get a Free Introductory Lesson</h3>
+      <p>Tell us a bit about you and we'll match you with the right instructor and car.</p>
+      <form onsubmit="event.preventDefault(); alert('Thanks! A member of the Clearway team will call you back shortly.');">
+        <input type="text" placeholder="Full name" required>
+        <input type="tel" placeholder="Phone number" required>
+        <select required>
+          <option value="" disabled selected>Manual or Automatic?</option>
+          <option>Manual</option>
+          <option>Automatic</option>
+          <option>Not sure yet</option>
+        </select>
+        <input type="text" placeholder="Your postcode (e.g. CV1 2AB)" required>
+        <button type="submit" class="btn btn-primary">Claim My Free Lesson</button>
+      </form>
+      <p class="fine-print">No obligation. Available for new pupils only.</p>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container">
+    <div class="item">✅ DBS Checked Instructors</div>
+    <div class="item">🚙 Dual-Control Vehicles</div>
+    <div class="item">📅 Flexible Evening & Weekend Slots</div>
+    <div class="item">🎓 Pass Plus Available</div>
+  </div>
+</div>
+
+<section id="lessons">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-tag">Our Lessons</span>
+      <h2>Choose the lesson that suits you</h2>
+      <p>Whether you're starting from scratch, switching from manual to automatic, or brushing up before your test, we've got a package for it.</p>
+    </div>
+    <div class="lesson-grid">
+      <div class="lesson-card">
+        <div class="icon">🚗</div>
+        <h3>Manual Lessons</h3>
+        <p>Full control over gears and clutch — the traditional route, and still the most popular choice in Coventry.</p>
+        <ul>
+          <li><span>1 hour lesson</span><span class="price">£32</span></li>
+          <li><span>Block of 10 hours</span><span class="price">£300</span></li>
+          <li><span>2 hour lesson</span><span class="price">£60</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="border-color:var(--blue); color:var(--blue); width:100%; text-align:center;">Book Manual Lessons</a>
+      </div>
+      <div class="lesson-card featured">
+        <div class="icon">⚙️</div>
+        <h3>Automatic Lessons</h3>
+        <p>No clutch, no stalling. A great option if you find gear changes stressful or plan to drive an automatic car.</p>
+        <ul>
+          <li><span>1 hour lesson</span><span class="price">£34</span></li>
+          <li><span>Block of 10 hours</span><span class="price">£320</span></li>
+          <li><span>2 hour lesson</span><span class="price">£64</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width:100%; text-align:center;">Book Automatic Lessons</a>
+      </div>
+      <div class="lesson-card">
+        <div class="icon">🏁</div>
+        <h3>Intensive Courses</h3>
+        <p>Learn in a matter of weeks, not months. Ideal if you have a job offer, house move, or deadline approaching.</p>
+        <ul>
+          <li><span>20-hour course</span><span class="price">£560</span></li>
+          <li><span>30-hour course</span><span class="price">£820</span></li>
+          <li><span>Test day booking</span><span class="price">Included</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="border-color:var(--blue); color:var(--blue); width:100%; text-align:center;">Ask About Intensive</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why-us">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-tag" style="color:var(--amber);">Why Clearway</span>
+      <h2>Driving lessons that actually make sense</h2>
+      <p>We've been teaching Coventry to drive since 2011. Here's what pupils tell us makes the difference.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">🧑‍🏫</div>
+        <h3>Patient, Qualified Instructors</h3>
+        <p>Every instructor is DVSA-approved (ADI badged) and trained to teach at your pace, not theirs.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">📍</div>
+        <h3>Local Test Route Knowledge</h3>
+        <p>We know the Coventry test centre routes inside out, including the junctions that catch people out.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">💳</div>
+        <h3>No Hidden Costs</h3>
+        <p>Fuel, insurance and dual-control car use are all included in your hourly rate — what you see is what you pay.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">📱</div>
+        <h3>Easy Online Booking</h3>
+        <p>Book, reschedule or check your progress notes online — no chasing your instructor by text.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="areas-section" id="areas">
+  <div class="container areas-flex">
+    <div>
+      <span class="section-tag">Coverage Area</span>
+      <h2>Proudly teaching learners across Coventry</h2>
+      <p style="color:var(--grey); margin-top:14px;">We pick up and drop off from home, work or college anywhere within our coverage area, including:</p>
+      <div class="areas-list">
+        <div>Coventry City Centre</div>
+        <div>Earlsdon</div>
+        <div>Tile Hill</div>
+        <div>Cheylesmore</div>
+        <div>Coundon</div>
+        <div>Wyken</div>
+        <div>Allesley</div>
+        <div>Binley</div>
+        <div>Radford</div>
+        <div>Finham</div>
+        <div>Keresley</div>
+        <div>Walsgrave</div>
+      </div>
+    </div>
+    <div class="map-box">
+      <div>
+        <h3>Based in Coventry</h3>
+        <p>Serving CV1–CV6 postcodes and nearby villages. Not sure if we cover your area? Just ask.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-tag">Pupil Reviews</span>
+      <h2>What Coventry learners say about us</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Passed first time with only 3 minors! My instructor was so calm and never made me feel silly for making mistakes. Would recommend Clearway to anyone in Coventry."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">HP</div>
+          <div><strong>Harjit P.</strong><span>Wyken, Coventry</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Switched to automatic lessons after struggling with manual elsewhere and it was the best decision I made. Booked my test within 8 weeks."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SM</div>
+          <div><strong>Sophie M.</strong><span>Earlsdon, Coventry</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Did the 20-hour intensive course before starting a new job. Structured, clear feedback after every lesson and genuinely friendly instructor."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DK</div>
+          <div><strong>Daniel K.</strong><span>Tile Hill, Coventry</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-tag">Common Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div style="max-width:760px; margin:0 auto;">
+      <details class="faq-item" open>
+        <summary>Do I need to decide between manual and automatic before I start?</summary>
+        <div class="faq-body">Not necessarily. If you're unsure, mention it when you book and your instructor can talk through the pros and cons based on what you plan to drive after passing.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How many lessons will I need?</summary>
+        <div class="faq-body">On average, DVSA data suggests around 45 hours of professional lessons plus 20 hours of private practice. It varies by pupil — your instructor will give you an honest estimate after your first couple of lessons.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer pickup from home or work?</summary>
+        <div class="faq-body">Yes. Lessons include pickup and drop-off anywhere within our Coventry coverage area, at no extra cost.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I pay for lessons individually or do I have to buy a block?</summary>
+        <div class="faq-body">Both options are available. Block bookings work out cheaper per hour, but single lessons are available if you'd prefer to try us out first.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you help book my theory and practical test?</summary>
+        <div class="faq-body">Yes, we can advise on timing and, for intensive course pupils, we'll handle the practical test booking as part of the package.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="container">
+    <h2>Ready to get moving?</h2>
+    <p>Book your first lesson today or give us a call to talk through manual vs. automatic, pricing, or availability in your area of Coventry.</p>
+    <div class="cta-btns">
+      <a href="tel:02476000123" class="btn btn-primary">📞 Call 024 7600 0123</a>
+      <a href="mailto:info@clearwaydrivingschool.co.uk" class="btn btn-outline">✉️ Email Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Clearway <span>Driving School</span></div>
+        <p>DVSA-approved manual and automatic driving lessons across Coventry since 2011.</p>
+        <p>📍 42 Foleshill Road, Coventry, CV1 4JA</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#lessons">Lessons</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#areas">Areas Covered</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Lesson Types</h4>
+        <ul>
+          <li><a href="#lessons">Manual Lessons</a></li>
+          <li><a href="#lessons">Automatic Lessons</a></li>
+          <li><a href="#lessons">Intensive Courses</a></li>
+          <li><a href="#lessons">Pass Plus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li>📞 024 7600 0123</li>
+          <li>✉️ info@clearwaydrivingschool.co.uk</li>
+          <li>🕒 Mon–Sat: 8am – 7pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Clearway Driving School, Coventry. All rights reserved.</span>
+      <span>Registered ADI No. 123456 · Fully Insured</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+```

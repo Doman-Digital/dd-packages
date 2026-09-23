@@ -1,0 +1,1011 @@
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightside Cleaning | Domestic & Office Cleaning in Reading</title>
+<meta name="description" content="Brightside Cleaning provides trusted, insured domestic and office cleaning services across Reading and Berkshire. Book a free quote today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --brand-yellow:#FFC93C;
+    --brand-navy:#12233F;
+    --brand-navy-light:#1c355c;
+    --brand-teal:#2AA6A0;
+    --brand-grey:#6B7280;
+    --bg-soft:#F7F8FA;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:#22303F;
+    line-height:1.6;
+    background:#fff;
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins',sans-serif;
+    color:var(--brand-navy);
+    line-height:1.25;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{
+    max-width:1160px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{
+    background:var(--brand-yellow);
+    color:var(--brand-navy);
+    box-shadow:0 8px 20px rgba(255,201,60,.35);
+  }
+  .btn-outline{
+    background:transparent;
+    color:#fff;
+    border:2px solid rgba(255,255,255,.6);
+  }
+  .btn-outline:hover{background:rgba(255,255,255,.12);}
+  .btn-dark{
+    background:var(--brand-navy);
+    color:#fff;
+  }
+
+  /* HEADER */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#fff;
+    border-bottom:1px solid #EEF0F3;
+  }
+  .nav-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    max-width:1160px;
+    margin:0 auto;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:20px;
+    color:var(--brand-navy);
+  }
+  .logo-mark{
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(135deg,var(--brand-yellow),#ffdf85);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--brand-navy);font-size:18px;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:32px;
+    font-weight:500;
+    font-size:15px;
+  }
+  nav a:hover{color:var(--brand-teal);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .nav-phone{
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--brand-navy);
+    font-size:15px;
+  }
+  .nav-phone i{color:var(--brand-teal);}
+  .menu-toggle{display:none;background:none;border:none;font-size:22px;color:var(--brand-navy);cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(120deg,var(--brand-navy) 0%, var(--brand-navy-light) 55%, #234a78 100%);
+    color:#fff;
+    padding:90px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:420px;height:420px;
+    background:radial-gradient(circle, rgba(255,201,60,.25), transparent 70%);
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.1);
+    padding:6px 14px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.4px;
+    margin-bottom:18px;
+  }
+  .eyebrow i{color:var(--brand-yellow);}
+  .hero h1{
+    font-size:clamp(32px,4.5vw,50px);
+    color:#fff;
+    margin-bottom:18px;
+  }
+  .hero h1 span{color:var(--brand-yellow);}
+  .hero p{
+    font-size:17px;
+    color:#D6DEEA;
+    max-width:520px;
+    margin-bottom:28px;
+  }
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px;}
+  .hero-trust{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .hero-trust div{display:flex;align-items:center;gap:8px;font-size:14px;color:#C7D1E0;}
+  .hero-trust i{color:var(--brand-yellow);}
+  .hero-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:28px;
+    color:#22303F;
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
+  }
+  .hero-card h3{font-size:19px;margin-bottom:6px;}
+  .hero-card p.small{color:var(--brand-grey);font-size:14px;margin-bottom:20px;}
+  .hero-card form{display:flex;flex-direction:column;gap:12px;}
+  .hero-card input, .hero-card select{
+    padding:12px 14px;
+    border:1px solid #E1E5EB;
+    border-radius:8px;
+    font-family:inherit;
+    font-size:14px;
+    width:100%;
+  }
+  .hero-card .btn{width:100%;justify-content:center;margin-top:4px;}
+  .hero-stars{display:flex;gap:4px;color:#FFC93C;margin-top:16px;font-size:13px;}
+  .hero-stars span{color:var(--brand-grey);}
+
+  /* SECTION HEADINGS */
+  .section{padding:80px 0;}
+  .section-bg{background:var(--bg-soft);}
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 50px;
+  }
+  .section-head .eyebrow-dark{
+    display:inline-block;
+    color:var(--brand-teal);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .section-head h2{font-size:clamp(26px,3.5vw,36px);margin-bottom:14px;}
+  .section-head p{color:var(--brand-grey);font-size:16px;}
+
+  /* SERVICES */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid #EEF0F3;
+    border-radius:var(--radius);
+    padding:32px 26px;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .service-card:hover{
+    box-shadow:0 16px 40px rgba(18,35,63,.08);
+    transform:translateY(-4px);
+  }
+  .service-icon{
+    width:54px;height:54px;
+    border-radius:12px;
+    background:rgba(42,166,160,.12);
+    color:var(--brand-teal);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    margin-bottom:18px;
+  }
+  .service-card h3{font-size:19px;margin-bottom:10px;}
+  .service-card p{color:var(--brand-grey);font-size:14.5px;margin-bottom:14px;}
+  .service-card ul{list-style:none;font-size:14px;color:#3B4758;}
+  .service-card ul li{display:flex;gap:8px;margin-bottom:6px;align-items:flex-start;}
+  .service-card ul li i{color:var(--brand-teal);margin-top:3px;font-size:12px;}
+
+  /* WHY US */
+  .why-wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .why-img{
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:linear-gradient(135deg,#2AA6A0,#12233F);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;
+    font-size:60px;
+  }
+  .why-list{display:grid;gap:22px;margin-top:28px;}
+  .why-item{display:flex;gap:16px;}
+  .why-item .num{
+    flex-shrink:0;
+    width:42px;height:42px;
+    border-radius:10px;
+    background:var(--brand-yellow);
+    color:var(--brand-navy);
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Poppins',sans-serif;
+  }
+  .why-item h4{font-size:16.5px;margin-bottom:4px;}
+  .why-item p{color:var(--brand-grey);font-size:14.5px;}
+
+  /* PROCESS */
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .process-step{text-align:center;position:relative;}
+  .process-step .circle{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:var(--brand-navy);
+    color:var(--brand-yellow);
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;
+    margin:0 auto 18px;
+  }
+  .process-step h4{font-size:16px;margin-bottom:8px;}
+  .process-step p{font-size:14px;color:var(--brand-grey);}
+
+  /* PRICING */
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .price-card{
+    background:#fff;
+    border:1px solid #EEF0F3;
+    border-radius:var(--radius);
+    padding:34px 28px;
+    text-align:center;
+    position:relative;
+  }
+  .price-card.featured{
+    border-color:var(--brand-navy);
+    box-shadow:0 20px 40px rgba(18,35,63,.12);
+    transform:scale(1.03);
+  }
+  .price-tag{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--brand-yellow);
+    color:var(--brand-navy);
+    font-size:12px;
+    font-weight:700;
+    padding:5px 14px;
+    border-radius:50px;
+  }
+  .price-card h3{font-size:18px;margin-bottom:6px;}
+  .price-card .price{
+    font-family:'Poppins',sans-serif;
+    font-size:34px;
+    font-weight:700;
+    color:var(--brand-navy);
+    margin:14px 0 4px;
+  }
+  .price-card .price span{font-size:14px;font-weight:500;color:var(--brand-grey);}
+  .price-card ul{list-style:none;text-align:left;margin:22px 0;font-size:14px;color:#3B4758;}
+  .price-card ul li{display:flex;gap:8px;margin-bottom:10px;}
+  .price-card ul li i{color:var(--brand-teal);margin-top:3px;font-size:12px;}
+  .price-card .btn{width:100%;justify-content:center;}
+
+  /* TESTIMONIALS */
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .testi-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:28px;
+    border:1px solid #EEF0F3;
+  }
+  .testi-stars{color:var(--brand-yellow);margin-bottom:14px;font-size:14px;}
+  .testi-card p{font-size:14.5px;color:#3B4758;margin-bottom:20px;}
+  .testi-author{display:flex;align-items:center;gap:12px;}
+  .testi-avatar{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--brand-navy);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-family:'Poppins',sans-serif;
+  }
+  .testi-author strong{font-size:14px;display:block;}
+  .testi-author span{font-size:12.5px;color:var(--brand-grey);}
+
+  /* AREAS */
+  .areas-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+  }
+  .area-pill{
+    background:#fff;
+    border:1px solid #E1E5EB;
+    padding:10px 20px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:500;
+    display:flex;align-items:center;gap:8px;
+  }
+  .area-pill i{color:var(--brand-teal);}
+
+  /* CTA BAND */
+  .cta-band{
+    background:var(--brand-navy);
+    color:#fff;
+    border-radius:24px;
+    padding:56px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+  }
+  .cta-band h2{color:#fff;font-size:28px;margin-bottom:8px;}
+  .cta-band p{color:#C7D1E0;}
+
+  /* FAQ */
+  .faq-item{
+    border-bottom:1px solid #E7EAEF;
+    padding:20px 0;
+  }
+  .faq-q{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    font-weight:600;
+    font-size:15.5px;
+    color:var(--brand-navy);
+  }
+  .faq-q i{transition:transform .2s ease;color:var(--brand-teal);}
+  .faq-item.open .faq-q i{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .25s ease;
+    color:var(--brand-grey);
+    font-size:14.5px;
+  }
+  .faq-item.open .faq-a{max-height:200px;padding-top:12px;}
+
+  /* CONTACT */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+  }
+  .contact-info h3{font-size:20px;margin-bottom:16px;}
+  .info-row{
+    display:flex;
+    gap:14px;
+    margin-bottom:18px;
+    align-items:flex-start;
+  }
+  .info-row .ic{
+    width:42px;height:42px;border-radius:10px;
+    background:rgba(42,166,160,.12);
+    color:var(--brand-teal);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .info-row strong{display:block;font-size:14.5px;}
+  .info-row span{font-size:13.5px;color:var(--brand-grey);}
+  .contact-form{
+    background:var(--bg-soft);
+    border-radius:var(--radius);
+    padding:32px;
+  }
+  .contact-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .contact-form input, .contact-form select, .contact-form textarea{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #E1E5EB;
+    border-radius:8px;
+    font-family:inherit;
+    font-size:14px;
+    margin-bottom:14px;
+    background:#fff;
+  }
+  .contact-form textarea{resize:vertical;min-height:100px;}
+
+  /* FOOTER */
+  footer{
+    background:var(--brand-navy);
+    color:#B9C4D6;
+    padding:60px 0 24px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+    gap:40px;
+    margin-bottom:40px;
+  }
+  .footer-logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:19px;
+    color:#fff;
+    margin-bottom:14px;
+  }
+  footer h4{color:#fff;font-size:15px;margin-bottom:16px;}
+  footer ul{list-style:none;}
+  footer ul li{margin-bottom:10px;font-size:14px;}
+  footer ul li a:hover{color:var(--brand-yellow);}
+  .footer-social{display:flex;gap:12px;margin-top:16px;}
+  .footer-social a{
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .footer-social a:hover{background:var(--brand-yellow);color:var(--brand-navy);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media(max-width:960px){
+    .hero-inner{grid-template-columns:1fr;}
+    .why-wrap{grid-template-columns:1fr;}
+    .services-grid, .pricing-grid, .testi-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .contact-wrap{grid-template-columns:1fr;}
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .nav-phone span{display:none;}
+  }
+  @media(max-width:600px){
+    .services-grid, .pricing-grid, .testi-grid, .process-grid{grid-template-columns:1fr;}
+    .price-card.featured{transform:none;}
+    .cta-band{padding:36px 24px;text-align:center;justify-content:center;}
+    .contact-form .row2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#" class="logo">
+      <span class="logo-mark"><i class="fa-solid fa-broom"></i></span>
+      Brightside Cleaning
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:01189001234" class="nav-phone"><i class="fa-solid fa-phone"></i> <span>0118 900 1234</span></a>
+      <a href="#contact" class="btn btn-dark">Get a Quote</a>
+      <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow"><i class="fa-solid fa-shield-heart"></i> Fully Insured &amp; DBS-Checked Cleaners</div>
+      <h1>Reading's most reliable <span>cleaning</span> service, for home and office</h1>
+      <p>Brightside Cleaning takes the chore off your plate. From weekly house cleans to daily office contracts, our vetted local team delivers a spotless result every single time — guaranteed.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Get a Free Quote</a>
+        <a href="tel:01189001234" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Call 0118 900 1234</a>
+      </div>
+      <div class="hero-trust">
+        <div><i class="fa-solid fa-circle-check"></i> No contract, cancel anytime</div>
+        <div><i class="fa-solid fa-circle-check"></i> £5m public liability cover</div>
+        <div><i class="fa-solid fa-circle-check"></i> 100% satisfaction guarantee</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Get your free, no-obligation quote</h3>
+      <p class="small">Takes under a minute. We'll reply within one working hour.</p>
+      <form onsubmit="return false;">
+        <input type="text" placeholder="Your name" required>
+        <input type="tel" placeholder="Phone number" required>
+        <select required>
+          <option value="" disabled selected>Type of cleaning</option>
+          <option>Domestic / House Cleaning</option>
+          <option>Office Cleaning</option>
+          <option>End of Tenancy Clean</option>
+          <option>Deep Clean</option>
+        </select>
+        <input type="text" placeholder="Postcode (e.g. RG1)" required>
+        <button class="btn btn-primary" type="submit">Request My Quote <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+      <div class="hero-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <span>4.9/5 from 210+ Reading customers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow-dark">What We Do</span>
+      <h2>Cleaning services built around your space</h2>
+      <p>Whether it's a two-bedroom flat in Caversham or an office on Kings Road, we tailor every visit to your needs and budget.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
+        <h3>Domestic Cleaning</h3>
+        <p>Regular or one-off cleans that keep your home fresh without eating into your weekend.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Weekly, fortnightly or monthly visits</li>
+          <li><i class="fa-solid fa-check"></i> Kitchens, bathrooms, dusting &amp; vacuuming</li>
+          <li><i class="fa-solid fa-check"></i> Same trusted cleaner each time</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+        <h3>Office &amp; Commercial</h3>
+        <p>Daily, weekly or after-hours contract cleaning for offices, shops and workspaces across Reading.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Desks, kitchens &amp; washrooms</li>
+          <li><i class="fa-solid fa-check"></i> Flexible out-of-hours scheduling</li>
+          <li><i class="fa-solid fa-check"></i> Consumables restocking available</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-broom"></i></div>
+        <h3>Deep Cleaning</h3>
+        <p>A thorough top-to-bottom clean for spring cleans, post-renovation or before a big event.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Inside ovens, fridges &amp; cupboards</li>
+          <li><i class="fa-solid fa-check"></i> Skirting boards, doors &amp; light fittings</li>
+          <li><i class="fa-solid fa-check"></i> Ideal one-off refresh</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-key"></i></div>
+        <h3>End of Tenancy</h3>
+        <p>Move out with confidence and your full deposit, with our checklist-based tenancy clean.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Meets most landlord &amp; agency standards</li>
+          <li><i class="fa-solid fa-check"></i> Carpet cleaning add-on available</li>
+          <li><i class="fa-solid fa-check"></i> Flexible move-day booking</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
+        <h3>Carpet &amp; Upholstery</h3>
+        <p>Professional steam cleaning to lift stains and refresh tired carpets and sofas.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Pet &amp; stain treatment</li>
+          <li><i class="fa-solid fa-check"></i> Fast-drying, eco-safe products</li>
+          <li><i class="fa-solid fa-check"></i> Rugs, sofas &amp; car interiors</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-window-restore"></i></div>
+        <h3>Window Cleaning</h3>
+        <p>Add-on window cleaning for homes and offices, inside and out, on a schedule that suits you.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Ground &amp; first-floor access</li>
+          <li><i class="fa-solid fa-check"></i> Frames &amp; sills included</li>
+          <li><i class="fa-solid fa-check"></i> Bundle with any regular clean</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg" id="why-us">
+  <div class="container why-wrap">
+    <div class="why-img"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+    <div>
+      <span class="eyebrow-dark">Why Brightside</span>
+      <h2>Cleaning you can trust, from people who live in Reading too</h2>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="num">01</div>
+          <div>
+            <h4>Vetted, local cleaners</h4>
+            <p>Every cleaner is interviewed, reference-checked and DBS-verified before they set foot in your property.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="num">02</div>
+          <div>
+            <h4>Fully insured, every visit</h4>
+            <p>We carry £5 million public liability cover as standard, so you're always protected.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="num">03</div>
+          <div>
+            <h4>Satisfaction guaranteed</h4>
+            <p>Not happy with a clean? Tell us within 24 hours and we'll put it right, free of charge.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="num">04</div>
+          <div>
+            <h4>No lock-in contracts</h4>
+            <p>Pause, change frequency or cancel whenever you need — we earn your business every visit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow-dark">How It Works</span>
+      <h2>Booked in four simple steps</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="circle"><i class="fa-solid fa-comment-dots"></i></div>
+        <h4>1. Get in touch</h4>
+        <p>Call, email or fill in our quote form with a few details about your space.</p>
+      </div>
+      <div class="process-step">
+        <div class="circle"><i class="fa-solid fa-file-invoice"></i></div>
+        <h4>2. Receive your quote</h4>
+        <p>We send a clear, fixed-price quote — usually within one working hour.</p>
+      </div>
+      <div class="process-step">
+        <div class="circle"><i class="fa-solid fa-user-check"></i></div>
+        <h4>3. Meet your cleaner</h4>
+        <p>We match you with a vetted local cleaner and confirm your first visit date.</p>
+      </div>
+      <div class="process-step">
+        <div class="circle"><i class="fa-solid fa-sparkles"></i></div>
+        <h4>4. Enjoy the results</h4>
+        <p>Sit back while we handle the cleaning, on the schedule that suits you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow-dark">Pricing</span>
+      <h2>Simple, transparent pricing</h2>
+      <p>Every quote is tailored to your property, but here's what most Reading customers pay.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Domestic Cleaning</h3>
+        <div class="price">£16<span>/hour</span></div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> 2-hour minimum booking</li>
+          <li><i class="fa-solid fa-check"></i> Weekly, fortnightly or monthly</li>
+          <li><i class="fa-solid fa-check"></i> Bring your own products or ours</li>
+          <li><i class="fa-solid fa-check"></i> Same cleaner every visit</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark">Get This Quote</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tag">Most Popular</div>
+        <h3>Office Cleaning</h3>
+        <div class="price">From £95<span>/week</span></div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Based on office size &amp; frequency</li>
+          <li><i class="fa-solid fa-check"></i> Daily, weekly or after-hours</li>
+          <li><i class="fa-solid fa-check"></i> Dedicated account contact</li>
+          <li><i class="fa-solid fa-check"></i> Supplies &amp; equipment included</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Get This Quote</a>
+      </div>
+      <div class="price-card">
+        <h3>Deep &amp; End of Tenancy</h3>
+        <div class="price">From £150<span>/visit</span></div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Based on property size</li>
+          <li><i class="fa-solid fa-check"></i> Full checklist provided</li>
+          <li><i class="fa-solid fa-check"></i> One-off, no commitment</li>
+          <li><i class="fa-solid fa-check"></i> Optional carpet clean add-on</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark">Get This Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow-dark">Reviews</span>
+      <h2>What Reading customers say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"We've used Brightside for our house in Caversham for over a year now. Same cleaner every fortnight, always on time, always brilliant."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SH</div>
+          <div><strong>Sarah H.</strong><span>Caversham, Reading</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Switched our office cleaning to Brightside earlier this year and the difference in the washrooms and kitchen alone has been huge. Great communication too."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JP</div>
+          <div><strong>James P.</strong><span>Office Manager, Reading Town Centre</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Booked an end of tenancy clean and got my full deposit back with no arguments from the agent. Would recommend to anyone moving in Reading."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">EM</div>
+          <div><strong>Ella M.</strong><span>Earley, Reading</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg" id="areas">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow-dark">Coverage</span>
+      <h2>Proudly serving Reading and the surrounding area</h2>
+      <p>Based in Reading, our teams cover the whole town and nearby villages.</p>
+    </div>
+    <div class="areas-wrap">
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Reading Town Centre</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Caversham</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Earley</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Tilehurst</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Woodley</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Lower Earley</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Calcot</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Wokingham</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Winnersh</div>
+      <div class="area-pill"><i class="fa-solid fa-location-dot"></i> Shinfield</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h2>Ready for a brighter, cleaner space?</h2>
+        <p>Get your free quote today — no obligation, no pushy sales calls.</p>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="tel:01189001234" class="btn btn-outline"><i class="fa-solid fa-phone"></i> 0118 900 1234</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg">
+  <div class="container" style="max-width:820px;">
+    <div class="section-head">
+      <span class="eyebrow-dark">FAQs</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do I need to supply cleaning products? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">No — our cleaners bring professional-grade, eco-friendly products and equipment as standard. If you'd prefer we use your own supplies, just let us know when booking.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What areas around Reading do you cover? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">We cover Reading town centre and surrounding areas including Caversham, Earley, Tilehurst, Woodley, Calcot, Wokingham and Shinfield. Not sure if we cover you? Just ask.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a minimum contract length? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">No. Regular domestic and office cleans run on a flexible, no-contract basis — pause, change frequency, or cancel with 48 hours' notice.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are your cleaners insured and background-checked? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">Yes. Every Brightside cleaner is DBS-checked and reference-verified, and all work is covered by our £5 million public liability insurance.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How quickly can you start? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">For most domestic and office bookings we can arrange your first clean within 3-5 working days, subject to availability.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-info">
+      <span class="eyebrow-dark">Contact Us</span>
+      <h3>Let's get your free quote sorted</h3>
+      <p style="color:var(--brand-grey);margin-bottom:26px;">Reach us any way that suits you — we typically respond within one working hour.</p>
+      <div class="info-row">
+        <div class="ic"><i class="fa-solid fa-phone"></i></div>
+        <div><strong>0118 900 1234</strong><span>Mon–Sat, 8am–6pm</span></div>
+      </div>
+      <div class="info-row">
+        <div class="ic"><i class="fa-solid fa-envelope"></i></div>
+        <div><strong>hello@brightsidecleaning.co.uk</strong><span>We reply within one working hour</span></div>
+      </div>
+      <div class="info-row">
+        <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+        <div><strong>14 Friar Street, Reading, RG1 1DB</strong><span>Serving Reading &amp; surrounding areas</span></div>
+      </div>
+      <div class="info-row">
+        <div class="ic"><i class="fa-solid fa-clock"></i></div>
+        <div><strong>Monday – Saturday</strong><span>8:00am – 6:00pm</span></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 style="margin-bottom:16px;">Request your free quote</h3>
+      <form onsubmit="return false;">
+        <div class="row2">
+          <input type="text" placeholder="First name" required>
+          <input type="text" placeholder="Last name" required>
+        </div>
+        <div class="row2">
+          <input type="email" placeholder="Email address" required>
+          <input type="tel" placeholder="Phone number" required>
+        </div>
+        <select required>
+          <option value="" disabled selected>Type of cleaning</option>
+          <option>Domestic / House Cleaning</option>
+          <option>Office Cleaning</option>
+          <option>Deep Clean</option>
+          <option>End of Tenancy</option>
+          <option>Carpet / Upholstery</option>
+        </select>
+        <textarea placeholder="Tell us a little about your property or office and how often you'd like it cleaned"></textarea>
+        <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;">Send My Request <i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><i class="fa-solid fa-broom" style="color:var(--brand-yellow);"></i> Brightside Cleaning</div>
+        <p style="font-size:14px;line-height:1.7;">Trusted domestic and office cleaning across Reading and Berkshire. Insured, vetted and guaranteed.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Domestic Cleaning</a></li>
+          <li><a href="#services">Office Cleaning</a></li>
+          <li><a href="#services">Deep Cleaning</a></li>
+          <li><a href="#services">End of Tenancy</a></li>
+          <li><a href="#services">Carpet &amp; Upholstery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#areas">Areas Covered</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone" style="margin-right:8px;"></i>0118 900 1234</li>
+          <li><i class="fa-solid fa-envelope" style="margin-right:8px;"></i>hello@brightsidecleaning.co.uk</li>
+          <li><i class="fa-solid fa-location-dot" style="margin-right:8px;"></i>14 Friar Street, Reading, RG1 1DB</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Brightside Cleaning Ltd. All rights reserved.</span>
+      <span>Company No. 14829301 · Registered in England &amp; Wales</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  var menuToggle = document.querySelector('.menu-toggle');
+  var navList = document.querySelector('nav ul');
+  menuToggle.addEventListener('click', function(){
+    var visible = navList.style.display === 'flex';
+    navList.style.display = visible ? 'none' : 'flex';
+    navList.style.flexDirection = 'column';
+    navList.style.position = 'absolute';
+    navList.style.top = '68px';
+    navList.style.left = '0';
+    navList.style.right = '0';
+    navList.style.background = '#fff';
+    navList.style.padding = '20px 24px';
+    navList.style.boxShadow = '0 10px 20px rgba(0,0,0,.08)';
+    navList.style.gap = '18px';
+  });
+</script>
+
+</body>
+</html>
+```

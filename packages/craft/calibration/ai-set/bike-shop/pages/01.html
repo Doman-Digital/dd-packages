@@ -1,0 +1,650 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spoke and Chain | Bike Repair & Sales in Oxford</title>
+<meta name="description" content="Spoke and Chain is Oxford's independent bike shop on Cowley Road, offering expert repairs, servicing, and a curated range of new and used bicycles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c2321;
+    --paper: #f6f2ea;
+    --rust: #b3502b;
+    --moss: #4a5d45;
+    --line: #d9d0bf;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    line-height: 1.15;
+    margin: 0 0 0.5em;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand svg { width: 34px; height: 34px; flex-shrink: 0; }
+  nav.links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav.links a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--ink);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  nav.links a:hover { border-color: var(--rust); }
+  .nav-cta {
+    background: var(--rust);
+    color: #fff !important;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  /* Hero */
+  .hero {
+    background:
+      radial-gradient(circle at 85% 20%, rgba(179,80,43,0.12), transparent 45%),
+      var(--paper);
+    padding: 72px 24px 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--rust);
+    margin-bottom: 14px;
+  }
+  .hero h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); }
+  .hero p.lead {
+    font-size: 1.1rem;
+    max-width: 46ch;
+    color: #3c443f;
+    margin-bottom: 28px;
+  }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+  }
+  .btn-primary { background: var(--rust); color: #fff; }
+  .btn-primary:hover { background: #963f20; }
+  .btn-outline { border-color: var(--ink); color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+  .hero-art {
+    background: var(--moss);
+    border-radius: 20px;
+    aspect-ratio: 4/3.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+  }
+  .hero-art svg { width: 100%; height: 100%; }
+
+  /* Strip stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats div {
+    padding: 24px 12px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .stats div:last-child { border-right: none; }
+  .stats strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--rust);
+  }
+  .stats span { font-size: 0.85rem; color: #555; }
+
+  /* Sections */
+  section { padding: 72px 24px; }
+  .section-head { max-width: 640px; margin: 0 auto 44px; text-align: center; }
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  .section-head p { color: #4a4a4a; }
+
+  /* Services */
+  .services-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .service-card .icon {
+    width: 44px; height: 44px;
+    margin-bottom: 16px;
+    color: var(--rust);
+  }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .service-card p { font-size: 0.95rem; color: #4a4a4a; margin: 0 0 12px; }
+  .service-card .price { font-weight: 700; color: var(--moss); font-size: 0.9rem; }
+
+  /* Bikes */
+  .bikes { background: #efe8d8; }
+  .bikes-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .bike-card {
+    background: var(--paper);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .bike-thumb {
+    aspect-ratio: 16/10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #d9d0bf, #efe8d8);
+  }
+  .bike-thumb svg { width: 60%; color: var(--ink); opacity: 0.75; }
+  .bike-body { padding: 20px; }
+  .bike-body h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .bike-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--moss);
+    margin-bottom: 8px;
+  }
+  .bike-body p { font-size: 0.9rem; color: #4a4a4a; margin: 0 0 14px; }
+  .bike-price { display: flex; justify-content: space-between; align-items: center; }
+  .bike-price strong { font-family: 'Fraunces', serif; font-size: 1.2rem; }
+
+  /* Workshop / About */
+  .about {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .about-art {
+    background: var(--ink);
+    border-radius: 20px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+  }
+  .about-art svg { width: 85%; color: #efe8d8; }
+  .about-copy p { color: #3c443f; margin-bottom: 16px; }
+  .about-list { list-style: none; padding: 0; margin: 20px 0 0; }
+  .about-list li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  .about-list svg { width: 20px; height: 20px; color: var(--rust); flex-shrink: 0; margin-top: 2px; }
+
+  /* Testimonials */
+  .testimonials { background: #efe8d8; }
+  .testi-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testi-card {
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 26px;
+    border: 1px solid var(--line);
+  }
+  .stars { color: var(--rust); margin-bottom: 10px; font-size: 0.9rem; letter-spacing: 2px; }
+  .testi-card p.quote { font-style: italic; color: #333; margin-bottom: 14px; }
+  .testi-name { font-weight: 700; font-size: 0.9rem; }
+  .testi-role { font-size: 0.8rem; color: #666; }
+
+  /* CTA */
+  .cta-band {
+    background: var(--moss);
+    color: #f6f2ea;
+    text-align: center;
+    border-radius: 24px;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 56px 32px;
+  }
+  .cta-band h2 { color: #fff; }
+  .cta-band p { max-width: 50ch; margin: 0 auto 26px; color: #e4e8de; }
+  .cta-band .btn-primary { background: var(--rust); }
+
+  /* Visit / map / hours */
+  .visit-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .hours-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  .hours-table td { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+  .hours-table td:last-child { text-align: right; font-weight: 600; }
+  .map-box {
+    background: var(--ink);
+    border-radius: 16px;
+    height: 100%;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #efe8d8;
+  }
+  .map-box svg { width: 46px; height: 46px; margin-bottom: 10px; }
+
+  /* Footer */
+  footer {
+    background: var(--ink);
+    color: #d9d0bf;
+    padding: 48px 24px 24px;
+  }
+  .footer-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #3a423d;
+  }
+  footer h4 { color: #fff; font-family: 'Fraunces', serif; font-size: 1rem; margin-bottom: 14px; }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { margin-bottom: 8px; font-size: 0.9rem; }
+  footer a { text-decoration: none; color: #d9d0bf; }
+  footer a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: var(--max);
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #9aa197;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 900px) {
+    nav.links, .nav-cta { display: none; }
+    .menu-toggle { display: block; }
+    .hero-grid, .about, .visit-grid { grid-template-columns: 1fr; }
+    .services-grid, .bikes-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stats div:nth-child(2) { border-right: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .services-grid, .bikes-grid, .testi-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="13" cy="34" r="9" stroke="#b3502b" stroke-width="3"/>
+        <circle cx="35" cy="34" r="9" stroke="#b3502b" stroke-width="3"/>
+        <path d="M13 34L24 14L35 34M24 14L18 34M24 14L20 24H30" stroke="#1c2321" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      Spoke and Chain
+    </a>
+    <ul class="links">
+      <li><a href="#services">Repairs</a></li>
+      <li><a href="#bikes">Bikes</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a href="#visit" class="nav-cta">Book a repair</a>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Cowley Road, Oxford</span>
+      <h1>Bikes fixed properly. Bikes sold honestly.</h1>
+      <p class="lead">Spoke and Chain has been keeping Oxford moving since 2011 &mdash; from same-day punctures to full rebuilds, plus a hand-picked range of new and reconditioned bikes for every kind of rider.</p>
+      <div class="btn-row">
+        <a href="#visit" class="btn btn-primary">Book a repair</a>
+        <a href="#bikes" class="btn btn-outline">Browse bikes</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="100" r="32" stroke="#f6f2ea" stroke-width="4"/>
+        <circle cx="150" cy="100" r="32" stroke="#f6f2ea" stroke-width="4"/>
+        <path d="M50 100L95 40L150 100M95 40L75 100M95 40L82 65H118M118 65L130 100" stroke="#f6f2ea" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="95" cy="40" r="5" fill="#f6f2ea"/>
+        <path d="M40 30h20M45 25v10" stroke="#f6f2ea" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div><strong>13+</strong><span>years on Cowley Road</span></div>
+  <div><strong>4.9/5</strong><span>average rating</span></div>
+  <div><strong>Same-day</strong><span>punctures & quick fixes</span></div>
+  <div><strong>100+</strong><span>bikes rebuilt each year</span></div>
+</div>
+
+<section id="services">
+  <div class="section-head">
+    <h2>Repairs & servicing</h2>
+    <p>From a wobbly wheel to a full strip-down, our mechanics work on every make and model &mdash; road, gravel, hybrid, e-bike, and cargo.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.6"/></svg>
+      <h3>Puncture repair</h3>
+      <p>While-you-wait tube and tyre fixes. No appointment needed for most punctures.</p>
+      <span class="price">From &pound;12</span>
+    </div>
+    <div class="service-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 12h4l2-6 4 12 2-6h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Full service</h3>
+      <p>Gears, brakes, headset and bottom bracket checked, adjusted and lubricated. Includes safety check.</p>
+      <span class="price">From &pound;55</span>
+    </div>
+    <div class="service-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8v8H8z" stroke="currentColor" stroke-width="1.6"/></svg>
+      <h3>Wheel building & truing</h3>
+      <p>Hand-built wheels to order, plus truing and spoke replacement for wheels that have seen better days.</p>
+      <span class="price">From &pound;18</span>
+    </div>
+    <div class="service-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 20l4-4 4 2 4-10 4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>E-bike diagnostics</h3>
+      <p>Battery, motor and display checks for all major e-bike systems, with genuine replacement parts.</p>
+      <span class="price">From &pound;35</span>
+    </div>
+    <div class="service-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.8 7.1 18.2l.9-5.5-4-3.9L9.5 8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <h3>Full rebuild</h3>
+      <p>Frame stripped, cleaned and reassembled with new cables, bearings and finishing kit as needed.</p>
+      <span class="price">From &pound;120</span>
+    </div>
+    <div class="service-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M5 12l4-4M5 12l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Fit & upgrade</h3>
+      <p>Saddle height, reach and cleat set-up, plus advice and fitting for new components and racks.</p>
+      <span class="price">From &pound;20</span>
+    </div>
+  </div>
+</section>
+
+<section class="bikes" id="bikes">
+  <div class="section-head">
+    <h2>Bikes for sale</h2>
+    <p>New models from trusted brands, plus fully reconditioned second-hand bikes &mdash; every one safety-checked and covered by our workshop guarantee.</p>
+  </div>
+  <div class="bikes-grid">
+    <div class="bike-card">
+      <div class="bike-thumb">
+        <svg viewBox="0 0 200 120" fill="none"><circle cx="45" cy="85" r="26" stroke="currentColor" stroke-width="4"/><circle cx="155" cy="85" r="26" stroke="currentColor" stroke-width="4"/><path d="M45 85L90 35L155 85M90 35L70 85M90 35L78 55H112" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="bike-body">
+        <span class="bike-tag">New &middot; Commuter</span>
+        <h3>Thornbury City Hybrid</h3>
+        <p>Lightweight aluminium frame, hub gears and mudguards fitted &mdash; built for Oxford's cobbles and cycle lanes.</p>
+        <div class="bike-price"><strong>&pound;449</strong><a href="#visit" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;">Enquire</a></div>
+      </div>
+    </div>
+    <div class="bike-card">
+      <div class="bike-thumb">
+        <svg viewBox="0 0 200 120" fill="none"><circle cx="45" cy="85" r="26" stroke="currentColor" stroke-width="4"/><circle cx="155" cy="85" r="26" stroke="currentColor" stroke-width="4"/><path d="M45 85L100 40L155 85M100 40L60 85M100 40L110 60H140" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="bike-body">
+        <span class="bike-tag">New &middot; Road</span>
+        <h3>Merrifield Audax</h3>
+        <p>Steel-framed endurance road bike with disc brakes and a relaxed geometry for long rides out to the Cotswolds.</p>
+        <div class="bike-price"><strong>&pound;899</strong><a href="#visit" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;">Enquire</a></div>
+      </div>
+    </div>
+    <div class="bike-card">
+      <div class="bike-thumb">
+        <svg viewBox="0 0 200 120" fill="none"><circle cx="45" cy="85" r="28" stroke="currentColor" stroke-width="4"/><circle cx="155" cy="85" r="28" stroke="currentColor" stroke-width="4"/><path d="M45 85L95 45L155 85M95 45L65 85M95 45L85 65H125" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="bike-body">
+        <span class="bike-tag">Reconditioned &middot; Hybrid</span>
+        <h3>Dawson Trail 3-Speed</h3>
+        <p>A well-loved bike fully rebuilt in our workshop: new tyres, cables and bearings, ready to ride away today.</p>
+        <div class="bike-price"><strong>&pound;185</strong><a href="#visit" class="btn btn-outline" style="padding:8px 16px;font-size:0.85rem;">Enquire</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div class="about-art">
+      <svg viewBox="0 0 200 160" fill="none">
+        <rect x="20" y="20" width="160" height="120" rx="8" stroke="#efe8d8" stroke-width="3"/>
+        <circle cx="70" cy="100" r="22" stroke="#efe8d8" stroke-width="3"/>
+        <path d="M70 100L110 60L150 100M110 60L95 100" stroke="#efe8d8" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M40 45h30M40 55h20" stroke="#efe8d8" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">Our workshop</span>
+      <h2>Run by mechanics, not a franchise</h2>
+      <p>Spoke and Chain opened on Cowley Road in 2011 with two workstands and a lot of borrowed tools. Today it's a five-strong team of qualified mechanics who still do every repair by hand, on-site, in full view of the shop floor.</p>
+      <p>We stock parts for common repairs so most jobs are done same-day, and we're proud to be one of the few shops in Oxford still building wheels in-house.</p>
+      <ul class="about-list">
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Cytech-qualified mechanics</li>
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 90-day guarantee on all repairs</li>
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Free bike health check with every service</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="section-head">
+    <h2>What Oxford says</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">"Got a puncture on the way to a lecture and they had me back on the road in fifteen minutes. Fair price, no upselling."</p>
+      <div class="testi-name">Freya M.</div>
+      <div class="testi-role">Jericho</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">"Bought a reconditioned hybrid here two years ago and it's still going strong. They clearly know what they're doing."</p>
+      <div class="testi-name">Daniel O.</div>
+      <div class="testi-role">Cowley</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">"They rebuilt my old e-bike battery pack when the manufacturer had written it off. Saved me hundreds."</p>
+      <div class="testi-name">Priya S.</div>
+      <div class="testi-role">Headington</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-band">
+    <h2>Ready to get your bike sorted?</h2>
+    <p>Drop it in, call ahead, or book online &mdash; most repairs are done the same day you bring your bike in.</p>
+    <a href="#visit" class="btn btn-primary">Book a repair</a>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="section-head">
+    <h2>Visit the shop</h2>
+  </div>
+  <div class="visit-grid">
+    <div>
+      <h3 style="font-size:1.1rem;">Spoke and Chain</h3>
+      <p style="margin:4px 0 20px;color:#4a4a4a;">142 Cowley Road, Oxford, OX4 1JE<br>01865 555 214 &middot; hello@spokeandchain.co.uk</p>
+      <table class="hours-table">
+        <tr><td>Monday &ndash; Friday</td><td>9:00 &ndash; 18:00</td></tr>
+        <tr><td>Saturday</td><td>9:00 &ndash; 17:00</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+    <div class="map-box">
+      <div style="text-align:center;">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div style="font-size:0.9rem;">142 Cowley Road, Oxford</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Spoke and Chain</h4>
+      <p style="font-size:0.9rem;max-width:32ch;">Independent bike repair and sales on Cowley Road, Oxford, since 2011.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#services">Repairs</a></li>
+        <li><a href="#bikes">Bikes for sale</a></li>
+        <li><a href="#about">About us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>142 Cowley Road, Oxford, OX4 1JE</li>
+        <li>01865 555 214</li>
+        <li>hello@spokeandchain.co.uk</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Spoke and Chain. All rights reserved.</span>
+    <span>Company registered in England & Wales</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.menu-toggle').addEventListener('click', function () {
+    var links = document.querySelector('nav.links');
+    var cta = document.querySelector('.nav-cta');
+    var open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    cta.style.display = open ? 'none' : 'inline-block';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '64px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = '#f6f2ea';
+    links.style.padding = '20px 24px';
+    links.style.gap = '16px';
+    links.style.borderBottom = '1px solid #d9d0bf';
+  });
+</script>
+
+</body>
+</html>
+```

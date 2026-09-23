@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "url": "pages/14.html",
+  "capturedAt": "2026-09-23T11:19:24.616Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4996,
+  "ground": "rgb(251, 246, 241)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(242, 233, 223)",
+        "area": 2869717,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2247138,
+        "chars": 0
+      },
+      {
+        "value": "rgb(138, 154, 126)",
+        "area": 821138,
+        "chars": 0
+      },
+      {
+        "value": "rgb(43, 38, 34)",
+        "area": 580940,
+        "chars": 0
+      },
+      {
+        "value": "rgb(243, 217, 212)",
+        "area": 301115,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 246, 241)",
+        "area": 108563,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.12)",
+        "area": 81361,
+        "chars": 0
+      },
+      {
+        "value": "rgb(95, 111, 84)",
+        "area": 67182,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 98, 89)",
+        "area": 0,
+        "chars": 2043
+      },
+      {
+        "value": "rgb(43, 38, 34)",
+        "area": 0,
+        "chars": 802
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 459
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 312
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 272
+      },
+      {
+        "value": "rgb(227, 162, 78)",
+        "area": 0,
+        "chars": 113
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 80
+      },
+      {
+        "value": "rgb(95, 111, 84)",
+        "area": 0,
+        "chars": 66
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "area": 0,
+        "chars": 49
+      },
+      {
+        "value": "rgb(242, 233, 223)",
+        "area": 0,
+        "chars": 9
+      },
+      {
+        "value": "rgb(227, 169, 158)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3814,
+      "displayChars": 49,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700,
+        900
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 308,
+      "displayChars": 200,
+      "italicChars": 0,
+      "weights": [
+        600,
+        700,
+        900
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 89,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 54,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "K-beauty that turns up when it says it will.",
+      "top": 245
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build your routine",
+      "top": 961
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bestsellers this month",
+      "top": 1568
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Started in a spare room in Leeds. Still run the same way.",
+      "top": 3064
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "4.9 out of 5, from real UK skin",
+      "top": 3739
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 4233
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(43, 38, 34)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Why Harrisons?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 30,
+      "background": "rgb(242, 233, 223)",
+      "text": "Add to bag"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View all products"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgb(43, 38, 34)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 117,
+      "height": 560,
+      "kind": "hero",
+      "label": "K-beauty that turns up when it says it will.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 677,
+      "height": 163,
+      "kind": "cards",
+      "label": "📦Shipped from the UKEvery order leaves our Leeds warehouse ",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 840,
+      "height": 607,
+      "kind": "cards",
+      "label": "Build your routine",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1447,
+      "height": 1502,
+      "kind": "cards",
+      "label": "Bestsellers this month",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2948,
+      "height": 570,
+      "kind": "cards",
+      "label": "Started in a spare room in Leeds. Still run the same way.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3519,
+      "height": 99,
+      "kind": "text",
+      "label": "COSRX Beauty of Joseon Anua SKIN1004 Torriden Round Lab Medi",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3618,
+      "height": 559,
+      "kind": "cards",
+      "label": "4.9 out of 5, from real UK skin",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4177,
+      "height": 358,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4605,
+      "height": 391,
+      "kind": "text",
+      "label": "Harrisons Beauty Authentic Korean skincare, held in stock an",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(243, 217, 212)",
+          "rgb(251, 246, 241)"
+        ],
+        "area": 805883,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      22,
+      24,
+      27,
+      29,
+      32,
+      37,
+      42,
+      54,
+      56
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      900
+    ],
+    "radii": [
+      "14px",
+      "16px",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 47.9,
+    "bodyLineLengthCh": 52,
+    "bodyFontSizePx": 17
+  }
+}
