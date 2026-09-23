@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMM Beauty | Nail, Brow & Skin Studio in Brackley</title>
+<meta name="description" content="MMM Beauty is a nail, brow and skin studio in Brackley, Northamptonshire, offering gel nails, manicures, brow treatments and facials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#f3e3e0;
+    --blush-dark:#e8c9c4;
+    --rose:#c98b83;
+    --charcoal:#2c2622;
+    --cream:#fbf6f2;
+    --gold:#b98b56;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost', sans-serif;
+    color:var(--charcoal);
+    background:var(--cream);
+    line-height:1.6;
+    font-weight:300;
+  }
+  h1,h2,h3,.logo{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    letter-spacing:0.02em;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(251,246,242,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(0,0,0,0.05);
+  }
+  .nav-wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1180px;margin:0 auto;
+  }
+  .logo{font-size:28px;letter-spacing:0.06em;}
+  .logo span{color:var(--rose);}
+  nav ul{list-style:none;display:flex;gap:32px;}
+  nav a{
+    font-size:14px;letter-spacing:0.08em;text-transform:uppercase;
+    position:relative;padding-bottom:4px;
+  }
+  nav a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--rose);transition:width .3s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--charcoal);color:#fff !important;
+    padding:10px 22px;border-radius:2px;font-size:13px;
+    letter-spacing:0.08em;text-transform:uppercase;
+  }
+  .nav-toggle{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--charcoal);}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(120deg, rgba(44,38,34,0.55), rgba(44,38,34,0.15)),
+      url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color:#fff;
+  }
+  .hero-inner{max-width:640px;padding:0 24px;margin:0 auto;width:100%;}
+  .hero p.eyebrow{
+    text-transform:uppercase;letter-spacing:0.25em;font-size:13px;
+    color:var(--blush);margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(40px, 6vw, 68px);
+    line-height:1.08;margin-bottom:20px;
+  }
+  .hero p.sub{
+    font-size:18px;max-width:480px;margin-bottom:32px;
+    font-weight:300;color:#f2e9e6;
+  }
+  .btn-group{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:15px 32px;
+    font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
+    border-radius:2px;transition:all .25s ease;
+  }
+  .btn-primary{background:var(--rose);color:#fff;}
+  .btn-primary:hover{background:#b57870;}
+  .btn-outline{border:1px solid #fff;color:#fff;}
+  .btn-outline:hover{background:#fff;color:var(--charcoal);}
+
+  /* Section basics */
+  section{padding:100px 0;}
+  .section-head{text-align:center;max-width:620px;margin:0 auto 60px;}
+  .section-head .eyebrow{
+    text-transform:uppercase;letter-spacing:0.25em;font-size:13px;
+    color:var(--rose);margin-bottom:14px;display:block;
+  }
+  .section-head h2{font-size:clamp(32px,4vw,44px);margin-bottom:16px;}
+  .section-head p{color:#5a534d;font-size:16px;}
+
+  /* Intro / About */
+  .about{background:var(--cream);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  }
+  .about-img{
+    border-radius:4px;overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+  }
+  .about-text .eyebrow{
+    text-transform:uppercase;letter-spacing:0.25em;font-size:13px;
+    color:var(--rose);margin-bottom:14px;display:block;
+  }
+  .about-text h2{font-size:clamp(28px,4vw,38px);margin-bottom:22px;}
+  .about-text p{color:#5a534d;margin-bottom:16px;font-size:16px;}
+  .about-signoff{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--charcoal);margin-top:20px;}
+
+  /* Services */
+  .services{background:var(--blush);}
+  .services-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:28px;
+  }
+  .service-card{
+    background:#fff;border-radius:6px;padding:36px 28px;
+    text-align:center;transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(0,0,0,0.08);}
+  .service-icon{
+    width:56px;height:56px;margin:0 auto 20px;
+    border-radius:50%;background:var(--blush);
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;color:var(--rose);
+  }
+  .service-card h3{font-size:22px;margin-bottom:10px;}
+  .service-card p{color:#5a534d;font-size:15px;margin-bottom:16px;}
+  .service-card .price{
+    font-size:14px;letter-spacing:0.05em;color:var(--rose);
+    font-weight:500;text-transform:uppercase;
+  }
+
+  /* Gallery */
+  .gallery{background:var(--cream);}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:200px;
+    gap:16px;
+  }
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+  .gallery-grid .tall{grid-row:span 2;}
+
+  /* Testimonials */
+  .testimonials{background:var(--charcoal);color:#f2ece8;}
+  .testimonials .section-head p{color:#cfc4bd;}
+  .testimonials .section-head .eyebrow{color:var(--blush-dark);}
+  .test-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:28px;
+  }
+  .test-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:32px 28px;border-radius:6px;
+  }
+  .stars{color:var(--gold);letter-spacing:3px;margin-bottom:16px;font-size:15px;}
+  .test-card p{font-size:15px;color:#e6ddd8;margin-bottom:18px;}
+  .test-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;}
+  .test-role{font-size:13px;color:#a99f98;}
+
+  /* Booking / CTA band */
+  .cta-band{
+    background:var(--rose);color:#fff;text-align:center;
+    padding:80px 24px;
+  }
+  .cta-band h2{font-size:clamp(28px,4vw,40px);margin-bottom:18px;}
+  .cta-band p{max-width:520px;margin:0 auto 30px;font-size:16px;color:#fdf3f1;}
+  .cta-band .btn-outline{border-color:#fff;}
+
+  /* Contact / Location */
+  .contact{background:var(--blush);}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  }
+  .contact-card h3{font-size:26px;margin-bottom:20px;}
+  .info-row{display:flex;gap:14px;margin-bottom:22px;}
+  .info-row .ic{
+    width:40px;height:40px;flex:0 0 40px;border-radius:50%;
+    background:#fff;display:flex;align-items:center;justify-content:center;
+    color:var(--rose);font-size:17px;
+  }
+  .info-row h4{font-size:15px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+  .info-row p, .info-row a{color:#5a534d;font-size:15px;}
+  .map-frame{
+    border-radius:6px;overflow:hidden;height:100%;min-height:340px;
+    border:none;
+  }
+  .map-frame iframe{width:100%;height:100%;min-height:340px;border:0;}
+
+  /* Footer */
+  footer{background:var(--charcoal);color:#cfc4bd;padding:50px 0 24px;}
+  .footer-grid{
+    display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;
+  }
+  .footer-logo{font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff;margin-bottom:14px;}
+  .footer-logo span{color:var(--rose);}
+  footer h4{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px;font-size:14px;}
+  footer a:hover{color:#fff;}
+  .social-row{display:flex;gap:14px;margin-top:16px;}
+  .social-row a{
+    width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);
+    display:flex;align-items:center;justify-content:center;font-size:14px;
+  }
+  .social-row a:hover{background:var(--rose);border-color:var(--rose);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;
+    text-align:center;font-size:13px;color:#8f867f;
+  }
+
+  @media (max-width:900px){
+    .about-grid, .contact-grid, .footer-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    nav ul{display:none;}
+    .nav-toggle{display:block;}
+  }
+  @media (max-width:900px){
+    nav.open ul{
+      display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+      background:var(--cream);padding:24px;gap:18px;border-bottom:1px solid rgba(0,0,0,0.06);
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#top" class="logo">MMM <span>Beauty</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <p class="eyebrow">Brackley, Northamptonshire</p>
+    <h1>Beautifully done nails, brows &amp; skin</h1>
+    <p class="sub">MMM Beauty is Brackley's neighbourhood studio for gel nails, manicures, brow treatments and facials — relaxed, unhurried, and always finished to the last detail.</p>
+    <div class="btn-group">
+      <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn btn-outline">View Treatments</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=80" alt="Manicure treatment in progress at MMM Beauty studio">
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">Our Studio</span>
+      <h2>A little slice of calm on the high street</h2>
+      <p>MMM Beauty was set up to bring genuinely good nail, brow and skin care to Brackley — no rushing, no upselling, just careful work from people who love what they do.</p>
+      <p>Every appointment starts with a proper consultation, whether you're after your first set of gel nails, sharper brows for an event, or a facial that actually gives your skin a break. We use quality products, keep our tools properly sterilised, and take the time to get the details right.</p>
+      <p class="about-signoff">— The MMM Beauty team</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Treatments</h2>
+      <p>From everyday maintenance to something special, our menu covers nails, brows and skin under one roof.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">&#128142;</div>
+        <h3>Gel Nails</h3>
+        <p>Long-lasting, chip-free colour with a glossy salon finish. Choose from a wide shade range or bring a reference.</p>
+        <span class="price">From £32</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#9996;</div>
+        <h3>Manicures</h3>
+        <p>Classic and luxury manicures including shaping, cuticle care, hand massage and polish of your choice.</p>
+        <span class="price">From £25</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128064;</div>
+        <h3>Brow Treatments</h3>
+        <p>Shaping, tinting and lamination to frame your face, tailored to your natural brow and preferred look.</p>
+        <span class="price">From £18</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#10024;</div>
+        <h3>Facials</h3>
+        <p>Deep-cleansing and hydrating facials suited to your skin type, finished with massage and SPF protection.</p>
+        <span class="price">From £45</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recent Work</span>
+      <h2>Gallery</h2>
+      <p>A few favourites from the studio floor.</p>
+    </div>
+    <div class="gallery-grid">
+      <img class="tall" src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=500&q=80" alt="Close-up of glossy gel nail manicure">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" alt="Brow shaping treatment">
+      <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=500&q=80" alt="Facial skincare treatment">
+      <img class="tall" src="https://images.unsplash.com/photo-1519014816548-bf5751d51696?auto=format&fit=crop&w=500&q=80" alt="Hand and nail styling detail">
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=500&q=80" alt="Nail studio workspace">
+      <img src="https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?auto=format&fit=crop&w=500&q=80" alt="Pastel nail polish colour palette">
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Kind Words</span>
+      <h2>What clients say</h2>
+      <p>Some of the feedback we've had from Brackley regulars and new faces alike.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Best gel manicure I've had locally — my nails still looked perfect three weeks later. Really friendly, unrushed appointment too."</p>
+        <div class="test-name">Hannah T.</div>
+        <div class="test-role">Brackley</div>
+      </div>
+      <div class="test-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"My brows have never looked this good. The shaping was really precise and they took the time to work out what would actually suit me."</p>
+        <div class="test-name">Priya S.</div>
+        <div class="test-role">Towcester</div>
+      </div>
+      <div class="test-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Booked a facial after a stressful few months and it was exactly what I needed. Lovely, calm little studio — will be back monthly."</p>
+        <div class="test-name">Louise M.</div>
+        <div class="test-role">Silverstone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Ready to treat yourself?</h2>
+  <p>Appointments run Tuesday to Saturday. Book online or give us a call — we'll find a slot that works for you.</p>
+  <a href="tel:+441280123456" class="btn btn-outline">Call 01280 123 456</a>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-card">
+      <h3>Visit or Book</h3>
+      <div class="info-row">
+        <div class="ic">&#128205;</div>
+        <div>
+          <h4>Address</h4>
+          <p>14 High Street, Brackley, Northamptonshire, NN13 7BW</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ic">&#128222;</div>
+        <div>
+          <h4>Phone</h4>
+          <a href="tel:+441280123456">01280 123 456</a>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ic">&#9993;</div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:hello@mmmbeauty.co.uk">hello@mmmbeauty.co.uk</a>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ic">&#128337;</div>
+        <div>
+          <h4>Opening Hours</h4>
+          <p>Tue – Fri: 9:30am – 6:00pm<br>Saturday: 9:00am – 4:00pm<br>Sun &amp; Mon: Closed</p>
+        </div>
+      </div>
+    </div>
+    <div class="map-frame">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-1.1560%2C52.0300%2C-1.1400%2C52.0400&layer=mapnik&marker=52.0350%2C-1.1480" title="Map showing MMM Beauty location in Brackley"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MMM <span>Beauty</span></div>
+        <p style="font-size:14px;max-width:280px;">Nail, brow and skin studio in the heart of Brackley, Northamptonshire.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>14 High Street, Brackley, NN13 7BW</li>
+          <li><a href="tel:+441280123456">01280 123 456</a></li>
+          <li><a href="mailto:hello@mmmbeauty.co.uk">hello@mmmbeauty.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 MMM Beauty, Brackley. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+  document.querySelectorAll('#mainNav a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.getElementById('mainNav').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

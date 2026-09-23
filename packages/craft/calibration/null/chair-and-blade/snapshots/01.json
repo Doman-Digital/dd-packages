@@ -1,0 +1,330 @@
+{
+  "version": 1,
+  "url": "pages/01.html",
+  "capturedAt": "2026-09-23T11:18:12.136Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5017,
+  "ground": "rgb(17, 17, 16)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(28, 27, 25)",
+        "area": 2801430,
+        "chars": 0
+      },
+      {
+        "value": "rgba(176, 141, 87, 0.03)",
+        "area": 250952,
+        "chars": 0
+      },
+      {
+        "value": "rgba(17, 17, 16, 0.9)",
+        "area": 107415,
+        "chars": 0
+      },
+      {
+        "value": "rgba(17, 17, 16, 0.75)",
+        "area": 52838,
+        "chars": 0
+      },
+      {
+        "value": "rgb(176, 141, 87)",
+        "area": 20581,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(138, 133, 128)",
+        "area": 0,
+        "chars": 2239
+      },
+      {
+        "value": "rgb(242, 237, 228)",
+        "area": 0,
+        "chars": 491
+      },
+      {
+        "value": "rgb(212, 180, 131)",
+        "area": 0,
+        "chars": 155
+      },
+      {
+        "value": "rgb(17, 17, 16)",
+        "area": 0,
+        "chars": 30
+      },
+      {
+        "value": "rgb(176, 141, 87)",
+        "area": 0,
+        "chars": 21
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 2668,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "Bebas Neue",
+      "chars": 268,
+      "displayChars": 228,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Bebas Neue",
+      "sizePx": 84,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber.One chair.Your full hour.",
+      "top": 226
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "A cut above the queue",
+      "top": 1092
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Precision, priced plainly",
+      "top": 1852
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Built around one barber, one chair",
+      "top": 2935
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 20,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Undivided attention",
+      "top": 3175
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 20,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Same barber, every time",
+      "top": 3175
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 20,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "On-time appointments",
+      "top": 3175
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready when you are",
+      "top": 3557
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "St John Street, Manchester",
+      "top": 4133
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 39,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a Chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 52,
+      "background": "rgb(176, 141, 87)",
+      "text": "Book a Chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See Services & Prices"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 50,
+      "background": "rgb(176, 141, 87)",
+      "text": "Call 0161 234 5678"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 900,
+      "kind": "hero",
+      "label": "One barber.One chair.Your full hour.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 900,
+      "height": 818,
+      "kind": "text",
+      "label": "A cut above the queue",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1718,
+      "height": 1083,
+      "kind": "stats",
+      "label": "Precision, priced plainly",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2800,
+      "height": 622,
+      "kind": "stats",
+      "label": "Built around one barber, one chair",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3422,
+      "height": 576,
+      "kind": "text",
+      "label": "Ready when you are",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3998,
+      "height": 863,
+      "kind": "text",
+      "label": "St John Street, Manchester",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4861,
+      "height": 156,
+      "kind": "text",
+      "label": "Chair & Blade Studio Services Book Location © 2026 Chair & B",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(23, 22, 15)",
+          "rgb(12, 11, 10)"
+        ],
+        "area": 829350,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 3,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 7,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      24,
+      26,
+      40,
+      52,
+      84
+    ],
+    "fontWeights": [
+      400,
+      700
+    ],
+    "radii": [
+      "2px",
+      "4px",
+      "6px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 36,
+    "bodyLineLengthCh": 50,
+    "bodyFontSizePx": 18
+  }
+}

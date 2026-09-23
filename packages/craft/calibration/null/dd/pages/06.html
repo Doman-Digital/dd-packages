@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doman Digital — Websites for Small Businesses, Built and Run for You</title>
+<meta name="description" content="Doman Digital designs and builds websites for small businesses across the UK, then looks after them on a simple monthly plan. No big upfront bill, no getting stuck when something breaks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #14171f;
+    --ink-soft: #4a4f5c;
+    --paper: #ffffff;
+    --cream: #faf7f2;
+    --line: #e7e2d9;
+    --brand: #1f5f4f;
+    --brand-dark: #163f35;
+    --accent: #e8734a;
+    --radius: 14px;
+    --max: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Plus Jakarta Sans', system-ui, sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  h1,h2,h3{line-height:1.15; margin:0 0 .5em;}
+  h1{font-weight:800;}
+  h2{font-weight:800; font-size:clamp(1.6rem, 2.6vw, 2.3rem);}
+  h3{font-weight:700;}
+  p{margin:0 0 1em;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.75rem;
+    font-weight:700;
+    color:var(--brand);
+    margin-bottom:.75em;
+    display:block;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+    font-size:.98rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:2px solid transparent;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--brand); color:#fff; box-shadow:0 8px 20px rgba(31,95,79,.25);}
+  .btn-primary:hover{background:var(--brand-dark);}
+  .btn-ghost{border-color:var(--ink); color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:#fff;}
+  .btn-light{background:#fff; color:var(--brand);}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+    max-width:var(--max); margin:0 auto;
+  }
+  .logo{
+    font-weight:800; font-size:1.25rem; text-decoration:none; color:var(--ink);
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo span{color:var(--brand);}
+  .nav-links{display:flex; gap:32px; list-style:none; margin:0; padding:0;}
+  .nav-links a{text-decoration:none; font-weight:600; font-size:.95rem; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--brand);}
+  .nav-cta{display:flex; align-items:center; gap:16px;}
+  .nav-cta a.tel{font-weight:700; font-size:.95rem; text-decoration:none; display:none;}
+
+  /* Hero */
+  .hero{
+    background:var(--cream);
+    padding:80px 0 70px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{font-size:clamp(2.1rem, 4vw, 3.2rem);}
+  .hero p.lead{font-size:1.15rem; color:var(--ink-soft); max-width:52ch;}
+  .hero-actions{display:flex; gap:16px; margin-top:28px; flex-wrap:wrap;}
+  .hero-note{margin-top:20px; font-size:.9rem; color:var(--ink-soft);}
+  .hero-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px;
+    box-shadow:0 20px 40px -20px rgba(20,23,31,.25);
+  }
+  .hero-card ul{list-style:none; margin:0; padding:0;}
+  .hero-card li{
+    display:flex; gap:12px; align-items:flex-start;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-card li:last-child{border-bottom:none;}
+  .check{
+    flex:none; width:22px; height:22px; border-radius:50%;
+    background:var(--brand); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:.75rem; margin-top:2px;
+  }
+
+  /* Trust strip */
+  .trust{padding:36px 0; border-bottom:1px solid var(--line);}
+  .trust-inner{display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;}
+  .trust p{margin:0; font-size:.85rem; color:var(--ink-soft); font-weight:600; letter-spacing:.03em;}
+  .trust-badges{display:flex; gap:24px; flex-wrap:wrap; font-size:.85rem; font-weight:700; color:var(--ink-soft);}
+
+  /* Sections */
+  section{padding:80px 0;}
+  .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
+  .section-head p{color:var(--ink-soft);}
+
+  /* Services */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .service-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px 28px;
+    background:#fff;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .service-card:hover{box-shadow:0 16px 32px -20px rgba(20,23,31,.3); transform:translateY(-3px);}
+  .service-icon{
+    width:48px; height:48px; border-radius:12px;
+    background:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px; font-size:1.4rem;
+  }
+  .service-card p{color:var(--ink-soft); font-size:.95rem;}
+
+  /* How it works */
+  .how{background:var(--cream); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:24px;
+    counter-reset:step;
+  }
+  .step{position:relative; padding-top:8px;}
+  .step-num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:40px; height:40px; border-radius:50%;
+    background:var(--brand); color:#fff; font-weight:800;
+    margin-bottom:16px;
+  }
+  .step p{color:var(--ink-soft); font-size:.93rem;}
+
+  /* Pricing */
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+  .plan{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:34px 28px;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+  }
+  .plan.featured{
+    background:var(--brand);
+    color:#fff;
+    border-color:var(--brand);
+    position:relative;
+    transform:scale(1.03);
+    box-shadow:0 24px 48px -20px rgba(22,63,53,.4);
+  }
+  .plan.featured .plan-tagline, .plan.featured .price-note{color:rgba(255,255,255,.75);}
+  .plan-badge{
+    position:absolute; top:-13px; right:24px;
+    background:var(--accent); color:#fff;
+    font-size:.72rem; font-weight:800;
+    padding:6px 14px; border-radius:999px;
+    text-transform:uppercase; letter-spacing:.04em;
+  }
+  .plan-tagline{color:var(--ink-soft); font-size:.9rem; margin-bottom:20px;}
+  .price{display:flex; align-items:baseline; gap:6px; margin-bottom:4px;}
+  .price .amount{font-size:2.4rem; font-weight:800;}
+  .price .period{font-size:.95rem; opacity:.8;}
+  .price-note{font-size:.82rem; color:var(--ink-soft); margin-bottom:22px;}
+  .plan ul{list-style:none; padding:0; margin:0 0 28px; flex-grow:1;}
+  .plan li{display:flex; gap:10px; align-items:flex-start; padding:8px 0; font-size:.92rem;}
+  .plan .check{background:var(--accent);}
+  .plan.featured .check{background:#fff; color:var(--brand);}
+  .pricing-foot{text-align:center; margin-top:36px; color:var(--ink-soft); font-size:.9rem;}
+
+  /* Portfolio-ish sample section */
+  .work{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .work-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:#fff;
+  }
+  .work-thumb{
+    height:150px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:1.1rem; color:#fff;
+  }
+  .work-body{padding:20px 22px;}
+  .work-body p{color:var(--ink-soft); font-size:.9rem; margin-bottom:0;}
+  .work-tag{
+    display:inline-block; font-size:.75rem; font-weight:700; color:var(--brand);
+    text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;
+  }
+
+  /* Testimonials */
+  .testimonials{background:var(--cream); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .t-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .t-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .t-card p.quote{font-size:.98rem; color:var(--ink);}
+  .t-person{display:flex; align-items:center; gap:12px; margin-top:18px;}
+  .t-avatar{
+    width:42px; height:42px; border-radius:50%;
+    background:var(--brand); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:.9rem; flex:none;
+  }
+  .t-name{font-weight:700; font-size:.92rem;}
+  .t-role{font-size:.8rem; color:var(--ink-soft);}
+
+  /* FAQ */
+  .faq{max-width:760px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line); padding:20px 0;}
+  .faq-item summary{
+    cursor:pointer; font-weight:700; list-style:none;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:'+'; font-size:1.3rem; color:var(--brand); font-weight:400;
+  }
+  .faq-item[open] summary::after{content:'−';}
+  .faq-item p{margin-top:12px; color:var(--ink-soft); font-size:.95rem;}
+
+  /* CTA band */
+  .cta-band{
+    background:var(--ink);
+    color:#fff;
+    padding:64px 0;
+    text-align:center;
+    border-radius:0;
+  }
+  .cta-band h2{color:#fff;}
+  .cta-band p{color:rgba(255,255,255,.75); max-width:52ch; margin:0 auto 28px;}
+  .cta-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+
+  /* Contact */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:48px;
+  }
+  .contact-info h3{margin-bottom:12px;}
+  .contact-list{list-style:none; padding:0; margin:24px 0 0;}
+  .contact-list li{display:flex; gap:12px; padding:10px 0; font-size:.95rem; color:var(--ink-soft);}
+  .contact-list strong{color:var(--ink);}
+  form{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:grid;
+    gap:16px;
+  }
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  label{font-size:.85rem; font-weight:700; margin-bottom:6px; display:block;}
+  input, textarea, select{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    font-family:inherit;
+    font-size:.95rem;
+    background:#fff;
+  }
+  textarea{resize:vertical; min-height:100px;}
+  form .btn-primary{justify-self:start; border:none; cursor:pointer; font-family:inherit;}
+
+  /* Footer */
+  footer{padding:48px 0 32px; border-top:1px solid var(--line);}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:32px;
+    margin-bottom:40px;
+  }
+  .footer-grid h4{font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:16px;}
+  .footer-grid ul{list-style:none; padding:0; margin:0;}
+  .footer-grid li{margin-bottom:10px;}
+  .footer-grid a{text-decoration:none; color:var(--ink-soft); font-size:.92rem;}
+  .footer-grid a:hover{color:var(--brand);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    font-size:.82rem; color:var(--ink-soft);
+    border-top:1px solid var(--line); padding-top:24px;
+  }
+
+  @media (max-width: 880px){
+    .nav-links{display:none;}
+    .hero-grid, .contact-grid{grid-template-columns:1fr;}
+    .services-grid, .steps, .pricing-grid, .work, .t-grid{grid-template-columns:1fr;}
+    .plan.featured{transform:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="logo">Doman <span>Digital</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#work">Our work</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Get a free quote</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Web design & hosting for small businesses</span>
+      <h1>A proper website for your business — built, hosted, and kept running for one monthly fee.</h1>
+      <p class="lead">We design and build websites for tradespeople, salons, cafés, shops and services across the UK, then look after the hosting, updates, and small edits every month. No web developer to chase, no surprise bills, no site that quietly breaks.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get a free quote</a>
+        <a href="#pricing" class="btn btn-ghost">See our plans</a>
+      </div>
+      <p class="hero-note">Free 20-minute call · No obligation · Sites usually live within 2–3 weeks</p>
+    </div>
+    <div class="hero-card">
+      <h3 style="margin-bottom:16px;">What's included, every month</h3>
+      <ul>
+        <li><span class="check">✓</span> Design, build and launch of your site</li>
+        <li><span class="check">✓</span> Secure hosting on fast UK servers</li>
+        <li><span class="check">✓</span> Ongoing text and image updates</li>
+        <li><span class="check">✓</span> Backups, security patches and monitoring</li>
+        <li><span class="check">✓</span> Direct phone and email support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap trust-inner">
+    <p>TRUSTED BY SMALL BUSINESSES ACROSS THE UK</p>
+    <div class="trust-badges">
+      <span>Cafés & Restaurants</span>
+      <span>Trades & Construction</span>
+      <span>Salons & Clinics</span>
+      <span>Shops & Retailers</span>
+      <span>Professional Services</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What we do</span>
+      <h2>Everything your website needs, without hiring anyone</h2>
+      <p>Most small businesses don't need an in-house web team — they need a website that works and someone to call when it doesn't. That's what we are.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🖥️</div>
+        <h3>Website design & build</h3>
+        <p>A clean, fast, mobile-friendly site built around what your customers actually need to find — your services, your prices, and a way to get in touch or book.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>Ongoing edits & support</h3>
+        <p>Opening hours changed? New menu, new price list, new photos? Send us the details and we'll update the site — usually within one working day.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔒</div>
+        <h3>Hosting & security</h3>
+        <p>We host every site on fast, secure UK-based servers, keep software patched, and take daily backups so you're never at risk of losing your site.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📅</div>
+        <h3>Booking & contact forms</h3>
+        <p>Let customers book appointments, request quotes, or get in touch without picking up the phone — enquiries land straight in your inbox.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Local search visibility</h3>
+        <p>We set your site up to be found on Google for the searches that matter locally, and connect it to Google Business Profile.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>Online shops & payments</h3>
+        <p>Selling products or taking deposits? We can add secure online payments through Stripe so you can take orders around the clock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From first call to a live website, in four steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Free consultation</h3>
+        <p>We have a call or meet up, learn about your business, and agree what the site needs to do for you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Design & build</h3>
+        <p>We design your pages, write or tidy up your copy, and build the site — you review it before anything goes live.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Launch</h3>
+        <p>Once you're happy, we connect your domain, set up hosting, and put the site live — usually within 2–3 weeks.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>We keep it running</h3>
+        <p>From there, it's a fixed monthly fee. Hosting, security, backups and reasonable edits are all included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Simple, monthly pricing</span>
+      <h2>One plan, one invoice, no hidden extras</h2>
+      <p>No large upfront design bill. We build your site for a small setup fee, then run it for a fixed monthly price you can budget for. Cancel with 30 days' notice, any time.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan">
+        <h3>Starter</h3>
+        <p class="plan-tagline">A solid online presence for a new or small business</p>
+        <div class="price"><span class="amount">£39</span><span class="period">/month</span></div>
+        <p class="price-note">£150 one-off setup · 12-month minimum term</p>
+        <ul>
+          <li><span class="check">✓</span> Up to 5 pages</li>
+          <li><span class="check">✓</span> Mobile-friendly design</li>
+          <li><span class="check">✓</span> Contact form</li>
+          <li><span class="check">✓</span> Hosting, backups & security</li>
+          <li><span class="check">✓</span> 30 minutes of edits per month</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Choose Starter</a>
+      </div>
+      <div class="plan featured">
+        <span class="plan-badge">Most popular</span>
+        <h3>Growth</h3>
+        <p class="plan-tagline">For businesses that update their site regularly</p>
+        <div class="price"><span class="amount">£69</span><span class="period">/month</span></div>
+        <p class="price-note">£150 one-off setup · 12-month minimum term</p>
+        <ul>
+          <li><span class="check">✓</span> Up to 10 pages</li>
+          <li><span class="check">✓</span> Booking or enquiry forms</li>
+          <li><span class="check">✓</span> Google Business Profile setup</li>
+          <li><span class="check">✓</span> Hosting, backups & security</li>
+          <li><span class="check">✓</span> 2 hours of edits per month</li>
+          <li><span class="check">✓</span> Priority phone support</li>
+        </ul>
+        <a href="#contact" class="btn btn-light">Choose Growth</a>
+      </div>
+      <div class="plan">
+        <h3>Commerce</h3>
+        <p class="plan-tagline">For shops and businesses selling online</p>
+        <div class="price"><span class="amount">£119</span><span class="period">/month</span></div>
+        <p class="price-note">£250 one-off setup · 12-month minimum term</p>
+        <ul>
+          <li><span class="check">✓</span> Everything in Growth</li>
+          <li><span class="check">✓</span> Online shop with up to 100 products</li>
+          <li><span class="check">✓</span> Secure card payments via Stripe</li>
+          <li><span class="check">✓</span> Order & stock notifications</li>
+          <li><span class="check">✓</span> 4 hours of edits per month</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Choose Commerce</a>
+      </div>
+    </div>
+    <p class="pricing-foot">Need something bespoke — a booking system, membership area, or multi-location site? <a href="#contact" style="color:var(--brand); font-weight:700;">Get in touch</a> and we'll quote it properly.</p>
+  </div>
+</section>
+
+<section id="work" style="background:var(--cream); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Recent projects</span>
+      <h2>A few businesses we've built sites for</h2>
+    </div>
+    <div class="work">
+      <div class="work-card">
+        <div class="work-thumb" style="background:#1f5f4f;">The Copper Kettle</div>
+        <div class="work-body">
+          <span class="work-tag">Café</span>
+          <p>A menu-led site with online table booking that cut phone bookings during busy weekends.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb" style="background:#e8734a;">Harrow Gas & Heating</div>
+        <div class="work-body">
+          <span class="work-tag">Trades</span>
+          <p>A quote-request site built to rank locally for boiler and heating searches around Harrow.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb" style="background:#14171f;">Willow & Co. Salon</div>
+        <div class="work-body">
+          <span class="work-tag">Beauty & Salons</span>
+          <p>A booking-first site with service pricing and photos, updated monthly with new offers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What clients say</span>
+      <h2>Trusted by business owners who'd rather run their business than their website</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <p class="quote">"Doman Digital took a job off my plate I'd been putting off for two years. The site went live in under three weeks and they still update it whenever I email them."</p>
+        <div class="t-person">
+          <div class="t-avatar">RH</div>
+          <div><div class="t-name">Ryan Hobbs</div><div class="t-role">Hobbs Plumbing & Heating</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="quote">"I liked that it was a fixed monthly cost rather than a huge bill upfront. Bookings through the site have genuinely picked up since we launched."</p>
+        <div class="t-person">
+          <div class="t-avatar">SF</div>
+          <div><div class="t-name">Sadia Farooq</div><div class="t-role">Willow & Co. Salon</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="quote">"Whenever I need the menu changing or a new event added, it's done the same day. It's the first website I've had that I don't dread dealing with."</p>
+        <div class="t-person">
+          <div class="t-avatar">MP</div>
+          <div><div class="t-name">Marie Pearson</div><div class="t-role">The Copper Kettle Café</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item" open>
+        <summary>Do I own the website?</summary>
+        <p>Yes. The design and content are yours. Hosting and the monthly support are provided by us as part of the plan, and we'll help you move the site elsewhere if you ever decide to leave.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if I want to cancel?</summary>
+        <p>All plans run on a rolling basis after the initial 12-month term, and you can cancel with 30 days' written notice. We'll export your content and help with the handover.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does it take to get a site built?</summary>
+        <p>Most Starter and Growth sites go live within 2–3 weeks of us receiving your content and sign-off. Commerce sites with a shop usually take 3–4 weeks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if my edits go over the included hours?</summary>
+        <p>We'll always let you know before doing extra work. Anything beyond your monthly allowance is billed at £35 per hour, agreed in advance — never a surprise on your invoice.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with businesses outside the UK?</summary>
+        <p>We're based in the UK and focus on UK small businesses, but we're happy to have a conversation if you're based elsewhere.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready for a website that actually gets looked after?</h2>
+    <p>Book a free 20-minute call. We'll ask about your business, look at what you have now (if anything), and tell you honestly what we'd recommend.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn btn-primary">Get a free quote</a>
+      <a href="tel:+441619876543" class="btn btn-ghost" style="border-color:#fff; color:#fff;">Call 0161 987 6543</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Tell us about your business</h2>
+      <p>Fill in the form and we'll come back to you within one working day with some initial thoughts and a rough price — no obligation, no hard sell.</p>
+      <ul class="contact-list">
+        <li>📍 <span><strong>Doman Digital</strong><br>Unit 4, Riverside Business Park, Manchester M4 5AB</span></li>
+        <li>📞 <span><strong>Phone</strong><br>0161 987 6543</span></li>
+        <li>✉️ <span><strong>Email</strong><br>hello@domandigital.co.uk</span></li>
+        <li>🕒 <span><strong>Hours</strong><br>Monday–Friday, 9am–5:30pm</span></li>
+      </ul>
+    </div>
+    <form>
+      <div class="form-row">
+        <div>
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div>
+          <label for="business">Business name</label>
+          <input type="text" id="business" name="business" placeholder="Smith & Co">
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@smithco.co.uk" required>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="07700 900123">
+        </div>
+      </div>
+      <div>
+        <label for="plan">Which plan interests you?</label>
+        <select id="plan" name="plan">
+          <option>Not sure yet</option>
+          <option>Starter — £39/month</option>
+          <option>Growth — £69/month</option>
+          <option>Commerce — £119/month</option>
+        </select>
+      </div>
+      <div>
+        <label for="message">Tell us a bit about your business</label>
+        <textarea id="message" name="message" placeholder="What do you do, do you have a website already, and what would you like it to do for you?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send enquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo" style="display:inline-flex; margin-bottom:12px;">Doman <span>Digital</span></a>
+        <p style="color:var(--ink-soft); font-size:.92rem; max-width:32ch;">Websites for small businesses, designed, built and run on a simple monthly plan.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#work">Our work</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Plans</h4>
+        <ul>
+          <li><a href="#pricing">Starter — £39/mo</a></li>
+          <li><a href="#pricing">Growth — £69/mo</a></li>
+          <li><a href="#pricing">Commerce — £119/mo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@domandigital.co.uk">hello@domandigital.co.uk</a></li>
+          <li><a href="tel:+441619876543">0161 987 6543</a></li>
+          <li><a href="#contact">Enquiry form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Doman Digital Ltd. Registered in England & Wales.</span>
+      <span>Manchester, United Kingdom</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,466 @@
+{
+  "version": 1,
+  "url": "pages/03.html",
+  "capturedAt": "2026-09-23T11:18:26.325Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4069,
+  "ground": "rgb(255, 250, 246)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1477855,
+        "chars": 0
+      },
+      {
+        "value": "rgb(247, 229, 227)",
+        "area": 875520,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 250, 246)",
+        "area": 515520,
+        "chars": 0
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 477914,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 250, 246, 0.9)",
+        "area": 93600,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 99, 92)",
+        "area": 7657,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "area": 6296,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 0,
+        "chars": 1095
+      },
+      {
+        "value": "rgba(43, 35, 32, 0.7)",
+        "area": 0,
+        "chars": 904
+      },
+      {
+        "value": "rgba(43, 35, 32, 0.6)",
+        "area": 0,
+        "chars": 485
+      },
+      {
+        "value": "rgb(255, 250, 246)",
+        "area": 0,
+        "chars": 467
+      },
+      {
+        "value": "rgba(43, 35, 32, 0.5)",
+        "area": 0,
+        "chars": 226
+      },
+      {
+        "value": "rgba(255, 250, 246, 0.7)",
+        "area": 0,
+        "chars": 101
+      },
+      {
+        "value": "rgb(201, 99, 92)",
+        "area": 0,
+        "chars": 64
+      },
+      {
+        "value": "rgb(251, 191, 36)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3005,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 378,
+      "displayChars": 283,
+      "italicChars": 0,
+      "weights": [
+        600,
+        700,
+        800
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 48,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Korean skincare, without the wait.",
+      "top": 359
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Shop by step",
+      "top": 1111
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Best sellers",
+      "top": 1540
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Advanced Snail 96 Mucin Power Essence",
+      "top": 1940
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Relief Sun: Rice + Probiotics SPF50+",
+      "top": 1940
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Heartleaf 77% Soothing Toner",
+      "top": 1940
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dive-In Low Molecule Hyaluronic Acid Serum",
+      "top": 1940
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why buy K-Beauty from Harrisons?",
+      "top": 2417
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What our customers say",
+      "top": 3025
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 3495
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 9999,
+      "heightPx": 50,
+      "background": "rgb(43, 35, 32)",
+      "text": "Shop Best Sellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 9999,
+      "heightPx": 50,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Browse Skincare"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add to basket"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add to basket"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add to basket"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add to basket"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 48,
+      "background": "rgb(201, 99, 92)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 101,
+      "height": 784,
+      "kind": "hero",
+      "label": "Korean skincare, without the wait.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 885,
+      "height": 146,
+      "kind": "cards",
+      "label": "🇬🇧 Shipped from UK stock No customs, no import duty 🚚 Fre",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1031,
+      "height": 428,
+      "kind": "text",
+      "label": "Shop by step",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1459,
+      "height": 670,
+      "kind": "cards",
+      "label": "Best sellers",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2129,
+      "height": 208,
+      "kind": "text",
+      "label": "Brands we stock in full, in the UK COSRX Beauty of Joseon An",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2337,
+      "height": 608,
+      "kind": "text",
+      "label": "Why buy K-Beauty from Harrisons?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2945,
+      "height": 486,
+      "kind": "cards",
+      "label": "What our customers say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3431,
+      "height": 280,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3711,
+      "height": 358,
+      "kind": "text",
+      "label": "Harrisons Beauty Authentic Korean skincare, held in UK stock",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(253, 241, 238)",
+          "rgb(247, 229, 227)",
+          "rgb(242, 216, 222)"
+        ],
+        "area": 1128960,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(251, 238, 233)",
+          "rgb(233, 169, 161)"
+        ],
+        "area": 73728,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(238, 243, 236)",
+          "rgb(169, 201, 161)"
+        ],
+        "area": 73728,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(253, 240, 238)",
+          "rgb(230, 168, 159)"
+        ],
+        "area": 72704,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(238, 247, 238)",
+          "rgb(159, 201, 159)"
+        ],
+        "area": 72704,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(242, 238, 251)",
+          "rgb(179, 159, 224)"
+        ],
+        "area": 72704,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(254, 246, 234)",
+          "rgb(238, 194, 127)"
+        ],
+        "area": 72704,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(253, 241, 238)",
+          "rgb(216, 164, 154)"
+        ],
+        "area": 225792,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 1,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 1,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      16,
+      18,
+      20,
+      24,
+      30,
+      48
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "9999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 100,
+    "bodyLineLengthCh": 47,
+    "bodyFontSizePx": 18
+  }
+}

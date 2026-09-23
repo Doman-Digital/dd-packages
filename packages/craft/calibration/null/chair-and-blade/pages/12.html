@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chair and Blade — One-to-One Barber Studio, St John Street, Manchester</title>
+<meta name="description" content="Chair and Blade is a one-to-one barber studio on St John Street, Manchester. One barber, one chair, your full appointment, no rushing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#111111;
+    --charcoal:#1c1c1c;
+    --cream:#f4efe8;
+    --gold:#b9925a;
+    --gold-light:#d4b483;
+    --line:#2c2c2c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Playfair Display',serif;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(17,17,17,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;
+    max-width:1100px;margin:0 auto;
+  }
+  .brand{
+    font-size:1.4rem;
+    letter-spacing:0.5px;
+    color:var(--cream);
+  }
+  .brand span{color:var(--gold-light);}
+  nav ul{
+    display:flex;gap:32px;list-style:none;
+  }
+  nav a{
+    font-size:0.92rem;
+    letter-spacing:0.3px;
+    text-transform:uppercase;
+    color:#cfc9bf;
+    transition:color 0.2s;
+  }
+  nav a:hover{color:var(--gold-light);}
+  .nav-book{
+    border:1px solid var(--gold);
+    padding:8px 18px;
+    border-radius:2px;
+    color:var(--gold-light) !important;
+  }
+  .nav-book:hover{background:var(--gold);color:var(--black) !important;}
+  .menu-toggle{
+    display:none;
+    background:none;border:none;color:var(--cream);
+    font-size:1.6rem;cursor:pointer;
+  }
+
+  /* Hero */
+  .hero{
+    position:relative;
+    padding:120px 24px 100px;
+    text-align:center;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(185,146,90,0.08), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(185,146,90,0.06), transparent 40%),
+      var(--black);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    color:var(--gold-light);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,6vw,4.2rem);
+    font-weight:600;
+    line-height:1.1;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-light);
+  }
+  .hero p.lead{
+    max-width:600px;
+    margin:0 auto 36px;
+    font-size:1.1rem;
+    color:#d8d2c7;
+  }
+  .hero-actions{
+    display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:2px;
+    font-size:0.9rem;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    font-weight:600;
+    transition:all 0.2s;
+    border:1px solid var(--gold);
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--black);
+  }
+  .btn-primary:hover{background:var(--gold-light);}
+  .btn-secondary{
+    color:var(--gold-light);
+  }
+  .btn-secondary:hover{background:rgba(185,146,90,0.1);}
+
+  .hero-meta{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+    gap:48px;
+    flex-wrap:wrap;
+    font-size:0.85rem;
+    color:#a9a297;
+    letter-spacing:0.4px;
+  }
+  .hero-meta strong{
+    display:block;
+    color:var(--cream);
+    font-size:0.95rem;
+    margin-bottom:2px;
+  }
+
+  /* Section generic */
+  section{padding:90px 24px;}
+  .section-head{
+    text-align:center;
+    max-width:600px;
+    margin:0 auto 56px;
+  }
+  .section-eyebrow{
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:0.75rem;
+    color:var(--gold-light);
+    margin-bottom:12px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    font-weight:600;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:#c4bdb1;
+  }
+
+  /* About */
+  .about{
+    background:var(--charcoal);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .about-portrait{
+    aspect-ratio:4/5;
+    border-radius:4px;
+    background:
+      linear-gradient(160deg, #2a2a2a 0%, #171717 100%);
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .about-portrait::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(45deg, rgba(185,146,90,0.05) 0 2px, transparent 2px 14px);
+  }
+  .about-portrait .initials{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Playfair Display',serif;
+    font-size:5rem;
+    color:var(--gold);
+    opacity:0.85;
+  }
+  .about-text h3{
+    font-size:1.8rem;
+    margin-bottom:18px;
+    font-weight:600;
+  }
+  .about-text p{
+    color:#cfc9bd;
+    margin-bottom:16px;
+  }
+  .about-text .signature{
+    margin-top:24px;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    color:var(--gold-light);
+    font-size:1.2rem;
+  }
+
+  /* Why one-to-one */
+  .features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .feature{
+    text-align:center;
+    padding:32px 20px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  }
+  .feature .icon{
+    width:44px;height:44px;
+    margin:0 auto 18px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);
+    font-size:1.2rem;
+  }
+  .feature h3{
+    font-size:1.15rem;
+    margin-bottom:10px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+  }
+  .feature p{
+    font-size:0.92rem;
+    color:#bdb6a9;
+  }
+
+  /* Services */
+  .services{
+    background:var(--charcoal);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .service-list{
+    max-width:760px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+  }
+  .service-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    gap:20px;
+  }
+  .service-row:last-child{border-bottom:none;}
+  .service-name{
+    font-size:1.1rem;
+    font-weight:600;
+  }
+  .service-desc{
+    font-size:0.88rem;
+    color:#a9a297;
+    margin-top:4px;
+  }
+  .service-price{
+    font-family:'Playfair Display',serif;
+    font-size:1.2rem;
+    color:var(--gold-light);
+    white-space:nowrap;
+  }
+  .services-note{
+    text-align:center;
+    margin-top:40px;
+    color:#a9a297;
+    font-size:0.9rem;
+  }
+
+  /* Hours + Location */
+  .info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .info-card h3{
+    font-size:1.4rem;
+    margin-bottom:22px;
+  }
+  .hours-table{
+    width:100%;
+    border-collapse:collapse;
+  }
+  .hours-table tr{
+    border-bottom:1px solid var(--line);
+  }
+  .hours-table td{
+    padding:12px 0;
+    font-size:0.95rem;
+  }
+  .hours-table td:first-child{
+    color:#cfc9bd;
+  }
+  .hours-table td:last-child{
+    text-align:right;
+    font-weight:600;
+    color:var(--gold-light);
+  }
+  .location-details p{
+    margin-bottom:14px;
+    color:#cfc9bd;
+  }
+  .location-details strong{
+    color:var(--cream);
+    display:block;
+    margin-bottom:4px;
+  }
+  .map-frame{
+    margin-top:20px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    aspect-ratio:16/10;
+  }
+  .map-frame iframe{
+    width:100%;height:100%;border:0;filter:grayscale(0.4) invert(0.9) contrast(0.85);
+  }
+
+  /* CTA band */
+  .cta-band{
+    text-align:center;
+    background:linear-gradient(180deg, var(--black), #161513);
+    border-top:1px solid var(--line);
+  }
+  .cta-band h2{
+    font-size:clamp(1.8rem,4vw,2.4rem);
+    margin-bottom:16px;
+  }
+  .cta-band p{
+    color:#c4bdb1;
+    max-width:520px;
+    margin:0 auto 32px;
+  }
+
+  /* Footer */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 24px 32px;
+  }
+  .footer-grid{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  .footer-brand .brand{font-size:1.2rem;}
+  .footer-brand p{
+    margin-top:10px;
+    color:#918a7e;
+    font-size:0.85rem;
+    max-width:280px;
+  }
+  .footer-col h4{
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--gold-light);
+    margin-bottom:14px;
+  }
+  .footer-col p, .footer-col a{
+    display:block;
+    font-size:0.9rem;
+    color:#c4bdb1;
+    margin-bottom:8px;
+  }
+  .footer-col a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    max-width:1100px;
+    margin:40px auto 0;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:0.8rem;
+    color:#726c62;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (max-width: 860px){
+    .about-grid, .info-grid{grid-template-columns:1fr;}
+    .features{grid-template-columns:1fr;}
+  }
+  @media (max-width: 720px){
+    nav ul{
+      position:absolute;
+      top:100%;left:0;right:0;
+      flex-direction:column;
+      background:var(--black);
+      border-bottom:1px solid var(--line);
+      padding:16px 24px;
+      gap:16px;
+      display:none;
+    }
+    nav ul.open{display:flex;}
+    .menu-toggle{display:block;}
+    .nav-book{align-self:flex-start;}
+    .hero{padding:90px 20px 70px;}
+    .hero-meta{gap:24px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#" class="brand">Chair <span>&</span> Blade</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#hours">Hours &amp; Location</a></li>
+        <li><a href="#contact" class="nav-book">Book a Chair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">St John Street, Manchester</div>
+    <h1>One barber.<br>One chair. <em>Your full appointment.</em></h1>
+    <p class="lead">Chair and Blade is a one-to-one barber studio tucked into Manchester's St John Street quarter. No queue, no second chair, no rushing — just one seat, one pair of hands, and your full time slot.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Book Your Slot</a>
+      <a href="#services" class="btn btn-secondary">View Services</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>1 Barber</strong>Every appointment, every time</div>
+      <div><strong>1 Chair</strong>No shared floor, no waiting room queue</div>
+      <div><strong>By Appointment</strong>Tue–Sat, one client at a time</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-portrait">
+      <div class="initials">JA</div>
+    </div>
+    <div class="about-text">
+      <div class="section-eyebrow">The Barber</div>
+      <h3>Jamie Ashworth</h3>
+      <p>Chair and Blade started as a simple idea: a haircut should feel like it's just for you. After a decade cutting hair across busy Manchester shops, Jamie set up a single-chair studio on St John Street where every booking gets his complete attention — no gaps in service, no half-finished conversations, no rushing you out for the next name on the list.</p>
+      <p>Every cut is planned around your face shape, your hair, and how you actually style it day to day, not a five-minute template. Whether it's a sharp skin fade, a classic scissor cut, or a beard reshape, the studio only ever books one person at a time.</p>
+      <p class="signature">— Jamie</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Why One-to-One</div>
+      <h2>A studio built around a single chair</h2>
+      <p>No apprentices, no second barber, no overlap. Just a proper appointment.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">✂</div>
+        <h3>Undivided Attention</h3>
+        <p>Your appointment is the only one running. No stepping away to serve another client mid-cut.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">⏱</div>
+        <h3>No Queue, No Waiting</h3>
+        <p>You're booked into a fixed slot, so you walk in and sit straight down in the chair.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🪒</div>
+        <h3>Consistency Every Visit</h3>
+        <p>Same barber, same standards, every time — your cut gets refined visit after visit, not reset.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Services</div>
+      <h2>Every cut, one focus</h2>
+      <p>Prices reflect a full one-to-one appointment, not a shared time slot.</p>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <div>
+          <div class="service-name">Classic Cut</div>
+          <div class="service-desc">Scissor or clipper cut, tailored to your hair type and finished with a style consult.</div>
+        </div>
+        <div class="service-price">£32</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Skin Fade</div>
+          <div class="service-desc">Precision fade blended to skin, with your choice of length and finish on top.</div>
+        </div>
+        <div class="service-price">£36</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Cut &amp; Beard</div>
+          <div class="service-desc">Full haircut paired with a beard trim and line-up in the same appointment.</div>
+        </div>
+        <div class="service-price">£45</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Beard Trim &amp; Line-Up</div>
+          <div class="service-desc">Shape, trim, and edge work, finished with a hot towel.</div>
+        </div>
+        <div class="service-price">£18</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Hot Towel Shave</div>
+          <div class="service-desc">Traditional straight razor shave with hot towel prep and aftercare balm.</div>
+        </div>
+        <div class="service-price">£28</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Junior Cut (Under 12)</div>
+          <div class="service-desc">A relaxed, unhurried cut for younger clients — same one-to-one setting.</div>
+        </div>
+        <div class="service-price">£20</div>
+      </div>
+    </div>
+    <p class="services-note">Every service is booked as its own appointment slot. Running late? Please call ahead — with one chair, there's no one to cover.</p>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap info-grid">
+    <div class="info-card">
+      <h3>Studio Hours</h3>
+      <table class="hours-table">
+        <tr><td>Monday</td><td>Closed</td></tr>
+        <tr><td>Tuesday</td><td>9:00 – 17:30</td></tr>
+        <tr><td>Wednesday</td><td>9:00 – 17:30</td></tr>
+        <tr><td>Thursday</td><td>9:00 – 19:00</td></tr>
+        <tr><td>Friday</td><td>9:00 – 19:00</td></tr>
+        <tr><td>Saturday</td><td>9:00 – 16:00</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+    <div class="info-card location-details">
+      <h3>Find the Studio</h3>
+      <p><strong>Address</strong>Chair and Blade, St John Street, Manchester, M3</p>
+      <p><strong>Getting Here</strong>A short walk from Deansgate and Spinningfields, with on-street pay-and-display parking nearby and Deansgate–Castlefield tram stop a few minutes away on foot.</p>
+      <p><strong>Entrance</strong>Look for the single black door with the brass chair-and-blade emblem — ring the bell if it's locked between appointments.</p>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=St+John+Street,+Manchester&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing St John Street, Manchester">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Book Your Chair</h2>
+    <p>Appointments are limited to one client at a time, so slots move quickly. Call, email, or message to secure yours.</p>
+    <div class="hero-actions">
+      <a href="tel:+441611234567" class="btn btn-primary">Call 0161 123 4567</a>
+      <a href="mailto:book@chairandblade.co.uk" class="btn btn-secondary">Email to Book</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="brand">Chair <span style="color:var(--gold-light);">&</span> Blade</a>
+      <p>A one-to-one barber studio on St John Street, Manchester. One barber, one chair, one appointment at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <p>St John Street<br>Manchester, M3</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+441611234567">0161 123 4567</a>
+      <a href="mailto:book@chairandblade.co.uk">book@chairandblade.co.uk</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Chair and Blade. All rights reserved.</span>
+    <span>Manchester, England</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function(){
+    document.getElementById('navList').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

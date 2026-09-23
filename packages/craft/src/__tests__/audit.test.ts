@@ -22,7 +22,7 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
   beforeAll(async () => {
     server = createServer((req, res) => {
       res.setHeader("content-type", "text/html");
-      res.end(page(req.url === "/decided" ? "decided.html" : "generated.html"));
+      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : "generated.html"));
     });
     await new Promise<void>((done) => server.listen(0, "127.0.0.1", done));
     base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
@@ -73,5 +73,14 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     expect(results.map((r) => Boolean(r.snapshot))).toEqual([true, false, true]);
     expect(results[1].error).toMatch(/net::ERR_UNSAFE_PORT/);
     await expect(snapshotUrl("http://127.0.0.1:9/", { executablePath: chromium, timeoutMs: 5000 })).rejects.toThrow(/net::ERR_UNSAFE_PORT/);
+  }, 60_000);
+
+  it("sees a reveal on the cards inside a section, not only on the section", async () => {
+    // Found in the null models: the one generated page with scroll reveals put
+    // them on cards two levels down, and the section-level check read it as still.
+    const { snapshotUrl } = await import("../audit/index.js");
+    const snap = await snapshotUrl(`${base}/nested`, { executablePath: chromium, introWindowMs: 200 });
+    expect(snap.motion.hiddenSections).toBeGreaterThanOrEqual(4);
+    expect(auditSnapshot(snap).findings.map((f) => f.tell)).toContain("reveal-everywhere");
   }, 60_000);
 });

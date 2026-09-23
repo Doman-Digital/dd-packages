@@ -1,0 +1,798 @@
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meadowbank Vets | Small Animal Veterinary Practice in Kendal</title>
+<meta name="description" content="Meadowbank Vets is a friendly, independent small-animal veterinary practice in Kendal, Cumbria, offering compassionate care for dogs, cats and small pets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2f5a4e;
+    --forest-dark: #223f37;
+    --cream: #fbf7ef;
+    --sand: #f1e6d3;
+    --terracotta: #c96f4a;
+    --terracotta-dark: #b25c39;
+    --ink: #24322d;
+    --muted: #5a6a63;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    margin: 0 0 0.5em 0;
+    color: var(--forest-dark);
+  }
+
+  a { color: inherit; }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Top info bar */
+  .topbar {
+    background: var(--forest-dark);
+    color: #e7ede9;
+    font-size: 0.85rem;
+  }
+  .topbar .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+  .topbar a { text-decoration: none; }
+  .topbar .emergency {
+    color: #f4c9a8;
+    font-weight: 700;
+  }
+
+  /* Header / nav */
+  header.site-header {
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid #e5dcc9;
+  }
+  nav.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--forest-dark);
+    text-decoration: none;
+  }
+  .logo svg { flex-shrink: 0; }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .nav-links a:hover {
+    border-color: var(--terracotta);
+    color: var(--forest-dark);
+  }
+  .nav-cta {
+    background: var(--terracotta);
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+  }
+  .nav-cta:hover { background: var(--terracotta-dark); }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--forest-dark);
+  }
+
+  /* Hero */
+  .hero {
+    background:
+      linear-gradient(120deg, rgba(47,90,78,0.88), rgba(34,63,55,0.82)),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="%234c7364"/></svg>');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 90px 0 100px;
+  }
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f4c9a8;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 2.75rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .hero p.lead {
+    font-size: 1.1rem;
+    color: #e7ede9;
+    max-width: 46ch;
+    margin-bottom: 28px;
+  }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.65);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.12); }
+
+  .hero-card {
+    background: #fff;
+    color: var(--ink);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  }
+  .hero-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+  }
+  .hero-card ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+    padding: 0;
+  }
+  .hero-card li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee2cd;
+    font-size: 0.95rem;
+  }
+  .hero-card li:last-child { border-bottom: none; }
+  .hero-card .day { color: var(--muted); }
+  .hero-card .closed { color: var(--terracotta-dark); font-weight: 700; }
+
+  /* Trust strip */
+  .trust-strip {
+    background: var(--sand);
+    padding: 22px 0;
+  }
+  .trust-strip .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 18px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--forest-dark);
+    font-size: 0.95rem;
+  }
+  .trust-strip span { opacity: 0.85; }
+
+  /* Sections */
+  section { padding: 76px 0; }
+  .section-heading {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .section-heading .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--terracotta-dark);
+    margin-bottom: 10px;
+  }
+  .section-heading h2 { font-size: 2rem; }
+  .section-heading p { color: var(--muted); }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .service-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 26px;
+    border: 1px solid #eee2cd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(47,90,78,0.12);
+  }
+  .service-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .service-card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+  /* About */
+  .about {
+    background: var(--forest);
+    color: #eef3ef;
+  }
+  .about .container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .about-photo {
+    aspect-ratio: 4/3;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #3d6b5c, #274a3e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about h2 { color: #fff; }
+  .about p { color: #d7e3db; }
+  .about-list {
+    list-style: none;
+    padding: 0;
+    margin: 22px 0 0;
+    display: grid;
+    gap: 14px;
+  }
+  .about-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .about-list .tick {
+    background: var(--terracotta);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+
+  /* Team */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .team-card { text-align: center; }
+  .team-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sand), #e3d3b3);
+    margin-bottom: 14px;
+  }
+  .team-card h3 { font-size: 1.05rem; margin-bottom: 2px; }
+  .team-card .role {
+    color: var(--terracotta-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+  .team-card p.bio { color: var(--muted); font-size: 0.9rem; }
+
+  /* Testimonials */
+  .testimonials {
+    background: var(--sand);
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+  }
+  .testimonial-card .stars { color: var(--terracotta); margin-bottom: 12px; letter-spacing: 2px; }
+  .testimonial-card p.quote { font-style: italic; color: var(--ink); margin-bottom: 16px; }
+  .testimonial-card .author { font-weight: 700; color: var(--forest-dark); font-size: 0.9rem; }
+  .testimonial-card .pet { color: var(--muted); font-size: 0.85rem; }
+
+  /* CTA banner */
+  .cta-banner {
+    background: var(--terracotta);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-banner h2 { color: #fff; margin-bottom: 12px; }
+  .cta-banner p { max-width: 50ch; margin: 0 auto 26px; color: #fdece1; }
+  .cta-banner .btn-primary { background: var(--forest-dark); }
+  .cta-banner .btn-primary:hover { background: #17281f; }
+
+  /* Contact / map section */
+  .contact-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .contact-details h2 { font-size: 1.9rem; }
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+  }
+  .contact-list li {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .contact-list .icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-list strong { display: block; color: var(--forest-dark); }
+  .contact-list span, .contact-list a { color: var(--muted); text-decoration: none; }
+  .map-embed {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eee2cd;
+    min-height: 380px;
+  }
+  .map-embed iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; }
+
+  /* Footer */
+  footer {
+    background: var(--forest-dark);
+    color: #cfdbd3;
+    padding: 56px 0 26px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+  footer h4 {
+    color: #fff;
+    font-family: 'Fraunces', serif;
+    margin-bottom: 14px;
+    font-size: 1.05rem;
+  }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { margin-bottom: 10px; }
+  footer a { color: #cfdbd3; text-decoration: none; font-size: 0.92rem; }
+  footer a:hover { color: #fff; }
+  footer .foot-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  footer .foot-about { font-size: 0.9rem; color: #a9bcb1; max-width: 32ch; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: #93a89b;
+  }
+
+  @media (max-width: 900px) {
+    .hero .container { grid-template-columns: 1fr; }
+    .about .container { grid-template-columns: 1fr; }
+    .contact-section .container { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .nav-links, .nav-cta { display: none; }
+    .menu-toggle { display: block; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      padding: 20px 24px;
+      border-bottom: 1px solid #e5dcc9;
+      gap: 16px;
+    }
+    .hero { padding: 60px 0 70px; }
+    .hero h1 { font-size: 2.1rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .topbar .container { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>📍 14 Stramongate, Kendal, Cumbria LA9 4BH</span>
+    <a href="tel:+441539722145" class="emergency">🚨 Emergency? Call 01539 722 145</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <nav class="container">
+    <a href="#" class="logo">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21C12 21 4 15.5 4 9.8C4 6.6 6.4 4 9.4 4C10.9 4 12 5 12 5C12 5 13.1 4 14.6 4C17.6 4 20 6.6 20 9.8C20 15.5 12 21 12 21Z" fill="#c96f4a"/>
+      </svg>
+      Meadowbank Vets
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book an Appointment</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="hero-eyebrow">Kendal's independent small-animal vets</div>
+      <h1>Gentle, expert veterinary care for the pets you love</h1>
+      <p class="lead">Meadowbank Vets is a family-run practice just off Stramongate, offering unhurried appointments, honest advice and a genuinely warm welcome for cats, dogs, rabbits and small pets across Kendal and South Lakeland.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+        <a href="tel:+441539722145" class="btn btn-outline">Call 01539 722 145</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Opening Hours</h3>
+      <ul>
+        <li><span class="day">Monday – Friday</span> <span>8:30am – 6:30pm</span></li>
+        <li><span class="day">Saturday</span> <span>9:00am – 1:00pm</span></li>
+        <li><span class="day">Sunday</span> <span class="closed">Closed</span></li>
+      </ul>
+      <h3>Out of Hours</h3>
+      <p style="font-size:0.9rem; color:var(--muted); margin:0;">For emergencies outside these hours, we work with Cumbria Vets Now, based at our Kendal surgery. Call us and you'll be directed automatically.</p>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="container">
+    <span>🐾 RCVS-accredited practice</span>
+    <span>🩺 Same-week appointments</span>
+    <span>🏡 Family-run since 2009</span>
+    <span>💳 Interest-free payment plans</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">What we offer</div>
+      <h2>Complete care under one roof</h2>
+      <p>From routine check-ups to more involved treatment, our team is equipped to look after your pet at every stage of life.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>Health Check-ups</h3>
+        <p>Thorough, unhurried consultations for new symptoms, ongoing conditions or general peace of mind.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💉</div>
+        <h3>Vaccinations</h3>
+        <p>Core and lifestyle vaccinations for puppies, kittens and adult pets, with clear reminders when boosters are due.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🦷</div>
+        <h3>Dental Care</h3>
+        <p>Dental checks, scale and polish, and extractions carried out under close monitoring by experienced staff.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✂️</div>
+        <h3>Neutering & Surgery</h3>
+        <p>Routine neutering through to soft-tissue surgery, performed in our purpose-built theatre.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔬</div>
+        <h3>In-house Diagnostics</h3>
+        <p>On-site blood testing, digital X-ray and ultrasound, so results come back the same day wherever possible.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🐇</div>
+        <h3>Small Pet & Rabbit Care</h3>
+        <p>Specific expertise in rabbits, guinea pigs and other small mammals, including dedicated consultation slots.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-photo" role="img" aria-label="Meadowbank Vets consulting room"></div>
+    <div>
+      <h2>A practice that still feels like Kendal</h2>
+      <p>Meadowbank Vets was founded in 2009 by Dr Alison Reeve, a Kendal native who wanted a local alternative to the big corporate chains — somewhere pet owners could always see a familiar face and get a straight answer.</p>
+      <p>Seventeen years on, we're still independently owned, still based on Stramongate, and still built around the idea that good veterinary care starts with taking the time to listen.</p>
+      <ul class="about-list">
+        <li><span class="tick">✓</span> Same vet for repeat visits wherever possible, so your pet's history is never lost</li>
+        <li><span class="tick">✓</span> Transparent, itemised pricing with estimates given before treatment</li>
+        <li><span class="tick">✓</span> Quiet, separate waiting areas for cats and dogs to reduce stress</li>
+        <li><span class="tick">✓</span> Free nurse clinics for weight, nail and nutrition advice</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Meet the practice</div>
+      <h2>The people behind the care</h2>
+      <p>A small, close-knit team of vets and nurses who know most of our patients — and their owners — by name.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <h3>Dr Alison Reeve</h3>
+        <div class="role">Founder & Senior Vet</div>
+        <p class="bio">BVSc MRCVS, with a particular interest in feline medicine and 20+ years' experience.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <h3>Dr Tom Whitfield</h3>
+        <div class="role">Veterinary Surgeon</div>
+        <p class="bio">Joined in 2016, leading our soft-tissue surgery and orthopaedic work.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <h3>Dr Priya Nair</h3>
+        <div class="role">Veterinary Surgeon</div>
+        <p class="bio">Special interest in exotic and small mammal medicine, including rabbits and guinea pigs.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <h3>Claire Bousfield</h3>
+        <div class="role">Head Veterinary Nurse</div>
+        <p class="bio">Runs our nurse clinics and coordinates patient care across the practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">What our clients say</div>
+      <h2>Trusted by pet owners across South Lakeland</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"They took the time to explain everything about our dog's hip X-rays in plain English. Never felt rushed, never felt upsold to."</p>
+        <div class="author">Helen Marsh</div>
+        <div class="pet">Owner of Bramble, a springer spaniel</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Dr Nair clearly knows rabbits inside out. Our vet before this practice barely wanted to see ours. Total difference in confidence."</p>
+        <div class="author">James Openshaw</div>
+        <div class="pet">Owner of Pepper & Sage, rabbits</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Got us in the same afternoon when our cat was unwell, and rang the next day just to check how she was doing. That's rare these days."</p>
+        <div class="author">Fiona Bell</div>
+        <div class="pet">Owner of Willow, a cat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to register your pet with us?</h2>
+    <p>Registration is quick, free, and gives you priority booking plus reminders for vaccinations and check-ups.</p>
+    <a href="#contact" class="btn btn-primary">Register or Book Now</a>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-details">
+      <div class="eyebrow" style="text-transform:uppercase;letter-spacing:0.12em;font-size:0.78rem;font-weight:800;color:var(--terracotta-dark);margin-bottom:10px;">Get in touch</div>
+      <h2>Visit or contact the practice</h2>
+      <p style="color:var(--muted);">We're a five-minute walk from Kendal town centre with free parking directly outside for clients.</p>
+      <ul class="contact-list">
+        <li>
+          <div class="icon-box">📍</div>
+          <div>
+            <strong>Address</strong>
+            <span>14 Stramongate, Kendal, Cumbria, LA9 4BH</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box">📞</div>
+          <div>
+            <strong>Phone</strong>
+            <a href="tel:+441539722145">01539 722 145</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box">✉️</div>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:hello@meadowbankvets.co.uk">hello@meadowbankvets.co.uk</a>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box">🕑</div>
+          <div>
+            <strong>Hours</strong>
+            <span>Mon–Fri 8:30am–6:30pm · Sat 9am–1pm · Sun Closed</span>
+          </div>
+        </li>
+      </ul>
+      <a href="#" class="btn btn-primary">Book an Appointment</a>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps?q=Stramongate,Kendal,LA9%204BH&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map showing Meadowbank Vets on Stramongate, Kendal">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="foot-logo">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21C12 21 4 15.5 4 9.8C4 6.6 6.4 4 9.4 4C10.9 4 12 5 12 5C12 5 13.1 4 14.6 4C17.6 4 20 6.6 20 9.8C20 15.5 12 21 12 21Z" fill="#c96f4a"/>
+          </svg>
+          Meadowbank Vets
+        </div>
+        <p class="foot-about">Independent small-animal veterinary practice in the heart of Kendal, caring for local pets since 2009.</p>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Vaccinations</a></li>
+          <li><a href="#services">Dental Care</a></li>
+          <li><a href="#services">Neutering & Surgery</a></li>
+          <li><a href="#services">Small Pet Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>14 Stramongate, Kendal, LA9 4BH</li>
+          <li><a href="tel:+441539722145">01539 722 145</a></li>
+          <li><a href="mailto:hello@meadowbankvets.co.uk">hello@meadowbankvets.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meadowbank Vets. All rights reserved.</span>
+      <span>Registered with the Royal College of Veterinary Surgeons</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function () {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
+```

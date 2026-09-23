@@ -1,0 +1,532 @@
+{
+  "version": 1,
+  "url": "pages/14.html",
+  "capturedAt": "2026-09-23T11:19:25.688Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5373,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2618213,
+        "chars": 0
+      },
+      {
+        "value": "rgb(247, 248, 250)",
+        "area": 2275229,
+        "chars": 0
+      },
+      {
+        "value": "rgb(13, 27, 42)",
+        "area": 1509576,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 251, 252)",
+        "area": 106496,
+        "chars": 0
+      },
+      {
+        "value": "rgb(244, 163, 0)",
+        "area": 71104,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 163, 0, 0.12)",
+        "area": 26244,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 163, 0, 0.18)",
+        "area": 4624,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(90, 102, 116)",
+        "area": 0,
+        "chars": 2079
+      },
+      {
+        "value": "rgb(201, 211, 221)",
+        "area": 0,
+        "chars": 749
+      },
+      {
+        "value": "rgb(28, 39, 51)",
+        "area": 0,
+        "chars": 616
+      },
+      {
+        "value": "rgb(13, 27, 42)",
+        "area": 0,
+        "chars": 546
+      },
+      {
+        "value": "rgb(55, 65, 81)",
+        "area": 0,
+        "chars": 433
+      },
+      {
+        "value": "rgb(211, 219, 228)",
+        "area": 0,
+        "chars": 282
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 231
+      },
+      {
+        "value": "rgb(169, 181, 194)",
+        "area": 0,
+        "chars": 143
+      },
+      {
+        "value": "rgb(139, 152, 166)",
+        "area": 0,
+        "chars": 88
+      },
+      {
+        "value": "rgb(58, 44, 0)",
+        "area": 0,
+        "chars": 80
+      },
+      {
+        "value": "rgb(216, 143, 0)",
+        "area": 0,
+        "chars": 52
+      },
+      {
+        "value": "rgb(244, 163, 0)",
+        "area": 0,
+        "chars": 50
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4299,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 1050,
+      "displayChars": 558,
+      "italicChars": 0,
+      "weights": [
+        600,
+        700,
+        800
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 46,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted electricians for homes & small businesses across Uxbridge and beyond",
+      "top": 227
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get a fast, no-obligation quote",
+      "top": 334
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Electrical services for every home and workspace",
+      "top": 1120
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Domestic Electrical Work",
+      "top": 1425
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Full & Partial Rewires",
+      "top": 1425
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Consumer Unit Upgrades",
+      "top": 1425
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "EV Charger Installation",
+      "top": 1759
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fault Finding & Repairs",
+      "top": 1759
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "EICR & Landlord Certificates",
+      "top": 1759
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lighting Design & Installation",
+      "top": 2093
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small Business Electrics",
+      "top": 2093
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Emergency Call-Outs",
+      "top": 2093
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local, qualified and easy to book",
+      "top": 2462
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Based in Uxbridge, working across four counties",
+      "top": 3108
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "We regularly work in:",
+      "top": 3080
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What our customers say",
+      "top": 3610
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 28,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to get started?",
+      "top": 4100
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Request your free quote",
+      "top": 4333
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tell us about your job",
+      "top": 4338
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgb(244, 163, 0)",
+      "text": "Get a Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgb(244, 163, 0)",
+      "text": "Request a Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Call 01895 555 210"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgb(244, 163, 0)",
+      "text": "Book Your Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Check We Cover Your Postcode"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgb(13, 27, 42)",
+      "text": "Call 01895 555 210"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 6,
+      "heightPx": 55,
+      "background": "rgb(244, 163, 0)",
+      "text": "Request My Free Quote"
+    }
+  ],
+  "sections": [
+    {
+      "top": 38,
+      "height": 89,
+      "kind": "hero",
+      "label": "RMP Electrical UXBRIDGE & SURROUNDING AREAS Services Why Us ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 127,
+      "height": 801,
+      "kind": "hero",
+      "label": "Trusted electricians for homes & small businesses across Uxb",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1007,
+      "height": 1342,
+      "kind": "cards",
+      "label": "Electrical services for every home and workspace",
+      "cards": 9,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2349,
+      "height": 614,
+      "kind": "text",
+      "label": "Local, qualified and easy to book",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2963,
+      "height": 535,
+      "kind": "text",
+      "label": "Based in Uxbridge, working across four counties",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3497,
+      "height": 546,
+      "kind": "cards",
+      "label": "What our customers say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4044,
+      "height": 177,
+      "kind": "text",
+      "label": "Ready to get started?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4221,
+      "height": 769,
+      "kind": "text",
+      "label": "Request your free quote",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4990,
+      "height": 383,
+      "kind": "text",
+      "label": "RMP Electrical NICEIC-registered electricians based in Uxbri",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(13, 27, 42, 0.94)",
+          "rgba(13, 27, 42, 0.86)"
+        ],
+        "area": 1153395,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(244, 163, 0)",
+          "rgb(216, 143, 0)"
+        ],
+        "area": 254880,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      22,
+      24,
+      28,
+      34,
+      46
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "10px",
+      "12px",
+      "50%",
+      "6px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.35) 0px 20px 50px 0px"
+    ],
+    "spacingOnScalePct": 50.8,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  }
+}

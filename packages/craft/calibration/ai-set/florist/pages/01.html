@@ -1,0 +1,476 @@
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wild Stem | Florist in York — Weddings, Funerals & Same-Day Delivery</title>
+<meta name="description" content="Wild Stem is a York-based florist creating wedding flowers, funeral tributes and hand-tied bouquets, with same-day delivery across York and surrounding villages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6f0;
+    --moss:#4a5a3f;
+    --moss-dark:#37432f;
+    --clay:#b06a4e;
+    --ink:#2c2a26;
+    --line:#e4ddd1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    font-weight:300;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    color:var(--moss-dark);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,246,240,0.95);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1160px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Cormorant Garamond', serif;
+    font-size:26px;letter-spacing:1px;color:var(--moss-dark);
+  }
+  .logo span{color:var(--clay);}
+  .nav-links{display:flex;gap:32px;list-style:none;font-size:15px;letter-spacing:0.3px;}
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a:hover{color:var(--clay);}
+  .nav-cta{
+    background:var(--moss);color:#fff;padding:10px 22px;
+    border-radius:2px;font-size:14px;letter-spacing:0.5px;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--moss-dark);}
+  .menu-toggle{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--moss-dark);}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(120deg, rgba(44,42,38,0.55), rgba(44,42,38,0.25) 60%),
+      url('https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color:#fff;
+  }
+  .hero-content{max-width:620px;padding:60px 24px;}
+  .hero-eyebrow{
+    text-transform:uppercase;letter-spacing:3px;font-size:13px;
+    color:#e9dfc9;margin-bottom:18px;display:block;
+  }
+  .hero h1{
+    font-size:clamp(38px,6vw,64px);line-height:1.08;color:#fff;margin-bottom:20px;
+  }
+  .hero p{font-size:18px;color:#f1ede4;max-width:480px;margin-bottom:32px;font-weight:300;}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:14px 28px;font-size:14px;letter-spacing:0.6px;
+    border-radius:2px;border:1px solid transparent;transition:all .2s ease;
+  }
+  .btn-primary{background:var(--clay);color:#fff;}
+  .btn-primary:hover{background:#96573e;}
+  .btn-ghost{border-color:#fff;color:#fff;}
+  .btn-ghost:hover{background:#fff;color:var(--ink);}
+
+  /* Trust strip */
+  .trust{
+    background:var(--moss-dark);color:#efe9dc;padding:16px 0;
+    font-size:13px;letter-spacing:0.5px;
+  }
+  .trust .wrap{
+    display:flex;justify-content:center;gap:48px;flex-wrap:wrap;text-align:center;
+  }
+
+  section{padding:88px 0;}
+  .section-head{max-width:620px;margin:0 auto 56px;text-align:center;}
+  .section-eyebrow{
+    text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--clay);
+    display:block;margin-bottom:12px;
+  }
+  .section-head h2{font-size:clamp(30px,4vw,42px);}
+  .section-head p{color:#5c584f;margin-top:14px;font-size:16px;}
+
+  /* Services */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+  }
+  .service-card{
+    background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .service-card img{height:230px;object-fit:cover;width:100%;}
+  .service-body{padding:28px;flex:1;display:flex;flex-direction:column;}
+  .service-body h3{font-size:24px;margin-bottom:10px;}
+  .service-body p{font-size:15px;color:#5c584f;flex:1;margin-bottom:18px;}
+  .service-link{
+    font-size:13px;letter-spacing:0.5px;text-transform:uppercase;color:var(--moss);
+    border-bottom:1px solid var(--moss);padding-bottom:2px;align-self:flex-start;
+  }
+  .service-link:hover{color:var(--clay);border-color:var(--clay);}
+
+  /* Delivery band */
+  .delivery{
+    background:var(--moss);color:#fff;
+  }
+  .delivery-inner{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;
+  }
+  .delivery h2{color:#fff;font-size:clamp(28px,3.6vw,38px);margin-bottom:18px;}
+  .delivery p{color:#e4e9dd;font-size:16px;margin-bottom:16px;}
+  .delivery ul{list-style:none;margin:20px 0 28px;}
+  .delivery li{
+    padding-left:26px;position:relative;margin-bottom:10px;font-size:15px;color:#f1f4ec;
+  }
+  .delivery li::before{
+    content:"✓";position:absolute;left:0;color:#d8b58a;font-weight:600;
+  }
+  .delivery img{border-radius:4px;height:100%;object-fit:cover;min-height:340px;}
+
+  /* About */
+  .about{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  }
+  .about img{border-radius:4px;}
+  .about-text .section-eyebrow{margin-bottom:12px;}
+  .about-text h2{font-size:clamp(28px,3.6vw,38px);margin-bottom:18px;}
+  .about-text p{color:#4b473f;margin-bottom:16px;font-size:16px;}
+  .signature{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--clay);margin-top:20px;}
+
+  /* Testimonials */
+  .testimonials{background:#f2ece1;}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .testi-card{background:#fff;padding:32px;border-radius:4px;border:1px solid var(--line);}
+  .stars{color:var(--clay);letter-spacing:2px;margin-bottom:14px;font-size:15px;}
+  .testi-card p{font-size:15px;color:#4b473f;margin-bottom:18px;font-style:italic;}
+  .testi-name{font-size:14px;font-weight:500;color:var(--moss-dark);letter-spacing:0.3px;}
+
+  /* CTA band */
+  .cta-band{
+    background:url('https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?auto=format&fit=crop&w=1600&q=80') center/cover;
+    position:relative;text-align:center;color:#fff;
+  }
+  .cta-band::before{content:"";position:absolute;inset:0;background:rgba(44,42,38,0.6);}
+  .cta-band .wrap{position:relative;z-index:1;max-width:640px;}
+  .cta-band h2{color:#fff;font-size:clamp(30px,4vw,42px);margin-bottom:16px;}
+  .cta-band p{color:#f1ede4;margin-bottom:30px;font-size:16px;}
+
+  /* Contact */
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  }
+  .contact-info h3{font-size:26px;margin-bottom:16px;}
+  .contact-info p{margin-bottom:10px;font-size:15px;color:#4b473f;}
+  .contact-info strong{color:var(--ink);}
+  .hours-table{margin-top:24px;width:100%;border-collapse:collapse;font-size:15px;}
+  .hours-table td{padding:6px 0;border-bottom:1px solid var(--line);color:#4b473f;}
+  .hours-table td:last-child{text-align:right;font-weight:500;color:var(--ink);}
+
+  form{background:#fff;padding:36px;border-radius:4px;border:1px solid var(--line);}
+  .form-row{margin-bottom:18px;}
+  label{display:block;font-size:13px;letter-spacing:0.4px;margin-bottom:6px;color:#5c584f;}
+  input,textarea,select{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;
+    font-family:'Jost',sans-serif;font-size:15px;background:#fdfbf8;color:var(--ink);
+  }
+  textarea{resize:vertical;min-height:100px;}
+  input:focus,textarea:focus,select:focus{outline:1px solid var(--moss);}
+  .form-submit{
+    width:100%;background:var(--clay);color:#fff;border:none;padding:14px;
+    font-size:14px;letter-spacing:0.6px;border-radius:2px;cursor:pointer;
+  }
+  .form-submit:hover{background:#96573e;}
+
+  footer{background:var(--moss-dark);color:#d8d3c4;padding:56px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  .footer-logo{font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff;margin-bottom:14px;}
+  .footer-grid p{font-size:14px;color:#c1bcac;max-width:320px;}
+  .footer-grid h4{color:#fff;font-size:15px;margin-bottom:16px;letter-spacing:0.4px;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:10px;font-size:14px;}
+  .footer-grid a:hover{color:#fff;}
+  .footer-bottom{
+    border-top:1px solid #4a5546;padding-top:20px;font-size:13px;color:#9c9784;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  @media (max-width:900px){
+    .services-grid{grid-template-columns:1fr;}
+    .delivery-inner,.about,.contact-grid{grid-template-columns:1fr;}
+    .delivery img{min-height:220px;order:-1;}
+    .testi-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;top:66px;left:0;right:0;background:var(--cream);
+      flex-direction:column;padding:24px;gap:20px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-150%);transition:transform .25s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .menu-toggle{display:block;}
+    .nav-cta{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="logo">Wild <span>Stem</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#weddings">Weddings</a></li>
+      <li><a href="#delivery">Delivery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Order Flowers</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Est. in York</span>
+    <h1>Flowers, cut and gathered for real moments</h1>
+    <p>Wild Stem is an independent florist based in York, hand-tying seasonal bouquets, wedding flowers and funeral tributes — with same-day delivery across the city and surrounding villages.</p>
+    <div class="btn-row">
+      <a href="#contact" class="btn btn-primary">Order Same-Day Delivery</a>
+      <a href="#weddings" class="btn btn-ghost">Enquire About Your Wedding</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <span>🌿 Same-day delivery ordered before 1pm</span>
+    <span>💐 Seasonal, locally sourced blooms</span>
+    <span>🕊️ Funeral tributes handled with care</span>
+    <span>📍 Delivering across York & North Yorkshire</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">What We Do</span>
+      <h2>Flowers for every occasion</h2>
+      <p>From an everyday bunch to a full wedding installation, every stem is chosen and arranged by hand in our York workshop.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=800&q=80" alt="Bridal bouquet of white and green flowers">
+        <div class="service-body">
+          <h3>Weddings</h3>
+          <p>Bridal bouquets, buttonholes, arches and reception arrangements designed around your venue, colour palette and season — from an intimate elopement to a full wedding party.</p>
+          <a href="#weddings" class="service-link">See wedding flowers</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1509909756405-be0199881695?auto=format&fit=crop&w=800&q=80" alt="White funeral wreath with foliage">
+        <div class="service-body">
+          <h3>Funerals</h3>
+          <p>Sympathetic, unhurried service for wreaths, casket sprays, standing tributes and family flowers, delivered directly to the funeral home or crematorium on the day you need.</p>
+          <a href="#contact" class="service-link">Arrange funeral flowers</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=800&q=80" alt="Hand-tied bouquet of mixed seasonal flowers">
+        <div class="service-body">
+          <h3>Everyday & Gifting</h3>
+          <p>Hand-tied bouquets, letterbox flowers and plants for birthdays, anniversaries, new babies or simply because — ordered online and delivered same-day across York.</p>
+          <a href="#contact" class="service-link">Order a bouquet</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="weddings" class="delivery" style="background:#fff;color:var(--ink);">
+  <div class="wrap delivery-inner">
+    <div>
+      <span class="section-eyebrow">Weddings</span>
+      <h2 style="color:var(--moss-dark);">Wedding flowers built around your day, not a catalogue</h2>
+      <p style="color:#4b473f;">We meet every couple in person or over video before we touch a single stem. We'll talk through your venue, your colours, and what's growing that week — then build a proposal that's entirely yours.</p>
+      <ul style="margin-top:0;">
+        <li style="color:#4b473f;">Bridal bouquets, buttonholes & corsages</li>
+        <li style="color:#4b473f;">Ceremony arches, pedestals & aisle displays</li>
+        <li style="color:#4b473f;">Reception centrepieces & table styling</li>
+        <li style="color:#4b473f;">Delivery and set-up at your venue on the day</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="display:inline-block;">Book a Wedding Consultation</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Wedding table centrepiece with candles and flowers">
+  </div>
+</section>
+
+<section id="delivery" class="delivery">
+  <div class="wrap delivery-inner">
+    <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?auto=format&fit=crop&w=800&q=80" alt="Florist wrapping a bouquet ready for delivery">
+    <div>
+      <span class="section-eyebrow" style="color:#d8b58a;">Same-Day Delivery</span>
+      <h2>Delivered fresh, the same day you order</h2>
+      <p>Order before 1pm, Monday to Saturday, and we'll have your flowers on the doorstep the same afternoon — arranged and delivered from our York workshop, not a courier depot.</p>
+      <ul>
+        <li>Free delivery within York city centre</li>
+        <li>Delivery across Acomb, Fulford, Haxby, Bishopthorpe & surrounding villages</li>
+        <li>Funeral flowers delivered direct to funeral homes and crematoria</li>
+        <li>Contactless doorstep delivery available on request</li>
+      </ul>
+      <a href="#contact" class="btn btn-ghost">Check Delivery Areas</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f4?auto=format&fit=crop&w=800&q=80" alt="Florist arranging flowers in a workshop">
+    <div class="about-text">
+      <span class="section-eyebrow">Our Story</span>
+      <h2>Rooted in York, grown from a love of seasonal flowers</h2>
+      <p>Wild Stem started as a market stall on Newgate before finding a home just off Micklegate. We work with British growers wherever we can, favouring what's in season over what's flown in — which means your flowers change with the year, and they last.</p>
+      <p>We're a small team, which means the person who takes your call is often the same person tying your bouquet. It's how we keep every order personal, whether it's a single bunch or a full wedding.</p>
+      <p class="signature">— The Wild Stem team</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Kind Words</span>
+      <h2>What York says about us</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Our wedding flowers were beyond anything we imagined. The team understood exactly what we wanted from one conversation, and everything arrived on time and looked stunning."</p>
+        <div class="testi-name">Emily H. — Bride, Middlethorpe Hall</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"They arranged flowers for my father's funeral with such care and got them to the crematorium the same morning I called. I can't thank them enough for their kindness."</p>
+        <div class="testi-name">Robert T. — Dringhouses</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"I ordered a bunch for my mum's birthday at 11am and it was on her doorstep by 3. Beautifully wrapped, fresh, and exactly what I asked for."</p>
+        <div class="testi-name">Priya S. — Acomb</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Need flowers today?</h2>
+    <p>Order before 1pm for same-day delivery across York, or get in touch to start planning your wedding or funeral flowers.</p>
+    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="section-eyebrow">Get In Touch</span>
+      <h3>Visit, call or order online</h3>
+      <p><strong>Address:</strong> 14 Bridge Street, York, YO1 6DD</p>
+      <p><strong>Phone:</strong> 01904 555 213</p>
+      <p><strong>Email:</strong> hello@wildstemyork.co.uk</p>
+      <table class="hours-table">
+        <tr><td>Monday – Friday</td><td>8:30am – 5:30pm</td></tr>
+        <tr><td>Saturday</td><td>9:00am – 4:00pm</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+      <p style="margin-top:20px;">Same-day delivery orders must be placed by 1pm, Monday to Saturday.</p>
+    </div>
+    <form>
+      <div class="form-row">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-row">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-row">
+        <label for="occasion">What do you need flowers for?</label>
+        <select id="occasion" name="occasion">
+          <option>Same-day delivery</option>
+          <option>Wedding enquiry</option>
+          <option>Funeral flowers</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="message">Tell us a bit more</label>
+        <textarea id="message" name="message" placeholder="Delivery date, venue, budget, colours — whatever's useful"></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Wild Stem</div>
+        <p>An independent florist in York, arranging seasonal flowers for weddings, funerals and everyday moments — delivered by hand, the same day.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#weddings">Weddings</a></li>
+          <li><a href="#delivery">Delivery Areas</a></li>
+          <li><a href="#about">Our Story</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>14 Bridge Street, York, YO1 6DD</li>
+          <li>01904 555 213</li>
+          <li>hello@wildstemyork.co.uk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Wild Stem Florist, York. All rights reserved.</span>
+      <span>Delivering fresh flowers across York & North Yorkshire</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMM Beauty | Nail, Brow &amp; Skin Studio in Brackley</title>
+<meta name="description" content="MMM Beauty is a nail, brow and skin studio in Brackley, Northamptonshire, offering gel nails, manicures, pedicures, brow shaping and facials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --blush: #f3e3df;
+    --rose: #c98b7f;
+    --rose-dark: #a8695c;
+    --charcoal: #2c2a28;
+    --cream: #fbf6f2;
+    --gold: #b98e5a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    color:var(--charcoal);
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,.logo{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+  }
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .container{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:40px;
+    font-size:0.95rem;
+    letter-spacing:0.5px;
+    font-weight:500;
+    transition:all 0.3s ease;
+    cursor:pointer;
+    border:none;
+  }
+  .btn-primary{
+    background:var(--rose-dark);
+    color:#fff;
+  }
+  .btn-primary:hover{
+    background:var(--charcoal);
+  }
+  .btn-outline{
+    background:transparent;
+    border:1.5px solid var(--rose-dark);
+    color:var(--rose-dark);
+  }
+  .btn-outline:hover{
+    background:var(--rose-dark);
+    color:#fff;
+  }
+
+  /* Header */
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(251,246,242,0.95);
+    backdrop-filter:blur(6px);
+    z-index:1000;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+  }
+  .navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    max-width:1140px;
+    margin:0 auto;
+  }
+  .logo{
+    font-size:1.6rem;
+    color:var(--rose-dark);
+    letter-spacing:1px;
+  }
+  .logo span{color:var(--gold);}
+  .nav-links{
+    display:flex;
+    gap:32px;
+    align-items:center;
+  }
+  .nav-links a{
+    font-size:0.9rem;
+    font-weight:500;
+    position:relative;
+    padding-bottom:4px;
+  }
+  .nav-links a:hover{color:var(--rose-dark);}
+  .nav-cta{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .nav-cta .phone{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.9rem;
+    font-weight:500;
+  }
+  .menu-toggle{
+    display:none;
+    font-size:1.4rem;
+    background:none;
+    border:none;
+    color:var(--charcoal);
+    cursor:pointer;
+  }
+
+  /* Hero */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:80px;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(201,139,127,0.18), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(185,142,90,0.15), transparent 40%),
+      var(--blush);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-120px;
+    top:-120px;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    border:1px solid rgba(168,105,92,0.25);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:-100px;
+    bottom:-140px;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    border:1px solid rgba(168,105,92,0.2);
+  }
+  .hero-content{
+    max-width:640px;
+    position:relative;
+    z-index:2;
+  }
+  .hero-eyebrow{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:0.8rem;
+    color:var(--rose-dark);
+    font-weight:600;
+    margin-bottom:16px;
+    display:block;
+  }
+  .hero h1{
+    font-size:3.4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+    color:var(--charcoal);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--rose-dark);
+  }
+  .hero p{
+    font-size:1.05rem;
+    color:#4a4644;
+    max-width:520px;
+    margin-bottom:32px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:36px;
+  }
+  .hero-info{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    font-size:0.85rem;
+    color:#5c5754;
+  }
+  .hero-info div{display:flex;align-items:center;gap:8px;}
+  .hero-info i{color:var(--rose-dark);}
+
+  /* Section titles */
+  .section{padding:100px 0;}
+  .section-alt{background:#fff;}
+  .section-title{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 60px;
+  }
+  .section-title .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--rose-dark);
+    display:block;
+    margin-bottom:14px;
+  }
+  .section-title h2{
+    font-size:2.4rem;
+    margin-bottom:14px;
+  }
+  .section-title p{color:#5c5754;font-size:0.98rem;}
+
+  /* Services */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  .service-card{
+    background:var(--cream);
+    border:1px solid rgba(0,0,0,0.06);
+    border-radius:14px;
+    padding:38px 26px;
+    text-align:center;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 34px rgba(44,42,40,0.08);
+  }
+  .service-icon{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:var(--blush);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    font-size:1.5rem;
+    color:var(--rose-dark);
+  }
+  .service-card h3{font-size:1.3rem;margin-bottom:10px;}
+  .service-card p{font-size:0.88rem;color:#5c5754;margin-bottom:16px;}
+  .service-price{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--gold);
+    letter-spacing:0.5px;
+  }
+
+  /* About */
+  .about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .about-visual{
+    position:relative;
+    height:420px;
+    border-radius:18px;
+    background:linear-gradient(135deg, #e9c9c0, #c98b7f 55%, #a8695c);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    overflow:hidden;
+  }
+  .about-visual::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:12px;
+  }
+  .about-visual i{font-size:4rem;opacity:0.9;}
+  .about-text .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--rose-dark);
+    display:block;
+    margin-bottom:14px;
+  }
+  .about-text h2{font-size:2.2rem;margin-bottom:18px;}
+  .about-text p{color:#5c5754;margin-bottom:16px;font-size:0.98rem;}
+  .about-stats{
+    display:flex;
+    gap:36px;
+    margin-top:28px;
+  }
+  .about-stats div h3{font-size:1.9rem;color:var(--rose-dark);}
+  .about-stats div span{font-size:0.8rem;color:#5c5754;}
+
+  /* Why us */
+  .features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  .feature{
+    text-align:center;
+    padding:20px;
+  }
+  .feature i{
+    font-size:1.8rem;
+    color:var(--rose-dark);
+    margin-bottom:16px;
+  }
+  .feature h3{font-size:1.15rem;margin-bottom:8px;}
+  .feature p{font-size:0.88rem;color:#5c5754;}
+
+  /* Testimonials */
+  .testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .testimonial{
+    background:var(--cream);
+    border-radius:14px;
+    padding:32px;
+    border:1px solid rgba(0,0,0,0.06);
+  }
+  .testimonial .stars{color:var(--gold);margin-bottom:14px;font-size:0.9rem;}
+  .testimonial p{font-size:0.92rem;color:#4a4644;margin-bottom:18px;}
+  .testimonial-author{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--rose);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+    font-size:0.9rem;
+  }
+  .testimonial-author h4{font-size:0.92rem;}
+  .testimonial-author span{font-size:0.78rem;color:#8a8480;}
+
+  /* CTA band */
+  .cta-band{
+    background:var(--charcoal);
+    color:#fff;
+    padding:70px 0;
+    text-align:center;
+  }
+  .cta-band h2{font-size:2.1rem;margin-bottom:14px;color:#fff;}
+  .cta-band p{color:#d8d3d0;margin-bottom:30px;font-size:0.98rem;}
+  .cta-band .btn-primary{background:var(--rose-dark);}
+
+  /* Contact / Location */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+  }
+  .contact-details{
+    background:var(--cream);
+    border-radius:16px;
+    padding:40px;
+  }
+  .contact-item{
+    display:flex;
+    gap:16px;
+    margin-bottom:26px;
+  }
+  .contact-item i{
+    width:42px;
+    height:42px;
+    background:var(--blush);
+    color:var(--rose-dark);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-item h4{font-size:1rem;margin-bottom:4px;}
+  .contact-item p, .contact-item a{font-size:0.9rem;color:#5c5754;}
+  .contact-item a:hover{color:var(--rose-dark);}
+  .hours-table{width:100%;margin-top:6px;}
+  .hours-table tr td{padding:3px 0;font-size:0.88rem;color:#5c5754;}
+  .hours-table tr td:last-child{text-align:right;font-weight:500;color:var(--charcoal);}
+  .map-wrap{
+    border-radius:16px;
+    overflow:hidden;
+    min-height:100%;
+    border:1px solid rgba(0,0,0,0.06);
+  }
+  .map-wrap iframe{width:100%;height:100%;min-height:400px;border:0;}
+
+  /* Footer */
+  footer{
+    background:var(--charcoal);
+    color:#cfc9c6;
+    padding:60px 0 24px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.3fr;
+    gap:40px;
+    margin-bottom:44px;
+  }
+  .footer-logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.6rem;
+    color:#fff;
+    margin-bottom:14px;
+    display:block;
+  }
+  .footer-logo span{color:var(--gold);}
+  .footer-col p{font-size:0.85rem;line-height:1.7;margin-bottom:16px;}
+  .footer-col h4{
+    color:#fff;
+    font-size:0.95rem;
+    margin-bottom:18px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+  }
+  .footer-col ul li{margin-bottom:10px;font-size:0.85rem;}
+  .footer-col ul li a:hover{color:#fff;}
+  .social-icons{display:flex;gap:12px;margin-top:6px;}
+  .social-icons a{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background 0.3s ease;
+  }
+  .social-icons a:hover{background:var(--rose-dark);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.8rem;
+    color:#9b9592;
+  }
+
+  @media(max-width:960px){
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .features{grid-template-columns:1fr 1fr;}
+    .testimonials-grid{grid-template-columns:1fr;}
+    .about{grid-template-columns:1fr;}
+    .about-visual{height:280px;}
+    .contact-wrap{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:2.6rem;}
+  }
+  @media(max-width:720px){
+    .nav-links{
+      position:fixed;
+      top:70px;
+      right:0;
+      background:#fff;
+      flex-direction:column;
+      width:220px;
+      padding:24px;
+      gap:20px;
+      transform:translateX(100%);
+      transition:transform 0.3s ease;
+      box-shadow:-6px 0 20px rgba(0,0,0,0.08);
+      height:calc(100vh - 70px);
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-cta .phone span{display:none;}
+    .menu-toggle{display:block;}
+    .services-grid{grid-template-columns:1fr;}
+    .features{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .hero-actions{flex-direction:column;}
+    .hero-actions .btn{text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#home" class="logo">MMM <span>Beauty</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Visit Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:01280700123" class="phone"><i class="fa-solid fa-phone"></i><span>01280 700 123</span></a>
+      <a href="#contact" class="btn btn-primary">Book Now</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Brackley's Beauty Studio</span>
+      <h1>Beautifully done nails, brows &amp; skin, <em>right here in Brackley</em></h1>
+      <p>MMM Beauty is a friendly, relaxed studio in the heart of Brackley, Northamptonshire, specialising in gel nails, manicures, pedicures, brow shaping and facials. Come as you are, leave feeling like yourself, only polished.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+        <a href="#services" class="btn btn-outline">View Treatments</a>
+      </div>
+      <div class="hero-info">
+        <div><i class="fa-solid fa-location-dot"></i> Brackley, Northamptonshire</div>
+        <div><i class="fa-solid fa-clock"></i> Open Tue &ndash; Sat</div>
+        <div><i class="fa-solid fa-star"></i> Loved by local clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">What We Do</span>
+      <h2>Treatments Tailored To You</h2>
+      <p>From everyday gel manicures to occasion-ready facials, every treatment at MMM Beauty is carried out with care, clean tools and a warm welcome.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+        <h3>Gel Nails</h3>
+        <p>Chip-free colour that lasts for weeks, with a huge range of shades and finishes to choose from.</p>
+        <div class="service-price">From &pound;28</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-spa"></i></div>
+        <h3>Manicures &amp; Pedicures</h3>
+        <p>Classic and luxury options including cuticle care, exfoliation and hand or foot massage.</p>
+        <div class="service-price">From &pound;22</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-eye"></i></div>
+        <h3>Brow Shaping</h3>
+        <p>Threading, waxing and tinting to define your natural shape and frame your face.</p>
+        <div class="service-price">From &pound;12</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-water"></i></div>
+        <h3>Facials</h3>
+        <p>Deep-cleansing and hydrating facials, personalised to your skin type and concerns.</p>
+        <div class="service-price">From &pound;38</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="about">
+  <div class="container">
+    <div class="about">
+      <div class="about-visual"><i class="fa-solid fa-heart"></i></div>
+      <div class="about-text">
+        <span class="eyebrow">Our Story</span>
+        <h2>A local studio built on care and detail</h2>
+        <p>MMM Beauty started with a simple idea: bring salon-quality nail, brow and skin treatments to Brackley, without the rush or the fuss. We're a small, dedicated team who genuinely love what we do, and it shows in every appointment.</p>
+        <p>Whether you're popping in for a quick brow tidy on your lunch break or booking in for a full pamper before a big occasion, you'll always get our full attention, good conversation, and results you'll want to show off.</p>
+        <div class="about-stats">
+          <div>
+            <h3>5+</h3>
+            <span>Years Serving Brackley</span>
+          </div>
+          <div>
+            <h3>1000+</h3>
+            <span>Happy Clients</span>
+          </div>
+          <div>
+            <h3>4.9</h3>
+            <span>Average Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Why MMM Beauty</span>
+      <h2>Small Studio, Big Attention to Detail</h2>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <i class="fa-solid fa-shield-heart"></i>
+        <h3>Hygiene First</h3>
+        <p>All tools are fully sterilised and single-use items are disposed of after every client.</p>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-user-check"></i>
+        <h3>Experienced Technicians</h3>
+        <p>Our team is fully qualified and regularly trained on the latest techniques and products.</p>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <h3>Easy to Find</h3>
+        <p>Conveniently located in Brackley with free parking close by, just off the town centre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="testimonials">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Kind Words</span>
+      <h2>What Our Clients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"My gel nails always last so much longer here than anywhere else I've tried. The studio is spotless and so relaxing."</p>
+        <div class="testimonial-author">
+          <div class="avatar">HJ</div>
+          <div>
+            <h4>Holly J.</h4>
+            <span>Brackley</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Had a facial before my wedding and my skin has never looked better. Booking again for every big occasion from now on!"</p>
+        <div class="testimonial-author">
+          <div class="avatar">SP</div>
+          <div>
+            <h4>Sophie P.</h4>
+            <span>Towcester</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Finally found a brow specialist who actually listens. Shaped exactly how I asked, no more, no less."</p>
+        <div class="testimonial-author">
+          <div class="avatar">RA</div>
+          <div>
+            <h4>Ruth A.</h4>
+            <span>Brackley</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container">
+    <h2>Ready to treat yourself?</h2>
+    <p>Appointments are booking up fast, get in touch to find a slot that suits you.</p>
+    <a href="tel:01280700123" class="btn btn-primary">Call 01280 700 123</a>
+  </div>
+</div>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Visit The Studio</span>
+      <h2>Find Us in Brackley</h2>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-details">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h4>Address</h4>
+            <p>14 High Street, Brackley, Northamptonshire, NN13 7DR</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:01280700123">01280 700 123</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:hello@mmm-beauty.co.uk">hello@mmm-beauty.co.uk</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <table class="hours-table">
+              <tr><td>Monday</td><td>Closed</td></tr>
+              <tr><td>Tuesday &ndash; Friday</td><td>9:30am &ndash; 6:00pm</td></tr>
+              <tr><td>Saturday</td><td>9:00am &ndash; 4:00pm</td></tr>
+              <tr><td>Sunday</td><td>Closed</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-1.1550%2C52.0270%2C-1.1350%2C52.0370&layer=mapnik&marker=52.0320%2C-1.1450"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing MMM Beauty location in Brackley">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#home" class="footer-logo">MMM <span>Beauty</span></a>
+        <p>A nail, brow and skin studio in Brackley, Northamptonshire. Quality treatments, relaxed atmosphere, real results.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="#services">Gel Nails</a></li>
+          <li><a href="#services">Manicures &amp; Pedicures</a></li>
+          <li><a href="#services">Brow Shaping</a></li>
+          <li><a href="#services">Facials</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> 14 High Street, Brackley, NN13 7DR</li>
+          <li><i class="fa-solid fa-phone"></i> 01280 700 123</li>
+          <li><i class="fa-solid fa-envelope"></i> hello@mmm-beauty.co.uk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MMM Beauty. All rights reserved.</span>
+      <span>Brackley, Northamptonshire</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>

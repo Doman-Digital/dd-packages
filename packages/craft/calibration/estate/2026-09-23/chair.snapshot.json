@@ -1,12 +1,12 @@
 {
   "version": 1,
   "url": "https://www.chairandblade.co.uk/",
-  "capturedAt": "2026-09-23T02:53:29.450Z",
+  "capturedAt": "2026-09-23T11:18:18.121Z",
   "viewport": {
     "width": 1440,
     "height": 900
   },
-  "pageHeight": 15570,
+  "pageHeight": 15607,
   "ground": "rgb(11, 12, 12)",
   "colours": {
     "backgrounds": [
@@ -17,7 +17,7 @@
       },
       {
         "value": "rgb(19, 20, 22)",
-        "area": 5984081,
+        "area": 6019252,
         "chars": 0
       },
       {
@@ -32,7 +32,7 @@
       },
       {
         "value": "rgb(42, 45, 48)",
-        "area": 1088912,
+        "area": 1136472,
         "chars": 0
       },
       {
@@ -52,7 +52,7 @@
       },
       {
         "value": "rgb(239, 237, 228)",
-        "area": 22241,
+        "area": 23887,
         "chars": 0
       }
     ],
@@ -60,22 +60,22 @@
       {
         "value": "rgb(166, 161, 153)",
         "area": 0,
-        "chars": 3222
-      },
-      {
-        "value": "rgb(239, 237, 228)",
-        "area": 0,
-        "chars": 1114
+        "chars": 3007
       },
       {
         "value": "rgb(204, 199, 189)",
         "area": 0,
-        "chars": 1069
+        "chars": 1348
+      },
+      {
+        "value": "rgb(239, 237, 228)",
+        "area": 0,
+        "chars": 1143
       },
       {
         "value": "rgb(142, 138, 130)",
         "area": 0,
-        "chars": 1038
+        "chars": 970
       },
       {
         "value": "rgb(138, 133, 124)",
@@ -85,7 +85,7 @@
       {
         "value": "rgb(11, 12, 12)",
         "area": 0,
-        "chars": 381
+        "chars": 385
       },
       {
         "value": "rgba(11, 12, 12, 0.78)",
@@ -102,7 +102,7 @@
   "fonts": [
     {
       "family": "__DM_Sans_c95b6f",
-      "chars": 5715,
+      "chars": 5465,
       "displayChars": 84,
       "italicChars": 0,
       "weights": [
@@ -112,9 +112,9 @@
     },
     {
       "family": "__Cormorant_Garamond_dc9325",
-      "chars": 831,
+      "chars": 1110,
       "displayChars": 18,
-      "italicChars": 831,
+      "italicChars": 1110,
       "weights": [
         300
       ]
@@ -318,7 +318,7 @@
       "italic": false,
       "italicPart": false,
       "text": "SERVICES",
-      "top": 11068
+      "top": 11105
     },
     {
       "level": 3,
@@ -328,7 +328,7 @@
       "italic": false,
       "italicPart": false,
       "text": "Haircut",
-      "top": 11220
+      "top": 11257
     },
     {
       "level": 3,
@@ -338,7 +338,7 @@
       "italic": false,
       "italicPart": false,
       "text": "Premium Grooming",
-      "top": 11220
+      "top": 11257
     },
     {
       "level": 3,
@@ -348,7 +348,7 @@
       "italic": false,
       "italicPart": false,
       "text": "Hair Wash",
-      "top": 11675
+      "top": 11712
     },
     {
       "level": 2,
@@ -358,7 +358,7 @@
       "italic": false,
       "italicPart": false,
       "text": "READY FORA FRESH FADE?",
-      "top": 12416
+      "top": 12453
     },
     {
       "level": 2,
@@ -368,7 +368,7 @@
       "italic": false,
       "italicPart": false,
       "text": "BEFORE YOU BOOK",
-      "top": 13193
+      "top": 13231
     },
     {
       "level": 2,
@@ -378,7 +378,7 @@
       "italic": false,
       "italicPart": false,
       "text": "MEET EMMANUEL",
-      "top": 14204
+      "top": 14242
     }
   ],
   "controls": [
@@ -509,18 +509,11 @@
       "text": "Book with Emmanuel"
     },
     {
-      "kind": "button",
+      "kind": "link",
       "radiusPx": 0,
-      "heightPx": 35,
-      "background": "rgba(0, 0, 0, 0)",
-      "text": "Decline"
-    },
-    {
-      "kind": "button",
-      "radiusPx": 0,
-      "heightPx": 33,
+      "heightPx": 37,
       "background": "rgb(239, 237, 228)",
-      "text": "Accept"
+      "text": "Book a Cut"
     }
   ],
   "sections": [
@@ -571,7 +564,7 @@
     },
     {
       "top": 9481,
-      "height": 1369,
+      "height": 1406,
       "kind": "cards",
       "label": "WHAT CLIENTS SAY",
       "cards": 6,
@@ -579,7 +572,7 @@
       "hiddenAtLoad": true
     },
     {
-      "top": 10849,
+      "top": 10886,
       "height": 1368,
       "kind": "text",
       "label": "SERVICES",
@@ -588,7 +581,7 @@
       "hiddenAtLoad": true
     },
     {
-      "top": 12217,
+      "top": 12255,
       "height": 756,
       "kind": "text",
       "label": "READY FORA FRESH FADE?",
@@ -597,7 +590,7 @@
       "hiddenAtLoad": true
     },
     {
-      "top": 12974,
+      "top": 13011,
       "height": 1083,
       "kind": "logos",
       "label": "BEFORE YOU BOOK",
@@ -606,13 +599,13 @@
       "hiddenAtLoad": true
     },
     {
-      "top": 14056,
+      "top": 14094,
       "height": 972,
       "kind": "text",
       "label": "MEET EMMANUEL",
       "cards": 0,
       "iconCards": 0,
-      "hiddenAtLoad": false
+      "hiddenAtLoad": true
     }
   ],
   "effects": {
@@ -637,7 +630,7 @@
     "eyebrowChip": false
   },
   "motion": {
-    "hiddenSections": 5,
+    "hiddenSections": 6,
     "sections": 10,
     "animations": 6,
     "introOverlay": false
@@ -673,7 +666,7 @@
       "2px"
     ],
     "shadows": [],
-    "spacingOnScalePct": 78.2,
+    "spacingOnScalePct": 76.5,
     "bodyLineLengthCh": 51,
     "bodyFontSizePx": 17
   }

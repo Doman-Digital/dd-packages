@@ -1,0 +1,811 @@
+I'll create the complete HTML file for the Still Point Yoga homepage.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Still Point Yoga — Harrogate</title>
+<meta name="description" content="Small, friendly yoga classes and beginners' courses in Harrogate. Still Point Yoga welcomes complete beginners and experienced practitioners alike.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6f0;
+    --stone: #ece5da;
+    --clay: #b57a5c;
+    --ink: #3a352f;
+    --sage: #7c8a72;
+    --line: #ddd3c4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 246, 240, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .logo span { color: var(--clay); }
+
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  nav a {
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink);
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--clay); }
+
+  .nav-cta {
+    background: var(--clay);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 90px 0 100px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -140px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: var(--stone);
+    z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    color: var(--sage);
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: 3.4rem;
+    line-height: 1.12;
+    margin-bottom: 22px;
+  }
+
+  .hero p.lede {
+    font-size: 1.15rem;
+    max-width: 480px;
+    margin-bottom: 32px;
+    color: #565048;
+  }
+
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primary {
+    background: var(--clay);
+    color: #fff;
+  }
+
+  .btn-outline {
+    border: 1px solid var(--ink);
+    color: var(--ink);
+  }
+
+  .hero-art {
+    position: relative;
+    height: 440px;
+    border-radius: 200px 200px 20px 20px;
+    background: linear-gradient(160deg, var(--stone), #d9cdb8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-art svg { width: 62%; }
+
+  /* Intro strip */
+  .strip {
+    background: var(--stone);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 40px 0;
+  }
+
+  .strip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .strip-grid div span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--clay);
+  }
+
+  .strip-grid div p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b6459;
+  }
+
+  /* Section generic */
+  section { padding: 100px 0; }
+
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 60px;
+  }
+
+  .section-head .eyebrow { text-align: center; }
+
+  .section-head h2 {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
+
+  .section-head p {
+    color: #575148;
+  }
+
+  /* About */
+  .about {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-art {
+    height: 380px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #e4dccb, var(--stone));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-art::after {
+    content: "";
+    position: absolute;
+    inset: 24px;
+    border: 1px solid rgba(58,53,47,0.15);
+    border-radius: 12px;
+  }
+
+  .about h2 { font-size: 2.3rem; margin-bottom: 20px; }
+  .about p { margin-bottom: 16px; color: #4a453d; }
+
+  .about-signoff {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--clay);
+    margin-top: 20px;
+  }
+
+  /* Classes */
+  .classes-bg { background: var(--stone); }
+
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .class-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 32px 28px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .class-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(58,53,47,0.08);
+  }
+
+  .class-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--sage);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .class-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .class-card p { color: #565048; font-size: 0.95rem; margin-bottom: 16px; }
+
+  .class-meta {
+    font-size: 0.85rem;
+    color: var(--clay);
+    border-top: 1px dashed var(--line);
+    padding-top: 14px;
+  }
+
+  /* Beginners course */
+  .course-panel {
+    background: linear-gradient(135deg, var(--clay), #a06848);
+    color: #fff;
+    border-radius: 24px;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .course-panel h2 { color: #fff; font-size: 2.2rem; margin-bottom: 16px; }
+  .course-panel p { color: rgba(255,255,255,0.9); margin-bottom: 14px; }
+
+  .course-panel ul {
+    list-style: none;
+    margin: 20px 0 26px;
+  }
+
+  .course-panel li {
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.95);
+  }
+
+  .course-panel li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #fff;
+  }
+
+  .course-price-box {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 16px;
+    padding: 34px;
+    text-align: center;
+  }
+
+  .course-price-box .price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    display: block;
+  }
+
+  .course-price-box .btn-primary {
+    background: #fff;
+    color: var(--clay);
+    margin-top: 18px;
+    width: 100%;
+  }
+
+  /* Instructor */
+  .instructor {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .instructor-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 20px;
+    background: linear-gradient(160deg, var(--stone), #cdbfa5);
+  }
+
+  .instructor h2 { font-size: 2.2rem; margin-bottom: 8px; }
+  .instructor .role { color: var(--clay); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; margin-bottom: 20px; }
+  .instructor p { color: #4a453d; margin-bottom: 14px; }
+
+  /* Testimonials */
+  .testimonials-bg { background: var(--stone); }
+
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .test-card {
+    background: var(--cream);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+  }
+
+  .test-card p.quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  .test-card .author {
+    font-size: 0.9rem;
+    color: var(--clay);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-item summary {
+    padding: 22px 0;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: var(--clay);
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+
+  .faq-item p {
+    padding-bottom: 22px;
+    color: #565048;
+    max-width: 640px;
+  }
+
+  /* Contact / CTA */
+  .cta-section {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 24px;
+    padding: 70px 60px;
+    text-align: center;
+  }
+
+  .cta-section h2 { color: var(--cream); font-size: 2.4rem; margin-bottom: 14px; }
+  .cta-section p { color: #d8d2c5; max-width: 500px; margin: 0 auto 30px; }
+
+  .cta-section .btn-primary { background: var(--clay); }
+  .cta-section .btn-outline { border-color: var(--cream); color: var(--cream); }
+
+  /* Contact details grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+    text-align: left;
+  }
+
+  .contact-grid h3 {
+    font-size: 1.1rem;
+    color: var(--clay);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .contact-grid p { color: #565048; font-size: 0.95rem; }
+
+  /* Footer */
+  footer {
+    padding: 50px 0 30px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-inner .logo { font-size: 1.2rem; }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a { font-size: 0.9rem; color: #6b6459; }
+  .footer-links a:hover { color: var(--clay); }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #948c7d;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 900px) {
+    nav ul { display: none; }
+    .menu-toggle { display: block; }
+    .hero-inner, .about, .instructor, .course-panel, .contact-grid { grid-template-columns: 1fr; }
+    .hero-art { order: -1; height: 280px; }
+    .class-grid, .test-grid, .strip-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.4rem; }
+    .cta-section { padding: 50px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">Still Point <span>Yoga</span></a>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#beginners">Beginners</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Book a Taster</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <p class="eyebrow">Harrogate's Neighbourhood Yoga Studio</p>
+      <h1>Find your still point, one breath at a time.</h1>
+      <p class="lede">Small classes, unhurried teaching, and a warm welcome for every body. Whether you've never rolled out a mat before or you're deepening an existing practice, there's a class here for you.</p>
+      <div class="btn-row">
+        <a href="#beginners" class="btn btn-primary">Start the Beginners' Course</a>
+        <a href="#classes" class="btn btn-outline">View Class Timetable</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="60" r="18" stroke="#7c8a72" stroke-width="2"/>
+        <path d="M100 78 L100 120 M100 95 L70 125 M100 95 L130 125 M100 120 L75 165 M100 120 L125 165" stroke="#b57a5c" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-grid">
+    <div>
+      <span>8</span>
+      <p>Max students per class</p>
+    </div>
+    <div>
+      <span>6-Week</span>
+      <p>Beginners' course</p>
+    </div>
+    <div>
+      <span>2012</span>
+      <p>Teaching in Harrogate since</p>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="about-art"></div>
+    <div>
+      <p class="eyebrow">Our Studio</p>
+      <h2>A quiet room off Cheltenham Parade</h2>
+      <p>Still Point Yoga is a small, independent studio tucked just off the Stray, run by a single teacher who believes yoga works best in small groups, taught slowly, without ego or spectacle.</p>
+      <p>We keep our classes capped at eight students so there's time for proper hands-on adjustments, and so nobody feels lost at the back of the room. Most people who come here weren't "yoga people" before they started — that's rather the point.</p>
+      <p class="about-signoff">"Come as you are. Leave a little steadier."</p>
+    </div>
+  </div>
+</section>
+
+<section id="classes" class="classes-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Weekly Timetable</p>
+      <h2>Classes for every stage of practice</h2>
+      <p>All classes run in small groups at our Harrogate studio. Mats and props are provided — just bring yourself.</p>
+    </div>
+    <div class="class-grid">
+      <div class="class-card">
+        <span class="class-tag">Gentle</span>
+        <h3>Slow Flow</h3>
+        <p>A gentle, breath-led class ideal for stiff mornings, recovering bodies, or anyone who prefers ease over intensity.</p>
+        <p class="class-meta">Mondays · 9:30am &amp; Thursdays · 6:00pm</p>
+      </div>
+      <div class="class-card">
+        <span class="class-tag">All Levels</span>
+        <h3>Hatha Yoga</h3>
+        <p>Traditional postures held with care, paired with pranayama and a proper ten-minute relaxation at the close.</p>
+        <p class="class-meta">Tuesdays · 6:15pm &amp; Saturdays · 9:00am</p>
+      </div>
+      <div class="class-card">
+        <span class="class-tag">Energising</span>
+        <h3>Vinyasa Flow</h3>
+        <p>A more dynamic, linked-breath class for those with some experience who want to build strength and stamina.</p>
+        <p class="class-meta">Wednesdays · 6:15pm</p>
+      </div>
+      <div class="class-card">
+        <span class="class-tag">Restorative</span>
+        <h3>Yin &amp; Restore</h3>
+        <p>Long-held, supported poses to release deep tension. The perfect antidote to a desk-bound week.</p>
+        <p class="class-meta">Thursdays · 7:30pm</p>
+      </div>
+      <div class="class-card">
+        <span class="class-tag">50+</span>
+        <h3>Yoga for Healthy Ageing</h3>
+        <p>A steady, chair-optional class focused on balance, joint mobility, and staying independent for longer.</p>
+        <p class="class-meta">Fridays · 10:30am</p>
+      </div>
+      <div class="class-card">
+        <span class="class-tag">Beginners</span>
+        <h3>Beginners' Course</h3>
+        <p>Our six-week foundation course — see below for details. New intakes start every half-term.</p>
+        <p class="class-meta">Mondays · 6:00pm (new course starting soon)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beginners">
+  <div class="wrap">
+    <div class="course-panel">
+      <div>
+        <p class="eyebrow" style="color:rgba(255,255,255,0.8)">New to Yoga?</p>
+        <h2>The Beginners' Course</h2>
+        <p>Six weeks, one small group, no experience required. This course is designed to take you from your very first Downward Dog to feeling genuinely confident joining any class on our timetable.</p>
+        <ul>
+          <li>Six consecutive weekly sessions of 75 minutes</li>
+          <li>Maximum of eight participants per course</li>
+          <li>Covers core postures, breathing, and basic relaxation</li>
+          <li>Free mat hire and a printed take-home practice sheet</li>
+        </ul>
+        <p>Courses run each half-term on Monday evenings. Book early — they tend to fill up within a fortnight of being announced.</p>
+      </div>
+      <div class="course-price-box">
+        <span class="price">£95</span>
+        <p>for the full six-week course</p>
+        <a href="#contact" class="btn btn-primary">Reserve My Place</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap instructor">
+    <div class="instructor-photo"></div>
+    <div>
+      <p class="eyebrow">Your Teacher</p>
+      <h2>Eleanor Marsh</h2>
+      <p class="role">Founder &amp; Lead Instructor, 500hr RYT</p>
+      <p>Eleanor founded Still Point Yoga in 2012 after a decade of practising and teaching in London, drawn back to Yorkshire by the quiet of the Dales and the promise of a slower pace of life.</p>
+      <p>She trained originally in Hatha and Vinyasa traditions, later adding a Yin Yoga certification and a diploma in yoga for older adults. Her classes are known for being unhurried, precise, and refreshingly free of jargon.</p>
+      <p>When she's not teaching, you'll usually find her walking the Nidderdale AONB with an overly enthusiastic spaniel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Kind Words</p>
+      <h2>What our students say</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <p class="quote">"I put off trying yoga for years, convinced I'd be the least flexible person in the room. The beginners' course put that fear to bed within the first session."</p>
+        <p class="author">— Fiona T., Beginners' Course</p>
+      </div>
+      <div class="test-card">
+        <p class="quote">"Small class sizes make all the difference. Eleanor notices if you're struggling with a pose and adjusts before you even ask."</p>
+        <p class="author">— Michael R., Slow Flow</p>
+      </div>
+      <div class="test-card">
+        <p class="quote">"The Yin class on a Thursday evening is the best hour of my week. I leave feeling like I've had a proper reset."</p>
+        <p class="author">— Priya S., Yin &amp; Restore</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Good to Know</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div style="max-width:720px;margin:0 auto;">
+      <details class="faq-item" open>
+        <summary>Do I need to be flexible to start?</summary>
+        <p>Not at all — that's one of the most common myths about yoga. Flexibility is a result of practice, not a prerequisite for it. Most people who join our beginners' course have never touched their toes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I bring to my first class?</summary>
+        <p>Just comfortable clothing you can move in and a bottle of water. We provide mats, blocks, straps, and blankets, so there's no need to buy anything before you start.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there parking near the studio?</summary>
+        <p>Yes — there's free on-street parking on the surrounding roads after 6pm, and a short walk from the Jubilee car park during the day.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I try a class before committing to the beginners' course?</summary>
+        <p>Absolutely. We offer a single taster session at £12 for any of our all-levels classes, so you can get a feel for the studio before signing up to a course.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if I need to miss a week of the beginners' course?</summary>
+        <p>Just let us know in advance where possible. We'll always try to find you a catch-up slot in another beginner-friendly class within the same term.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-section">
+      <h2>Ready to give it a try?</h2>
+      <p>Drop us a message and we'll help you find the right class or the next beginners' course start date.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="tel:+441423000000" class="btn btn-primary">Call 01423 000 000</a>
+        <a href="mailto:hello@stillpointyoga.co.uk" class="btn btn-outline">Email Us</a>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <h3>Studio Address</h3>
+          <p>Still Point Yoga<br>14 Cheltenham Mews<br>Harrogate, HG1 1DH</p>
+        </div>
+        <div>
+          <h3>Opening Hours</h3>
+          <p>Mon–Fri: 9:00am – 8:00pm<br>Saturday: 8:30am – 12:30pm<br>Sunday: Closed</p>
+        </div>
+        <div>
+          <h3>Get in Touch</h3>
+          <p>hello@stillpointyoga.co.uk<br>01423 000 000<br>@stillpointyogaharrogate</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="#" class="logo">Still Point <span>Yoga</span></a>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#classes">Classes</a></li>
+      <li><a href="#beginners">Beginners</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <p class="footer-bottom">© 2026 Still Point Yoga, Harrogate. All rights reserved.</p>
+</footer>
+
+<script>
+  document.querySelector('.menu-toggle').addEventListener('click', function () {
+    var nav = document.getElementById('main-nav');
+    var ul = nav.querySelector('ul');
+    ul.style.display = ul.style.display === 'flex' ? 'none' : 'flex';
+    ul.style.flexDirection = 'column';
+    ul.style.position = 'absolute';
+    ul.style.top = '64px';
+    ul.style.right = '24px';
+    ul.style.background = '#faf6f0';
+    ul.style.padding = '20px';
+    ul.style.borderRadius = '12px';
+    ul.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
+  });
+</script>
+
+</body>
+</html>
+```

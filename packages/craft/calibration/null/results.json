@@ -1,0 +1,376 @@
+{
+  "estate": [
+    {
+      "site": "dd",
+      "own": 0.15,
+      "pooled": 0.01,
+      "distance": 0.34,
+      "baseline": 0.105,
+      "shared": [
+        "motion no scroll reveals (20/20)",
+        "shape pill (19/20)",
+        "display Fraunces (13/20)"
+      ]
+    },
+    {
+      "site": "mmm",
+      "own": 0.05,
+      "pooled": 0,
+      "distance": 0.45,
+      "baseline": 0.148,
+      "shared": [
+        "ground white (19/20)",
+        "effects radial-spotlight-glow (13/20)",
+        "display Cormorant Garamond (9/20)"
+      ]
+    },
+    {
+      "site": "sensphere",
+      "own": 0,
+      "pooled": 0,
+      "distance": 0.503,
+      "baseline": 0.113,
+      "shared": [
+        "motion no scroll reveals (20/20)",
+        "effects radial-spotlight-glow (10/20)",
+        "ground white (8/20)",
+        "body Inter (6/20)"
+      ]
+    },
+    {
+      "site": "harrison-james",
+      "own": 0.1,
+      "pooled": 0.1,
+      "distance": 0.277,
+      "baseline": 0.112,
+      "shared": [
+        "motion no scroll reveals (20/20)",
+        "body Inter (18/20)",
+        "accent yellow (16/20)",
+        "ground white (16/20)"
+      ]
+    },
+    {
+      "site": "hj-beauty",
+      "own": 0.05,
+      "pooled": 0,
+      "distance": 0.442,
+      "baseline": 0.217,
+      "shared": [
+        "motion no scroll reveals (20/20)",
+        "ground white (16/20)",
+        "display Fraunces (5/20)",
+        "effects marquee (5/20)"
+      ]
+    },
+    {
+      "site": "chair-and-blade",
+      "own": 0.05,
+      "pooled": 0.01,
+      "distance": 0.361,
+      "baseline": 0.187,
+      "shared": [
+        "shape square (18/20)",
+        "display Bebas Neue (9/20)",
+        "ground dark (6/20)",
+        "opening hero > text > text (6/20)"
+      ]
+    },
+    {
+      "site": "rmp",
+      "own": 0.05,
+      "pooled": 0.26,
+      "distance": 0.518,
+      "baseline": 0.065,
+      "shared": [
+        "effects hero-eyebrow-chip (14/20)",
+        "shape pill (6/20)",
+        "body Manrope (5/20)"
+      ]
+    }
+  ],
+  "aiSet": [
+    {
+      "brief": "accountant",
+      "score": 0.96,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "bakery",
+      "score": 0.05,
+      "typical": false,
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "hero-eyebrow-chip",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "bike-shop",
+      "score": 0.21,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "icon-tile-grid",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "cafe",
+      "score": 0.1,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "cleaner",
+      "score": 0.64,
+      "typical": true,
+      "tells": [
+        "hero-eyebrow-chip",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "dentist",
+      "score": 0.19,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "pill-everything",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "dog-groomer",
+      "score": 0.05,
+      "typical": false,
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "icon-tile-grid",
+        "pill-everything",
+        "radial-spotlight-glow"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "driving-school",
+      "score": 0.96,
+      "typical": true,
+      "tells": [
+        "hero-eyebrow-chip",
+        "italic-serif-display",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "estate-agent",
+      "score": 0.76,
+      "typical": true,
+      "tells": [
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "florist",
+      "score": 0.49,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "gym",
+      "score": 0.05,
+      "typical": false,
+      "tells": [
+        "glass-panel",
+        "hero-then-proof",
+        "reflex-font"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "landscaper",
+      "score": 0.01,
+      "typical": false,
+      "tells": [
+        "cream-palette",
+        "reflex-font-2"
+      ],
+      "flagged": false
+    },
+    {
+      "brief": "music-teacher",
+      "score": 0.5,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "photographer",
+      "score": 0.57,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "physio",
+      "score": 0.01,
+      "typical": false,
+      "tells": [
+        "glass-panel",
+        "gradient-text",
+        "italic-serif-display",
+        "radial-spotlight-glow",
+        "reflex-font"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "plumber",
+      "score": 0.62,
+      "typical": true,
+      "tells": [
+        "hero-eyebrow-chip",
+        "italic-serif-display",
+        "pill-everything",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "solicitor",
+      "score": 0.1,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "grid-background",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "tattoo",
+      "score": 0.33,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "glass-panel"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "vet",
+      "score": 0.57,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "pill-everything",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    },
+    {
+      "brief": "yoga",
+      "score": 0.38,
+      "typical": true,
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "pill-everything",
+        "reflex-font-2"
+      ],
+      "flagged": true
+    }
+  ],
+  "crossBrief": [
+    {
+      "brief": "dd",
+      "pages": 20,
+      "typical": 13,
+      "flagged": 20
+    },
+    {
+      "brief": "mmm",
+      "pages": 20,
+      "typical": 10,
+      "flagged": 20
+    },
+    {
+      "brief": "sensphere",
+      "pages": 20,
+      "typical": 10,
+      "flagged": 19
+    },
+    {
+      "brief": "harrison-james",
+      "pages": 20,
+      "typical": 12,
+      "flagged": 20
+    },
+    {
+      "brief": "hj-beauty",
+      "pages": 20,
+      "typical": 10,
+      "flagged": 19
+    },
+    {
+      "brief": "chair-and-blade",
+      "pages": 20,
+      "typical": 5,
+      "flagged": 18
+    },
+    {
+      "brief": "rmp",
+      "pages": 20,
+      "typical": 5,
+      "flagged": 15
+    }
+  ]
+}

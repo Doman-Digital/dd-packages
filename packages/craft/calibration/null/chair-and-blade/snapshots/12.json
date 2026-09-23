@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "url": "pages/12.html",
+  "capturedAt": "2026-09-23T11:19:13.587Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4816,
+  "ground": "rgb(17, 17, 17)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(28, 28, 28)",
+        "area": 2674530,
+        "chars": 0
+      },
+      {
+        "value": "rgb(17, 17, 17)",
+        "area": 1008495,
+        "chars": 0
+      },
+      {
+        "value": "rgba(17, 17, 17, 0.92)",
+        "area": 104895,
+        "chars": 0
+      },
+      {
+        "value": "rgb(185, 146, 90)",
+        "area": 21524,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(207, 201, 189)",
+        "area": 0,
+        "chars": 974
+      },
+      {
+        "value": "rgb(169, 162, 151)",
+        "area": 0,
+        "chars": 656
+      },
+      {
+        "value": "rgb(244, 239, 232)",
+        "area": 0,
+        "chars": 360
+      },
+      {
+        "value": "rgb(196, 189, 177)",
+        "area": 0,
+        "chars": 336
+      },
+      {
+        "value": "rgb(189, 182, 169)",
+        "area": 0,
+        "chars": 267
+      },
+      {
+        "value": "rgb(212, 180, 131)",
+        "area": 0,
+        "chars": 235
+      },
+      {
+        "value": "rgb(216, 210, 199)",
+        "area": 0,
+        "chars": 193
+      },
+      {
+        "value": "rgb(145, 138, 126)",
+        "area": 0,
+        "chars": 107
+      },
+      {
+        "value": "rgb(114, 108, 98)",
+        "area": 0,
+        "chars": 63
+      },
+      {
+        "value": "rgb(17, 17, 17)",
+        "area": 0,
+        "chars": 32
+      },
+      {
+        "value": "rgb(207, 201, 191)",
+        "area": 0,
+        "chars": 29
+      },
+      {
+        "value": "rgb(185, 146, 90)",
+        "area": 0,
+        "chars": 2
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3050,
+      "displayChars": 62,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 204,
+      "displayChars": 157,
+      "italicChars": 29,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 67,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "One barber.One chair. Your full appointment.",
+      "top": 231
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 29,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Jamie Ashworth",
+      "top": 986
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A studio built around a single chair",
+      "top": 1696
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Undivided Attention",
+      "top": 2022
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "No Queue, No Waiting",
+      "top": 2022
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Consistency Every Visit",
+      "top": 2022
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every cut, one focus",
+      "top": 2377
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Studio Hours",
+      "top": 3400
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Find the Studio",
+      "top": 3400
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 38,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Book Your Chair",
+      "top": 4240
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a Chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgb(185, 146, 90)",
+      "text": "Book Your Slot"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgb(185, 146, 90)",
+      "text": "Call 0161 123 4567"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Email to Book"
+    }
+  ],
+  "sections": [
+    {
+      "top": 73,
+      "height": 700,
+      "kind": "hero",
+      "label": "One barber.One chair. Your full appointment.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 773,
+      "height": 802,
+      "kind": "text",
+      "label": "Jamie Ashworth",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1575,
+      "height": 680,
+      "kind": "cards",
+      "label": "A studio built around a single chair",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2255,
+      "height": 1055,
+      "kind": "text",
+      "label": "Every cut, one focus",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3310,
+      "height": 838,
+      "kind": "text",
+      "label": "Studio Hours",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4149,
+      "height": 395,
+      "kind": "text",
+      "label": "Book Your Chair",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4543,
+      "height": 272,
+      "kind": "text",
+      "label": "Chair & Blade A one-to-one barber studio on St John Street, ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(185, 146, 90, 0.08)",
+          "rgba(0, 0, 0, 0)",
+          "rgba(185, 146, 90, 0.06)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 1008495,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(42, 42, 42)",
+          "rgb(23, 23, 23)"
+        ],
+        "area": 307520,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(255, 255, 255, 0.02)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 78406,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(255, 255, 255, 0.02)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 78406,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(255, 255, 255, 0.02)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 78410,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(17, 17, 17)",
+          "rgb(22, 21, 19)"
+        ],
+        "area": 568328,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 7,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      22,
+      29,
+      38,
+      42,
+      67,
+      80
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "2px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 57.1,
+    "bodyLineLengthCh": 64,
+    "bodyFontSizePx": 18
+  }
+}

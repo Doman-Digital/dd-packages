@@ -1,0 +1,649 @@
+{
+  "version": 1,
+  "url": "pages/08.html",
+  "capturedAt": "2026-09-23T11:18:53.473Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6779,
+  "ground": "rgb(250, 246, 239)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 253, 248)",
+        "area": 2964690,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2300420,
+        "chars": 0
+      },
+      {
+        "value": "rgb(15, 61, 62)",
+        "area": 523395,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 246, 239)",
+        "area": 391075,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "area": 172439,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 246, 239, 0.92)",
+        "area": 129735,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.1)",
+        "area": 101218,
+        "chars": 0
+      },
+      {
+        "value": "rgb(239, 131, 84)",
+        "area": 46874,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(77, 95, 93)",
+        "area": 0,
+        "chars": 4639
+      },
+      {
+        "value": "rgb(15, 61, 62)",
+        "area": 0,
+        "chars": 1526
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 672
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 374
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "area": 0,
+        "chars": 369
+      },
+      {
+        "value": "rgb(239, 131, 84)",
+        "area": 0,
+        "chars": 107
+      },
+      {
+        "value": "rgb(32, 48, 47)",
+        "area": 0,
+        "chars": 70
+      },
+      {
+        "value": "rgb(26, 107, 106)",
+        "area": 0,
+        "chars": 41
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Nunito Sans",
+      "chars": 6304,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 1482,
+      "displayChars": 718,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 46,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Helping children move, play and learn with confidence",
+      "top": 226
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What families come to us for",
+      "top": 210
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Support built around the child, not the diagnosis",
+      "top": 954
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Younger Children",
+      "top": 1283
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "School-Age Children",
+      "top": 1283
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Young People",
+      "top": 1283
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Neurodivergent Children",
+      "top": 1575
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Families",
+      "top": 1575
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Schools & Settings",
+      "top": 1575
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessment and therapy, tailored to each child",
+      "top": 1951
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Occupational Therapy Assessment",
+      "top": 2181
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sensory Processing Support",
+      "top": 2181
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "1:1 Therapy Programmes",
+      "top": 2371
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Handwriting & Fine Motor Groups",
+      "top": 2371
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "School Observations & Liaison",
+      "top": 2561
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "EHCP & SEND Report Writing",
+      "top": 2561
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Parent & Carer Coaching",
+      "top": 2750
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Staff Training & CPD",
+      "top": 2750
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "How working with Sensphere works",
+      "top": 3096
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Initial Enquiry",
+      "top": 3309
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessment",
+      "top": 3309
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Feedback & Plan",
+      "top": 3309
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Therapy & Review",
+      "top": 3309
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A therapy partner your SENCo can rely on",
+      "top": 3776
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What people say about working with us",
+      "top": 4324
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions from families",
+      "top": 4872
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 30,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Book a free introductory call",
+      "top": 5765
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(239, 131, 84)",
+      "text": "Book a Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(239, 131, 84)",
+      "text": "Book a Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore Our Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(255, 255, 255)",
+      "text": "Discuss a School Partnership"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 72,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do we need a diagnosis before starting occupational therapy?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 72,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Where do sessions take place? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 72,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Can you work directly with our child's school? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 72,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "How long does an assessment take? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 72,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do you provide reports for EHCP applications or tribunals? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 72,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What areas do you cover? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 50,
+      "background": "rgb(239, 131, 84)",
+      "text": "Send Enquiry"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 90,
+      "kind": "hero",
+      "label": "Sensphere Services Who We Help Our Approach For Schools FAQs",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 90,
+      "height": 664,
+      "kind": "hero",
+      "label": "Helping children move, play and learn with confidence",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 831,
+      "height": 997,
+      "kind": "cards",
+      "label": "Support built around the child, not the diagnosis",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1828,
+      "height": 1145,
+      "kind": "text",
+      "label": "Assessment and therapy, tailored to each child",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2973,
+      "height": 623,
+      "kind": "cards",
+      "label": "How working with Sensphere works",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3596,
+      "height": 605,
+      "kind": "text",
+      "label": "A therapy partner your SENCo can rely on",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4201,
+      "height": 548,
+      "kind": "cards",
+      "label": "What people say about working with us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4749,
+      "height": 836,
+      "kind": "text",
+      "label": "Common questions from families",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5585,
+      "height": 831,
+      "kind": "text",
+      "label": "Book a free introductory call",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6416,
+      "height": 363,
+      "kind": "text",
+      "label": "Sensphere Occupational therapy assessments and therapy for c",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(239, 131, 84, 0.16)",
+          "rgba(0, 0, 0, 0)",
+          "rgba(45, 145, 141, 0.16)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 955508,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(26, 107, 106)",
+          "rgb(15, 61, 62)"
+        ],
+        "area": 240728,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(15, 61, 62)",
+          "rgb(26, 107, 106)"
+        ],
+        "area": 589166,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      24,
+      26,
+      29,
+      30,
+      34,
+      46
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "20px",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 50.9,
+    "bodyLineLengthCh": 55,
+    "bodyFontSizePx": 18
+  }
+}

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harrisons Beauty | Korean Skincare, Shipped Fast from the UK</title>
+<meta name="description" content="Authentic Korean skincare for UK customers. In stock in the UK, dispatched same day. Shop cleansers, serums, sunscreen and more from Beauty of Joseon, COSRX, Anua and Round Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fbf6f0;
+    --cream-dark:#f2e9df;
+    --pink:#e8b4b8;
+    --pink-dark:#d89197;
+    --sage:#8a9a80;
+    --ink:#2b2622;
+    --ink-soft:#5c554e;
+    --white:#ffffff;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.95rem;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:all 0.2s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--white);}
+  .btn-primary:hover{background:#443f38;}
+  .btn-outline{background:transparent;border-color:var(--ink);color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--white);}
+  .btn-light{background:var(--white);color:var(--ink);}
+  .btn-light:hover{background:var(--cream-dark);}
+
+  /* Announcement bar */
+  .announce{
+    background:var(--ink);
+    color:var(--white);
+    text-align:center;
+    font-size:0.82rem;
+    padding:9px 16px;
+    letter-spacing:0.02em;
+  }
+
+  /* Header */
+  header{
+    background:var(--cream);
+    border-bottom:1px solid rgba(43,38,34,0.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 24px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-size:1.5rem;
+    font-weight:600;
+    letter-spacing:-0.02em;
+  }
+  .logo span{color:var(--pink-dark);}
+  .nav-links{
+    display:flex;
+    gap:32px;
+    list-style:none;
+    font-size:0.94rem;
+    font-weight:500;
+  }
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a:hover{color:var(--pink-dark);}
+  .nav-icons{display:flex;align-items:center;gap:18px;}
+  .icon-btn{
+    background:none;border:none;cursor:pointer;
+    font-size:1.15rem;color:var(--ink);
+    position:relative;
+  }
+  .cart-count{
+    position:absolute;top:-6px;right:-9px;
+    background:var(--pink-dark);color:white;
+    font-size:0.62rem;font-weight:700;
+    width:16px;height:16px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .menu-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+  }
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,var(--cream-dark) 0%, var(--cream) 60%);
+    padding:64px 24px 80px;
+  }
+  .hero-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--white);
+    border-radius:100px;
+    padding:7px 16px;
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--sage);
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:3.1rem;
+    line-height:1.08;
+    margin-bottom:20px;
+    color:var(--ink);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--pink-dark);
+  }
+  .hero p{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin-bottom:30px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;}
+  .hero-trust{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .hero-trust span{display:flex;align-items:center;gap:6px;font-weight:500;}
+  .hero-visual{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .hero-visual .card{
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:1/1;
+  }
+  .hero-visual .card:nth-child(1){grid-row:span 2;aspect-ratio:auto;}
+  .hero-visual .card img{width:100%;height:100%;object-fit:cover;}
+
+  @media (max-width:860px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero h1{font-size:2.3rem;}
+    .hero-visual{order:-1;}
+  }
+
+  /* Marquee strip */
+  .strip{
+    background:var(--ink);
+    color:var(--cream);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:12px 0;
+  }
+  .strip-track{
+    display:inline-block;
+    animation:scroll 28s linear infinite;
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    font-weight:500;
+  }
+  .strip-track span{margin:0 28px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* Section headers */
+  .section{padding:76px 24px;}
+  .section-head{
+    text-align:center;
+    max-width:620px;
+    margin:0 auto 48px;
+  }
+  .section-head .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--pink-dark);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{font-size:2.2rem;margin-bottom:12px;}
+  .section-head p{color:var(--ink-soft);font-size:1rem;}
+
+  /* Category grid */
+  .cat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .cat-card{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:3/4;
+    background:var(--cream-dark);
+  }
+  .cat-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;}
+  .cat-card:hover img{transform:scale(1.06);}
+  .cat-card .label{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+    color:#fff;
+    padding:18px 16px 14px;
+    font-family:'Fraunces',serif;
+    font-size:1.15rem;
+  }
+  @media (max-width:860px){
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* Product grid */
+  .prod-section{background:var(--white);}
+  .prod-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .prod-card{
+    background:var(--cream);
+    border-radius:var(--radius);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:box-shadow 0.2s ease;
+  }
+  .prod-card:hover{box-shadow:0 12px 28px rgba(43,38,34,0.09);}
+  .prod-img{
+    aspect-ratio:1/1;
+    background:var(--cream-dark);
+    position:relative;
+    overflow:hidden;
+  }
+  .prod-img img{width:100%;height:100%;object-fit:cover;}
+  .badge{
+    position:absolute;top:12px;left:12px;
+    background:var(--sage);color:#fff;
+    font-size:0.68rem;font-weight:700;
+    padding:4px 10px;border-radius:100px;
+    letter-spacing:0.03em;
+  }
+  .badge.pink{background:var(--pink-dark);}
+  .prod-info{padding:16px 16px 20px;flex:1;display:flex;flex-direction:column;}
+  .prod-brand{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .prod-name{font-size:0.98rem;font-weight:600;margin-bottom:8px;}
+  .prod-rating{font-size:0.78rem;color:var(--ink-soft);margin-bottom:10px;}
+  .prod-rating .stars{color:#e0a94a;}
+  .prod-price{margin-top:auto;display:flex;align-items:center;gap:8px;font-weight:700;}
+  .prod-price .old{
+    font-weight:500;
+    color:var(--ink-soft);
+    text-decoration:line-through;
+    font-size:0.85rem;
+  }
+  .view-all{text-align:center;margin-top:44px;}
+
+  @media (max-width:860px){
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* Why section */
+  .why{
+    background:var(--sage);
+    color:#fff;
+  }
+  .why .section-head p{color:rgba(255,255,255,0.85);}
+  .why .section-head .eyebrow{color:#fff;}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .why-item{text-align:center;padding:0 12px;}
+  .why-icon{
+    width:56px;height:56px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;
+    margin:0 auto 16px;
+  }
+  .why-item h3{font-size:1.05rem;margin-bottom:8px;font-family:'Inter',sans-serif;font-weight:700;}
+  .why-item p{font-size:0.88rem;color:rgba(255,255,255,0.85);}
+  @media (max-width:860px){
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* Story / brand */
+  .story{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    max-width:var(--maxw);
+    margin:0 auto;
+    align-items:center;
+  }
+  .story img{border-radius:var(--radius);width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .story .eyebrow{
+    text-transform:uppercase;letter-spacing:0.12em;font-size:0.75rem;
+    font-weight:700;color:var(--pink-dark);margin-bottom:12px;display:block;
+  }
+  .story h2{font-size:2.1rem;margin-bottom:18px;}
+  .story p{color:var(--ink-soft);margin-bottom:16px;}
+  @media (max-width:860px){
+    .story{grid-template-columns:1fr;}
+  }
+
+  /* Testimonials */
+  .testi-section{background:var(--cream-dark);}
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .testi-card{
+    background:var(--white);
+    padding:28px;
+    border-radius:var(--radius);
+  }
+  .testi-card .stars{color:#e0a94a;font-size:0.9rem;margin-bottom:12px;}
+  .testi-card p{font-size:0.95rem;color:var(--ink-soft);margin-bottom:16px;}
+  .testi-name{font-weight:700;font-size:0.9rem;}
+  .testi-loc{font-size:0.8rem;color:var(--ink-soft);}
+  @media (max-width:860px){
+    .testi-grid{grid-template-columns:1fr;}
+  }
+
+  /* Newsletter */
+  .newsletter{
+    background:var(--ink);
+    color:var(--cream);
+    text-align:center;
+  }
+  .newsletter h2{font-size:1.9rem;margin-bottom:12px;color:#fff;}
+  .newsletter p{color:rgba(251,246,240,0.75);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+  .news-form{
+    display:flex;
+    max-width:420px;
+    margin:0 auto;
+    gap:10px;
+  }
+  .news-form input{
+    flex:1;
+    padding:14px 18px;
+    border-radius:100px;
+    border:none;
+    font-family:inherit;
+    font-size:0.95rem;
+  }
+  .news-form input:focus{outline:2px solid var(--pink);}
+  .news-form button{
+    white-space:nowrap;
+  }
+  .news-note{font-size:0.75rem;color:rgba(251,246,240,0.5);margin-top:14px;}
+
+  /* Footer */
+  footer{
+    background:var(--cream-dark);
+    padding:60px 24px 24px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:36px;
+    max-width:var(--maxw);
+    margin:0 auto 40px;
+  }
+  .footer-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;margin-bottom:12px;}
+  .footer-grid p{color:var(--ink-soft);font-size:0.9rem;margin-bottom:16px;}
+  .footer-social{display:flex;gap:12px;}
+  .footer-social a{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--white);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.95rem;
+  }
+  .footer-grid h4{font-size:0.85rem;margin-bottom:16px;letter-spacing:0.03em;}
+  .footer-grid ul{list-style:none;font-size:0.9rem;color:var(--ink-soft);}
+  .footer-grid ul li{margin-bottom:10px;}
+  .footer-grid ul a:hover{color:var(--pink-dark);}
+  .footer-bottom{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-top:24px;
+    border-top:1px solid rgba(43,38,34,0.1);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+  }
+  @media (max-width:860px){
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">Free UK tracked shipping over £30 &nbsp;•&nbsp; Every order dispatched from our Leeds warehouse within 24 hours</div>
+
+<header>
+  <nav class="wrap nav">
+    <a href="#" class="logo">Harrisons <span>Beauty</span></a>
+    <ul class="nav-links">
+      <li><a href="#bestsellers">Bestsellers</a></li>
+      <li><a href="#categories">Shop by Category</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="icon-btn" aria-label="Search">🔍</button>
+      <button class="icon-btn" aria-label="Account">👤</button>
+      <button class="icon-btn" aria-label="Basket">🛍️<span class="cart-count">2</span></button>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">✨ Over 6,000 five-star reviews from UK skincare fans</span>
+      <h1>Korean skincare, <em>delivered</em><br>from right here in the UK.</h1>
+      <p>No customs charges, no three-week wait. We stock the K-beauty essentials you actually want — glass skin serums, gentle acid toners, and the cushion foundation your feed keeps recommending — sitting ready to ship from our Leeds warehouse.</p>
+      <div class="hero-ctas">
+        <a href="#bestsellers" class="btn btn-primary">Shop Bestsellers</a>
+        <a href="#categories" class="btn btn-outline">Browse Categories</a>
+      </div>
+      <div class="hero-trust">
+        <span>📦 UK stock, no import fees</span>
+        <span>🚚 Same-day dispatch</span>
+        <span>🔒 100% authentic, sourced direct</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="card"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop" alt="Korean skincare bottles arranged on a shelf"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=600&auto=format&fit=crop" alt="Woman applying skincare serum"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600&auto=format&fit=crop" alt="Skincare product close up"></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-track">
+    <span>FREE UK SHIPPING OVER £30</span>
+    <span>·</span>
+    <span>DISPATCHED FROM OUR LEEDS WAREHOUSE</span>
+    <span>·</span>
+    <span>NO CUSTOMS FEES, EVER</span>
+    <span>·</span>
+    <span>100% AUTHENTIC KOREAN BRANDS</span>
+    <span>·</span>
+    <span>FREE UK SHIPPING OVER £30</span>
+    <span>·</span>
+    <span>DISPATCHED FROM OUR LEEDS WAREHOUSE</span>
+    <span>·</span>
+    <span>NO CUSTOMS FEES, EVER</span>
+    <span>·</span>
+    <span>100% AUTHENTIC KOREAN BRANDS</span>
+  </div>
+</div>
+
+<section class="section" id="categories">
+  <div class="section-head">
+    <span class="eyebrow">Shop by category</span>
+    <h2>Find your routine</h2>
+    <p>From double cleansing to the final glow-locking layer, we've got every step covered.</p>
+  </div>
+  <div class="cat-grid">
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=500&auto=format&fit=crop" alt="Cleansers">
+      <div class="label">Cleansers</div>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1620917669809-8adde5abd57f?q=80&w=500&auto=format&fit=crop" alt="Serums and ampoules">
+      <div class="label">Serums &amp; Ampoules</div>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1600428853876-fb5a850b444c?q=80&w=500&auto=format&fit=crop" alt="Sheet masks">
+      <div class="label">Sheet Masks</div>
+    </a>
+    <a href="#" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=500&auto=format&fit=crop" alt="SPF and sun care">
+      <div class="label">SPF &amp; Sun Care</div>
+    </a>
+  </div>
+</section>
+
+<section class="section prod-section" id="bestsellers">
+  <div class="section-head">
+    <span class="eyebrow">Customer favourites</span>
+    <h2>UK Bestsellers</h2>
+    <p>The products our customers reorder again and again — all in stock, ready to post today.</p>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <div class="prod-img">
+        <span class="badge">Bestseller</span>
+        <img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?q=80&w=500&auto=format&fit=crop" alt="Beauty of Joseon Relief Sun rice and probiotics SPF50">
+      </div>
+      <div class="prod-info">
+        <div class="prod-brand">Beauty of Joseon</div>
+        <div class="prod-name">Relief Sun: Rice + Probiotics SPF50+</div>
+        <div class="prod-rating"><span class="stars">★★★★★</span> 4.9 (1,842 reviews)</div>
+        <div class="prod-price">£14.50</div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img">
+        <span class="badge pink">-15%</span>
+        <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?q=80&w=500&auto=format&fit=crop" alt="COSRX Advanced Snail 96 Mucin Power Essence">
+      </div>
+      <div class="prod-info">
+        <div class="prod-brand">COSRX</div>
+        <div class="prod-name">Advanced Snail 96 Mucin Power Essence</div>
+        <div class="prod-rating"><span class="stars">★★★★★</span> 4.8 (2,310 reviews)</div>
+        <div class="prod-price">£16.99 <span class="old">£19.99</span></div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=500&auto=format&fit=crop" alt="Anua Heartleaf 77% Soothing Toner">
+      </div>
+      <div class="prod-info">
+        <div class="prod-brand">Anua</div>
+        <div class="prod-name">Heartleaf 77% Soothing Toner</div>
+        <div class="prod-rating"><span class="stars">★★★★★</span> 4.7 (980 reviews)</div>
+        <div class="prod-price">£18.00</div>
+      </div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img">
+        <span class="badge">New in</span>
+        <img src="https://images.unsplash.com/photo-1631730359585-38a4935cbec4?q=80&w=500&auto=format&fit=crop" alt="Round Lab Dokdo Cleanser">
+      </div>
+      <div class="prod-info">
+        <div class="prod-brand">Round Lab</div>
+        <div class="prod-name">Dokdo Cleanser, Mineral Water Base</div>
+        <div class="prod-rating"><span class="stars">★★★★★</span> 4.6 (615 reviews)</div>
+        <div class="prod-price">£12.50</div>
+      </div>
+    </div>
+  </div>
+  <div class="view-all">
+    <a href="#" class="btn btn-outline">View All Products</a>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why shop with us</span>
+      <h2>Straightforward K-beauty, done properly</h2>
+      <p>We started Harrisons Beauty because we were tired of paying customs fees and waiting weeks for products that should take days.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">🇬🇧</div>
+        <h3>Stocked in the UK</h3>
+        <p>Every product lives in our Leeds warehouse. No international parcels, no surprise customs bill on your doorstep.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <h3>Fast, tracked delivery</h3>
+        <p>Order before 2pm and it's dispatched the same day. Most orders arrive within 1–2 working days.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">✔️</div>
+        <h3>Verified authentic</h3>
+        <p>We buy directly from brands and their official distributors — never grey market, always the real thing.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">💬</div>
+        <h3>Real skincare advice</h3>
+        <p>Our team actually uses this stuff. Message us if you need help building a routine that suits your skin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="story">
+  <div class="story">
+    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" alt="Skincare products packed for shipping in a UK warehouse">
+    <div>
+      <span class="eyebrow">Our story</span>
+      <h2>Started in a spare room, now shipping across the UK</h2>
+      <p>Harrisons Beauty began in 2021 when our founder, a longtime K-beauty enthusiast, got frustrated waiting three weeks for a parcel from Seoul — only to be charged £11 in customs fees on arrival.</p>
+      <p>So we brought the stock here instead. We now hold hundreds of Korean skincare products in our own UK warehouse, working directly with brands so you get genuine products at fair prices, without the wait.</p>
+      <p>We're still a small team, based in Leeds, who genuinely love this category — and it shows in how we pack, ship, and talk to our customers.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section testi-section" id="reviews">
+  <div class="section-head">
+    <span class="eyebrow">What customers say</span>
+    <h2>Loved by skincare fans across the UK</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Ordered on a Tuesday evening, had my snail mucin and toner by Thursday lunchtime. Genuinely faster than some UK-only brands I've bought from."</p>
+      <div class="testi-name">Chloe M.</div>
+      <div class="testi-loc">Manchester</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Finally a place that doesn't sting me with an extra £15 at the door. Same products I used to import, half the hassle."</p>
+      <div class="testi-name">Priya S.</div>
+      <div class="testi-loc">Birmingham</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"The Beauty of Joseon sunscreen sold me, but I've since tried four other things from here and everything has been the real deal."</p>
+      <div class="testi-name">Jack H.</div>
+      <div class="testi-loc">Bristol</div>
+    </div>
+  </div>
+</section>
+
+<section class="section newsletter">
+  <div class="wrap">
+    <h2>Get 10% off your first order</h2>
+    <p>Join our list for skincare tips, new arrivals, and subscriber-only discounts. No spam, just the good stuff.</p>
+    <form class="news-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you!';">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit" class="btn btn-light">Subscribe</button>
+    </form>
+    <p class="news-note">By subscribing you agree to receive marketing emails. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Harrisons Beauty</div>
+      <p>UK-stocked Korean skincare, dispatched from our Leeds warehouse. No customs fees, no long waits — just the routine you love, delivered properly.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Cleansers</a></li>
+        <li><a href="#">Serums &amp; Ampoules</a></li>
+        <li><a href="#">Sheet Masks</a></li>
+        <li><a href="#">SPF &amp; Sun Care</a></li>
+        <li><a href="#">Gift Sets</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Track My Order</a></li>
+        <li><a href="#">Delivery &amp; Returns</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Brand Partnerships</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Harrisons Beauty Ltd. Registered in England &amp; Wales. All prices in GBP.</span>
+    <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

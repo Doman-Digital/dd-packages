@@ -1,0 +1,531 @@
+{
+  "version": 1,
+  "url": "pages/09.html",
+  "capturedAt": "2026-09-23T11:18:54.435Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5278,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(247, 244, 238)",
+        "area": 1444369,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1087174,
+        "chars": 0
+      },
+      {
+        "value": "rgb(15, 36, 56)",
+        "area": 1049534,
+        "chars": 0
+      },
+      {
+        "value": "rgb(10, 26, 41)",
+        "area": 585315,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.05)",
+        "area": 279509,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 168164,
+        "chars": 0
+      },
+      {
+        "value": "rgb(184, 145, 47)",
+        "area": 15149,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(92, 101, 112)",
+        "area": 0,
+        "chars": 2178
+      },
+      {
+        "value": "rgb(15, 36, 56)",
+        "area": 0,
+        "chars": 985
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "area": 0,
+        "chars": 571
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 484
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.72)",
+        "area": 0,
+        "chars": 325
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "area": 0,
+        "chars": 225
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.82)",
+        "area": 0,
+        "chars": 176
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.92)",
+        "area": 0,
+        "chars": 106
+      },
+      {
+        "value": "rgb(184, 145, 47)",
+        "area": 0,
+        "chars": 78
+      },
+      {
+        "value": "rgb(217, 180, 92)",
+        "area": 0,
+        "chars": 52
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4271,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 909,
+      "displayChars": 549,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Straight-talking accountancy for businesses that don't have time to guess.",
+      "top": 235
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fixed fees. No surprises.",
+      "top": 287
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Accountancy and tax, done properly",
+      "top": 1030
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Annual Accounts & Corporation Tax",
+      "top": 1303
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bookkeeping & VAT",
+      "top": 1303
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Payroll & CIS",
+      "top": 1303
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Self-Assessment",
+      "top": 1303
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contractor Accounts & IR35",
+      "top": 1647
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlord & Property Tax",
+      "top": 1647
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tax Planning & Advisory",
+      "top": 1647
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Company Formation & Structuring",
+      "top": 1647
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Built around the way you actually work",
+      "top": 2107
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "SMEs",
+      "top": 2305
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contractors & Freelancers",
+      "top": 2305
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlords",
+      "top": 2305
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "High Earners",
+      "top": 2305
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "An accountant who picks up the phone",
+      "top": 2748
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Switching accountants in four steps",
+      "top": 3445
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What clients say about working with us",
+      "top": 4075
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's talk about your accounts",
+      "top": 4606
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 50,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "020 7123 4567"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 50,
+      "background": "rgb(184, 145, 47)",
+      "text": "Book a Call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 50,
+      "background": "rgb(184, 145, 47)",
+      "text": "Get a Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 50,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See What We Do"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 50,
+      "background": "rgb(15, 36, 56)",
+      "text": "Call 020 7123 4567"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 50,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Email Us"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 87,
+      "kind": "hero",
+      "label": "Harrison James Services Who We Help Why Us Getting Started R",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 87,
+      "height": 669,
+      "kind": "hero",
+      "label": "Straight-talking accountancy for businesses that don't have ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 755,
+      "height": 145,
+      "kind": "cards",
+      "label": "600+businesses & individuals supported 18 yrstrading as Harr",
+      "cards": 5,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 900,
+      "height": 1076,
+      "kind": "cards",
+      "label": "Accountancy and tax, done properly",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1977,
+      "height": 650,
+      "kind": "cards",
+      "label": "Built around the way you actually work",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2627,
+      "height": 688,
+      "kind": "text",
+      "label": "An accountant who picks up the phone",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3315,
+      "height": 629,
+      "kind": "stats",
+      "label": "Switching accountants in four steps",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3945,
+      "height": 582,
+      "kind": "cards",
+      "label": "What clients say about working with us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4526,
+      "height": 345,
+      "kind": "text",
+      "label": "Let's talk about your accounts",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4871,
+      "height": 406,
+      "kind": "text",
+      "label": "Harrison James Chartered accountants supporting SMEs, contra",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(15, 36, 56)",
+          "rgb(22, 50, 77)"
+        ],
+        "area": 963090,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(184, 145, 47)",
+          "rgb(217, 180, 92)"
+        ],
+        "area": 496980,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      24,
+      26,
+      32,
+      35,
+      48
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "50%",
+      "6px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 43.9,
+    "bodyLineLengthCh": 55,
+    "bodyFontSizePx": 18
+  }
+}

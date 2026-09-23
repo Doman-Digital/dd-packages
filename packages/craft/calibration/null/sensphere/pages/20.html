@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensphere | Occupational Therapy for Children &amp; Young People</title>
+<meta name="description" content="Sensphere provides occupational therapy assessments and therapy for children and young people across the UK, working closely with families and schools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-dark:#0f4c4c;
+    --teal:#1c7a7a;
+    --teal-light:#e6f2f1;
+    --coral:#f2946e;
+    --sand:#faf6f0;
+    --ink:#20302e;
+    --muted:#5a6b68;
+    --white:#ffffff;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    line-height:1.2;
+    margin:0 0 0.5em;
+    color:var(--teal-dark);
+  }
+  a{color:inherit;}
+  .container{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  img{max-width:100%;display:block;}
+
+  /* Header */
+  header{
+    position:sticky;
+    top:0;
+    background:rgba(250,246,240,0.92);
+    backdrop-filter:blur(6px);
+    z-index:100;
+    border-bottom:1px solid rgba(15,76,76,0.08);
+  }
+  .nav-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.4rem;
+    color:var(--teal-dark);
+    text-decoration:none;
+  }
+  .logo-mark{
+    width:38px;height:38px;border-radius:50%;
+    background:conic-gradient(from 200deg, var(--teal), var(--coral), var(--teal));
+    flex-shrink:0;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:32px;
+    margin:0;
+    padding:0;
+  }
+  nav a{
+    text-decoration:none;
+    font-weight:500;
+    font-size:0.98rem;
+    color:var(--ink);
+    transition:color 0.2s;
+  }
+  nav a:hover{color:var(--teal);}
+  .nav-cta{
+    background:var(--teal-dark);
+    color:var(--white)!important;
+    padding:10px 22px;
+    border-radius:30px;
+    font-weight:600;
+  }
+  .nav-cta:hover{background:var(--teal);}
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    font-size:1.6rem;
+    color:var(--teal-dark);
+    cursor:pointer;
+  }
+
+  /* Hero */
+  .hero{
+    padding:80px 0 60px;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(242,148,110,0.16), transparent 45%),
+      radial-gradient(circle at 10% 80%, rgba(28,122,122,0.12), transparent 50%);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-block;
+    background:var(--teal-light);
+    color:var(--teal-dark);
+    font-weight:600;
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    padding:6px 14px;
+    border-radius:30px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:2.9rem;
+    max-width:16ch;
+  }
+  .hero p.lead{
+    font-size:1.15rem;
+    color:var(--muted);
+    max-width:46ch;
+    margin-bottom:28px;
+  }
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:1rem;
+    transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-primary{
+    background:var(--coral);
+    color:var(--white);
+    box-shadow:0 8px 20px rgba(242,148,110,0.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{
+    background:transparent;
+    color:var(--teal-dark);
+    border:2px solid var(--teal-dark);
+  }
+  .btn-outline:hover{background:var(--teal-dark);color:var(--white);}
+  .hero-art{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--teal), var(--teal-dark));
+    min-height:380px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-art svg{width:78%;height:auto;}
+  .trust-strip{
+    margin-top:56px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:32px 48px;
+    align-items:center;
+    color:var(--muted);
+    font-size:0.9rem;
+  }
+  .trust-strip span{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    color:var(--teal-dark);
+  }
+
+  /* Sections generic */
+  section{padding:80px 0;}
+  .section-head{
+    max-width:640px;
+    margin:0 auto 48px;
+    text-align:center;
+  }
+  .section-head h2{font-size:2.1rem;}
+  .section-head p{color:var(--muted);font-size:1.05rem;}
+  .tag{
+    display:inline-block;
+    color:var(--coral);
+    font-weight:700;
+    letter-spacing:0.06em;
+    font-size:0.82rem;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+
+  /* Who we help */
+  .who-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .who-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:32px 28px;
+    box-shadow:0 6px 24px rgba(15,76,76,0.06);
+  }
+  .who-card .icon{
+    width:52px;height:52px;
+    border-radius:14px;
+    background:var(--teal-light);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+  }
+  .who-card h3{font-size:1.2rem;}
+  .who-card p{color:var(--muted);font-size:0.97rem;margin:0;}
+
+  /* Services */
+  .services{background:var(--white);}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+  .service-card{
+    border:1px solid rgba(15,76,76,0.1);
+    border-radius:var(--radius);
+    padding:30px;
+    transition:border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover{border-color:var(--teal);transform:translateY(-3px);}
+  .service-card h3{font-size:1.25rem;display:flex;align-items:center;gap:10px;}
+  .service-num{
+    font-family:'Fraunces',serif;
+    color:var(--coral);
+    font-size:1.1rem;
+  }
+  .service-card p{color:var(--muted);margin-bottom:0;}
+
+  /* Process */
+  .process{
+    background:var(--teal-dark);
+    color:var(--sand);
+  }
+  .process .section-head h2{color:var(--sand);}
+  .process .section-head p{color:rgba(250,246,240,0.75);}
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .process-step{
+    background:rgba(255,255,255,0.06);
+    border-radius:var(--radius);
+    padding:28px 22px;
+    position:relative;
+  }
+  .process-step .step-no{
+    font-family:'Fraunces',serif;
+    font-size:2.2rem;
+    color:var(--coral);
+    display:block;
+    margin-bottom:12px;
+  }
+  .process-step h3{color:var(--white);font-size:1.05rem;}
+  .process-step p{color:rgba(250,246,240,0.75);font-size:0.92rem;margin:0;}
+
+  /* Approach / About */
+  .about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .about-art{
+    background:var(--teal-light);
+    border-radius:28px;
+    min-height:340px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .about-art svg{width:70%;}
+  .about-content ul{
+    list-style:none;
+    padding:0;
+    margin:24px 0 0;
+  }
+  .about-content li{
+    display:flex;
+    gap:12px;
+    margin-bottom:16px;
+    color:var(--muted);
+  }
+  .check{
+    flex-shrink:0;
+    width:24px;height:24px;
+    border-radius:50%;
+    background:var(--teal);
+    color:white;
+    font-size:0.8rem;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:2px;
+  }
+
+  /* Testimonials */
+  .testimonials{background:var(--white);}
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .testi-card{
+    background:var(--sand);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .testi-card p{
+    font-style:italic;
+    color:var(--ink);
+    margin-bottom:18px;
+  }
+  .testi-name{
+    font-weight:600;
+    color:var(--teal-dark);
+    font-size:0.92rem;
+  }
+  .testi-role{
+    color:var(--muted);
+    font-size:0.85rem;
+  }
+  .stars{color:var(--coral);margin-bottom:10px;letter-spacing:2px;}
+
+  /* FAQ */
+  .faq-list{
+    max-width:820px;
+    margin:0 auto;
+  }
+  details{
+    background:var(--white);
+    border-radius:14px;
+    padding:20px 24px;
+    margin-bottom:14px;
+    box-shadow:0 4px 14px rgba(15,76,76,0.05);
+  }
+  summary{
+    font-weight:600;
+    font-size:1.05rem;
+    cursor:pointer;
+    color:var(--teal-dark);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    list-style:none;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";
+    font-size:1.4rem;
+    color:var(--coral);
+    margin-left:12px;
+  }
+  details[open] summary::after{content:"–";}
+  details p{color:var(--muted);margin:14px 0 0;}
+
+  /* CTA band */
+  .cta-band{
+    background:linear-gradient(120deg, var(--teal-dark), var(--teal));
+    color:var(--white);
+    border-radius:32px;
+    padding:56px;
+    text-align:center;
+    margin:0 24px;
+  }
+  .cta-band h2{color:var(--white);font-size:2rem;}
+  .cta-band p{color:rgba(255,255,255,0.85);max-width:540px;margin:0 auto 28px;}
+  .cta-band .btn-primary{box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+
+  /* Contact */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  .contact-info h3{font-size:1.3rem;}
+  .info-row{
+    display:flex;
+    gap:14px;
+    margin-bottom:20px;
+    color:var(--muted);
+  }
+  .info-row strong{
+    display:block;
+    color:var(--ink);
+    font-weight:600;
+  }
+  form{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:36px;
+    box-shadow:0 8px 30px rgba(15,76,76,0.08);
+  }
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  label{
+    display:block;
+    font-size:0.9rem;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  input, textarea, select{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid rgba(15,76,76,0.2);
+    border-radius:10px;
+    font-family:inherit;
+    font-size:0.97rem;
+    margin-bottom:16px;
+    background:var(--sand);
+  }
+  input:focus, textarea:focus, select:focus{
+    outline:2px solid var(--teal);
+    outline-offset:1px;
+  }
+  textarea{resize:vertical;min-height:110px;}
+  .form-note{
+    font-size:0.82rem;
+    color:var(--muted);
+    margin-top:-8px;
+  }
+
+  /* Footer */
+  footer{
+    background:var(--teal-dark);
+    color:rgba(250,246,240,0.85);
+    padding:56px 0 28px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:32px;
+    margin-bottom:40px;
+  }
+  .footer-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces',serif;
+    font-size:1.3rem;
+    color:var(--white);
+    margin-bottom:14px;
+  }
+  footer h4{
+    color:var(--white);
+    font-size:0.95rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-bottom:16px;
+  }
+  footer ul{list-style:none;margin:0;padding:0;}
+  footer li{margin-bottom:10px;}
+  footer a{
+    color:rgba(250,246,240,0.8);
+    text-decoration:none;
+    font-size:0.94rem;
+  }
+  footer a:hover{color:var(--coral);}
+  .footer-bottom{
+    border-top:1px solid rgba(250,246,240,0.15);
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.85rem;
+    color:rgba(250,246,240,0.6);
+  }
+
+  /* Responsive */
+  @media (max-width:900px){
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1;}
+    .who-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .about{grid-template-columns:1fr;}
+    .about-art{order:-1;}
+    .testi-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:repeat(2,1fr);}
+    .cta-band{padding:40px 24px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .hero h1{font-size:2.1rem;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#top" class="logo">
+      <span class="logo-mark"></span>
+      Sensphere
+    </a>
+    <nav id="primary-nav">
+      <ul>
+        <li><a href="#who-we-help">Who We Help</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.getElementById('primary-nav').classList.toggle('open')">&#9776;</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Occupational Therapy for Children &amp; Young People</span>
+        <h1>Helping every child move, sense and engage with confidence</h1>
+        <p class="lead">Sensphere provides paediatric occupational therapy assessments and therapy across the UK — working closely with parents, carers and schools to help children build the skills they need for everyday life.</p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-primary">Book an Assessment</a>
+          <a href="#services" class="btn btn-outline">Explore Our Services</a>
+        </div>
+        <div class="trust-strip">
+          <span>&#10003; HCPC-registered therapists</span>
+          <span>&#10003; DBS-checked team</span>
+          <span>&#10003; Home, clinic &amp; school visits</span>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+          <circle cx="100" cy="100" r="66" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+          <circle cx="70" cy="80" r="22" fill="#f2946e"/>
+          <circle cx="132" cy="70" r="14" fill="#faf6f0"/>
+          <path d="M50 150 Q100 110 150 150" stroke="#faf6f0" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <circle cx="130" cy="130" r="9" fill="#faf6f0" opacity="0.8"/>
+          <circle cx="60" cy="130" r="6" fill="#f2946e" opacity="0.8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section id="who-we-help">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Who We Help</span>
+        <h2>Support tailored to your child, wherever they are</h2>
+        <p>We work with children and young people aged 2 to 18, alongside the adults who support them.</p>
+      </div>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="icon">&#128106;</div>
+          <h3>Families</h3>
+          <p>Parents and carers looking for answers, an assessment, or ongoing therapy for a child at home.</p>
+        </div>
+        <div class="who-card">
+          <div class="icon">&#127979;</div>
+          <h3>Schools</h3>
+          <p>Nurseries and schools wanting in-class observations, staff training, or environment advice for a pupil.</p>
+        </div>
+        <div class="who-card">
+          <div class="icon">&#128221;</div>
+          <h3>Professionals</h3>
+          <p>SENCOs, paediatricians and other clinicians referring a child for specialist OT input or a second opinion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">What We Offer</span>
+        <h2>Our services</h2>
+        <p>From first assessment through to ongoing therapy, every plan is built around the individual child.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3><span class="service-num">01</span> Sensory Processing Assessment</h3>
+          <p>A full assessment of how your child registers and responds to sensory input, using standardised tools and clinical observation, with a written report and practical strategies.</p>
+        </div>
+        <div class="service-card">
+          <h3><span class="service-num">02</span> Fine &amp; Gross Motor Skills</h3>
+          <p>Support for handwriting, scissor skills, dressing, coordination and balance, built through play-based, motivating therapy sessions.</p>
+        </div>
+        <div class="service-card">
+          <h3><span class="service-num">03</span> School Observations &amp; Liaison</h3>
+          <p>On-site visits to observe your child in the classroom or playground, followed by recommendations shared directly with teaching staff.</p>
+        </div>
+        <div class="service-card">
+          <h3><span class="service-num">04</span> Individual Therapy Programmes</h3>
+          <p>Ongoing one-to-one sessions, at home, in clinic, or at school, with clear goals and regular reviews with parents and carers.</p>
+        </div>
+        <div class="service-card">
+          <h3><span class="service-num">05</span> Parent &amp; Carer Coaching</h3>
+          <p>Practical, everyday strategies you can use at home for mealtimes, sleep, transitions and self-care, tailored to your child's needs.</p>
+        </div>
+        <div class="service-card">
+          <h3><span class="service-num">06</span> Staff Training &amp; Workshops</h3>
+          <p>Training for school and nursery staff on sensory processing, regulation strategies and creating supportive classroom environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag" style="color:#f2946e;">How It Works</span>
+        <h2>Getting started with Sensphere</h2>
+        <p>A clear, straightforward path from first enquiry to ongoing support.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-no">01</span>
+          <h3>Enquiry &amp; Consultation</h3>
+          <p>Get in touch and tell us about your child. We'll arrange a free 15-minute call to understand what support you're looking for.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-no">02</span>
+          <h3>Assessment</h3>
+          <p>A full assessment at home, in clinic or at school, combining standardised tools with observation and family input.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-no">03</span>
+          <h3>Report &amp; Recommendations</h3>
+          <p>A clear written report outlining findings and practical, tailored recommendations for home and school.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-no">04</span>
+          <h3>Ongoing Therapy</h3>
+          <p>Regular sessions where needed, with progress reviewed and shared with everyone supporting your child.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about">
+      <div class="about-art">
+        <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="180" height="180" rx="24" stroke="#1c7a7a" stroke-width="2" opacity="0.3"/>
+          <circle cx="110" cy="90" r="34" fill="#1c7a7a" opacity="0.15"/>
+          <circle cx="110" cy="90" r="20" fill="#f2946e"/>
+          <path d="M60 160 Q110 130 160 160" stroke="#0f4c4c" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <circle cx="70" cy="60" r="8" fill="#1c7a7a"/>
+          <circle cx="155" cy="55" r="6" fill="#f2946e"/>
+        </svg>
+      </div>
+      <div class="about-content">
+        <span class="tag">Our Approach</span>
+        <h2>Therapy that fits around real family life</h2>
+        <p>Sensphere was founded to make paediatric occupational therapy more accessible, more collaborative, and more connected to the places children actually live and learn — home, school and the community.</p>
+        <p>Every child we see is different, so no two therapy plans look the same. We combine evidence-based assessment with genuine listening, so families feel heard and schools feel supported.</p>
+        <ul>
+          <li><span class="check">&#10003;</span> Therapists who explain findings in plain English, not jargon</li>
+          <li><span class="check">&#10003;</span> Flexible appointments — evenings, weekends and school-day visits</li>
+          <li><span class="check">&#10003;</span> Reports written to support EHCP applications and school planning</li>
+          <li><span class="check">&#10003;</span> Ongoing communication between home, school and clinician</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Families &amp; Schools</span>
+        <h2>What people say about working with us</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"The assessment gave us answers we'd been waiting years for. Our OT explained everything clearly and the school were brilliant at putting the recommendations into practice."</p>
+          <div class="testi-name">Rachel H.</div>
+          <div class="testi-role">Parent, Bristol</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Sensphere's classroom observation and staff training changed how our whole team approaches sensory breaks. Genuinely practical, not just theory."</p>
+          <div class="testi-name">Mr. D. Okafor</div>
+          <div class="testi-role">SENCO, Primary School</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"My son actually looks forward to his sessions. Six months in, his handwriting and confidence at mealtimes have both come on so much."</p>
+          <div class="testi-name">Priya S.</div>
+          <div class="testi-role">Parent, Leeds</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>Do we need a referral from a GP or paediatrician?</summary>
+          <p>No. Most of our families come to us directly. A referral isn't required, though we're happy to work alongside any existing referrals or reports you have.</p>
+        </details>
+        <details>
+          <summary>Where do sessions take place?</summary>
+          <p>Wherever works best for your child: at home, at our clinic, or on-site at nursery or school. Many families use a mix, depending on the goals we're working on.</p>
+        </details>
+        <details>
+          <summary>How long does an assessment take, and what do we receive?</summary>
+          <p>Assessments typically take 60–90 minutes, followed by a detailed written report within two weeks, including practical recommendations for home and school.</p>
+        </details>
+        <details>
+          <summary>Can you support an EHCP application or tribunal?</summary>
+          <p>Yes. Our reports are written in a format suitable for EHCP needs assessments and can be shared directly with your local authority or SENCO with your permission.</p>
+        </details>
+        <details>
+          <summary>What areas of the UK do you cover?</summary>
+          <p>We offer in-person visits across much of England, with online consultations and coaching available UK-wide. Get in touch with your postcode and we'll confirm availability.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding-top:0;">
+    <div class="cta-band">
+      <h2>Ready to talk about your child?</h2>
+      <p>Book a free 15-minute consultation call — no obligation, just a conversation about how we might help.</p>
+      <a href="#contact" class="btn btn-primary">Book a Free Call</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <span class="tag">Get In Touch</span>
+        <h2>Let's start the conversation</h2>
+        <p style="color:var(--muted);margin-bottom:32px;">Fill in the form and one of our therapists will get back to you within one working day, or reach us directly using the details below.</p>
+        <div class="info-row">
+          <div>
+            <strong>Phone</strong>
+            0117 496 0230
+          </div>
+        </div>
+        <div class="info-row">
+          <div>
+            <strong>Email</strong>
+            hello@sensphere.co.uk
+          </div>
+        </div>
+        <div class="info-row">
+          <div>
+            <strong>Coverage</strong>
+            In-person across England &middot; Online UK-wide
+          </div>
+        </div>
+        <div class="info-row">
+          <div>
+            <strong>Office Hours</strong>
+            Mon–Fri, 8:30am–6pm &middot; Evening &amp; weekend appointments available
+          </div>
+        </div>
+      </div>
+      <form onsubmit="return false;">
+        <div class="form-row">
+          <div>
+            <label for="parent-name">Your name</label>
+            <input type="text" id="parent-name" name="parent-name" required>
+          </div>
+          <div>
+            <label for="child-age">Child's age</label>
+            <input type="text" id="child-age" name="child-age">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <label for="interest">I'm enquiring about</label>
+        <select id="interest" name="interest">
+          <option>Sensory processing assessment</option>
+          <option>Motor skills therapy</option>
+          <option>School observation &amp; liaison</option>
+          <option>Ongoing individual therapy</option>
+          <option>Staff training / workshop</option>
+          <option>Something else</option>
+        </select>
+        <label for="message">Tell us a little about your child</label>
+        <textarea id="message" name="message" placeholder="e.g. their age, school, and what prompted you to get in touch"></textarea>
+        <p class="form-note">By submitting, you agree to be contacted by Sensphere about your enquiry. We never share your details with third parties.</p>
+        <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer;width:100%;margin-top:8px;">Send Enquiry</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="logo-mark"></span>
+          Sensphere
+        </div>
+        <p style="max-width:280px;font-size:0.92rem;">Paediatric occupational therapy assessments and therapy for children and young people, delivered with families and schools across the UK.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#who-we-help">Who We Help</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#contact">Book a Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Safeguarding Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sensphere Occupational Therapy Ltd. All rights reserved.</span>
+      <span>Registered in England &amp; Wales</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

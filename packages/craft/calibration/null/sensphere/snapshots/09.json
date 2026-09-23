@@ -1,0 +1,507 @@
+{
+  "version": 1,
+  "url": "pages/09.html",
+  "capturedAt": "2026-09-23T11:18:59.374Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6759,
+  "ground": "rgb(253, 251, 247)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 4911177,
+        "chars": 0
+      },
+      {
+        "value": "rgb(15, 35, 33)",
+        "area": 494010,
+        "chars": 0
+      },
+      {
+        "value": "rgb(242, 237, 251)",
+        "area": 267334,
+        "chars": 0
+      },
+      {
+        "value": "rgba(253, 251, 247, 0.92)",
+        "area": 231795,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 138, 101)",
+        "area": 93708,
+        "chars": 0
+      },
+      {
+        "value": "rgb(19, 108, 107)",
+        "area": 79268,
+        "chars": 0
+      },
+      {
+        "value": "rgb(228, 245, 243)",
+        "area": 74083,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 200, 87)",
+        "area": 32400,
+        "chars": 0
+      },
+      {
+        "value": "rgb(239, 239, 239)",
+        "area": 12696,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.15)",
+        "area": 4376,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "area": 3888,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(92, 107, 106)",
+        "area": 0,
+        "chars": 3935
+      },
+      {
+        "value": "rgb(19, 108, 107)",
+        "area": 0,
+        "chars": 1152
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 555
+      },
+      {
+        "value": "rgb(31, 45, 44)",
+        "area": 0,
+        "chars": 521
+      },
+      {
+        "value": "rgb(207, 228, 226)",
+        "area": 0,
+        "chars": 401
+      },
+      {
+        "value": "rgb(255, 138, 101)",
+        "area": 0,
+        "chars": 22
+      },
+      {
+        "value": "rgb(255, 200, 87)",
+        "area": 0,
+        "chars": 15
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Nunito Sans",
+      "chars": 5922,
+      "displayChars": 0,
+      "italicChars": 462,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fredoka",
+      "chars": 667,
+      "displayChars": 575,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fredoka",
+      "sizePx": 54,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Helping children build the skills to thrive at home, at school and in everyday life",
+      "top": 303
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessment and therapy, tailored to every child",
+      "top": 1103
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "OT Assessments",
+      "top": 1461
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "1:1 Therapy",
+      "top": 1461
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Family Support",
+      "top": 1461
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "School Partnership",
+      "top": 1461
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Working alongside the people who know each child best",
+      "top": 2109
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Children & Young People",
+      "top": 2438
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Families & Carers",
+      "top": 2413
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Schools & Settings",
+      "top": 2438
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A simple, supportive process from first enquiry to progress review",
+      "top": 2831
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 35,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Founded on the belief that every child deserves to feel understood",
+      "top": 3546
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What parents and schools say about working with us",
+      "top": 4207
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 40,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 4851
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 35,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to talk about your child's next step?",
+      "top": 5651
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Make an Enquiry or Referral",
+      "top": 5637
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Make a Referral"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgb(255, 138, 101)",
+      "text": "Book a Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore Our Services"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 50,
+      "heightPx": 49,
+      "background": "rgb(255, 138, 101)",
+      "text": "Send Enquiry"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 161,
+      "kind": "hero",
+      "label": "Sensphere Assessments & Therapy Who We Support How It Works ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 161,
+      "height": 749,
+      "kind": "hero",
+      "label": "Helping children build the skills to thrive at home, at scho",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 965,
+      "height": 1006,
+      "kind": "cards",
+      "label": "Assessment and therapy, tailored to every child",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1971,
+      "height": 722,
+      "kind": "cards",
+      "label": "Working alongside the people who know each child best",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2693,
+      "height": 715,
+      "kind": "cards",
+      "label": "A simple, supportive process from first enquiry to progress ",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3408,
+      "height": 660,
+      "kind": "text",
+      "label": "Founded on the belief that every child deserves to feel unde",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4068,
+      "height": 644,
+      "kind": "cards",
+      "label": "What parents and schools say about working with us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4712,
+      "height": 740,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5453,
+      "height": 874,
+      "kind": "text",
+      "label": "Ready to talk about your child's next step?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6416,
+      "height": 343,
+      "kind": "text",
+      "label": "Sensphere Occupational therapy assessments and therapy for c",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(228, 245, 243)"
+        ],
+        "area": 1078020,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(242, 237, 251)",
+          "rgb(228, 245, 243)"
+        ],
+        "area": 296343,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(228, 245, 243)",
+          "rgb(242, 237, 251)"
+        ],
+        "area": 209120,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(19, 108, 107)",
+          "rgb(28, 148, 143)"
+        ],
+        "area": 965396,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      26,
+      35,
+      40,
+      54
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "50%",
+      "50px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.1) 0px 14px 30px 0px",
+      "rgba(19, 108, 107, 0.1) 0px 12px 30px 0px",
+      "rgba(255, 138, 101, 0.35) 0px 8px 20px 0px"
+    ],
+    "spacingOnScalePct": 36.1,
+    "bodyLineLengthCh": 58,
+    "bodyFontSizePx": 18
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "url": "pages/07.html",
+  "capturedAt": "2026-09-23T11:18:47.588Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5141,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1531170,
+        "chars": 0
+      },
+      {
+        "value": "rgb(244, 246, 248)",
+        "area": 1263783,
+        "chars": 0
+      },
+      {
+        "value": "rgb(13, 27, 42)",
+        "area": 1104070,
+        "chars": 0
+      },
+      {
+        "value": "rgb(8, 20, 31)",
+        "area": 564300,
+        "chars": 0
+      },
+      {
+        "value": "rgb(245, 165, 36)",
+        "area": 42978,
+        "chars": 0
+      },
+      {
+        "value": "rgba(245, 165, 36, 0.12)",
+        "area": 26244,
+        "chars": 0
+      },
+      {
+        "value": "rgba(245, 165, 36, 0.15)",
+        "area": 8842,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 3888,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 114, 128)",
+        "area": 0,
+        "chars": 1511
+      },
+      {
+        "value": "rgb(13, 27, 42)",
+        "area": 0,
+        "chars": 847
+      },
+      {
+        "value": "rgb(159, 176, 191)",
+        "area": 0,
+        "chars": 527
+      },
+      {
+        "value": "rgb(195, 203, 211)",
+        "area": 0,
+        "chars": 477
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 453
+      },
+      {
+        "value": "rgb(58, 71, 83)",
+        "area": 0,
+        "chars": 417
+      },
+      {
+        "value": "rgb(215, 222, 230)",
+        "area": 0,
+        "chars": 198
+      },
+      {
+        "value": "rgb(245, 165, 36)",
+        "area": 0,
+        "chars": 97
+      },
+      {
+        "value": "rgb(58, 44, 12)",
+        "area": 0,
+        "chars": 93
+      },
+      {
+        "value": "rgb(203, 213, 225)",
+        "area": 0,
+        "chars": 80
+      },
+      {
+        "value": "rgb(217, 140, 15)",
+        "area": 0,
+        "chars": 40
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Manrope",
+      "chars": 4725,
+      "displayChars": 498,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 15,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Manrope",
+      "sizePx": 46,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted Electricians for Homes & Small Businesses Across Uxbridge and the Home Counties",
+      "top": 322
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 21,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Request a Free Quote",
+      "top": 249
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 34,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Electrical Services for Homes & Businesses",
+      "top": 1176
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Domestic Electrics",
+      "top": 1505
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Full & Partial Rewires",
+      "top": 1505
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Consumer Unit Upgrades",
+      "top": 1505
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "EV Charger Installation",
+      "top": 1780
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "EICR & Landlord Certificates",
+      "top": 1780
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small Business Electrics",
+      "top": 1780
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lighting Design & Fitting",
+      "top": 2056
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Emergency Call-Outs",
+      "top": 2056
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fault Finding & Repairs",
+      "top": 2056
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local Electricians You Can Actually Rely On",
+      "top": 2392
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 34,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Serving Uxbridge and the Surrounding Counties",
+      "top": 3109
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 34,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "What Local Customers Say",
+      "top": 3873
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 32,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Need an Electrician You Can Trust?",
+      "top": 4468
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgb(245, 165, 36)",
+      "text": "Get a Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgb(245, 165, 36)",
+      "text": "Call 01895 123 456"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Request a Free Quote"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 6,
+      "heightPx": 49,
+      "background": "rgb(245, 165, 36)",
+      "text": "Send My Request"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Check Your Postcode"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgb(13, 27, 42)",
+      "text": "Call 01895 123 456"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Request a Free Quote"
+    }
+  ],
+  "sections": [
+    {
+      "top": 38,
+      "height": 89,
+      "kind": "hero",
+      "label": "RMP Electrical UXBRIDGE & THE HOME COUNTIES Services Why Us ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 127,
+      "height": 859,
+      "kind": "hero",
+      "label": "Trusted Electricians for Homes & Small Businesses Across Uxb",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1064,
+      "height": 1216,
+      "kind": "cards",
+      "label": "Electrical Services for Homes & Businesses",
+      "cards": 9,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2281,
+      "height": 717,
+      "kind": "text",
+      "label": "Local Electricians You Can Actually Rely On",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2998,
+      "height": 764,
+      "kind": "text",
+      "label": "Serving Uxbridge and the Surrounding Counties",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3761,
+      "height": 627,
+      "kind": "cards",
+      "label": "What Local Customers Say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4388,
+      "height": 361,
+      "kind": "text",
+      "label": "Need an Electrician You Can Trust?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4749,
+      "height": 392,
+      "kind": "text",
+      "label": "RMP Electrical Family-run electrical contractors based in Ux",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(13, 27, 42, 0.93)",
+          "rgba(13, 27, 42, 0.8)"
+        ],
+        "area": 1236983,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(217, 140, 15)",
+          "rgb(245, 165, 36)"
+        ],
+        "area": 519390,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      24,
+      26,
+      32,
+      34,
+      46
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "12px",
+      "14px",
+      "50%",
+      "6px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.35) 0px 20px 50px 0px"
+    ],
+    "spacingOnScalePct": 35.7,
+    "bodyLineLengthCh": 57,
+    "bodyFontSizePx": 18
+  }
+}

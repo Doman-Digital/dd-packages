@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "url": "pages/10.html",
+  "capturedAt": "2026-09-23T11:19:02.570Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4694,
+  "ground": "rgb(13, 13, 13)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(24, 24, 24)",
+        "area": 588443,
+        "chars": 0
+      },
+      {
+        "value": "rgba(13, 13, 13, 0.9)",
+        "area": 110880,
+        "chars": 0
+      },
+      {
+        "value": "rgb(184, 147, 79)",
+        "area": 19899,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(244, 239, 230)",
+        "area": 0,
+        "chars": 2314
+      },
+      {
+        "value": "rgb(184, 147, 79)",
+        "area": 0,
+        "chars": 240
+      },
+      {
+        "value": "rgb(13, 13, 13)",
+        "area": 0,
+        "chars": 27
+      },
+      {
+        "value": "rgba(244, 239, 230, 0.15)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Jost",
+      "chars": 2307,
+      "displayChars": 72,
+      "italicChars": 0,
+      "weights": [
+        300,
+        400
+      ]
+    },
+    {
+      "family": "Bebas Neue",
+      "chars": 280,
+      "displayChars": 198,
+      "italicChars": 0,
+      "weights": [
+        300,
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Bebas Neue",
+      "sizePx": 83,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber.One chair.Your full attention.",
+      "top": 231
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every client gets the whole chair",
+      "top": 1095
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 21,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Booked, not squeezed in",
+      "top": 1856
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 21,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber, always",
+      "top": 1856
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 21,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "A calm, private space",
+      "top": 1856
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Simple pricing, no upsells",
+      "top": 2229
+    },
+    {
+      "level": 3,
+      "family": "Jost",
+      "sizePx": 22,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Classic Cut",
+      "top": 2393
+    },
+    {
+      "level": 3,
+      "family": "Jost",
+      "sizePx": 22,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Skin Fade",
+      "top": 2510
+    },
+    {
+      "level": 3,
+      "family": "Jost",
+      "sizePx": 22,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cut & Beard",
+      "top": 2649
+    },
+    {
+      "level": 3,
+      "family": "Jost",
+      "sizePx": 22,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Beard Sculpt",
+      "top": 2766
+    },
+    {
+      "level": 3,
+      "family": "Jost",
+      "sizePx": 22,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hot Towel Shave",
+      "top": 2883
+    },
+    {
+      "level": 3,
+      "family": "Jost",
+      "sizePx": 22,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "The Full House",
+      "top": 3022
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Find the studio",
+      "top": 3391
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 58,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Book your chair",
+      "top": 4140
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 42,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a Chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 54,
+      "background": "rgb(184, 147, 79)",
+      "text": "Book Your Slot"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 54,
+      "background": "rgb(184, 147, 79)",
+      "text": "Email to Book"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 900,
+      "kind": "hero",
+      "label": "One barber.One chair.Your full attention.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 900,
+      "height": 777,
+      "kind": "text",
+      "label": "Every client gets the whole chair",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1677,
+      "height": 409,
+      "kind": "stats",
+      "label": "Booked, not squeezed in",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2085,
+      "height": 1161,
+      "kind": "text",
+      "label": "Simple pricing, no upsells",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3247,
+      "height": 773,
+      "kind": "text",
+      "label": "Find the studio",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4020,
+      "height": 494,
+      "kind": "text",
+      "label": "Book your chair",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4514,
+      "height": 181,
+      "kind": "text",
+      "label": "CHAIR & BLADE 0161 996 1234 book@chairandblade.co.uk Instagr",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(42, 42, 42)",
+          "rgb(13, 13, 13)"
+        ],
+        "area": 247076,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(13, 13, 13)",
+          "rgb(22, 20, 18)"
+        ],
+        "area": 711473,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 1,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 7,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      24,
+      26,
+      38,
+      48,
+      58,
+      83
+    ],
+    "fontWeights": [
+      300,
+      400
+    ],
+    "radii": [],
+    "shadows": [],
+    "spacingOnScalePct": 54.4,
+    "bodyLineLengthCh": 68,
+    "bodyFontSizePx": 17
+  }
+}

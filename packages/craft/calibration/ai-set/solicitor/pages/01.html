@@ -1,0 +1,617 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hale &amp; Pryce Solicitors | Conveyancing, Wills &amp; Family Law in Shrewsbury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#122540;
+    --navy-dark:#0b1a2e;
+    --gold:#b08d3f;
+    --gold-light:#d4b869;
+    --cream:#faf7f1;
+    --grey:#5a6270;
+    --line:#e4e0d6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Sans 3', sans-serif;
+    color:#2a2f3a;
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,.logo{font-family:'Playfair Display', serif;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .container{width:100%;max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  /* Top bar */
+  .topbar{
+    background:var(--navy-dark);
+    color:#cfd6e0;
+    font-size:0.85rem;
+  }
+  .topbar .container{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:8px;padding-bottom:8px;flex-wrap:wrap;gap:6px;
+  }
+  .topbar a{color:#e7d9b7;}
+  .topbar a:hover{text-decoration:underline;}
+
+  /* Header */
+  header{
+    background:var(--navy);
+    color:#fff;
+    position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+  }
+  nav.container{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .logo{
+    font-size:1.6rem;font-weight:700;color:#fff;letter-spacing:0.5px;
+    display:flex;flex-direction:column;line-height:1.1;
+  }
+  .logo span{
+    font-family:'Source Sans 3',sans-serif;
+    font-size:0.68rem;
+    font-weight:500;
+    color:var(--gold-light);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-top:4px;
+  }
+  .nav-links{display:flex;gap:32px;list-style:none;font-weight:500;}
+  .nav-links a{padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s;}
+  .nav-links a:hover{border-color:var(--gold);}
+  .nav-cta{
+    background:var(--gold);
+    color:var(--navy-dark);
+    padding:10px 20px;
+    border-radius:3px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--gold-light);}
+  .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(rgba(11,26,46,0.82),rgba(11,26,46,0.78)),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><rect width="1200" height="800" fill="%230b1a2e"/><path d="M0 700 L200 620 L400 680 L600 600 L800 660 L1000 590 L1200 650 L1200 800 L0 800 Z" fill="%23122540"/></svg>');
+    background-size:cover;
+    background-position:center;
+    color:#fff;
+    padding:100px 0 110px;
+  }
+  .hero .container{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;
+  }
+  .hero-eyebrow{
+    color:var(--gold-light);
+    text-transform:uppercase;letter-spacing:2px;font-size:0.85rem;font-weight:600;margin-bottom:16px;
+  }
+  .hero h1{font-size:2.7rem;line-height:1.25;margin-bottom:20px;}
+  .hero p.lead{font-size:1.1rem;color:#dbe2ec;max-width:520px;margin-bottom:32px;}
+  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:14px 28px;border-radius:3px;font-weight:600;font-size:0.95rem;transition:all .2s;
+  }
+  .btn-primary{background:var(--gold);color:var(--navy-dark);}
+  .btn-primary:hover{background:var(--gold-light);}
+  .btn-outline{border:1.5px solid #fff;color:#fff;}
+  .btn-outline:hover{background:#fff;color:var(--navy-dark);}
+  .hero-card{
+    background:#fff;color:#2a2f3a;border-radius:6px;padding:28px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  }
+  .hero-card h3{color:var(--navy);font-size:1.2rem;margin-bottom:14px;}
+  .hero-card ul{list-style:none;}
+  .hero-card li{
+    padding:10px 0;border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;font-size:0.95rem;
+  }
+  .hero-card li:last-child{border-bottom:none;}
+  .hero-card .label{color:var(--grey);}
+  .hero-card .value{font-weight:600;color:var(--navy);}
+
+  /* Section basics */
+  section{padding:80px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 50px;}
+  .section-head .eyebrow{
+    color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-size:0.8rem;font-weight:600;margin-bottom:12px;
+  }
+  .section-head h2{font-size:2.1rem;color:var(--navy);margin-bottom:14px;}
+  .section-head p{color:var(--grey);}
+
+  /* Services */
+  .services{background:#fff;}
+  .service-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+  }
+  .service-card{
+    border:1px solid var(--line);border-radius:6px;padding:32px 28px;
+    transition:transform .2s, box-shadow .2s;
+    background:var(--cream);
+  }
+  .service-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(18,37,64,0.1);}
+  .service-icon{
+    width:52px;height:52px;border-radius:50%;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+    color:var(--gold-light);font-size:1.4rem;font-weight:700;
+  }
+  .service-card h3{color:var(--navy);font-size:1.3rem;margin-bottom:12px;}
+  .service-card p{color:var(--grey);font-size:0.95rem;margin-bottom:16px;}
+  .service-card ul{list-style:none;font-size:0.9rem;color:#3a4150;}
+  .service-card li{padding:4px 0;padding-left:18px;position:relative;}
+  .service-card li::before{
+    content:"—";position:absolute;left:0;color:var(--gold);
+  }
+  .service-card .learn{
+    display:inline-block;margin-top:16px;color:var(--navy);font-weight:600;font-size:0.9rem;
+    border-bottom:1.5px solid var(--gold);
+  }
+
+  /* About / why us */
+  .about{background:var(--navy);color:#e7ecf3;}
+  .about .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .about h2{color:#fff;font-size:2rem;margin-bottom:20px;}
+  .about p{color:#c4cddb;margin-bottom:16px;}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px;}
+  .stat{border-left:3px solid var(--gold);padding-left:16px;}
+  .stat .num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold-light);}
+  .stat .cap{font-size:0.85rem;color:#aab6c6;text-transform:uppercase;letter-spacing:1px;}
+  .why-list{display:flex;flex-direction:column;gap:20px;}
+  .why-item{display:flex;gap:16px;align-items:flex-start;}
+  .why-num{
+    flex-shrink:0;width:38px;height:38px;border-radius:50%;
+    border:1.5px solid var(--gold);color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Playfair Display',serif;
+  }
+  .why-item h4{color:#fff;font-size:1.05rem;margin-bottom:4px;}
+  .why-item p{color:#b7c1d1;font-size:0.92rem;margin-bottom:0;}
+
+  /* Process */
+  .process{background:var(--cream);}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .process-step{text-align:center;position:relative;padding:0 12px;}
+  .process-step .circle{
+    width:60px;height:60px;border-radius:50%;background:#fff;border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+    font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);font-weight:700;
+  }
+  .process-step h4{color:var(--navy);margin-bottom:8px;font-size:1.05rem;}
+  .process-step p{color:var(--grey);font-size:0.88rem;}
+
+  /* Testimonials */
+  .testimonials{background:#fff;}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .testi-card{
+    background:var(--cream);border-radius:6px;padding:28px;border:1px solid var(--line);
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .testi-card .stars{color:var(--gold);margin-bottom:14px;letter-spacing:2px;}
+  .testi-card p.quote{font-size:0.95rem;color:#3a4150;font-style:italic;margin-bottom:18px;}
+  .testi-card .author{font-weight:600;color:var(--navy);font-size:0.92rem;}
+  .testi-card .role{color:var(--grey);font-size:0.82rem;}
+
+  /* Team */
+  .team{background:var(--cream);}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .team-card{background:#fff;border-radius:6px;overflow:hidden;border:1px solid var(--line);}
+  .team-photo{
+    height:180px;background:linear-gradient(135deg,var(--navy),var(--navy-dark));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;
+  }
+  .team-info{padding:22px;}
+  .team-info h4{color:var(--navy);font-size:1.1rem;margin-bottom:4px;}
+  .team-info .role{color:var(--gold);font-size:0.85rem;font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;}
+  .team-info p{color:var(--grey);font-size:0.9rem;}
+
+  /* CTA banner */
+  .cta-banner{
+    background:linear-gradient(135deg,var(--navy),var(--navy-dark));
+    color:#fff;text-align:center;
+  }
+  .cta-banner h2{font-size:1.9rem;margin-bottom:14px;}
+  .cta-banner p{color:#c4cddb;max-width:560px;margin:0 auto 30px;}
+
+  /* Contact */
+  .contact{background:#fff;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .contact-info h3{color:var(--navy);font-size:1.3rem;margin-bottom:16px;}
+  .contact-item{display:flex;gap:14px;margin-bottom:22px;align-items:flex-start;}
+  .contact-icon{
+    width:42px;height:42px;border-radius:50%;background:var(--cream);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;font-weight:700;
+  }
+  .contact-item h4{color:var(--navy);font-size:0.98rem;margin-bottom:2px;}
+  .contact-item p, .contact-item a{color:var(--grey);font-size:0.92rem;}
+  .map-frame{
+    width:100%;height:180px;border-radius:6px;border:1px solid var(--line);
+    background:repeating-linear-gradient(45deg,#eee,#eee 10px,#f5f3ee 10px,#f5f3ee 20px);
+    display:flex;align-items:center;justify-content:center;color:var(--grey);font-size:0.85rem;margin-top:10px;
+  }
+  form{background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:32px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  label{display:block;font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:6px;}
+  input,select,textarea{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:4px;
+    font-family:inherit;font-size:0.92rem;background:#fff;color:#2a2f3a;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);}
+  textarea{resize:vertical;min-height:100px;}
+  .full{grid-column:1/-1;}
+  .form-note{font-size:0.78rem;color:var(--grey);margin-top:12px;}
+
+  /* Footer */
+  footer{background:var(--navy-dark);color:#a9b3c3;padding:56px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  .footer-grid h4{color:#fff;font-size:1rem;margin-bottom:16px;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:10px;font-size:0.9rem;}
+  .footer-grid a:hover{color:var(--gold-light);}
+  .footer-logo{font-family:'Playfair Display',serif;color:#fff;font-size:1.3rem;margin-bottom:12px;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.82rem;
+  }
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .hero .container{grid-template-columns:1fr;}
+    .service-grid,.testi-grid,.team-grid{grid-template-columns:1fr;}
+    .about .container{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .hero h1{font-size:2.1rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div>01743 552 018 &nbsp;•&nbsp; 14 Wyle Cop, Shrewsbury, SY1 1XD</div>
+    <div><a href="#contact">Book a free 15-minute call</a></div>
+  </div>
+</div>
+
+<header>
+  <nav class="container">
+    <a href="#" class="logo">Hale &amp; Pryce<span>Solicitors, Shrewsbury</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get In Touch</a>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="hero-eyebrow">Est. 1987 &middot; Shrewsbury Town Centre</div>
+      <h1>Straightforward legal advice, from a firm that knows this town.</h1>
+      <p class="lead">Hale &amp; Pryce has helped Shropshire families and homebuyers for almost forty years. Whether you're moving house, planning ahead, or facing a difficult family matter, we'll give you clear advice and a fixed idea of cost before you commit to anything.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Request a Callback</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Get a same-day response</h3>
+      <ul>
+        <li><span class="label">Conveyancing quotes</span><span class="value">Within 24 hours</span></li>
+        <li><span class="label">Initial wills consultation</span><span class="value">Free, 30 minutes</span></li>
+        <li><span class="label">Family law enquiries</span><span class="value">Confidential &amp; discreet</span></li>
+        <li><span class="label">Office hours</span><span class="value">Mon–Fri, 9am–5:30pm</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Three areas of law. One consistent standard of care.</h2>
+      <p>We deliberately keep our practice focused, so every client speaks to a solicitor who deals with cases like theirs every day, not once a year.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">C</div>
+        <h3>Residential Conveyancing</h3>
+        <p>Buying, selling or remortgaging in Shrewsbury and across Shropshire, handled by the same solicitor from instruction to completion.</p>
+        <ul>
+          <li>Freehold &amp; leasehold sales and purchases</li>
+          <li>Remortgages and transfers of equity</li>
+          <li>New-build purchases</li>
+          <li>Fixed-fee quotes, no move-no-fee</li>
+        </ul>
+        <a href="#contact" class="learn">Get a conveyancing quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">W</div>
+        <h3>Wills, Probate &amp; Estates</h3>
+        <p>Plain-English advice on protecting what you've built, drawn up carefully and reviewed whenever your circumstances change.</p>
+        <ul>
+          <li>Single and mirror wills</li>
+          <li>Lasting Powers of Attorney</li>
+          <li>Probate &amp; estate administration</li>
+          <li>Inheritance tax planning</li>
+        </ul>
+        <a href="#contact" class="learn">Arrange a wills consultation &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">F</div>
+        <h3>Family Law</h3>
+        <p>Sensitive, practical support through separation, divorce and disputes involving children, with mediation used wherever it helps.</p>
+        <ul>
+          <li>Divorce &amp; separation</li>
+          <li>Child arrangements</li>
+          <li>Financial settlements</li>
+          <li>Pre- and post-nuptial agreements</li>
+        </ul>
+        <a href="#contact" class="learn">Speak to us in confidence &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div>
+      <div class="hero-eyebrow" style="color:var(--gold-light);">About The Firm</div>
+      <h2>A Wyle Cop firm, built on referrals rather than adverts.</h2>
+      <p>Hale &amp; Pryce was founded in 1987 by David Hale and Margaret Pryce, two Shrewsbury solicitors who believed clients deserved a fixed fee, a named point of contact, and a call back the same day. Nearly forty years on, those are still the rules the firm runs on.</p>
+      <p>We're based a short walk from the Square, opposite the old Music Hall, and most of our new clients still come to us because a neighbour, colleague or family member sent them our way.</p>
+      <div class="stat-grid">
+        <div class="stat"><div class="num">38</div><div class="cap">Years in Shrewsbury</div></div>
+        <div class="stat"><div class="num">4,200+</div><div class="cap">Property Moves Completed</div></div>
+        <div class="stat"><div class="num">9</div><div class="cap">Solicitors &amp; Legal Executives</div></div>
+        <div class="stat"><div class="num">4.9/5</div><div class="cap">Average Client Rating</div></div>
+      </div>
+    </div>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-num">1</div>
+        <div><h4>A named solicitor, not a call centre</h4><p>You'll deal directly with the person handling your case, by phone or email, not a rotating case-handling team.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">2</div>
+        <div><h4>Fixed fees wherever possible</h4><p>For conveyancing and standard wills, you'll know the total cost before we start work — no surprise invoices later.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">3</div>
+        <div><h4>Local knowledge that speeds things up</h4><p>We know local agents, surveyors and the Shropshire Council land searches team, which often shaves days off a transaction.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">4</div>
+        <div><h4>Regulated and insured</h4><p>Authorised and regulated by the Solicitors Regulation Authority, with full professional indemnity cover.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">How It Works</div>
+      <h2>Getting started is simple</h2>
+      <p>Most new matters follow the same four steps, whether you're buying a house or drawing up a will.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="circle">1</div>
+        <h4>Get in touch</h4>
+        <p>Call, email, or fill in the form below and tell us briefly what you need.</p>
+      </div>
+      <div class="process-step">
+        <div class="circle">2</div>
+        <h4>Free initial chat</h4>
+        <p>A solicitor calls you back, usually the same day, to understand your situation.</p>
+      </div>
+      <div class="process-step">
+        <div class="circle">3</div>
+        <h4>Clear quote</h4>
+        <p>We confirm the cost and timescale in writing before any work begins.</p>
+      </div>
+      <div class="process-step">
+        <div class="circle">4</div>
+        <h4>We get to work</h4>
+        <p>Your solicitor keeps you updated at every stage until the matter is closed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Client Reviews</div>
+      <h2>What Shrewsbury clients say about us</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Sold our house in Copthorne and bought in Bayston Hill through Hale &amp; Pryce. Sarah kept us in the loop every step and the fixed fee never moved."</p>
+        </div>
+        <div><div class="author">Rachel T.</div><div class="role">Home mover, Bayston Hill</div></div>
+      </div>
+      <div class="testi-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"We'd put off writing our wills for years. The team made it painless, explained everything in plain terms, and there was no pressure to buy extras we didn't need."</p>
+        </div>
+        <div><div class="author">Graham &amp; Diane W.</div><div class="role">Wills clients, Shrewsbury</div></div>
+      </div>
+      <div class="testi-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"A difficult time made much easier by Hale &amp; Pryce's family team. Practical, honest advice throughout, and always available when I needed to talk something through."</p>
+        </div>
+        <div><div class="author">Client name withheld</div><div class="role">Family law matter</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Meet The Team</div>
+      <h2>The people you'll actually speak to</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">SW</div>
+        <div class="team-info">
+          <h4>Sarah Whitfield</h4>
+          <div class="role">Head of Conveyancing</div>
+          <p>Qualified in 2006, Sarah has handled thousands of Shropshire property transactions and leads the residential team.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">JP</div>
+        <div class="team-info">
+          <h4>James Pryce</h4>
+          <div class="role">Partner, Wills &amp; Probate</div>
+          <p>Son of founder Margaret Pryce, James specialises in estate planning and Lasting Powers of Attorney.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">AO</div>
+        <div class="team-info">
+          <h4>Amara Okafor</h4>
+          <div class="role">Head of Family Law</div>
+          <p>A trained mediator as well as solicitor, Amara focuses on resolving matters without unnecessary court time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>Not sure where to start? Just call us.</h2>
+    <p>A quick conversation costs nothing and often answers most of your questions. We're open Monday to Friday, 9am to 5:30pm.</p>
+    <a href="tel:01743552018" class="btn btn-primary">Call 01743 552 018</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h3>Visit or contact us</h3>
+      <div class="contact-item">
+        <div class="contact-icon">A</div>
+        <div><h4>Address</h4><p>14 Wyle Cop, Shrewsbury, Shropshire, SY1 1XD</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">T</div>
+        <div><h4>Telephone</h4><p><a href="tel:01743552018">01743 552 018</a></p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">E</div>
+        <div><h4>Email</h4><p><a href="mailto:enquiries@haleandpryce.co.uk">enquiries@haleandpryce.co.uk</a></p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">H</div>
+        <div><h4>Opening Hours</h4><p>Monday–Friday, 9:00am–5:30pm. Evening appointments available on request.</p></div>
+      </div>
+      <div class="map-frame">Two minutes' walk from the Square — parking available at Raven Meadows</div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Thank you — a member of the team will call you back shortly.');">
+      <h3 style="color:var(--navy); margin-bottom:20px; font-size:1.3rem;">Request a callback</h3>
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="full">
+          <label for="matter">What can we help with?</label>
+          <select id="matter">
+            <option>Conveyancing / buying or selling a home</option>
+            <option>Wills, probate or estate planning</option>
+            <option>Family law matter</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="full">
+          <label for="message">A few details (optional)</label>
+          <textarea id="message" placeholder="Tell us briefly what's going on and we'll come prepared for the call."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; border:none; cursor:pointer;">Send Request</button>
+      <p class="form-note">We'll only use your details to respond to your enquiry. Hale &amp; Pryce Solicitors is authorised and regulated by the Solicitors Regulation Authority.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Hale &amp; Pryce</div>
+        <p style="font-size:0.88rem; max-width:280px;">A Shrewsbury solicitors' firm handling conveyancing, wills and family law since 1987.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Conveyancing</a></li>
+          <li><a href="#services">Wills &amp; Probate</a></li>
+          <li><a href="#services">Family Law</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Firm</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>14 Wyle Cop, Shrewsbury, SY1 1XD</li>
+          <li><a href="tel:01743552018">01743 552 018</a></li>
+          <li><a href="mailto:enquiries@haleandpryce.co.uk">enquiries@haleandpryce.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Hale &amp; Pryce Solicitors. All rights reserved.</span>
+      <span>Authorised and regulated by the Solicitors Regulation Authority (SRA No. 000000)</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+```

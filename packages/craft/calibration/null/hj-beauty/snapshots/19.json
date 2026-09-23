@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "url": "pages/19.html",
+  "capturedAt": "2026-09-23T11:19:51.568Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 3940,
+  "ground": "rgb(250, 246, 241)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2226556,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 243, 242)",
+        "area": 728933,
+        "chars": 0
+      },
+      {
+        "value": "rgb(33, 29, 26)",
+        "area": 527243,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 496423,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 246, 241)",
+        "area": 100555,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 246, 241, 0.92)",
+        "area": 99360,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 230, 226)",
+        "area": 74137,
+        "chars": 0
+      },
+      {
+        "value": "rgb(233, 245, 239)",
+        "area": 50255,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 238, 240)",
+        "area": 50255,
+        "chars": 0
+      },
+      {
+        "value": "rgb(238, 241, 251)",
+        "area": 50255,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 246, 230)",
+        "area": 50255,
+        "chars": 0
+      },
+      {
+        "value": "rgb(242, 184, 172)",
+        "area": 4332,
+        "chars": 0
+      },
+      {
+        "value": "rgb(51, 48, 44)",
+        "area": 3888,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 110, 90)",
+        "area": 1974,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 96, 88)",
+        "area": 0,
+        "chars": 1858
+      },
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 0,
+        "chars": 697
+      },
+      {
+        "value": "rgb(207, 199, 192)",
+        "area": 0,
+        "chars": 415
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 343
+      },
+      {
+        "value": "rgb(201, 193, 186)",
+        "area": 0,
+        "chars": 286
+      },
+      {
+        "value": "rgb(201, 110, 90)",
+        "area": 0,
+        "chars": 150
+      },
+      {
+        "value": "rgb(143, 134, 126)",
+        "area": 0,
+        "chars": 59
+      },
+      {
+        "value": "rgb(240, 173, 78)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(242, 184, 172)",
+        "area": 0,
+        "chars": 16
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3609,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 241,
+      "displayChars": 211,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 9,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 54,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Korean skincare that actually arrives on time.",
+      "top": 230
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Your routine, built the Korean way",
+      "top": 821
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "This month's bestsellers",
+      "top": 1291
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Started in a spare room in Leeds. Still run the same way.",
+      "top": 2331
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What people are saying",
+      "top": 2901
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 29,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 3367
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 53,
+      "background": "rgb(44, 38, 34)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 53,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Build a Routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 45,
+      "background": "rgb(255, 255, 255)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 107,
+      "height": 614,
+      "kind": "hero",
+      "label": "Korean skincare that actually arrives on time.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 721,
+      "height": 470,
+      "kind": "cards",
+      "label": "Your routine, built the Korean way",
+      "cards": 5,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1191,
+      "height": 733,
+      "kind": "cards",
+      "label": "This month's bestsellers",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1924,
+      "height": 298,
+      "kind": "cards",
+      "label": "UK stock, always Every product is held right here in our Lee",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2221,
+      "height": 580,
+      "kind": "text",
+      "label": "Started in a spare room in Leeds. Still run the same way.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2801,
+      "height": 506,
+      "kind": "cards",
+      "label": "What people are saying",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3307,
+      "height": 267,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3574,
+      "height": 366,
+      "kind": "text",
+      "label": "HarrisonsBeauty Authentic Korean skincare, shipped from our ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(251, 230, 226)",
+          "rgb(253, 243, 242)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 884295,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(242, 184, 172)",
+          "rgb(201, 110, 90)"
+        ],
+        "area": 204440,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(201, 110, 90)",
+          "rgb(224, 138, 118)"
+        ],
+        "area": 384458,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      24,
+      29,
+      30,
+      32,
+      54
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "16px",
+      "18px",
+      "50%",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 49.7,
+    "bodyLineLengthCh": 52,
+    "bodyFontSizePx": 17
+  }
+}

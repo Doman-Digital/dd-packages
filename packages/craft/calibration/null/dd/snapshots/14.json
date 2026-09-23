@@ -1,0 +1,598 @@
+{
+  "version": 1,
+  "url": "pages/14.html",
+  "capturedAt": "2026-09-23T11:19:25.063Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6621,
+  "ground": "rgb(247, 245, 240)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3808671,
+        "chars": 0
+      },
+      {
+        "value": "rgb(15, 27, 45)",
+        "area": 1379783,
+        "chars": 0
+      },
+      {
+        "value": "rgb(31, 182, 160)",
+        "area": 277063,
+        "chars": 0
+      },
+      {
+        "value": "rgba(247, 245, 240, 0.9)",
+        "area": 120083,
+        "chars": 0
+      },
+      {
+        "value": "rgb(247, 245, 240)",
+        "area": 106442,
+        "chars": 0
+      },
+      {
+        "value": "rgba(31, 182, 160, 0.12)",
+        "area": 14812,
+        "chars": 0
+      },
+      {
+        "value": "rgb(237, 234, 226)",
+        "area": 6765,
+        "chars": 0
+      },
+      {
+        "value": "rgb(226, 221, 210)",
+        "area": 300,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(91, 102, 117)",
+        "area": 0,
+        "chars": 1811
+      },
+      {
+        "value": "rgb(26, 36, 51)",
+        "area": 0,
+        "chars": 1452
+      },
+      {
+        "value": "rgb(199, 210, 222)",
+        "area": 0,
+        "chars": 491
+      },
+      {
+        "value": "rgb(174, 188, 203)",
+        "area": 0,
+        "chars": 462
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 300
+      },
+      {
+        "value": "rgb(11, 58, 48)",
+        "area": 0,
+        "chars": 99
+      },
+      {
+        "value": "rgb(6, 35, 29)",
+        "area": 0,
+        "chars": 87
+      },
+      {
+        "value": "rgb(127, 143, 161)",
+        "area": 0,
+        "chars": 71
+      },
+      {
+        "value": "rgb(21, 156, 136)",
+        "area": 0,
+        "chars": 66
+      },
+      {
+        "value": "rgb(232, 169, 60)",
+        "area": 0,
+        "chars": 15
+      },
+      {
+        "value": "rgb(127, 224, 208)",
+        "area": 0,
+        "chars": 12
+      },
+      {
+        "value": "rgb(15, 27, 45)",
+        "area": 0,
+        "chars": 12
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4317,
+      "displayChars": 21,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Manrope",
+      "chars": 549,
+      "displayChars": 507,
+      "italicChars": 0,
+      "weights": [
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Manrope",
+      "sizePx": 52,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "A website that actually gets looked after — for one simple monthly fee.",
+      "top": 193
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 16,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "thegreenwich-bakery.co.uk",
+      "top": 347
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 40,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything your website needs, in one place",
+      "top": 1043
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Website design & build",
+      "top": 1317
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hosting & security",
+      "top": 1317
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing updates",
+      "top": 1317
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO basics",
+      "top": 1317
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 40,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "From first chat to live site in four steps",
+      "top": 1733
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free call",
+      "top": 1979
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design",
+      "top": 1979
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build & launch",
+      "top": 1979
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Run it monthly",
+      "top": 1979
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 40,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Monthly plans, not surprise bills",
+      "top": 2313
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Starter",
+      "top": 2530
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growth",
+      "top": 2531
+    },
+    {
+      "level": 3,
+      "family": "Manrope",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Business",
+      "top": 2530
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 40,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "What business owners tell us",
+      "top": 3332
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 40,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "A small studio that only works with small businesses",
+      "top": 3934
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 40,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions",
+      "top": 4546
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 32,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to get your website sorted?",
+      "top": 5351
+    },
+    {
+      "level": 2,
+      "family": "Manrope",
+      "sizePx": 40,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's talk about your website",
+      "top": 5674
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 46,
+      "background": "rgb(15, 27, 45)",
+      "text": "Get a free quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(31, 182, 160)",
+      "text": "See monthly plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a free 20-minute call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(15, 27, 45)",
+      "text": "Choose Starter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(31, 182, 160)",
+      "text": "Choose Growth"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(15, 27, 45)",
+      "text": "Choose Business"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(15, 27, 45)",
+      "text": "Book your free call"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgb(31, 182, 160)",
+      "text": "Send message"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 83,
+      "kind": "hero",
+      "label": "DomanDigital Services Pricing How it works About FAQ Get a f",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 83,
+      "height": 711,
+      "kind": "hero",
+      "label": "A website that actually gets looked after — for one simple m",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 794,
+      "height": 115,
+      "kind": "text",
+      "label": "Trusted by small businesses across the UK CafésSalons & Barb",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 909,
+      "height": 690,
+      "kind": "cards",
+      "label": "Everything your website needs, in one place",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1599,
+      "height": 580,
+      "kind": "cards",
+      "label": "From first chat to live site in four steps",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2179,
+      "height": 1018,
+      "kind": "cards",
+      "label": "Monthly plans, not surprise bills",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3197,
+      "height": 603,
+      "kind": "cards",
+      "label": "What business owners tell us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3800,
+      "height": 614,
+      "kind": "text",
+      "label": "A small studio that only works with small businesses",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4414,
+      "height": 785,
+      "kind": "text",
+      "label": "Common questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5199,
+      "height": 389,
+      "kind": "text",
+      "label": "Ready to get your website sorted?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5636,
+      "height": 646,
+      "kind": "text",
+      "label": "Let's talk about your website",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 6282,
+      "height": 339,
+      "kind": "text",
+      "label": "Doman Digital A small web studio building and running websit",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(22, 50, 78)",
+          "rgb(15, 27, 45)"
+        ],
+        "area": 1023458,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(31, 182, 160)",
+          "rgb(15, 27, 45)"
+        ],
+        "area": 169352,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      28,
+      32,
+      40,
+      52
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.35) 0px 30px 60px 0px",
+      "rgba(31, 182, 160, 0.18) 0px 20px 40px 0px"
+    ],
+    "spacingOnScalePct": 55.4,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  }
+}

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMP Electrical | Electricians in Uxbridge, London, Berkshire, Bucks & Oxon</title>
+<meta name="description" content="RMP Electrical are NICEIC-standard electricians based in Uxbridge, serving homes and small businesses across London, Berkshire, Buckinghamshire and Oxfordshire. Rewires, fault finding, EV chargers, consumer units and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --navy:#0d2436;
+    --navy-light:#123249;
+    --amber:#f5a623;
+    --amber-dark:#d98c0f;
+    --grey:#5b6b76;
+    --light-bg:#f4f7f9;
+    --white:#ffffff;
+    --radius:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:#20323d;
+    line-height:1.6;
+    background:var(--white);
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins',sans-serif;
+    color:var(--navy);
+    line-height:1.25;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:50px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    transition:all 0.2s ease;
+    cursor:pointer;
+    border:2px solid transparent;
+  }
+  .btn-primary{
+    background:var(--amber);
+    color:var(--navy);
+  }
+  .btn-primary:hover{
+    background:var(--amber-dark);
+    transform:translateY(-2px);
+  }
+  .btn-outline{
+    background:transparent;
+    border:2px solid var(--white);
+    color:var(--white);
+  }
+  .btn-outline:hover{
+    background:var(--white);
+    color:var(--navy);
+  }
+  .btn-outline-navy{
+    background:transparent;
+    border:2px solid var(--navy);
+    color:var(--navy);
+  }
+  .btn-outline-navy:hover{
+    background:var(--navy);
+    color:var(--white);
+  }
+
+  /* Top bar */
+  .topbar{
+    background:var(--navy);
+    color:#cfe0ec;
+    font-size:0.85rem;
+    padding:8px 0;
+  }
+  .topbar .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .topbar-links{display:flex;gap:22px;flex-wrap:wrap;}
+  .topbar-links a:hover{color:var(--amber);}
+  .topbar i{color:var(--amber);margin-right:6px;}
+
+  /* Header / nav */
+  header.site-header{
+    background:var(--white);
+    box-shadow:0 2px 12px rgba(13,36,54,0.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 0;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:1.5rem;
+    color:var(--navy);
+  }
+  .logo span{color:var(--amber);}
+  .logo-icon{
+    background:var(--navy);
+    color:var(--amber);
+    width:42px;
+    height:42px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+  }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-weight:500;
+    color:var(--navy);
+  }
+  .nav-links a{
+    position:relative;
+    padding:6px 0;
+  }
+  .nav-links a:hover{color:var(--amber-dark);}
+  .nav-cta{display:flex;align-items:center;gap:16px;}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--navy);cursor:pointer;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,var(--navy) 0%, var(--navy-light) 60%, #1a4260 100%);
+    position:relative;
+    overflow:hidden;
+    color:var(--white);
+    padding:90px 0 110px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-120px;
+    top:-120px;
+    width:420px;
+    height:420px;
+    background:radial-gradient(circle, rgba(245,166,35,0.25) 0%, rgba(245,166,35,0) 70%);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:50px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(245,166,35,0.15);
+    border:1px solid rgba(245,166,35,0.4);
+    color:var(--amber);
+    padding:8px 16px;
+    border-radius:50px;
+    font-size:0.85rem;
+    font-weight:600;
+    margin-bottom:20px;
+  }
+  .hero h1{
+    color:var(--white);
+    font-size:2.9rem;
+    font-weight:800;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--amber);
+  }
+  .hero p.lead{
+    font-size:1.15rem;
+    color:#cfe0ec;
+    max-width:520px;
+    margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px;}
+  .hero-trust{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .hero-trust div{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.9rem;
+    color:#cfe0ec;
+  }
+  .hero-trust i{color:var(--amber);font-size:1.3rem;}
+  .hero-visual{
+    position:relative;
+    z-index:2;
+  }
+  .hero-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:28px;
+    color:var(--navy);
+    box-shadow:0 20px 50px rgba(0,0,0,0.3);
+  }
+  .hero-card img{
+    border-radius:8px;
+    margin-bottom:20px;
+    height:220px;
+    width:100%;
+    object-fit:cover;
+  }
+  .hero-card .review-stars{color:var(--amber);margin-bottom:10px;}
+  .hero-card blockquote{
+    font-style:italic;
+    color:var(--grey);
+    margin-bottom:10px;
+  }
+  .hero-card .reviewer{
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+  }
+
+  /* Section basics */
+  section{padding:90px 0;}
+  .section-tag{
+    color:var(--amber-dark);
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-heading{
+    max-width:700px;
+    margin-bottom:50px;
+  }
+  .section-heading h2{
+    font-size:2.1rem;
+    margin-bottom:16px;
+  }
+  .section-heading p{color:var(--grey);font-size:1.05rem;}
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  /* Services */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .service-card{
+    background:var(--light-bg);
+    border-radius:var(--radius);
+    padding:32px 28px;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    border:1px solid #e6edf2;
+  }
+  .service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 30px rgba(13,36,54,0.1);
+    border-color:transparent;
+  }
+  .service-icon{
+    width:58px;
+    height:58px;
+    border-radius:12px;
+    background:var(--navy);
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    margin-bottom:20px;
+  }
+  .service-card h3{font-size:1.2rem;margin-bottom:10px;}
+  .service-card p{color:var(--grey);font-size:0.96rem;}
+
+  /* Why us */
+  .why-section{background:var(--light-bg);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .why-list{list-style:none;display:flex;flex-direction:column;gap:22px;margin-top:10px;}
+  .why-list li{display:flex;gap:16px;align-items:flex-start;}
+  .why-list i{
+    color:var(--white);
+    background:var(--amber);
+    min-width:34px;
+    height:34px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.9rem;
+    margin-top:2px;
+  }
+  .why-list h4{font-size:1.05rem;margin-bottom:4px;}
+  .why-list p{color:var(--grey);font-size:0.95rem;}
+  .why-image{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(13,36,54,0.15);
+  }
+
+  /* Areas covered */
+  .areas-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .area-card{
+    background:var(--navy);
+    color:var(--white);
+    border-radius:var(--radius);
+    padding:26px 20px;
+    text-align:center;
+  }
+  .area-card i{color:var(--amber);font-size:1.6rem;margin-bottom:12px;}
+  .area-card h4{color:var(--white);font-size:1.05rem;margin-bottom:8px;}
+  .area-card p{color:#b9cbd8;font-size:0.85rem;}
+
+  /* Process */
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+    counter-reset:step;
+  }
+  .process-step{
+    position:relative;
+    padding-top:20px;
+  }
+  .process-step .num{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:2.5rem;
+    color:#e2e9ee;
+    margin-bottom:6px;
+  }
+  .process-step h4{margin-bottom:8px;font-size:1.05rem;}
+  .process-step p{color:var(--grey);font-size:0.93rem;}
+
+  /* Testimonials */
+  .testimonials-section{background:var(--light-bg);}
+  .testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .testimonial-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:28px;
+    border:1px solid #e6edf2;
+  }
+  .testimonial-card .stars{color:var(--amber);margin-bottom:14px;}
+  .testimonial-card p{color:#3a4a54;font-size:0.96rem;margin-bottom:18px;}
+  .testimonial-author{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .testimonial-author .avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-family:'Poppins',sans-serif;
+  }
+  .testimonial-author strong{display:block;font-size:0.92rem;}
+  .testimonial-author span{color:var(--grey);font-size:0.82rem;}
+
+  /* CTA banner */
+  .cta-banner{
+    background:linear-gradient(120deg, var(--amber) 0%, var(--amber-dark) 100%);
+    color:var(--navy);
+    border-radius:var(--radius);
+    padding:50px 46px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .cta-banner h3{font-size:1.7rem;margin-bottom:6px;}
+  .cta-banner p{color:#4a3208;}
+  .cta-banner .btn-primary{
+    background:var(--navy);
+    color:var(--white);
+  }
+  .cta-banner .btn-primary:hover{background:#183950;}
+
+  /* FAQ */
+  .faq-item{
+    border-bottom:1px solid #e2e9ee;
+    padding:22px 0;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    list-style:none;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";
+    font-size:1.4rem;
+    color:var(--amber-dark);
+    transition:transform 0.2s ease;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{color:var(--grey);margin-top:14px;font-size:0.95rem;}
+
+  /* Footer */
+  footer{
+    background:var(--navy);
+    color:#b9cbd8;
+    padding:70px 0 24px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+    gap:40px;
+    margin-bottom:50px;
+  }
+  .footer-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:1.3rem;
+    color:var(--white);
+    margin-bottom:16px;
+  }
+  .footer-logo span{color:var(--amber);}
+  footer h4{
+    color:var(--white);
+    font-family:'Poppins',sans-serif;
+    margin-bottom:18px;
+    font-size:1rem;
+  }
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  footer ul a:hover{color:var(--amber);}
+  .footer-contact li{display:flex;gap:10px;align-items:flex-start;font-size:0.92rem;}
+  .footer-contact i{color:var(--amber);margin-top:3px;}
+  .social-row{display:flex;gap:12px;margin-top:18px;}
+  .social-row a{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .social-row a:hover{background:var(--amber);color:var(--navy);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:0.85rem;
+  }
+
+  /* Sticky mobile call bar */
+  .mobile-call-bar{display:none;}
+
+  @media (max-width: 980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{display:none;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:1fr;}
+    .why-image{order:-1;}
+    .areas-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .testimonial-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 760px){
+    .nav-links, .nav-cta .btn-primary{display:none;}
+    .nav-toggle{display:block;}
+    .topbar .container{justify-content:center;text-align:center;}
+    .hero{padding:60px 0 100px;}
+    .hero h1{font-size:2.1rem;}
+    .services-grid{grid-template-columns:1fr;}
+    .areas-grid{grid-template-columns:1fr 1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .cta-banner{flex-direction:column;text-align:center;}
+    section{padding:60px 0;}
+    .mobile-call-bar{
+      display:flex;
+      position:fixed;
+      bottom:0;left:0;right:0;
+      background:var(--navy);
+      z-index:200;
+      padding:14px 20px;
+      justify-content:center;
+    }
+    .mobile-call-bar a{
+      color:var(--white);
+      font-family:'Poppins',sans-serif;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .mobile-call-bar i{color:var(--amber);}
+    body{padding-bottom:64px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links">
+      <a href="tel:+441895555123"><i class="fa-solid fa-phone"></i>01895 555 123</a>
+      <a href="mailto:info@rmpelectrical.co.uk"><i class="fa-solid fa-envelope"></i>info@rmpelectrical.co.uk</a>
+    </div>
+    <div class="topbar-links">
+      <span><i class="fa-solid fa-location-dot"></i>Uxbridge, UB8</span>
+      <span><i class="fa-solid fa-clock"></i>Mon–Sat, 24hr emergency call-out</span>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <nav>
+      <a href="#top" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+        RMP <span>Electrical</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#areas">Areas Covered</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+441895555123" class="btn btn-primary"><i class="fa-solid fa-phone"></i> 01895 555 123</a>
+        <button class="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> NICEIC-standard &amp; fully insured</span>
+      <h1>Uxbridge electricians you can actually <em>rely on</em></h1>
+      <p class="lead">RMP Electrical carries out domestic and small business electrical work across Uxbridge, West London, Berkshire, Buckinghamshire and Oxfordshire — from a single socket to a full rewire, with clear pricing and no callback surprises.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a Free Quote</a>
+        <a href="tel:+441895555123" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Call 01895 555 123</a>
+      </div>
+      <div class="hero-trust">
+        <div><i class="fa-solid fa-star"></i> 4.9/5 from 210+ reviews</div>
+        <div><i class="fa-solid fa-award"></i> NICEIC registered</div>
+        <div><i class="fa-solid fa-house-circle-check"></i> Part P certified</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Electrician working on a consumer unit">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>"Rewired our whole ground floor and fitted a new consumer unit. Tidy, punctual and explained everything clearly."</blockquote>
+        <div class="reviewer">— Sarah M., Beaconsfield</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-heading center">
+      <span class="section-tag">What We Do</span>
+      <h2>Electrical services for homes and small businesses</h2>
+      <p>Whether it's a small repair or a full installation, our electricians handle it to the same standard — safe, certified and tidy.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+        <h3>Rewires &amp; Renovations</h3>
+        <p>Full and partial house rewires for period properties, renovations and extensions, completed with minimal disruption.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+        <h3>Consumer Unit Upgrades</h3>
+        <p>Replace old fuse boards with modern, RCD-protected consumer units that meet current wiring regulations.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <h3>Fault Finding &amp; Repairs</h3>
+        <p>Tripping breakers, flickering lights, dead sockets — we diagnose the root cause and fix it, not just patch it.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
+        <h3>EV Charger Installation</h3>
+        <p>OZEV-approved home and workplace EV charge point installations, wired safely into your existing supply.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <h3>Lighting &amp; Sockets</h3>
+        <p>Downlights, outdoor lighting, extra sockets and USB points — added neatly wherever you need them.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-file-shield"></i></div>
+        <h3>EICR &amp; Landlord Certificates</h3>
+        <p>Electrical Installation Condition Reports and landlord safety certificates for rental properties and offices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why-us">
+  <div class="container why-grid">
+    <div>
+      <span class="section-tag">Why Choose RMP</span>
+      <h2>Straightforward electrical work, done properly</h2>
+      <ul class="why-list">
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <div>
+            <h4>Fixed, written quotes</h4>
+            <p>You'll know the price before we start — no vague estimates or surprise add-ons on the invoice.</p>
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <div>
+            <h4>Fully qualified &amp; insured</h4>
+            <p>NICEIC-standard, Part P certified electricians with £2 million public liability cover.</p>
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <div>
+            <h4>Local to Uxbridge</h4>
+            <p>Based on your doorstep, so we can respond quickly across West London and the Home Counties.</p>
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <div>
+            <h4>Tidy, respectful tradespeople</h4>
+            <p>Dust sheets down, shoe covers on, and your home left exactly as we found it.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="why-image">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80" alt="Electrician testing a socket with a multimeter">
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="container">
+    <div class="section-heading center">
+      <span class="section-tag">Areas Covered</span>
+      <h2>Based in Uxbridge, working across four counties</h2>
+      <p>Our vans cover the following areas daily — get in touch even if your town isn't listed, we're usually happy to travel a little further.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card">
+        <i class="fa-solid fa-city"></i>
+        <h4>London</h4>
+        <p>Uxbridge, Hillingdon, Ealing, Harrow, Hounslow &amp; West London</p>
+      </div>
+      <div class="area-card">
+        <i class="fa-solid fa-tree"></i>
+        <h4>Buckinghamshire</h4>
+        <p>High Wycombe, Beaconsfield, Amersham, Chesham &amp; Aylesbury</p>
+      </div>
+      <div class="area-card">
+        <i class="fa-solid fa-water"></i>
+        <h4>Berkshire</h4>
+        <p>Slough, Maidenhead, Windsor, Reading &amp; Bracknell</p>
+      </div>
+      <div class="area-card">
+        <i class="fa-solid fa-landmark"></i>
+        <h4>Oxfordshire</h4>
+        <p>Oxford, Thame, Wallingford &amp; Henley-on-Thames</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-heading center">
+      <span class="section-tag">How It Works</span>
+      <h2>Getting your job booked in is simple</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="num">01</div>
+        <h4>Get in touch</h4>
+        <p>Call, email or fill in the contact form with a few details about the job.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">02</div>
+        <h4>Free quote</h4>
+        <p>We'll assess the work — over the phone or with a site visit — and send a fixed quote.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">03</div>
+        <h4>Work scheduled</h4>
+        <p>We agree a date that suits you, usually within a few days for standard jobs.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">04</div>
+        <h4>Job done &amp; certified</h4>
+        <p>Work completed to regs, tested, and you receive your certification by email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section" id="reviews">
+  <div class="container">
+    <div class="section-heading center">
+      <span class="section-tag">Customer Reviews</span>
+      <h2>What homeowners and businesses say</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Called RMP after our fuse board kept tripping. Engineer arrived same day, found a faulty circuit and had it sorted within the hour. Fair price too."</p>
+        <div class="testimonial-author">
+          <div class="avatar">DP</div>
+          <div><strong>David P.</strong><span>Uxbridge, London</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Had an EV charger fitted for our salon car park. Professional from quote to completion, and they handled the DNO paperwork for us."</p>
+        <div class="testimonial-author">
+          <div class="avatar">JH</div>
+          <div><strong>Jayne H.</strong><span>Business owner, Maidenhead</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Needed an EICR done quickly for a new tenancy. RMP fitted us in within two days and the report was clear and easy to understand."</p>
+        <div class="testimonial-author">
+          <div class="avatar">RC</div>
+          <div><strong>Ross C.</strong><span>Landlord, Oxford</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h3>Need an electrician you can trust?</h3>
+        <p>Get a free, no-obligation quote — most enquiries answered within the hour.</p>
+      </div>
+      <a href="#contact" class="btn btn-primary">Get Your Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container" style="max-width:820px;">
+    <div class="section-heading center">
+      <span class="section-tag">Common Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <details class="faq-item" open>
+      <summary>Are your electricians qualified and insured?</summary>
+      <p>Yes. All our electricians work to NICEIC standards, hold Part P certification for domestic work, and we carry £2 million public liability insurance on every job.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do you offer emergency call-outs?</summary>
+      <p>Yes, we offer a 24-hour emergency call-out service for issues like total power loss, exposed wiring or tripping consumer units, across our full coverage area.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Which areas do you cover?</summary>
+      <p>We're based in Uxbridge and cover West London, Berkshire, Buckinghamshire and Oxfordshire. If you're just outside these areas, get in touch — we can often still help.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How much will my job cost?</summary>
+      <p>Every job is different, so we provide a fixed, written quote after understanding the work involved — either over the phone or with a short site visit for larger jobs. There's no charge for a quote.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I get a certificate after the work?</summary>
+      <p>Yes. All notifiable work is certified in line with Part P Building Regulations and registered with our scheme provider, with a copy sent to you by email.</p>
+    </details>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="footer-logo">
+          <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+          RMP <span>Electrical</span>
+        </a>
+        <p style="font-size:0.92rem;">Domestic and small business electricians based in Uxbridge, covering London, Berkshire, Buckinghamshire and Oxfordshire.</p>
+        <div class="social-row">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Rewires &amp; Renovations</a></li>
+          <li><a href="#services">Consumer Unit Upgrades</a></li>
+          <li><a href="#services">Fault Finding</a></li>
+          <li><a href="#services">EV Chargers</a></li>
+          <li><a href="#services">EICR Certificates</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#areas">Areas Covered</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-phone"></i> 01895 555 123</li>
+          <li><i class="fa-solid fa-envelope"></i> info@rmpelectrical.co.uk</li>
+          <li><i class="fa-solid fa-location-dot"></i> Unit 4, Cowley Business Park, Uxbridge, UB8 2AD</li>
+          <li><i class="fa-solid fa-clock"></i> Mon–Sat 7:30am–6pm · 24hr emergencies</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 RMP Electrical. All rights reserved.</span>
+      <span>NICEIC Registered · Part P Certified · Company No. 09876543</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-call-bar">
+  <a href="tel:+441895555123"><i class="fa-solid fa-phone"></i> Call 01895 555 123</a>
+</div>
+
+</body>
+</html>

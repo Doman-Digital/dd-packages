@@ -1,0 +1,621 @@
+{
+  "version": 1,
+  "url": "pages/01.html",
+  "capturedAt": "2026-09-23T11:18:13.278Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7239,
+  "ground": "rgb(255, 250, 242)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(251, 246, 238)",
+        "area": 3262290,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1835135,
+        "chars": 0
+      },
+      {
+        "value": "rgb(21, 90, 84)",
+        "area": 1202535,
+        "chars": 0
+      },
+      {
+        "value": "rgb(242, 118, 94)",
+        "area": 451210,
+        "chars": 0
+      },
+      {
+        "value": "rgb(31, 122, 114)",
+        "area": 201511,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.1)",
+        "area": 196409,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 250, 242, 0.92)",
+        "area": 129735,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 250, 242)",
+        "area": 128082,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(91, 107, 102)",
+        "area": 0,
+        "chars": 3634
+      },
+      {
+        "value": "rgb(37, 51, 47)",
+        "area": 0,
+        "chars": 931
+      },
+      {
+        "value": "rgb(21, 90, 84)",
+        "area": 0,
+        "chars": 682
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 611
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "area": 0,
+        "chars": 271
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 162
+      },
+      {
+        "value": "rgb(242, 118, 94)",
+        "area": 0,
+        "chars": 135
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.8)",
+        "area": 0,
+        "chars": 132
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 120
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "area": 0,
+        "chars": 112
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.6)",
+        "area": 0,
+        "chars": 92
+      },
+      {
+        "value": "rgb(255, 217, 207)",
+        "area": 0,
+        "chars": 34
+      },
+      {
+        "value": "rgb(31, 122, 114)",
+        "area": 0,
+        "chars": 24
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Nunito",
+      "chars": 6312,
+      "displayChars": 0,
+      "italicChars": 381,
+      "weights": [
+        400,
+        600,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Fredoka",
+      "chars": 616,
+      "displayChars": 598,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fredoka",
+      "sizePx": 46,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Helping children and young people thrive — at home, at school, and everywhere in between.",
+      "top": 190
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Children with a wide range of needs",
+      "top": 984
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Our services",
+      "top": 1449
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "OT Assessments",
+      "top": 1713
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "1:1 Therapy Sessions",
+      "top": 1713
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Reports for EHCPs & Tribunals",
+      "top": 1713
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "School Consultations",
+      "top": 2035
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Parent & Carer Coaching",
+      "top": 2035
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sensory Circuits & Groups",
+      "top": 2035
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "How the process works",
+      "top": 2392
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get in touch",
+      "top": 2638
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessment",
+      "top": 2638
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Report & plan",
+      "top": 2638
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Therapy & review",
+      "top": 2638
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Occupational therapy that fits around your child's world",
+      "top": 3009
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "A therapy partner your school can rely on",
+      "top": 3708
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Considering a referral?",
+      "top": 3777
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What people say about working with us",
+      "top": 4296
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 4834
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's talk about your child",
+      "top": 5595
+    },
+    {
+      "level": 2,
+      "family": "Fredoka",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Start a conversation with our team",
+      "top": 6061
+    },
+    {
+      "level": 3,
+      "family": "Fredoka",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contact details",
+      "top": 6259
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(242, 118, 94)",
+      "text": "Book an Assessment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(242, 118, 94)",
+      "text": "Book an Assessment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Our Approach"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get in touch"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(255, 255, 255)",
+      "text": "Talk to us about your school"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 71,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do you accept referrals from schools and GPs? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 71,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do you offer home visits? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 71,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "How long does an assessment take? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 71,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Is your service private or funded through the NHS? +"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 71,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What ages do you work with? +"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(255, 255, 255)",
+      "text": "Book an Assessment"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 46,
+      "background": "rgb(242, 118, 94)",
+      "text": "Send enquiry"
+    }
+  ],
+  "sections": [
+    {
+      "top": 90,
+      "height": 784,
+      "kind": "hero",
+      "label": "Helping children and young people thrive — at home, at schoo",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 874,
+      "height": 465,
+      "kind": "text",
+      "label": "Children with a wide range of needs",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1339,
+      "height": 943,
+      "kind": "cards",
+      "label": "Our services",
+      "cards": 6,
+      "iconCards": 6,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2282,
+      "height": 618,
+      "kind": "cards",
+      "label": "How the process works",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2899,
+      "height": 638,
+      "kind": "text",
+      "label": "Occupational therapy that fits around your child's world",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3538,
+      "height": 648,
+      "kind": "text",
+      "label": "A therapy partner your school can rely on",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4186,
+      "height": 538,
+      "kind": "cards",
+      "label": "What people say about working with us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4724,
+      "height": 701,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5425,
+      "height": 526,
+      "kind": "text",
+      "label": "Let's talk about your child",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5951,
+      "height": 918,
+      "kind": "text",
+      "label": "Start a conversation with our team",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(31, 122, 114, 0.1)",
+          "rgba(0, 0, 0, 0)",
+          "rgba(242, 118, 94, 0.12)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 1128465,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(31, 122, 114)",
+          "rgb(21, 90, 84)"
+        ],
+        "area": 552929,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      24,
+      32,
+      34,
+      46
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "18px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(242, 118, 94, 0.35) 0px 8px 20px 0px"
+    ],
+    "spacingOnScalePct": 50.4,
+    "bodyLineLengthCh": 56,
+    "bodyFontSizePx": 18
+  }
+}

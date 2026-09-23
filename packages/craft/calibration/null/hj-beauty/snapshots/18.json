@@ -1,0 +1,575 @@
+{
+  "version": 1,
+  "url": "pages/18.html",
+  "capturedAt": "2026-09-23T11:19:46.009Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5132,
+  "ground": "rgb(253, 246, 242)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2806553,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 238, 230)",
+        "area": 1298925,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 246, 242)",
+        "area": 557138,
+        "chars": 0
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 458975,
+        "chars": 0
+      },
+      {
+        "value": "rgba(253, 246, 242, 0.92)",
+        "area": 102803,
+        "chars": 0
+      },
+      {
+        "value": "rgb(232, 128, 159)",
+        "area": 24703,
+        "chars": 0
+      },
+      {
+        "value": "rgb(246, 166, 193)",
+        "area": 9816,
+        "chars": 0
+      },
+      {
+        "value": "rgb(127, 168, 138)",
+        "area": 1619,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 95, 90)",
+        "area": 0,
+        "chars": 2254
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 0,
+        "chars": 1080
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 205
+      },
+      {
+        "value": "rgb(232, 128, 159)",
+        "area": 0,
+        "chars": 205
+      },
+      {
+        "value": "rgb(216, 206, 200)",
+        "area": 0,
+        "chars": 158
+      },
+      {
+        "value": "rgb(232, 161, 58)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(74, 56, 48)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "rgb(246, 166, 193)",
+        "area": 0,
+        "chars": 3
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 3553,
+      "displayChars": 27,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Nanum Gothic",
+      "chars": 386,
+      "displayChars": 341,
+      "italicChars": 0,
+      "weights": [
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 21,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Nanum Gothic",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Glass skin, no customs delays.",
+      "top": 339
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything for a proper 10-step routine",
+      "top": 1087
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleansers",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Toners & Essences",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Serums & Ampoules",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sunscreen",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sheet Masks",
+      "top": 1601
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Moisturisers",
+      "top": 1601
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Eye Care",
+      "top": 1601
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Gift Sets",
+      "top": 1601
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "This week's bestsellers",
+      "top": 1869
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why Korean formulas actually work",
+      "top": 2719
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Start with these three steps",
+      "top": 3418
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Double cleanse",
+      "top": 3637
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Treat & hydrate",
+      "top": 3637
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Seal & protect",
+      "top": 3637
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "3,200+ five-star reviews",
+      "top": 3923
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 4386
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(43, 35, 32)",
+      "text": "Shop the range"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Build my routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(232, 128, 159)",
+      "text": "See ingredients by skin concern"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 40,
+      "heightPx": 51,
+      "background": "rgb(232, 128, 159)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 110,
+      "height": 760,
+      "kind": "hero",
+      "label": "Glass skin, no customs delays.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 871,
+      "height": 104,
+      "kind": "cards",
+      "label": "🇬🇧 UK Stock OnlyNo customs, no import tax 📦 Free Delivery",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 976,
+      "height": 782,
+      "kind": "cards",
+      "label": "Everything for a proper 10-step routine",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1759,
+      "height": 850,
+      "kind": "cards",
+      "label": "This week's bestsellers",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2608,
+      "height": 700,
+      "kind": "text",
+      "label": "Why Korean formulas actually work",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3308,
+      "height": 505,
+      "kind": "cards",
+      "label": "Start with these three steps",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3813,
+      "height": 517,
+      "kind": "cards",
+      "label": "3,200+ five-star reviews",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4330,
+      "height": 337,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4747,
+      "height": 385,
+      "kind": "text",
+      "label": "Harrisons Beauty Independent online retailer bringing the be",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(251, 238, 230)",
+          "rgb(253, 246, 242)"
+        ],
+        "area": 1094400,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 214, 228)",
+          "rgb(255, 233, 214)",
+          "rgb(217, 240, 226)"
+        ],
+        "area": 176400,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(243, 233, 226)",
+          "rgb(238, 246, 239)"
+        ],
+        "area": 1007303,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(214, 235, 217)",
+          "rgb(246, 227, 208)"
+        ],
+        "area": 219511,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      24,
+      30,
+      34,
+      38,
+      42,
+      48,
+      58,
+      80
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "30px",
+      "40px",
+      "50%"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 46.4,
+    "bodyLineLengthCh": 50,
+    "bodyFontSizePx": 17
+  }
+}

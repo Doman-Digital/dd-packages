@@ -1,0 +1,751 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crumb & Co — Independent Bakery, Bristol</title>
+<meta name="description" content="Crumb & Co is an independent bakery in Bristol baking naturally leavened sourdough, laminated pastries and celebration cakes daily.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf5ec;
+    --cream-dark: #f1e7d6;
+    --crust: #7a4a2b;
+    --crust-dark: #4f2f1a;
+    --ink: #2c2420;
+    --accent: #c46b3b;
+    --line: #e3d6c0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 245, 236, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--crust-dark);
+    letter-spacing: 0.02em;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    color: var(--crust-dark);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--crust-dark);
+    color: var(--cream) !important;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--crust-dark);
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(250,245,236,0) 0%, rgba(250,245,236,1) 100%),
+      radial-gradient(circle at 80% 20%, var(--cream-dark), var(--cream) 60%);
+    padding: 90px 0 70px;
+  }
+
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--cream-dark);
+    color: var(--crust);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    line-height: 1.15;
+    color: var(--crust-dark);
+    margin-bottom: 20px;
+  }
+
+  .hero p.lead {
+    font-size: 1.1rem;
+    color: #5c4d3f;
+    max-width: 46ch;
+    margin-bottom: 28px;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--crust-dark);
+    border: 1.5px solid var(--crust-dark);
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-photo {
+    background: linear-gradient(135deg, #d9a066, #8a5a35);
+    border-radius: 24px;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 40px;
+    box-shadow: 0 30px 60px -20px rgba(79, 47, 26, 0.4);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 10px 30px -10px rgba(79, 47, 26, 0.25);
+  }
+
+  .hero-badge strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--crust-dark);
+  }
+
+  .hero-badge small {
+    color: #6b5c4c;
+    font-size: 0.8rem;
+  }
+
+  /* Sections */
+  section { padding: 80px 0; }
+
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+
+  .section-head .hero-tag { margin: 0 auto 16px; }
+
+  .section-head h2 {
+    font-size: 2.2rem;
+    color: var(--crust-dark);
+    margin-bottom: 12px;
+  }
+
+  .section-head p {
+    color: #6b5c4c;
+  }
+
+  /* About */
+  .about {
+    background: var(--cream-dark);
+  }
+
+  .about .wrap {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .about-photo {
+    background: linear-gradient(135deg, #efe0c4, #c9a06a);
+    border-radius: 24px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(79,47,26,0.6);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .about h2 {
+    font-size: 2rem;
+    color: var(--crust-dark);
+    margin-bottom: 18px;
+  }
+
+  .about p { color: #5c4d3f; margin-bottom: 16px; }
+
+  .about-stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .about-stats div strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+  }
+
+  .about-stats div span {
+    font-size: 0.85rem;
+    color: #6b5c4c;
+  }
+
+  /* Products */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .product-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -20px rgba(79, 47, 26, 0.3);
+  }
+
+  .product-photo {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    padding: 20px;
+  }
+
+  .product-photo.sourdough { background: linear-gradient(135deg, #b8763f, #6b3e1f); }
+  .product-photo.pastries { background: linear-gradient(135deg, #e0a95f, #a85f2c); }
+  .product-photo.cakes { background: linear-gradient(135deg, #d98d9c, #a54b62); }
+
+  .product-body { padding: 24px; }
+
+  .product-body h3 {
+    font-size: 1.3rem;
+    color: var(--crust-dark);
+    margin-bottom: 8px;
+  }
+
+  .product-body p {
+    color: #6b5c4c;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+
+  .product-list {
+    list-style: none;
+    font-size: 0.88rem;
+    color: #7a6a58;
+  }
+
+  .product-list li {
+    padding: 4px 0;
+    border-top: 1px dashed var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .product-list li:first-child { border-top: none; }
+
+  /* Testimonials */
+  .testimonials {
+    background: var(--crust-dark);
+    color: var(--cream);
+  }
+
+  .testimonials .section-head h2 { color: var(--cream); }
+  .testimonials .section-head p { color: #d8c8b4; }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    padding: 28px;
+  }
+
+  .testimonial-card p.quote {
+    font-size: 0.95rem;
+    color: #ece2d3;
+    margin-bottom: 18px;
+  }
+
+  .testimonial-card .who {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .testimonial-card .who small {
+    display: block;
+    font-weight: 400;
+    color: #c7b6a1;
+    font-size: 0.8rem;
+  }
+
+  .stars { color: var(--accent); letter-spacing: 2px; margin-bottom: 12px; }
+
+  /* Visit / hours */
+  .visit .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  .visit-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 36px;
+  }
+
+  .visit-card h3 {
+    font-size: 1.4rem;
+    color: var(--crust-dark);
+    margin-bottom: 20px;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row span:first-child { color: var(--crust-dark); font-weight: 600; }
+  .hours-row span:last-child { color: #6b5c4c; }
+
+  .map-box {
+    background: linear-gradient(135deg, #efe0c4, #d3b587);
+    border-radius: 20px;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(79,47,26,0.65);
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .address-line {
+    margin-top: 22px;
+    color: #5c4d3f;
+    font-size: 0.95rem;
+  }
+
+  .address-line strong { color: var(--crust-dark); display: block; margin-bottom: 4px; }
+
+  /* Newsletter */
+  .newsletter {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+  }
+
+  .newsletter h2 { color: #fff; font-size: 1.9rem; margin-bottom: 10px; }
+  .newsletter p { color: #fbe5d4; margin-bottom: 26px; }
+
+  .newsletter-form {
+    display: flex;
+    max-width: 420px;
+    margin: 0 auto;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    min-width: 220px;
+    padding: 14px 18px;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.95rem;
+  }
+
+  .newsletter-form button {
+    padding: 14px 26px;
+    border-radius: 999px;
+    border: none;
+    background: var(--crust-dark);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--crust-dark);
+    color: #d8c8b4;
+    padding: 56px 0 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-grid h4 {
+    color: var(--cream);
+    font-size: 1rem;
+    margin-bottom: 16px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .footer-grid p, .footer-grid a {
+    font-size: 0.9rem;
+    color: #c7b6a1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .footer-grid a:hover { color: var(--cream); }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #a8977f;
+    text-align: center;
+  }
+
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .menu-toggle { display: block; }
+    .hero .wrap, .about .wrap, .visit .wrap { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; }
+    .products-grid, .testimonial-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo">Crumb<span>&</span>Co</a>
+    <div class="nav-links">
+      <a href="#about">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#cakes">Celebration Cakes</a>
+      <a href="#visit">Visit Us</a>
+    </div>
+    <a href="#cakes" class="nav-cta">Order a Cake</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-tag">Baked fresh, every morning</span>
+        <h1>Proper sourdough and honest baking, in the heart of Bristol.</h1>
+        <p class="lead">Crumb & Co is a small neighbourhood bakery on Chandos Road, Redland — naturally leavened loaves, laminated pastries and cakes made to order, all baked from scratch before sunrise.</p>
+        <div class="btn-row">
+          <a href="#menu" class="btn btn-primary">See What's Baking</a>
+          <a href="#visit" class="btn btn-secondary">Find Us</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo">Fresh country sourdough,<br>scored and slashed<br>every morning at 4am</div>
+        <div class="hero-badge">
+          <strong>7 years</strong>
+          <small>baking in Bristol</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-photo">The starter, "Doreen"<br>— alive since 2018</div>
+      <div>
+        <span class="hero-tag">Our Story</span>
+        <h2>Started with one starter, one oven, and a lot of early mornings.</h2>
+        <p>Crumb & Co began in 2018 in a tiny railway arch kitchen in Bedminster, when founder Alys Bevan started selling sourdough loaves from a trestle table at Tobacco Factory Market on Sunday mornings. The starter she fed by hand that first week — nicknamed Doreen — is still the one raising every loaf we bake today.</p>
+        <p>We moved into our current home on Chandos Road in 2021: a small shopfront with the ovens right behind the counter, so the smell of the morning's bake reaches the pavement before the door even opens. Everything is still made in small batches, by hand, using flour milled in the West Country wherever we can.</p>
+        <div class="about-stats">
+          <div><strong>4am</strong><span>first bake of the day</span></div>
+          <div><strong>12+</strong><span>loaves & bakes on rotation</span></div>
+          <div><strong>100%</strong><span>naturally leavened dough</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU / PRODUCTS -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="hero-tag">On the Counter</span>
+        <h2>What we bake</h2>
+        <p>Our menu changes a little with the seasons, but these are the things you'll almost always find in the basket.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-photo sourdough">Country Sourdough</div>
+          <div class="product-body">
+            <h3>Sourdough</h3>
+            <p>Slow-fermented for 24 hours, baked in a deep, dark crust with an open, tangy crumb.</p>
+            <ul class="product-list">
+              <li><span>Classic Country Loaf</span><span>£5.80</span></li>
+              <li><span>Rye & Toasted Seed</span><span>£6.20</span></li>
+              <li><span>Rosemary & Sea Salt Focaccia</span><span>£5.50</span></li>
+              <li><span>Sourdough Baguette</span><span>£3.60</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-photo pastries">Morning Pastries</div>
+          <div class="product-body">
+            <h3>Pastries</h3>
+            <p>Laminated in-house over three days, filled and finished fresh every morning.</p>
+            <ul class="product-list">
+              <li><span>Almond Croissant</span><span>£4.20</span></li>
+              <li><span>Pain au Chocolat</span><span>£3.60</span></li>
+              <li><span>Cardamom Cinnamon Bun</span><span>£4.00</span></li>
+              <li><span>Fig & Honey Danish</span><span>£4.40</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="product-card" id="cakes">
+          <div class="product-photo cakes">Celebration Cakes</div>
+          <div class="product-body">
+            <h3>Celebration Cakes</h3>
+            <p>Made to order for birthdays, weddings and every excuse in between. Order at least 5 days ahead.</p>
+            <ul class="product-list">
+              <li><span>Classic Victoria Sponge</span><span>from £38</span></li>
+              <li><span>Chocolate & Salted Caramel</span><span>from £48</span></li>
+              <li><span>Lemon & Elderflower</span><span>from £42</span></li>
+              <li><span>Bespoke Wedding Tiers</span><span>on request</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="hero-tag" style="background:rgba(255,255,255,0.08); color:#f1e0cd;">Kind Words</span>
+        <h2>What Bristol says</h2>
+        <p>We're lucky to have a lot of regulars — here's a little of what they tell us.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"The rye loaf has genuinely changed my Saturday mornings. Queue's always worth it."</p>
+          <div class="who">Hannah Osei <small>Redland</small></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Ordered our wedding cake from Crumb & Co and it was the best thing on the table, guests included."</p>
+          <div class="who">Tom & Ffion Pryce <small>Clifton</small></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Best almond croissant in Bristol, and I will fight anyone who disagrees."</p>
+          <div class="who">Marcus Reid <small>Bishopston</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="visit-card">
+        <h3>Opening Hours</h3>
+        <div class="hours-row"><span>Tuesday – Friday</span><span>8:00am – 4:00pm</span></div>
+        <div class="hours-row"><span>Saturday</span><span>8:00am – 3:00pm</span></div>
+        <div class="hours-row"><span>Sunday</span><span>9:00am – 1:00pm</span></div>
+        <div class="hours-row"><span>Monday</span><span>Closed</span></div>
+        <div class="address-line">
+          <strong>Crumb & Co</strong>
+          14 Chandos Road, Redland, Bristol, BS6 6PE
+        </div>
+        <div class="address-line">
+          <strong>Get in touch</strong>
+          hello@crumbandco.co.uk · 0117 973 4021
+        </div>
+      </div>
+      <div class="map-box">
+        Two minutes' walk from Redland train station<br>and Chandos Road's Sunday market
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="wrap">
+      <h2>Get the week's bake list</h2>
+      <p>A short email every Thursday with what's coming out of the oven that week — no spam, just bread.</p>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Crumb & Co</div>
+        <p>An independent bakery on Chandos Road, Redland, baking sourdough, pastries and celebration cakes since 2018.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#about">Our Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#cakes">Celebration Cakes</a>
+        <a href="#visit">Visit Us</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:hello@crumbandco.co.uk">hello@crumbandco.co.uk</a>
+        <a href="tel:+441179734021">0117 973 4021</a>
+        <p>14 Chandos Road, Redland, Bristol, BS6 6PE</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Crumb & Co Bakery. All bread baked in Bristol.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+```

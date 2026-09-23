@@ -1,0 +1,535 @@
+{
+  "version": 1,
+  "url": "pages/03.html",
+  "capturedAt": "2026-09-23T11:18:26.218Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5966,
+  "ground": "rgb(250, 248, 244)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(242, 237, 227)",
+        "area": 3289755,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1092983,
+        "chars": 0
+      },
+      {
+        "value": "rgb(47, 75, 60)",
+        "area": 394645,
+        "chars": 0
+      },
+      {
+        "value": "rgb(23, 24, 28)",
+        "area": 283560,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 96, 58)",
+        "area": 142257,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 248, 244, 0.9)",
+        "area": 119160,
+        "chars": 0
+      },
+      {
+        "value": "rgb(233, 228, 216)",
+        "area": 16286,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.15)",
+        "area": 5292,
+        "chars": 0
+      },
+      {
+        "value": "rgb(216, 210, 194)",
+        "area": 253,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 106, 99)",
+        "area": 0,
+        "chars": 1870
+      },
+      {
+        "value": "rgb(23, 24, 28)",
+        "area": 0,
+        "chars": 1607
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 790
+      },
+      {
+        "value": "rgb(169, 77, 44)",
+        "area": 0,
+        "chars": 122
+      },
+      {
+        "value": "rgb(217, 227, 220)",
+        "area": 0,
+        "chars": 109
+      },
+      {
+        "value": "rgb(32, 52, 38)",
+        "area": 0,
+        "chars": 59
+      },
+      {
+        "value": "rgb(207, 211, 205)",
+        "area": 0,
+        "chars": 56
+      },
+      {
+        "value": "rgb(201, 96, 58)",
+        "area": 0,
+        "chars": 15
+      },
+      {
+        "value": "rgb(47, 75, 60)",
+        "area": 0,
+        "chars": 12
+      },
+      {
+        "value": "rgba(0, 0, 0, 0)",
+        "area": 0,
+        "chars": 8
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Manrope",
+      "chars": 3934,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 714,
+      "displayChars": 635,
+      "italicChars": 12,
+      "weights": [
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 54,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "Websites that work as hard as you do — built, hosted, and looked after.",
+      "top": 229
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "From first chat to live site, without the headache",
+      "top": 990
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free discovery call",
+      "top": 1292
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design & build",
+      "top": 1292
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Review & launch",
+      "top": 1292
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing care",
+      "top": 1292
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything you need to be found and booked online",
+      "top": 1632
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Website design & build",
+      "top": 1928
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Monthly hosting & maintenance",
+      "top": 1928
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO & Google presence",
+      "top": 1928
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "One monthly plan. Everything included.",
+      "top": 2273
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Starter",
+      "top": 2539
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growth",
+      "top": 2529
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Commerce",
+      "top": 2539
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Real sites for real UK businesses",
+      "top": 3266
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Booking site with delivery slots",
+      "top": 3642
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lead-generation site for a joiner",
+      "top": 3642
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Menu, hours & table booking",
+      "top": 3642
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What business owners say about working with us",
+      "top": 3925
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 4537
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a website that actually brings in customers?",
+      "top": 5322
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 46,
+      "background": "rgb(201, 96, 58)",
+      "text": "Get a quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(201, 96, 58)",
+      "text": "Book a free 20-minute call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See our plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Starter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(201, 96, 58)",
+      "text": "Choose Growth"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Commerce"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(201, 96, 58)",
+      "text": "Email hello@domandigital.co.uk"
+    }
+  ],
+  "sections": [
+    {
+      "top": 83,
+      "height": 797,
+      "kind": "hero",
+      "label": "Websites that work as hard as you do — built, hosted, and lo",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 880,
+      "height": 642,
+      "kind": "stats",
+      "label": "From first chat to live site, without the headache",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1522,
+      "height": 641,
+      "kind": "cards",
+      "label": "Everything you need to be found and booked online",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2163,
+      "height": 992,
+      "kind": "cards",
+      "label": "One monthly plan. Everything included.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3156,
+      "height": 659,
+      "kind": "cards",
+      "label": "Real sites for real UK businesses",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3815,
+      "height": 612,
+      "kind": "cards",
+      "label": "What business owners say about working with us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4427,
+      "height": 755,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5182,
+      "height": 434,
+      "kind": "text",
+      "label": "Ready for a website that actually brings in customers?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(251, 249, 245)"
+        ],
+        "area": 90827,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      26,
+      34,
+      35,
+      38,
+      42,
+      54
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "12px",
+      "14px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(23, 24, 28, 0.18) 0px 30px 60px -20px",
+      "rgba(23, 24, 28, 0.2) 0px 20px 40px -15px"
+    ],
+    "spacingOnScalePct": 47,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  }
+}

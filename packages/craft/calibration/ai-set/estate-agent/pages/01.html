@@ -1,0 +1,820 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingsley Homes | Independent Estate Agents in Chelmsford</title>
+<meta name="description" content="Kingsley Homes is an independent estate agent in Chelmsford offering expert property sales, lettings and valuations across Essex.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --navy: #10233f;
+    --navy-light: #1b3a63;
+    --gold: #b8935a;
+    --gold-light: #d4af7a;
+    --cream: #f7f4ef;
+    --grey: #6b7280;
+    --border: #e5e0d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #2b2b2b;
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .brand {
+    font-family: 'Playfair Display', serif;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Top bar */
+  .topbar {
+    background: var(--navy);
+    color: #cdd6e4;
+    font-size: 0.85rem;
+  }
+  .topbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topbar a { color: #cdd6e4; }
+  .topbar a:hover { color: #fff; }
+  .topbar-info { display: flex; gap: 20px; flex-wrap: wrap; }
+  .topbar-info span { display: inline-flex; align-items: center; gap: 6px; }
+  .topbar-social { display: flex; gap: 14px; }
+
+  /* Header */
+  header.main {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  .brand {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand span.small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  nav.links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  nav.links a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--navy);
+    position: relative;
+    padding: 4px 0;
+  }
+  nav.links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--navy) !important; }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(120deg, rgba(16,35,63,0.88), rgba(16,35,63,0.55)),
+      url('https://images.unsplash.com/photo-1592595896616-c37162298647?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    color: #fff;
+  }
+  .hero-content { max-width: 640px; padding: 100px 0; }
+  .hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 2.9rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: #e4e8f0;
+    margin-bottom: 34px;
+    max-width: 520px;
+  }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+  }
+  .btn-primary { background: var(--gold); color: #fff; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline { border-color: #fff; color: #fff; }
+  .btn-outline:hover { background: #fff; color: var(--navy); }
+
+  /* Search bar */
+  .search-box {
+    background: #fff;
+    max-width: 1180px;
+    margin: -55px auto 0;
+    position: relative;
+    z-index: 10;
+    border-radius: 8px;
+    box-shadow: 0 20px 45px rgba(16,35,63,0.18);
+    padding: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 14px;
+  }
+  .search-box .field { display: flex; flex-direction: column; gap: 6px; }
+  .search-box label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .search-box select, .search-box input {
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #2b2b2b;
+    background: #fbfaf8;
+  }
+  .search-box button {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0 30px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s ease;
+  }
+  .search-box button:hover { background: var(--gold); }
+
+  /* Sections generic */
+  section { padding: 90px 0; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-head h2 { font-size: 2.2rem; color: var(--navy); margin-bottom: 14px; }
+  .section-head p { color: var(--grey); font-size: 1.02rem; }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid var(--border);
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 34px rgba(16,35,63,0.1);
+  }
+  .service-icon {
+    width: 62px;
+    height: 62px;
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 22px;
+  }
+  .service-card h3 { color: var(--navy); font-size: 1.25rem; margin-bottom: 12px; }
+  .service-card p { color: var(--grey); font-size: 0.95rem; margin-bottom: 18px; }
+  .service-card a { color: var(--gold); font-weight: 600; font-size: 0.9rem; }
+  .service-card a i { margin-left: 4px; transition: margin 0.2s ease; }
+  .service-card a:hover i { margin-left: 8px; }
+
+  /* Properties */
+  .properties { background: var(--cream); }
+  .properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .property-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(16,35,63,0.06);
+    transition: transform 0.25s ease;
+  }
+  .property-card:hover { transform: translateY(-5px); }
+  .property-image {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+  }
+  .property-image img { width: 100%; height: 100%; object-fit: cover; }
+  .property-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--gold);
+    color: #fff;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .property-tag.let { background: var(--navy); }
+  .property-body { padding: 22px; }
+  .property-price {
+    color: var(--navy);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', serif;
+  }
+  .property-price span { font-size: 0.85rem; font-weight: 500; color: var(--grey); }
+  .property-address { color: #444; font-size: 0.95rem; margin-bottom: 14px; }
+  .property-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--grey);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+  .property-meta span { display: flex; align-items: center; gap: 6px; }
+
+  .view-all { text-align: center; margin-top: 46px; }
+
+  /* Why choose us */
+  .why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .why img {
+    border-radius: 10px;
+    box-shadow: 0 20px 45px rgba(16,35,63,0.15);
+  }
+  .why-list { display: flex; flex-direction: column; gap: 26px; margin-top: 30px; }
+  .why-item { display: flex; gap: 18px; }
+  .why-item .num {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+  .why-item h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 6px; }
+  .why-item p { color: var(--grey); font-size: 0.95rem; }
+
+  /* Valuation CTA */
+  .valuation {
+    background: linear-gradient(120deg, var(--navy), var(--navy-light));
+    color: #fff;
+    text-align: center;
+  }
+  .valuation .eyebrow { color: var(--gold-light); }
+  .valuation h2 { color: #fff; font-size: 2.1rem; margin-bottom: 16px; }
+  .valuation p { color: #d7dde8; max-width: 560px; margin: 0 auto 34px; }
+
+  /* Testimonials */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .testimonial {
+    background: var(--cream);
+    padding: 32px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .stars { color: var(--gold); margin-bottom: 16px; font-size: 0.9rem; }
+  .testimonial p.quote { color: #3a3a3a; font-size: 0.98rem; margin-bottom: 20px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-author .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .testimonial-author strong { display: block; color: var(--navy); font-size: 0.92rem; }
+  .testimonial-author span { color: var(--grey); font-size: 0.8rem; }
+
+  /* Areas */
+  .areas { background: var(--cream); }
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .area-chip {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--navy);
+    transition: all 0.2s ease;
+  }
+  .area-chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* Footer */
+  footer {
+    background: var(--navy);
+    color: #cdd6e4;
+    padding: 70px 0 0;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand h3 { color: #fff; font-size: 1.4rem; margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.9rem; color: #a9b4c6; margin-bottom: 20px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .footer-social a:hover { background: var(--gold); border-color: var(--gold); }
+  footer h4 { color: #fff; font-size: 1rem; margin-bottom: 18px; }
+  footer ul li { margin-bottom: 10px; font-size: 0.9rem; }
+  footer ul li a:hover { color: var(--gold-light); }
+  .footer-contact li { display: flex; gap: 10px; align-items: flex-start; }
+  .footer-contact i { color: var(--gold-light); margin-top: 4px; }
+  .footer-bottom {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #8f9bb3;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer-bottom a { color: #8f9bb3; }
+  .footer-bottom a:hover { color: #fff; }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .services-grid, .properties-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .why { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .search-box { grid-template-columns: 1fr 1fr; }
+    .search-box button { grid-column: span 2; padding: 14px 0; }
+  }
+  @media (max-width: 720px) {
+    nav.links { display: none; }
+    .menu-toggle { display: block; }
+    .hero h1 { font-size: 2.1rem; }
+    .hero-content { padding: 70px 0; }
+    .services-grid, .properties-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .search-box { grid-template-columns: 1fr; margin-top: -30px; }
+    .search-box button { grid-column: span 1; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .topbar-info { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-info">
+      <span><i class="fa-solid fa-phone"></i> 01245 356 720</span>
+      <span><i class="fa-solid fa-envelope"></i> hello@kingsleyhomeschelmsford.co.uk</span>
+      <span><i class="fa-solid fa-location-dot"></i> 14 High Street, Chelmsford, Essex CM1 1BE</span>
+    </div>
+    <div class="topbar-social">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<header class="main">
+  <div class="container nav">
+    <a href="#" class="brand"><i class="fa-solid fa-key" style="color:var(--gold);"></i> Kingsley Homes
+      <span class="small">CHELMSFORD</span>
+    </a>
+    <nav class="links">
+      <a href="#buy">Buying</a>
+      <a href="#let">Letting</a>
+      <a href="#properties">Properties</a>
+      <a href="#areas">Areas Covered</a>
+      <a href="#valuation">Free Valuation</a>
+      <a href="#valuation" class="nav-cta">Book Valuation</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Independent &amp; Local Since 2009</div>
+      <h1>Chelmsford property, handled properly.</h1>
+      <p>Kingsley Homes is an independent estate agent built by local people, for local people. From your first viewing to completion day, we combine honest advice with genuine local knowledge across Chelmsford and mid-Essex.</p>
+      <div class="hero-buttons">
+        <a href="#valuation" class="btn btn-primary">Get a Free Valuation</a>
+        <a href="#properties" class="btn btn-outline">View Current Properties</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="search-box">
+    <div class="field">
+      <label for="purpose">I want to</label>
+      <select id="purpose">
+        <option>Buy a property</option>
+        <option>Rent a property</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="location">Location</label>
+      <select id="location">
+        <option>Chelmsford (all areas)</option>
+        <option>Broomfield</option>
+        <option>Galleywood</option>
+        <option>Great Baddow</option>
+        <option>Springfield</option>
+        <option>Writtle</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="beds">Bedrooms</label>
+      <select id="beds">
+        <option>Any</option>
+        <option>1+</option>
+        <option>2+</option>
+        <option>3+</option>
+        <option>4+</option>
+      </select>
+    </div>
+    <button type="button">Search Properties</button>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Sales and lettings, done right</h2>
+      <p>Whether you're moving up the ladder, buying your first home, or looking for a reliable tenant, our team handles it with care and clear communication throughout.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
+        <h3>Selling Your Home</h3>
+        <p>Accurate valuations, professional photography and floorplans, and proactive marketing to our qualified buyer database.</p>
+        <a href="#buy">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-key"></i></div>
+        <h3>Letting Your Property</h3>
+        <p>Full or tenant-find only lettings management, rigorous tenant referencing, and compliance handled from day one.</p>
+        <a href="#let">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-magnifying-glass-dollar"></i></div>
+        <h3>Buying or Renting</h3>
+        <p>Register with us for early access to new instructions, plus honest guidance on price, schools and local areas.</p>
+        <a href="#properties">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="properties" id="properties">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Current Instructions</div>
+      <h2>Featured properties in Chelmsford</h2>
+      <p>A selection of homes currently for sale and to let across Chelmsford and the surrounding villages.</p>
+    </div>
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="property-image">
+          <span class="property-tag">For Sale</span>
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Three bedroom semi-detached house in Great Baddow">
+        </div>
+        <div class="property-body">
+          <div class="property-price">£425,000</div>
+          <div class="property-address">Maldon Road, Great Baddow, Chelmsford</div>
+          <div class="property-meta">
+            <span><i class="fa-solid fa-bed"></i> 3 Beds</span>
+            <span><i class="fa-solid fa-bath"></i> 2 Baths</span>
+            <span><i class="fa-solid fa-ruler-combined"></i> Garden</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-image">
+          <span class="property-tag let">To Let</span>
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" alt="Two bedroom apartment in Chelmsford city centre">
+        </div>
+        <div class="property-body">
+          <div class="property-price">£1,350 <span>pcm</span></div>
+          <div class="property-address">Anchor Street, Chelmsford City Centre</div>
+          <div class="property-meta">
+            <span><i class="fa-solid fa-bed"></i> 2 Beds</span>
+            <span><i class="fa-solid fa-bath"></i> 1 Bath</span>
+            <span><i class="fa-solid fa-square-parking"></i> Parking</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-image">
+          <span class="property-tag">For Sale</span>
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=800&auto=format&fit=crop" alt="Four bedroom detached family home in Broomfield">
+        </div>
+        <div class="property-body">
+          <div class="property-price">£585,000</div>
+          <div class="property-address">Church Green, Broomfield, Chelmsford</div>
+          <div class="property-meta">
+            <span><i class="fa-solid fa-bed"></i> 4 Beds</span>
+            <span><i class="fa-solid fa-bath"></i> 3 Baths</span>
+            <span><i class="fa-solid fa-car"></i> Garage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="view-all">
+      <a href="#" class="btn btn-primary" style="background:var(--navy);">View All Properties</a>
+    </div>
+  </div>
+</section>
+
+<section id="buy">
+  <div class="container">
+    <div class="why">
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=900&auto=format&fit=crop" alt="Kingsley Homes agent handing over house keys">
+      <div>
+        <div class="eyebrow">Why Kingsley Homes</div>
+        <h2 style="color:var(--navy); font-size:2rem;">Local expertise, straight-talking advice</h2>
+        <p style="color:var(--grey);">We're not part of a national chain, which means our fees stay fair, our advice stays honest, and the same familiar faces look after your move from start to finish.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="num">1</div>
+            <div>
+              <h3>Genuinely Local Knowledge</h3>
+              <p>Our team lives and works in Chelmsford, so we know the streets, the schools and what buyers really want.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="num">2</div>
+            <div>
+              <h3>No Sale, No Fee</h3>
+              <p>You only pay our fee when your property is sold and completed — simple, transparent pricing, no surprises.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="num">3</div>
+            <div>
+              <h3>Accompanied Viewings</h3>
+              <p>We attend every viewing on your behalf, giving useful feedback and negotiating the best possible outcome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="valuation" id="valuation">
+  <div class="container">
+    <div class="eyebrow">Thinking of Moving?</div>
+    <h2>Get a free, no-obligation valuation</h2>
+    <p>Whether you're selling or letting, our local valuers will give you an honest, up-to-date figure based on real Chelmsford sales and rental data — not guesswork.</p>
+    <a href="tel:01245356720" class="btn btn-primary">Call 01245 356 720</a>
+  </div>
+</section>
+
+<section id="let">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What Our Clients Say</div>
+      <h2>Trusted by home movers across Essex</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="quote">"Kingsley Homes sold our house in three weeks. Communication was excellent throughout and nothing was too much trouble."</p>
+        <div class="testimonial-author">
+          <div class="avatar">SR</div>
+          <div><strong>Sarah R.</strong><span>Sold in Springfield</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="quote">"As landlords with three properties, we appreciate how proactive the team is with maintenance and finding reliable tenants quickly."</p>
+        <div class="testimonial-author">
+          <div class="avatar">DM</div>
+          <div><strong>David M.</strong><span>Landlord, Great Baddow</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="quote">"First-time buyers can feel like an afterthought elsewhere, but Kingsley Homes talked us through every step patiently."</p>
+        <div class="testimonial-author">
+          <div class="avatar">EP</div>
+          <div><strong>Emily P.</strong><span>First-time buyer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Coverage</div>
+      <h2>Areas we cover</h2>
+      <p>Based on the High Street in Chelmsford, we cover the city and all surrounding villages.</p>
+    </div>
+    <div class="areas-grid">
+      <a href="#" class="area-chip">Chelmsford City Centre</a>
+      <a href="#" class="area-chip">Broomfield</a>
+      <a href="#" class="area-chip">Galleywood</a>
+      <a href="#" class="area-chip">Great Baddow</a>
+      <a href="#" class="area-chip">Springfield</a>
+      <a href="#" class="area-chip">Writtle</a>
+      <a href="#" class="area-chip">Boreham</a>
+      <a href="#" class="area-chip">Sandon</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Kingsley Homes</h3>
+        <p>An independent, family-run estate agent serving Chelmsford and mid-Essex with honest advice on sales, lettings and property management.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#buy">Buying a Home</a></li>
+          <li><a href="#let">Letting a Property</a></li>
+          <li><a href="#properties">Current Properties</a></li>
+          <li><a href="#valuation">Free Valuation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Meet the Team</a></li>
+          <li><a href="#">Fees &amp; Terms</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 14 High Street, Chelmsford, Essex CM1 1BE</li>
+          <li><i class="fa-solid fa-phone"></i> 01245 356 720</li>
+          <li><i class="fa-solid fa-envelope"></i> hello@kingsleyhomeschelmsford.co.uk</li>
+          <li><i class="fa-solid fa-clock"></i> Mon–Fri 8:30am–6pm, Sat 9am–4pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Kingsley Homes. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Complaints Procedure</a> &nbsp;|&nbsp; Member of The Property Ombudsman</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.menu-toggle').addEventListener('click', function () {
+    const links = document.querySelector('nav.links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '100%';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = '#fff';
+    links.style.padding = '20px 24px';
+    links.style.borderTop = '1px solid #e5e0d8';
+  });
+</script>
+
+</body>
+</html>
+```

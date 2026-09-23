@@ -1,0 +1,605 @@
+{
+  "version": 1,
+  "url": "pages/06.html",
+  "capturedAt": "2026-09-23T11:18:37.729Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5440,
+  "ground": "rgb(247, 244, 238)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 6294972,
+        "chars": 0
+      },
+      {
+        "value": "rgb(16, 29, 44)",
+        "area": 1481535,
+        "chars": 0
+      },
+      {
+        "value": "rgb(11, 21, 32)",
+        "area": 561398,
+        "chars": 0
+      },
+      {
+        "value": "rgb(228, 224, 214)",
+        "area": 378080,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 208056,
+        "chars": 0
+      },
+      {
+        "value": "rgb(185, 138, 61)",
+        "area": 46260,
+        "chars": 0
+      },
+      {
+        "value": "rgba(185, 138, 61, 0.12)",
+        "area": 8464,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(92, 101, 112)",
+        "area": 0,
+        "chars": 1627
+      },
+      {
+        "value": "rgb(28, 37, 48)",
+        "area": 0,
+        "chars": 784
+      },
+      {
+        "value": "rgb(16, 29, 44)",
+        "area": 0,
+        "chars": 556
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 511
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "area": 0,
+        "chars": 476
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.68)",
+        "area": 0,
+        "chars": 430
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.82)",
+        "area": 0,
+        "chars": 197
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.5)",
+        "area": 0,
+        "chars": 125
+      },
+      {
+        "value": "rgb(185, 138, 61)",
+        "area": 0,
+        "chars": 113
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.72)",
+        "area": 0,
+        "chars": 105
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 104
+      },
+      {
+        "value": "rgb(217, 174, 103)",
+        "area": 0,
+        "chars": 96
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4327,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 797,
+      "displayChars": 744,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 46,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Straightforward accounting for people who'd rather focus on their business.",
+      "top": 218
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted across the UK",
+      "top": 221
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Built around four types of client, not a one-size-fits-all package.",
+      "top": 1029
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "SMEs & Startups",
+      "top": 1327
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contractors & Freelancers",
+      "top": 1327
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlords",
+      "top": 1327
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "High Earners",
+      "top": 1327
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Core services, delivered without the small print.",
+      "top": 1805
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Annual Accounts & Corporation Tax",
+      "top": 2041
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Self-Assessment Tax Returns",
+      "top": 2041
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bookkeeping & VAT",
+      "top": 2041
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Payroll & Auto-Enrolment",
+      "top": 2211
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tax Planning & Advisory",
+      "top": 2211
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Company Formation & Secretarial",
+      "top": 2211
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Switching accountants shouldn't be stressful. We handle it for you.",
+      "top": 2577
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free Consultation",
+      "top": 2848
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fixed Quote",
+      "top": 2848
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "We Handle the Switch",
+      "top": 2848
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing Support",
+      "top": 2848
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What clients say about working with us.",
+      "top": 3256
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fixed monthly fees. No surprises at year-end.",
+      "top": 3889
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sole Trader / Contractor",
+      "top": 4127
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growing SME",
+      "top": 4128
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlord Portfolio",
+      "top": 4127
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's talk about your accounts.",
+      "top": 4793
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 46,
+      "background": "rgb(185, 138, 61)",
+      "text": "Book a Call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(185, 138, 61)",
+      "text": "Get a Free Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See Our Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get Started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(185, 138, 61)",
+      "text": "Get Started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get Started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(185, 138, 61)",
+      "text": "Call 020 7946 0891"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Email Us"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 83,
+      "kind": "hero",
+      "label": "Harrison James Who We Help Services Our Approach Pricing Con",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 83,
+      "height": 684,
+      "kind": "hero",
+      "label": "Straightforward accounting for people who'd rather focus on ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 767,
+      "height": 127,
+      "kind": "cards",
+      "label": "ICAEW Chartered Accountants HMRC Agent Registered Xero & Qui",
+      "cards": 5,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 894,
+      "height": 777,
+      "kind": "cards",
+      "label": "Built around four types of client, not a one-size-fits-all p",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 1671,
+      "height": 771,
+      "kind": "cards",
+      "label": "Core services, delivered without the small print.",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 2442,
+      "height": 679,
+      "kind": "stats",
+      "label": "Switching accountants shouldn't be stressful. We handle it f",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3121,
+      "height": 633,
+      "kind": "cards",
+      "label": "What clients say about working with us.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 3755,
+      "height": 969,
+      "kind": "cards",
+      "label": "Fixed monthly fees. No surprises at year-end.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 4723,
+      "height": 326,
+      "kind": "text",
+      "label": "Let's talk about your accounts.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    },
+    {
+      "top": 5050,
+      "height": 390,
+      "kind": "text",
+      "label": "Harrison James Chartered accountants supporting SMEs, contra",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false
+    }
+  ],
+  "effects": {
+    "glass": 1,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(16, 29, 44)",
+          "rgb(26, 44, 64)"
+        ],
+        "area": 984915,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(16, 29, 44)",
+          "rgb(26, 44, 64)"
+        ],
+        "area": 469868,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      22,
+      24,
+      32,
+      34,
+      38,
+      46
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "8px"
+    ],
+    "shadows": [
+      "rgba(185, 138, 61, 0.14) 0px 20px 40px 0px"
+    ],
+    "spacingOnScalePct": 36.2,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 18
+  }
+}
