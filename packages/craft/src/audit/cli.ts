@@ -12,6 +12,8 @@ import { finish, loadExceptions, parseFlags, readPaths, SOURCE_FILE, type Io } f
 import type { CheckReport } from "../character/types.js";
 import { fingerprint, type Fingerprint } from "../fingerprint/index.js";
 import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
+import { describeTypicality, loadNull } from "../null/cli.js";
+import { typicality } from "../null/index.js";
 import { snapshotUrl } from "./index.js";
 
 const fmt = (o: { l: number; c: number; h: number } | null): string =>
@@ -82,13 +84,19 @@ export async function runAudit(command: "snapshot" | "audit", args: string[], io
       report = merge(scanSource(readPaths(["."], repo, SOURCE_FILE), { exceptions }), report);
     }
     const fp = fingerprint(snapshot);
+    const nulls = flags.null ? flags.null.split(",").map((p) => loadNull(p.trim(), io.cwd)) : [];
+    const typical = nulls.length ? typicality(fp, nulls.flatMap((m, i) => m.runs.map((r) => (nulls.length > 1 ? { ...r, id: `${i + 1}/${r.id}` } : r)))) : null;
     if (flags.json) {
-      io.out(JSON.stringify({ report, fingerprint: fp, snapshot: flags.out ?? null }, null, 2));
+      io.out(JSON.stringify({ report, fingerprint: fp, typicality: typical, snapshot: flags.out ?? null }, null, 2));
       return report.summary.blocking > 0 || (flags.strict && report.summary.findings > 0) ? 1 : 0;
     }
     const code = finish(report, { ...flags, json: false }, `craft audit ${snapshot.url}`, io);
     io.out("");
     io.out(describeFingerprint(fp));
+    if (typical) {
+      io.out("");
+      io.out(describeTypicality(typical, nulls.reduce((s, m) => s + m.runs.length, 0), nulls.length));
+    }
     return code;
   } catch (error) {
     io.err(`craft: ${(error as Error).message}`);
