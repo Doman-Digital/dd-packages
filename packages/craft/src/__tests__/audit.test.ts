@@ -65,4 +65,13 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     expect(d.total).toBeGreaterThan(0.5);
     expect(fingerprintDistance(fingerprint(decided), fingerprint(decided)).total).toBe(0);
   }, 60_000);
+
+  it("snapshots several pages through one browser, and one that will not load costs only itself", async () => {
+    const { snapshotUrl, snapshotUrls } = await import("../audit/index.js");
+    // Port 9 is one Chromium refuses to open, so the page fails at once.
+    const results = await snapshotUrls([`${base}/decided`, "http://127.0.0.1:9/", `${base}/generated`], { executablePath: chromium, introWindowMs: 200, timeoutMs: 5000 });
+    expect(results.map((r) => Boolean(r.snapshot))).toEqual([true, false, true]);
+    expect(results[1].error).toMatch(/net::ERR_UNSAFE_PORT/);
+    await expect(snapshotUrl("http://127.0.0.1:9/", { executablePath: chromium, timeoutMs: 5000 })).rejects.toThrow(/net::ERR_UNSAFE_PORT/);
+  }, 60_000);
 });

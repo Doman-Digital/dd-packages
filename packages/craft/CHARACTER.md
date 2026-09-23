@@ -29,7 +29,7 @@ model defaults move.
 | Signal | Question | Status |
 | --- | --- | --- |
 | 1. Known tells | Does it use a choice on the catalogue below? | **Shipped**: source, copy, and on the rendered page for 18 tells (`craft audit`). |
-| 2. Counterfactual typicality | Would Claude have built this anyway, for this brief? | Planned. About 20 `claude -p` runs per brief; distance from those answers. |
+| 2. Counterfactual typicality | Would Claude have built this anyway, for this brief? | **Shipped**: `craft null build` generates about 20 pages from the brief; `craft audit --null` scores a page against them. |
 | 3. Distance from the estate | Does it look like the agency's other sites? | Fingerprint and distance shipped; the estate register is planned. The agency's biggest tell is its clients looking like siblings. |
 
 **The reason rule.** Every expressive choice records a `because`, with evidence
@@ -43,7 +43,7 @@ adds character rather than only removing tells. It lives in `art-direction.json`
 | --- | --- |
 | 1 | The first wave: indigo, blue-to-purple gradients, Inter, glass, three icon cards. |
 | 2 | What models moved to once the first wave was named: cream grounds and italic serifs, eyebrow chips, bento grids, marquees, intro cinematics. |
-| 3 | Whatever the harvester finds next. |
+| 3 | Whatever `craft tells harvest` finds next in the null models, once a person has read it. |
 
 A report counts findings by generation, so it can say *which* wave a site was
 built in, not only that it has tells.
@@ -184,6 +184,47 @@ against different sets.
 
 Known limit: a computed font family is the family the stylesheet asked for.
 A face that failed to load is still reported under its name.
+
+## The counterfactual
+
+A list of tells goes stale; the model does not. So signal 2 asks the model
+directly: given this brief and nothing else, what would you build?
+
+```bash
+craft null build --brief "RMP Electrical, electricians based in Uxbridge ..." --out null/rmp
+craft audit https://www.rmp-electrical.co.uk --null null/rmp
+```
+
+`null build` runs `claude -p` about 20 times (`--runs`), from an empty folder
+with no tools, settings, skills or MCP servers, so each page is what the model
+builds from the brief alone. The prompt is recorded in `null.json` and says
+nothing about how the page should look. Each page is rendered, snapshotted and
+fingerprinted like any other. A reply that is a note instead of a page is kept
+as `NN.reply.txt` and generated again. The build is resumable: run the same
+command to fill in anything that failed. `--brief` can come from
+`art-direction.json` with `--direction`.
+
+**Typicality** is a page's mean fingerprint distance to its three nearest null
+pages, ranked against the same measure for every null page against the
+others. A score of 0.40 means 40% of the model's own pages sit further from
+the rest than this one does. A page is typical at 0.10 or above, so a page the
+model built is flagged nine times in ten by construction, and the threshold
+comes from the model's own spread rather than a number picked here. The report
+lists what the page shares with most of the null ("display Inter, 14 of 20"),
+which is where to start changing it.
+
+**The harvest** reads null models the other way round. `craft tells harvest
+calibration/null` lists the choices that recur across the null pages (faces,
+accent families, grounds, button shapes, openings, phrases) and says which
+tell already catches each. The ones nothing catches are the candidates for
+generation 3. A phrase has to turn up across more than one brief, so a trade's
+own words do not count, and navigation labels, form labels and the legal footer
+are left out as page grammar. Nothing is added to the catalogue automatically:
+a candidate becomes a tell with a flag case and a pass case like every other.
+
+Known limits: a user-level `CLAUDE.md` on the machine that builds the null
+still reaches the model. The null is only as current as its build date; rebuild
+it when the model changes.
 
 ## The house copy rules live here
 

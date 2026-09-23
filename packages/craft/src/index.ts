@@ -186,3 +186,23 @@ export {
 export { validateDirection, type ValidateContext } from "./direction/validate.js";
 export { initDirection } from "./direction/init.js";
 export { PROPOSED, paletteFromPixels, propose, type PaletteColour, type Proposal, type ProposeInput } from "./direction/propose.js";
+export {
+  NULL_VERSION,
+  MIN_RUNS,
+  TYPICAL_AT,
+  nullPrompt,
+  extractHtml,
+  typicality,
+  harvest,
+  choicesOf,
+  hueName,
+  groundName,
+  shapeName,
+  hueSwatch,
+  type NullModel,
+  type NullRun,
+  type Typicality,
+  type HarvestCandidate,
+  type HarvestOptions,
+  type CandidateKind,
+} from "./null/index.js";
