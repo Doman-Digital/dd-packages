@@ -24,6 +24,8 @@ async function generate(kind: Kind): Promise<string> {
   return root;
 }
 
+type Enumerators = { routesOnDisk: (root: string) => string[]; dynamicRoutesOnDisk: (root: string) => string[] };
+
 const load = async <T>(root: string, path: string): Promise<T> => (await import(pathToFileURL(join(root, path)).href)) as T;
 
 function tsFiles(root: string): string[] {
@@ -66,7 +68,7 @@ for (const kind of ["next-root", "next-src", "astro"] as const) {
   describe(`a generated ${kind} site`, () => {
     test("passes its own coverage, redirect and JSON-LD checks on the first day", async () => {
       const root = await generate(kind);
-      const { routesOnDisk } = await load<{ routesOnDisk: (root: string) => string[] }>(root, "tests/seo/routes-on-disk.ts");
+      const { routesOnDisk, dynamicRoutesOnDisk } = await load<Enumerators>(root, "tests/seo/routes-on-disk.ts");
       const routes = await load<typeof import("./fixtures-types").Routes>(root, "site.routes.ts");
       const { facts } = await load<typeof import("./fixtures-types").Facts>(root, "site.facts.ts");
       const { buildPageGraph } = await load<typeof import("./fixtures-types").PageGraph>(
@@ -76,11 +78,20 @@ for (const kind of ["next-root", "next-src", "astro"] as const) {
 
       const onDisk = routesOnDisk(root);
       expect(onDisk).toEqual(["/", "/press", "/resources", "/services/rewiring"]);
-      expect(validateCoverage({ routesOnDisk: onDisk, policy: routes.policy, moneyRoutes: routes.moneyRoutes, targets: routes.targets })).toEqual([]);
+      expect(dynamicRoutesOnDisk(root)).toEqual(["/blog/[slug]"]);
+      expect(
+        validateCoverage({
+          routesOnDisk: onDisk,
+          dynamicRoutesOnDisk: dynamicRoutesOnDisk(root),
+          policy: routes.policy,
+          moneyRoutes: routes.moneyRoutes,
+          targets: routes.targets,
+        }),
+      ).toEqual([]);
       expect(
         validateRedirects({ linkedUrls: liveLinkedUrls({ links: [] }), routesOnDisk: onDisk, redirects: [], policy: routes.policy, hosts: [new URL(facts.url).hostname] }),
       ).toEqual([]);
-      for (const entry of routes.policy.filter((p) => p.indexable)) {
+      for (const entry of routes.policy.filter((p) => p.indexable && !p.isDynamicPattern)) {
         expect(findGraphIssues(buildPageGraph({ path: entry.path, name: entry.path })), entry.path).toEqual([]);
       }
     });
@@ -88,6 +99,18 @@ for (const kind of ["next-root", "next-src", "astro"] as const) {
     test("typechecks", async () => {
       const root = await generate(kind);
       expect(typeErrors(root)).toEqual([]);
+    });
+
+    test("the coverage check fails when a dynamic route is added without a policy pattern", async () => {
+      const root = await generate(kind);
+      const page = kind === "astro" ? "src/pages/case-studies/[slug].astro" : `${kind === "next-src" ? "src/app" : "app"}/case-studies/[slug]/page.tsx`;
+      mkdirSync(dirname(join(root, page)), { recursive: true });
+      writeFileSync(join(root, page), kind === "astro" ? "<h1>Case study</h1>\n" : "export default function P() { return null; }\n");
+      const { routesOnDisk, dynamicRoutesOnDisk } = await load<Enumerators>(root, "tests/seo/routes-on-disk.ts");
+      const routes = await load<typeof import("./fixtures-types").Routes>(root, "site.routes.ts");
+      expect(validateCoverage({ routesOnDisk: routesOnDisk(root), dynamicRoutesOnDisk: dynamicRoutesOnDisk(root), policy: routes.policy })).toEqual([
+        { kind: "dynamic-route-missing-policy", path: "/case-studies/[slug]", pattern: "/case-studies/*" },
+      ]);
     });
 
     test("the coverage check fails when a page is added without a policy entry", async () => {

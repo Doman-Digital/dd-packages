@@ -42,6 +42,7 @@ export function makeProject(kind: Kind, extra: Record<string, string> = {}): str
     files["src/pages/index.astro"] = "<h1>Home</h1>\n";
     files["src/pages/services/rewiring.astro"] = "<h1>Rewiring</h1>\n";
     files["src/pages/404.astro"] = "<h1>Not found</h1>\n";
+    files["src/pages/blog/[slug].astro"] = "<h1>Post</h1>\n";
   } else {
     const app = kind === "next-src" ? "src/app" : "app";
     files["package.json"] = `${JSON.stringify({ name: "acme", scripts: { dev: "next dev" }, dependencies: { next: "16.0.0", react: "19.0.0" } }, null, 2)}\n`;
