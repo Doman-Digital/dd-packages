@@ -2,6 +2,7 @@
 // person edits after the scaffold runs, so none of them is ever overwritten.
 
 import type { Answers } from "../answers.js";
+import { policyPatternsFor } from "../patterns.js";
 import { SECTORS } from "../sectors.js";
 
 const q = (value: string | null) => (value === null ? "null" : JSON.stringify(value));
@@ -49,10 +50,21 @@ export const facts: SiteFacts = {
 `;
 }
 
-export function renderRoutes(routesOnDisk: string[]): string {
+export function renderRoutes(routesOnDisk: string[], dynamicRoutesOnDisk: string[] = []): string {
   // /resources is added below as noindex, whatever is on disk.
   const routes = [...new Set([...routesOnDisk, "/press"])].filter((r) => r !== "/resources").sort();
   const entries = routes.map((path) => `  { path: ${JSON.stringify(path)}, indexable: true, inSitemap: true },`);
+  const patterns = new Map<string, string>();
+  for (const route of dynamicRoutesOnDisk) {
+    for (const pattern of policyPatternsFor(route)) if (pattern.endsWith("/*") && !patterns.has(pattern)) patterns.set(pattern, route);
+  }
+  for (const [pattern, route] of [...patterns].sort()) {
+    entries.push(
+      `  { path: ${JSON.stringify(pattern)}, indexable: true, inSitemap: false, isDynamicPattern: true, reason: ${JSON.stringify(
+        `Served by ${route}. List each generated URL in the sitemap from its data source.`,
+      )} },`,
+    );
+  }
   entries.push(
     `  { path: "/resources", indexable: false, inSitemap: false, reason: "Empty until the first linkable asset ships. Index it then." },`,
   );

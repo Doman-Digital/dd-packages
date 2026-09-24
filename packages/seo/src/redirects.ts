@@ -11,6 +11,7 @@
  * Exact paths only. Pattern redirects (`/blog/:slug`) are not in v0.2.
  */
 
+import { normalizeRoutePath } from "./normalize";
 import { getRoutePolicy } from "./policy";
 import type { RoutePolicyEntry } from "./policy";
 
@@ -61,12 +62,6 @@ export type ValidateRedirectsInput = {
 const isExternal = (to: string) => /^https?:\/\//i.test(to);
 const bareHost = (host: string) => host.toLowerCase().replace(/^www\./, "");
 
-/** Strip query and fragment, and a trailing slash anywhere but the root. Case is kept. */
-function normalisePath(path: string): string {
-  const clean = path.split(/[?#]/)[0] || "/";
-  return clean.length > 1 && clean.endsWith("/") ? clean.slice(0, -1) : clean;
-}
-
 type LinkedPath = { kind: "path"; path: string } | { kind: "invalid" } | { kind: "foreign" };
 
 // scheme://[userinfo@]host[:port]path — enough to pull a host and a path out
@@ -75,18 +70,18 @@ type LinkedPath = { kind: "path"; path: string } | { kind: "invalid" } | { kind:
 const ABSOLUTE = /^([a-z][a-z0-9+.-]*):\/\/(?:[^@/?#]*@)?([^/?#:]*)(?::\d*)?([^?#]*)/i;
 
 function linkedPath(url: string, hosts: Set<string> | null): LinkedPath {
-  if (url.startsWith("/")) return { kind: "path", path: normalisePath(url) };
+  if (url.startsWith("/")) return { kind: "path", path: normalizeRoutePath(url) };
   const match = ABSOLUTE.exec(url.trim());
   if (!match || !/^https?$/i.test(match[1]!) || !match[2]) return { kind: "invalid" };
   if (hosts && !hosts.has(bareHost(match[2]))) return { kind: "foreign" };
-  return { kind: "path", path: normalisePath(match[3] || "/") };
+  return { kind: "path", path: normalizeRoutePath(match[3] || "/") };
 }
 
 export function validateRedirects(input: ValidateRedirectsInput): RedirectIssue[] {
   const { linkedUrls, routesOnDisk, redirects, policy = [], hosts } = input;
   const issues: RedirectIssue[] = [];
 
-  const routes = new Set(routesOnDisk.map(normalisePath));
+  const routes = new Set(routesOnDisk.map((p) => normalizeRoutePath(p)));
   const hostSet = hosts && hosts.length ? new Set(hosts.map(bareHost)) : null;
 
   const isPage = (path: string) => {
@@ -98,8 +93,8 @@ export function validateRedirects(input: ValidateRedirectsInput): RedirectIssue[
   const byFrom = new Map<string, string>();
   const allTargets = new Map<string, string[]>();
   for (const r of redirects) {
-    const from = normalisePath(r.from);
-    const to = isExternal(r.to) ? r.to : normalisePath(r.to);
+    const from = normalizeRoutePath(r.from);
+    const to = isExternal(r.to) ? r.to : normalizeRoutePath(r.to);
     if (!byFrom.has(from)) byFrom.set(from, to);
     const seen = allTargets.get(from) ?? [];
     if (!seen.includes(to)) seen.push(to);
@@ -125,7 +120,7 @@ export function validateRedirects(input: ValidateRedirectsInput): RedirectIssue[
   const reportedLoops = new Set<string>();
   const checked = new Set<string>();
   for (const r of redirects) {
-    const from = normalisePath(r.from);
+    const from = normalizeRoutePath(r.from);
     if (checked.has(from)) continue;
     checked.add(from);
 
