@@ -139,13 +139,19 @@ describe("buildSpine / buildOrganization / buildWebsite", () => {
 });
 
 describe("buildService", () => {
-  it("references the org and website by @id instead of nesting literals", () => {
+  it("references the org by @id instead of nesting a literal", () => {
     const ids = createGraphIds(SITE_URL);
     const service = buildService({ name: "Rewiring", slug: "rewiring", url: "x" }, ids);
 
     expect(service.provider).toEqual({ "@id": ids.org });
-    expect(service.isPartOf).toEqual({ "@id": ids.website });
     expect(service["@id"]).toBe(ids.service("rewiring"));
+  });
+
+  it("does not emit isPartOf, which schema.org defines on CreativeWork only", () => {
+    const ids = createGraphIds(SITE_URL);
+    const service = buildService({ name: "Rewiring", slug: "rewiring", url: "x" }, ids);
+
+    expect(service).not.toHaveProperty("isPartOf");
   });
 });
 
@@ -705,20 +711,30 @@ describe("buildWebsite inLanguage", () => {
   });
 });
 
-describe("buildWebsite speakable", () => {
-  it("emits speakable only when provided", () => {
+describe("speakable", () => {
+  it("is ignored on WebSite, where schema.org does not define it", () => {
     const ids = createGraphIds(SITE_URL);
-    const withSpeakable = buildWebsite(
+    const website = buildWebsite(
       { name: "Acme", url: SITE_URL, speakable: { cssSelector: ["h1", "[data-speakable]"] } },
       ids,
     );
-    const withoutSpeakable = buildWebsite({ name: "Acme", url: SITE_URL }, ids);
+
+    expect(website).not.toHaveProperty("speakable");
+  });
+
+  it("is emitted on WebPage only when provided", () => {
+    const ids = createGraphIds(SITE_URL);
+    const withSpeakable = buildWebPage(
+      { path: "/", url: SITE_URL, name: "Home", speakable: { cssSelector: ["h1", "[data-speakable]"] } },
+      ids,
+    );
+    const withoutSpeakable = buildWebPage({ path: "/", url: SITE_URL, name: "Home" }, ids);
 
     expect(withSpeakable.speakable).toEqual({
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", "[data-speakable]"],
     });
-    expect(withoutSpeakable.speakable).toBeUndefined();
+    expect(withoutSpeakable).not.toHaveProperty("speakable");
   });
 });
 
@@ -913,5 +929,40 @@ describe("findGraphIssues -- new node kinds", () => {
     ]);
 
     expect(findGraphIssues(graph)).toEqual([]);
+  });
+});
+
+describe("findGraphIssues self-serving reviews", () => {
+  const ids = createGraphIds(SITE_URL);
+  const rated = buildOrganization({ ...ORG_INPUT, aggregateRating: { ratingValue: 4.9, reviewCount: 12 } }, ids);
+  const review = (body: string) => buildReview({ authorName: "Sam", reviewBody: body, ratingValue: 5 }, ids);
+
+  it("reports nothing extra without siteEntityId (unchanged behaviour)", () => {
+    const graph = buildGraph([rated, review("Great."), review("Good.")]);
+    expect(findGraphIssues(graph)).toEqual([]);
+  });
+
+  it("reports an aggregateRating on the site entity, and counts reviews of it once", () => {
+    const graph = buildGraph([rated, review("Great."), review("Good.")]);
+    expect(findGraphIssues(graph, { siteEntityId: ids.org })).toEqual([
+      `self-serving review: aggregateRating on ${ids.org}`,
+      `self-serving review: Review of ${ids.org} (2×)`,
+    ]);
+  });
+
+  it("finds a Review nested inside another node", () => {
+    const org = { ...buildOrganization(ORG_INPUT, ids), review: [review("Great.")] };
+    expect(findGraphIssues(buildGraph([org]), { siteEntityId: ids.org })).toEqual([
+      `self-serving review: Review of ${ids.org} (1×)`,
+    ]);
+  });
+
+  it("does not report ratings or reviews of a different entity", () => {
+    const product = buildProduct(
+      { slug: "van", name: "Van", url: `${SITE_URL}/van`, aggregateRating: { ratingValue: 4.8, reviewCount: 20 } },
+      ids,
+    );
+    const graph = buildGraph([buildOrganization(ORG_INPUT, ids), product]);
+    expect(findGraphIssues(graph, { siteEntityId: ids.org })).toEqual([]);
   });
 });

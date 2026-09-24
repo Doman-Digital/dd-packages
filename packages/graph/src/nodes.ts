@@ -69,6 +69,11 @@ export type OrganizationInput = {
    * literal's exact representation verbatim (e.g. a CMS or hand-written
    * value already typed as "5.0"/"411") rather than silently reformatting
    * it through JS number coercion. */
+  /**
+   * Ratings of this business shown on this business's own site are
+   * "self-serving" in Google's terms: valid markup, never eligible for
+   * review stars, and no manual action for that alone. See `buildReview`.
+   */
   aggregateRating?: { ratingValue: number | string; reviewCount: number | string } | null;
   /** Pre-built OfferCatalog (see buildOfferCatalog), passed through as-is. */
   hasOfferCatalog?: Record<string, unknown>;
@@ -192,8 +197,11 @@ export type WebsiteInput = {
     targetUrlTemplate: string;
     resultType?: Nullable<string>;
   } | null;
-  /** CSS selectors schema.org's `speakable` should read aloud (voice
-   * assistants/Google Assistant) -- e.g. `['h1', '[data-speakable]']`. */
+  /**
+   * @deprecated Ignored since 0.7.0. schema.org defines `speakable` on
+   * Article and WebPage only, so on a WebSite node parsers dropped it.
+   * Pass it to `buildWebPage` (or `buildArticle`) for the page instead.
+   */
   speakable?: { cssSelector: string[] } | null;
 };
 
@@ -215,9 +223,6 @@ export function buildWebsite(input: WebsiteInput, ids: GraphIds) {
         ? { result: { "@type": input.potentialAction.resultType } }
         : {}),
     };
-  }
-  if (input.speakable) {
-    node.speakable = { "@type": "SpeakableSpecification", cssSelector: input.speakable.cssSelector };
   }
   return node;
 }
@@ -348,7 +353,9 @@ export function buildService(input: ServiceInput, ids: GraphIds) {
     name: input.name,
     url: input.url,
     provider: { "@id": ids.org },
-    isPartOf: { "@id": ids.website },
+    // No `isPartOf` here: schema.org defines it on CreativeWork only, and a
+    // Service is an Intangible, so parsers dropped it. The service's own
+    // WebPage node carries the link to the WebSite.
   };
   if (input.description) node.description = input.description;
   if (input.serviceType) node.serviceType = input.serviceType;
@@ -380,6 +387,12 @@ export function buildOfferCatalog(name: string, services: Array<{ slug: string }
 
 export type FAQInput = { question: string; answerText: string };
 
+/**
+ * @deprecated Google stopped showing the FAQ rich result on 7 May 2026 and
+ * removed its documentation. The markup is still valid schema.org and this
+ * builder still works, so existing pages need no change; just don't add
+ * FAQPage markup expecting a search feature. Kept until the next major.
+ */
 export function buildFAQPage(faqs: FAQInput[], opts?: { id?: string; speakable?: boolean }) {
   if (faqs.length === 0) return null;
   const node: Record<string, unknown> = {
@@ -471,6 +484,10 @@ export type WebPageInput = {
   description?: Nullable<string>;
   dateModified?: Nullable<string>;
   inLanguage?: Nullable<string>;
+  /** CSS selectors schema.org's `speakable` should read aloud (voice
+   * assistants) -- e.g. `['h1', '[data-speakable]']`. Valid on WebPage and
+   * Article only, which is why it lives here and not on WebSite. */
+  speakable?: { cssSelector: string[] } | null;
 };
 
 export function buildWebPage(input: WebPageInput, ids: GraphIds) {
@@ -485,6 +502,9 @@ export function buildWebPage(input: WebPageInput, ids: GraphIds) {
   if (input.description) node.description = input.description;
   if (input.dateModified) node.dateModified = input.dateModified;
   if (input.inLanguage) node.inLanguage = input.inLanguage;
+  if (input.speakable) {
+    node.speakable = { "@type": "SpeakableSpecification", cssSelector: input.speakable.cssSelector };
+  }
   return node;
 }
 
@@ -544,8 +564,18 @@ export type ReviewInput = {
   } | null;
 };
 
-/** `itemReviewed` references the sitewide Organization by @id. No `@id` of
- * its own -- nothing else in the graph needs to reference a testimonial. */
+/**
+ * `itemReviewed` references the sitewide Organization by @id. No `@id` of
+ * its own -- nothing else in the graph needs to reference a testimonial.
+ *
+ * A review of the business, published on the business's own site, is what
+ * Google calls "self-serving": valid markup, but not eligible for review
+ * stars in search results. Google's guidelines limit Organization and
+ * LocalBusiness review snippets to sites that review *other* businesses,
+ * and say you won't get a manual action just for having it. Emit it for
+ * the entity graph, not in the hope of stars. `findGraphIssues(graph,
+ * { siteEntityId })` reports it.
+ */
 export function buildReview(input: ReviewInput, ids: GraphIds) {
   const node: Record<string, unknown> = {
     "@type": "Review",
