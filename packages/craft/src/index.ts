@@ -132,6 +132,25 @@ export { formatReport } from "./character/format.js";
 export { HOUSE, HOUSE_LOCKED, holdHouseBlocks, houseRule, type HouseRule, type HouseTier } from "./character/house.js";
 export { findClaims, formatClaims, namedSources, type Claim, type ClaimsReport } from "./character/claims.js";
 export { compareFacts, formatComparison, protectedFacts, visibleText, type Fact, type FactComparison, type FactKind } from "./character/facts.js";
+export {
+  briefTerms,
+  compareCompetitor,
+  countWords,
+  formatCompetitor,
+  pageCopy,
+  sentencesOf,
+  specificity,
+  specifics,
+  STOCK_FIGURES,
+  TRADE_NOUNS,
+  type CompetitorComparison,
+  type CopySide,
+  type PageCopy,
+  type Specific,
+  type SpecificKind,
+  type Specificity,
+} from "./character/specificity.js";
+export { HOME_FILE, HOME_URL, PROOF_NAMES, SPECIFICITY_COPY_TELLS, SPECIFICITY_RENDERED_TELLS, STANDING_CLAIM, unprovenClaims } from "./character/tells/specificity.js";
 export { auditSnapshot } from "./character/check.js";
 export {
   type Baseline,

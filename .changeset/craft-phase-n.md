@@ -1,0 +1,5 @@
+---
+"@domandigital/craft": minor
+---
+
+Phase N, specificity. `specificity(text, brief?)` counts what only this business could have written: names, places, numbers, prices, dates, contact details and trade nouns, with Title Case and shouted lines read without their capitals and stock figures ("24/7", "100%", "5-star") masked. A brief's own terms are recognised wherever they appear. Snapshots now record each section's `text` and the `firstScreenText` a visitor reads before scrolling, leaving out navigation, buttons, links and footers. Two new tells, both `warn`: `generic-hero-claim` (copy and rendered, home page only: the headline and the line under it name nothing particular) and `unproven-claim` (rendered: a claim of standing such as "trusted" or "fully qualified" with no review, rating, registration number or accreditation in its section or the one either side). `craft copy compare <ours> --competitor <theirs>` lists the hero and service sentences on each page that hold no specific the other page lacks. The catalogue table no longer prints "rendered + rendered" for rendered-only tells.
