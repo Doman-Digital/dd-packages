@@ -112,6 +112,14 @@ export interface SnapshotSection {
   role?: SectionRole;
   /** Version 2. */
   geometry?: SectionGeometry;
+  /** Version 2: short pill or label texts in the section ("Most popular", "New"), at most 5. */
+  badges?: string[];
+  /** Version 2: small round portraits (at most 96px, roughly square, radius 40% or more). */
+  avatars?: number;
+  /** Version 2: a horizontal scroller, snap track or prev/next control holds the content. */
+  carousel?: boolean;
+  /** Version 2: large standalone figures ("500+", "98%", "4.9/5") at 24px or more. */
+  figures?: number;
 }
 
 /**

@@ -114,6 +114,7 @@ export interface Flags {
   sarif?: string;
   pages?: string;
   viewport?: string;
+  component?: string;
   out?: string;
   repo?: string;
   width?: string;
@@ -151,6 +152,7 @@ const VALUE_FLAGS = {
   "--sarif": "sarif",
   "--pages": "pages",
   "--viewport": "viewport",
+  "--component": "component",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {

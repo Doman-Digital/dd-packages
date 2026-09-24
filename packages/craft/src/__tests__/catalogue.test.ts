@@ -35,22 +35,29 @@ describe("the tell catalogue", () => {
 
   // A guard that cannot fail is not a guard. Each entry proves both directions.
   describe.each(CATALOGUE.map((t) => [t.id, t] as const))("%s", (_id, tell) => {
-    it("has at least one flag and one pass fixture", () => {
-      expect(tell.fixtures.flag.length).toBeGreaterThan(0);
-      expect(tell.fixtures.pass.length).toBeGreaterThan(0);
-    });
+    if (tell.surface === "rendered") {
+      it("is seen on a rendered page, so it carries a rendered path", () => {
+        expect(tell.rendered).toBeDefined();
+      });
+    } else {
+      const { fixtures } = tell;
+      it("has at least one flag and one pass fixture", () => {
+        expect(fixtures.flag.length).toBeGreaterThan(0);
+        expect(fixtures.pass.length).toBeGreaterThan(0);
+      });
 
-    it("fires on every flag case, each on its own", () => {
-      for (const c of tell.fixtures.flag) {
-        const hits = runTell(tell, files(c));
-        expect(hits.length, files(c)[0].text.slice(0, 60)).toBeGreaterThan(0);
-        for (const hit of hits) expect(hit.message.length).toBeGreaterThan(0);
-      }
-    });
+      it("fires on every flag case, each on its own", () => {
+        for (const c of fixtures.flag) {
+          const hits = runTell(tell, files(c));
+          expect(hits.length, files(c)[0].text.slice(0, 60)).toBeGreaterThan(0);
+          for (const hit of hits) expect(hit.message.length).toBeGreaterThan(0);
+        }
+      });
 
-    it("stays quiet on every pass case", () => {
-      for (const c of tell.fixtures.pass) expect(runTell(tell, files(c))).toEqual([]);
-    });
+      it("stays quiet on every pass case", () => {
+        for (const c of fixtures.pass) expect(runTell(tell, files(c))).toEqual([]);
+      });
+    }
 
     if (tell.rendered) {
       const rendered = tell.rendered;

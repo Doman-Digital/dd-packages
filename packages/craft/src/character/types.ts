@@ -25,7 +25,13 @@ import type { Snapshot } from "../snapshot/types.js";
 export type Generation = 1 | 2 | 3;
 
 /** Where a tell is detected first. A source tell may also carry a rendered path. */
-export type Surface = "source" | "copy";
+/**
+ * Where a tell is detected first. `rendered` tells exist only on a rendered
+ * page (a pricing trio, a centred CTA band): source code cannot show them
+ * reliably, so they have no source detector and no source fixtures, only a
+ * rendered path with its own flag and pass snapshots.
+ */
+export type Surface = "source" | "copy" | "rendered";
 
 /**
  * `warn` is reported and never fails a run unless `--strict` is passed.
@@ -155,7 +161,13 @@ export interface CopyTell extends TellBase {
   detect(ctx: CopyContext): Hit[];
 }
 
-export type Tell = SourceTell | CopyTell;
+/** A tell with a rendered path only. See `Surface`. */
+export interface RenderedTell extends Omit<TellBase, "fixtures" | "rendered"> {
+  surface: "rendered";
+  rendered: RenderedPath;
+}
+
+export type Tell = SourceTell | CopyTell | RenderedTell;
 
 /**
  * A declared reason to keep a tell. Lives in the site's `art-direction.json`.
