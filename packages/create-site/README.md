@@ -83,13 +83,19 @@ On Astro with static output, redirects are meta-refresh pages rather than
 301s. For a migration, deploy with a host adapter or add host-level redirects;
 the launch checklist says so.
 
-## The sector register list is not yet checked
+## The sector register list
 
 `src/sectors.ts` lists the UK registers and directories each sector can claim.
-The names and homepages are well known, but whether each register shows a
-business website, and how it links, has not been verified by a person.
-`REGISTERS_CHECKED_ON` is `null` until someone has, and every generated
-checklist says so while it is.
+Each entry records what a real listing shows of the business's website
+(`followed`, `nofollow`, `shown-unlinked` or `not-shown`), the date someone
+opened one, and a note naming the listing or saying why none could be read.
+An entry nobody has checked has `website: null`, and the generated checklist
+says "Not checked" beside it, with the reason. A test refuses a status without
+a date and a date without a status.
+
+On 2026-09-24, 12 of the 42 entries were checked by rendering a listing in a
+browser. Most of the rest sit behind a CAPTCHA or a bot challenge, or have no
+single register. They need a person with a browser.
 
 ## Upgrading a site
 
