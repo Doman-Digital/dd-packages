@@ -24,6 +24,7 @@ import { extractStrings } from "../character/prose.js";
 import { fingerprint } from "../fingerprint/index.js";
 import type { Snapshot } from "../snapshot/types.js";
 import { extractHtml, harvest, hueSwatch, NULL_VERSION, nullPrompt, type HarvestCandidate, type NullModel, type NullRun, type Typicality } from "./index.js";
+import { toJson } from "../character/json.js";
 
 const readJson = <T>(path: string): T => JSON.parse(readFileSync(path, "utf8")) as T;
 const pad = (n: number): string => String(n).padStart(2, "0");
@@ -228,6 +229,6 @@ export function runHarvest(args: string[], io: Io): number {
   const minShare = flags.share === undefined ? undefined : Number(flags.share);
   if (minShare !== undefined && !(minShare > 0 && minShare <= 1)) throw new Error("--share needs a number above 0 and at most 1");
   const candidates = harvest(models, { minShare, copyTell });
-  io.out(flags.json ? JSON.stringify({ briefs: models.map((m) => m.brief), candidates }, null, 2) : formatHarvest(candidates, models));
+  io.out(flags.json ? toJson({ briefs: models.map((m) => m.brief), candidates }) : formatHarvest(candidates, models));
   return 0;
 }

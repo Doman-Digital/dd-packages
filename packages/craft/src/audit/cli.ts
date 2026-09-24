@@ -8,13 +8,15 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { auditSnapshot, scanSource } from "../character/check.js";
-import { finish, loadExceptions, parseFlags, readPaths, SOURCE_FILE, type Io } from "../character/cli.js";
+import { finish, loadConfig, loadExceptions, parseFlags, prepareReport, readPaths, SOURCE_FILE, type Flags, type Io } from "../character/cli.js";
+import { toJson } from "../character/json.js";
 import type { CheckReport } from "../character/types.js";
 import { fingerprint, type Fingerprint } from "../fingerprint/index.js";
 import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
 import { describeTypicality, loadNull } from "../null/cli.js";
 import { typicality } from "../null/index.js";
-import { snapshotUrl } from "./index.js";
+import { snapshotUrl, snapshotUrls } from "./index.js";
+import { parseSitemap, parseUrlList, parseViewports, type Viewport } from "./pages.js";
 
 const fmt = (o: { l: number; c: number; h: number } | null): string =>
   o ? `oklch(${o.l.toFixed(3)} ${o.c.toFixed(3)} ${o.h.toFixed(1)})` : "none";
@@ -59,45 +61,134 @@ function readSnapshot(path: string): Snapshot {
   return data;
 }
 
+async function readText(source: string, cwd: string): Promise<string> {
+  if (/^https?:\/\//i.test(source)) {
+    const res = await fetch(source);
+    if (!res.ok) throw new Error(`${source}: HTTP ${res.status}`);
+    return res.text();
+  }
+  const path = resolve(cwd, source);
+  if (!existsSync(path)) throw new Error(`no such file: ${source}`);
+  return readFileSync(path, "utf8");
+}
+
+/** Every URL `--pages` names: a sitemap (or sitemap index, one level deep), or a list. */
+export async function resolvePages(source: string, cwd: string): Promise<string[]> {
+  const text = await readText(source, cwd);
+  if (!/^\s*<(?:\?xml|urlset|sitemapindex)/i.test(text)) return parseUrlList(text);
+  const { urls, sitemaps } = parseSitemap(text);
+  const nested = await Promise.all(sitemaps.map(async (s) => parseSitemap(await readText(s, cwd)).urls));
+  const all = [...urls, ...nested.flat()];
+  if (all.length === 0) throw new Error(`${source}: no <loc> entries`);
+  return [...new Set(all)];
+}
+
+interface Audited {
+  url: string;
+  viewport: Viewport | null;
+  snapshot: Snapshot;
+}
+
+interface Failed {
+  url: string;
+  viewport: Viewport | null;
+  error: string;
+}
+
+function viewportsOf(flags: Flags): (Viewport | undefined)[] {
+  if (flags.viewport) return parseViewports(flags.viewport);
+  if (flags.width || flags.height) return [{ width: Number(flags.width ?? 1440), height: Number(flags.height ?? 900) }];
+  return [undefined];
+}
+
 export async function runAudit(command: "snapshot" | "audit", args: string[], io: Io): Promise<number> {
   try {
     const flags = parseFlags(args);
     if (typeof flags === "string") throw new Error(flags);
     const target = flags.positional[0];
-    if (!target) throw new Error(`usage: craft ${command} <url${command === "audit" ? " | snapshot.json" : ""}>`);
-    const viewport = flags.width || flags.height ? { width: Number(flags.width ?? 1440), height: Number(flags.height ?? 900) } : undefined;
+    if (command === "snapshot" && (flags.pages || flags.viewport)) throw new Error("craft snapshot takes one page; use --width and --height");
+    if (flags.pages && target) throw new Error("give a page or --pages, not both");
+    if (!target && !flags.pages) throw new Error(`usage: craft ${command} <url${command === "audit" ? " | snapshot.json> | --pages <sitemap.xml | urls.txt>" : ">"}`);
+    const viewports = viewportsOf(flags);
 
-    const local = resolve(io.cwd, target);
-    const snapshot = command === "audit" && /\.json$/i.test(target) && existsSync(local) ? readSnapshot(local) : await snapshotUrl(target, { viewport });
+    const audited: Audited[] = [];
+    const failed: Failed[] = [];
+    const local = target ? resolve(io.cwd, target) : "";
+    if (target && command === "audit" && /\.json$/i.test(target) && existsSync(local)) {
+      audited.push({ url: target, viewport: null, snapshot: readSnapshot(local) });
+    } else if (target && viewports.length === 1) {
+      const snapshot = await snapshotUrl(target, { viewport: viewports[0] });
+      audited.push({ url: target, viewport: viewports[0] ?? null, snapshot });
+    } else {
+      const urls = flags.pages ? await resolvePages(flags.pages, io.cwd) : [target!];
+      for (const viewport of viewports) {
+        for (const r of await snapshotUrls(urls, { viewport })) {
+          if (r.snapshot) audited.push({ url: r.url, viewport: viewport ?? null, snapshot: r.snapshot });
+          else failed.push({ url: r.url, viewport: viewport ?? null, error: r.error ?? "no snapshot" });
+        }
+      }
+    }
+    if (audited.length === 0) throw new Error(`no page could be measured:\n${failed.map((f) => `  ${f.url}: ${f.error}`).join("\n")}`);
 
-    if (flags.out) writeFileSync(resolve(io.cwd, flags.out), `${JSON.stringify(snapshot, null, 2)}\n`);
+    const single = audited.length === 1 && failed.length === 0;
+    if (flags.out) {
+      if (!single) throw new Error("--out saves one snapshot; drop --pages and --viewport, or snapshot each page");
+      writeFileSync(resolve(io.cwd, flags.out), `${JSON.stringify(audited[0].snapshot, null, 2)}\n`);
+    }
     if (command === "snapshot") {
+      const { snapshot } = audited[0];
       if (!flags.out) io.out(JSON.stringify(snapshot, null, 2));
       else io.out(`craft snapshot: ${snapshot.url} saved to ${flags.out}`);
       return 0;
     }
 
-    const exceptions = loadExceptions(flags, flags.repo ? resolve(io.cwd, flags.repo) : io.cwd);
-    let report = auditSnapshot(snapshot, { exceptions });
+    const root = flags.repo ? resolve(io.cwd, flags.repo) : io.cwd;
+    const exceptions = loadExceptions(flags, root);
+    const config = loadConfig(flags, root);
+    // Several widths of one page are several findings: say which width each is from.
+    const label = (a: Audited): string => (viewports.length > 1 && a.viewport ? `${a.snapshot.url} @ ${a.viewport.width}px` : a.snapshot.url);
+    let report = audited
+      .map((a) => {
+        const r = auditSnapshot(a.snapshot, { exceptions });
+        return { ...r, findings: r.findings.map((f) => ({ ...f, path: label(a) })) };
+      })
+      .reduce((acc, r) => merge(acc, r));
     if (flags.repo) {
-      const repo = resolve(io.cwd, flags.repo);
-      report = merge(scanSource(readPaths(["."], repo, SOURCE_FILE), { exceptions }), report);
+      report = merge(scanSource(readPaths(["."], root, SOURCE_FILE, undefined, config.ignore), { exceptions }), report);
     }
-    const fp = fingerprint(snapshot);
+    const prepared = prepareReport(report, flags, io, config);
+    if (!prepared) return 0;
+
     const nulls = flags.null ? flags.null.split(",").map((p) => loadNull(p.trim(), io.cwd)) : [];
-    const typical = nulls.length ? typicality(fp, nulls.flatMap((m, i) => m.runs.map((r) => (nulls.length > 1 ? { ...r, id: `${i + 1}/${r.id}` } : r)))) : null;
+    const pooled = nulls.flatMap((m, i) => m.runs.map((r) => (nulls.length > 1 ? { ...r, id: `${i + 1}/${r.id}` } : r)));
+    const pages = audited.map((a) => {
+      const fp = fingerprint(a.snapshot);
+      return { url: a.snapshot.url, viewport: a.viewport, fingerprint: fp, typicality: nulls.length ? typicality(fp, pooled) : null };
+    });
+    const unmeasured = failed.length > 0 && flags.strict ? 1 : 0;
+
     if (flags.json) {
-      io.out(JSON.stringify({ report, fingerprint: fp, typicality: typical, snapshot: flags.out ?? null }, null, 2));
-      return report.summary.blocking > 0 || (flags.strict && report.summary.findings > 0) ? 1 : 0;
+      const extra = single ? { fingerprint: pages[0].fingerprint, typicality: pages[0].typicality, snapshot: flags.out ?? null } : {};
+      io.out(toJson({ report: prepared, ...extra, pages, failed }));
+      return Math.max(prepared.summary.blocking > 0 || (flags.strict && prepared.summary.findings > 0) ? 1 : 0, unmeasured);
     }
-    const code = finish(report, { ...flags, json: false }, `craft audit ${snapshot.url}`, io);
-    io.out("");
-    io.out(describeFingerprint(fp));
-    if (typical) {
+    const title = single ? `craft audit ${audited[0].snapshot.url}` : `craft audit: ${audited.length} page${audited.length === 1 ? "" : "s"}`;
+    const code = finish(prepared, { ...flags, json: false }, title, io);
+    for (const page of pages) {
       io.out("");
-      io.out(describeTypicality(typical, nulls.reduce((s, m) => s + m.runs.length, 0), nulls.length));
+      if (!single) io.out(`${page.url}${page.viewport ? ` @ ${page.viewport.width}px` : ""}`);
+      io.out(describeFingerprint(page.fingerprint));
+      if (page.typicality) {
+        io.out("");
+        io.out(describeTypicality(page.typicality, pooled.length, nulls.length));
+      }
     }
-    return code;
+    if (failed.length) {
+      io.out("");
+      io.out("Not measured (never counts as a pass):");
+      for (const f of failed) io.out(`  ${f.url}${f.viewport ? ` @ ${f.viewport.width}px` : ""}: ${f.error}`);
+    }
+    return Math.max(code, unmeasured);
   } catch (error) {
     io.err(`craft: ${(error as Error).message}`);
     return 2;

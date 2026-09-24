@@ -16,8 +16,28 @@ Update this file in the same PR that moves a phase.
 | D | Counterfactual null model (`claude -p`, about 20 runs a brief), `craft tells harvest` | Merged: dd-packages #21. |
 | E | Estate register, `craft estate add\|compare` | Merged: dd-packages #22. |
 | F | Character report, `craft retrofit`, the character skill, trawl and drift-guards switches | Merged: dd-packages #23, drift-guards #4, trawl #6, claude-kit #8. |
-| G | Retrofits, one session per site | Ready to start. Each site's checklist is in `calibration/report/`. |
+| G | Retrofits, one session per site | Done, outside this repo, 2026-09-24. Results are tracked in Linear. The art direction they feed is being written; J waits on it. |
 | H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, eight research tells, the `craft copy compare` preservation gate, the copy-check skill rebuilt, and `@domandigital/sanity-copy` for the Studio | Merged: dd-packages #24 and #26, claude-kit #10 and #11. `sanity-copy` in review; installing it in the DD Studio waits on its first npm release. Runs alongside G and does not block it. |
+| I | Enterprise foundation: `craft.config.json` (ignore globs, `copyPaths`, severity changes with a reason), `--baseline`/`--update-baseline`, `--sarif`, `schemaVersion` on every `--json`, `craft audit --pages` and `--viewport`; `.claude`, `.agents` and `.cursor` never walked | In review. |
+| J | `craft direction build` (tokens from decided choices), `craft brief` (instructions for an agent), `craft loop` (build, audit, change list), and the skill | Waiting on the art direction. Released by the first two or three decided `art-direction.json` files. |
+| K | Snapshot v2: section kinds (CTA band, pricing, testimonials, FAQ, process, features, team, contact), per-section geometry, screenshot measures (colourfulness, edge density, symmetry), a v1 reader; recalibration | Planned. |
+| L | Component-level sameness: component fingerprints, `craft estate compare --component`, per-component typicality, six rendered tells (`cta-band-stock`, `pricing-trio-popular`, `testimonial-avatar-carousel`, `faq-accordion-closer`, `stats-row`, `centred-everything`) | Planned. Needs K. |
+| M | Imagery and provenance: every image in the snapshot, an XMP/C2PA byte scan for AI-generated media, `stock-photo`, `ai-image`, `stock-avatar`, `no-real-imagery` | Planned. The `imagery` choice key in `art-direction.json` waits on the art direction. |
+| N | Specificity: `specificity(text, brief)`, `generic-hero-claim`, proof in context, `craft copy compare --competitor` | Planned. |
+| O | `@domandigital/craft-judge`: a vision-model second opinion, advisory only | Later, once K to N are stable. |
+
+## Waiting on the art direction
+
+Listed so they are not lost, and not built until the art direction exists:
+
+- Phase J, all of it.
+- The `imagery` choice key in `art-direction.json` (Phase M's other parts do
+  not wait).
+- Any change to `SOURCE_KINDS` (for example, screenshots of delivered work).
+- Version 2 of the `art-direction.json` schema.
+
+Each is released by what the first decided sites could not express in
+version 1 of the schema.
 
 ## Rules that hold for every phase
 
