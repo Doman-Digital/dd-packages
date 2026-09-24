@@ -1,5 +1,31 @@
 # @domandigital/craft
 
+## 0.11.0
+
+### Minor Changes
+
+- e2ea0e8: Phase I: craft in CI.
+
+  - `craft.config.json`: `ignore` globs, `copyPaths` (where `craft copy` looks when given no path), and `severity` changes per tell. Every severity change needs a `because` of at least a sentence; `off` is applied as an exception, so the report still lists what it silenced. `--config <file>` points elsewhere.
+  - `.claude`, `.agents` and `.cursor` are never walked (a path named on the command line is still read).
+  - `--baseline <file>` reports only findings the baseline does not hold; `--update-baseline` writes it. Findings are keyed on tell, path and excerpt, not line, and counted.
+  - `--sarif <file>` writes SARIF 2.1.0 for GitHub code scanning.
+  - Every `--json` output carries `schemaVersion: 1`. The audit JSON adds `pages` and `failed`.
+  - `craft audit --pages <sitemap.xml | urls.txt>` and `--viewport 390,768,1440`. A page that will not load is listed as not measured and fails `--strict`.
+  - **Behaviour change:** a page that answers with an HTTP error (404, 500) is no longer snapshotted as if it were the page. `snapshotUrls` reports it as an error and `snapshotUrl` throws `HTTP <status>`. Before, a missing page was measured, and reported clean.
+  - New exports: `createBaseline`, `applyBaseline`, `parseBaseline`, `findingKey`, `parseCraftConfig`, `applySeverity`, `severityExceptions`, `globToRegExp`, `ignoreMatcher`, `DEFAULT_IGNORE`, `toSarif`, `toJson`, `JSON_SCHEMA_VERSION`.
+
+- 3eb1560: CommonJS consumers now get the CommonJS type declarations. The `exports` map put a top-level `types` (the ESM `.d.ts`) ahead of `require`, so TypeScript resolving a `require` under `node16` stopped at the ESM file ("Masquerading as ESM" in @arethetypeswrong/cli). `types` now sits inside `import` and `require` separately. Runtime behaviour is unchanged.
+
+  Requires Node 22.12 or later (`engines.node`). Node 20 reached end of life on 2026-04-30. Also declares `sideEffects` so bundlers can tree-shake (craft keeps its CSS).
+
+## 0.10.0
+
+### Minor Changes
+
+- cd13c94: `craft copy claims <paths>` lists every sentence holding a price, figure, date or named source, marked sourced or UNSOURCED, for a person to check against the primary source. `findClaims` and `formatClaims` do the same in code. No tell can tell a true figure from a false one; this makes the checking a list instead of a hunt.
+- cd13c94: Catalogue 2026.09.8, from reading all 144 review findings on the live DD site. New tell `prompt-context` (review): the model naming its own inputs, "the attached Perplexity research file", 24 real hits in five live articles. Tuned: `inline-label-list` leaves reference and data lists alone (0 of 11 hits were real), `staccato-triplet` no longer crosses a paragraph break, `ing-tail` passes a list of tasks, `repeated-sentence` ignores footnotes repeating a source title.
+
 ## 0.9.0
 
 ### Minor Changes

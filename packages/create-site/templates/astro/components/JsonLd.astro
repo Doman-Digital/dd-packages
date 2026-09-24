@@ -1,0 +1,14 @@
+---
+// One JSON-LD script per page. Pass buildPageGraph({ path, name, description }).
+// Written by @domandigital/create-site.
+import { escapeJsonLdForScript } from "@domandigital/graph";
+import type { JsonLdGraph } from "@domandigital/graph";
+
+interface Props {
+  graph: JsonLdGraph;
+}
+
+const { graph } = Astro.props;
+---
+
+<script type="application/ld+json" is:inline set:html={escapeJsonLdForScript(JSON.stringify(graph))} />

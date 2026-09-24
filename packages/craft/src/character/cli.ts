@@ -6,9 +6,13 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
+import { applyBaseline, createBaseline, parseBaseline } from "./baseline.js";
 import { CATALOGUE, CATALOGUE_VERSION, applyHouseGate, checkCopy, scanSource } from "./check.js";
+import { type CraftConfig, DEFAULT_IGNORE, applySeverity, ignoreMatcher, parseCraftConfig, severityExceptions } from "./config.js";
+import { toJson } from "./json.js";
+import { toSarif } from "./sarif.js";
 import { houseRule } from "./house.js";
 import { findClaims, formatClaims } from "./claims.js";
 import { compareFacts, formatComparison, visibleText } from "./facts.js";
@@ -30,14 +34,15 @@ const NOT_SITE_COPY = /^(?:README|CHANGELOG|CLAUDE|AGENTS|CONTRIBUTING|LICENSE|C
 const HELP = `craft: find the AI look and say what to do instead.
 
 Usage
-  craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>]
-  craft copy <paths...> [--gate] [--json] [--strict] [--direction <file>]
+  craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>] [ci options]
+  craft copy [paths...] [--gate] [--json] [--strict] [--direction <file>] [ci options]
   craft copy compare <before> <after> [--json]
   craft copy claims <paths...> [--json]
   craft tells list [--json]
   craft tells harvest <null.json | dir>... [--share 0.25] [--json]
   craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
-  craft audit <url | snapshot.json> [--repo <dir>] [--null <null.json>] [--out <file>] [--json] [--strict]
+  craft audit <url | snapshot.json> [--repo <dir>] [--null <null.json>] [--out <file>] [--json] [--strict] [ci options]
+  craft audit --pages <sitemap.xml | urls.txt> [--viewport 390,768,1440] [the same]
   craft direction init [--snapshot <file>] [--client <name>] [--out <file>]
   craft direction validate [--snapshot <file>] [--direction <file>] [--json]
   craft direction propose [--snapshot <file>] [--estate <estate.json | dir>] [--out <file>]
@@ -65,6 +70,8 @@ audit     Judge a rendered page (live, or a saved snapshot) and fingerprint it.
           --repo also scans that site's source, so one report covers both.
           --null scores how typical it is against a null model (comma-separate
           several to pool them).
+          --pages audits every URL in a sitemap (a URL or a file) or a file of
+          URLs, one per line. --viewport audits each page at these widths.
           snapshot and audit need Playwright: npm i -D playwright.
 direction The site's art-direction.json: every choice with a reason from the
           client's world. init writes today's choices with empty reasons;
@@ -81,8 +88,18 @@ report    Every signal for one site: tells, typicality, the estate, the reasons.
 retrofit  The report as a checklist: decide, then change type, colour, shape,
           effects, motion and copy. Never the page grammar.
 
+ci options (scan, copy, audit)
+  --baseline <file>     Report only findings the baseline does not already
+                        hold. Keyed on tell, path and excerpt, not line.
+  --update-baseline     Write every current finding to --baseline, exit 0.
+  --sarif <file>        Also write SARIF 2.1.0, for GitHub code scanning.
+  --config <file>       craft.config.json, default: the working directory.
+
 Exceptions come from art-direction.json in the working directory, or --direction.
-Every tell ships as warn: exit 1 only on a block, or on any finding with --strict.`;
+craft.config.json holds ignore globs, copyPaths, and severity changes, each
+with a because. .claude, .agents and .cursor are never walked.
+Every tell ships as warn: exit 1 only on a block, or on any finding with --strict.
+--json output always carries schemaVersion.`;
 
 export interface Flags {
   positional: string[];
@@ -90,7 +107,13 @@ export interface Flags {
   strict: boolean;
   staged: boolean;
   gate: boolean;
+  updateBaseline: boolean;
   direction?: string;
+  config?: string;
+  baseline?: string;
+  sarif?: string;
+  pages?: string;
+  viewport?: string;
   out?: string;
   repo?: string;
   width?: string;
@@ -123,16 +146,22 @@ const VALUE_FLAGS = {
   "--share": "share",
   "--null": "null",
   "--id": "id",
+  "--config": "config",
+  "--baseline": "baseline",
+  "--sarif": "sarif",
+  "--pages": "pages",
+  "--viewport": "viewport",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
-  const flags: Flags = { positional: [], json: false, strict: false, staged: false, gate: false };
+  const flags: Flags = { positional: [], json: false, strict: false, staged: false, gate: false, updateBaseline: false };
   for (let i = 0; i < args.length; i += 1) {
     const a = args[i];
     if (a === "--json") flags.json = true;
     else if (a === "--strict") flags.strict = true;
     else if (a === "--staged") flags.staged = true;
     else if (a === "--gate") flags.gate = true;
+    else if (a === "--update-baseline") flags.updateBaseline = true;
     else if (a in VALUE_FLAGS) {
       const value = args[i + 1];
       i += 1;
@@ -144,17 +173,26 @@ export function parseFlags(args: string[]): Flags | string {
   return flags;
 }
 
-function walk(root: string, cwd: string, into: SourceFile[], wanted: (name: string) => boolean, skipDir = (_: string) => false): void {
+function walk(
+  root: string,
+  cwd: string,
+  into: SourceFile[],
+  wanted: (name: string) => boolean,
+  skipDir = (_: string) => false,
+  ignored = (_: string) => false,
+): void {
   const stat = statSync(root);
   if (stat.isFile()) {
     if (stat.size <= MAX_BYTES) into.push({ path: relative(cwd, root) || root, text: readFileSync(root, "utf8") });
     return;
   }
   for (const entry of readdirSync(root, { withFileTypes: true })) {
+    const path = join(root, entry.name);
+    if (ignored(relative(cwd, path))) continue;
     if (entry.isDirectory()) {
-      if (!SKIP_DIRS.has(entry.name) && !skipDir(entry.name)) walk(join(root, entry.name), cwd, into, wanted, skipDir);
+      if (!SKIP_DIRS.has(entry.name) && !skipDir(entry.name)) walk(path, cwd, into, wanted, skipDir, ignored);
     } else if (entry.isFile() && wanted(entry.name)) {
-      walk(join(root, entry.name), cwd, into, wanted, skipDir);
+      walk(path, cwd, into, wanted, skipDir, ignored);
     }
   }
 }
@@ -162,21 +200,30 @@ function walk(root: string, cwd: string, into: SourceFile[], wanted: (name: stri
 /**
  * A path named on the command line is always read. Filters apply only to what
  * a directory walk finds, so `craft copy README.md` still checks the README.
+ * `ignore` is `craft.config.json`'s globs; `DEFAULT_IGNORE` always applies.
  */
-export function readPaths(paths: string[], cwd: string, wanted: (name: string) => boolean, skipDir?: (name: string) => boolean): SourceFile[] {
+export function readPaths(
+  paths: string[],
+  cwd: string,
+  wanted: (name: string) => boolean,
+  skipDir?: (name: string) => boolean,
+  ignore: string[] = [],
+): SourceFile[] {
   const files: SourceFile[] = [];
+  const ignored = ignoreMatcher([...DEFAULT_IGNORE, ...ignore]);
   for (const p of paths) {
     const abs = resolve(cwd, p);
     if (!existsSync(abs)) throw new Error(`no such path: ${p}`);
-    walk(abs, cwd, files, wanted, skipDir);
+    walk(abs, cwd, files, wanted, skipDir, ignored);
   }
   return files;
 }
 
-function readStaged(cwd: string, wanted: (path: string) => boolean): SourceFile[] {
+function readStaged(cwd: string, wanted: (path: string) => boolean, ignore: string[]): SourceFile[] {
+  const ignored = ignoreMatcher([...DEFAULT_IGNORE, ...ignore]);
   const names = execFileSync("git", ["diff", "--cached", "--name-only", "--diff-filter=ACMR", "-z"], { cwd, encoding: "utf8" })
     .split("\0")
-    .filter((p) => p && wanted(p));
+    .filter((p) => p && wanted(p) && !ignored(p));
   return names.map((path) => ({
     path,
     // The index, not the working tree: the commit is what gets checked.
@@ -184,18 +231,60 @@ function readStaged(cwd: string, wanted: (path: string) => boolean): SourceFile[
   }));
 }
 
+const NO_CONFIG: CraftConfig = { ignore: [], severity: {} };
+
+/** `craft.config.json` in `root`, or `--config`. None is an empty config. */
+export function loadConfig(flags: Flags, root: string): CraftConfig {
+  const path = resolve(root, flags.config ?? "craft.config.json");
+  if (!existsSync(path)) {
+    if (flags.config) throw new Error(`no such file: ${flags.config}`);
+    return NO_CONFIG;
+  }
+  return parseCraftConfig(JSON.parse(readFileSync(path, "utf8")), new Set(CATALOGUE.map((t) => t.id)), flags.config ?? "craft.config.json");
+}
+
+/** Exceptions from art-direction.json, and every `off` in craft.config.json. */
 export function loadExceptions(flags: Flags, cwd: string): TellException[] {
+  const fromConfig = severityExceptions(loadConfig(flags, cwd));
   const path = resolve(cwd, flags.direction ?? "art-direction.json");
   if (!existsSync(path)) {
     if (flags.direction) throw new Error(`no such file: ${flags.direction}`);
-    return [];
+    return fromConfig;
   }
   const data = JSON.parse(readFileSync(path, "utf8")) as { exceptions?: TellException[] };
-  return Array.isArray(data.exceptions) ? data.exceptions : [];
+  return [...(Array.isArray(data.exceptions) ? data.exceptions : []), ...fromConfig];
 }
 
-export function finish(report: CheckReport, flags: Flags, title: string, io: Io): number {
-  io.out(flags.json ? JSON.stringify(report, null, 2) : formatReport(report, title));
+/**
+ * The ci options, in order: the config's severity changes, then the
+ * baseline (written, or subtracted), then SARIF. Returns `null` when the run
+ * only wrote a baseline.
+ */
+export function prepareReport(report: CheckReport, flags: Flags, io: Io, config: CraftConfig): (CheckReport & { baselined?: number }) | null {
+  let result: CheckReport & { baselined?: number } = applySeverity(report, config);
+  if (flags.updateBaseline) {
+    if (!flags.baseline) throw new Error("--update-baseline needs --baseline <file>");
+    const baseline = createBaseline(result);
+    writeFileSync(resolve(io.cwd, flags.baseline), `${JSON.stringify(baseline, null, 2)}\n`);
+    io.out(`craft: baseline of ${result.findings.length} finding${result.findings.length === 1 ? "" : "s"} written to ${flags.baseline}`);
+    return null;
+  }
+  if (flags.baseline) {
+    const path = resolve(io.cwd, flags.baseline);
+    if (!existsSync(path)) throw new Error(`no such file: ${flags.baseline} (create it with --update-baseline)`);
+    result = applyBaseline(result, parseBaseline(JSON.parse(readFileSync(path, "utf8")), flags.baseline));
+  }
+  if (flags.sarif) {
+    writeFileSync(resolve(io.cwd, flags.sarif), `${JSON.stringify(toSarif(result, { tells: CATALOGUE }), null, 2)}\n`);
+  }
+  return result;
+}
+
+export function finish(report: CheckReport & { baselined?: number }, flags: Flags, title: string, io: Io): number {
+  io.out(flags.json ? toJson(report) : formatReport(report, title));
+  if (!flags.json && report.baselined) {
+    io.out(`${report.baselined} known finding${report.baselined === 1 ? "" : "s"} not shown: already in ${flags.baseline}.`);
+  }
   if (report.summary.blocking > 0) return 1;
   if (flags.strict && report.summary.findings > 0) return 1;
   return 0;
@@ -249,7 +338,7 @@ export function run(argv: string[], io: Io): number | Promise<number> {
           id, name, generation, surface, severity, why, fix,
           ...(surface === "copy" ? { house: houseRule(id, name).tier, houseLabel: houseRule(id, name).label } : {}),
         }));
-        io.out(JSON.stringify({ version: CATALOGUE_VERSION, tells: data }, null, 2));
+        io.out(toJson({ version: CATALOGUE_VERSION, tells: data }));
       } else {
         io.out(`Catalogue ${CATALOGUE_VERSION}`);
         for (const t of CATALOGUE) io.out(`  ${t.id.padEnd(24)} gen ${t.generation}  ${t.surface.padEnd(6)}  ${t.name}`);
@@ -267,7 +356,7 @@ export function run(argv: string[], io: Io): number | Promise<number> {
         return visibleText({ path: p, text: readFileSync(abs, "utf8") });
       });
       const result = compareFacts(before, after);
-      io.out(flags.json ? JSON.stringify(result, null, 2) : formatComparison(result, flags.positional[0], flags.positional[1]));
+      io.out(flags.json ? toJson(result) : formatComparison(result, flags.positional[0], flags.positional[1]));
       return result.lost.length || result.added.length ? 1 : 0;
     }
 
@@ -276,7 +365,7 @@ export function run(argv: string[], io: Io): number | Promise<number> {
       if (typeof flags === "string") throw new Error(flags);
       if (flags.positional.length === 0) throw new Error("usage: craft copy claims <paths...> [--json]");
       const report = findClaims(readPaths(flags.positional, io.cwd, COPY_FILE, NOT_COPY_DIR));
-      io.out(flags.json ? JSON.stringify(report, null, 2) : formatClaims(report));
+      io.out(flags.json ? toJson(report) : formatClaims(report));
       // A checklist, not a gate: nothing here is a verdict.
       return 0;
     }
@@ -285,14 +374,18 @@ export function run(argv: string[], io: Io): number | Promise<number> {
       const flags = parseFlags(rest);
       if (typeof flags === "string") throw new Error(flags);
       const wanted = command === "scan" ? SOURCE_FILE : COPY_FILE;
-      if (command === "copy" && flags.positional.length === 0 && !flags.staged) throw new Error("usage: craft copy <paths...>");
+      const config = loadConfig(flags, io.cwd);
+      const paths = flags.positional.length > 0 ? flags.positional : command === "copy" ? config.copyPaths ?? [] : ["."];
+      if (command === "copy" && paths.length === 0 && !flags.staged) throw new Error("usage: craft copy <paths...> (or copyPaths in craft.config.json)");
       const files = flags.staged
-        ? readStaged(io.cwd, wanted)
-        : readPaths(flags.positional.length > 0 ? flags.positional : ["."], io.cwd, wanted, command === "copy" ? NOT_COPY_DIR : undefined);
+        ? readStaged(io.cwd, wanted, config.ignore)
+        : readPaths(paths, io.cwd, wanted, command === "copy" ? NOT_COPY_DIR : undefined, config.ignore);
       const exceptions = loadExceptions(flags, io.cwd);
       let report = command === "scan" ? scanSource(files, { exceptions }) : checkCopy(files, { exceptions });
       if (command === "copy" && flags.gate) report = applyHouseGate(report);
-      return finish(report, flags, command === "scan" ? "craft scan" : "craft copy", io);
+      const prepared = prepareReport(report, flags, io, config);
+      if (!prepared) return 0;
+      return finish(prepared, flags, command === "scan" ? "craft scan" : "craft copy", io);
     }
 
     throw new Error(`unknown command "${command}". Run craft --help.`);

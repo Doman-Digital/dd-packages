@@ -94,6 +94,41 @@ reason, in `art-direction.json`:
 { "exceptions": [{ "tell": "ai-violet", "because": "Violet is on the van, the cards and the fascia." }] }
 ```
 
+### In CI
+
+```bash
+npx craft scan --baseline craft-baseline.json --update-baseline   # once: adopt today's findings
+npx craft scan --baseline craft-baseline.json --strict --sarif craft.sarif
+npx craft audit --pages https://example.com/sitemap.xml --viewport 390,1440
+```
+
+- `--baseline` reports only findings the baseline does not already hold. A
+  finding is keyed on its tell, path and excerpt, never its line, so an edit
+  above a known finding does not make it new. The output says how many known
+  findings it left out.
+- `--sarif <file>` writes SARIF 2.1.0 for GitHub code scanning. Findings on a
+  rendered page carry the URL, not a file, so code scanning does not show them.
+- `--json` output always carries `schemaVersion` (currently 1).
+- `--pages` audits every URL in a sitemap (or a sitemap index, one level deep)
+  or a file of URLs; `--viewport` audits each at those widths. A page that
+  will not load is listed as not measured, and fails `--strict`.
+
+`craft.config.json` in the repo root holds what craft should know about the
+repo. `.claude`, `.agents` and `.cursor` are never walked, config or not.
+
+```json
+{
+  "ignore": ["docs/archive/**", "*.stories.tsx"],
+  "copyPaths": ["content", "src/app"],
+  "severity": {
+    "em-dash": { "level": "block", "because": "This client's style guide bans them outright." }
+  }
+}
+```
+
+A severity change needs a `because`, like an exception. `off` is applied as an
+exception, so the report lists what it silenced.
+
 ### Copy
 
 [COPY.md](./COPY.md) is the house copy standard: the blocking tier, the review

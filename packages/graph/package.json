@@ -1,6 +1,6 @@
 {
   "name": "@domandigital/graph",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": false,
   "description": "Schema.org entity-graph builders: stable @id vocabulary, node builders, and a validator that catches unresolved refs and duplicate @ids before they ship.",
   "license": "Apache-2.0",
@@ -8,10 +8,13 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
@@ -29,7 +32,8 @@
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build",
+    "snapshot:vocab": "node scripts/snapshot-vocab.mjs"
   },
   "devDependencies": {
     "tsup": "^8.3.5",
@@ -37,7 +41,7 @@
     "vitest": "^2.1.9"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.12"
   },
   "packageManager": "pnpm@9.15.9",
   "repository": {

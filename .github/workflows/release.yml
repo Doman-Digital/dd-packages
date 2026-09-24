@@ -1,6 +1,6 @@
 name: Release
 
-# Versioning and publishing for all three packages, via Changesets. Each
+# Versioning and publishing for every package, via Changesets. Each
 # package versions independently (see .changeset/config.json) -- this one
 # workflow replaces the three separate tag-triggered release.yml files the
 # packages had before they shared a repo.
@@ -116,13 +116,19 @@ jobs:
       #
       # The upstream fix is @changesets/cli 3.x ("route package manager calls
       # through their respective CLIs during pnpm publish"), which needs pnpm
-      # >= 10 and Node >= 22.11 -- the latter would drop the 20.x leg in ci.yml.
-      # Do that deliberately, not as a side effect of a version float.
+      # >= 10 and Node >= 22.11. Node 20 left ci.yml in 2026-09; pnpm 10 is the
+      # remaining step. Do that deliberately, not as a side effect of a version
+      # float: see docs/releasing.md.
       - name: Use an npm that understands trusted publishing
         run: npm install -g "npm@^11.5.1"
 
       - name: Install
         run: pnpm install --frozen-lockfile
+
+      # Never publish a tarball that has not been installed and loaded in a
+      # clean ESM and CommonJS project. See scripts/check-tarballs.mjs.
+      - name: Tarballs
+        run: pnpm run build && pnpm run check:tarballs
 
       - name: Version or publish
         uses: changesets/action@v1

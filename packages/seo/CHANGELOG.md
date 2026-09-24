@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- 9bf5c67: Add `validateRedirects`, the migration gate: every URL another site links to must still land on a page in one hop. It flags linked URLs with no page and no redirect, redirects to missing pages, chains, loops, redirects that hide a live page, redirects to `noindex` pages and duplicate redirects. Add `liveLinkedUrls` and the `Backlink` types for a site's `links.json`, and ship `links.schema.json` and `redirects.schema.json`. All provisional: pin exactly if you depend on them before a second consumer settles the shape.
+
+## 0.2.0
+
+### Minor Changes
+
+- 3eb1560: CommonJS consumers now get the CommonJS type declarations. The `exports` map put a top-level `types` (the ESM `.d.ts`) ahead of `require`, so TypeScript resolving a `require` under `node16` stopped at the ESM file ("Masquerading as ESM" in @arethetypeswrong/cli). `types` now sits inside `import` and `require` separately. Runtime behaviour is unchanged.
+
+  Requires Node 22.12 or later (`engines.node`). Node 20 reached end of life on 2026-04-30. Also declares `sideEffects` so bundlers can tree-shake (craft keeps its CSS).
+
+- 4375ee9: Check dynamic routes, normalise paths, and stop overstating two SEO signals.
+
+  - `validateCoverage` accepts `dynamicRoutesOnDisk` (Next.js bracket paths). It reports `dynamic-route-missing-policy` when a dynamic route has no `/prefix/*` policy entry, and `policy-pattern-missing-route` when a pattern entry has no route. Omit the field for the old behaviour.
+  - New `toPolicyPatterns(nextPath)`: `/blog/[slug]` and `/docs/[...slug]` map to `/blog/*` and `/docs/*`; `/help/[[...slug]]` maps to `/help` and `/help/*`; route groups are dropped; parallel and intercepting segments throw.
+  - New `normalizeRoutePath(path, { trailingSlash })`. **Behaviour change:** `getRoutePolicy` and `isRouteIndexable` now normalise before matching, so `/pricing/`, `/pricing?ref=x` and `/pricing#faq` find the `/pricing` entry. Before, they fell through to the permissive default and a noindex page reported as indexable. `validateCoverage` compares static paths the same way.
+  - **Behaviour change:** `findKeywordCannibalization` groups keywords case-insensitively with whitespace collapsed, and matches the allowlist the same way. The JSDoc now says what it is: a check on your own targeting, not a documented Google penalty.
+  - `sitemapPriority` and `sitemapChangeFrequency` are marked `@deprecated` (Google ignores both). They still work.
+  - README: don't combine noindex with a robots.txt disallow.
+
 All notable changes to `@domandigital/seo`.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
