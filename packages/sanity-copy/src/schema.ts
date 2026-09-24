@@ -17,7 +17,7 @@
  * peer dependency to keep in step.
  */
 
-import { type CopyCheckOptions, type Path, checkDocumentCopy, describeFinding } from "./core.js";
+import { type CopyCheckOptions, DEFAULT_EXCLUDED_TYPES, type Path, checkDocumentCopy, describeFinding } from "./core.js";
 
 /** The part of Sanity's `Rule` this uses. Each call returns a new rule. */
 export interface RuleLike {
@@ -27,12 +27,15 @@ export interface RuleLike {
 
 type Validation = (rule: RuleLike, context?: unknown) => unknown;
 
-/** The part of a Sanity schema type definition this reads. */
+/**
+ * The part of a Sanity schema type definition this reads. No index signature:
+ * Sanity declares its definitions as interfaces, which have none, so one here
+ * would reject every real Studio's types.
+ */
 export interface SchemaTypeLike {
   name: string;
   type: string;
   validation?: unknown;
-  [key: string]: unknown;
 }
 
 /**
@@ -60,7 +63,7 @@ const asArray = (v: unknown): unknown[] => (v === undefined || v === null ? [] :
 
 /** Every document type gains the copy check as a warning, beside the validation it already has. */
 export function withCopyCheck<T extends SchemaTypeLike>(types: T[], options: CopyCheckOptions = {}): T[] {
-  const excluded = new Set(options.excludeTypes ?? ["testimonial", "review", "proofQuote", "quote"]);
+  const excluded = new Set(options.excludeTypes ?? DEFAULT_EXCLUDED_TYPES);
   return types.map((t) => {
     if (t.type !== "document" || excluded.has(t.name)) return t;
     const existing = t.validation;
@@ -68,6 +71,8 @@ export function withCopyCheck<T extends SchemaTypeLike>(types: T[], options: Cop
       ...asArray(typeof existing === "function" ? (existing as Validation)(rule, context) : existing),
       copyCheckRule(rule, options),
     ];
-    return { ...t, validation };
+    // The Studio's own rule type, not RuleLike, is what reaches `validation`
+    // at runtime, so the wrapped type keeps the caller's declared shape.
+    return { ...t, validation } as T;
   });
 }
