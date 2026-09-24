@@ -1,5 +1,13 @@
 # @domandigital/sanity-copy
 
+## 0.2.1
+
+### Patch Changes
+
+- f57f546: `withCopyCheck` accepts a real Studio's schema types. Sanity declares its definitions as interfaces, which have no index signature, so the old `SchemaTypeLike` made `tsc` fail in the first Studio it was installed in.
+- Updated dependencies [bbf1f54]
+  - @domandigital/craft@0.9.0
+
 ## 0.2.0
 
 ### Minor Changes
