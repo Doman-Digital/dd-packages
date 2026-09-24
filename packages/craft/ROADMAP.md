@@ -16,8 +16,28 @@ Update this file in the same PR that moves a phase.
 | D | Counterfactual null model (`claude -p`, about 20 runs a brief), `craft tells harvest` | Merged: dd-packages #21. |
 | E | Estate register, `craft estate add\|compare` | Merged: dd-packages #22. |
 | F | Character report, `craft retrofit`, the character skill, trawl and drift-guards switches | Merged: dd-packages #23, drift-guards #4, trawl #6, claude-kit #8. |
-| G | Retrofits, one session per site | Ready to start. Each site's checklist is in `calibration/report/`. |
+| G | Retrofits, one session per site | Done, outside this repo, 2026-09-24. Results are tracked in Linear. The art direction they feed is being written; J waits on it. |
 | H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, eight research tells, the `craft copy compare` preservation gate, the copy-check skill rebuilt, and `@domandigital/sanity-copy` for the Studio | Merged: dd-packages #24 and #26, claude-kit #10 and #11. `sanity-copy` in review; installing it in the DD Studio waits on its first npm release. Runs alongside G and does not block it. |
+| I | Enterprise foundation: `craft.config.json` (ignore globs, `copyPaths`, severity changes with a reason), `--baseline`/`--update-baseline`, `--sarif`, `schemaVersion` on every `--json`, `craft audit --pages` and `--viewport`; `.claude`, `.agents` and `.cursor` never walked | In review. |
+| J | `craft direction build` (tokens from decided choices), `craft brief` (instructions for an agent), `craft loop` (build, audit, change list), and the skill | Waiting on the art direction. Released by the first two or three decided `art-direction.json` files. |
+| K | Snapshot v2: section kinds (CTA band, pricing, testimonials, FAQ, process, features, team, contact), per-section geometry, screenshot measures (colourfulness, edge density, symmetry), a v1 reader; recalibration | Planned. |
+| L | Component-level sameness: component fingerprints, `craft estate compare --component`, per-component typicality, six rendered tells (`cta-band-stock`, `pricing-trio-popular`, `testimonial-avatar-carousel`, `faq-accordion-closer`, `stats-row`, `centred-everything`) | Planned. Needs K. |
+| M | Imagery and provenance: every image in the snapshot, an XMP/C2PA byte scan for AI-generated media, `stock-photo`, `ai-image`, `stock-avatar`, `no-real-imagery` | Planned. The `imagery` choice key in `art-direction.json` waits on the art direction. |
+| N | Specificity: `specificity(text, brief)`, `generic-hero-claim`, proof in context, `craft copy compare --competitor` | Planned. |
+| O | `@domandigital/craft-judge`: a vision-model second opinion, advisory only | Later, once K to N are stable. |
+
+## Waiting on the art direction
+
+Listed so they are not lost, and not built until the art direction exists:
+
+- Phase J, all of it.
+- The `imagery` choice key in `art-direction.json` (Phase M's other parts do
+  not wait).
+- Any change to `SOURCE_KINDS` (for example, screenshots of delivered work).
+- Version 2 of the `art-direction.json` schema.
+
+Each is released by what the first decided sites could not express in
+version 1 of the schema.
 
 ## Rules that hold for every phase
 
@@ -44,10 +64,11 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
 
 ## Candidates for the blocking tier
 
-- **`chatbot-residue`**, first. It is evidence of a pasted chat reply, not a
-  matter of style, and the research treats it as an error on first
-  occurrence. Zero hits on the 160 generated pages. Read its hits on the
-  estate, then move it to `block` in `house.ts` and `COPY.md` together.
+- None open. **`chatbot-residue` moved to `block` on 2026-09-24.** Its estate
+  hits were read by a person: 10 citation runs and 5 entity markers in one
+  live DD article, 15 of 15 real, zero false alarms on the 160 generated
+  pages and the human set. The article was fixed and every claim a token had
+  backed was sourced, corrected or cut.
 
 ## Not built yet, on purpose
 
@@ -69,6 +90,22 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   The run also tuned four tells (catalogue `2026.09.6`): 7 of 7 placeholder
   hits were templates in quotes, and 57 of 68 label-list hits were definition
   lists, all now passing.
+
+- DD review tier read by a person, 2026-09-24: all 144 "worth a look"
+  findings over the 137 live documents. Real: vague-attribution 36 of 37
+  (uncited statistics; one "until the data proves" is a conditional),
+  review-phrase 13 of 13, ai-vocabulary 4 of 4, phrase-density 30 of 30,
+  contraction-scarcity 12 of 12 (AI-drafted articles, 0 to 4 contractions in
+  4,000 words), repeated-sentence 25 of 27 (2 were footnotes repeating a
+  source title), staccato-triplet 3 of 4 (1 crossed a paragraph break), ing-tail
+  2 of 3 (1 was a list of tasks). Noise: inline-label-list 0 of 11 (price
+  bands, click-through rates by position, named directories, a decision tree,
+  numbered steps). All four noisy tells tuned (catalogue `2026.09.8`), each
+  with the real hit as a pass fixture. The read also found a tell no rule had:
+  **`prompt-context`**, the model naming its inputs ("the attached Perplexity
+  research file"), 24 hits in five live articles, all real. New, so `review`;
+  a candidate for `block` once measured on proposals, where "the attached
+  research" can be honest.
 
 Recorded with dates in `CHARACTER.md` under Calibration once run.
 

@@ -1,5 +1,26 @@
 # @domandigital/sanity-copy
 
+## 0.3.0
+
+### Minor Changes
+
+- cd13c94: `sanity-copy --claims` lists every price, figure, date and named source in a dataset, on its field, marked sourced or UNSOURCED, for a person to check against the primary source. `documentClaims(doc)` does the same in code.
+
+### Patch Changes
+
+- cd13c94: `withCopyCheck` accepts a real Studio's schema types. Sanity declares its definitions as interfaces, which have no index signature, so the old `SchemaTypeLike` made `tsc` fail in the first Studio it was installed in.
+- Updated dependencies [cd13c94]
+- Updated dependencies [cd13c94]
+  - @domandigital/craft@0.10.0
+
+## 0.2.1
+
+### Patch Changes
+
+- f57f546: `withCopyCheck` accepts a real Studio's schema types. Sanity declares its definitions as interfaces, which have no index signature, so the old `SchemaTypeLike` made `tsc` fail in the first Studio it was installed in.
+- Updated dependencies [bbf1f54]
+  - @domandigital/craft@0.9.0
+
 ## 0.2.0
 
 ### Minor Changes

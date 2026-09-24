@@ -85,3 +85,48 @@ describe("validateCoverage — money routes without a target", () => {
     expect(issues.filter((i) => i.kind === "money-route-missing-target")).toEqual([]);
   });
 });
+
+describe("validateCoverage — dynamic routes", () => {
+  test("flags a dynamic route with no pattern policy", () => {
+    expect(
+      validateCoverage({ routesOnDisk: [], dynamicRoutesOnDisk: ["/blog/[slug]"], policy: [] }),
+    ).toEqual([{ kind: "dynamic-route-missing-policy", path: "/blog/[slug]", pattern: "/blog/*" }]);
+  });
+
+  test("a matching pattern entry covers it", () => {
+    const policy: RoutePolicyEntry[] = [
+      { path: "/blog/*", indexable: true, inSitemap: false, isDynamicPattern: true },
+    ];
+    expect(validateCoverage({ routesOnDisk: [], dynamicRoutesOnDisk: ["/blog/[slug]"], policy })).toEqual([]);
+  });
+
+  test("an optional catch-all needs a static entry for its parent as well", () => {
+    const policy: RoutePolicyEntry[] = [
+      { path: "/help/*", indexable: true, inSitemap: false, isDynamicPattern: true },
+    ];
+    expect(
+      validateCoverage({ routesOnDisk: [], dynamicRoutesOnDisk: ["/help/[[...slug]]"], policy }),
+    ).toEqual([{ kind: "dynamic-route-missing-policy", path: "/help/[[...slug]]", pattern: "/help" }]);
+  });
+
+  test("flags a pattern entry no dynamic route produces", () => {
+    const policy: RoutePolicyEntry[] = [
+      { path: "/locations/*", indexable: false, inSitemap: false, isDynamicPattern: true },
+    ];
+    expect(validateCoverage({ routesOnDisk: [], dynamicRoutesOnDisk: [], policy })).toEqual([
+      { kind: "policy-pattern-missing-route", path: "/locations/*" },
+    ]);
+  });
+
+  test("without dynamicRoutesOnDisk, pattern entries are not checked (unchanged behaviour)", () => {
+    const policy: RoutePolicyEntry[] = [
+      { path: "/locations/*", indexable: false, inSitemap: false, isDynamicPattern: true },
+    ];
+    expect(validateCoverage({ routesOnDisk: [], policy })).toEqual([]);
+  });
+
+  test("static routes match policy regardless of a trailing slash", () => {
+    const policy: RoutePolicyEntry[] = [{ path: "/pricing", indexable: true, inSitemap: true }];
+    expect(validateCoverage({ routesOnDisk: ["/pricing/"], policy })).toEqual([]);
+  });
+});

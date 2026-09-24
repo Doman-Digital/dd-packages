@@ -10,11 +10,14 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm run build && changeset publish",
-    "check:pack": "pnpm run build && node scripts/check-pack.mjs"
+    "check:tarballs": "node scripts/check-tarballs.mjs"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
     "@changesets/cli": "^2.27.11",
-    "@arethetypeswrong/cli": "0.18.5",
-    "publint": "0.3.24"
+    "publint": "^0.3.24"
+  },
+  "engines": {
+    "node": ">=22.12"
   }
 }

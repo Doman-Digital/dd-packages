@@ -1,8 +1,8 @@
 name: CI
 
-# Runs on every push to main and every pull request, across every
-# package. Before this repo existed, each package had its own copy of this
-# file to maintain separately; one workspace-wide workflow replaces all three.
+# Runs on every pull request, across every package. Before this repo existed,
+# each package had its own copy of this file to maintain separately; one
+# workspace-wide workflow replaces them.
 
 # PR-only. The push-to-main run re-tested the exact merge result the PR had
 # already tested, and release.yml independently runs the full test + build
@@ -24,7 +24,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: ['20.x', '22.x', '24.x']
+        # Node 20 reached end of life on 2026-04-30 (nodejs/Release schedule).
+        # Add 26.x once it becomes LTS on 2026-10-28.
+        node-version: ['22.x', '24.x']
 
     steps:
       - uses: actions/checkout@v5
@@ -46,23 +48,10 @@ jobs:
       - name: Build
         run: pnpm run build
 
-  # What npm will ship, checked as a consumer sees it: publint and attw on
-  # each packed tarball, then require/import/bin/asset checks from a clean
-  # install. See scripts/check-pack.mjs for why the matrix above cannot
-  # catch this. One Node version: the tarball is the same on all of them.
-  pack:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v5
-        with:
-          node-version: '22.x'
-          cache: 'pnpm'
-
-      - name: Install
-        run: pnpm install --frozen-lockfile
-
-      - name: Check packed tarballs
-        run: pnpm run check:pack
+      # What npm will receive, not what the workspace links: pack every
+      # package, lint the tarballs, install them into clean ESM and CommonJS
+      # projects and load every export. One Node version is enough; the
+      # tarball does not change with the runner.
+      - name: Tarballs
+        if: matrix.node-version == '22.x'
+        run: pnpm run check:tarballs

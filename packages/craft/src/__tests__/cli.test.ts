@@ -141,7 +141,7 @@ describe("craft tells list", () => {
       else expect(t.house, t.id).toBeUndefined();
     }
     expect(tells.filter((t) => t.house === "block").map((t) => t.id).sort()).toEqual(
-      ["ai-phrase", "buzzword", "em-dash", "emoji", "negative-reassurance", "no-x-badge", "no-x-no-y", "not-just-but", "plain-english", "plainer-word"],
+      ["ai-phrase", "buzzword", "chatbot-residue", "em-dash", "emoji", "negative-reassurance", "no-x-badge", "no-x-no-y", "not-just-but", "plain-english", "plainer-word"],
     );
   });
 });

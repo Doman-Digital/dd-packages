@@ -57,12 +57,13 @@ and tags each published package `<name>@<version>`.
 ## Checking what npm will ship
 
 ```bash
-pnpm run check:pack
+pnpm run build && pnpm run check:tarballs
 ```
 
-Builds, packs every package, runs publint and attw on each tarball, then
+Packs every package, runs publint and attw on each tarball, then
 installs them all into a clean project and checks `require`, `import`, every
-bin and every shipped asset. CI runs it on every pull request. It exists
+bin and every shipped asset (`scripts/check-tarballs.mjs`). CI runs it on
+every pull request, and `release.yml` runs it before publishing. It exists
 because all five packages once passed typecheck, test and build while
 shipping CommonJS consumers the wrong types.
 
@@ -71,13 +72,11 @@ shipping CommonJS consumers the wrong types.
 Deliberately not done yet, and in this order, because each step needs the
 one before it:
 
-1. Release the current changes through the pipeline as it is, which is
-   known to publish.
-2. Drop Node 20 (end of life 2026-04-30): `engines` to `>=22.12`, the CI
-   matrix to 22, 24 and 26.
-3. pnpm 10 or later.
-4. Changesets 3, which needs Node 22.11+ and pnpm 10+.
-5. Unpin npm in `release.yml`: Changesets 3 fixes the `--git-checks` flag
+1. Node 20 is dropped (done in #33: `engines` `>=22.12`, CI on 22 and 24;
+   add 26 once it is LTS on 2026-10-28).
+2. pnpm 10 or later.
+3. Changesets 3, which needs Node 22.11+ and pnpm 10+.
+4. Unpin npm in `release.yml`: Changesets 3 fixes the `--git-checks` flag
    leak that npm 12 rejects.
 
 ## License

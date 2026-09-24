@@ -9,13 +9,13 @@ importers:
   .:
     devDependencies:
       '@arethetypeswrong/cli':
-        specifier: 0.18.5
+        specifier: ^0.18.5
         version: 0.18.5
       '@changesets/cli':
         specifier: ^2.27.11
         version: 2.31.1(@types/node@20.19.43)
       publint:
-        specifier: 0.3.24
+        specifier: ^0.3.24
         version: 0.3.24
 
   packages/craft:
