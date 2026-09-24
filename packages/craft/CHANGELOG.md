@@ -1,5 +1,12 @@
 # @domandigital/craft
 
+## 0.10.0
+
+### Minor Changes
+
+- cd13c94: `craft copy claims <paths>` lists every sentence holding a price, figure, date or named source, marked sourced or UNSOURCED, for a person to check against the primary source. `findClaims` and `formatClaims` do the same in code. No tell can tell a true figure from a false one; this makes the checking a list instead of a hunt.
+- cd13c94: Catalogue 2026.09.8, from reading all 144 review findings on the live DD site. New tell `prompt-context` (review): the model naming its own inputs, "the attached Perplexity research file", 24 real hits in five live articles. Tuned: `inline-label-list` leaves reference and data lists alone (0 of 11 hits were real), `staccato-triplet` no longer crosses a paragraph break, `ing-tail` passes a list of tasks, `repeated-sentence` ignores footnotes repeating a source title.
+
 ## 0.9.0
 
 ### Minor Changes
