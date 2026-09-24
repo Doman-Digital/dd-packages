@@ -19,13 +19,17 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./links.schema.json": "./links.schema.json",
+    "./redirects.schema.json": "./redirects.schema.json"
   },
   "files": [
     "CHANGELOG.md",
     "LICENSE",
     "README.md",
-    "dist"
+    "dist",
+    "links.schema.json",
+    "redirects.schema.json"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
