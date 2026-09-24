@@ -218,6 +218,38 @@ a pricing trio reliably. They ship as warnings like every tell, and have not
 yet been read against the estate. Snapshot the estate with this build before
 any is considered for `block`.
 
+### Imagery and provenance
+
+A snapshot records every picture on the page (`images`): each `img` and
+each CSS background large enough to be one, with its source (unwrapped from
+an image optimiser such as `/_next/image?url=`), size, position, section and
+a role: photo, illustration, icon, avatar or logo. `craft audit` also reads
+the first 256 KB of up to 24 of the larger pictures and looks for the IPTC
+digital source type that says a trained model made them
+(`trainedAlgorithmicMedia` or `compositeWithTrainedAlgorithmicMedia`), in an
+XMP packet or a C2PA manifest (Content Credentials). Four tells read them:
+
+- `stock-photo`: a picture from a stock library or placeholder service, by
+  its host (Unsplash, Pexels, iStock, Adobe Stock and others) or, when it was
+  downloaded and self-hosted, by the library's own file name
+  (`shutterstock_1234567890.jpg`, `…-unsplash.jpg`).
+- `stock-avatar`: round portraits from a placeholder-face service
+  (randomuser.me, Pravatar, DiceBear, generated-face sites) or a stock library.
+- `ai-image`: a picture whose own metadata says a model made it.
+- `no-real-imagery`: a page of four or more sections with no photograph at
+  all, only icons and illustrations.
+
+Provenance only ever counts for. Most pictures carry no metadata, anything
+that re-encodes them (a CMS, an image optimiser) strips it, and a PNG can
+keep it after the pixels, beyond the bytes read. A picture with no marker is
+unknown, not real. `snapshotUrl(url, { provenance: false })` skips the reads.
+
+Snapshots taken before craft recorded images have no `images`, and none of
+these tells judges them. There is no `blob-illustration` tell: telling an
+abstract blob from a diagram needs an SVG's path data or its pixels, which a
+cross-origin picture does not give the page, and no flag case has been proved
+reliable. It stays on the list until one is.
+
 ## The counterfactual
 
 A list of tells goes stale; the model does not. So signal 2 asks the model
@@ -590,7 +622,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.10`, 62 tells.
+Catalogue version `2026.09.11`, 66 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -656,4 +688,8 @@ Catalogue version `2026.09.10`, 62 tells.
 | `faq-accordion-closer` | 2 | rendered + rendered | warn | FAQ accordion as the closer | Ending the page on a collapsed FAQ, often followed only by a band, is the model's default page ending. The answers a buyer needs are hidden behind clicks at the point they decide. |
 | `stats-row` | 1 | rendered + rendered | warn | Row of big numbers | Three or four large figures in a row (500+ clients, 98% satisfaction, 10 years) is the stock proof block, and the numbers are often round, unsourced or invented. |
 | `centred-everything` | 2 | rendered + rendered | warn | Every section centred | When almost every section stacks a centred heading over centred text, the page has no reading line and every block looks like the one before. It is the layout nothing was decided for. |
+| `stock-photo` | 1 | rendered + rendered | warn | Stock photography | A picture from a stock library is the picture every other site in the trade can use. It shows a job the client did not do, in a kitchen that is not theirs, and a visitor who has seen it before stops believing the rest. |
+| `stock-avatar` | 1 | rendered + rendered | warn | Stock or placeholder faces | Round portraits from a placeholder-face service or a stock library next to reviews make every quote read as invented, and some of those faces are generated people who do not exist. |
+| `ai-image` | 2 | rendered + rendered | warn | Generated image | The file itself says a model made it (its XMP or Content Credentials name a trained-model source). A generated picture stands in for work the client did not photograph, and anyone can read the label. |
+| `no-real-imagery` | 1 | rendered + rendered | warn | No photograph on the page | A page with no photograph at all, only icons and illustrations, is the page a model builds when it has no assets. Icon tiles stand in for the evidence a buyer looks for: the work, the premises, the people. |
 <!-- craft:catalogue:end -->

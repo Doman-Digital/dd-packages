@@ -25,6 +25,7 @@ import { excerptAt, lineAt, parseFile } from "./parse.js";
 import { extractCopy, extractStrings } from "./prose.js";
 import { RENDERED_PATHS } from "../snapshot/rendered.js";
 import { RENDERED_TELLS } from "../snapshot/rendered-tells.js";
+import { IMAGERY_TELLS } from "../snapshot/imagery-tells.js";
 import type { Snapshot } from "../snapshot/types.js";
 import type {
   CheckOptions,
@@ -41,11 +42,12 @@ import type {
  * Bumped whenever an entry is added, removed or its detection changes, so a
  * report can say which list it was judged against.
  */
-export const CATALOGUE_VERSION = "2026.09.10";
+export const CATALOGUE_VERSION = "2026.09.11";
 
 export const CATALOGUE: readonly Tell[] = [
   ...[...SOURCE_TELLS, ...COPY_TELLS, ...RESEARCH_TELLS, ...DENSITY_TELLS].map((t) => (RENDERED_PATHS[t.id] ? { ...t, rendered: RENDERED_PATHS[t.id] } : t)),
   ...RENDERED_TELLS,
+  ...IMAGERY_TELLS,
 ];
 
 export function tellById(id: string): Tell | undefined {
