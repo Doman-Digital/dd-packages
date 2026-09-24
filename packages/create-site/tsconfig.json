@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "types": ["node"],
+    "resolveJsonModule": true,
+    // Typecheck against the workspace sources, so a fresh checkout does not
+    // need the house packages built first (CI typechecks before it builds).
+    "paths": {
+      "@domandigital/craft": ["../craft/src/index.ts"],
+      "@domandigital/graph": ["../graph/src/index.ts"],
+      "@domandigital/seo": ["../seo/src/index.ts"]
+    }
+  },
+  // The two route enumerators are copied into sites and also bundled into
+  // the CLI, so they are typechecked here. Every other template imports a
+  // framework this package does not install; the generated-site test
+  // typechecks the .ts ones in a generated fixture instead.
+  "include": ["src", "templates/next/tests/seo/routes-on-disk.ts", "templates/astro/tests/seo/routes-on-disk.ts"]
+}

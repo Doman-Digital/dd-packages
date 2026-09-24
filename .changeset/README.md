@@ -1,8 +1,8 @@
 # Changesets
 
-Each of the three packages here versions independently — see `config.json`
-(no `linked`, no `fixed` groups). `graph` has had 21 releases to `seo`'s 2;
-forcing them into lockstep would be worse than the drift it would prevent.
+Every package here versions independently — see `config.json` (no
+`linked`, no `fixed` groups). Forcing them into lockstep would release
+packages that did not change.
 
 Add a changeset for any PR that changes a package's published behavior:
 
