@@ -278,6 +278,8 @@ function repeatHits(ctx: CopyContext): Hit[] {
       // A sentence ends in a full stop. An address or a title repeated in a
       // header and a footer does not, and is not a paste.
       if (words.length < RUN || !/[.!?]["'’”)]*$/.test(s.text)) continue;
+      // A footnote repeats the title of the source the text already named. That is a citation, not a paste.
+      if (/^\s*\[\^[\w-]+\]:/.test(s.text)) continue;
       const key = words.join(" ");
       const earlier = whole.get(key);
       if (earlier) {
@@ -509,7 +511,15 @@ export const DENSITY_TELLS: CopyTell[] = [
         f("content/proposal.md", doc("We check every valve before the engineer leaves the house.\n\nMore here.\n\nWe check every valve before the engineer leaves the house.")),
         f("content/proposal.md", doc("We check every valve before the engineer leaves the house.\n\nBy then we check every valve before the engineer leaves the site.")),
       ],
-      pass: [f("content/proposal.md", doc("We check every valve before the engineer leaves the house.\n\nThe engineer leaves once the customer has signed the sheet."))],
+      pass: [
+        f("content/proposal.md", doc("We check every valve before the engineer leaves the house.\n\nThe engineer leaves once the customer has signed the sheet.")),
+        f(
+          "content/guide.md",
+          doc(
+            "The Independent Healthcare Providers Network Private Patient Insight Report 2024 found that private demand rose.[^1]\n\n[^1]: Independent Healthcare Providers Network, Private Patient Insight Report 2024, published online.",
+          ),
+        ),
+      ],
     },
   },
   {

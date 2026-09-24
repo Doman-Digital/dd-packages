@@ -7,7 +7,7 @@
  * which strings in a document are copy, and where each finding belongs.
  */
 
-import { applyHouseGate, checkCopy } from "@domandigital/craft";
+import { type Claim, applyHouseGate, checkCopy, findClaims } from "@domandigital/craft";
 
 /** A Studio path: field names, array indices, or `{ _key }` for keyed array items. */
 export type PathSegment = string | number | { _key: string };
@@ -161,6 +161,29 @@ export function checkDocumentCopy(doc: unknown, options: CopyCheckOptions = {}):
     }
   }
   return findings;
+}
+
+export interface DocumentClaim extends Omit<Claim, "path" | "line"> {
+  /** The field the sentence is in. */
+  path: Path;
+}
+
+/**
+ * Every sentence in a document holding a price, figure, date or named source,
+ * for a person to check against the primary source. craft's claims list, with
+ * each claim on the field an editor would open. Excluded types are skipped, as
+ * for the copy check: a client's own words are verified with them, not here.
+ */
+export function documentClaims(doc: unknown, options: CopyCheckOptions = {}): DocumentClaim[] {
+  if (!isRecord(doc)) return [];
+  const excluded = new Set(options.excludeTypes ?? DEFAULT_EXCLUDED_TYPES);
+  if (typeof doc._type === "string" && excluded.has(doc._type)) return [];
+  const pieces = collectCopy(doc, options);
+  const { claims } = findClaims(pieces.map((p, i) => ({ path: fileFor(i), text: p.text })));
+  return claims.flatMap(({ path, line: _line, ...claim }) => {
+    const piece = pieces[Number(/^field-(\d+)\.md$/.exec(path)?.[1])];
+    return piece ? [{ ...claim, path: piece.path }] : [];
+  });
 }
 
 /** One line an editor can act on. */

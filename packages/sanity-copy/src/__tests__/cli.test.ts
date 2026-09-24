@@ -38,3 +38,32 @@ describe("sanity-copy --file", () => {
     expect(bad.err).toMatch(/Nothing was checked/);
   });
 });
+
+describe("sanity-copy --claims", () => {
+  it("lists each figure on its field, marks the unsourced ones, and exits 0 even with a house-rule finding", async () => {
+    const docs = [
+      {
+        _id: "a",
+        _type: "resourceArticle",
+        slug: { current: "builders" },
+        title: "Builders — compared",
+        body: [
+          { _type: "block", _key: "p1", children: [{ _type: "span", text: "Bark says a small site costs £300 to £1,000." }] },
+          { _type: "block", _key: "p2", children: [{ _type: "span", text: "An agency charges £5,000 or more." }] },
+        ],
+      },
+      { _id: "t", _type: "testimonial", quote: "They doubled our bookings in 3 months." },
+    ];
+    const r = await run(["--file", exportFile(docs), "--claims"]);
+    expect(r.code).toBe(0);
+    expect(r.out).toMatch(/resourceArticle\/builders\n {2}body\[_key=="p1"\] {2}sourced +£300 · £1,000 · source: Bark/);
+    expect(r.out).toMatch(/body\[_key=="p2"\] {2}UNSOURCED +£5,000/);
+    expect(r.out).not.toMatch(/doubled/);
+    expect(r.out).toMatch(/2 documents, 2 claims to check, 1 with no source named/);
+  });
+
+  it("still exits 2 when nothing was read", async () => {
+    expect((await run(["--file", exportFile([]), "--claims"])).code).toBe(2);
+  });
+});
+

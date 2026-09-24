@@ -549,10 +549,14 @@ export const COPY_TELLS: CopyTell[] = [
     surface: "copy",
     why: "Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm.",
     fix: "Write one sentence that says which of the three is true, and how you know.",
-    detect: phrases([/(?:\b[A-Z][\w'’-]*(?:\s+[\w'’-]+){0,2}[.!]\s+){2}[A-Z][\w'’-]*(?:\s+[\w'’-]+){0,2}[.!](?=\s|$)/], quoted),
+    // The fragments share one paragraph: "You don't. Again.", a blank line, then "It's frustrating." is two beats, not three.
+    detect: phrases([/(?:\b[A-Z][\w'’-]*(?:[ \t]+[\w'’-]+){0,2}[.!](?:[ \t]+|[ \t]*\n(?![ \t]*\n)[ \t]*)){2}[A-Z][\w'’-]*(?:[ \t]+[\w'’-]+){0,2}[.!](?=\s|$)/], quoted),
     fixtures: {
-      flag: [f("content/home.md", "No fuss. No jargon. Just results.")],
-      pass: [f("content/home.md", "We fix boilers the same day, and we tell you the price before we start.")],
+      flag: [f("content/home.md", "No fuss. No jargon. Just results."), f("content/home.md", "No fuss.\nNo jargon.\nJust results.")],
+      pass: [
+        f("content/home.md", "We fix boilers the same day, and we tell you the price before we start."),
+        f("content/guide.md", "Your competitor appears in the top three. You don't. Again.\n\nIt's frustrating."),
+      ],
     },
   },
   {
@@ -586,6 +590,21 @@ export const COPY_TELLS: CopyTell[] = [
  * ("..., carrying the parts for most boilers") are not on the list.
  */
 const ING_TAIL = /,\s+(?:ensuring|highlighting|underscoring|showcasing|reflecting|demonstrating|emphasi[sz]ing|fostering|cementing|solidifying|reinforcing|symboli[sz]ing|signalling|signaling)\b[^.!?\n]{0,80}/i;
+
+/**
+ * The model naming its own inputs: "the attached research", "the uploaded
+ * Perplexity file", "the attached brief asks". A web page has no attachment.
+ */
+const PROMPT_CONTEXT = [
+  /\b(?:the|this|that)\s+(?:attached|uploaded|provided)\s+(?:(?:Perplexity|ChatGPT|Claude|Gemini|Copilot)\s+)?(?:research|research file|research pack|source file|sources)\b/i,
+  /\b(?:attached|uploaded)\s+(?:Perplexity|ChatGPT|Claude|Gemini|Copilot)\b/i,
+  /\bthe\s+(?:attached|uploaded|provided)\s+brief\s+(?:asks|says|wants|requests|suggests|mentions)\b/i,
+];
+
+/** "(claiming your GBP, ensuring NAP consistency, ...)": the -ing word is an item in a list of tasks, not a tail. */
+function gerundList(block: CopyBlock, _match: string, index: number): boolean {
+  return /(?:^|[(,;:]\s*)\w+ing\b[^,.;()!?]{0,40}$/.test(block.text.slice(Math.max(0, index - 60), index));
+}
 
 /** A claim credited to nobody. A named source ("A 2023 Which? survey") is not matched. */
 const VAGUE_ATTRIBUTION = [
@@ -720,8 +739,13 @@ function inlineLabelHits(ctx: CopyContext): Hit[] {
     for (const line of lines) {
       // A short restatement after the label is the tell. A definition list,
       // "**CQC**: the regulator of health and social care in England", is not.
-      const m = /^\s*(?:[-*+]|\d+\.)\s+\*\*[^*]{1,40}:?\*\*:?\s+(\S.*)$/.exec(line);
-      if (m && m[1].trim().split(/\s+/).length <= 6) run.push(offset);
+      // Numbered steps ("1. **Visit PageSpeed Insights**: ...") are a how-to, not this.
+      const m = /^\s*[-*+]\s+\*\*([^*]{1,40}?):?\*\*:?\s+(\S.*)$/.exec(line);
+      // Data after the label (a price, a rate, a link, a bold verdict), or a
+      // label that is a name ("Law Society", "NHS.uk"), is a reference list.
+      const data = m && /[\d£$€%`]|https?:|^\*\*/.test(m[2]);
+      const named = m && /\S[A-Z]|[./]/.test(m[1]);
+      if (m && !data && !named && m[2].trim().split(/\s+/).length <= 6) run.push(offset);
       else flush();
       offset += line.length + 1;
     }
@@ -757,6 +781,29 @@ export const RESEARCH_TELLS: CopyTell[] = [
         f("content/home.md", "Certainly the busiest week of the year: book early."),
         f("content/home.md", "Here's the price list for 2026."),
         f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=newsletter">Read the guide</a>;`),
+      ],
+    },
+  },
+  {
+    id: "prompt-context",
+    name: "Prompt context",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'This article uses the attached Perplexity research file as the primary source', 'the attached research is right to say': the model talking about what it was given. A reader of a web page has no attachment. Found 38 times across five live DD articles in 2026-09, none caught by any other tell.",
+    fix: "Delete the reference to the research or brief. Where it carried a claim, name the real source or cut the claim.",
+    detect: phrases(PROMPT_CONTEXT, quoted),
+    fixtures: {
+      flag: [
+        f("content/guide.md", "This article uses the attached Perplexity research file as the primary source."),
+        f("content/guide.md", "The attached research is right to say these platforms suit early-stage businesses."),
+        f("content/guide.md", "That is exactly how the uploaded research frames the category."),
+        f("content/guide.md", "The attached brief asks for the point that most tradespeople miss."),
+      ],
+      pass: [
+        f("content/guide.md", "We research every quote before we send it."),
+        f("app/email.tsx", `export const Invoice = () => <p>Your invoice is attached.</p>;`),
+        f("content/guide.md", "BrightLocal's research shows that reviews drive 20% of local ranking."),
       ],
     },
   },
@@ -813,6 +860,10 @@ export const RESEARCH_TELLS: CopyTell[] = [
         f("content/home.md", "- Pages load in under a second\n- Card details never touch our server\n- Support by phone until 8pm\n"),
         f("content/home.md", "- **Speed:** Faster pages\n- **Security:** Safer data\n"),
         f("content/guide.md", "- **GDC**: The statutory regulator for all dental professionals.\n- **GCC**: The statutory regulator for chiropractors in the UK.\n- **CQC**: The independent regulator of health and social care in England.\n"),
+        f("content/guide.md", "- **Per page**: £100-£200 per page\n- **Hourly**: £50-£75/hour\n- **Day rate**: £350-£500\n"),
+        f("content/guide.md", "- **Law Society Find a Solicitor:** For solicitors\n- **AccountingWEB / ICAEW directories:** For accountants\n- **NHS.uk:** For NHS services\n"),
+        f("content/guide.md", "1. **Visit PageSpeed Insights** and paste the address\n2. **Enter their URL** and run it\n3. **Note their scores** for later\n"),
+        f("content/guide.md", "- **Structural problems:** **REBUILD.**\n- **Messaging issues:** **REFRESH.**\n- **Neither:** **LEAVE IT.**\n"),
       ],
     },
   },
@@ -824,7 +875,7 @@ export const RESEARCH_TELLS: CopyTell[] = [
     surface: "copy",
     why: "'..., ensuring peace of mind', '..., highlighting our commitment': a participle tacked on the end that claims significance and names no mechanism. One of the most common shapes in the Wikipedia guide to AI writing.",
     fix: "Cut the tail, or replace it with the mechanism: 'so you can drop the car off before work'.",
-    detect: phrases([ING_TAIL], (m) => quoted(m.replace(/^,\s*/, ""))),
+    detect: phrases([ING_TAIL], (m) => quoted(m.replace(/^,\s*/, "")), undefined, gerundList),
     fixtures: {
       flag: [
         f("content/home.md", "Every engineer is Gas Safe registered, ensuring complete peace of mind."),
@@ -833,6 +884,7 @@ export const RESEARCH_TELLS: CopyTell[] = [
       pass: [
         f("content/home.md", "We open at 7am, so you can drop the car off before work."),
         f("content/home.md", "Engineers arrive by 9, carrying the parts for most boilers."),
+        f("content/guide.md", "Many items (claiming your GBP, ensuring NAP consistency, writing title tags) are straightforward."),
       ],
     },
   },

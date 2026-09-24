@@ -60,6 +60,19 @@ Findings are listed per document and field. Exit **0** no house-rule finding,
 **1** at least one, **2** nothing was checked. A token is read from the
 environment, never a flag. It reports and changes nothing.
 
+## The claims list
+
+```bash
+npx @domandigital/sanity-copy --project <id> --claims
+```
+
+No style rule can say whether a figure is true. `--claims` lists every
+sentence holding a price, a figure, a date or a named source, on its field,
+marked `sourced` (a source is named, in the sentence or a footnote) or
+`UNSOURCED`. Check each against its primary source, then source it, correct it
+or cut it. It always exits 0: a checklist, not a verdict. `documentClaims(doc)`
+does the same in code.
+
 ## In code
 
 ```ts
