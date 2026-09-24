@@ -1,6 +1,9 @@
 # dd-packages
 
-Doman Digital's public npm packages, in one repo:
+Doman Digital's public npm packages, in one repo.
+
+**Status:** live on npm; each package publishes from here when its changeset merges.
+**Used by:** every Doman Digital and client site, and the tooling in claude-kit.
 
 | Package | | |
 |---|---|---|
