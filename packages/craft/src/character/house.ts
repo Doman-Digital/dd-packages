@@ -45,6 +45,9 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "plain-english": { tier: "block", label: 'use "properly explained"' },
   buzzword: { tier: "block", label: "forbidden phrase" },
   "negative-reassurance": { tier: "block", label: "negative reassurance, say what they get" },
+  // Evidence of a pasted chat reply, not a matter of style. Moved from review
+  // on 2026-09-24 after its estate hits were read (ROADMAP.md): 15 of 15 real.
+  "chatbot-residue": { tier: "block", label: "chatbot residue. A chat reply was pasted in: remove it, and source or cut the claim it backed" },
 
   "review-phrase": { tier: "review", label: "review tier" },
   "ai-vocabulary": { tier: "review", label: "AI vocabulary" },
@@ -57,9 +60,6 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "vague-attribution": { tier: "review", label: "unnamed source" },
   "closing-summary": { tier: "review", label: "closing summary" },
   "false-range": { tier: "review", label: "false range" },
-  // The first candidate for block: evidence of a pasted chat reply, not a
-  // matter of style. Blocks once its estate hits have been read (ROADMAP.md).
-  "chatbot-residue": { tier: "review", label: "chatbot residue" },
   "placeholder": { tier: "review", label: "unfilled placeholder" },
   "question-reveal": { tier: "review", label: "staged reveal" },
   "inline-label-list": { tier: "review", label: "bold-label bullets" },
