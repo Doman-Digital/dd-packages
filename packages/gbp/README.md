@@ -38,10 +38,28 @@ const reviewNodes = reviews.map((r) =>
 );
 ```
 
-`averageRating` / `totalReviewCount` feed `OrganizationInput.aggregateRating`
-directly -- don't hardcode a rating/count literal in a site's settings file
-once this is wired in. That literal drifting from the real listing (a site
-claiming 7 reviews when Google has 6) is the bug this package exists to kill.
+`averageRating` / `totalReviewCount` are Google's own numbers for the whole
+profile, rating-only reviews included. Show them instead of hardcoding a
+rating/count literal in a site's settings file: that literal drifting from the
+real listing (a site claiming 7 reviews when Google has 6) is the bug this
+package exists to kill. Both are `null` when Google did not report them;
+render nothing in that case rather than a number.
+
+### Structured data: these reviews earn no stars on the business's own site
+
+Google calls a review "self-serving" when a review about a business sits on
+that business's own website, whether written into the markup or through an
+embedded widget. For `LocalBusiness` and `Organization`, Google shows review
+stars only "for sites that capture reviews about other" businesses
+(developers.google.com/search/docs/appearance/structured-data/review-snippet,
+updated 2026-09-08). So `Review` or `AggregateRating` markup built from these
+reviews, on the client's own site, is ineligible for stars.
+
+It is not a penalty: Google's announcement of the rule says you do not need to
+remove such markup and "You won't get a manual action just for this"
+(developers.google.com/search/blog/2019/09/making-review-rich-results-more-helpful).
+Showing the reviews on the page is unaffected. Just do not sell or expect the
+stars. `@domandigital/graph`'s `findGraphIssues` can flag the pattern.
 
 ## Why Business Profile API, not Places API
 
@@ -122,8 +140,8 @@ Paginates through every review (GBP caps each page at 50) and returns:
 
 ```ts
 interface BusinessReviewsResult {
-  averageRating: number | null;
-  totalReviewCount: number;
+  averageRating: number | null;    // Google's, for the whole profile; null if not reported
+  totalReviewCount: number | null; // Google's, for the whole profile; null if not reported
   reviews: BusinessReview[];
 }
 
@@ -134,9 +152,20 @@ interface BusinessReview {
   rating: number; // 1-5
   comment: string;
   createdAt: string; // ISO
-  reply?: { text: string; updatedAt: string }; // no author field -- see below
+  reply?: {        // no author field -- see below
+    text: string;
+    updatedAt: string;
+    state?: "PENDING" | "REJECTED" | "APPROVED"; // Google's moderation state
+    policyViolation?: string;                    // why, when REJECTED
+  };
+  media?: { thumbnailUrl: string; label?: string; videoUrl?: string }[]; // photos/videos the reviewer attached
+  replyUrl?: string; // Google's URL for replying, for an owner-facing surface
 }
 ```
+
+`totalReviewCount` and `averageRating` are never computed from the returned
+list. Before 0.4.0, a missing `totalReviewCount` fell back to the length of
+the filtered, limited list, which would have published a wrong count.
 
 Options:
 
@@ -155,12 +184,47 @@ Options:
   own ordering (`updateTime desc`, most recent first). Pick `"api"` for
   anything that should read as chronological, e.g. an activity feed; the
   default suits a testimonial grid where a fixed order would look stale.
+- `includeUnapprovedReplies?: boolean` -- default `false`: an owner reply
+  Google has marked `PENDING` or `REJECTED` is left off, so a public page never
+  shows a reply Google does not. Set `true` for an owner-facing surface, where
+  `reply.state` and `reply.policyViolation` say what happened.
+- `maxPages?: number` -- stop after this many pages (default 50, i.e. 2,500
+  reviews) rather than loop.
+- `request?: { timeoutMs?, maxAttempts?, baseDelayMs?, maxDelayMs?, maxRetryAfterMs?, signal? }`
+  -- deadline and retry policy for every request the call makes. Defaults: 8 s
+  per attempt, 3 attempts, full-jitter backoff from 250 ms capped at 5 s, and a
+  `Retry-After` of up to 30 s honoured.
 
 Never throws on missing configuration -- `isBusinessProfileConfigured()` gates
 internally and returns an empty result, so UI can render unconditionally.
-Does throw on a real API failure (non-OK response), so a calling route should
-catch and degrade explicitly if it wants zero-downtime behavior on a Google
-outage.
+Does throw on a real failure, so a calling route should catch and degrade
+explicitly if it wants zero-downtime behaviour on a Google outage.
+
+### Failures, and what each one means
+
+Every request has a deadline. A 429 or a transient 500/502/503/504 is retried
+a few times with backoff; Google documents the 429 for quota
+(developers.google.com/my-business/content/limits). Nothing else is retried.
+A 401 means the cached access token is no longer good: it is dropped,
+refreshed once, and the page is asked for again; a second 401 throws.
+
+All errors extend `GbpError`, and none carries a credential:
+
+| Error | When | What to do |
+|---|---|---|
+| `GbpAuthError` with `reauthorizationRequired: true` (`code: "invalid_grant"`) | Google refused the refresh token | Reauthorise the account and replace `GBP_REFRESH_TOKEN`. Retrying does nothing. |
+| `GbpAuthError` (`code: "invalid_client"`) | The client id or secret is wrong | Fix the environment. |
+| `GbpApiError` | The API returned an error after the retry budget. `status`, `retryable`, `attempts`, and `retryAfterMs` when Google asked for a long wait | Degrade, and try again on the next revalidation. |
+| `GbpTimeoutError` | An attempt passed its deadline | As above. |
+| `GbpPaginationError` | Google repeated a page token, or `maxPages` ran out | Report it: something upstream is wrong. |
+
+Refresh tokens stop working when the user revokes access, when a token goes
+unused for six months, when the account passes 100 live refresh tokens for
+the client (the oldest is dropped without warning), and **after 7 days if the
+OAuth app is still in "Testing" status**: publish the app, or expect weekly
+reauthorisation (developers.google.com/identity/protocols/oauth2). Google can
+also delete an OAuth client that goes unused, recoverable for 30 days
+(developers.google.com/identity/protocols/oauth2/web-server).
 
 ### Why a reply has no author field
 
@@ -180,5 +244,8 @@ True once all five env vars above are set.
 
 Lower-level OAuth primitives, exported in case a consumer needs the raw
 access token for another Business Profile endpoint this package doesn't wrap
-(e.g. business hours, Q&A). The token is cached in-process and refreshed a
-minute before expiry.
+(e.g. business hours). The token is cached in-process and refreshed a minute
+before expiry; concurrent callers share one refresh.
+`getGoogleOAuthAccessToken({ forceRefresh: true })` refreshes now, and
+`invalidateAccessToken(token)` drops a token an API has rejected (only if it is
+still the cached one).
