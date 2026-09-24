@@ -1,7 +1,7 @@
 name: CI
 
-# Runs on every push to main and every pull request, across all three
-# packages. Before this repo existed, each package had its own copy of this
+# Runs on every push to main and every pull request, across every
+# package. Before this repo existed, each package had its own copy of this
 # file to maintain separately; one workspace-wide workflow replaces all three.
 
 # PR-only. The push-to-main run re-tested the exact merge result the PR had

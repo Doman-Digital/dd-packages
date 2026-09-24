@@ -1,0 +1,56 @@
+name: craft browser
+
+# craft's audit renders pages in a real Chromium. The main CI job has no
+# browser, so audit.test.ts skips itself there (describe.skipIf) and the
+# browser half went untested on every PR. This job installs Chromium and runs
+# that suite, only when craft changes, and fails if it skipped anything: a
+# browser suite that quietly skips is the gap this job exists to close.
+#
+# Playwright itself is already installed: it is craft's optional peer
+# dependency and pnpm installs peers. No browser cache: Playwright's own CI
+# guidance advises against it (restore takes about as long as the download).
+
+on:
+  pull_request:
+    paths:
+      - 'packages/craft/**'
+      - '.github/workflows/craft-browser.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: craft-browser-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.x'
+          cache: 'pnpm'
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm --filter @domandigital/craft exec playwright install --with-deps chromium
+
+      - name: Run the browser suite, and fail if any of it skipped
+        working-directory: packages/craft
+        run: |
+          export CRAFT_CHROMIUM="$(node -e "console.log(require('playwright').chromium.executablePath())")"
+          pnpm exec vitest run src/__tests__/audit.test.ts --reporter=default --reporter=json --outputFile=audit-results.json
+          node -e "
+            const r = require('./audit-results.json');
+            if (r.numTotalTests === 0 || r.numPendingTests > 0 || r.numTodoTests > 0) {
+              console.error('craft browser suite: ' + r.numPendingTests + ' skipped of ' + r.numTotalTests + '. It must run, not skip.');
+              process.exit(1);
+            }
+            console.log('craft browser suite: ' + r.numPassedTests + ' of ' + r.numTotalTests + ' ran and passed.');
+          "
