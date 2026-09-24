@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- 3969544: Check every builder's output against the schema.org vocabulary, and report self-serving review markup.
+
+  - **Output change: `buildService` no longer emits `isPartOf`.** schema.org defines `isPartOf` on CreativeWork only, and a Service is not one, so parsers were already dropping it. The service's WebPage node carries the link to the WebSite.
+  - **Output change: `buildWebsite` ignores `speakable`.** schema.org defines `speakable` on Article and WebPage only. `WebsiteInput.speakable` is deprecated; pass `speakable` to the new `WebPageInput.speakable` (or `buildArticle`) instead.
+  - `findGraphIssues(graph, { siteEntityId })` reports `self-serving review: aggregateRating on <id>` and `self-serving review: Review of <id> (N×)`. Google makes review markup about the business on its own site ineligible for stars, with no manual action for that alone. Without the option the output is unchanged.
+  - `buildFAQPage` is marked `@deprecated` in JSDoc: Google removed the FAQ rich result on 7 May 2026. It still works and the markup is still valid.
+  - JSDoc on `buildReview` and `OrganizationInput.aggregateRating` states the self-serving rule.
+  - New dev-only test: every builder's keys are checked against a pinned schema.org 30.1 snapshot (`pnpm run snapshot:vocab` regenerates it). It found the two output changes above; reintroducing the old `PostalAddress.locality` bug makes it fail by name.
+
+- 3eb1560: CommonJS consumers now get the CommonJS type declarations. The `exports` map put a top-level `types` (the ESM `.d.ts`) ahead of `require`, so TypeScript resolving a `require` under `node16` stopped at the ESM file ("Masquerading as ESM" in @arethetypeswrong/cli). `types` now sits inside `import` and `require` separately. Runtime behaviour is unchanged.
+
+  Requires Node 22.12 or later (`engines.node`). Node 20 reached end of life on 2026-04-30. Also declares `sideEffects` so bundlers can tree-shake (craft keeps its CSS).
+
 All notable changes to `@domandigital/graph`.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
@@ -22,7 +39,7 @@ describe what shipped rather than what was recorded at the time.
 
 - `ProductInput.offers.availabilityStarts` — an ISO 8601 date or datetime,
   emitted verbatim onto the `Offer` node when set and omitted entirely when
-  not. It pairs with a `PreOrder` availability to state *when* a pre-order
+  not. It pairs with a `PreOrder` availability to state _when_ a pre-order
   becomes a sale, which search consumers use to schedule a listing rather
   than treating "available to pre-order" as an open-ended state.
 
