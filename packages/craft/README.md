@@ -139,7 +139,13 @@ run. A test fails if a phrase the standard blocks does not block.
 ```bash
 npx craft copy --gate content   # the house gate: exit 1 on the blocking tier
 npx craft copy compare draft.md rewrite.md   # facts a rewrite lost or added
+npx craft copy claims content   # every price, figure, date and named source, to check
 ```
+
+No tell can say whether a figure is true. `craft copy claims` lists each
+sentence a reader would take as a checkable fact, marked `sourced` (a source is
+named) or `UNSOURCED`, for a person to check against the primary source. It
+always exits 0: a checklist, not a verdict.
 
 The same checks run in code:
 

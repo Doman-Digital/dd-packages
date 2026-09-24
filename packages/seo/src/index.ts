@@ -10,5 +10,8 @@ export type { LinkDeclaration, RelatedLinks, GetRelatedLinksOptions } from "./li
 export { getBreadcrumbTrail } from "./trail";
 export type { TrailLabel, TrailEntry } from "./trail";
 
+export { normalizeRoutePath, toPolicyPatterns } from "./normalize";
+export type { NormalizeRoutePathOptions, TrailingSlash } from "./normalize";
+
 export { validateCoverage } from "./validate";
 export type { CoverageIssue, ValidateCoverageInput } from "./validate";

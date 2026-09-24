@@ -91,6 +91,22 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   hits were templates in quotes, and 57 of 68 label-list hits were definition
   lists, all now passing.
 
+- DD review tier read by a person, 2026-09-24: all 144 "worth a look"
+  findings over the 137 live documents. Real: vague-attribution 36 of 37
+  (uncited statistics; one "until the data proves" is a conditional),
+  review-phrase 13 of 13, ai-vocabulary 4 of 4, phrase-density 30 of 30,
+  contraction-scarcity 12 of 12 (AI-drafted articles, 0 to 4 contractions in
+  4,000 words), repeated-sentence 25 of 27 (2 were footnotes repeating a
+  source title), staccato-triplet 3 of 4 (1 crossed a paragraph break), ing-tail
+  2 of 3 (1 was a list of tasks). Noise: inline-label-list 0 of 11 (price
+  bands, click-through rates by position, named directories, a decision tree,
+  numbered steps). All four noisy tells tuned (catalogue `2026.09.8`), each
+  with the real hit as a pass fixture. The read also found a tell no rule had:
+  **`prompt-context`**, the model naming its inputs ("the attached Perplexity
+  research file"), 24 hits in five live articles, all real. New, so `review`;
+  a candidate for `block` once measured on proposals, where "the attached
+  research" can be honest.
+
 Recorded with dates in `CHARACTER.md` under Calibration once run.
 
 - Copy, 2026-09-23: old copy-check against craft on 2,570 files across seven

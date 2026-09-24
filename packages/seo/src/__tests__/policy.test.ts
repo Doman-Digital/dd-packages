@@ -37,3 +37,15 @@ describe("isRouteIndexable", () => {
     expect(isRouteIndexable(POLICY, "/work/sensphere")).toBe(true);
   });
 });
+
+describe("path normalisation in lookups", () => {
+  test("a trailing slash, query or hash still finds a noindex entry", () => {
+    expect(isRouteIndexable(POLICY, "/audit/success/")).toBe(false);
+    expect(isRouteIndexable(POLICY, "/audit/success?ref=email")).toBe(false);
+    expect(isRouteIndexable(POLICY, "/audit/success#top")).toBe(false);
+  });
+
+  test("pattern entries match a normalised path", () => {
+    expect(getRoutePolicy(POLICY, "/locations/manchester/?x=1")?.path).toBe("/locations/*");
+  });
+});

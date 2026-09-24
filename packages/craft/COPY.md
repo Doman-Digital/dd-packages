@@ -100,6 +100,7 @@ person reading decides which instance earns its place.
 | `vague-word` | innovative, scalable, end-to-end, streamline, solutions. Reported only when a file is named outright |
 | `question-reveal` | "The result? Twice the bookings.", "What does this mean for you? It means...": a staged reveal |
 | `inline-label-list` | three or more bullets in a row opening "**Label:**", where the label repeats the line |
+| `prompt-context` | "This article uses the attached Perplexity research file as the primary source", "the attached research is right to say", "the attached brief asks": the model naming what it was given. A web page has no attachment. **Zero in anything published** |
 | `placeholder` | "[Insert client name]", lorem ipsum, `TODO_PLACEHOLDER`. Fine in a draft commit; **zero in anything delivered** |
 
 ### Style is not evidence
@@ -212,6 +213,11 @@ Hyphenated compounds count as one word. Not automated.
   `TODO_PLACEHOLDER: <the exact field needed>` and say so. Never fill it.
 - A quotation under a named person must be theirs. Copy drafted for someone,
   in quote marks with their job title beneath it, is a fabricated attribution.
+- **Every price, figure, date and named source is checked against its primary
+  source before it ships.** `craft copy claims <paths>` lists them, each marked
+  sourced or UNSOURCED. A claim is sourced, corrected or cut, never re-cited
+  from memory. The copy check cannot do this part: a false figure in clean
+  prose passes every tell.
 
 ## CTA rule
 

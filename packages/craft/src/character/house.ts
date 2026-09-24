@@ -61,6 +61,9 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "closing-summary": { tier: "review", label: "closing summary" },
   "false-range": { tier: "review", label: "false range" },
   "placeholder": { tier: "review", label: "unfilled placeholder" },
+  // Every estate hit so far is real (38 in five DD articles, 2026-09-24), but
+  // a proposal can honestly say "the attached research". Review until measured there.
+  "prompt-context": { tier: "review", label: "prompt context: the model naming its own inputs" },
   "question-reveal": { tier: "review", label: "staged reveal" },
   "inline-label-list": { tier: "review", label: "bold-label bullets" },
   "phrase-density": { tier: "review", label: "density" },

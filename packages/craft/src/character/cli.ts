@@ -14,6 +14,7 @@ import { type CraftConfig, DEFAULT_IGNORE, applySeverity, ignoreMatcher, parseCr
 import { toJson } from "./json.js";
 import { toSarif } from "./sarif.js";
 import { houseRule } from "./house.js";
+import { findClaims, formatClaims } from "./claims.js";
 import { compareFacts, formatComparison, visibleText } from "./facts.js";
 import { formatReport } from "./format.js";
 import { fileKind } from "./parse.js";
@@ -36,6 +37,7 @@ Usage
   craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>] [ci options]
   craft copy [paths...] [--gate] [--json] [--strict] [--direction <file>] [ci options]
   craft copy compare <before> <after> [--json]
+  craft copy claims <paths...> [--json]
   craft tells list [--json]
   craft tells harvest <null.json | dir>... [--share 0.25] [--json]
   craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
@@ -58,6 +60,9 @@ copy      The prose in Markdown, markup and content files.
           compare lists the protected facts (prices, numbers, dates, times,
           phones, emails, links, postcodes, names) a rewrite lost or added.
           Exit 1 if any: restore it, source it, or say why.
+          claims lists every sentence holding a price, figure, date or named
+          source, marked sourced or UNSOURCED, for a person to check against
+          the primary source. It cannot tell true from false. Always exit 0.
 tells     The catalogue this build judges against. harvest reads null models
           for choices the model keeps making that the catalogue does not know.
 snapshot  Render a page in a browser and save what it looks like, as JSON.
@@ -353,6 +358,16 @@ export function run(argv: string[], io: Io): number | Promise<number> {
       const result = compareFacts(before, after);
       io.out(flags.json ? toJson(result) : formatComparison(result, flags.positional[0], flags.positional[1]));
       return result.lost.length || result.added.length ? 1 : 0;
+    }
+
+    if (command === "copy" && rest[0] === "claims") {
+      const flags = parseFlags(rest.slice(1));
+      if (typeof flags === "string") throw new Error(flags);
+      if (flags.positional.length === 0) throw new Error("usage: craft copy claims <paths...> [--json]");
+      const report = findClaims(readPaths(flags.positional, io.cwd, COPY_FILE, NOT_COPY_DIR));
+      io.out(flags.json ? JSON.stringify(report, null, 2) : formatClaims(report));
+      // A checklist, not a gate: nothing here is a verdict.
+      return 0;
     }
 
     if (command === "scan" || command === "copy") {
