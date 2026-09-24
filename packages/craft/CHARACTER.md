@@ -192,6 +192,32 @@ against different sets.
 Known limit: a computed font family is the family the stylesheet asked for.
 A face that failed to load is still reported under its name.
 
+### Stock components (snapshot v2)
+
+A version 2 snapshot names what each section is for (`role`: a CTA band,
+pricing, testimonials, an FAQ, a process, features, a team, a contact form)
+and how it is laid out (`geometry`: centring, width, balance, its own ground,
+its buttons), with the parts that make a component a stock one: badge texts,
+round portraits, a carousel, a row of big figures. Six tells read them, and
+only them, so a version 1 snapshot never trips one:
+
+- `cta-band-stock`: a centred band on its own colour with one or two buttons.
+- `pricing-trio-popular`: three price cards, one badged "Most popular".
+- `testimonial-avatar-carousel`: round headshots in a sliding carousel.
+- `faq-accordion-closer`: the page ends on a question-and-answer list.
+- `stats-row`: three to six big figures in a row (not straight after the
+  hero, which is `hero-then-proof`'s finding).
+- `centred-everything`: 80% or more of the sections centre their text.
+
+Each fix keeps the component's job (the ask, the prices, the proof, the
+answers) and changes how it looks. None removes a section, because the
+page's order is the client's, not ours.
+
+These six have rendered paths only (surface `rendered`): no source file shows
+a pricing trio reliably. They ship as warnings like every tell, and have not
+yet been read against the estate. Snapshot the estate with this build before
+any is considered for `block`.
+
 ## The counterfactual
 
 A list of tells goes stale; the model does not. So signal 2 asks the model
@@ -256,6 +282,29 @@ pipeline that has decided to hold the line.
 
 `craft direction propose --estate estate.json` reads the register too, so a
 proposed accent steers away from one a sibling already uses.
+
+Sites that share one component are rarer than siblings and easier to fix:
+
+```bash
+craft estate compare --component cta-band    # every pair's closest CTA bands
+craft estate compare --component pricing --json
+craft estate compare rmp --component cta-band   # one site against the rest
+```
+
+Each pair lists what its two components share ("centred", "1 button", "same
+coloured band"), closest first. There is no sibling line for components yet:
+it needs a calibration set of real components (see the CTA collection in
+`calibration/idiom/cta/` once it exists), so this ranks and names, and judges
+nothing. Only sites added with snapshot v2 have components to compare, and
+the command says so when fewer than two have the role. `--component` takes
+one of `cta-band`, `footer-cta`, `pricing`, `testimonials`, `faq`, `process`,
+`features`, `team`, `contact` or `stats`.
+
+With `--null`, `craft audit` also places each of the page's components
+against the same role in the null model, the way it places the whole page
+(`components` in the JSON). A role needs at least five null pages that have
+it. Null models built before snapshot v2 have no components, and the report
+says so rather than printing nothing.
 
 ## The character report
 
@@ -541,7 +590,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.9`, 56 tells.
+Catalogue version `2026.09.10`, 62 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -601,4 +650,10 @@ Catalogue version `2026.09.9`, 56 tells.
 | `repeated-sentence` | 1 | copy | warn | Repeated sentence | The same sentence on two pages, or the same nine words lightly edited, is one of the strongest signs a document was assembled rather than written. |
 | `heading-shape` | 2 | copy | warn | One heading shape | Headings that all share one shape ('X, and Y', 'X, because Y', 'Keep, rewrite, consolidate, retire') read as a template filled in section by section. |
 | `heading-echo` | 2 | copy | warn | Heading echoed | A heading repeated word for word as the first line under it spends the reader's attention twice on the same words. |
+| `cta-band-stock` | 1 | rendered + rendered | warn | Stock call-to-action band | A full-width coloured band with a centred heading, one line and one or two buttons is what a model closes every section run with. It asks for the booking the same way on every site. |
+| `pricing-trio-popular` | 1 | rendered + rendered | warn | Three-tier pricing with a popular badge | Three price cards with the middle one badged 'Most popular' is the SaaS pricing page, applied to a plumber or a salon whether or not anyone chose the middle option. |
+| `testimonial-avatar-carousel` | 1 | rendered + rendered | warn | Avatar testimonial carousel | Round headshots over quotes in a sliding carousel is the stock testimonial block. Most visitors see the first slide only, and stock or AI faces make every quote read as invented. |
+| `faq-accordion-closer` | 2 | rendered + rendered | warn | FAQ accordion as the closer | Ending the page on a collapsed FAQ, often followed only by a band, is the model's default page ending. The answers a buyer needs are hidden behind clicks at the point they decide. |
+| `stats-row` | 1 | rendered + rendered | warn | Row of big numbers | Three or four large figures in a row (500+ clients, 98% satisfaction, 10 years) is the stock proof block, and the numbers are often round, unsourced or invented. |
+| `centred-everything` | 2 | rendered + rendered | warn | Every section centred | When almost every section stacks a centred heading over centred text, the page has no reading line and every block looks like the one before. It is the layout nothing was decided for. |
 <!-- craft:catalogue:end -->

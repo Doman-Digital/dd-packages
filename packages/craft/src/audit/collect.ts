@@ -344,6 +344,35 @@ export function collectInPage(): InPageSnapshot {
     return kind;
   };
 
+  /** Badges, avatars and carousels: the small parts that make a component a stock one. */
+  const partsOf = (el: HTMLElement): { badges: string[]; avatars: number; carousel: boolean } => {
+    const inside = (Array.from(el.querySelectorAll("*")) as HTMLElement[]).slice(0, 1500).filter(shown);
+    const badges: string[] = [];
+    for (const n of inside) {
+      const t = ownText(n);
+      if (t.length < 2 || t.length > 24 || badges.length >= 5) continue;
+      const cs = style(n);
+      const r = box(n);
+      const radius = px(cs.borderTopLeftRadius);
+      const drawn = painted(cs.backgroundColor) || px(cs.borderTopWidth) >= 1;
+      if (drawn && r.height <= 40 && r.width <= 240 && radius >= r.height / 3 && !isControl(n)) badges.push(t);
+    }
+    const avatars = inside.filter((n) => {
+      if (n.tagName !== "IMG") return false;
+      const r = box(n);
+      const rad = style(n).borderTopLeftRadius;
+      const round = rad.endsWith("%") ? parseFloat(rad) >= 40 : px(rad) >= r.width * 0.4;
+      return r.width <= 96 && r.width >= 16 && Math.abs(r.width - r.height) <= r.width * 0.15 && round;
+    }).length;
+    const carousel = inside.some((n) => {
+      const cs = style(n);
+      if (n.getAttribute("aria-roledescription") === "carousel" || (cs.scrollSnapType && cs.scrollSnapType !== "none")) return true;
+      if (/^(auto|scroll|hidden)$/.test(cs.overflowX) && n.children.length >= 3 && n.scrollWidth > n.clientWidth * 1.2) return true;
+      return /^(BUTTON|A)$/.test(n.tagName) && /\b(prev|previous|next)\b/i.test(n.getAttribute("aria-label") ?? "");
+    });
+    return { badges, avatars, carousel };
+  };
+
   const kept = blocks.slice(0, 40);
   const sections: Snapshot["sections"] = kept.map((el, index) => {
     const b = box(el);
@@ -360,6 +389,7 @@ export function collectInPage(): InPageSnapshot {
     else if (numbers >= 3 && textChars < 600) kind = "stats";
     else if (cards >= 3) kind = "cards";
     const geometry = geometryOf(el, b);
+    const parts = partsOf(el);
     return {
       top: Math.round(b.top),
       height: Math.round(b.height),
@@ -370,6 +400,8 @@ export function collectInPage(): InPageSnapshot {
       hiddenAtLoad: b.top > vh && hiddenAtLoad(el),
       role: roleOf(el, kind, geometry, b, cards, iconCards, index === kept.length - 1),
       geometry,
+      ...parts,
+      figures: numbers,
     };
   });
   if (header && sections.length === 0) {

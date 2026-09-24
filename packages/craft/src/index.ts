@@ -109,6 +109,7 @@ export {
   type Finding,
   type Generation,
   type Hit,
+  type RenderedTell,
   type Severity,
   type SourceFile,
   type SourceTell,
@@ -155,6 +156,7 @@ export {
 export { type SarifOptions, type SarifTell, toSarif } from "./character/sarif.js";
 export { JSON_SCHEMA_VERSION, toJson } from "./character/json.js";
 export { RENDERED_PATHS } from "./snapshot/rendered.js";
+export { RENDERED_TELLS } from "./snapshot/rendered-tells.js";
 export { makeSnapshot, type SnapshotPatch } from "./snapshot/fixture.js";
 export { fontClass, normaliseFamily, type FontClass } from "./snapshot/fonts.js";
 export {
@@ -186,6 +188,19 @@ export {
   type FingerprintSection,
   type FingerprintDistance,
 } from "./fingerprint/index.js";
+export {
+  COMPONENT_ROLES,
+  PROMO_BADGE,
+  closestComponents,
+  componentDistance,
+  componentShared,
+  componentTypicalities,
+  componentTypicality,
+  componentsOf,
+  estateComponentPairs,
+  type ComponentPair,
+  type ComponentTypicality,
+} from "./fingerprint/component.js";
 export { AI_VIOLET, findColours, isAiViolet, isCream, parseColour } from "./character/color.js";
 export {
   PILL_LIMIT,
