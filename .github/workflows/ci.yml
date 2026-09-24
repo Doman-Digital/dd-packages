@@ -45,3 +45,24 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+  # What npm will ship, checked as a consumer sees it: publint and attw on
+  # each packed tarball, then require/import/bin/asset checks from a clean
+  # install. See scripts/check-pack.mjs for why the matrix above cannot
+  # catch this. One Node version: the tarball is the same on all of them.
+  pack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.x'
+          cache: 'pnpm'
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Check packed tarballs
+        run: pnpm run check:pack

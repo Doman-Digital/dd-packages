@@ -13,16 +13,20 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
     },
     "./audit": {
-      "types": "./dist/audit.d.ts",
-      "import": "./dist/audit.js",
+      "import": {
+        "types": "./dist/audit.d.ts",
+        "default": "./dist/audit.js"
+      },
       "require": {
         "types": "./dist/audit.d.cts",
         "default": "./dist/audit.cjs"
