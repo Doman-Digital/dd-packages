@@ -4,7 +4,8 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { merge } from "../audit/cli.js";
 import { auditSnapshot, CATALOGUE, checkCopy, scanSource } from "../character/check.js";
-import { COPY_FILE, loadExceptions, NOT_COPY_DIR, parseFlags, readPaths, SOURCE_FILE, type Io } from "../character/cli.js";
+import { COPY_FILE, loadConfig, loadExceptions, NOT_COPY_DIR, parseFlags, readPaths, SOURCE_FILE, type Io } from "../character/cli.js";
+import { applySeverity } from "../character/config.js";
 import type { ArtDirection } from "../direction/types.js";
 import { validateDirection } from "../direction/validate.js";
 import { loadEstate } from "../estate/cli.js";
@@ -15,6 +16,7 @@ import { typicality } from "../null/index.js";
 import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
 import { characterReport, type CharacterReport } from "./index.js";
 import { retrofitPlan } from "./retrofit.js";
+import { toJson } from "../character/json.js";
 
 const USAGE = "usage: craft report|retrofit <url | snapshot.json> [--repo <dir>] [--null <dir>] [--estate <estate.json>] [--direction <file>] [--json] [--out <file>]";
 
@@ -48,14 +50,17 @@ export async function runReport(command: "report" | "retrofit", args: string[], 
     const fp = fingerprint(snap);
     const repo = flags.repo ? resolve(io.cwd, flags.repo) : null;
     const exceptions = loadExceptions(flags, repo ?? io.cwd);
+    const config = loadConfig(flags, repo ?? io.cwd);
 
     // Signal 1: the rendered page, and the source and its copy when the repo is given.
     let findings = auditSnapshot(snap, { exceptions });
     if (repo) {
-      findings = merge(scanSource(readPaths(["."], repo, SOURCE_FILE), { exceptions }), findings);
+      findings = merge(scanSource(readPaths(["."], repo, SOURCE_FILE, undefined, config.ignore), { exceptions }), findings);
       // The site's copy, not the notes its developers keep in docs/.
-      findings = merge(findings, checkCopy(readPaths(["."], repo, COPY_FILE, (d) => NOT_COPY_DIR(d) || d === "docs"), { exceptions }));
+      const copyPaths = config.copyPaths ?? ["."];
+      findings = merge(findings, checkCopy(readPaths(copyPaths, repo, COPY_FILE, (d) => NOT_COPY_DIR(d) || d === "docs", config.ignore), { exceptions }));
     }
+    findings = applySeverity(findings, config);
 
     // Signal 2.
     const nulls = flags.null ? flags.null.split(",").map((p) => loadNull(p.trim(), io.cwd)) : [];
@@ -91,8 +96,8 @@ export async function runReport(command: "report" | "retrofit", args: string[], 
       } else io.out(plan);
       return 0;
     }
-    io.out(flags.json ? JSON.stringify(report, null, 2) : formatCharacter(report));
-    if (flags.out) writeFileSync(resolve(io.cwd, flags.out), `${JSON.stringify(report, null, 2)}\n`);
+    io.out(flags.json ? toJson(report) : formatCharacter(report));
+    if (flags.out) writeFileSync(resolve(io.cwd, flags.out), `${toJson(report)}\n`);
     return flags.strict && report.verdict !== "decided" ? 1 : 0;
   } catch (error) {
     io.err(`craft: ${(error as Error).message}`);

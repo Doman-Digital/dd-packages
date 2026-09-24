@@ -116,7 +116,11 @@ export async function snapshotUrls(urls: string[], options: SnapshotOptions = {}
     for (const url of urls) {
       const page = await browser.newPage({ viewport: options.viewport ?? { width: 1440, height: 900 } });
       try {
-        await page.goto(url, { waitUntil: "domcontentloaded", timeout: options.timeoutMs ?? 45000 });
+        const response = (await page.goto(url, { waitUntil: "domcontentloaded", timeout: options.timeoutMs ?? 45000 })) as { status?(): number } | null;
+        // An error page is not the page. Measuring it would report a 404 as a
+        // clean page, and a page not measured never counts as a pass.
+        const status = typeof response?.status === "function" ? response.status() : 200;
+        if (status >= 400) throw new Error(`HTTP ${status}`);
         out.push({ url, snapshot: await snapshotPage(page, url, options) });
       } catch (error) {
         out.push({ url, error: (error as Error).message });

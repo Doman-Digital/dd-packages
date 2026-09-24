@@ -8,6 +8,7 @@ import { fingerprint } from "../fingerprint/index.js";
 import { loadNull } from "../null/cli.js";
 import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
 import { addSite, compareToEstate, emptyEstate, ESTATE_VERSION, estatePairs, SIBLING_AT, siblingLine, type EstateMatch, type EstatePair, type EstateRegister } from "./index.js";
+import { toJson } from "../character/json.js";
 
 const USAGE = "usage: craft estate add <url | snapshot.json> --id <id> [--client <name>] | craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--json] [--strict]";
 
@@ -77,13 +78,13 @@ export async function runEstate(args: string[], io: Io): Promise<number> {
     if (sub === "compare") {
       if (!target) {
         const pairs = estatePairs(register, at);
-        io.out(flags.json ? JSON.stringify({ siblingAt: at, pairs }, null, 2) : formatPairs(pairs, at, register.sites.length));
+        io.out(flags.json ? toJson({ siblingAt: at, pairs }) : formatPairs(pairs, at, register.sites.length));
         return flags.strict && pairs.some((p) => p.sibling) ? 1 : 0;
       }
       const known = register.sites.find((s) => s.id === target);
       const fp = known ? known.fingerprint : fingerprint(await snapshotOf(target, io.cwd));
       const matches = compareToEstate(fp, register, { exclude: known?.id, siblingAt: at });
-      io.out(flags.json ? JSON.stringify({ siblingAt: at, matches }, null, 2) : formatMatches(known?.id ?? target, matches, at));
+      io.out(flags.json ? toJson({ siblingAt: at, matches }) : formatMatches(known?.id ?? target, matches, at));
       return flags.strict && matches.some((m) => m.sibling) ? 1 : 0;
     }
 

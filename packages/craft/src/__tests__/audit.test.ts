@@ -22,6 +22,11 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
   beforeAll(async () => {
     server = createServer((req, res) => {
       res.setHeader("content-type", "text/html");
+      if (req.url === "/missing") {
+        res.statusCode = 404;
+        res.end("<!doctype html><title>Not found</title><h1>Not found</h1>");
+        return;
+      }
       res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : "generated.html"));
     });
     await new Promise<void>((done) => server.listen(0, "127.0.0.1", done));
@@ -73,6 +78,16 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     expect(results.map((r) => Boolean(r.snapshot))).toEqual([true, false, true]);
     expect(results[1].error).toMatch(/net::ERR_UNSAFE_PORT/);
     await expect(snapshotUrl("http://127.0.0.1:9/", { executablePath: chromium, timeoutMs: 5000 })).rejects.toThrow(/net::ERR_UNSAFE_PORT/);
+  }, 60_000);
+
+  it("never measures an error page as the page", async () => {
+    // A 404 page is a page of its own. Measured, it reports a missing page as
+    // clean, and a page not measured must never count as a pass.
+    const { snapshotUrl, snapshotUrls } = await import("../audit/index.js");
+    const results = await snapshotUrls([`${base}/missing`, `${base}/decided`], { executablePath: chromium, introWindowMs: 200 });
+    expect(results.map((r) => Boolean(r.snapshot))).toEqual([false, true]);
+    expect(results[0].error).toBe("HTTP 404");
+    await expect(snapshotUrl(`${base}/missing`, { executablePath: chromium })).rejects.toThrow(/HTTP 404/);
   }, 60_000);
 
   it("sees a reveal on the cards inside a section, not only on the section", async () => {

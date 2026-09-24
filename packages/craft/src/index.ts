@@ -131,6 +131,28 @@ export { formatReport } from "./character/format.js";
 export { HOUSE, houseRule, type HouseRule, type HouseTier } from "./character/house.js";
 export { compareFacts, formatComparison, protectedFacts, visibleText, type Fact, type FactComparison, type FactKind } from "./character/facts.js";
 export { auditSnapshot } from "./character/check.js";
+export {
+  type Baseline,
+  type BaselineEntry,
+  BASELINE_VERSION,
+  applyBaseline,
+  createBaseline,
+  findingKey,
+  parseBaseline,
+} from "./character/baseline.js";
+export {
+  type CraftConfig,
+  type SeverityLevel,
+  type SeverityOverride,
+  DEFAULT_IGNORE,
+  applySeverity,
+  globToRegExp,
+  ignoreMatcher,
+  parseCraftConfig,
+  severityExceptions,
+} from "./character/config.js";
+export { type SarifOptions, type SarifTell, toSarif } from "./character/sarif.js";
+export { JSON_SCHEMA_VERSION, toJson } from "./character/json.js";
 export { RENDERED_PATHS } from "./snapshot/rendered.js";
 export { makeSnapshot, type SnapshotPatch } from "./snapshot/fixture.js";
 export { fontClass, normaliseFamily, type FontClass } from "./snapshot/fonts.js";
