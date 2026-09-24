@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { run } from "../character/cli.js";
-import type { Fingerprint } from "../fingerprint/index.js";
+import { FINGERPRINT_VERSION, type Fingerprint } from "../fingerprint/index.js";
 import { extractHtml, harvest, MIN_RUNS, nullPrompt, typicality, type NullModel, type NullRun } from "../null/index.js";
 import { makeSnapshot } from "../snapshot/fixture.js";
 
@@ -189,7 +189,7 @@ describe("the commands", () => {
     const r = measureRun("01", html, makeSnapshot());
     expect(r.copy).toEqual(expect.arrayContaining(["Done properly, every time.", "Book a chair"]));
     expect(r.copy.join(" ")).not.toMatch(/btn/);
-    expect(r.fingerprint.version).toBe(1);
+    expect(r.fingerprint.version).toBe(FINGERPRINT_VERSION);
   });
 
   it("craft tells harvest reads a directory of null models", async () => {

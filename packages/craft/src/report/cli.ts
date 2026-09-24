@@ -13,7 +13,8 @@ import { compareToEstate, SIBLING_AT } from "../estate/index.js";
 import { fingerprint } from "../fingerprint/index.js";
 import { loadNull } from "../null/cli.js";
 import { typicality } from "../null/index.js";
-import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
+import type { Snapshot } from "../snapshot/types.js";
+import { readSnapshot } from "../snapshot/migrate.js";
 import { characterReport, type CharacterReport } from "./index.js";
 import { retrofitPlan } from "./retrofit.js";
 import { toJson } from "../character/json.js";
@@ -41,8 +42,7 @@ export async function runReport(command: "report" | "retrofit", args: string[], 
     const local = resolve(io.cwd, target);
     let snap: Snapshot;
     if (/\.json$/i.test(target) && existsSync(local)) {
-      snap = JSON.parse(readFileSync(local, "utf8")) as Snapshot;
-      if (snap.version !== SNAPSHOT_VERSION) throw new Error(`${target} is not a snapshot`);
+      snap = readSnapshot(JSON.parse(readFileSync(local, "utf8")), target);
     } else {
       const { snapshotUrl } = await import("../audit/index.js");
       snap = await snapshotUrl(target);

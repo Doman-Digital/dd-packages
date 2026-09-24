@@ -12,7 +12,13 @@
  * browser (see `@domandigital/craft/audit`); judging one does not.
  */
 
-export const SNAPSHOT_VERSION = 1;
+/**
+ * 2 adds `role` and `geometry` per section, `rhythmVariance` for the page and
+ * the screenshot measures in `visual`. All four are optional: a version 1
+ * snapshot reads as version 2 without them (see `readSnapshot`), and nothing
+ * that judged a v1 snapshot judges it differently.
+ */
+export const SNAPSHOT_VERSION = 2;
 
 export interface SnapshotColour {
   /** `rgb(r, g, b)` or `rgba(r, g, b, a)`, as the browser computed it. */
@@ -57,6 +63,39 @@ export interface SnapshotControl {
 
 export type SectionKind = "hero" | "logos" | "stats" | "cards" | "marquee" | "text" | "other";
 
+/**
+ * What a section is for, finer than `kind`. `kind` keeps its version 1
+ * meaning because the rendered tells, the null models and the estate were
+ * calibrated on it; `role` is what component-level comparison reads.
+ */
+export type SectionRole =
+  | SectionKind
+  | "cta-band"
+  | "footer-cta"
+  | "pricing"
+  | "testimonials"
+  | "faq"
+  | "process"
+  | "features"
+  | "team"
+  | "contact";
+
+/** How a section is laid out, measured, not judged. */
+export interface SectionGeometry {
+  /** Share of the section's text blocks that are centred, 0 to 1. */
+  centredShare: number;
+  /** Content area balance about the vertical centre line: 1 mirror-even, 0 all on one side. */
+  mirrorSymmetry: number;
+  /** Share of the section's area with no text, image or control in it, 0 to 1. */
+  whitespaceRatio: number;
+  /** Width the content spans, over the viewport width. */
+  contentWidthRatio: number;
+  /** The painted background behind the section, as computed. */
+  background: string;
+  /** Buttons and button-styled links in the section. */
+  controls: number;
+}
+
 export interface SnapshotSection {
   top: number;
   height: number;
@@ -69,6 +108,27 @@ export interface SnapshotSection {
   iconCards: number;
   /** Hidden at load, waiting for a scroll to reveal it. */
   hiddenAtLoad: boolean;
+  /** Version 2. */
+  role?: SectionRole;
+  /** Version 2. */
+  geometry?: SectionGeometry;
+}
+
+/**
+ * Measures of the rendered pixels, from a full-page screenshot (capped at
+ * `height`). None of them passes or fails anything: they describe.
+ */
+export interface SnapshotVisual {
+  /** Hasler and Süsstrunk (2003) colourfulness, M = σ_rgyb + 0.3 μ_rgyb, on 0-255 channels. Grey is 0. */
+  colourfulness: number;
+  /** Share of sampled pixels on a luminance edge: a complexity proxy, 0 to 1. */
+  edgeDensity: number;
+  /** 1 minus the mean luminance difference between each pixel and its left-right mirror, 0 to 1. */
+  symmetry: number;
+  width: number;
+  height: number;
+  /** Pixels actually read: large pages are sampled on a grid. */
+  sampled: number;
 }
 
 export interface SnapshotGradient {
@@ -124,6 +184,12 @@ export interface Snapshot {
   sections: SnapshotSection[];
   effects: SnapshotEffects;
   motion: SnapshotMotion;
+  /** Version 2: coefficient of variation of the section heights. Null with fewer than two sections. */
+  rhythmVariance?: number | null;
+  /** Version 2: absent when the page could not be screenshotted. */
+  visual?: SnapshotVisual;
+  /** Set when a version 1 snapshot was read and upgraded in memory. */
+  migratedFrom?: 1;
   /** The design-system measures trawl has collected since v7, kept so it can switch to this. */
   metrics: {
     fontSizes: number[];
