@@ -129,6 +129,11 @@ repo. `.claude`, `.agents` and `.cursor` are never walked, config or not.
 A severity change needs a `because`, like an exception. `off` is applied as an
 exception, so the report lists what it silenced.
 
+Under `craft copy --gate`, a repo can raise a copy tell but never lower one in
+the house blocking tier. A `warn` or `off` for a blocking tell, here or as an
+exception in `art-direction.json`, is refused and listed in the report. A
+genuine one-off takes `copy-ok` on its line.
+
 ### Copy
 
 [COPY.md](./COPY.md) is the house copy standard: the blocking tier, the review
