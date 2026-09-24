@@ -36,7 +36,7 @@ pnpm add @domandigital/seo
 ```
 
 Public on npm, Apache-2.0, published with provenance from a tagged release.
-ESM and CJS builds ship together, each with its own types. Requires Node 20 or
+ESM and CJS builds ship together, each with its own types. Requires Node 22.12 or
 newer.
 
 Upgrading a repo that still pins `github:Doman-Digital/dd-seo#vX.Y.Z`? Swap it
