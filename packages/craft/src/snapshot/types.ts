@@ -122,6 +122,45 @@ export interface SnapshotSection {
   figures?: number;
 }
 
+export type ImageRole = "photo" | "illustration" | "icon" | "avatar" | "logo";
+
+/**
+ * What the image's own bytes say about where it came from. Only a positive
+ * is evidence: most images carry no metadata at all, and a re-encode strips
+ * it, so no marker proves nothing.
+ */
+export interface ImageProvenance {
+  /** The IPTC digital source type found, if any: "trainedAlgorithmicMedia" or "compositeWithTrainedAlgorithmicMedia". */
+  digitalSourceType: string | null;
+  /** Where the marker sat: an XMP packet, a C2PA manifest, or somewhere else in the file. */
+  source: "xmp" | "c2pa" | "other" | null;
+  /** The file carries a C2PA manifest (Content Credentials), whatever it says. */
+  c2pa: boolean;
+  /** Bytes read, from the start of the file. */
+  bytes: number;
+}
+
+/** One image as the visitor sees it: an `img`, or a CSS background large enough to be a picture. */
+export interface SnapshotImage {
+  /** The URL the browser loaded, unwrapped from an image optimiser (`/_next/image?url=`), or a `data:` URI cut to 64 characters. */
+  src: string;
+  /** Host of `src`, or null for a `data:` URI. */
+  host: string | null;
+  width: number;
+  height: number;
+  top: number;
+  role: ImageRole;
+  alt: string | null;
+  /** Empty alt, `aria-hidden` or `role="presentation"`. */
+  decorative: boolean;
+  /** Index into `sections`, or null when the image sits outside them. */
+  section: number | null;
+  /** A CSS `background-image`, not an `img`. */
+  background: boolean;
+  /** Present when the bytes were read. */
+  provenance?: ImageProvenance;
+}
+
 /**
  * Measures of the rendered pixels, from a full-page screenshot (capped at
  * `height`). None of them passes or fails anything: they describe.
@@ -196,6 +235,11 @@ export interface Snapshot {
   rhythmVariance?: number | null;
   /** Version 2: absent when the page could not be screenshotted. */
   visual?: SnapshotVisual;
+  /**
+   * Version 2, craft 0.14 and later: every image on the page, largest first, at
+   * most 60. Absent in older snapshots, which the imagery tells never judge.
+   */
+  images?: SnapshotImage[];
   /** Set when a version 1 snapshot was read and upgraded in memory. */
   migratedFrom?: 1;
   /** The design-system measures trawl has collected since v7, kept so it can switch to this. */

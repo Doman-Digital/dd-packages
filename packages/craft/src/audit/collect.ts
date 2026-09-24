@@ -498,6 +498,84 @@ export function collectInPage(): InPageSnapshot {
     if (avg > 0 && width > 0) bodyLineLengthCh = Math.round(width / avg);
   }
 
+  // Phase M: every picture on the page, as the visitor gets it.
+  const unwrap = (raw: string): string => {
+    if (raw.startsWith("data:")) return raw.slice(0, 64);
+    try {
+      const u = new URL(raw, location.href);
+      // An image optimiser hides the original behind its own URL.
+      const inner = /\/_(?:next|vercel)\/image$/.test(u.pathname) ? u.searchParams.get("url") : null;
+      if (inner) return new URL(inner, location.href).href;
+      const cf = u.pathname.match(/^\/cdn-cgi\/image\/[^/]+\/(.+)$/);
+      if (cf) return /^https?:\/\//.test(cf[1]) ? cf[1] : new URL(`/${cf[1]}`, location.href).href;
+      return u.href;
+    } catch {
+      return raw.slice(0, 200);
+    }
+  };
+  const roundBox = (el: Element, w: number): boolean => {
+    const rad = style(el).borderTopLeftRadius;
+    return rad.endsWith("%") ? parseFloat(rad) >= 40 : px(rad) >= w * 0.4;
+  };
+  const sectionOf = (el: Element): number | null => {
+    const i = kept.findIndex((k) => k.contains(el));
+    return i === -1 ? null : i;
+  };
+  const roleOfImage = (el: HTMLElement, src: string, w: number, h: number, alt: string | null): NonNullable<Snapshot["images"]>[number]["role"] => {
+    const vector = /\.svg(?:[?#]|$)/i.test(src) || src.startsWith("data:image/svg");
+    const square = Math.abs(w - h) <= w * 0.15;
+    if (w >= 16 && w <= 96 && square && (roundBox(el, w) || (el.parentElement !== null && roundBox(el.parentElement, w)))) return "avatar";
+    const section = sectionOf(el);
+    const hint = `${alt ?? ""} ${src} ${typeof el.className === "string" ? el.className : ""}`;
+    if (/\blogo\b/i.test(hint) || (section !== null && sections[section]?.kind === "logos") || (el.closest("header, footer, nav") && h <= 120)) return "logo";
+    if (Math.max(w, h) <= (vector ? 120 : 72)) return "icon";
+    if (vector) return "illustration";
+    return w >= 160 && h >= 120 ? "photo" : "icon";
+  };
+  const images: NonNullable<Snapshot["images"]> = [];
+  const seenImage = new Set<string>();
+  const addImage = (el: HTMLElement, raw: string, alt: string | null, decorative: boolean, background: boolean) => {
+    const b = box(el);
+    if (!raw || b.width < 8 || b.height < 8) return;
+    const src = unwrap(raw);
+    const key = `${src} ${Math.round(b.top)} ${Math.round(b.left)}`;
+    if (seenImage.has(key)) return;
+    seenImage.add(key);
+    let host: string | null = null;
+    try {
+      host = src.startsWith("data:") ? null : new URL(src).hostname;
+    } catch {
+      host = null;
+    }
+    images.push({
+      src,
+      host,
+      width: Math.round(b.width),
+      height: Math.round(b.height),
+      top: Math.round(b.top),
+      role: roleOfImage(el, src, b.width, b.height, alt),
+      alt,
+      decorative,
+      section: sectionOf(el),
+      background,
+    });
+  };
+  for (const img of Array.from(document.querySelectorAll("img")).slice(0, 400) as HTMLImageElement[]) {
+    if (!shown(img)) continue;
+    const alt = img.getAttribute("alt");
+    const decorative = alt === "" || img.getAttribute("aria-hidden") === "true" || /^(?:presentation|none)$/.test(img.getAttribute("role") ?? "");
+    addImage(img, img.currentSrc || img.getAttribute("src") || "", alt, decorative, false);
+  }
+  for (const el of all) {
+    const bgImage = style(el).backgroundImage || "";
+    if (!bgImage.includes("url(")) continue;
+    const b = box(el);
+    if (b.width < 160 || b.height < 120 || !shown(el)) continue;
+    const m = bgImage.match(/url\(\s*["']?([^"')]+)["']?\s*\)/);
+    if (m) addImage(el, m[1], null, true, true);
+  }
+  images.sort((a, b) => b.width * b.height - a.width * a.height);
+
   const toList = (m: Map<string, { area: number; chars: number }>) =>
     Array.from(m, ([value, v]) => ({ value, area: Math.round(v.area), chars: v.chars })).sort((a, b) => b.area - a.area || b.chars - a.chars);
   const nums = (s: Set<number>) => Array.from(s).sort((a, b) => a - b);
@@ -519,6 +597,7 @@ export function collectInPage(): InPageSnapshot {
       return mean > 0 ? Math.round((sd / mean) * 1000) / 1000 : null;
     })(),
     effects,
+    images: images.slice(0, 60),
     motion: {
       hiddenSections: sections.filter((s) => s.hiddenAtLoad).length,
       sections: sections.length,

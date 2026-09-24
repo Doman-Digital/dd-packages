@@ -13,6 +13,7 @@ import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
 import { collectInPage, overlayInPage } from "./collect.js";
 import { decodePng } from "../direction/png.js";
 import { visualMeasures } from "../snapshot/visual.js";
+import { PROVENANCE_SCAN_BYTES, scanProvenance } from "../snapshot/provenance.js";
 import type { CheckOptions, CheckReport } from "../character/types.js";
 import type { Fingerprint } from "../fingerprint/index.js";
 
@@ -27,6 +28,8 @@ export interface SnapshotOptions {
   timeoutMs?: number;
   /** Take a screenshot and measure its pixels (`visual`). Default true. */
   visual?: boolean;
+  /** Read the first bytes of the page's larger images for AI provenance markers. Default true. */
+  provenance?: boolean;
 }
 
 interface MinimalPage {
@@ -36,6 +39,38 @@ interface MinimalPage {
   waitForTimeout(ms: number): Promise<void>;
   /** Optional: a driver without it gets a snapshot with no `visual` measures. */
   screenshot?(options: { fullPage?: boolean; type?: "png"; clip?: { x: number; y: number; width: number; height: number } }): Promise<Uint8Array>;
+  /** Optional: Playwright's request context, which fetches outside the page's CORS rules. Without it, no image gets `provenance`. */
+  request?: {
+    get(url: string, options?: { headers?: Record<string, string>; timeout?: number }): Promise<{ ok(): boolean; body(): Promise<Uint8Array> }>;
+  };
+}
+
+/** At most this many images are read for provenance, largest first. */
+export const PROVENANCE_MAX_IMAGES = 24;
+/** The most time the reads may take for one page, in ms, so a machine offline waits seconds, not minutes. */
+export const PROVENANCE_BUDGET_MS = 20_000;
+
+/**
+ * The first bytes of the page's pictures (photos, illustrations, avatars),
+ * scanned for an AI digital source type. A fetch that fails leaves that image
+ * without `provenance`: not read is not clean.
+ */
+async function readProvenance(page: MinimalPage, images: NonNullable<Snapshot["images"]>, timeoutMs: number): Promise<void> {
+  if (!page.request) return;
+  const deadline = Date.now() + PROVENANCE_BUDGET_MS;
+  const wanted = [...new Set(images.filter((i) => i.role !== "icon" && i.role !== "logo" && /^https?:\/\//.test(i.src)).map((i) => i.src))].slice(0, PROVENANCE_MAX_IMAGES);
+  for (const src of wanted) {
+    const left = deadline - Date.now();
+    if (left < 500) break;
+    try {
+      const res = await page.request.get(src, { headers: { Range: `bytes=0-${PROVENANCE_SCAN_BYTES - 1}` }, timeout: Math.min(timeoutMs, left) });
+      if (!res.ok()) continue;
+      const provenance = scanProvenance(await res.body());
+      for (const image of images) if (image.src === src) image.provenance = provenance;
+    } catch {
+      // Not read: the image keeps no provenance, which the tells read as unknown.
+    }
+  }
 }
 
 /** The most of a page the screenshot measures read, in CSS px. A long page is judged on its opening. */
@@ -73,6 +108,7 @@ export async function snapshotPage(page: MinimalPage, url: string, options: Snap
   await page.waitForTimeout(options.introWindowMs ?? 5000);
   const late = await page.evaluate(overlayInPage).catch(() => false);
   const data = await page.evaluate(collectInPage);
+  if (data.images && options.provenance !== false) await readProvenance(page, data.images, 8000);
   let visual: Snapshot["visual"];
   if (page.screenshot && options.visual !== false) {
     try {

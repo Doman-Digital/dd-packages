@@ -157,10 +157,14 @@ export { type SarifOptions, type SarifTell, toSarif } from "./character/sarif.js
 export { JSON_SCHEMA_VERSION, toJson } from "./character/json.js";
 export { RENDERED_PATHS } from "./snapshot/rendered.js";
 export { RENDERED_TELLS } from "./snapshot/rendered-tells.js";
+export { IMAGERY_TELLS, STOCK_AVATAR_HOSTS, STOCK_PHOTO_HOSTS, stockAvatarSource, stockSource } from "./snapshot/imagery-tells.js";
+export { AI_SOURCE_TYPES, PROVENANCE_SCAN_BYTES, scanProvenance } from "./snapshot/provenance.js";
 export { makeSnapshot, type SnapshotPatch } from "./snapshot/fixture.js";
 export { fontClass, normaliseFamily, type FontClass } from "./snapshot/fonts.js";
 export {
   SNAPSHOT_VERSION,
+  type ImageProvenance,
+  type ImageRole,
   type SectionGeometry,
   type SectionKind,
   type SectionRole,
@@ -171,6 +175,7 @@ export {
   type SnapshotFont,
   type SnapshotGradient,
   type SnapshotHeading,
+  type SnapshotImage,
   type SnapshotMotion,
   type SnapshotSection,
   type SnapshotVisual,
