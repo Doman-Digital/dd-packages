@@ -159,7 +159,9 @@ export { makeSnapshot, type SnapshotPatch } from "./snapshot/fixture.js";
 export { fontClass, normaliseFamily, type FontClass } from "./snapshot/fonts.js";
 export {
   SNAPSHOT_VERSION,
+  type SectionGeometry,
   type SectionKind,
+  type SectionRole,
   type Snapshot,
   type SnapshotColour,
   type SnapshotControl,
@@ -169,14 +171,19 @@ export {
   type SnapshotHeading,
   type SnapshotMotion,
   type SnapshotSection,
+  type SnapshotVisual,
 } from "./snapshot/types.js";
+export { READABLE_SNAPSHOT_VERSIONS, readSnapshot } from "./snapshot/migrate.js";
+export { EDGE_STEP, visualMeasures, type RgbaImage } from "./snapshot/visual.js";
 export {
   DISTANCE_WEIGHTS,
   FINGERPRINT_VERSION,
   fingerprint,
   fingerprintDistance,
+  layoutDistance,
   nearest,
   type Fingerprint,
+  type FingerprintSection,
   type FingerprintDistance,
 } from "./fingerprint/index.js";
 export { AI_VIOLET, findColours, isAiViolet, isCream, parseColour } from "./character/color.js";

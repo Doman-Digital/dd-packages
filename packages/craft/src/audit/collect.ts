@@ -134,19 +134,29 @@ export function collectInPage(): InPageSnapshot {
     });
 
   // ------------------------------------------------------------------ controls
-  const controls: Snapshot["controls"] = [];
-  for (const el of all) {
-    const tag = el.tagName;
-    const isButton = tag === "BUTTON" || (tag === "INPUT" && /^(submit|button)$/i.test((el as HTMLInputElement).type));
-    if (!isButton && tag !== "A") continue;
-    if (!shown(el)) continue;
+  const isButtonEl = (el: Element): boolean =>
+    el.tagName === "BUTTON" || (el.tagName === "INPUT" && /^(submit|button)$/i.test((el as HTMLInputElement).type));
+  /** A button, or an anchor drawn as one. */
+  const isControl = (el: Element): boolean => {
+    const isButton = isButtonEl(el);
+    if (!isButton && el.tagName !== "A") return false;
+    if (!shown(el)) return false;
     const cs = style(el);
     const b = box(el);
     const label = (el.textContent ?? (el as HTMLInputElement).value ?? "").replace(/\s+/g, " ").trim();
-    if (!label || b.height < 24 || b.height > 90) continue;
+    if (!label || b.height < 24 || b.height > 90) return false;
     // An anchor counts as a control only when it is drawn as one.
-    if (!isButton && !(painted(cs.backgroundColor) || px(cs.borderTopWidth) >= 1) ) continue;
-    if (!isButton && px(cs.paddingLeft) < 8) continue;
+    if (!isButton && !(painted(cs.backgroundColor) || px(cs.borderTopWidth) >= 1)) return false;
+    if (!isButton && px(cs.paddingLeft) < 8) return false;
+    return true;
+  };
+  const controls: Snapshot["controls"] = [];
+  for (const el of all) {
+    if (!isControl(el)) continue;
+    const isButton = isButtonEl(el);
+    const cs = style(el);
+    const b = box(el);
+    const label = (el.textContent ?? (el as HTMLInputElement).value ?? "").replace(/\s+/g, " ").trim();
     const r = cs.borderTopLeftRadius;
     const radius = r.endsWith("%") ? (parseFloat(r) / 100) * b.height : px(r);
     controls.push({
@@ -247,7 +257,95 @@ export function collectInPage(): InPageSnapshot {
     return best;
   };
 
-  const sections: Snapshot["sections"] = blocks.slice(0, 40).map((el, index) => {
+  // Version 2: what a section is for, and how it is laid out.
+  const backgroundOf = (el: Element): string => {
+    for (let n: Element | null = el; n && n !== document.documentElement; n = n.parentElement) {
+      const c = style(n).backgroundColor;
+      if (painted(c)) return c;
+    }
+    return ground;
+  };
+  const geometryOf = (el: HTMLElement, b: { top: number; left: number; width: number; height: number }): NonNullable<Snapshot["sections"][number]["geometry"]> => {
+    const leaves = (Array.from(el.querySelectorAll("*")) as HTMLElement[])
+      .slice(0, 1500)
+      .filter((n) => (ownText(n).length > 1 || /^(IMG|SVG|VIDEO|PICTURE|BUTTON|INPUT|TEXTAREA|SELECT)$/i.test(n.tagName)) && shown(n))
+      .slice(0, 400);
+    const centreX = b.left + b.width / 2;
+    let left = 0;
+    let right = 0;
+    let covered = 0;
+    let minX = Infinity;
+    let maxX = -Infinity;
+    let textBlocks = 0;
+    let centred = 0;
+    for (const n of leaves) {
+      const r = box(n);
+      const area = r.width * r.height;
+      covered += area;
+      minX = Math.min(minX, r.left);
+      maxX = Math.max(maxX, r.left + r.width);
+      const split = Math.max(0, Math.min(r.width, centreX - r.left));
+      left += split * r.height;
+      right += (r.width - split) * r.height;
+      if (ownText(n).length > 1) {
+        textBlocks += 1;
+        const mid = r.left + r.width / 2;
+        if (style(n).textAlign === "center" || (Math.abs(mid - centreX) < vw * 0.03 && r.width < b.width * 0.8)) centred += 1;
+      }
+    }
+    const round = (v: number): number => Math.round(v * 1000) / 1000;
+    return {
+      centredShare: textBlocks ? round(centred / textBlocks) : 0,
+      mirrorSymmetry: left + right > 0 ? round(1 - Math.abs(left - right) / (left + right)) : 1,
+      whitespaceRatio: round(Math.max(0, 1 - Math.min(1, covered / Math.max(1, b.width * b.height)))),
+      contentWidthRatio: leaves.length ? round(Math.min(1, (maxX - minX) / vw)) : 0,
+      background: backgroundOf(el),
+      controls: (Array.from(el.querySelectorAll("a, button, input")) as HTMLElement[]).slice(0, 200).filter(isControl).length,
+    };
+  };
+  const CURRENCY = /[£$€]\s?\d/;
+  const roleOf = (
+    el: HTMLElement,
+    kind: Snapshot["sections"][number]["kind"],
+    geo: NonNullable<Snapshot["sections"][number]["geometry"]>,
+    b: { height: number },
+    cards: number,
+    iconCards: number,
+    last: boolean,
+  ): NonNullable<Snapshot["sections"][number]["role"]> => {
+    if (kind === "marquee" || kind === "hero") return kind;
+    const heading = (el.querySelector("h1, h2, h3")?.textContent ?? "").toLowerCase();
+    const leaves = (Array.from(el.querySelectorAll("*")) as HTMLElement[]).slice(0, 1500);
+    const own = leaves.map(ownText);
+    const questions = own.filter((t) => /\?$/.test(t) && t.length > 8).length;
+    if (el.querySelectorAll("details").length >= 3 || el.querySelectorAll("[aria-expanded]").length >= 3 || (/\bfaq|frequently asked|questions\b/.test(heading) && questions >= 3)) return "faq";
+    const prices = own.filter((t) => CURRENCY.test(t) && t.length < 40).length;
+    if (prices >= 2 && (cards >= 2 || /pric|plan|package/.test(heading))) return "pricing";
+    const quotes = el.querySelectorAll("blockquote, q").length;
+    if (quotes >= 2 || /testimonial|review|what (?:our )?(?:clients|customers|people) say/.test(heading)) return "testimonials";
+    const steps = Math.max(0, ...Array.from(el.querySelectorAll("ol")).map((ol) => ol.children.length));
+    const numbered = own.filter((t) => /^(?:step\s*)?0?[1-9][.:]?$/i.test(t)).length;
+    if (steps >= 3 || numbered >= 3 || /how it works|our process|\bsteps?\b/.test(heading)) return "process";
+    const form = el.querySelector("form");
+    const fields = form ? form.querySelectorAll("input:not([type=hidden]):not([type=submit]), textarea, select").length : 0;
+    if (fields >= 2 || /contact|get in touch/.test(heading)) return "contact";
+    const portraits = (Array.from(el.querySelectorAll("img")) as HTMLElement[]).filter((i) => {
+      const r = box(i);
+      return r.width >= 80 && r.width <= 420 && Math.abs(r.width - r.height) < r.width * 0.25;
+    }).length;
+    if (portraits >= 3 && /team|people|meet|who we are/.test(heading)) return "team";
+    if (kind === "stats" || kind === "logos") return kind;
+    const words = (el.textContent ?? "").replace(/\s+/g, " ").trim().length;
+    // A band is set apart from the page: its own ground, or a centred block.
+    // A left-aligned section on the page ground with one button is ordinary text.
+    const setApart = geo.background !== ground || geo.centredShare >= 0.6;
+    if (setApart && heading && b.height <= vh * 0.9 && geo.controls >= 1 && geo.controls <= 2 && words < 400 && cards < 3) return last ? "footer-cta" : "cta-band";
+    if (cards >= 3 && iconCards >= 2) return "features";
+    return kind;
+  };
+
+  const kept = blocks.slice(0, 40);
+  const sections: Snapshot["sections"] = kept.map((el, index) => {
     const b = box(el);
     const heading = el.querySelector("h1, h2, h3");
     const label = ((heading?.textContent ?? el.textContent ?? "").replace(/\s+/g, " ").trim()).slice(0, 60);
@@ -261,6 +359,7 @@ export function collectInPage(): InPageSnapshot {
     else if (images.length >= 4 && textChars < 300) kind = "logos";
     else if (numbers >= 3 && textChars < 600) kind = "stats";
     else if (cards >= 3) kind = "cards";
+    const geometry = geometryOf(el, b);
     return {
       top: Math.round(b.top),
       height: Math.round(b.height),
@@ -269,6 +368,8 @@ export function collectInPage(): InPageSnapshot {
       cards,
       iconCards,
       hiddenAtLoad: b.top > vh && hiddenAtLoad(el),
+      role: roleOf(el, kind, geometry, b, cards, iconCards, index === kept.length - 1),
+      geometry,
     };
   });
   if (header && sections.length === 0) {
@@ -378,6 +479,13 @@ export function collectInPage(): InPageSnapshot {
     headings,
     controls,
     sections,
+    rhythmVariance: (() => {
+      const hs = sections.map((x) => x.height);
+      if (hs.length < 2) return null;
+      const mean = hs.reduce((t, v) => t + v, 0) / hs.length;
+      const sd = Math.sqrt(hs.reduce((t, v) => t + (v - mean) ** 2, 0) / hs.length);
+      return mean > 0 ? Math.round((sd / mean) * 1000) / 1000 : null;
+    })(),
     effects,
     motion: {
       hiddenSections: sections.filter((s) => s.hiddenAtLoad).length,

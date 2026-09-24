@@ -6,7 +6,8 @@ import { auditSnapshot } from "../character/check.js";
 import { parseFlags, type Io } from "../character/cli.js";
 import { fingerprint } from "../fingerprint/index.js";
 import { loadNull } from "../null/cli.js";
-import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
+import type { Snapshot } from "../snapshot/types.js";
+import { readSnapshot } from "../snapshot/migrate.js";
 import { addSite, compareToEstate, emptyEstate, ESTATE_VERSION, estatePairs, SIBLING_AT, siblingLine, type EstateMatch, type EstatePair, type EstateRegister } from "./index.js";
 import { toJson } from "../character/json.js";
 
@@ -22,8 +23,7 @@ export function loadEstate(path: string): EstateRegister {
 async function snapshotOf(target: string, cwd: string): Promise<Snapshot> {
   const local = resolve(cwd, target);
   if (/\.json$/i.test(target) && existsSync(local)) {
-    const snap = JSON.parse(readFileSync(local, "utf8")) as Snapshot;
-    if (snap.version !== SNAPSHOT_VERSION) throw new Error(`${target} is not a snapshot`);
+    const snap = readSnapshot(JSON.parse(readFileSync(local, "utf8")), target);
     return snap;
   }
   if (!/^https?:\/\//.test(target)) throw new Error(`${target} is neither a URL, a snapshot file, nor a site in the register`);
