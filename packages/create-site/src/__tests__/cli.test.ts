@@ -70,13 +70,14 @@ describe("a first run", () => {
     expect(press).not.toContain("~site/");
   });
 
-  test("seeds the route policy from the pages already on disk, plus the pages it adds", async () => {
+  test("seeds the route policy from the pages already on disk, plus the pages it adds, and a pattern for each dynamic route", async () => {
     const root = project("next-root");
     await scaffold(root);
     const routes = readFileSync(join(root, "site.routes.ts"), "utf8");
     for (const path of ["/", "/services/rewiring", "/press"]) expect(routes).toContain(`{ path: ${JSON.stringify(path)}, indexable: true, inSitemap: true }`);
     expect(routes).toContain('{ path: "/resources", indexable: false, inSitemap: false');
-    expect(routes).not.toContain("[slug]");
+    expect(routes).toContain('{ path: "/blog/*", indexable: true, inSitemap: false, isDynamicPattern: true, reason: "Served by /blog/[slug].');
+    expect(routes).not.toMatch(/path: "\/blog\/\[slug\]"/);
   });
 
   test("adds scripts and, with --skip-install, the house package ranges, keeping indentation and key order", async () => {

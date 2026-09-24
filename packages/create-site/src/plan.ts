@@ -13,8 +13,8 @@ import { renderFacts, renderLinks, renderRedirects, renderRoutes } from "./rende
 import { renderBaseline, renderChecklist, renderDirection, renderHouseMd, renderWorkflow } from "./render/docs.js";
 import { readTemplate, rewriteSiteImports } from "./templates.js";
 import { HOUSE_DEPENDENCIES, HOUSE_DEV_DEPENDENCIES } from "./versions.js";
-import { routesOnDisk as nextRoutes } from "../templates/next/tests/seo/routes-on-disk.js";
-import { routesOnDisk as astroRoutes } from "../templates/astro/tests/seo/routes-on-disk.js";
+import * as nextRoutes from "../templates/next/tests/seo/routes-on-disk.js";
+import * as astroRoutes from "../templates/astro/tests/seo/routes-on-disk.js";
 
 export type FileAction = "create" | "unchanged" | "skip-exists" | "overwrite" | "keep-data";
 
@@ -84,10 +84,10 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
   }
 
   const adapterSpec = `./${layout.siteKeys["site-adapter"]!.replace(/\.ts$/, "")}`;
-  const onDisk = project.framework === "next" ? nextRoutes(root) : astroRoutes(root);
+  const enumerate = project.framework === "next" ? nextRoutes : astroRoutes;
   files.push(
     { path: "site.facts.ts", contents: renderFacts(answers, adapterSpec), data: true },
-    { path: "site.routes.ts", contents: renderRoutes(onDisk), data: true },
+    { path: "site.routes.ts", contents: renderRoutes(enumerate.routesOnDisk(root), enumerate.dynamicRoutesOnDisk(root)), data: true },
     { path: "links.json", contents: renderLinks(), data: true },
     { path: "redirects.json", contents: renderRedirects(), data: true },
     { path: "docs/HOUSE.md", contents: renderHouseMd(answers, project), data: false },
