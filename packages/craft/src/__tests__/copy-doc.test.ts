@@ -53,6 +53,7 @@ describe("COPY.md is bound to the tells", () => {
       "We reply within a day. No obligation, no spam.",
       "Look no further for nails.",
       "Reach out for world-class plumbing.",
+      "As an AI language model, I can't confirm the price.",
     ]) {
       expect(blocks(text), text).toBe(true);
     }
