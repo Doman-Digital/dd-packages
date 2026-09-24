@@ -2,8 +2,11 @@ name: Browser
 
 # craft's rendered-page tests need a real Chromium. The main CI job has none,
 # so those tests skip there, visibly. This job runs them, and only when the
-# code they cover changes, plus nightly so a browser or Playwright update
-# cannot break them unnoticed.
+# code they cover changes.
+#
+# No nightly schedule: ci-standards' policy gate rejects a cron that is not
+# registered in its budget.yml with an owner and justification. Register one
+# there first if a nightly backstop is wanted.
 #
 # It runs inside Playwright's own image, which carries the browsers and the
 # Linux libraries they need. Playwright advises against caching browser
@@ -16,8 +19,6 @@ on:
       - 'packages/craft/**'
       - 'packages/sanity-copy/**'
       - '.github/workflows/browser.yml'
-  schedule:
-    - cron: '17 3 * * *'
 
 permissions:
   contents: read
@@ -50,14 +51,19 @@ jobs:
 
       # --reporter=verbose names each test. The job then requires the browser
       # tests to have passed by name: a skipped file prints no test lines at
-      # all, so "nothing failed" would otherwise prove nothing.
+      # all, so "nothing failed" would otherwise prove nothing. Colour is off
+      # and any escape codes are stripped before counting, because vitest puts
+      # them between the tick and the test name.
       - name: craft tests in a real browser
         working-directory: packages/craft
         shell: bash
+        env:
+          NO_COLOR: '1'
+          FORCE_COLOR: '0'
         run: |
           set -o pipefail
           pnpm exec vitest run --reporter=verbose 2>&1 | tee vitest.log
-          ran=$(grep -c "✓ .*craft audit in a real browser" vitest.log || true)
+          ran=$(sed 's/\x1b\[[0-9;]*m//g' vitest.log | grep -c "✓ .*craft audit in a real browser" || true)
           if [ "$ran" -eq 0 ]; then
             echo "No browser test ran. CRAFT_CHROMIUM=$CRAFT_CHROMIUM" >&2
             exit 1

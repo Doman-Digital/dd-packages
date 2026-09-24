@@ -31,8 +31,10 @@ nothing.
   was trusted: the old `exports` shape (CommonJS consumers got ESM types) and
   `css` dropped from craft's `files`.
 - `.github/workflows/browser.yml` runs craft's rendered-page tests in
-  Playwright's image, on pull requests touching craft or sanity-copy and
-  nightly. It fails if the browser tests did not run, not only if they failed.
+  Playwright's image, on pull requests touching craft or sanity-copy. It fails
+  if the browser tests did not run, not only if they failed. A nightly run
+  would need a cron registered in ci-standards' `budget.yml` first; the policy
+  gate rejects an unregistered one.
 
 ## Trusted publishing
 
