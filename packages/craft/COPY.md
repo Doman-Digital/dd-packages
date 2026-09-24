@@ -45,6 +45,11 @@ A single hit fails the check. These are not judgment calls.
   a signed-in route (`/admin/`, `/portal/`, `/dashboard/`).
 - **"No X, no Y" as a list**, anywhere in a sentence. "No obligation, no
   spam." Defining the business by what it is not, itemised.
+- **Chatbot residue.** "Certainly! Here's a revised version", "as an AI
+  language model", "let me know if you'd like me to", ChatGPT citation tokens
+  and entity markers, links tracked `utm_source=chatgpt.com`. This is not
+  style: it is proof a chat reply was pasted in whole. Remove it, then source
+  or cut any claim a citation token was backing. Never re-cite from memory.
 - The phrase list: `let's dive in`, `let's unpack`, `let's break this down`,
   `here's the thing`, `it's important to note`, `at its core`,
   `the key takeaway`, `the reality is`, `the truth is`,
@@ -96,14 +101,13 @@ person reading decides which instance earns its place.
 | `question-reveal` | "The result? Twice the bookings.", "What does this mean for you? It means...": a staged reveal |
 | `inline-label-list` | three or more bullets in a row opening "**Label:**", where the label repeats the line |
 | `placeholder` | "[Insert client name]", lorem ipsum, `TODO_PLACEHOLDER`. Fine in a draft commit; **zero in anything delivered** |
-| `chatbot-residue` | "Certainly! Here's a revised version", "as an AI language model", "let me know if you'd like me to", chat citation tokens, links tracked `utm_source=chatgpt.com`. **Zero in anything delivered**, and the first candidate for the blocking tier |
 
 ### Style is not evidence
 
 Most tells here are house style: they make copy generic, whoever wrote it. The
 research is clear that an em dash, a rule of three or a rhetorical question
 proves nothing about authorship, and em dash rates even run in opposite
-directions between models. Only `chatbot-residue` is evidence that a chat reply
+directions between models. Only chatbot residue, in the blocking tier, is evidence that a chat reply
 was pasted. Report findings as an editorial diagnosis ("three benefit claims
 lack a mechanism; two stock phrases recur"), never as a score or an
 accusation.
