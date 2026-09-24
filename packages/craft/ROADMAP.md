@@ -44,10 +44,11 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
 
 ## Candidates for the blocking tier
 
-- **`chatbot-residue`**, first. It is evidence of a pasted chat reply, not a
-  matter of style, and the research treats it as an error on first
-  occurrence. Zero hits on the 160 generated pages. Read its hits on the
-  estate, then move it to `block` in `house.ts` and `COPY.md` together.
+- None open. **`chatbot-residue` moved to `block` on 2026-09-24.** Its estate
+  hits were read by a person: 10 citation runs and 5 entity markers in one
+  live DD article, 15 of 15 real, zero false alarms on the 160 generated
+  pages and the human set. The article was fixed and every claim a token had
+  backed was sourced, corrected or cut.
 
 ## Not built yet, on purpose
 
