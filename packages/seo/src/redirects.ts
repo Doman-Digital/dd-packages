@@ -69,17 +69,17 @@ function normalisePath(path: string): string {
 
 type LinkedPath = { kind: "path"; path: string } | { kind: "invalid" } | { kind: "foreign" };
 
+// scheme://[userinfo@]host[:port]path — enough to pull a host and a path out
+// of an absolute URL without the URL global, which this package does not
+// assume (it builds with no DOM and no Node types).
+const ABSOLUTE = /^([a-z][a-z0-9+.-]*):\/\/(?:[^@/?#]*@)?([^/?#:]*)(?::\d*)?([^?#]*)/i;
+
 function linkedPath(url: string, hosts: Set<string> | null): LinkedPath {
   if (url.startsWith("/")) return { kind: "path", path: normalisePath(url) };
-  let parsed: URL;
-  try {
-    parsed = new URL(url);
-  } catch {
-    return { kind: "invalid" };
-  }
-  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return { kind: "invalid" };
-  if (hosts && !hosts.has(bareHost(parsed.hostname))) return { kind: "foreign" };
-  return { kind: "path", path: normalisePath(parsed.pathname) };
+  const match = ABSOLUTE.exec(url.trim());
+  if (!match || !/^https?$/i.test(match[1]!) || !match[2]) return { kind: "invalid" };
+  if (hosts && !hosts.has(bareHost(match[2]))) return { kind: "foreign" };
+  return { kind: "path", path: normalisePath(match[3] || "/") };
 }
 
 export function validateRedirects(input: ValidateRedirectsInput): RedirectIssue[] {

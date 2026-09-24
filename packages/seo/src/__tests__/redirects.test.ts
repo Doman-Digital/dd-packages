@@ -177,3 +177,20 @@ describe("validateRedirects — redirect hygiene", () => {
     ]);
   });
 });
+
+describe("validateRedirects — reading linked URLs", () => {
+  test("handles ports, credentials, upper-case hosts and a bare origin", () => {
+    const issues = validateRedirects({
+      linkedUrls: ["HTTPS://WWW.Example-Electrical.co.uk:443", "https://user@example-electrical.co.uk/contact"],
+      routesOnDisk: ["/", "/contact"],
+      redirects: [],
+      hosts: ["example-electrical.co.uk"],
+    });
+    expect(issues).toEqual([]);
+  });
+
+  test("rejects a scheme other than http or https, and a URL with no host", () => {
+    const issues = validateRedirects({ linkedUrls: ["ftp://example.co.uk/file", "https:///nohost"], routesOnDisk: [], redirects: [] });
+    expect(issues.map((i) => i.kind)).toEqual(["linked-url-invalid", "linked-url-invalid"]);
+  });
+});
