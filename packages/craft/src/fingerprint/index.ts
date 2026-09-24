@@ -15,12 +15,28 @@
 import { parseColour } from "../character/color.js";
 import { deltaEOk, type Oklch } from "../color/oklch.js";
 import { fontClass, normaliseFamily, type FontClass } from "../snapshot/fonts.js";
-import type { SectionKind, Snapshot } from "../snapshot/types.js";
+import type { SectionKind, SectionRole, Snapshot } from "../snapshot/types.js";
 
-export const FINGERPRINT_VERSION = 1;
+/**
+ * 2 adds `sections` (role and geometry in running order). A version 1
+ * fingerprint, or one from a version 1 snapshot, has none, and every
+ * comparison involving it uses `layout` exactly as version 1 did, so the null
+ * models and the estate register compare as they were calibrated until they
+ * are re-snapshotted.
+ */
+export const FINGERPRINT_VERSION = 2;
+
+/** One section as layout comparison sees it. */
+export interface FingerprintSection {
+  role: SectionRole;
+  /** Share of centred text, 0 to 1. */
+  centred: number;
+  /** Content width over viewport width, 0 to 1. */
+  width: number;
+}
 
 export interface Fingerprint {
-  version: typeof FINGERPRINT_VERSION;
+  version: 1 | 2;
   /** The most prominent chromatic colour: button fills first, then painted area, then text. */
   accent: Oklch | null;
   ground: Oklch;
@@ -34,6 +50,8 @@ export interface Fingerprint {
   effects: string[];
   /** Section kinds in running order, hero first. */
   layout: SectionKind[];
+  /** Version 2: present when every section carries a role and geometry. */
+  sections?: FingerprintSection[];
 }
 
 /** Below this chroma a colour reads as grey. A dark forest green (about 0.04) is still a choice. */
@@ -100,6 +118,9 @@ export function fingerprint(s: Snapshot): Fingerprint {
     motion: below ? Math.min(1, s.motion.hiddenSections / below) : 0,
     effects: effects.sort(),
     layout: s.sections.map((x) => x.kind),
+    ...(s.sections.length > 0 && s.sections.every((x) => x.role && x.geometry)
+      ? { sections: s.sections.map((x) => ({ role: x.role!, centred: x.geometry!.centredShare, width: x.geometry!.contentWidthRatio })) }
+      : {}),
   };
 }
 
@@ -116,18 +137,40 @@ export interface FingerprintDistance {
  */
 export const DISTANCE_WEIGHTS = { accent: 0.25, type: 0.25, ground: 0.1, shape: 0.1, motion: 0.1, effects: 0.1, layout: 0.1 } as const;
 
-function levenshtein<T>(a: T[], b: T[]): number {
+/** Edit distance with a substitution cost from 0 (same) to 1 (different). */
+function levenshtein<T>(a: T[], b: T[], cost: (x: T, y: T) => number = (x, y) => (x === y ? 0 : 1)): number {
   const row = Array.from({ length: b.length + 1 }, (_, i) => i);
   for (let i = 1; i <= a.length; i += 1) {
     let prev = row[0];
     row[0] = i;
     for (let j = 1; j <= b.length; j += 1) {
       const cur = row[j];
-      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + cost(a[i - 1], b[j - 1]));
       prev = cur;
     }
   }
   return row[b.length];
+}
+
+/**
+ * Two sections with the same role differ by how they are laid out: a
+ * centred, narrow CTA band and a left-aligned, full-width one are not the
+ * same recipe. At most half a substitution, so a different role always
+ * costs more than a different layout of the same role.
+ */
+function sectionCost(x: FingerprintSection, y: FingerprintSection): number {
+  if (x.role !== y.role) return 1;
+  return Math.min(0.5, (Math.abs(x.centred - y.centred) + Math.abs(x.width - y.width)) / 2);
+}
+
+/** Layout distance, 0 to 1: by role and geometry when both have them, else by kind as in version 1. */
+export function layoutDistance(a: Fingerprint, b: Fingerprint): number {
+  if (a.sections && b.sections) {
+    const longest = Math.max(a.sections.length, b.sections.length);
+    return longest === 0 ? 0 : levenshtein(a.sections, b.sections, sectionCost) / longest;
+  }
+  const longest = Math.max(a.layout.length, b.layout.length);
+  return longest === 0 ? 0 : levenshtein(a.layout, b.layout) / longest;
 }
 
 const clamp = (n: number): number => Math.max(0, Math.min(1, n));
@@ -147,8 +190,7 @@ export function fingerprintDistance(a: Fingerprint, b: Fingerprint): Fingerprint
   const union = new Set([...a.effects, ...b.effects]);
   const shared = a.effects.filter((e) => b.effects.includes(e)).length;
   const effects = union.size === 0 ? 0 : 1 - shared / union.size;
-  const longest = Math.max(a.layout.length, b.layout.length);
-  const layout = longest === 0 ? 0 : levenshtein(a.layout, b.layout) / longest;
+  const layout = layoutDistance(a, b);
   const parts = { accent, ground, type, shape, motion, effects, layout };
   const total = (Object.keys(DISTANCE_WEIGHTS) as (keyof typeof DISTANCE_WEIGHTS)[]).reduce((sum, k) => sum + DISTANCE_WEIGHTS[k] * parts[k], 0);
   return { total: Math.round(total * 1000) / 1000, parts };

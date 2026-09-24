@@ -4,6 +4,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { parseFlags, type Io } from "../character/cli.js";
 import { fingerprint, type Fingerprint } from "../fingerprint/index.js";
+import { readSnapshot } from "../snapshot/migrate.js";
 import type { Snapshot } from "../snapshot/types.js";
 import { initDirection } from "./init.js";
 import { decodePng } from "./png.js";
@@ -30,8 +31,8 @@ function estateFrom(dir: string | undefined, cwd: string): { id: string; fingerp
     .filter((f) => f.endsWith(".json"))
     .flatMap((f) => {
       try {
-        const snap = readJson<Snapshot>(join(root, f));
-        return snap.version === 1 && snap.fonts ? [{ id: f.replace(/(\.snapshot)?\.json$/, ""), fingerprint: fingerprint(snap) }] : [];
+        const snap = readSnapshot(readJson<unknown>(join(root, f)), f);
+        return snap.fonts ? [{ id: f.replace(/(\.snapshot)?\.json$/, ""), fingerprint: fingerprint(snap) }] : [];
       } catch {
         return [];
       }

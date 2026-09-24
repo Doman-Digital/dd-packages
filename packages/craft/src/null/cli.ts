@@ -23,6 +23,7 @@ import { parseFlags, type Io } from "../character/cli.js";
 import { extractStrings } from "../character/prose.js";
 import { fingerprint } from "../fingerprint/index.js";
 import type { Snapshot } from "../snapshot/types.js";
+import { readSnapshot } from "../snapshot/migrate.js";
 import { extractHtml, harvest, hueSwatch, NULL_VERSION, nullPrompt, type HarvestCandidate, type NullModel, type NullRun, type Typicality } from "./index.js";
 import { toJson } from "../character/json.js";
 
@@ -142,7 +143,7 @@ async function build(flags: ReturnType<typeof parseFlags> & object, io: Io): Pro
 
   const measured = ids
     .filter((id) => existsSync(join(pages, `${id}.html`)) && existsSync(join(shots, `${id}.json`)))
-    .map((id) => measureRun(id, readFileSync(join(pages, `${id}.html`), "utf8"), readJson<Snapshot>(join(shots, `${id}.json`))));
+    .map((id) => measureRun(id, readFileSync(join(pages, `${id}.html`), "utf8"), readSnapshot(readJson<unknown>(join(shots, `${id}.json`)), `${id}.json`)));
   const model: NullModel = {
     version: NULL_VERSION,
     brief: brief.trim(),
