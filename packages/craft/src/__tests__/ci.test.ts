@@ -202,6 +202,39 @@ describe("the command line", () => {
     expect(report.excepted.some((e: { tell: string }) => e.tell === "ai-violet")).toBe(true);
   });
 
+  it("never lets a repo lower the house blocking tier under --gate", () => {
+    const refused = (): boolean => /house blocking tier cannot be lowered by a repo/.test(out.join("\n"));
+    write("content/a.md", "Built to last — and found.\n");
+    write("content/b.md", "As an AI language model, I cannot confirm the price.\n");
+    // A warn in craft.config.json.
+    write("craft.config.json", JSON.stringify({ severity: { "em-dash": { level: "warn", because: "This client uses em dashes in its brand guide." } } }));
+    expect(run(["copy", "content/a.md", "--gate"], io())).toBe(1);
+    expect(refused()).toBe(true);
+    // An off in craft.config.json, on the tell that is evidence of a paste.
+    out = [];
+    write("craft.config.json", JSON.stringify({ severity: { "chatbot-residue": { level: "off", because: "Testing whether a repo can switch it off." } } }));
+    expect(run(["copy", "content/b.md", "--gate"], io())).toBe(1);
+    expect(refused()).toBe(true);
+    // An exception in art-direction.json, the older door into the same room.
+    out = [];
+    rmSync(join(dir, "craft.config.json"));
+    write("art-direction.json", JSON.stringify({ exceptions: [{ tell: "em-dash", because: "The brand guide uses em dashes throughout." }] }));
+    expect(run(["copy", "content/a.md", "--gate"], io())).toBe(1);
+    expect(refused()).toBe(true);
+  });
+
+  it("still takes copy-ok on the line, and still lets a repo raise a tell or relax one outside the gate", () => {
+    write("content/quote.md", "Built to last — and found. <!-- copy-ok: the old tagline, quoted -->\n");
+    expect(run(["copy", "content/quote.md", "--gate"], io())).toBe(0);
+    write("content/stock.md", "We are passionate about nails.\n");
+    expect(run(["copy", "content/stock.md", "--gate"], io())).toBe(0);
+    write("craft.config.json", JSON.stringify({ severity: { "stock-phrase": { level: "block", because: "This client wants stock phrases blocked outright." } } }));
+    expect(run(["copy", "content/stock.md", "--gate"], io())).toBe(1);
+    write("content/a.md", "Built to last — and found.\n");
+    write("craft.config.json", JSON.stringify({ severity: { "em-dash": { level: "off", because: "A report-only run over an archive of old copy." } } }));
+    expect(run(["copy", "content/a.md"], io())).toBe(0);
+  });
+
   it("stops on a severity change with no reason", () => {
     write("src/a.css", VIOLET);
     write("craft.config.json", JSON.stringify({ severity: { "ai-violet": { level: "off" } } }));
