@@ -1,0 +1,65 @@
+name: Browser
+
+# craft's rendered-page tests need a real Chromium. The main CI job has none,
+# so those tests skip there, visibly. This job runs them, and only when the
+# code they cover changes, plus nightly so a browser or Playwright update
+# cannot break them unnoticed.
+#
+# It runs inside Playwright's own image, which carries the browsers and the
+# Linux libraries they need. Playwright advises against caching browser
+# binaries (restoring takes about as long as downloading), and the image makes
+# the question moot. Keep the image tag equal to the Playwright version in
+# pnpm-lock.yaml.
+on:
+  pull_request:
+    paths:
+      - 'packages/craft/**'
+      - 'packages/sanity-copy/**'
+      - '.github/workflows/browser.yml'
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  craft-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    container:
+      image: mcr.microsoft.com/playwright:v1.63.0-noble
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.x'
+          cache: 'pnpm'
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Point craft at the image's Chromium
+        working-directory: packages/craft
+        shell: bash
+        run: echo "CRAFT_CHROMIUM=$(node -e "import('playwright').then(p => console.log(p.chromium.executablePath()))")" >> "$GITHUB_ENV"
+
+      # --reporter=verbose names each test. The job then requires the browser
+      # tests to have passed by name: a skipped file prints no test lines at
+      # all, so "nothing failed" would otherwise prove nothing.
+      - name: craft tests in a real browser
+        working-directory: packages/craft
+        shell: bash
+        run: |
+          set -o pipefail
+          pnpm exec vitest run --reporter=verbose 2>&1 | tee vitest.log
+          ran=$(grep -c "✓ .*craft audit in a real browser" vitest.log || true)
+          if [ "$ran" -eq 0 ]; then
+            echo "No browser test ran. CRAFT_CHROMIUM=$CRAFT_CHROMIUM" >&2
+            exit 1
+          fi
+          echo "$ran browser tests passed"

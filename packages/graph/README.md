@@ -37,7 +37,7 @@ pnpm add @domandigital/graph
 
 Public on npm, Apache-2.0, published with provenance from a tagged release.
 ESM and CJS builds ship together, each with its own types, so it works under
-both `import` and `require`. Requires Node 20 or newer.
+both `import` and `require`. Requires Node 22.12 or newer.
 
 Earlier versions were consumed as a git dependency pinned to a tag. If you're
 upgrading a repo that still does that, replace the
@@ -105,7 +105,7 @@ pnpm typecheck    # tsc --noEmit
 pnpm build        # tsup -> dist/
 ```
 
-CI runs all three on every push and pull request, across Node 20, 22 and 24.
+CI runs all three on every push and pull request, across Node 22 and 24.
 
 ## Versioning
 
