@@ -5,6 +5,8 @@
  * a sitemap from them.
  */
 
+import { normalizeRoutePath } from "./normalize";
+
 export type RoutePolicyEntry = {
   path: string;
   indexable: boolean;
@@ -12,7 +14,16 @@ export type RoutePolicyEntry = {
   reason?: string;
   canonicalPath?: string;
   isDynamicPattern?: boolean;
+  /**
+   * @deprecated Google ignores `<priority>` in sitemaps ("Build and submit a
+   * sitemap", Google Search Central). Kept so existing policies compile;
+   * setting it changes nothing in search. Removal only in a later major.
+   */
   sitemapPriority?: number;
+  /**
+   * @deprecated Google ignores `<changefreq>` in sitemaps. An accurate
+   * `<lastmod>` is the signal Google uses. Removal only in a later major.
+   */
   sitemapChangeFrequency?: "daily" | "weekly" | "monthly" | "yearly";
 };
 
@@ -21,18 +32,24 @@ export function getSitemapRoutes(policy: RoutePolicyEntry[]): RoutePolicyEntry[]
   return policy.filter((r) => r.inSitemap && !r.isDynamicPattern);
 }
 
-/** Look up the policy for a given path. Pattern entries match via prefix (e.g. /locations/*). */
+/**
+ * Look up the policy for a given path. Pattern entries match via prefix (e.g.
+ * /locations/*). Both sides are compared after `normalizeRoutePath`, so
+ * `/pricing/`, `/pricing?ref=x` and `/pricing#faq` find the `/pricing` entry
+ * (a trailing slash never names a different route in Next.js).
+ */
 export function getRoutePolicy(
   policy: RoutePolicyEntry[],
   path: string,
 ): RoutePolicyEntry | undefined {
-  const exact = policy.find((r) => r.path === path);
+  const key = normalizeRoutePath(path);
+  const exact = policy.find((r) => normalizeRoutePath(r.path) === key);
   if (exact) return exact;
 
   return policy.find((r) => {
     if (!r.isDynamicPattern) return false;
     const prefix = r.path.replace(/\/\*$/, "");
-    return path.startsWith(prefix + "/");
+    return key.startsWith(prefix + "/");
   });
 }
 

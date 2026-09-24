@@ -27,3 +27,23 @@ describe("findKeywordCannibalization", () => {
     expect(findKeywordCannibalization(TARGETS, ["website audit"])).toEqual([]);
   });
 });
+
+describe("findKeywordCannibalization normalisation", () => {
+  test("groups keywords that differ only in case and spacing", () => {
+    const targets: PageTarget[] = [
+      { routeKey: "audit", primaryKeyword: "Website Audit" },
+      { routeKey: "seo", primaryKeyword: " website  audit " },
+    ];
+    expect(findKeywordCannibalization(targets)).toEqual([
+      { primaryKeyword: "Website Audit", routeKeys: ["audit", "seo"] },
+    ]);
+  });
+
+  test("the allowlist is matched the same way", () => {
+    const targets: PageTarget[] = [
+      { routeKey: "audit", primaryKeyword: "website audit" },
+      { routeKey: "seo", primaryKeyword: "website audit" },
+    ];
+    expect(findKeywordCannibalization(targets, ["WEBSITE AUDIT"])).toEqual([]);
+  });
+});
