@@ -4,7 +4,7 @@
 
 export const HOUSE_DEPENDENCIES = {
   "@domandigital/graph": "^0.7.0",
-  "@domandigital/seo": "^0.2.0",
+  "@domandigital/seo": "^0.3.0",
 } as const;
 
 // @types/node: the generated tests and route enumerator import node:fs, and
