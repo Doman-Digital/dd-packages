@@ -641,6 +641,40 @@ generated-looking site" and is left out by definition. Snapshots and
 - Both house demos had expired or gated previews on the day. They are not
   measured, not clean.
 
+### Calibration tooling, 2026-09-24
+
+`craft calibrate calibration/labels.json` now does what the `score.mjs`
+scripts did by hand. `labels.json` lists the set:
+
+- the 20 AI-set pages;
+- the seven measured human references, with the two gated previews listed as
+  skipped;
+- wiredge.studio as the first `ai-looking` page: made by people, and it reads
+  as generated.
+
+`calibrate` reports precision and recall per tell and checks targets 1 to 3.
+Its rules:
+
+- A hit on an `ai` or `ai-looking` page counts for a tell, and a hit on a
+  `human` page counts against it, because a tell detects a look, not a maker.
+- Flagged keeps the rule fixed on 2026-09-23: typical against the pooled null,
+  or three or more distinct design tells.
+- A page it cannot measure is listed by name and counted neither way.
+
+`craft null import` builds a null model from another builder's pages, so the
+AI set and the null can include more than Claude. Give each builder the prompt
+`craft null prompt` prints, so its pages answer the same brief.
+
+Target 5, the blind test, is a protocol for people, not a command: see
+`docs/blind-test.md`.
+
+**No run recorded yet.** The first run needs a browser that can reach live
+pages: wiredge.studio has no snapshot, and `--fresh` re-snapshots every page on
+snapshot v2, which is the recalibration Phase K still owes. The pinned
+2026-09-23 snapshots are version 1, so the rendered tells added in phases K to
+N mostly cannot fire on them. Record the run here, with its date, alongside the
+2026-09-23 numbers.
+
 ### Character report first read, 2026-09-23
 
 `craft report` on each live snapshot with its repo, its own brief's null and

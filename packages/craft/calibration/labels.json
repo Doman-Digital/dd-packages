@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "null": [
+    "null"
+  ],
+  "pages": [
+    {
+      "id": "ai-accountant",
+      "label": "ai",
+      "snapshot": "ai-set/accountant/01.snapshot.json",
+      "source": "ai-set/accountant/pages/01.html"
+    },
+    {
+      "id": "ai-bakery",
+      "label": "ai",
+      "snapshot": "ai-set/bakery/01.snapshot.json",
+      "source": "ai-set/bakery/pages/01.html"
+    },
+    {
+      "id": "ai-bike-shop",
+      "label": "ai",
+      "snapshot": "ai-set/bike-shop/01.snapshot.json",
+      "source": "ai-set/bike-shop/pages/01.html"
+    },
+    {
+      "id": "ai-cafe",
+      "label": "ai",
+      "snapshot": "ai-set/cafe/01.snapshot.json",
+      "source": "ai-set/cafe/pages/01.html"
+    },
+    {
+      "id": "ai-cleaner",
+      "label": "ai",
+      "snapshot": "ai-set/cleaner/01.snapshot.json",
+      "source": "ai-set/cleaner/pages/01.html"
+    },
+    {
+      "id": "ai-dentist",
+      "label": "ai",
+      "snapshot": "ai-set/dentist/01.snapshot.json",
+      "source": "ai-set/dentist/pages/01.html"
+    },
+    {
+      "id": "ai-dog-groomer",
+      "label": "ai",
+      "snapshot": "ai-set/dog-groomer/01.snapshot.json",
+      "source": "ai-set/dog-groomer/pages/01.html"
+    },
+    {
+      "id": "ai-driving-school",
+      "label": "ai",
+      "snapshot": "ai-set/driving-school/01.snapshot.json",
+      "source": "ai-set/driving-school/pages/01.html"
+    },
+    {
+      "id": "ai-estate-agent",
+      "label": "ai",
+      "snapshot": "ai-set/estate-agent/01.snapshot.json",
+      "source": "ai-set/estate-agent/pages/01.html"
+    },
+    {
+      "id": "ai-florist",
+      "label": "ai",
+      "snapshot": "ai-set/florist/01.snapshot.json",
+      "source": "ai-set/florist/pages/01.html"
+    },
+    {
+      "id": "ai-gym",
+      "label": "ai",
+      "snapshot": "ai-set/gym/01.snapshot.json",
+      "source": "ai-set/gym/pages/01.html"
+    },
+    {
+      "id": "ai-landscaper",
+      "label": "ai",
+      "snapshot": "ai-set/landscaper/01.snapshot.json",
+      "source": "ai-set/landscaper/pages/01.html"
+    },
+    {
+      "id": "ai-music-teacher",
+      "label": "ai",
+      "snapshot": "ai-set/music-teacher/01.snapshot.json",
+      "source": "ai-set/music-teacher/pages/01.html"
+    },
+    {
+      "id": "ai-photographer",
+      "label": "ai",
+      "snapshot": "ai-set/photographer/01.snapshot.json",
+      "source": "ai-set/photographer/pages/01.html"
+    },
+    {
+      "id": "ai-physio",
+      "label": "ai",
+      "snapshot": "ai-set/physio/01.snapshot.json",
+      "source": "ai-set/physio/pages/01.html"
+    },
+    {
+      "id": "ai-plumber",
+      "label": "ai",
+      "snapshot": "ai-set/plumber/01.snapshot.json",
+      "source": "ai-set/plumber/pages/01.html"
+    },
+    {
+      "id": "ai-solicitor",
+      "label": "ai",
+      "snapshot": "ai-set/solicitor/01.snapshot.json",
+      "source": "ai-set/solicitor/pages/01.html"
+    },
+    {
+      "id": "ai-tattoo",
+      "label": "ai",
+      "snapshot": "ai-set/tattoo/01.snapshot.json",
+      "source": "ai-set/tattoo/pages/01.html"
+    },
+    {
+      "id": "ai-vet",
+      "label": "ai",
+      "snapshot": "ai-set/vet/01.snapshot.json",
+      "source": "ai-set/vet/pages/01.html"
+    },
+    {
+      "id": "ai-yoga",
+      "label": "ai",
+      "snapshot": "ai-set/yoga/01.snapshot.json",
+      "source": "ai-set/yoga/pages/01.html"
+    },
+    {
+      "id": "human-animations-dev",
+      "label": "human",
+      "snapshot": "human/2026-09-23/animations-dev.snapshot.json",
+      "url": "https://animations.dev/"
+    },
+    {
+      "id": "human-apca",
+      "label": "human",
+      "snapshot": "human/2026-09-23/apca.snapshot.json",
+      "url": "https://www.myndex.com/APCA/"
+    },
+    {
+      "id": "human-candy-aesthetics",
+      "label": "human",
+      "url": "https://candy-aesthetics.vercel.app/",
+      "skip": "a preview gate on 2026-09-23, not the site"
+    },
+    {
+      "id": "human-domandigital",
+      "label": "human",
+      "snapshot": "human/2026-09-23/domandigital.snapshot.json",
+      "url": "https://www.domandigital.co.uk/",
+      "note": "The agency's own site, kept as the reference set lists it. Its label is the set's, not a statement of how it was made."
+    },
+    {
+      "id": "human-linear",
+      "label": "human",
+      "snapshot": "human/2026-09-23/linear.snapshot.json",
+      "url": "https://linear.app/"
+    },
+    {
+      "id": "human-rauno",
+      "label": "human",
+      "snapshot": "human/2026-09-23/rauno.snapshot.json",
+      "url": "https://rauno.me/"
+    },
+    {
+      "id": "human-starr-luxury",
+      "label": "human",
+      "url": "https://starr-luxury.vercel.app/",
+      "skip": "a preview gate on 2026-09-23, not the site"
+    },
+    {
+      "id": "human-stripe",
+      "label": "human",
+      "snapshot": "human/2026-09-23/stripe.snapshot.json",
+      "url": "https://stripe.com/"
+    },
+    {
+      "id": "human-utopia",
+      "label": "human",
+      "snapshot": "human/2026-09-23/utopia.snapshot.json",
+      "url": "https://utopia.fyi/type/calculator/"
+    },
+    {
+      "id": "ai-looking-wiredge",
+      "label": "ai-looking",
+      "snapshot": "ai-looking/wiredge.snapshot.json",
+      "url": "https://www.wiredge.studio/",
+      "note": "Made by people and read as generated: the seed of the ai-looking set."
+    }
+  ]
+}
