@@ -41,14 +41,38 @@ export interface CopyCheckOptions {
    * Studio shows every finding as a warning and blocks nothing either way.
    */
   review?: boolean;
+  /**
+   * Check only these languages, e.g. `["en"]`. The rules are English, so on
+   * a French field they are noise. `"en"` also matches `en-GB` and `en_US`.
+   * When set, copy is skipped when it sits:
+   *
+   * - in an array item whose `language` field is another language
+   *   (sanity-plugin-internationalized-array v5), or whose `_key` is
+   *   (v4 and earlier: an `internationalizedArray*` item, or one with a
+   *   `value` field);
+   * - under an object key that is another language, in an object whose keys
+   *   are all two-letter language tags (field-level translation, e.g.
+   *   `{ en, fr }` or `{ en_GB, nb_NO }`);
+   * - in a document whose own `language` field is another language
+   *   (@sanity/document-internationalization).
+   *
+   * Unset: every language is checked, as before.
+   */
+  languages?: string[];
+  /**
+   * Dot paths of fields an editor never sees (`hidden: true` in the schema),
+   * e.g. `["seo.internalNotes"]`. Never read. `withCopyCheck` fills this in
+   * from the schema; pass it yourself only when calling the check directly.
+   */
+  hiddenPaths?: string[];
 }
 
-export const DEFAULT_EXCLUDED_TYPES = ["testimonial", "review", "proofQuote", "quote"];
+export const DEFAULT_EXCLUDED_TYPES = ["testimonial", "review", "proofQuote", "quote", "assist.instruction.context"];
 
 export const DEFAULT_SKIP_FIELDS = [
   "slug", "url", "href", "link", "email", "phone", "telephone", "tel",
   "icon", "id", "key", "anchor", "variant", "theme", "style", "colour", "color",
-  "code", "embed", "script", "schema", "jsonLd", "canonical",
+  "code", "embed", "script", "schema", "jsonLd", "canonical", "language", "locale",
 ];
 
 /** Object types that hold no copy of their own. */
@@ -66,6 +90,29 @@ interface Piece {
   text: string;
 }
 
+/** `en`, `nb_NO`, `en-GB`, `zh-Hant`: a language tag, as a value. */
+const LANGUAGE_TAG = /^[a-z]{2,3}(?:[_-][A-Za-z]{2,4})?$/;
+/** Object keys taken as languages: two letters, optional region. Three would take `cta` and `faq`. */
+const LANGUAGE_KEY = /^[a-z]{2}(?:[_-][A-Za-z]{2,4})?$/;
+
+/** Whether a language tag is one of `wanted`: `en` covers `en-GB` and `en_US`. */
+function languageWanted(tag: string, wanted: string[]): boolean {
+  const t = tag.toLowerCase().replace(/_/g, "-");
+  return wanted.some((w) => {
+    const base = w.toLowerCase().replace(/_/g, "-");
+    return t === base || t.startsWith(`${base}-`);
+  });
+}
+
+/** The language an internationalized-array item holds, if it is one. */
+function itemLanguage(item: Record<string, unknown>): string | undefined {
+  if (typeof item.language === "string") return item.language;
+  const keyed =
+    (typeof item._type === "string" && item._type.startsWith("internationalizedArray")) || "value" in item;
+  if (keyed && typeof item._key === "string" && LANGUAGE_TAG.test(item._key)) return item._key;
+  return undefined;
+}
+
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 
 /** An enum value, an identifier, an address: a string that is not copy. */
@@ -73,6 +120,7 @@ function notCopy(text: string): boolean {
   const t = text.trim();
   if (!t) return true;
   if (/^[a-z0-9_-]+$/.test(t)) return true;
+  if (LANGUAGE_TAG.test(t)) return true;
   if (/^(?:https?:\/\/|www\.|mailto:|tel:|\/)\S*$/i.test(t)) return true;
   if (/^[\w.+-]+@[\w-]+(?:\.[\w-]+)+$/.test(t)) return true;
   if (/^#[0-9a-f]{3,8}$/i.test(t)) return true;
@@ -97,7 +145,15 @@ const segment = (item: unknown, index: number): PathSegment =>
 /** Every piece of copy in a document, with the path an editor would click. */
 export function collectCopy(doc: unknown, options: CopyCheckOptions = {}): Piece[] {
   const skip = new Set(options.skipFields ?? DEFAULT_SKIP_FIELDS);
+  const hidden = new Set(options.hiddenPaths ?? []);
+  const languages = options.languages;
   const pieces: Piece[] = [];
+  if (languages && isRecord(doc) && typeof doc.language === "string" && !languageWanted(doc.language, languages)) {
+    return pieces;
+  }
+  /** A field's dot path, while the path so far is field names only. */
+  const fieldPath = (path: Path): string | undefined =>
+    path.every((s) => typeof s === "string") ? path.join(".") : undefined;
   const walk = (value: unknown, path: Path): void => {
     if (typeof value === "string") {
       if (!notCopy(value)) pieces.push({ path, text: value });
@@ -105,6 +161,10 @@ export function collectCopy(doc: unknown, options: CopyCheckOptions = {}): Piece
     }
     if (Array.isArray(value)) {
       value.forEach((item, i) => {
+        if (languages && isRecord(item)) {
+          const language = itemLanguage(item);
+          if (language && !languageWanted(language, languages)) return;
+        }
         if (isRecord(item) && item._type === "block" && Array.isArray(item.children)) {
           const text = blockText(item);
           if (text.trim()) pieces.push({ path: [...path, segment(item, i)], text });
@@ -117,9 +177,19 @@ export function collectCopy(doc: unknown, options: CopyCheckOptions = {}): Piece
     if (!isRecord(value)) return;
     if (typeof value._type === "string" && NOT_COPY_TYPES.has(value._type)) return;
     const media = typeof value._type === "string" && MEDIA_TYPES.has(value._type);
+    const fields = Object.keys(value).filter((k) => !k.startsWith("_"));
+    const localeMap =
+      languages !== undefined &&
+      fields.length > 0 &&
+      fields.every((k) => LANGUAGE_KEY.test(k)) &&
+      fields.some((k) => languageWanted(k, languages));
     for (const [key, child] of Object.entries(value)) {
       if (key.startsWith("_") || skip.has(key) || (media && !MEDIA_COPY.has(key))) continue;
-      walk(child, [...path, key]);
+      if (localeMap && !languageWanted(key, languages)) continue;
+      const childPath = [...path, key];
+      const dotted = fieldPath(childPath);
+      if (dotted !== undefined && hidden.has(dotted)) continue;
+      walk(child, childPath);
     }
   };
   walk(doc, []);
