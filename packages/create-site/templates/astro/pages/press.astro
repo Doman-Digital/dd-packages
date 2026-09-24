@@ -1,0 +1,86 @@
+---
+// The press page: company facts, checked accreditations, press contact and
+// earned coverage, all read from the site's data files. A section with no
+// data is not rendered, so nothing is invented. A whole document, because a
+// fresh Astro site may have no layout yet: move it into yours.
+// Written by @domandigital/create-site.
+import { isRouteIndexable } from "@domandigital/seo";
+import type { BacklinkRegister } from "@domandigital/seo";
+import JsonLd from "~site/components/JsonLd.astro";
+import { facts } from "~site/facts";
+import links from "~site/links.json";
+import { buildPageGraph } from "~site/page-graph";
+import { policy } from "~site/routes";
+
+const title = `Press: ${facts.tradingName}`;
+const indexable = isRouteIndexable(policy, "/press");
+const accreditations = facts.accreditations.filter((a) => a.registerUrl && a.verifiedOn);
+const coverage = (links as BacklinkRegister).links.filter((l) => l.kind === "press" && l.status === "live");
+---
+
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={facts.description} />
+    {!indexable && <meta name="robots" content="noindex" />}
+    <JsonLd graph={buildPageGraph({ path: "/press", name: title, description: facts.description })} />
+  </head>
+  <body>
+    <main>
+      <h1>Press</h1>
+
+      <section>
+        <h2>About {facts.tradingName}</h2>
+        <p>{facts.description}</p>
+      </section>
+
+      <section>
+        <h2>Company facts</h2>
+        <dl>
+          <dt>Registered name</dt>
+          <dd>{facts.legalName}</dd>
+          {facts.serviceAreas.length > 0 && (
+            <>
+              <dt>Areas served</dt>
+              <dd>{facts.serviceAreas.join(", ")}</dd>
+            </>
+          )}
+          <dt>Website</dt>
+          <dd>{facts.url}</dd>
+        </dl>
+      </section>
+
+      {accreditations.length > 0 && (
+        <section>
+          <h2>Accreditations</h2>
+          <ul>
+            {accreditations.map((a) => (
+              <li><a href={a.registerUrl}>{a.name}</a></li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {(facts.email || facts.phone) && (
+        <section>
+          <h2>Press contact</h2>
+          {facts.email && <p><a href={`mailto:${facts.email}`}>{facts.email}</a></p>}
+          {facts.phone && <p><a href={`tel:${facts.phone.replace(/\s+/g, "")}`}>{facts.phone}</a></p>}
+        </section>
+      )}
+
+      {coverage.length > 0 && (
+        <section>
+          <h2>Coverage</h2>
+          <ul>
+            {coverage.map((c) => (
+              <li><a href={c.url}>{c.source}</a></li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </main>
+  </body>
+</html>

@@ -15,3 +15,9 @@ export type { NormalizeRoutePathOptions, TrailingSlash } from "./normalize";
 
 export { validateCoverage } from "./validate";
 export type { CoverageIssue, ValidateCoverageInput } from "./validate";
+
+export { validateRedirects } from "./redirects";
+export type { Redirect, RedirectsFile, RedirectIssue, ValidateRedirectsInput } from "./redirects";
+
+export { liveLinkedUrls } from "./backlinks";
+export type { Backlink, BacklinkRegister, BacklinkRel, BacklinkStatus, BacklinkKind } from "./backlinks";

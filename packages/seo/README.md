@@ -27,7 +27,7 @@ when the two don't line up.
 **What's per-repo, on purpose:** the actual `RoutePolicyEntry[]` array, the
 actual `PageTarget[]` list, the actual link declarations, Sanity queries, and
 every component. This package ships none of that. See `## Deliberately not
-in scope` below.
+in v0.2` below for what it also leaves out.
 
 ## Install
 
@@ -50,7 +50,7 @@ installs don't need it.
 `policy.ts`, `links.ts` and `validate.ts` are exercised by a real consumer and
 are treated as stable within a `0.x` minor: a breaking change to them comes only in a minor bump, with a changeset saying so.
 
-`targets.ts` and `trail.ts` are provisional. They're built and tested, but no
+`targets.ts`, `trail.ts`, `redirects.ts` and `backlinks.ts` are provisional. They're built and tested, but no
 repo has adopted them in production yet, so their shapes may change once a
 second consumer shows what they actually need. Pin exactly if you depend on
 them today.
@@ -187,7 +187,43 @@ const dynamicRoutesOnDisk = pages.filter((p) => p.includes("["));
 validateCoverage({ routesOnDisk, dynamicRoutesOnDisk, policy });
 ```
 
-## Deliberately not in v0.1
+### `redirects.ts`: the migration gate
+
+```ts
+validateRedirects(input: ValidateRedirectsInput): RedirectIssue[]
+```
+
+Every URL other sites link to must still land on a page, in one hop. Pass
+the linked URLs (`liveLinkedUrls(links)`, or a backlink export), the routes
+on disk, the redirect list, the route policy and the hostnames the site
+answers on (old domains included). Flags: a linked URL with neither a page
+nor a redirect, an unparseable linked URL, a redirect to a missing page, a
+chain (with every hop named), a loop (once per cycle), a redirect that hides
+a live page, a redirect to a `noindex` page, and two redirects from one path.
+
+Paths are compared after stripping origin, query, fragment and a trailing
+slash. Case is kept. Dynamic-pattern policy entries count as pages. External
+destinations are not followed. Pure, like `validateCoverage`.
+
+`redirects.schema.json` ships with the package for the site's
+`redirects.json`.
+
+### `backlinks.ts`: the backlink register
+
+```ts
+liveLinkedUrls(register: BacklinkRegister): string[]
+```
+
+The shape of a site's `links.json` (`links.schema.json` ships with the
+package), and the live targets out of it. There is no status for asks: the
+register records links that exist or existed, because Doman Digital does not
+run cold outreach for links.
+
+## Deliberately not in v0.2
+
+Pattern redirects (`/blog/:slug`). `validateRedirects` checks exact paths;
+a site that needs patterns lists the linked URLs they cover explicitly until
+a second consumer shows the shape.
 
 The metadata builder (title/description/OG/hreflang generation). Doman
 Digital's `lib/metadata.ts` is mature and shaped around its own CMS overlay;

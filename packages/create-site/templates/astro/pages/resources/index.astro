@@ -1,0 +1,35 @@
+---
+// The home for the site's linkable assets: a cost guide from the client's own
+// job data, a calculator, or a practical guide. Kept out of the index until
+// the first one ships: flip /resources to indexable in site.routes.ts then.
+// Written by @domandigital/create-site.
+import { isRouteIndexable } from "@domandigital/seo";
+import { facts } from "~site/facts";
+import { linkableAssets, policy } from "~site/routes";
+
+const indexable = isRouteIndexable(policy, "/resources");
+---
+
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resources: {facts.tradingName}</title>
+    {!indexable && <meta name="robots" content="noindex" />}
+  </head>
+  <body>
+    <main>
+      <h1>Resources</h1>
+      {linkableAssets.length > 0 && (
+        <ul>
+          {linkableAssets.map((asset) => (
+            <li>
+              <a href={asset.path}>{asset.title}</a>
+              <p>{asset.summary}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </main>
+  </body>
+</html>

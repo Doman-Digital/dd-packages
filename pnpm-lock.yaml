@@ -34,6 +34,30 @@ importers:
         specifier: ^2.1.9
         version: 2.1.9(@types/node@20.19.43)
 
+  packages/create-site:
+    devDependencies:
+      '@domandigital/craft':
+        specifier: workspace:^
+        version: link:../craft
+      '@domandigital/graph':
+        specifier: workspace:^
+        version: link:../graph
+      '@domandigital/seo':
+        specifier: workspace:^
+        version: link:../seo
+      '@types/node':
+        specifier: ^20.17.0
+        version: 20.19.43
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(postcss@8.5.26)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.9
+        version: 2.1.9(@types/node@20.19.43)
+
   packages/gbp:
     devDependencies:
       '@types/node':
