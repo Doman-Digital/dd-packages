@@ -121,4 +121,32 @@ describe("withCopyCheck", () => {
     expect(wrapped[1]).toBe(types[1]);
     expect(wrapped[2]).toBe(types[2]);
   });
+
+  it("accepts Sanity's own schema types, which are interfaces with no index signature", () => {
+    // Sanity declares its definitions as interfaces, and TypeScript gives an
+    // interface no implicit index signature. A shape that demanded one failed
+    // `tsc` in the first Studio it was installed in. This fails the
+    // package's typecheck, not the run, if that comes back.
+    interface StudioRule {
+      required(): StudioRule;
+    }
+    interface StringDefinition {
+      name: string;
+      type: "string";
+      validation?: (rule: StudioRule) => StudioRule;
+    }
+    interface DocumentDefinition {
+      name: string;
+      type: "document";
+      fields: StringDefinition[];
+      validation?: (rule: StudioRule) => StudioRule;
+    }
+    const studioTypes: (DocumentDefinition | StringDefinition)[] = [
+      { name: "page", type: "document", fields: [{ name: "title", type: "string" }] },
+      { name: "slug", type: "string" },
+    ];
+    const out: (DocumentDefinition | StringDefinition)[] = withCopyCheck(studioTypes);
+    expect(out[0].validation).toBeTypeOf("function");
+    expect(out[1]).toBe(studioTypes[1]);
+  });
 });
