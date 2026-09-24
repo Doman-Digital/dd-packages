@@ -534,7 +534,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.7`, 54 tells.
+Catalogue version `2026.09.8`, 55 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -578,6 +578,7 @@ Catalogue version `2026.09.7`, 54 tells.
 | `staccato-triplet` | 2 | copy | warn | Staccato triplet | Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm. |
 | `where-x-meets-y` | 2 | copy | warn | 'Where X meets Y' | 'Where luxury meets comfort' is a tagline shape that fits every business and so describes none. |
 | `chatbot-residue` | 1 | copy | warn | Chatbot residue | 'Certainly! Here's a revised version', 'as an AI language model', a citeturn0search0 token, a link tracked utm_source=chatgpt.com: text that exists only because a chat reply was pasted whole. This is evidence, not style. |
+| `prompt-context` | 1 | copy | warn | Prompt context | 'This article uses the attached Perplexity research file as the primary source', 'the attached research is right to say': the model talking about what it was given. A reader of a web page has no attachment. Found 38 times across five live DD articles in 2026-09, none caught by any other tell. |
 | `placeholder` | 1 | copy | warn | Unfilled placeholder | '[Insert testimonial]', '[Your Name]', lorem ipsum, TODO_PLACEHOLDER: scaffolding a reader must never see, and the clearest sign a page shipped before anyone read it. |
 | `question-reveal` | 2 | copy | warn | Staged reveal | 'The result? Faster growth.', 'What does this mean for you? It means...': the writer asks the reader's question for them and answers it. An infomercial hook, and a favourite of generated copy. |
 | `inline-label-list` | 2 | copy | warn | Bold-label bullets | '**Speed:** Faster pages' three times in a row: a short label restated in a few words, the list shape generated copy defaults to. A definition list, with a real explanation after each label, is not this. |
