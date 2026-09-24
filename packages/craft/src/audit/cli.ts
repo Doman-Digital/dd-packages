@@ -16,8 +16,19 @@ import type { Snapshot } from "../snapshot/types.js";
 import { readSnapshot } from "../snapshot/migrate.js";
 import { describeTypicality, loadNull } from "../null/cli.js";
 import { typicality } from "../null/index.js";
+import { componentTypicalities, type ComponentTypicality } from "../fingerprint/component.js";
 import { snapshotUrl, snapshotUrls } from "./index.js";
 import { parseSitemap, parseUrlList, parseViewports, type Viewport } from "./pages.js";
+
+/** Per-component typicality lines, or why there are none. */
+export function describeComponents(components: ComponentTypicality[], pageMeasured: boolean, nullMeasured: boolean): string {
+  if (!pageMeasured) return "  components  not measured: the page's snapshot predates version 2";
+  if (!nullMeasured) return "  components  not measured: the null model predates snapshot version 2; rebuild it to compare components";
+  if (components.length === 0) return "  components  none the null model has enough pages of to compare";
+  return components
+    .map((c, i) => `${i === 0 ? "  components" : "            "}  ${c.role.padEnd(13)} ${c.score.toFixed(2)}: ${c.typical ? "typical" : "not typical"} (${c.runs} null pages have one)`)
+    .join("\n");
+}
 
 const fmt = (o: { l: number; c: number; h: number } | null): string =>
   o ? `oklch(${o.l.toFixed(3)} ${o.c.toFixed(3)} ${o.h.toFixed(1)})` : "none";
@@ -162,12 +173,18 @@ export async function runAudit(command: "snapshot" | "audit", args: string[], io
     const pooled = nulls.flatMap((m, i) => m.runs.map((r) => (nulls.length > 1 ? { ...r, id: `${i + 1}/${r.id}` } : r)));
     const pages = audited.map((a) => {
       const fp = fingerprint(a.snapshot);
-      return { url: a.snapshot.url, viewport: a.viewport, fingerprint: fp, typicality: nulls.length ? typicality(fp, pooled) : null };
+      return {
+        url: a.snapshot.url,
+        viewport: a.viewport,
+        fingerprint: fp,
+        typicality: nulls.length ? typicality(fp, pooled) : null,
+        components: nulls.length ? componentTypicalities(fp, pooled) : [],
+      };
     });
     const unmeasured = failed.length > 0 && flags.strict ? 1 : 0;
 
     if (flags.json) {
-      const extra = single ? { fingerprint: pages[0].fingerprint, typicality: pages[0].typicality, snapshot: flags.out ?? null } : {};
+      const extra = single ? { fingerprint: pages[0].fingerprint, typicality: pages[0].typicality, components: pages[0].components, snapshot: flags.out ?? null } : {};
       io.out(toJson({ report: prepared, ...extra, pages, failed }));
       return Math.max(prepared.summary.blocking > 0 || (flags.strict && prepared.summary.findings > 0) ? 1 : 0, unmeasured);
     }
@@ -180,6 +197,7 @@ export async function runAudit(command: "snapshot" | "audit", args: string[], io
       if (page.typicality) {
         io.out("");
         io.out(describeTypicality(page.typicality, pooled.length, nulls.length));
+        io.out(describeComponents(page.components, page.fingerprint.sections !== undefined, pooled.some((r) => r.fingerprint.sections !== undefined)));
       }
     }
     if (failed.length) {

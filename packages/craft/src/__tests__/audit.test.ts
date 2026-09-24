@@ -27,7 +27,7 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
         res.end("<!doctype html><title>Not found</title><h1>Not found</h1>");
         return;
       }
-      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : req.url === "/roles" ? "roles.html" : "generated.html"));
+      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : req.url === "/roles" ? "roles.html" : req.url === "/components" ? "components.html" : "generated.html"));
     });
     await new Promise<void>((done) => server.listen(0, "127.0.0.1", done));
     base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
@@ -108,6 +108,27 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     expect(snap.visual).toBeDefined();
     expect(snap.visual!.colourfulness).toBeGreaterThan(0);
     expect(snap.visual!.height).toBe(Math.min(snap.pageHeight, 6000));
+  }, 60_000);
+
+  it("finds the stock components on a page built from them, and none on the page with its own (Phase L)", async () => {
+    const { snapshotUrl } = await import("../audit/index.js");
+    const stock = await snapshotUrl(`${base}/components`, { executablePath: chromium, introWindowMs: 200 });
+    expect(stock.sections.map((s) => s.role)).toEqual(["hero", "text", "stats", "pricing", "testimonials", "faq", "footer-cta"]);
+    const pricing = stock.sections[3];
+    expect(pricing.cards).toBe(3);
+    expect(pricing.badges).toContain("Most popular");
+    const quotes = stock.sections[4];
+    expect(quotes.carousel).toBe(true);
+    expect(quotes.avatars).toBe(3);
+    expect(stock.sections[2].figures).toBe(4);
+    const found = new Set(auditSnapshot(stock).findings.map((f) => f.tell));
+    for (const id of ["cta-band-stock", "pricing-trio-popular", "testimonial-avatar-carousel", "faq-accordion-closer", "stats-row"]) expect(found, id).toContain(id);
+
+    const own = await snapshotUrl(`${base}/roles`, { executablePath: chromium, introWindowMs: 200 });
+    const ownFound = new Set(auditSnapshot(own).findings.map((f) => f.tell));
+    for (const id of ["pricing-trio-popular", "testimonial-avatar-carousel", "faq-accordion-closer", "stats-row", "centred-everything"]) expect(ownFound, id).not.toContain(id);
+    expect(own.sections[1].badges).toEqual([]);
+    expect(own.sections[2].carousel).toBe(false);
   }, 60_000);
 
   it("sees a reveal on the cards inside a section, not only on the section", async () => {

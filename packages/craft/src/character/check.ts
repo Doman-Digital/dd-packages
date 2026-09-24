@@ -24,6 +24,7 @@ import { houseRule } from "./house.js";
 import { excerptAt, lineAt, parseFile } from "./parse.js";
 import { extractCopy, extractStrings } from "./prose.js";
 import { RENDERED_PATHS } from "../snapshot/rendered.js";
+import { RENDERED_TELLS } from "../snapshot/rendered-tells.js";
 import type { Snapshot } from "../snapshot/types.js";
 import type {
   CheckOptions,
@@ -40,11 +41,12 @@ import type {
  * Bumped whenever an entry is added, removed or its detection changes, so a
  * report can say which list it was judged against.
  */
-export const CATALOGUE_VERSION = "2026.09.9";
+export const CATALOGUE_VERSION = "2026.09.10";
 
-export const CATALOGUE: readonly Tell[] = [...SOURCE_TELLS, ...COPY_TELLS, ...RESEARCH_TELLS, ...DENSITY_TELLS].map((t) =>
-  RENDERED_PATHS[t.id] ? { ...t, rendered: RENDERED_PATHS[t.id] } : t,
-);
+export const CATALOGUE: readonly Tell[] = [
+  ...[...SOURCE_TELLS, ...COPY_TELLS, ...RESEARCH_TELLS, ...DENSITY_TELLS].map((t) => (RENDERED_PATHS[t.id] ? { ...t, rendered: RENDERED_PATHS[t.id] } : t)),
+  ...RENDERED_TELLS,
+];
 
 export function tellById(id: string): Tell | undefined {
   return CATALOGUE.find((t) => t.id === id);
@@ -197,6 +199,7 @@ export function auditSnapshot(snapshot: Snapshot, options: CheckOptions = {}): C
 /** Run one tell's detector over some files. What the fixture test calls. */
 export function runTell(tell: Tell, files: SourceFile[]): Hit[] {
   if (tell.surface === "source") return tell.detect({ files: files.map(parseFile) });
+  if (tell.surface === "rendered") throw new Error(`${tell.id} is seen on a rendered page only; run tell.rendered.detect(snapshot)`);
   return tell.detect(copyContext(files));
 }
 

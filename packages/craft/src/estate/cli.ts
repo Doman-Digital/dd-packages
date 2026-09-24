@@ -10,8 +10,10 @@ import type { Snapshot } from "../snapshot/types.js";
 import { readSnapshot } from "../snapshot/migrate.js";
 import { addSite, compareToEstate, emptyEstate, ESTATE_VERSION, estatePairs, SIBLING_AT, siblingLine, type EstateMatch, type EstatePair, type EstateRegister } from "./index.js";
 import { toJson } from "../character/json.js";
+import { closestComponents, COMPONENT_ROLES, estateComponentPairs, type ComponentPair } from "../fingerprint/component.js";
+import type { SectionRole } from "../snapshot/types.js";
 
-const USAGE = "usage: craft estate add <url | snapshot.json> --id <id> [--client <name>] | craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--json] [--strict]";
+const USAGE = "usage: craft estate add <url | snapshot.json> --id <id> [--client <name>] | craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--component <role>] [--json] [--strict]";
 
 export function loadEstate(path: string): EstateRegister {
   if (!existsSync(path)) return emptyEstate();
@@ -48,6 +50,28 @@ export function formatPairs(pairs: EstatePair[], at: number, sites: number): str
   return lines.join("\n");
 }
 
+function componentRole(name: string): SectionRole {
+  if (!(COMPONENT_ROLES as readonly string[]).includes(name)) throw new Error(`--component takes one of ${COMPONENT_ROLES.join(", ")}`);
+  return name as SectionRole;
+}
+
+/** Sites whose fingerprint has a component of this role: only version 2 snapshots measure roles. */
+const withRole = (register: EstateRegister, role: SectionRole): number =>
+  register.sites.filter((s) => (s.fingerprint.sections ?? []).some((x) => x.role === role)).length;
+
+export function formatComponentPairs(role: SectionRole, pairs: ComponentPair[], measured: number, sites: number): string {
+  const lines = [`craft estate: ${role} components, ${measured} of ${sites} sites have one, closest pairs first (no sibling line yet: ranked, not judged)`];
+  for (const p of pairs) lines.push(`  ${`${p.a} + ${p.b}`.padEnd(34)} ${p.distance.toFixed(2)}${p.shared.length ? `  shares ${p.shared.join(", ")}` : ""}`);
+  if (pairs.length === 0) {
+    lines.push(
+      measured < 2
+        ? `  fewer than two sites have a ${role} section measured. Roles come from snapshot version 2: re-add the sites from a fresh snapshot.`
+        : "  no pairs",
+    );
+  }
+  return lines.join("\n");
+}
+
 export async function runEstate(args: string[], io: Io): Promise<number> {
   try {
     const flags = parseFlags(args);
@@ -72,6 +96,28 @@ export async function runEstate(args: string[], io: Io): Promise<number> {
       writeFileSync(file, `${JSON.stringify(next, null, 2)}\n`);
       io.out(`craft estate: ${flags.id} ${register.sites.some((s) => s.id === flags.id) ? "updated" : "added"}, ${next.sites.length} sites in ${flags.estate ?? "estate.json"}`);
       io.out(formatMatches(flags.id, compareToEstate(fp, next, { exclude: flags.id, siblingAt: at }).slice(0, 3), at));
+      return 0;
+    }
+
+    if (sub === "compare" && flags.component) {
+      const role = componentRole(flags.component);
+      if (!target) {
+        const pairs = estateComponentPairs(register, role);
+        const measured = withRole(register, role);
+        io.out(flags.json ? toJson({ role, measured, sites: register.sites.length, pairs }) : formatComponentPairs(role, pairs, measured, register.sites.length));
+        return 0;
+      }
+      const known = register.sites.find((s) => s.id === target);
+      const fp = known ? known.fingerprint : fingerprint(await snapshotOf(target, io.cwd));
+      if (!(fp.sections ?? []).some((x) => x.role === role)) throw new Error(`${known?.id ?? target} has no ${role} section measured (roles need snapshot version 2)`);
+      const pairs: ComponentPair[] = register.sites
+        .filter((s) => s.id !== known?.id)
+        .flatMap((s) => {
+          const c = closestComponents(fp, s.fingerprint, role);
+          return c ? [{ a: known?.id ?? target, b: s.id, ...c }] : [];
+        })
+        .sort((x, y) => x.distance - y.distance);
+      io.out(flags.json ? toJson({ role, measured: withRole(register, role), sites: register.sites.length, pairs }) : formatComponentPairs(role, pairs, withRole(register, role), register.sites.length));
       return 0;
     }
 
