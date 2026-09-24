@@ -4,6 +4,7 @@
  *
  *   sanity-copy --project 6xogwbpo [--dataset production] [--types a,b] [--json]
  *   sanity-copy --file export.json   # the documents already fetched, as an array or { result }
+ *   sanity-copy --project 6xogwbpo --claims   # every price, figure, date and named source, to check
  *
  * Reads published documents over the plain query API, so a public dataset
  * needs no token. A private one reads `SANITY_API_TOKEN` (or
@@ -13,10 +14,11 @@
  * Reports, changes nothing. Copy the owner typed is theirs.
  *
  * Exit codes: 0 no house-rule finding, 1 at least one, 2 nothing was checked.
+ * --claims is a checklist, not a verdict: 0 whatever it lists, 2 if nothing was read.
  */
 
 import { readFileSync } from "node:fs";
-import { type CopyFinding, checkDocumentCopy, describeFinding, pathToString } from "./core.js";
+import { type CopyFinding, type DocumentClaim, checkDocumentCopy, describeFinding, documentClaims, pathToString } from "./core.js";
 
 interface Args {
   project?: string;
@@ -24,10 +26,11 @@ interface Args {
   types?: string[];
   file?: string;
   json: boolean;
+  claims: boolean;
 }
 
 function parse(argv: string[]): Args | string {
-  const args: Args = { dataset: "production", json: false };
+  const args: Args = { dataset: "production", json: false, claims: false };
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     const value = () => {
@@ -40,6 +43,7 @@ function parse(argv: string[]): Args | string {
     else if (a === "--types") args.types = value().split(",").map((t) => t.trim()).filter(Boolean);
     else if (a === "--file") args.file = value();
     else if (a === "--json") args.json = true;
+    else if (a === "--claims") args.claims = true;
     else if (a === "--help" || a === "-h") return "help";
     else return `unknown option ${a}`;
   }
@@ -78,7 +82,11 @@ const label = (doc: Record<string, unknown>): string => {
 export async function main(argv: string[], out = console.log, err = console.error): Promise<number> {
   const args = parse(argv);
   if (args === "help") {
-    out("usage: sanity-copy --project <id> [--dataset production] [--types a,b] [--json]\n       sanity-copy --file export.json [--json]");
+    out(
+      "usage: sanity-copy --project <id> [--dataset production] [--types a,b] [--claims] [--json]\n" +
+        "       sanity-copy --file export.json [--claims] [--json]\n" +
+        "--claims lists every price, figure, date and named source, sourced or UNSOURCED, to check by hand.",
+    );
     return 0;
   }
   if (typeof args === "string") {
@@ -96,6 +104,8 @@ export async function main(argv: string[], out = console.log, err = console.erro
     err("sanity-copy: the dataset returned 0 documents. Nothing was checked.");
     return 2;
   }
+
+  if (args.claims) return reportClaims(docs, args.json, out);
 
   const results: { doc: string; findings: CopyFinding[] }[] = [];
   for (const doc of docs) {
@@ -116,6 +126,35 @@ export async function main(argv: string[], out = console.log, err = console.erro
     out("Reports only: copy the owner typed is theirs to change.");
   }
   return block > 0 ? 1 : 0;
+}
+
+function reportClaims(docs: unknown[], json: boolean, out: (s: string) => void): number {
+  const results: { doc: string; claims: DocumentClaim[] }[] = [];
+  for (const doc of docs) {
+    const claims = documentClaims(doc);
+    if (claims.length) results.push({ doc: label(doc as Record<string, unknown>), claims });
+  }
+  const all = results.flatMap((r) => r.claims);
+  const unsourced = all.filter((c) => c.sources.length === 0).length;
+  if (json) {
+    out(JSON.stringify({ documents: docs.length, claims: all.length, unsourced, results }, null, 2));
+    return 0;
+  }
+  for (const r of results) {
+    out(r.doc);
+    for (const c of r.claims) {
+      const what = [
+        ...c.facts.map((f) => f.value),
+        ...c.sources.map((s) => `source: ${s}`),
+        ...(c.nearby ? [`${c.nearby.join(", ")} named earlier in the paragraph: does it cover this?`] : []),
+      ].join(" · ");
+      out(`  ${pathToString(c.path)}  ${c.sources.length ? "sourced  " : "UNSOURCED"}  ${what}`);
+      out(`    ${c.sentence}`);
+    }
+  }
+  out(`\nsanity-copy --claims: ${docs.length} documents, ${all.length} claim${all.length === 1 ? "" : "s"} to check, ${unsourced} with no source named.`);
+  out("Check each against its primary source. Sourced means a source is named, not that it agrees.");
+  return 0;
 }
 
 // Run only as the command, never on import.
