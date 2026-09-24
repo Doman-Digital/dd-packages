@@ -12,7 +12,8 @@ import { finish, loadConfig, loadExceptions, parseFlags, prepareReport, readPath
 import { toJson } from "../character/json.js";
 import type { CheckReport } from "../character/types.js";
 import { fingerprint, type Fingerprint } from "../fingerprint/index.js";
-import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
+import type { Snapshot } from "../snapshot/types.js";
+import { readSnapshot } from "../snapshot/migrate.js";
 import { describeTypicality, loadNull } from "../null/cli.js";
 import { typicality } from "../null/index.js";
 import { snapshotUrl, snapshotUrls } from "./index.js";
@@ -55,10 +56,8 @@ export function merge(a: CheckReport, b: CheckReport): CheckReport {
   };
 }
 
-function readSnapshot(path: string): Snapshot {
-  const data = JSON.parse(readFileSync(path, "utf8")) as Snapshot;
-  if (data.version !== SNAPSHOT_VERSION) throw new Error(`${path} is snapshot version ${String(data.version)}; this craft reads ${SNAPSHOT_VERSION}`);
-  return data;
+function readSnapshotFile(path: string): Snapshot {
+  return readSnapshot(JSON.parse(readFileSync(path, "utf8")), path);
 }
 
 async function readText(source: string, cwd: string): Promise<string> {
@@ -115,7 +114,7 @@ export async function runAudit(command: "snapshot" | "audit", args: string[], io
     const failed: Failed[] = [];
     const local = target ? resolve(io.cwd, target) : "";
     if (target && command === "audit" && /\.json$/i.test(target) && existsSync(local)) {
-      audited.push({ url: target, viewport: null, snapshot: readSnapshot(local) });
+      audited.push({ url: target, viewport: null, snapshot: readSnapshotFile(local) });
     } else if (target && viewports.length === 1) {
       const snapshot = await snapshotUrl(target, { viewport: viewports[0] });
       audited.push({ url: target, viewport: viewports[0] ?? null, snapshot });

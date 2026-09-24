@@ -27,7 +27,7 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
         res.end("<!doctype html><title>Not found</title><h1>Not found</h1>");
         return;
       }
-      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : "generated.html"));
+      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : req.url === "/roles" ? "roles.html" : "generated.html"));
     });
     await new Promise<void>((done) => server.listen(0, "127.0.0.1", done));
     base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
@@ -88,6 +88,26 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     expect(results.map((r) => Boolean(r.snapshot))).toEqual([false, true]);
     expect(results[0].error).toBe("HTTP 404");
     await expect(snapshotUrl(`${base}/missing`, { executablePath: chromium })).rejects.toThrow(/HTTP 404/);
+  }, 60_000);
+
+  it("names what each section is for, and measures its layout and the page's pixels (snapshot v2)", async () => {
+    const { snapshotUrl } = await import("../audit/index.js");
+    const snap = await snapshotUrl(`${base}/roles`, { executablePath: chromium, introWindowMs: 200 });
+    expect(snap.version).toBe(2);
+    expect(snap.sections.map((s) => s.role)).toEqual(["hero", "pricing", "testimonials", "process", "faq", "team", "contact", "footer-cta"]);
+    // kind keeps its version 1 meaning: the rendered tells were calibrated on it.
+    expect(snap.sections.every((s) => ["hero", "logos", "stats", "cards", "marquee", "text", "other"].includes(s.kind))).toBe(true);
+    const band = snap.sections.at(-1)!.geometry!;
+    expect(band.centredShare).toBeGreaterThan(0.9);
+    expect(band.controls).toBe(1);
+    expect(band.background).toBe("rgb(31, 58, 46)");
+    const pricing = snap.sections[1].geometry!;
+    expect(pricing.centredShare).toBeLessThan(0.5);
+    expect(pricing.contentWidthRatio).toBeGreaterThan(0.8);
+    expect(typeof snap.rhythmVariance).toBe("number");
+    expect(snap.visual).toBeDefined();
+    expect(snap.visual!.colourfulness).toBeGreaterThan(0);
+    expect(snap.visual!.height).toBe(Math.min(snap.pageHeight, 6000));
   }, 60_000);
 
   it("sees a reveal on the cards inside a section, not only on the section", async () => {

@@ -11,6 +11,8 @@ import { auditSnapshot } from "../character/check.js";
 import { fingerprint } from "../fingerprint/index.js";
 import { SNAPSHOT_VERSION, type Snapshot } from "../snapshot/types.js";
 import { collectInPage, overlayInPage } from "./collect.js";
+import { decodePng } from "../direction/png.js";
+import { visualMeasures } from "../snapshot/visual.js";
 import type { CheckOptions, CheckReport } from "../character/types.js";
 import type { Fingerprint } from "../fingerprint/index.js";
 
@@ -23,6 +25,8 @@ export interface SnapshotOptions {
   /** A Chromium to launch instead of Playwright's own. Also read from CRAFT_CHROMIUM. */
   executablePath?: string;
   timeoutMs?: number;
+  /** Take a screenshot and measure its pixels (`visual`). Default true. */
+  visual?: boolean;
 }
 
 interface MinimalPage {
@@ -30,7 +34,12 @@ interface MinimalPage {
   goto(url: string, options?: { waitUntil?: string; timeout?: number }): Promise<unknown>;
   evaluate<R>(fn: () => R): Promise<R>;
   waitForTimeout(ms: number): Promise<void>;
+  /** Optional: a driver without it gets a snapshot with no `visual` measures. */
+  screenshot?(options: { fullPage?: boolean; type?: "png"; clip?: { x: number; y: number; width: number; height: number } }): Promise<Uint8Array>;
 }
+
+/** The most of a page the screenshot measures read, in CSS px. A long page is judged on its opening. */
+export const VISUAL_MAX_HEIGHT = 6000;
 
 interface MinimalBrowser {
   newPage(options?: { viewport?: { width: number; height: number } }): Promise<MinimalPage>;
@@ -64,12 +73,24 @@ export async function snapshotPage(page: MinimalPage, url: string, options: Snap
   await page.waitForTimeout(options.introWindowMs ?? 5000);
   const late = await page.evaluate(overlayInPage).catch(() => false);
   const data = await page.evaluate(collectInPage);
+  let visual: Snapshot["visual"];
+  if (page.screenshot && options.visual !== false) {
+    try {
+      const height = Math.min(data.pageHeight, VISUAL_MAX_HEIGHT);
+      const png = await page.screenshot({ fullPage: true, type: "png", clip: { x: 0, y: 0, width: data.viewport.width, height } });
+      visual = visualMeasures(decodePng(png));
+    } catch {
+      // A page too odd to screenshot still gets every other measure.
+      visual = undefined;
+    }
+  }
   return {
     version: SNAPSHOT_VERSION,
     url,
     capturedAt: new Date().toISOString(),
     ...data,
     motion: { ...data.motion, introOverlay: early && !late },
+    ...(visual ? { visual } : {}),
   };
 }
 
