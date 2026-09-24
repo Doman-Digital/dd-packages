@@ -10,6 +10,7 @@ import { decodePng } from "./png.js";
 import { paletteFromPixels, propose } from "./propose.js";
 import type { ArtDirection } from "./types.js";
 import { validateDirection } from "./validate.js";
+import { toJson } from "../character/json.js";
 
 const readJson = <T>(path: string): T => JSON.parse(readFileSync(path, "utf8")) as T;
 
@@ -66,7 +67,7 @@ export function runDirection(args: string[], io: Io): number {
         fingerprint: current,
         pathExists: (p) => existsSync(resolve(dirname(file), p)),
       });
-      if (flags.json) io.out(JSON.stringify(report, null, 2));
+      if (flags.json) io.out(toJson(report));
       else {
         for (const p of report.problems) io.out(`  ${p.severity === "error" ? "error" : "warn "}  ${p.at || "(file)"}  ${p.message}`);
         io.out(`craft direction: ${report.valid ? "valid" : "not valid"}, ${report.decided} of 7 choices decided with a reason.`);
