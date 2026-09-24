@@ -365,7 +365,7 @@ export function run(argv: string[], io: Io): number | Promise<number> {
       if (typeof flags === "string") throw new Error(flags);
       if (flags.positional.length === 0) throw new Error("usage: craft copy claims <paths...> [--json]");
       const report = findClaims(readPaths(flags.positional, io.cwd, COPY_FILE, NOT_COPY_DIR));
-      io.out(flags.json ? JSON.stringify(report, null, 2) : formatClaims(report));
+      io.out(flags.json ? toJson(report) : formatClaims(report));
       // A checklist, not a gate: nothing here is a verdict.
       return 0;
     }
