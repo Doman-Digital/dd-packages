@@ -120,6 +120,13 @@ export interface SnapshotSection {
   carousel?: boolean;
   /** Version 2: large standalone figures ("500+", "98%", "4.9/5") at 24px or more. */
   figures?: number;
+  /**
+   * Version 2, craft 0.13 and later: the section's visible text, one block per
+   * heading, paragraph, list item or quote, each at most 300 characters, at
+   * most 40. Navigation, buttons and footers are left out. What the
+   * specificity and proof tells read.
+   */
+  text?: string[];
 }
 
 export type ImageRole = "photo" | "illustration" | "icon" | "avatar" | "logo";
@@ -236,10 +243,17 @@ export interface Snapshot {
   /** Version 2: absent when the page could not be screenshotted. */
   visual?: SnapshotVisual;
   /**
-   * Version 2, craft 0.14 and later: every image on the page, largest first, at
+   * Version 2, craft 0.13 and later: every image on the page, largest first, at
    * most 60. Absent in older snapshots, which the imagery tells never judge.
    */
   images?: SnapshotImage[];
+  /**
+   * Version 2, craft 0.13 and later: the text a visitor reads before
+   * scrolling, at most 12 blocks. Navigation, a header without the headline,
+   * and the words on buttons and links are left out: this is the page's
+   * claim, not its menu or its calls to action.
+   */
+  firstScreenText?: string[];
   /** Set when a version 1 snapshot was read and upgraded in memory. */
   migratedFrom?: 1;
   /** The design-system measures trawl has collected since v7, kept so it can switch to this. */

@@ -20,6 +20,7 @@ import {
 } from "./tells/copy.js";
 import { DENSITY_TELLS } from "./tells/density.js";
 import { SOURCE_TELLS } from "./tells/source.js";
+import { SPECIFICITY_COPY_TELLS, SPECIFICITY_RENDERED_TELLS } from "./tells/specificity.js";
 import { houseRule } from "./house.js";
 import { excerptAt, lineAt, parseFile } from "./parse.js";
 import { extractCopy, extractStrings } from "./prose.js";
@@ -42,12 +43,14 @@ import type {
  * Bumped whenever an entry is added, removed or its detection changes, so a
  * report can say which list it was judged against.
  */
-export const CATALOGUE_VERSION = "2026.09.11";
+export const CATALOGUE_VERSION = "2026.09.12";
 
 export const CATALOGUE: readonly Tell[] = [
   ...[...SOURCE_TELLS, ...COPY_TELLS, ...RESEARCH_TELLS, ...DENSITY_TELLS].map((t) => (RENDERED_PATHS[t.id] ? { ...t, rendered: RENDERED_PATHS[t.id] } : t)),
+  ...SPECIFICITY_COPY_TELLS,
   ...RENDERED_TELLS,
   ...IMAGERY_TELLS,
+  ...SPECIFICITY_RENDERED_TELLS,
 ];
 
 export function tellById(id: string): Tell | undefined {
@@ -212,7 +215,7 @@ export function runTell(tell: Tell, files: SourceFile[]): Hit[] {
 export function catalogueTable(): string {
   const rows = CATALOGUE.map(
     (t) =>
-      `| \`${t.id}\` | ${t.generation} | ${t.surface}${t.rendered ? " + rendered" : ""} | ${t.severity} | ${t.name} | ${t.why.replace(/\|/g, "\\|")} |`,
+      `| \`${t.id}\` | ${t.generation} | ${t.surface}${t.rendered && t.surface !== "rendered" ? " + rendered" : ""} | ${t.severity} | ${t.name} | ${t.why.replace(/\|/g, "\\|")} |`,
   );
   return [
     `Catalogue version \`${CATALOGUE_VERSION}\`, ${CATALOGUE.length} tells.`,

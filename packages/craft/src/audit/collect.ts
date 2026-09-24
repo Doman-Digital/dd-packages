@@ -373,6 +373,50 @@ export function collectInPage(): InPageSnapshot {
     return { badges, avatars, carousel };
   };
 
+  // ------------------------------------------------------------------ text
+  // textContent, not innerText: a CSS text-transform must not turn a heading
+  // into a row of acronyms.
+  const TEXT_BLOCK = "h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, dt, dd, td, th, summary, cite, q";
+  const CHROME = "nav, [role=navigation], footer, [role=contentinfo], button, [role=button], [aria-hidden=true], script, style, noscript, template";
+  const readable = (el: HTMLElement): boolean => {
+    if (!shown(el)) return false;
+    const r = el.getBoundingClientRect();
+    return r.width > 2 && r.height > 2;
+  };
+  const textBlocks = (scope: Element, limit: number, keep: (el: HTMLElement) => boolean = () => true): string[] => {
+    const out: string[] = [];
+    const seen = new Set<string>();
+    const add = (el: HTMLElement): void => {
+      const t = (el.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 300);
+      if (t.length < 2 || seen.has(t)) return;
+      seen.add(t);
+      out.push(t);
+    };
+    for (const el of Array.from(scope.querySelectorAll(TEXT_BLOCK)) as HTMLElement[]) {
+      if (out.length >= limit) break;
+      // The outermost block only: a paragraph inside a list item is read with it.
+      if (el.parentElement?.closest(TEXT_BLOCK) || el.closest(CHROME) || !readable(el) || !keep(el)) continue;
+      add(el);
+    }
+    // Text set straight into divs and spans, which some builders use for everything.
+    for (const el of Array.from(scope.querySelectorAll("div, span")) as HTMLElement[]) {
+      if (out.length >= limit) break;
+      if (ownText(el).split(" ").length < 3) continue;
+      if (el.closest(TEXT_BLOCK) || el.closest(CHROME) || el.closest("a") || !readable(el) || !keep(el)) continue;
+      add(el);
+    }
+    return out;
+  };
+  // A header holding the headline is the hero; any other header is the site's chrome.
+  const inChromeHeader = (el: Element): boolean => {
+    const h = el.closest("header");
+    return Boolean(h && !h.querySelector("h1"));
+  };
+  const firstScreenText = textBlocks(document.body, 12, (el) => {
+    const b = box(el);
+    return b.top < vh && b.top + b.height > 0 && !inChromeHeader(el) && !el.closest("a");
+  });
+
   const kept = blocks.slice(0, 40);
   const sections: Snapshot["sections"] = kept.map((el, index) => {
     const b = box(el);
@@ -402,6 +446,7 @@ export function collectInPage(): InPageSnapshot {
       geometry,
       ...parts,
       figures: numbers,
+      text: textBlocks(el, 40),
     };
   });
   if (header && sections.length === 0) {
@@ -598,6 +643,7 @@ export function collectInPage(): InPageSnapshot {
     })(),
     effects,
     images: images.slice(0, 60),
+    firstScreenText,
     motion: {
       hiddenSections: sections.filter((s) => s.hiddenAtLoad).length,
       sections: sections.length,

@@ -102,6 +102,7 @@ person reading decides which instance earns its place.
 | `inline-label-list` | three or more bullets in a row opening "**Label:**", where the label repeats the line |
 | `prompt-context` | "This article uses the attached Perplexity research file as the primary source", "the attached research is right to say", "the attached brief asks": the model naming what it was given. A web page has no attachment. **Zero in anything published** |
 | `placeholder` | "[Insert client name]", lorem ipsum, `TODO_PLACEHOLDER`. Fine in a draft commit; **zero in anything delivered** |
+| `generic-hero-claim` | on the home page (a root route file, a top-level `index.html`, or a hero or home component), a literal `<h1>` and the paragraph under it that name no place, person, number, price or job: "Quality you can trust", "Your vision, our expertise". One trade noun is not enough ("quality plumbing"); two are ("boiler and radiator repairs"). Also read on the rendered first screen by `craft audit` |
 
 ### Style is not evidence
 
@@ -218,6 +219,10 @@ Hyphenated compounds count as one word. Not automated.
   sourced or UNSOURCED. A claim is sourced, corrected or cut, never re-cited
   from memory. The copy check cannot do this part: a false figure in clean
   prose passes every tell.
+- **Proof sits next to the claim it backs.** "Trusted", "fully qualified",
+  "award-winning" and "5-star service" need a review, a rating or an
+  accreditation in the same section or the one either side of it. `craft
+  audit` reports each one that has none (`unproven-claim`, a warning).
 
 ## CTA rule
 

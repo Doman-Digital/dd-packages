@@ -16,6 +16,8 @@ import { toSarif } from "./sarif.js";
 import { HOUSE_LOCKED, holdHouseBlocks, houseRule } from "./house.js";
 import { findClaims, formatClaims } from "./claims.js";
 import { compareFacts, formatComparison, visibleText } from "./facts.js";
+import { compareCompetitor, formatCompetitor, pageCopy } from "./specificity.js";
+import type { Snapshot } from "../snapshot/types.js";
 import { formatReport } from "./format.js";
 import { fileKind } from "./parse.js";
 import type { CheckReport, SourceFile, TellException } from "./types.js";
@@ -37,6 +39,7 @@ Usage
   craft scan [paths...] [--staged] [--json] [--strict] [--direction <file>] [ci options]
   craft copy [paths...] [--gate] [--json] [--strict] [--direction <file>] [ci options]
   craft copy compare <before> <after> [--json]
+  craft copy compare <url | snapshot.json> --competitor <url | snapshot.json> [--brief "<text>"] [--json]
   craft copy claims <paths...> [--json]
   craft tells list [--json]
   craft tells harvest <null.json | dir>... [--share 0.25] [--json]
@@ -60,6 +63,11 @@ copy      The prose in Markdown, markup and content files.
           compare lists the protected facts (prices, numbers, dates, times,
           phones, emails, links, postcodes, names) a rewrite lost or added.
           Exit 1 if any: restore it, source it, or say why.
+          With --competitor, reads both rendered pages instead and lists the
+          hero and service sentences holding no specific (place, name,
+          number, price, job) the other page does not also say. The brief's
+          terms come from --brief, else art-direction.json, else --null's
+          null.json. A measure, not a gate: always exit 0.
           claims lists every sentence holding a price, figure, date or named
           source, marked sourced or UNSOURCED, for a person to check against
           the primary source. It cannot tell true from false. Always exit 0.
@@ -129,6 +137,7 @@ export interface Flags {
   share?: string;
   null?: string;
   id?: string;
+  competitor?: string;
 }
 
 const VALUE_FLAGS = {
@@ -153,6 +162,7 @@ const VALUE_FLAGS = {
   "--pages": "pages",
   "--viewport": "viewport",
   "--component": "component",
+  "--competitor": "competitor",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
@@ -298,6 +308,53 @@ export const COPY_FILE = (p: string): boolean =>
 /** Folders prefixed `_` hold notes and drafts by convention. */
 export const NOT_COPY_DIR = (name: string): boolean => name.startsWith("_");
 
+/** A page to compare: a saved snapshot, or a URL rendered now. */
+async function pageSnapshot(target: string, cwd: string): Promise<Snapshot> {
+  const local = resolve(cwd, target);
+  if (/\.json$/i.test(target) && existsSync(local)) {
+    const { readSnapshot } = await import("../snapshot/migrate.js");
+    return readSnapshot(JSON.parse(readFileSync(local, "utf8")), target);
+  }
+  if (!/^https?:\/\//.test(target)) throw new Error(`${target} is neither a URL nor a snapshot file`);
+  const { snapshotUrl } = await import("../audit/index.js");
+  return snapshotUrl(target);
+}
+
+/** The brief, from --brief, else art-direction.json, else a null model. None is fine. */
+async function briefFor(flags: Flags, cwd: string): Promise<string | undefined> {
+  if (flags.brief) return flags.brief;
+  const direction = resolve(cwd, flags.direction ?? "art-direction.json");
+  if (existsSync(direction)) {
+    const brief = (JSON.parse(readFileSync(direction, "utf8")) as { brief?: unknown }).brief;
+    if (typeof brief === "string" && brief.trim()) return brief;
+  } else if (flags.direction) throw new Error(`no such file: ${flags.direction}`);
+  if (flags.null) {
+    const { loadNull } = await import("../null/cli.js");
+    return loadNull(flags.null, cwd).brief;
+  }
+  return undefined;
+}
+
+async function compareWithCompetitor(flags: Flags, io: Io): Promise<number> {
+  try {
+    if (flags.positional.length !== 1 || !flags.competitor) throw new Error("usage: craft copy compare <url | snapshot.json> --competitor <url | snapshot.json> [--brief \"<text>\"] [--json]");
+    const brief = await briefFor(flags, io.cwd);
+    const [ours, theirs] = await Promise.all([pageSnapshot(flags.positional[0], io.cwd), pageSnapshot(flags.competitor, io.cwd)]);
+    const copy = [ours, theirs].map((snap, i) => {
+      const page = pageCopy(snap);
+      if (!page) throw new Error(`${[flags.positional[0], flags.competitor][i]} has no page text: snapshot it again with this craft`);
+      return page;
+    });
+    const result = compareCompetitor(copy[0], copy[1], brief);
+    io.out(flags.json ? toJson(result) : formatCompetitor(result));
+    // A measure for a person to read, not a gate.
+    return 0;
+  } catch (error) {
+    io.err(`craft: ${(error as Error).message}`);
+    return 2;
+  }
+}
+
 export function run(argv: string[], io: Io): number | Promise<number> {
   const [command, ...rest] = argv;
   if (command === "direction") {
@@ -351,6 +408,7 @@ export function run(argv: string[], io: Io): number | Promise<number> {
     if (command === "copy" && rest[0] === "compare") {
       const flags = parseFlags(rest.slice(1));
       if (typeof flags === "string") throw new Error(flags);
+      if (flags.competitor) return compareWithCompetitor(flags, io);
       if (flags.positional.length !== 2) throw new Error("usage: craft copy compare <before> <after> [--json]");
       const [before, after] = flags.positional.map((p) => {
         const abs = resolve(io.cwd, p);
