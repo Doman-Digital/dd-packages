@@ -73,6 +73,9 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "repeated-sentence": { tier: "review", label: "repetition" },
   "heading-shape": { tier: "review", label: "headings" },
   "heading-echo": { tier: "review", label: "headings" },
+  // A threshold on a count, not a named pattern: a person decides whether the
+  // headline needed a particular. Review until its estate hits are read.
+  "generic-hero-claim": { tier: "review", label: "headline that fits any business" },
 
   // Banned only "when vague", per the rules. Too noisy for a sweep.
   "vague-word": { tier: "explicit", label: "vague" },

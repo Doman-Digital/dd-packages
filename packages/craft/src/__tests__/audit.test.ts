@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { auditSnapshot } from "../character/check.js";
 import { fingerprint, fingerprintDistance } from "../fingerprint/index.js";
+import { specificity } from "../character/specificity.js";
 import { AI_IRI, png, xmpChunk, xmpPacket } from "./image-bytes.js";
 
 /**
@@ -36,7 +37,7 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
         res.end("<!doctype html><title>Not found</title><h1>Not found</h1>");
         return;
       }
-      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : req.url === "/roles" ? "roles.html" : req.url === "/components" ? "components.html" : req.url === "/imagery" ? "imagery.html" : "generated.html"));
+      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : req.url === "/roles" ? "roles.html" : req.url === "/components" ? "components.html" : req.url === "/imagery" ? "imagery.html" : req.url === "/?page=specificity" ? "specificity.html" : "generated.html"));
     });
     await new Promise<void>((done) => server.listen(0, "127.0.0.1", done));
     base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
@@ -45,7 +46,8 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
 
   it("finds the generated look on a page built from it", async () => {
     const { snapshotUrl } = await import("../audit/index.js");
-    const snap = await snapshotUrl(`${base}/generated`, { executablePath: chromium, introWindowMs: 1500 });
+    // Served as the home page, where the headline is judged.
+    const snap = await snapshotUrl(`${base}/`, { executablePath: chromium, introWindowMs: 1500 });
     const tells = new Set(auditSnapshot(snap).findings.map((f) => f.tell));
     for (const id of [
       "reflex-font",
@@ -66,6 +68,7 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
       "thin-border-wide-shadow",
       "intro-cinematic",
       "no-real-imagery",
+      "generic-hero-claim",
     ]) {
       expect(tells, id).toContain(id);
     }
@@ -166,6 +169,35 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     const unread = await snapshotUrl(`${base}/imagery`, { executablePath: chromium, introWindowMs: 200, provenance: false });
     expect(unread.images!.every((i) => i.provenance === undefined)).toBe(true);
     expect(auditSnapshot(unread).findings.map((f) => f.tell)).not.toContain("ai-image");
+  }, 60_000);
+
+  it("records the page's words, leaving out the menu, the buttons and the footer, and reads them for particulars (Phase N)", async () => {
+    const { snapshotUrl } = await import("../audit/index.js");
+    // Served at the root: the headline tell reads the home page only.
+    const snap = await snapshotUrl(`${base}/?page=specificity`, { executablePath: chromium, introWindowMs: 200 });
+    const first = snap.firstScreenText!;
+    expect(first).toContain("Quality you can trust");
+    expect(first).toContain("We deliver reliable solutions tailored to your needs.");
+    // The phone in the menu and on the button, the town on a link, a paragraph
+    // inside a link, and a site header without the headline are not the claim.
+    expect(first.join(" ")).not.toMatch(/01280|Home|Brackley|Towcester|Northampton|Daventry/);
+    const text = snap.sections.flatMap((s) => s.text ?? []);
+    // textContent, so a CSS text-transform does not shout the heading.
+    expect(text).toContain("Our services");
+    expect(text).toContain("Boiler repairs");
+    // Text set straight into a div is read too.
+    expect(text).toContain("Open Monday to Saturday across the county");
+    // The footer's registration number is chrome, and far from the claim.
+    expect(text.join(" ")).not.toContain("123456");
+
+    const found = new Set(auditSnapshot(snap).findings.map((f) => f.tell));
+    expect(found).toContain("generic-hero-claim");
+    expect(found).toContain("unproven-claim");
+
+    // The decided page's first screen is measured and is particular.
+    const decided = await snapshotUrl(`${base}/decided`, { executablePath: chromium, introWindowMs: 200 });
+    expect(decided.firstScreenText!.join(" ")).toContain("Boilers fixed the same day in Brackley");
+    expect(specificity(decided.firstScreenText!.join("\n")).generic).toBe(false);
   }, 60_000);
 
   it("sees a reveal on the cards inside a section, not only on the section", async () => {
