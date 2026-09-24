@@ -59,7 +59,7 @@ pnpm add @domandigital/gbp
 
 Public on npm, Apache-2.0, published with provenance from a tagged release.
 Zero runtime dependencies. ESM and CJS builds ship together, each with its own
-types. Requires Node 20 or newer.
+types. Requires Node 22.12 or newer.
 
 Upgrading a repo that still pins `github:Doman-Digital/dd-gbp#vX.Y.Z`? Swap it
 for a semver range.
