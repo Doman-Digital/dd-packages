@@ -212,6 +212,11 @@ Hyphenated compounds count as one word. Not automated.
   `TODO_PLACEHOLDER: <the exact field needed>` and say so. Never fill it.
 - A quotation under a named person must be theirs. Copy drafted for someone,
   in quote marks with their job title beneath it, is a fabricated attribution.
+- **Every price, figure, date and named source is checked against its primary
+  source before it ships.** `craft copy claims <paths>` lists them, each marked
+  sourced or UNSOURCED. A claim is sourced, corrected or cut, never re-cited
+  from memory. The copy check cannot do this part: a false figure in clean
+  prose passes every tell.
 
 ## CTA rule
 

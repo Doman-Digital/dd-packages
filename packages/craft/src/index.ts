@@ -129,6 +129,7 @@ export {
 } from "./character/check.js";
 export { formatReport } from "./character/format.js";
 export { HOUSE, houseRule, type HouseRule, type HouseTier } from "./character/house.js";
+export { findClaims, formatClaims, namedSources, type Claim, type ClaimsReport } from "./character/claims.js";
 export { compareFacts, formatComparison, protectedFacts, visibleText, type Fact, type FactComparison, type FactKind } from "./character/facts.js";
 export { auditSnapshot } from "./character/check.js";
 export { RENDERED_PATHS } from "./snapshot/rendered.js";
