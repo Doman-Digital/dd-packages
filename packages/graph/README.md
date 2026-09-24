@@ -70,6 +70,37 @@ const issues = findGraphIssues(graph);
 if (issues.length > 0) throw new Error(issues.join("\n"));
 ```
 
+### Reviews of your own business earn no stars
+
+A review or `aggregateRating` of the business, published on the business's
+own site, is what Google calls self-serving. Google's
+[review snippet guidelines](https://developers.google.com/search/docs/appearance/structured-data/review-snippet)
+limit Organization and LocalBusiness review stars to sites that review
+*other* businesses. The markup is still valid, and Google says
+[you won't get a manual action just for this](https://developers.google.com/search/blog/2019/09/making-review-rich-results-more-helpful).
+So emit it to describe the entity if you want to, but never sell or expect
+stars from it.
+
+Pass the site's own entity to have `findGraphIssues` report it:
+
+```ts
+findGraphIssues(graph, { siteEntityId: ids.org });
+// [
+//   "self-serving review: aggregateRating on https://acme.example/#organization",
+//   "self-serving review: Review of https://acme.example/#organization (12×)",
+// ]
+```
+
+These lines are for a decision, not a build failure: filter on the
+`self-serving review:` prefix if the site keeps the markup on purpose.
+Without `siteEntityId` the output is unchanged.
+
+### FAQPage
+
+`buildFAQPage` is deprecated. Google stopped showing the FAQ rich result on
+7 May 2026. The markup is still valid and the builder still works, so
+existing pages need no change, but don't add it expecting a search feature.
+
 Render `graph` as a single `<script type="application/ld+json">` per page.
 This package doesn't ship a React/Next component for that -- emission
 strategy (`next/script` vs a plain `<script>`) is a per-site choice -- but
@@ -106,6 +137,23 @@ pnpm build        # tsup -> dist/
 ```
 
 CI runs all three on every push and pull request, across Node 20, 22 and 24.
+
+### Vocabulary check
+
+`src/__tests__/vocab.test.ts` builds every node with every optional field set
+and checks each emitted key is a real schema.org property of that node's
+`@type` or one of its supertypes, against a pinned snapshot of the vocabulary
+(`src/__tests__/fixtures/schemaorg-vocab.json`, schema.org 30.1). TypeScript
+cannot do this: it misses unknown keys inside conditional spreads, which is
+how `PostalAddress.locality` shipped instead of `addressLocality`.
+
+After adding a new `@type` to a builder, add it to `EMITTED_TYPES` in
+`scripts/snapshot-vocab.mjs` and regenerate the snapshot:
+
+```bash
+pnpm run snapshot:vocab          # pinned version
+node scripts/snapshot-vocab.mjs 31.0   # move the pin, then update the test's version assertion
+```
 
 ## Versioning
 
