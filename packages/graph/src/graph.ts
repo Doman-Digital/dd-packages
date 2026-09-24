@@ -19,6 +19,23 @@ function isPureRef(value: unknown): value is { "@id": string } {
   return keys.length === 1 && keys[0] === "@id" && typeof (value as Record<string, unknown>)["@id"] === "string";
 }
 
+export type FindGraphIssuesOptions = {
+  /**
+   * The `@id` of the business this site belongs to (usually `ids.org`).
+   * When set, also reports "self-serving" review markup: an
+   * `aggregateRating` on that entity, and `Review` nodes whose
+   * `itemReviewed` is that entity. Google's review snippet guidelines make
+   * such markup ineligible for stars on the business's own site. It is
+   * still valid schema.org and carries no manual action on its own, so
+   * these are reported for a decision, not as errors in the graph.
+   */
+  siteEntityId?: string;
+};
+
+function isReviewType(type: unknown): boolean {
+  return type === "Review" || (Array.isArray(type) && type.includes("Review"));
+}
+
 /**
  * Validates a graph is self-contained: every `{'@id': X}` reference resolves
  * to a node with `@id: X` somewhere in the same `@graph`, and no two nodes
@@ -29,8 +46,11 @@ function isPureRef(value: unknown): value is { "@id": string } {
  * reference, and the case of two differently-typed nodes accidentally
  * sharing one `@id` (which JSON-LD parsers merge into one contradictory
  * node).
+ *
+ * With `options.siteEntityId`, also reports self-serving review markup; see
+ * `FindGraphIssuesOptions`.
  */
-export function findGraphIssues(graph: JsonLdGraph): string[] {
+export function findGraphIssues(graph: JsonLdGraph, options: FindGraphIssuesOptions = {}): string[] {
   const issues: string[] = [];
   const idCounts = new Map<string, number>();
 
@@ -65,6 +85,31 @@ export function findGraphIssues(graph: JsonLdGraph): string[] {
   };
 
   graph["@graph"].forEach((node, index) => walk(node, `@graph[${index}]`));
+
+  const { siteEntityId } = options;
+  if (siteEntityId) {
+    let ratedSiteEntity = false;
+    let reviewsOfSiteEntity = 0;
+    const visit = (value: unknown) => {
+      if (Array.isArray(value)) {
+        value.forEach(visit);
+        return;
+      }
+      if (!value || typeof value !== "object") return;
+      const node = value as Record<string, unknown>;
+      if (node["@id"] === siteEntityId && node.aggregateRating) ratedSiteEntity = true;
+      if (isReviewType(node["@type"])) {
+        const reviewed = node.itemReviewed as Record<string, unknown> | undefined;
+        if (reviewed && reviewed["@id"] === siteEntityId) reviewsOfSiteEntity++;
+      }
+      Object.values(node).forEach(visit);
+    };
+    graph["@graph"].forEach(visit);
+    if (ratedSiteEntity) issues.push(`self-serving review: aggregateRating on ${siteEntityId}`);
+    if (reviewsOfSiteEntity > 0) {
+      issues.push(`self-serving review: Review of ${siteEntityId} (${reviewsOfSiteEntity}×)`);
+    }
+  }
 
   return issues;
 }

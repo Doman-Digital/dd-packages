@@ -2,7 +2,7 @@ export { createGraphIds } from "./ids";
 export type { GraphIds } from "./ids";
 
 export { buildGraph, findGraphIssues } from "./graph";
-export type { JsonLdGraph, JsonLdNode } from "./graph";
+export type { FindGraphIssuesOptions, JsonLdGraph, JsonLdNode } from "./graph";
 
 export {
   buildArticle,
