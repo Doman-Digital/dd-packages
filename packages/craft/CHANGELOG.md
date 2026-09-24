@@ -1,5 +1,21 @@
 # @domandigital/craft
 
+## 0.12.0
+
+### Minor Changes
+
+- 7622bd9: Phase K: snapshot version 2.
+
+  - Every section gains a `role`: `cta-band`, `footer-cta`, `pricing`, `testimonials`, `faq`, `process`, `features`, `team`, `contact`, or its `kind`. `kind` keeps its version 1 meaning, so the rendered tells and the calibrated null models and estate read exactly as before.
+  - Every section gains `geometry`: `centredShare`, `mirrorSymmetry`, `whitespaceRatio`, `contentWidthRatio`, `background` and `controls`. The page gains `rhythmVariance` (how much section heights vary).
+  - `visual`: colourfulness (Hasler and Süsstrunk), edge density and left-right symmetry, from a screenshot of the first 6000px. None of them passes or fails anything. `snapshotUrl(url, { visual: false })` skips the screenshot; a driver without `page.screenshot` gets no `visual`.
+  - `SNAPSHOT_VERSION` is 2. `readSnapshot()` reads version 1 files as version 2 marked `migratedFrom: 1`; every command that loads a saved snapshot uses it, so old snapshots still work.
+  - `FINGERPRINT_VERSION` is 2: fingerprints carry `sections` (role, centring, width), and `layoutDistance` compares by role and geometry when both sides have them. Against a version 1 fingerprint it compares by `kind`, exactly as before.
+  - New exports: `readSnapshot`, `READABLE_SNAPSHOT_VERSIONS`, `visualMeasures`, `EDGE_STEP`, `layoutDistance`, and the types `SectionRole`, `SectionGeometry`, `SnapshotVisual`, `FingerprintSection`, `RgbaImage`.
+
+- 07d1cf5: From the 2026-09-11 AI-look research. A new tell, `shadcn-card-stock`: the registry Card recipe left unchanged (`warn`). Cal Sans joins the second-wave reflex fonts. The icon-tile tells now see Unicons, MUI icons and Material Symbols as well as Lucide, Heroicons, Phosphor and Tabler. `craft direction validate` warns when a display or body face is missing from the new licence register, or is capped, per-site or unverified there. The register ships as `licences.json` and as `LICENCES` and `faceLicence()`. Catalogue `2026.09.9`.
+- c63cded: **Behaviour change:** under `craft copy --gate`, a repo can no longer lower the house blocking tier. A `warn` or `off` in `craft.config.json`, or an `art-direction.json` exception, naming a blocking tell (em dash, contrastive negation, chatbot residue and the rest) is refused and listed as "Exception not applied". Raising a tell still works, runs without `--gate` are unchanged, and a genuine one-off still takes `copy-ok` on its line. `holdHouseBlocks` and `HOUSE_LOCKED` are exported from the house policy.
+
 ## 0.11.0
 
 ### Minor Changes
