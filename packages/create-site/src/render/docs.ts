@@ -5,7 +5,8 @@
 
 import type { Answers } from "../answers.js";
 import type { Project } from "../detect.js";
-import { REGISTERS_CHECKED_ON, SECTORS, registersFor } from "../sectors.js";
+import { SECTORS, registersFor } from "../sectors.js";
+import type { Register } from "../sectors.js";
 
 const run = (pm: Project["packageManager"], script: string) => (pm === "npm" ? `npm run ${script}` : `${pm} ${script}`);
 
@@ -89,11 +90,14 @@ export function renderChecklist(a: Answers): string {
   const registers = registersFor(a.sector);
   const held = registers.filter((r) => a.registers.includes(r.id));
   const rest = registers.filter((r) => !a.registers.includes(r.id));
-  const line = (r: (typeof registers)[number]) =>
-    `- [ ] **${r.name}**${r.url ? ` (${r.url})` : ""}: ${r.condition}.${r.personLevel ? " Held by a person: list it on their profile, not the business." : ""}`;
-  const checked = REGISTERS_CHECKED_ON
-    ? `Register list last checked by a person on ${REGISTERS_CHECKED_ON}.`
-    : "**The register list has not yet been checked by a person.** Open each entry before relying on it: confirm the register still exists, that it shows a business website, and how it links.";
+  const line = (r: Register) =>
+    `- [ ] **${r.name}**${r.url ? ` (${r.url})` : ""}: ${r.condition}.${r.personLevel ? " Held by a person: list it on their profile, not the business." : ""} ${websiteStatus(r)}`;
+  const checkedCount = registers.filter((r) => r.checkedOn).length;
+  const dates = [...new Set(registers.map((r) => r.checkedOn).filter((d): d is string => d !== null))].sort();
+  const checked =
+    checkedCount === registers.length
+      ? `Every register below was checked on ${dates.join(", ")}.`
+      : `${checkedCount} of the ${registers.length} registers below ${checkedCount === 1 ? "was" : "were"} checked${dates.length ? ` on ${dates.join(", ")}` : ""}: someone opened a real listing and read how it links to the business's website. **The rest say "not checked".** Open one of their listings before relying on them.`;
 
   return `# Launch checklist: ${a.tradingName}
 
@@ -182,4 +186,20 @@ jobs:
       - uses: actions/checkout@v5
 ${setup}
 `;
+}
+
+// What the checklist says beside each register about its link to the site.
+function websiteStatus(r: Register): string {
+  switch (r.website) {
+    case "followed":
+      return `Website link on a listing: followed (checked ${r.checkedOn}).`;
+    case "nofollow":
+      return `Website link on a listing: nofollow (checked ${r.checkedOn}). Still a citation.`;
+    case "shown-unlinked":
+      return `Shows the website without a link (checked ${r.checkedOn}). Still a citation.`;
+    case "not-shown":
+      return `No website on its listings (checked ${r.checkedOn}). A citation, not a link.`;
+    default:
+      return `Not checked: ${r.note}`;
+  }
 }
