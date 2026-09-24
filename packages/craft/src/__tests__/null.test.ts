@@ -6,6 +6,7 @@ import { run } from "../character/cli.js";
 import { FINGERPRINT_VERSION, type Fingerprint } from "../fingerprint/index.js";
 import { extractHtml, harvest, MIN_RUNS, nullPrompt, typicality, type NullModel, type NullRun } from "../null/index.js";
 import { makeSnapshot } from "../snapshot/fixture.js";
+import { fileURLToPath } from "node:url";
 
 /**
  * Signal 2. The null model is built from real `claude -p` pages in
@@ -252,4 +253,125 @@ describe("the commands", () => {
     expect(saved).toMatchObject({ version: 1, model: "default", runs: [] });
     expect(saved.prompt).toContain("Tidewell Plumbing");
   });
+
+  it("craft null prompt prints what to give another builder", async () => {
+    expect(await run(["null", "prompt", "--brief", "Tidewell Plumbing, a heating engineer in Norwich."], io())).toBe(0);
+    expect(out.join("\n")).toBe(nullPrompt("Tidewell Plumbing, a heating engineer in Norwich."));
+    expect(await run(["null", "prompt"], io())).toBe(2);
+    expect(err.join("\n")).toMatch(/usage: craft null prompt/);
+  });
+
+  it("craft null import finds pages as files and as built folders", async () => {
+    const { findImportPages } = await import("../null/cli.js");
+    mkdirSync(join(dir, "v0", "03", "assets"), { recursive: true });
+    writeFileSync(join(dir, "v0", "01.html"), "<html></html>");
+    writeFileSync(join(dir, "v0", "02.htm"), "<html></html>");
+    writeFileSync(join(dir, "v0", "03", "index.html"), "<html></html>");
+    writeFileSync(join(dir, "v0", "notes.txt"), "not a page");
+    mkdirSync(join(dir, "v0", "snapshots"));
+    expect(findImportPages(join(dir, "v0"))).toEqual([
+      { id: "01", root: join(dir, "v0"), entry: "01.html" },
+      { id: "02", root: join(dir, "v0"), entry: "02.htm" },
+      { id: "03", root: join(dir, "v0", "03"), entry: "index.html" },
+    ]);
+    mkdirSync(join(dir, "v0", "01"));
+    writeFileSync(join(dir, "v0", "01", "index.html"), "<html></html>");
+    expect(() => findImportPages(join(dir, "v0"))).toThrow(/"01" is both a file and a folder/);
+  });
+
+  it("serves a built app from its own root, and nothing outside it", async () => {
+    const { serveDir } = await import("../null/cli.js");
+    mkdirSync(join(dir, "site", "assets"), { recursive: true });
+    writeFileSync(join(dir, "site", "index.html"), "<html>home</html>");
+    writeFileSync(join(dir, "site", "assets", "app.css"), "body{}");
+    writeFileSync(join(dir, "secret.txt"), "outside");
+    const server = await serveDir(join(dir, "site"));
+    try {
+      const home = await fetch(`${server.base}/`);
+      expect(await home.text()).toBe("<html>home</html>");
+      const css = await fetch(`${server.base}/assets/app.css`);
+      expect(css.headers.get("content-type")).toBe("text/css");
+      expect((await fetch(`${server.base}/missing.js`)).status).toBe(404);
+      // The URL parser folds "%2e%2e/" away, so that one looks inside the root and finds nothing.
+      expect((await fetch(`${server.base}/%2e%2e/secret.txt`)).status).toBe(404);
+      // An encoded slash survives parsing and decodes to "../": the containment check refuses it.
+      expect((await fetch(`${server.base}/..%2fsecret.txt`)).status).toBe(403);
+      expect((await fetch(`${server.base}/assets%2f..%2f..%2fsecret.txt`)).status).toBe(403);
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("craft null import refuses without a builder, a brief, or enough pages", async () => {
+    const brief = "Tidewell Plumbing, a heating engineer in Norwich.";
+    expect(await run(["null", "import", "v0", "--brief", brief], io())).toBe(2);
+    expect(err.join("\n")).toMatch(/usage: craft null import <dir> --builder/);
+    expect(await run(["null", "import", "v0", "--builder", "v0"], io())).toBe(2);
+    expect(await run(["null", "import", "nowhere", "--builder", "v0", "--brief", brief], io())).toBe(2);
+    expect(err.join("\n")).toMatch(/no directory at nowhere/);
+    mkdirSync(join(dir, "v0"));
+    writeFileSync(join(dir, "v0", "01.html"), "<html></html>");
+    expect(await run(["null", "import", "v0", "--builder", "v0", "--brief", brief], io())).toBe(2);
+    expect(err.join("\n")).toMatch(/v0 holds 1 page; a null model needs at least 5/);
+  });
+
+  it("measureRun reads a built app's text off the page when its HTML is a shell", async () => {
+    const { measureRun } = await import("../null/cli.js");
+    const shell = `<html><body><div id="root"></div><script type="module" src="/assets/app.js"></script></body></html>`;
+    const snapshot = makeSnapshot({ sections: [{ top: 0, height: 800, kind: "hero", label: "Boilers", cards: 0, iconCards: 0, hiddenAtLoad: false, text: ["Boilers  fixed the same day", "Call Tidewell"] }] });
+    const styles = [{ path: "03/assets/app.css", text: `body{font-family:"Inter",sans-serif}` }];
+    const r = measureRun("03", shell, snapshot, styles);
+    expect(r.copy).toEqual(["Boilers fixed the same day", "Call Tidewell"]);
+    expect(r.tells).toContain("reflex-font");
+    expect(measureRun("03", shell, snapshot).tells).not.toContain("reflex-font");
+  });
 });
+
+const chromium = process.env.CRAFT_CHROMIUM ?? (existsSync("/opt/pw-browsers/chromium") ? "/opt/pw-browsers/chromium" : undefined);
+
+describe.skipIf(!chromium)("craft null import in a real browser", () => {
+  let dir: string;
+  let before: string | undefined;
+  // The command finds its browser the way a user's does: CRAFT_CHROMIUM.
+  beforeEach(() => {
+    before = process.env.CRAFT_CHROMIUM;
+    process.env.CRAFT_CHROMIUM = chromium;
+  });
+  afterEach(() => {
+    if (before === undefined) delete process.env.CRAFT_CHROMIUM;
+    else process.env.CRAFT_CHROMIUM = before;
+    rmSync(dir, { recursive: true, force: true });
+  });
+
+  it("snapshots files and a built app served from its own root, and writes a null model", async () => {
+    dir = mkdtempSync(join(tmpdir(), "craft-import-"));
+    const fixture = (name: string) => readFileSync(fileURLToPath(new URL(`./pages/${name}`, import.meta.url)), "utf8");
+    mkdirSync(join(dir, "v0"));
+    for (const id of ["01", "02", "03", "04"]) writeFileSync(join(dir, "v0", `${id}.html`), fixture(id === "04" ? "decided.html" : "generated.html"));
+    // A built app: its stylesheet is root-relative, which a file:// URL would not resolve.
+    mkdirSync(join(dir, "v0", "05", "assets"), { recursive: true });
+    writeFileSync(join(dir, "v0", "05", "index.html"), `<!doctype html><html><head><link rel="stylesheet" href="/assets/app.css"></head><body><main><section><h1>Boilers fixed the same day in Brackley</h1><p>Call Tidewell on 01280 000000.</p></section></main></body></html>`);
+    writeFileSync(join(dir, "v0", "05", "assets", "app.css"), `body{margin:0;background:rgb(20,24,40);color:#fff;font-family:"Poppins",sans-serif}`);
+    const out: string[] = [];
+    const err: string[] = [];
+    const io = { cwd: dir, out: (t: string) => out.push(t), err: (t: string) => err.push(t) };
+    const code = await run(["null", "import", "v0", "--builder", "v0", "--brief", "Tidewell Plumbing, a heating engineer in Brackley."], io);
+    expect(err).toEqual([]);
+    expect(code).toBe(0);
+    expect(out.join("\n")).toMatch(/5 of 5 pages from v0 in v0\/null\.json/);
+    const model = JSON.parse(readFileSync(join(dir, "v0", "null.json"), "utf8")) as NullModel;
+    expect(model).toMatchObject({ version: 1, builder: "v0", model: "unknown", prompt: nullPrompt("Tidewell Plumbing, a heating engineer in Brackley.") });
+    expect(model.runs.map((r) => r.id)).toEqual(["01", "02", "03", "04", "05"]);
+    // The stylesheet reached the page: the dark ground is measured, and its face is scanned.
+    const app = model.runs[4];
+    expect(app.fingerprint.ground.l).toBeLessThan(0.3);
+    expect(app.tells).toContain("reflex-font");
+    const shot = JSON.parse(readFileSync(join(dir, "v0", "snapshots", "05.json"), "utf8"));
+    expect(shot.url).toBe("05/index.html");
+    // Resumable: a second run takes no snapshot again.
+    out.length = 0;
+    expect(await run(["null", "import", "v0", "--builder", "v0", "--brief", "Tidewell Plumbing, a heating engineer in Brackley."], io)).toBe(0);
+    expect(out.join("\n")).not.toMatch(/snapshotting/);
+  }, 120_000);
+});
+

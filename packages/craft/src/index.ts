@@ -281,6 +281,22 @@ export {
   type CandidateKind,
 } from "./null/index.js";
 export {
+  calibrate,
+  formatCalibration,
+  designTells,
+  isFlagged,
+  LABELS,
+  FLAGGED_TARGET,
+  HUMAN_TYPICAL_TARGET,
+  type Label,
+  type MeasuredPage,
+  type UnmeasuredPage,
+  type Calibration,
+  type LabelSummary,
+  type TellRate,
+  type TargetCheck,
+} from "./calibrate/index.js";
+export {
   ESTATE_VERSION,
   SIBLING_AT,
   emptyEstate,

@@ -50,10 +50,13 @@ Usage
   craft direction validate [--snapshot <file>] [--direction <file>] [--json]
   craft direction propose [--snapshot <file>] [--estate <estate.json | dir>] [--out <file>]
   craft null build --brief "<text>" --out <dir> [--runs 20] [--parallel 4] [--model <name>]
+  craft null import <dir> --builder <name> --brief "<text>" [--out <dir>] [--model <name>]
+  craft null prompt --brief "<text>"
   craft estate add <url | snapshot.json> --id <id> [--client <name>] [--estate <file>]
   craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--json] [--strict]
   craft report <url | snapshot.json> [--repo <dir>] [--null <dir>] [--estate <file>] [--direction <file>] [--json] [--strict]
   craft retrofit <url | snapshot.json> [the same] [--out RETROFIT.md]
+  craft calibrate <labels.json> [--out <dir>] [--fresh] [--json]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
@@ -87,6 +90,10 @@ direction The site's art-direction.json: every choice with a reason from the
           sources' PNG photos and drafts choices for a person to confirm.
 null      The counterfactual: about 20 pages \`claude -p\` builds from the brief
           alone, snapshotted and fingerprinted into null.json. Resumable.
+          import does the same for pages another builder made (v0, Lovable):
+          each an HTML file, or a folder holding a built index.html, served
+          on loopback so its asset paths resolve. prompt prints what to give
+          the builder, so its pages answer the same brief. Resumable.
 estate    The register of shipped sites (estate.json). add fingerprints a site;
           compare lists the nearest, and marks siblings: two sites closer than
           two pages Claude builds for one brief. --strict exits 1 on a sibling.
@@ -95,6 +102,11 @@ report    Every signal for one site: tells, typicality, the estate, the reasons.
           Anything not given is "not measured", and never counts as a pass.
 retrofit  The report as a checklist: decide, then change type, colour, shape,
           effects, motion and copy. Never the page grammar.
+calibrate How well the catalogue separates a labelled set (ai, human,
+          ai-looking): precision and recall per tell, and CHARACTER.md's
+          first three targets. --out keeps results.json and any snapshots it
+          took; --fresh takes every snapshot again. A page not measured is
+          listed, and never counts as a pass. A measure: always exit 0.
 
 ci options (scan, copy, audit)
   --baseline <file>     Report only findings the baseline does not already
@@ -138,6 +150,8 @@ export interface Flags {
   null?: string;
   id?: string;
   competitor?: string;
+  builder?: string;
+  fresh: boolean;
 }
 
 const VALUE_FLAGS = {
@@ -163,10 +177,11 @@ const VALUE_FLAGS = {
   "--viewport": "viewport",
   "--component": "component",
   "--competitor": "competitor",
+  "--builder": "builder",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
-  const flags: Flags = { positional: [], json: false, strict: false, staged: false, gate: false, updateBaseline: false };
+  const flags: Flags = { positional: [], json: false, strict: false, staged: false, gate: false, updateBaseline: false, fresh: false };
   for (let i = 0; i < args.length; i += 1) {
     const a = args[i];
     if (a === "--json") flags.json = true;
@@ -174,6 +189,7 @@ export function parseFlags(args: string[]): Flags | string {
     else if (a === "--staged") flags.staged = true;
     else if (a === "--gate") flags.gate = true;
     else if (a === "--update-baseline") flags.updateBaseline = true;
+    else if (a === "--fresh") flags.fresh = true;
     else if (a in VALUE_FLAGS) {
       const value = args[i + 1];
       i += 1;
@@ -368,6 +384,9 @@ export function run(argv: string[], io: Io): number | Promise<number> {
   }
   if (command === "null") {
     return import("../null/cli.js").then((m) => m.runNull(rest, io));
+  }
+  if (command === "calibrate") {
+    return import("../calibrate/cli.js").then((m) => m.runCalibrate(rest, io));
   }
   if (command === "tells" && rest[0] === "harvest") {
     return import("../null/cli.js")
