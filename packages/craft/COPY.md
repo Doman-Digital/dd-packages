@@ -100,6 +100,7 @@ person reading decides which instance earns its place.
 | `vague-word` | innovative, scalable, end-to-end, streamline, solutions. Reported only when a file is named outright |
 | `question-reveal` | "The result? Twice the bookings.", "What does this mean for you? It means...": a staged reveal |
 | `inline-label-list` | three or more bullets in a row opening "**Label:**", where the label repeats the line |
+| `prompt-context` | "This article uses the attached Perplexity research file as the primary source", "the attached research is right to say", "the attached brief asks": the model naming what it was given. A web page has no attachment. **Zero in anything published** |
 | `placeholder` | "[Insert client name]", lorem ipsum, `TODO_PLACEHOLDER`. Fine in a draft commit; **zero in anything delivered** |
 
 ### Style is not evidence
