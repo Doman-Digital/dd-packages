@@ -140,6 +140,7 @@ export const REFLEX_FONTS_2 = [
   "Plus Jakarta Sans",
   "Outfit",
   "Geist",
+  "Cal Sans",
   "Sora",
   "Instrument Sans",
   "Instrument Serif",
@@ -402,7 +403,7 @@ function iconTiles(file: ParsedFile): ClassUnit[] {
   });
 }
 
-const ICON_LIBRARY = /from\s+["'](?:lucide-react|@heroicons\/react[^"']*|react-icons[^"']*|@phosphor-icons\/react|@tabler\/icons-react|@radix-ui\/react-icons)["']/;
+const ICON_LIBRARY = /from\s+["'](?:lucide-react|@heroicons\/react[^"']*|react-icons[^"']*|@phosphor-icons\/react|@tabler\/icons-react|@radix-ui\/react-icons|@iconscout\/react-unicons[^"']*|@mui\/icons-material[^"']*|react-material-symbols[^"']*)["']/;
 
 function iconTileStackHits(ctx: ScanContext): Hit[] {
   const hits: Hit[] = [];
@@ -530,6 +531,23 @@ function shadcnHits(ctx: ScanContext): Hit[] {
   const unused = others.length > 0 ? ui.filter((file) => !imported(file.path.match(/([a-z-]+)\.[a-z]+$/)![1])) : [];
   const detail = unused.length > 0 ? `; ${unused.length} imported nowhere` : "";
   return [{ path: ui[0].path, offset: 0, message: `${ui.length} stock shadcn primitives${detail}` }];
+}
+
+/**
+ * The shadcn/ui Card exactly as the registry ships it: card tokens, a plain
+ * border, the registry radius and the registry shadow, all unchanged. Change
+ * the radius or the shadow and it is a card someone styled.
+ */
+function shadcnCardHits(ctx: ScanContext): Hit[] {
+  return eachUnit(ctx, (unit) =>
+    has(unit, /^bg-card$/) &&
+    has(unit, /^text-card-foreground$/) &&
+    has(unit, /^border$/) &&
+    has(unit, /^rounded-(?:lg|xl)$/) &&
+    has(unit, /^shadow(?:-sm)?$/)
+      ? "the registry Card recipe, unchanged"
+      : null,
+  );
 }
 
 function marqueeHits(ctx: ScanContext): Hit[] {
@@ -734,6 +752,23 @@ export const SOURCE_TELLS: SourceTell[] = [
     fixtures: {
       flag: [SHADCN_PRIMITIVES.slice(0, SHADCN_LIMIT).map((name) => f(`src/components/ui/${name}.tsx`, `export function X() { return null; }`))],
       pass: [f("src/components/ui/button.tsx", `export function Button() { return null; }`)],
+    },
+  },
+  {
+    id: "shadcn-card-stock",
+    name: "Stock shadcn Card",
+    generation: 1,
+    severity: "warn",
+    surface: "source",
+    why: "The registry Card (bg-card, a plain border, rounded-lg or rounded-xl, shadow-sm) is the container every generated page is built from. Left as shipped, every card on the site looks like every other shadcn site's.",
+    fix: "Give the card this site's radius and shadow from the restraint budget, or drop the shadow and let a visible border carry it.",
+    detect: shadcnCardHits,
+    fixtures: {
+      flag: [
+        f("components/ui/card.tsx", `className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}`),
+        f("components/ui/card.tsx", `className={cn("bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm", className)}`),
+      ],
+      pass: [f("components/ui/card.tsx", `className={cn("rounded-sm border-2 border-ink bg-card text-card-foreground", className)}`)],
     },
   },
   {

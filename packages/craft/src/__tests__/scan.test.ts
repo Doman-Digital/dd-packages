@@ -91,6 +91,31 @@ describe("findings the estate survey says a rule must reproduce", () => {
   });
 });
 
+describe("gaps the 2026-09-11 research named", () => {
+  const tileGrid = (library: string) =>
+    [
+      `import { UilBolt, UilPlug } from "${library}";`,
+      `export function Services() {`,
+      `  return <div className="grid gap-6 md:grid-cols-3">`,
+      `    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100"><UilBolt /></div>`,
+      `  </div>;`,
+      `}`,
+    ].join("\n");
+
+  it("an icon-tile grid is the same tell whichever library draws the icons", () => {
+    for (const library of ["@iconscout/react-unicons", "@mui/icons-material", "react-material-symbols/rounded"]) {
+      expect(ids([{ path: "Services.tsx", text: tileGrid(library) }]), library).toEqual(
+        expect.arrayContaining(["icon-tile-grid", "icon-tile-stack"]),
+      );
+    }
+  });
+
+  it("Cal Sans is a second-wave reflex font", () => {
+    const [finding] = scanSource([{ path: "src/styles.css", text: `@theme {\n  --font-display: "Cal Sans", system-ui, sans-serif;\n}` }]).findings.filter((f) => f.tell === "reflex-font-2");
+    expect(finding?.message).toContain("Cal Sans");
+  });
+});
+
 describe("what the scanner must not flag", () => {
   it("ignores the framework's own palette definitions", () => {
     const compiled = `@layer theme { :root { --color-indigo-600: oklch(51.1% .262 276.966); --color-violet-500: oklch(60.6% .25 292.717); } }`;

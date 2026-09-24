@@ -35,6 +35,10 @@ Listed so they are not lost, and not built until the art direction exists:
   not wait).
 - Any change to `SOURCE_KINDS` (for example, screenshots of delivered work).
 - Version 2 of the `art-direction.json` schema.
+- An `icons` choice key. Until then a site records its icon set as a source,
+  and the licence register (`src/direction/licences.ts`) holds what each set
+  allows. No house icon set: one set across every client is the estate
+  sameness `CHARACTER.md` warns about.
 
 Each is released by what the first decided sites could not express in
 version 1 of the schema.
@@ -106,6 +110,11 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   research file"), 24 hits in five live articles, all real. New, so `review`;
   a candidate for `block` once measured on proposals, where "the attached
   research" can be honest.
+
+- `shadcn-card-stock`, added 2026-09-24 from the 2026-09-11 research: not
+  yet measured on the estate. The estate snapshots in `calibration/estate`
+  are rendered pages, and this tell reads source, so it needs a scan of the
+  client repos themselves. Read every hit before trusting the count.
 
 Recorded with dates in `CHARACTER.md` under Calibration once run.
 

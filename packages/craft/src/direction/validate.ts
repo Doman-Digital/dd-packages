@@ -10,6 +10,7 @@ import { REFLEX_FONTS_1, REFLEX_FONTS_2 } from "../character/tells/source.js";
 import { deltaEOk } from "../color/oklch.js";
 import type { Fingerprint } from "../fingerprint/index.js";
 import { normaliseFamily } from "../snapshot/fonts.js";
+import { faceLicence } from "./licences.js";
 import {
   CHOICE_KEYS,
   DIRECTION_VERSION,
@@ -176,6 +177,21 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
       if (tell && !exceptions.some((e) => e.tell === tell)) {
         err(`${at}.value`, `${c.value} is on the tell catalogue (${tell}). Keep it only with an exception for ${tell}, carrying the same reason.`);
         ok = false;
+      }
+    }
+
+    // A licence problem does not undecide a choice: the reason can be sound
+    // and the face still unlicensed for this site. So it warns, and says what to do.
+    if ((key === "display" || key === "body") && typeof c.value === "string" && c.value.trim()) {
+      const family = normaliseFamily(c.value);
+      const entry = faceLicence(family);
+      if (!entry) {
+        warn(`${at}.value`, `${family}: licence not in craft's register. Read the licensor's own terms for use on this client's site, then add it to src/direction/licences.ts.`);
+      } else if (entry.multiClient === "unverified") {
+        warn(`${at}.value`, `${family}: licence unverified (${entry.note})`);
+      } else if (entry.multiClient === "capped" || entry.multiClient === "per-site") {
+        const scope = entry.multiClient === "capped" ? `covers up to ${entry.cap} sites` : "needs a licence for this site, in the client's name";
+        warn(`${at}.value`, `${family}: ${entry.licence} licence ${scope}. Record the purchase before launch.`);
       }
     }
 

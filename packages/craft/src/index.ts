@@ -212,6 +212,7 @@ export {
 } from "./direction/types.js";
 export { validateDirection, type ValidateContext } from "./direction/validate.js";
 export { initDirection } from "./direction/init.js";
+export { LICENCES, faceLicence, licencesJson, type LicenceEntry, type LicenceSubject, type MultiClient } from "./direction/licences.js";
 export { PROPOSED, paletteFromPixels, propose, type PaletteColour, type Proposal, type ProposeInput } from "./direction/propose.js";
 export {
   NULL_VERSION,
