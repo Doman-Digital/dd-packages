@@ -18,21 +18,18 @@ while craft was also canonical, and its blocking tier named a
 `design-check.py` that was never in this repo. Craft's tell catalogue now
 covers most of what that tier described (`ai-violet`,
 `blue-purple-gradient`, `gradient-text`, `hero-then-proof`, `shadcn-dump`),
-so the rules were retired rather than kept as a second source. The one gap
-is the unmodified shadcn Card class recipe, which no tell matches yet.
+so the rules were retired rather than kept as a second source. The one gap,
+the unmodified shadcn Card class recipe, is now `shadcn-card-stock`.
 
-## Three things it held that craft does not
+## Where the research went
 
-Read these from the old version (`git show e4f4c06:design-rules.md`) as
-input to the art direction craft's Phase J waits on. None is a house rule.
+The research behind the old file is kept, graded by source, in
+[`packages/craft/research/2026-09-11-ai-look.md`](packages/craft/research/2026-09-11-ai-look.md).
+What it found that craft lacked is now in craft: `shadcn-card-stock`, Cal
+Sans as a reflex font, more icon libraries seen by the icon-tile tells, and a
+licence register that `craft direction validate` reads
+([`src/direction/licences.ts`](packages/craft/src/direction/licences.ts)).
 
-- **Display type shortlist:** Velvetyne's Basteleur, Gulax and Le Murmure
-  (SIL OFL). The technical and editorial buckets were never sourced.
-- **Foundry licence research:** Blaze Type's own licence and EULA pages
-  contradict each other on multi-client use; Power Type's terms were never confirmed.
-  Get both in writing before any client build relies on either.
-- **Icon base: Phosphor, for every build.** This conflicts with craft. Its
-  icon-tile tells treat Phosphor exactly as they treat Lucide, and `CHARACTER.md`
-  treats clients looking like each other as the agency's biggest tell. One
-  icon set across every client is that pattern, so this one needs a
-  decision per client, not a house default.
+Two of its picks are deliberately not house defaults. The Velvetyne faces are
+licence facts, not a shortlist, and Phosphor is not a house icon set: one set
+on every client site is the estate sameness `CHARACTER.md` measures.

@@ -88,6 +88,13 @@ clean, premium, elegant and the rest), and a value on the tell catalogue
 without an exception carrying the same reason. Given a snapshot, it warns
 where the page does not show what the file declares.
 
+It also reads the display and body faces against the licence register
+(`src/direction/licences.ts`, exported as `licences.json`) and warns on a face
+the register does not know, or knows only as capped, per-site or unverified. A
+licence warning does not undecide the choice: the reason can be sound and the
+face still unlicensed for this client. The register records facts, checked on
+the licensor's own page. It is not a shortlist, and nothing proposes from it.
+
 `craft direction init` writes what the site does today with every reason
 empty, so the first thing it produces is the list of things nobody decided.
 Run on RMP's live home page (2026-09-23) it records Fraunces, Manrope, a cream
@@ -534,7 +541,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.8`, 55 tells.
+Catalogue version `2026.09.9`, 56 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -549,6 +556,7 @@ Catalogue version `2026.09.8`, 55 tells.
 | `reveal-everywhere` | 1 | source + rendered | warn | Reveal on every section | When every block fades up on scroll, the motion stops meaning anything and the page feels slow. MMM had 70, DD 40, sen-sphere 27. |
 | `pill-everything` | 1 | source + rendered | warn | Pills everywhere | rounded-full on every button, badge and tag is the framework's friendliest default. MMM had 162, DD 125. A shape used everywhere is not a shape language. |
 | `shadcn-dump` | 1 | source | warn | Stock component dump | A generator exports the whole shadcn/ui kit whether the site uses it or not. Rise & Bloom ships a full set under its own book, vine and petal assets. |
+| `shadcn-card-stock` | 1 | source | warn | Stock shadcn Card | The registry Card (bg-card, a plain border, rounded-lg or rounded-xl, shadow-sm) is the container every generated page is built from. Left as shipped, every card on the site looks like every other shadcn site's. |
 | `cream-palette` | 2 | source + rendered | warn | Cream ground | Once white-and-violet was named, models moved to a warm off-white: parchment, linen, oat. It reads as 'tasteful' in the same way everywhere. |
 | `italic-serif-display` | 2 | source + rendered | warn | Italic serif display | A serif heading with one italic word ('Beauty, reimagined') is the second wave's signature move. |
 | `hero-eyebrow-chip` | 2 | source + rendered | warn | Eyebrow chip above the hero | A small bordered pill ('New · Now booking') above the headline is in almost every generated hero. |

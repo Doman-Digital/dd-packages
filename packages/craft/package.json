@@ -50,6 +50,7 @@
     "README.md",
     "STANDARD.md",
     "word-lists.json",
+    "licences.json",
     "css",
     "dist"
   ],
@@ -58,7 +59,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "prepublishOnly": "pnpm run build",
-    "docs": "tsup && node scripts/write-catalogue.mjs && node scripts/write-word-lists.mjs"
+    "docs": "tsup && node scripts/write-catalogue.mjs && node scripts/write-word-lists.mjs && node scripts/write-licences.mjs"
   },
   "devDependencies": {
     "tsup": "^8.3.5",

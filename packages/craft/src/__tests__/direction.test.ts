@@ -104,7 +104,26 @@ describe("the reason rule", () => {
   it("warns when the page does not show what the file declares", () => {
     const fp = fingerprint(makeSnapshot());
     const r = validateDirection(good(), { fingerprint: fp });
-    expect(r.problems.some((p) => p.at === "choices.display.value" && p.severity === "warn")).toBe(true);
+    expect(r.problems.some((p) => p.at === "choices.display.value" && p.severity === "warn" && /the page sets/.test(p.message))).toBe(true);
+  });
+});
+
+describe("the licence register in validate", () => {
+  const licenceWarn = (d: ArtDirection) =>
+    validateDirection(d).problems.find((p) => p.at === "choices.display.value" && p.severity === "warn" && /licen[cs]e/.test(p.message));
+
+  it("warns on a face nobody has checked the licence of, and keeps the choice decided", () => {
+    const d = good();
+    const r = validateDirection(d);
+    expect(licenceWarn(d)?.message).toMatch(/Clarendon: licence not in craft's register/);
+    expect(r.valid).toBe(true);
+    expect(r.decided).toBe(2);
+  });
+
+  it("stays quiet on a face whose licence covers every client site", () => {
+    const d = good();
+    d.choices.display!.value = "Basteleur";
+    expect(licenceWarn(d)).toBeUndefined();
   });
 });
 
