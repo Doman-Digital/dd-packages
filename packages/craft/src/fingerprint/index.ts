@@ -33,6 +33,21 @@ export interface FingerprintSection {
   centred: number;
   /** Content width over viewport width, 0 to 1. */
   width: number;
+  /** Left-right balance of the content, 0 to 1. Component comparison only. */
+  symmetry?: number;
+  /** Buttons in the section. */
+  controls?: number;
+  /** Cards side by side. */
+  cards?: number;
+  /** The section's own background, or null when it is the page ground. */
+  background?: Oklch | null;
+  /** Badge texts ("Most popular"), lower-cased. */
+  badges?: string[];
+  /** Small round portraits. */
+  avatars?: number;
+  carousel?: boolean;
+  /** Large standalone figures. */
+  figures?: number;
 }
 
 export interface Fingerprint {
@@ -119,7 +134,21 @@ export function fingerprint(s: Snapshot): Fingerprint {
     effects: effects.sort(),
     layout: s.sections.map((x) => x.kind),
     ...(s.sections.length > 0 && s.sections.every((x) => x.role && x.geometry)
-      ? { sections: s.sections.map((x) => ({ role: x.role!, centred: x.geometry!.centredShare, width: x.geometry!.contentWidthRatio })) }
+      ? {
+          sections: s.sections.map((x) => ({
+            role: x.role!,
+            centred: x.geometry!.centredShare,
+            width: x.geometry!.contentWidthRatio,
+            symmetry: x.geometry!.mirrorSymmetry,
+            controls: x.geometry!.controls,
+            cards: x.cards,
+            background: x.geometry!.background === s.ground ? null : oklch(x.geometry!.background),
+            badges: (x.badges ?? []).map((b) => b.toLowerCase()),
+            avatars: x.avatars ?? 0,
+            carousel: x.carousel ?? false,
+            figures: x.figures ?? 0,
+          })),
+        }
       : {}),
   };
 }
