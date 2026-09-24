@@ -13,7 +13,7 @@ import { CATALOGUE, CATALOGUE_VERSION, applyHouseGate, checkCopy, scanSource } f
 import { type CraftConfig, DEFAULT_IGNORE, applySeverity, ignoreMatcher, parseCraftConfig, severityExceptions } from "./config.js";
 import { toJson } from "./json.js";
 import { toSarif } from "./sarif.js";
-import { houseRule } from "./house.js";
+import { HOUSE_LOCKED, holdHouseBlocks, houseRule } from "./house.js";
 import { findClaims, formatClaims } from "./claims.js";
 import { compareFacts, formatComparison, visibleText } from "./facts.js";
 import { formatReport } from "./format.js";
@@ -380,10 +380,26 @@ export function run(argv: string[], io: Io): number | Promise<number> {
       const files = flags.staged
         ? readStaged(io.cwd, wanted, config.ignore)
         : readPaths(paths, io.cwd, wanted, command === "copy" ? NOT_COPY_DIR : undefined, config.ignore);
-      const exceptions = loadExceptions(flags, io.cwd);
+      let exceptions = loadExceptions(flags, io.cwd);
+      let effective = config;
+      let refused: TellException[] = [];
+      if (command === "copy" && flags.gate) {
+        // The house gate is the house's: a repo can raise it, never lower it.
+        const held = holdHouseBlocks(exceptions, config.severity);
+        exceptions = held.exceptions;
+        effective = { ...config, severity: held.severity };
+        // An `off` already arrived as an exception; a `warn` did not.
+        const warned = held.refusedSeverity
+          .filter((tell) => config.severity[tell].level === "warn")
+          .map((tell) => ({ tell, because: `craft.config.json: ${config.severity[tell].because}` }));
+        refused = [...held.refused, ...warned];
+      }
       let report = command === "scan" ? scanSource(files, { exceptions }) : checkCopy(files, { exceptions });
-      if (command === "copy" && flags.gate) report = applyHouseGate(report);
-      const prepared = prepareReport(report, flags, io, config);
+      if (command === "copy" && flags.gate) {
+        report = applyHouseGate(report);
+        report = { ...report, rejectedExceptions: [...report.rejectedExceptions, ...refused.map((exception) => ({ exception, reason: HOUSE_LOCKED }))] };
+      }
+      const prepared = prepareReport(report, flags, io, effective);
       if (!prepared) return 0;
       return finish(prepared, flags, command === "scan" ? "craft scan" : "craft copy", io);
     }

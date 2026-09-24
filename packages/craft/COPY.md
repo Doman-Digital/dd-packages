@@ -256,8 +256,12 @@ For genuine exceptions only, and the reason matters more than the mechanism:
 - `.copyauditignore` at the repo root: globs, matched on the repo-relative
   path and the bare filename.
 - `.nocopycheck` at the repo root: skips the repo.
-- An `exceptions` entry in `art-direction.json`, with a `because` of at least
-  a sentence.
+- An `exceptions` entry in `art-direction.json`, or a `severity` entry in
+  `craft.config.json`, with a `because` of at least a sentence. **Never for
+  the blocking tier.** Under `craft copy --gate` a repo can raise a rule but
+  not lower one that blocks: the gate refuses the entry and says so. A
+  genuine one-off in the blocking tier takes `copy-ok` on its line, where a
+  reviewer sees it.
 
 Reaching for these more than occasionally means a rule is miscalibrated. Fix
 it here and in craft, not in forty repos.
