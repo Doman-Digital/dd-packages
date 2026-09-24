@@ -250,6 +250,52 @@ abstract blob from a diagram needs an SVG's path data or its pixels, which a
 cross-origin picture does not give the page, and no flag case has been proved
 reliable. It stays on the list until one is.
 
+### Specificity
+
+A page built from no brief could belong to anyone, because the model had
+nothing particular to say. Specificity counts what only this business could
+have written: names, places, numbers, prices, dates, contact details, and
+the nouns of the trade (`TRADE_NOUNS`, a seed list). Two rules keep the
+count honest. A Title Case or shouted line's capitals are not read as names
+("Quality You Can Trust" is not a proper noun), and the figures every site
+uses ("24/7", "100%", "5-star", "No. 1") are masked before counting. A text
+is generic when it has no specific other than trade nouns and fewer than two
+of those: one trade noun ("quality plumbing you can trust") is what every
+competitor also says.
+
+A snapshot now records the page's text: each section's headings,
+paragraphs, list items and quotes (`text`), and what a visitor reads before
+scrolling (`firstScreenText`), leaving out navigation, a header without the
+headline, footers and the words on buttons and links. Two tells read it:
+
+- `generic-hero-claim`: the home page's first screen names nothing
+  particular. Also a copy tell, on a literal `<h1>` and the paragraph under
+  it in the home page's source (a root route file such as `app/page.tsx`, a
+  top-level `index.html`, or a hero or home component). Every other page's
+  headline is a label ("Privacy policy", "Boiler repairs"), not a claim, and
+  is not judged.
+- `unproven-claim`: a claim of standing ("trusted", "fully qualified",
+  "award-winning", "5-star service") with no review, rating, quoted
+  testimonial, registration number or accreditation (by name, or as a logo
+  whose alt text or file name names it) in its section or the one either
+  side.
+
+A brief sharpens the count: its own terms (the business's name, its town,
+its trade) are recognised wherever they appear, even opening a sentence or
+in a shouted heading. The tells run without one. `craft copy compare <ours>
+--competitor <theirs>` uses one, from `--brief`, `art-direction.json` or a
+null model's `null.json`, and lists the hero and service sentences on each
+page that hold no specific the other page lacks: a town both name, or a
+trade noun both use, is shared; the business's name, its prices and its
+jobs are its own. It is a measure for a person to read and always exits 0.
+
+The limits, stated so nobody reads more into a pass than is there: a place
+in a Title Case heading ("Boiler Repairs In Brackley") is not recognised
+without a brief, a headline whose words come from data (`{site.headline}`)
+is not read in source, and "specific" means particular, not true. `craft
+copy claims` is where a figure gets checked. Snapshots taken before craft
+recorded text have none, and neither tell judges them.
+
 ## The counterfactual
 
 A list of tells goes stale; the model does not. So signal 2 asks the model
@@ -622,7 +668,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.11`, 66 tells.
+Catalogue version `2026.09.12`, 68 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -682,14 +728,16 @@ Catalogue version `2026.09.11`, 66 tells.
 | `repeated-sentence` | 1 | copy | warn | Repeated sentence | The same sentence on two pages, or the same nine words lightly edited, is one of the strongest signs a document was assembled rather than written. |
 | `heading-shape` | 2 | copy | warn | One heading shape | Headings that all share one shape ('X, and Y', 'X, because Y', 'Keep, rewrite, consolidate, retire') read as a template filled in section by section. |
 | `heading-echo` | 2 | copy | warn | Heading echoed | A heading repeated word for word as the first line under it spends the reader's attention twice on the same words. |
-| `cta-band-stock` | 1 | rendered + rendered | warn | Stock call-to-action band | A full-width coloured band with a centred heading, one line and one or two buttons is what a model closes every section run with. It asks for the booking the same way on every site. |
-| `pricing-trio-popular` | 1 | rendered + rendered | warn | Three-tier pricing with a popular badge | Three price cards with the middle one badged 'Most popular' is the SaaS pricing page, applied to a plumber or a salon whether or not anyone chose the middle option. |
-| `testimonial-avatar-carousel` | 1 | rendered + rendered | warn | Avatar testimonial carousel | Round headshots over quotes in a sliding carousel is the stock testimonial block. Most visitors see the first slide only, and stock or AI faces make every quote read as invented. |
-| `faq-accordion-closer` | 2 | rendered + rendered | warn | FAQ accordion as the closer | Ending the page on a collapsed FAQ, often followed only by a band, is the model's default page ending. The answers a buyer needs are hidden behind clicks at the point they decide. |
-| `stats-row` | 1 | rendered + rendered | warn | Row of big numbers | Three or four large figures in a row (500+ clients, 98% satisfaction, 10 years) is the stock proof block, and the numbers are often round, unsourced or invented. |
-| `centred-everything` | 2 | rendered + rendered | warn | Every section centred | When almost every section stacks a centred heading over centred text, the page has no reading line and every block looks like the one before. It is the layout nothing was decided for. |
-| `stock-photo` | 1 | rendered + rendered | warn | Stock photography | A picture from a stock library is the picture every other site in the trade can use. It shows a job the client did not do, in a kitchen that is not theirs, and a visitor who has seen it before stops believing the rest. |
-| `stock-avatar` | 1 | rendered + rendered | warn | Stock or placeholder faces | Round portraits from a placeholder-face service or a stock library next to reviews make every quote read as invented, and some of those faces are generated people who do not exist. |
-| `ai-image` | 2 | rendered + rendered | warn | Generated image | The file itself says a model made it (its XMP or Content Credentials name a trained-model source). A generated picture stands in for work the client did not photograph, and anyone can read the label. |
-| `no-real-imagery` | 1 | rendered + rendered | warn | No photograph on the page | A page with no photograph at all, only icons and illustrations, is the page a model builds when it has no assets. Icon tiles stand in for the evidence a buyer looks for: the work, the premises, the people. |
+| `generic-hero-claim` | 1 | copy + rendered | warn | Headline that fits any business | The first thing a visitor reads on the home page names no place, no person, no price and no job, so it would fit every competitor's site unchanged. A model writes it when it has nothing particular to say. |
+| `cta-band-stock` | 1 | rendered | warn | Stock call-to-action band | A full-width coloured band with a centred heading, one line and one or two buttons is what a model closes every section run with. It asks for the booking the same way on every site. |
+| `pricing-trio-popular` | 1 | rendered | warn | Three-tier pricing with a popular badge | Three price cards with the middle one badged 'Most popular' is the SaaS pricing page, applied to a plumber or a salon whether or not anyone chose the middle option. |
+| `testimonial-avatar-carousel` | 1 | rendered | warn | Avatar testimonial carousel | Round headshots over quotes in a sliding carousel is the stock testimonial block. Most visitors see the first slide only, and stock or AI faces make every quote read as invented. |
+| `faq-accordion-closer` | 2 | rendered | warn | FAQ accordion as the closer | Ending the page on a collapsed FAQ, often followed only by a band, is the model's default page ending. The answers a buyer needs are hidden behind clicks at the point they decide. |
+| `stats-row` | 1 | rendered | warn | Row of big numbers | Three or four large figures in a row (500+ clients, 98% satisfaction, 10 years) is the stock proof block, and the numbers are often round, unsourced or invented. |
+| `centred-everything` | 2 | rendered | warn | Every section centred | When almost every section stacks a centred heading over centred text, the page has no reading line and every block looks like the one before. It is the layout nothing was decided for. |
+| `stock-photo` | 1 | rendered | warn | Stock photography | A picture from a stock library is the picture every other site in the trade can use. It shows a job the client did not do, in a kitchen that is not theirs, and a visitor who has seen it before stops believing the rest. |
+| `stock-avatar` | 1 | rendered | warn | Stock or placeholder faces | Round portraits from a placeholder-face service or a stock library next to reviews make every quote read as invented, and some of those faces are generated people who do not exist. |
+| `ai-image` | 2 | rendered | warn | Generated image | The file itself says a model made it (its XMP or Content Credentials name a trained-model source). A generated picture stands in for work the client did not photograph, and anyone can read the label. |
+| `no-real-imagery` | 1 | rendered | warn | No photograph on the page | A page with no photograph at all, only icons and illustrations, is the page a model builds when it has no assets. Icon tiles stand in for the evidence a buyer looks for: the work, the premises, the people. |
+| `unproven-claim` | 1 | rendered | warn | Claim with no proof next to it | "Trusted", "fully qualified" and "award-winning" ask the visitor to take the business's word for it. A page built with no reviews and no registration number makes the claim anyway, with nothing beside it. |
 <!-- craft:catalogue:end -->
