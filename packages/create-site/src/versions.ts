@@ -10,7 +10,7 @@ export const HOUSE_DEPENDENCIES = {
 // @types/node: the generated tests and route enumerator import node:fs, and
 // the Astro starter templates do not ship Node types. Added only if missing.
 export const HOUSE_DEV_DEPENDENCIES = {
-  "@domandigital/craft": "^0.11.0",
+  "@domandigital/craft": "^0.12.0",
   "@types/node": "^22.0.0",
   vitest: "^4.1.11",
 } as const;
