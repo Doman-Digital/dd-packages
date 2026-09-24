@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { auditSnapshot } from "../character/check.js";
 import { fingerprint, fingerprintDistance } from "../fingerprint/index.js";
+import { AI_IRI, png, xmpChunk, xmpPacket } from "./image-bytes.js";
 
 /**
  * The browser half, end to end: a real Chromium renders two local pages and
@@ -20,14 +21,22 @@ let base = "";
 
 describe.skipIf(!chromium)("craft audit in a real browser", () => {
   beforeAll(async () => {
+    // A photo of the job, and one a generator labelled as its own.
+    const job = png(64, 40);
+    const generated = png(64, 40, [xmpChunk(xmpPacket(AI_IRI))]);
     server = createServer((req, res) => {
+      if (req.url?.startsWith("/img/") || req.url?.startsWith("/_next/image")) {
+        res.setHeader("content-type", "image/png");
+        res.end(req.url.startsWith("/img/ai.png") ? generated : job);
+        return;
+      }
       res.setHeader("content-type", "text/html");
       if (req.url === "/missing") {
         res.statusCode = 404;
         res.end("<!doctype html><title>Not found</title><h1>Not found</h1>");
         return;
       }
-      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : req.url === "/roles" ? "roles.html" : req.url === "/components" ? "components.html" : "generated.html"));
+      res.end(page(req.url === "/decided" ? "decided.html" : req.url === "/nested" ? "nested-reveal.html" : req.url === "/roles" ? "roles.html" : req.url === "/components" ? "components.html" : req.url === "/imagery" ? "imagery.html" : "generated.html"));
     });
     await new Promise<void>((done) => server.listen(0, "127.0.0.1", done));
     base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
@@ -56,6 +65,7 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
       "marquee",
       "thin-border-wide-shadow",
       "intro-cinematic",
+      "no-real-imagery",
     ]) {
       expect(tells, id).toContain(id);
     }
@@ -129,6 +139,33 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     for (const id of ["pricing-trio-popular", "testimonial-avatar-carousel", "faq-accordion-closer", "stats-row", "centred-everything"]) expect(ownFound, id).not.toContain(id);
     expect(own.sections[1].badges).toEqual([]);
     expect(own.sections[2].carousel).toBe(false);
+  }, 60_000);
+
+  it("records every picture with its role, unwraps an image optimiser, and reads a generator's label (Phase M)", async () => {
+    const { snapshotUrl } = await import("../audit/index.js");
+    const snap = await snapshotUrl(`${base}/imagery`, { executablePath: chromium, introWindowMs: 200 });
+    const images = snap.images!;
+    const bySrc = (end: string) => images.filter((i) => i.src.endsWith(end));
+    expect(bySrc("/img/ai.png")[0]).toMatchObject({ role: "photo", section: 0, background: false, decorative: false });
+    expect(bySrc("/img/ai.png")[0].provenance).toMatchObject({ digitalSourceType: "trainedAlgorithmicMedia", source: "xmp" });
+    expect(images.filter((i) => i.role === "icon")).toHaveLength(3);
+    expect(bySrc("/img/shutterstock_1234567890.png")[0]).toMatchObject({ role: "photo", decorative: true });
+    // /_next/image?url=%2Fimg%2Fjob.png is read as the file it serves.
+    expect(images.some((i) => i.src === `${base}/img/job.png` && i.role === "photo" && !i.background && i.alt === "The new combi in Hinton")).toBe(true);
+    expect(images.find((i) => i.role === "avatar")).toMatchObject({ width: 56, alt: "Sam" });
+    expect(images.find((i) => i.background)).toMatchObject({ role: "photo", section: 4 });
+    expect(images.find((i) => i.role === "logo")).toMatchObject({ alt: "Acme Heating logo", section: null });
+    expect(images.find((i) => i.src === `${base}/img/job.png` && !i.background)?.provenance).toMatchObject({ digitalSourceType: null });
+
+    const found = new Set(auditSnapshot(snap).findings.map((f) => f.tell));
+    expect(found).toContain("ai-image");
+    expect(found).toContain("stock-photo");
+    expect(found).not.toContain("no-real-imagery");
+    expect(found).not.toContain("stock-avatar");
+
+    const unread = await snapshotUrl(`${base}/imagery`, { executablePath: chromium, introWindowMs: 200, provenance: false });
+    expect(unread.images!.every((i) => i.provenance === undefined)).toBe(true);
+    expect(auditSnapshot(unread).findings.map((f) => f.tell)).not.toContain("ai-image");
   }, 60_000);
 
   it("sees a reveal on the cards inside a section, not only on the section", async () => {
