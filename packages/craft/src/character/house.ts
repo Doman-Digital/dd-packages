@@ -82,3 +82,36 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
 export function houseRule(id: string, name = id): HouseRule {
   return HOUSE[id] ?? { tier: "review", label: name };
 }
+
+/**
+ * What a repo may and may not do to the house gate.
+ *
+ * A repo can raise a tell's severity in `craft.config.json`, or except a
+ * design tell in `art-direction.json`. It cannot lower the blocking tier: a
+ * `warn` or `off` there, or an exception naming a blocking tell, would let one
+ * line and one sentence switch off a rule COPY.md calls not a judgment call,
+ * in every commit that repo makes. `chatbot-residue` is the sharpest case: it
+ * is evidence of a paste, and no client reason makes a paste acceptable.
+ *
+ * A genuine one-off (a style guide quoting an em dash, a testimonial) takes
+ * `copy-ok` on its line: local, in the diff a reviewer reads, and listed in
+ * every report. A rule that is wrong for everyone is changed here.
+ */
+export const HOUSE_LOCKED =
+  "the house blocking tier cannot be lowered by a repo. A genuine one-off takes copy-ok on its line; a rule that is wrong is changed in craft's house.ts and COPY.md";
+
+export function holdHouseBlocks<E extends { tell: string }, O extends { level: string }>(
+  exceptions: E[],
+  severity: Record<string, O>,
+): { exceptions: E[]; severity: Record<string, O>; refused: E[]; refusedSeverity: string[] } {
+  const blocks = (tell: string) => HOUSE[tell]?.tier === "block";
+  const refusedSeverity = Object.entries(severity)
+    .filter(([tell, o]) => blocks(tell) && o.level !== "block")
+    .map(([tell]) => tell);
+  return {
+    exceptions: exceptions.filter((e) => !blocks(e.tell)),
+    refused: exceptions.filter((e) => blocks(e.tell)),
+    severity: Object.fromEntries(Object.entries(severity).filter(([tell]) => !refusedSeverity.includes(tell))),
+    refusedSeverity,
+  };
+}
