@@ -1,5 +1,25 @@
 # @domandigital/craft
 
+## 0.13.0
+
+### Minor Changes
+
+- 72527d6: Phase L: component-level sameness.
+
+  - Six rendered tells, all `warn`, read from snapshot version 2: `cta-band-stock` (a centred band on its own colour with one or two buttons), `pricing-trio-popular` (three price cards, one badged "Most popular"), `testimonial-avatar-carousel`, `faq-accordion-closer` (the page ends on a question list), `stats-row` (a row of three to six big figures) and `centred-everything`. A version 1 snapshot never trips them. `CATALOGUE_VERSION` is `2026.09.10`.
+  - Tells can now have `surface: "rendered"`: they exist only on a rendered page, so they carry snapshot fixtures and no source fixtures. `runTell` refuses them; use `auditSnapshot`.
+  - Snapshot sections gain `badges`, `avatars`, `carousel` and `figures`; fingerprint sections gain `symmetry`, `controls`, `cards`, `background`, `badges`, `avatars`, `carousel` and `figures`.
+  - `craft estate compare --component <role>` ranks pairs of sites by how alike one component is and names what they share. `craft estate compare <site> --component <role>` compares one site against the rest. There is no sibling line for components yet, so it ranks and judges nothing.
+  - `craft audit --null` scores each component against the same role in the null model (`components` in the JSON).
+  - New exports: `RENDERED_TELLS`, `COMPONENT_ROLES`, `PROMO_BADGE`, `componentsOf`, `componentDistance`, `componentShared`, `closestComponents`, `estateComponentPairs`, `componentTypicality`, `componentTypicalities`, and the types `RenderedTell`, `ComponentPair`, `ComponentTypicality`.
+
+- 8f5dbf6: Phase M: imagery and provenance.
+
+  - Snapshots record every picture on the page as `images`: each `img` and each CSS background large enough to be one, with its source (unwrapped from `/_next/image?url=`, `/_vercel/image` and Cloudflare's `/cdn-cgi/image/`), size, position, section, alt text and a role (`photo`, `illustration`, `icon`, `avatar`, `logo`). At most 60, largest first. Older snapshots have no `images` and are never judged on them.
+  - `craft audit` reads the first 256 KB of up to 24 of the larger pictures (20 seconds at most per page) and records `provenance`: the IPTC digital source type when an XMP packet or a C2PA manifest says a trained model made the picture. Only a positive is evidence; a picture with no marker is unknown. `snapshotUrl(url, { provenance: false })` skips the reads.
+  - Four rendered tells, all `warn`: `stock-photo` (a stock library or placeholder service, by host or by the library's own file name), `stock-avatar` (placeholder-face services), `ai-image` (the picture's own metadata says a model made it) and `no-real-imagery` (a page of four or more sections with no photograph). `CATALOGUE_VERSION` is `2026.09.11`.
+  - New exports: `IMAGERY_TELLS`, `STOCK_PHOTO_HOSTS`, `STOCK_AVATAR_HOSTS`, `stockSource`, `stockAvatarSource`, `scanProvenance`, `PROVENANCE_SCAN_BYTES`, `AI_SOURCE_TYPES`, and the types `SnapshotImage`, `ImageRole`, `ImageProvenance`. From `@domandigital/craft/audit`: `PROVENANCE_MAX_IMAGES`, `PROVENANCE_BUDGET_MS`.
+
 ## 0.12.0
 
 ### Minor Changes
