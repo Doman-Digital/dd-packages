@@ -1,0 +1,58 @@
+{
+  "name": "@domandigital/create-site",
+  "version": "0.0.0",
+  "private": false,
+  "description": "The first thing that runs on a new Doman Digital client site: installs the house packages and writes the per-site files they read (the facts file, route policy, backlink register, redirects, JSON-LD, the designer credit, house docs and the SEO checks), so every build starts on the same foundation and stays upgradeable by bumping packages.",
+  "license": "Apache-2.0",
+  "author": "Doman Digital",
+  "type": "module",
+  "bin": {
+    "create-site": "dist/cli.js"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "dist",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doman-Digital/dd-packages.git",
+    "directory": "packages/create-site"
+  },
+  "keywords": [
+    "create",
+    "scaffold",
+    "nextjs",
+    "astro",
+    "seo",
+    "json-ld",
+    "local-business"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@domandigital/craft": "workspace:^",
+    "@domandigital/graph": "workspace:^",
+    "@domandigital/seo": "workspace:^",
+    "@types/node": "^20.17.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
