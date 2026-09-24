@@ -48,7 +48,8 @@ describe("getBusinessReviews", () => {
     const fetchSpy = vi.spyOn(global, "fetch");
     const result = await getBusinessReviews();
 
-    expect(result).toEqual({ averageRating: null, totalReviewCount: 0, reviews: [] });
+    // Unconfigured means unknown, not zero: a count of 0 would be published.
+    expect(result).toEqual({ averageRating: null, totalReviewCount: null, reviews: [] });
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
@@ -177,13 +178,15 @@ describe("getBusinessReviews", () => {
     expect(result.totalReviewCount).toBe(2);
   });
 
-  it("throws when the reviews endpoint responds with a non-OK status", async () => {
+  it("throws once a 500 outlasts its retry budget", async () => {
     setConfigured();
     const fetchSpy = vi.spyOn(global, "fetch");
     fetchSpy.mockResolvedValueOnce(mockTokenExchange() as Response);
-    fetchSpy.mockResolvedValueOnce({ ok: false, status: 500, text: async () => "boom" } as Response);
+    for (let i = 0; i < 3; i++) fetchSpy.mockResolvedValueOnce({ ok: false, status: 500, text: async () => "boom" } as Response);
 
-    await expect(getBusinessReviews()).rejects.toThrow(/Business Profile reviews failed: 500/);
+    await expect(getBusinessReviews({ request: { baseDelayMs: 0 } })).rejects.toThrow(/Business Profile reviews failed: 500/);
+    // token + three attempts at the page
+    expect(fetchSpy).toHaveBeenCalledTimes(4);
   });
 
   it("keeps paginating until enough usable reviews are found, not enough raw ones", async () => {
