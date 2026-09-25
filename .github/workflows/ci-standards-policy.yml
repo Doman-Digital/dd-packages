@@ -3,7 +3,7 @@ name: ci-standards policy
 # Anti-drift gate — fails visibly (does not yet block merge; no repo in the
 # portfolio has branch protection enabled) when a PR reintroduces the CI
 # waste patterns found in the 2026-08-16 audit. See
-# https://github.com/Doman-Digital/ci-standards for what it checks and why.
+# https://github.com/Doman-Digital/dd-ci-standards for what it checks and why.
 
 on:
   pull_request:
@@ -17,4 +17,4 @@ concurrency:
 
 jobs:
   policy:
-    uses: Doman-Digital/ci-standards/.github/workflows/policy.yml@v1
+    uses: Doman-Digital/dd-ci-standards/.github/workflows/policy.yml@v1
