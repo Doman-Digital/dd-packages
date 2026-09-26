@@ -1,6 +1,7 @@
 /**
  * A first art-direction.json for a site that exists: what it does today,
- * written down, with every reason left empty.
+ * written down (its tokens and, from a version 2 snapshot, its running order),
+ * with every reason and the whole job map left empty.
  *
  * Empty on purpose. `validateDirection` fails the file until each choice has
  * a source and a reason, so the first thing init produces is the list of
@@ -29,11 +30,31 @@ export function initDirection(input: { client?: string; brief?: string; current?
         ...(fp.roundness !== null ? { shape: empty(fp.roundness >= 0.45 ? "pill buttons" : fp.roundness <= 0.05 ? "square corners" : `corners at ${Math.round(fp.roundness * 100)}% of button height`) } : {}),
       }
     : {};
+  const part = () => ({ value: "", evidence: [] as string[] });
   return {
     $schema: "https://unpkg.com/@domandigital/craft/art-direction.schema.json",
     version: DIRECTION_VERSION,
     client: input.client ?? "",
     brief: input.brief ?? "",
+    // Empty on purpose, like the reasons: the first validate lists the job and the structure as undecided.
+    job: {
+      statement: { verb: "", object: "", context: "" },
+      functional: part(),
+      emotional: part(),
+      social: part(),
+      consideration: { value: "low", because: "", evidence: [] },
+      objections: [],
+      language: [],
+      evidence: [],
+    },
+    hierarchy: {
+      home: {
+        primaryAction: { value: "", positions: [], because: "" },
+        order: fp?.sections?.length ? fp.sections.map((s) => ({ role: s.role, because: "" })) : [],
+        lead: { value: "", because: "" },
+        journey: [],
+      },
+    },
     sources: [],
     choices,
     ...(input.exceptions?.length ? { exceptions: input.exceptions } : {}),

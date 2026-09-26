@@ -167,7 +167,7 @@ export interface FingerprintDistance {
 export const DISTANCE_WEIGHTS = { accent: 0.25, type: 0.25, ground: 0.1, shape: 0.1, motion: 0.1, effects: 0.1, layout: 0.1 } as const;
 
 /** Edit distance with a substitution cost from 0 (same) to 1 (different). */
-function levenshtein<T>(a: T[], b: T[], cost: (x: T, y: T) => number = (x, y) => (x === y ? 0 : 1)): number {
+export function levenshtein<T>(a: T[], b: T[], cost: (x: T, y: T) => number = (x, y) => (x === y ? 0 : 1)): number {
   const row = Array.from({ length: b.length + 1 }, (_, i) => i);
   for (let i = 1; i <= a.length; i += 1) {
     let prev = row[0];
@@ -209,10 +209,20 @@ function faceDistance(a: Fingerprint["display"], b: Fingerprint["display"]): num
   return a.class === b.class ? 0.5 : 1;
 }
 
+/** ΔE in OKLab. 0.02 is barely visible; by 0.3 two accents read as different colours. */
+export const ACCENT_SCALE = 0.3;
+/** Grounds sit near white, where a smaller step already reads as a different paper. */
+export const GROUND_SCALE = 0.15;
+/** A part at or below this distance counts as shared between two sites. */
+export const SHARED_PART = 0.2;
+/** Two accents within this ΔE_OK read as the same colour family: about 6 on the familiar ΔE scale. */
+export const ACCENT_SHARED = ACCENT_SCALE * SHARED_PART;
+/** Two grounds within this ΔE_OK read as the same paper. */
+export const GROUND_SHARED = GROUND_SCALE * SHARED_PART;
+
 export function fingerprintDistance(a: Fingerprint, b: Fingerprint): FingerprintDistance {
-  // ΔE in OKLab. 0.02 is barely visible; by 0.3 two accents read as different colours.
-  const accent = a.accent && b.accent ? clamp(deltaEOk(a.accent, b.accent) / 0.3) : a.accent || b.accent ? 1 : 0;
-  const ground = clamp(deltaEOk(a.ground, b.ground) / 0.15);
+  const accent = a.accent && b.accent ? clamp(deltaEOk(a.accent, b.accent) / ACCENT_SCALE) : a.accent || b.accent ? 1 : 0;
+  const ground = clamp(deltaEOk(a.ground, b.ground) / GROUND_SCALE);
   const type = 0.6 * faceDistance(a.display, b.display) + 0.4 * faceDistance(a.body, b.body);
   const shape = a.roundness === null || b.roundness === null ? (a.roundness === b.roundness ? 0 : 0.5) : clamp(Math.abs(a.roundness - b.roundness) / 0.5);
   const motion = clamp(Math.abs(a.motion - b.motion));

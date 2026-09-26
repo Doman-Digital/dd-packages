@@ -46,12 +46,13 @@ Usage
   craft snapshot <url> [--out <file>] [--width <px>] [--height <px>]
   craft audit <url | snapshot.json> [--repo <dir>] [--null <null.json>] [--out <file>] [--json] [--strict] [ci options]
   craft audit --pages <sitemap.xml | urls.txt> [--viewport 390,768,1440] [the same]
-  craft direction init [--snapshot <file>] [--client <name>] [--out <file>]
-  craft direction validate [--snapshot <file>] [--direction <file>] [--json]
+  craft direction init [--snapshot <file | url>] [--client <name>] [--brief "<text>"] [--out <file>]
+  craft direction validate [--snapshot <file | url>] [--page home] [--estate <estate.json>] [--direction <file>] [--strict] [--json]
+  craft direction research [--brief "<who, where, what>"] [--visual]
   craft direction propose [--snapshot <file>] [--estate <estate.json | dir>] [--out <file>]
   craft null build --brief "<text>" --out <dir> [--runs 20] [--parallel 4] [--model <name>]
-  craft estate add <url | snapshot.json> --id <id> [--client <name>] [--estate <file>]
-  craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--json] [--strict]
+  craft estate add [<url | snapshot.json>] --id <id> [--client <name>] [--direction <art-direction.json>] [--estate <file>]
+  craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--directions] [--json] [--strict]
   craft report <url | snapshot.json> [--repo <dir>] [--null <dir>] [--estate <file>] [--direction <file>] [--json] [--strict]
   craft retrofit <url | snapshot.json> [the same] [--out RETROFIT.md]
 
@@ -138,6 +139,11 @@ export interface Flags {
   null?: string;
   id?: string;
   competitor?: string;
+  page?: string;
+  /** `craft estate compare --directions`: declared directions instead of rendered pages. */
+  directions: boolean;
+  /** `craft direction research --visual`: add references from outside the category. */
+  visual: boolean;
 }
 
 const VALUE_FLAGS = {
@@ -163,10 +169,11 @@ const VALUE_FLAGS = {
   "--viewport": "viewport",
   "--component": "component",
   "--competitor": "competitor",
+  "--page": "page",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
-  const flags: Flags = { positional: [], json: false, strict: false, staged: false, gate: false, updateBaseline: false };
+  const flags: Flags = { positional: [], json: false, strict: false, staged: false, gate: false, updateBaseline: false, directions: false, visual: false };
   for (let i = 0; i < args.length; i += 1) {
     const a = args[i];
     if (a === "--json") flags.json = true;
@@ -174,6 +181,8 @@ export function parseFlags(args: string[]): Flags | string {
     else if (a === "--staged") flags.staged = true;
     else if (a === "--gate") flags.gate = true;
     else if (a === "--update-baseline") flags.updateBaseline = true;
+    else if (a === "--directions") flags.directions = true;
+    else if (a === "--visual") flags.visual = true;
     else if (a in VALUE_FLAGS) {
       const value = args[i + 1];
       i += 1;

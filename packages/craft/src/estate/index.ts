@@ -18,8 +18,9 @@
  */
 
 import type { Fingerprint, FingerprintDistance } from "../fingerprint/index.js";
-import { fingerprintDistance } from "../fingerprint/index.js";
+import { fingerprintDistance, SHARED_PART } from "../fingerprint/index.js";
 import { groundName, hueName, shapeName } from "../null/index.js";
+import type { DirectionSummary } from "./direction.js";
 
 export const ESTATE_VERSION = 1;
 
@@ -36,10 +37,13 @@ export interface EstateSite {
   url: string;
   /** Where the site's source lives, if known: "rmp474/RMP-Electrical". */
   repo?: string;
-  fingerprint: Fingerprint;
+  /** Absent for a direction registered before the site is built. */
+  fingerprint?: Fingerprint;
   /** Rendered tells found when it was added, for the record. */
   tells: string[];
   addedAt: string;
+  /** What its art-direction.json declares, so a new direction is checked before anything is built. */
+  direction?: DirectionSummary;
 }
 
 export interface EstateRegister {
@@ -61,11 +65,11 @@ export function addSite(register: EstateRegister, site: EstateSite): EstateRegis
 /**
  * What two fingerprints effectively share, named the way a person would see
  * it: "Fraunces headline", "no accent", "pill buttons". A part counts when its
- * distance is 0.2 or less.
+ * distance is `SHARED_PART` or less.
  */
 export function sharedParts(a: Fingerprint, b: Fingerprint, d: FingerprintDistance = fingerprintDistance(a, b)): string[] {
   const out: string[] = [];
-  const close = (k: keyof FingerprintDistance["parts"]) => d.parts[k] <= 0.2;
+  const close = (k: keyof FingerprintDistance["parts"]) => d.parts[k] <= SHARED_PART;
   if (close("accent")) out.push(a.accent || b.accent ? `${hueName(a.accent)} accent` : "no accent");
   if (close("type")) {
     if (a.display.family === b.display.family) out.push(`${a.display.family} headline`);
@@ -90,10 +94,10 @@ export interface EstateMatch {
 export function compareToEstate(target: Fingerprint, register: EstateRegister, options: { exclude?: string; siblingAt?: number } = {}): EstateMatch[] {
   const at = options.siblingAt ?? SIBLING_AT;
   return register.sites
-    .filter((s) => s.id !== options.exclude)
+    .filter((s) => s.id !== options.exclude && s.fingerprint)
     .map((s) => {
-      const d = fingerprintDistance(target, s.fingerprint);
-      return { id: s.id, distance: d.total, sibling: d.total < at, shared: sharedParts(target, s.fingerprint, d) };
+      const d = fingerprintDistance(target, s.fingerprint!);
+      return { id: s.id, distance: d.total, sibling: d.total < at, shared: sharedParts(target, s.fingerprint!, d) };
     })
     .sort((a, b) => a.distance - b.distance);
 }
@@ -109,11 +113,11 @@ export interface EstatePair {
 /** Every pair in the register, closest first. */
 export function estatePairs(register: EstateRegister, siblingAt = SIBLING_AT): EstatePair[] {
   const out: EstatePair[] = [];
-  const s = register.sites;
+  const s = register.sites.filter((site) => site.fingerprint);
   for (let i = 0; i < s.length; i += 1) {
     for (let j = i + 1; j < s.length; j += 1) {
-      const d = fingerprintDistance(s[i].fingerprint, s[j].fingerprint);
-      out.push({ a: s[i].id, b: s[j].id, distance: d.total, sibling: d.total < siblingAt, shared: sharedParts(s[i].fingerprint, s[j].fingerprint, d) });
+      const d = fingerprintDistance(s[i].fingerprint!, s[j].fingerprint!);
+      out.push({ a: s[i].id, b: s[j].id, distance: d.total, sibling: d.total < siblingAt, shared: sharedParts(s[i].fingerprint!, s[j].fingerprint!, d) });
     }
   }
   return out.sort((x, y) => x.distance - y.distance);

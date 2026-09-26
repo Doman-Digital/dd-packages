@@ -234,8 +234,9 @@ describe("craft direction", () => {
     proposed.choices.accent!.because = "The bottle green is the van's own paint, and the van is what people in Brackley recognise.";
     writeFileSync(join(dir, "art-direction.json"), JSON.stringify(proposed));
     out = [];
-    expect(await run(["direction", "validate"], io())).toBe(0);
-    expect(out.join("\n")).toMatch(/valid, 1 of 7 choices decided/);
+    expect(await run(["direction", "validate"], io())).toBe(1);
+    expect(out.join("\n")).toMatch(/Job not decided/);
+    expect(out.join("\n")).toMatch(/tokens 1 of 7/);
   });
 
   it("keeps a phase A exceptions file's exceptions when init writes over it", async () => {
@@ -253,5 +254,14 @@ describe("the JSON Schema", () => {
     const schema = JSON.parse(readFileSync(new URL("../../art-direction.schema.json", import.meta.url), "utf8"));
     expect(schema.properties.choices.propertyNames.enum).toEqual([...CHOICE_KEYS]);
     expect(schema.properties.sources.items.properties.kind.enum).toEqual([...SOURCE_KINDS]);
+  });
+
+  it("names the same page types, section roles and consideration levels as the code", async () => {
+    const { PAGE_TYPES, CONSIDERATION } = await import("../direction/types.js");
+    const { SECTION_ROLES } = await import("../direction/hierarchy.js");
+    const schema = JSON.parse(readFileSync(new URL("../../art-direction.schema.json", import.meta.url), "utf8"));
+    expect(schema.properties.hierarchy.propertyNames.enum).toEqual([...PAGE_TYPES]);
+    expect(schema.$defs.role.enum).toEqual([...SECTION_ROLES]);
+    expect(schema.properties.job.properties.consideration.properties.value.enum).toEqual([...CONSIDERATION]);
   });
 });

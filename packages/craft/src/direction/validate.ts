@@ -10,37 +10,24 @@ import { REFLEX_FONTS_1, REFLEX_FONTS_2 } from "../character/tells/source.js";
 import { deltaEOk } from "../color/oklch.js";
 import type { Fingerprint } from "../fingerprint/index.js";
 import { normaliseFamily } from "../snapshot/fonts.js";
+import type { Snapshot } from "../snapshot/types.js";
+import { compareToDeclared, summariseDirection, type DirectionSummary } from "../estate/direction.js";
+import { checkOrder, validateHierarchy } from "./hierarchy.js";
+import { validateJob } from "./job.js";
 import { faceLicence } from "./licences.js";
+import { checkReason } from "./reason.js";
+import { categoryMatchesBrief } from "./research.js";
 import {
   CHOICE_KEYS,
-  DIRECTION_VERSION,
+  DIRECTION_VERSIONS,
   SOURCE_KINDS,
   type ArtDirection,
   type ChoiceKey,
   type DirectionProblem,
   type DirectionReport,
+  type DirectionSource,
+  type PageType,
 } from "./types.js";
-
-/**
- * Reasons that are preferences, not evidence. "The client likes it" may be
- * true and still say nothing about why this site should look this way.
- */
-const PREFERENCE = /\b(?:client (?:likes|liked|wants|wanted|asked|chose|prefers?)|(?:we|they|i) (?:like|liked|love|loved|prefer)|on[- ]trend|trendy|popular|what (?:everyone|competitors) (?:uses?|does)|brand (?:colou?r|font|guidelines?) (?:is|are|says?))\b/i;
-
-/** Adjectives that describe a mood rather than a source. Two or more and the reason is a mood board. */
-const MOOD = /\b(?:modern|clean|fresh|professional|trustworthy|premium|elegant|sleek|timeless|minimal(?:ist)?|bold|vibrant|friendly|approachable|luxur(?:y|ious)|sophisticated|contemporary|stylish|warm|inviting|high[- ]end)\b/gi;
-
-/**
- * Words that describe a value rather than a source. "Green because the van is
- * green" names the van; "green because green is calming" only names green.
- */
-const VALUE_WORDS = new Set(["green", "blue", "navy", "black", "white", "cream", "grey", "gray", "gold", "yellow", "orange", "purple", "violet", "pink", "brown", "teal", "bottle", "dark", "light", "deep", "pale", "bright", "colour", "color", "font", "face", "serif", "sans", "type", "lettering"]);
-
-const STOP = new Set(["with", "that", "this", "from", "their", "they", "have", "been", "were", "which", "what", "when", "where", "there", "about", "into", "onto", "over", "same", "each", "every"]);
-
-function words(text: string): Set<string> {
-  return new Set((text.toLowerCase().match(/[a-z][a-z'-]{3,}/g) ?? []).map((w) => w.replace(/'s$/, "")).filter((w) => !STOP.has(w) && !VALUE_WORDS.has(w)));
-}
 
 /** The tell a choice value would trip, if any. */
 function tellFor(key: ChoiceKey, value: string): string | null {
@@ -63,9 +50,26 @@ function tellFor(key: ChoiceKey, value: string): string | null {
 export interface ValidateContext {
   /** The fingerprint of the rendered site, to check the file against what ships. */
   fingerprint?: Fingerprint;
+  /** The rendered page itself, to check the declared order against its section roles. */
+  snapshot?: Snapshot;
+  /** Which page the snapshot is. Default home. */
+  page?: PageType;
+  /** Drift between the file and the page is an error, for a pre-launch gate. */
+  strict?: boolean;
   /** Which cited paths exist, when the caller can look. */
   pathExists?: (path: string) => boolean;
+  /** Text of a cited source's file, for checking quoted customer language. */
+  readSource?: (source: DirectionSource) => string | undefined;
+  /** Declared directions of the other sites in the estate, to catch convergence before build. */
+  estate?: { id: string; direction?: DirectionSummary }[];
+  /** This site's id in the estate, left out of the comparison. */
+  estateId?: string;
 }
+
+/** Five of the seven tokens decided is a direction; fewer is a start. */
+const MIN_TOKENS = 5;
+
+const emptyLayers = (): DirectionReport["layers"] => ({ job: false, hierarchy: [], tokens: { decided: 0, total: CHOICE_KEYS.length }, complete: false });
 
 export function validateDirection(input: unknown, ctx: ValidateContext = {}): DirectionReport {
   const problems: DirectionProblem[] = [];
@@ -74,7 +78,7 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
 
   if (!input || typeof input !== "object" || Array.isArray(input)) {
     err("", "art-direction.json must be a JSON object");
-    return { valid: false, problems, decided: 0 };
+    return { valid: false, problems, decided: 0, layers: emptyLayers() };
   }
   const d = input as Partial<ArtDirection>;
 
@@ -83,27 +87,40 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
   const legacy = d.version === undefined && d.choices === undefined && Array.isArray(d.exceptions);
   if (legacy) {
     warn("", "exceptions only: run craft direction init to record the choices and their reasons");
-    return { valid: true, problems, decided: 0 };
+    return { valid: true, problems, decided: 0, layers: emptyLayers() };
   }
 
-  if (d.version !== DIRECTION_VERSION) err("version", `version must be ${DIRECTION_VERSION}`);
+  if (!(DIRECTION_VERSIONS as readonly unknown[]).includes(d.version)) err("version", `version must be ${DIRECTION_VERSIONS.join(" or ")}`);
+  else if (d.version === 1) warn("version", "version 1: the job map and the hierarchy are not recorded, so the site cannot be decided. Move to version 2 (craft direction init --out) and add them.");
   if (typeof d.client !== "string" || !d.client.trim()) err("client", "name the client");
   if (typeof d.brief !== "string" || d.brief.trim().split(/\s+/).length < 8) err("brief", "the brief needs a sentence: who, where, and what they do");
 
-  const sources = Array.isArray(d.sources) ? d.sources : [];
+  const rawSources = Array.isArray(d.sources) ? d.sources : [];
+  const sources = rawSources.filter((s): s is DirectionSource => Boolean(s && typeof s === "object" && !Array.isArray(s)));
   if (!Array.isArray(d.sources)) err("sources", "sources must be a list");
   if (sources.length === 0) err("sources", "no sources: a reason needs something in the client's world to point at");
   const ids = new Set<string>();
-  sources.forEach((s, i) => {
+  rawSources.forEach((s, i) => {
     const at = `sources[${i}]`;
-    if (!s || typeof s !== "object") return err(at, "a source must be an object");
+    if (!s || typeof s !== "object" || Array.isArray(s)) return err(at, "a source must be an object");
     if (typeof s.id !== "string" || !/^[a-z0-9][a-z0-9-]*$/.test(s.id)) err(`${at}.id`, "id must be short kebab-case");
     else if (ids.has(s.id)) err(`${at}.id`, `"${s.id}" is used twice`);
     else ids.add(s.id);
     if (!(SOURCE_KINDS as readonly string[]).includes(s.kind)) err(`${at}.kind`, `kind must be one of: ${SOURCE_KINDS.join(", ")}`);
     if (typeof s.note !== "string" || s.note.trim().split(/\s+/).length < 3) err(`${at}.note`, "say what it is and where");
-    if (s.path && ctx.pathExists && !/^https?:/.test(s.path) && !ctx.pathExists(s.path)) err(`${at}.path`, `${s.path} does not exist`);
-    for (const [j, c] of (s.colours ?? []).entries()) if (!parseColour(c)) err(`${at}.colours[${j}]`, `"${c}" is not a colour`);
+    if (s.path !== undefined && typeof s.path !== "string") err(`${at}.path`, "a path must be text");
+    if (typeof s.path === "string" && ctx.pathExists && !/^https?:/.test(s.path) && !ctx.pathExists(s.path)) err(`${at}.path`, `${s.path} does not exist`);
+    if (s.colours !== undefined && !Array.isArray(s.colours)) err(`${at}.colours`, "colours must be a list");
+    for (const [j, c] of (Array.isArray(s.colours) ? s.colours : []).entries()) if (typeof c !== "string" || !parseColour(c)) err(`${at}.colours[${j}]`, `"${c}" is not a colour`);
+    // A reference is inspiration from outside the category: the category's own sites are the average it replaces.
+    if (s.kind === "reference") {
+      if (typeof s.category !== "string" || !s.category.trim()) err(`${at}.category`, "say where the reference comes from: print, a place, another trade");
+      else if (/\b(?:web ?sites?|web design|competitors?|dribbble|behance|awwwards|themeforest)\b/i.test(s.category) || categoryMatchesBrief(s.category, typeof d.brief === "string" ? d.brief : "")) {
+        err(`${at}.category`, `"${s.category}" is inside the client's category. A reference must come from outside it, or it hands back the category average.`);
+      }
+      if (typeof s.path === "string" && /^https?:/.test(s.path)) warn(`${at}.path`, "a web page as a reference: check it is not a site in the client's category");
+    }
+    if (/\bcompetitor(?:s|['’]s)?\b/i.test(`${s.note} ${s.category ?? ""}`)) err(at, "a source cannot be a competitor's website; use customer voice or a reference from outside the category");
   });
 
   const choices = d.choices && typeof d.choices === "object" ? d.choices : {};
@@ -112,7 +129,7 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
   let decided = 0;
 
   for (const key of Object.keys(choices)) {
-    if (!(CHOICE_KEYS as readonly string[]).includes(key)) err(`choices.${key}`, `not a choice craft knows. Choices are: ${CHOICE_KEYS.join(", ")}. Layout and navigation stay conventional.`);
+    if (!(CHOICE_KEYS as readonly string[]).includes(key)) err(`choices.${key}`, `not a choice craft knows. Choices are: ${CHOICE_KEYS.join(", ")}. Record section order and the primary action in hierarchy.`);
   }
 
   for (const key of CHOICE_KEYS) {
@@ -131,46 +148,9 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
       ok = false;
     }
 
-    const because = typeof c.because === "string" ? c.because.trim() : "";
-    const evidence = Array.isArray(c.evidence) ? c.evidence : [];
-    if (because.split(/\s+/).filter(Boolean).length < 8) {
-      err(`${at}.because`, "a reason is at least a sentence. Without one this is a default, however good it looks.");
-      ok = false;
-    } else if (because.startsWith("PROPOSED:")) {
-      err(`${at}.because`, "a proposal, not yet a decision. Check it against the source, then rewrite the reason in your own words.");
-      ok = false;
-    } else {
-      if (PREFERENCE.test(because)) {
-        err(`${at}.because`, "that is a preference, not a reason. Say what in the client's world this comes from.");
-        ok = false;
-      }
-      const moods = because.match(MOOD) ?? [];
-      if (moods.length >= 2) {
-        err(`${at}.because`, `"${moods.join(", ")}" describes a mood, not a source. Name the thing it comes from.`);
-        ok = false;
-      }
-    }
-    if (evidence.length === 0) {
-      err(`${at}.evidence`, "cite at least one source");
-      ok = false;
-    }
-    for (const id of evidence) {
-      if (!ids.has(id)) {
-        err(`${at}.evidence`, `no source called "${id}"`);
-        ok = false;
-      }
-    }
-    // The reason must be about its evidence: it shares a word with a cited
-    // source, or names it. A reason that could be pasted onto any site is not one.
-    if (ok) {
-      const cited = sources.filter((s) => evidence.includes(s.id));
-      const reasonWords = words(because);
-      const tied = cited.some((s) => reasonWords.has(s.id) || [...words(`${s.note} ${s.lettering ?? ""}`)].some((w) => reasonWords.has(w)));
-      if (!tied) {
-        err(`${at}.because`, `the reason does not mention what its evidence shows (${evidence.join(", ")}). Say what on it this comes from.`);
-        ok = false;
-      }
-    }
+    const reasons = checkReason({ at, because: c.because, evidence: c.evidence, sources, tie: "source" });
+    problems.push(...reasons);
+    if (reasons.length) ok = false;
 
     if (typeof c.value === "string") {
       const tell = tellFor(key, c.value);
@@ -213,5 +193,34 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
     if (ok) decided += 1;
   }
 
-  return { valid: problems.every((p) => p.severity !== "error"), problems, decided };
+  // Version 2: the job, then the structure decided from it.
+  let job = false;
+  let hierarchy: DirectionReport["layers"]["hierarchy"] = [];
+  if (d.version === 2) {
+    const j = validateJob(d.job, sources, { brief: typeof d.brief === "string" ? d.brief : "", readSource: ctx.readSource });
+    problems.push(...j.problems);
+    job = j.decided && d.job !== undefined;
+    const h = validateHierarchy(d.hierarchy, d.job, sources);
+    problems.push(...h.problems);
+    hierarchy = h.pages;
+    if (ctx.snapshot) problems.push(...checkOrder(d.hierarchy?.[ctx.page ?? "home"], ctx.page ?? "home", ctx.snapshot, ctx.strict));
+  }
+
+  if (ctx.estate?.length) {
+    for (const m of compareToDeclared(summariseDirection(d), ctx.estate, ctx.estateId)) {
+      if (m.flagged) warn("", `close to ${m.id}'s declared direction: shares ${m.shared.join(", ")}. Decide which of these should differ before either site is built.`);
+    }
+  }
+
+  // Drift from the rendered page is an error under --strict, for a pre-launch gate.
+  if (ctx.strict) for (const p of problems) if (p.severity === "warn" && /the page (?:does not show|sets|runs)/.test(p.message)) p.severity = "error";
+
+  const home = hierarchy.find((p) => p.page === "home");
+  const complete = job && Boolean(home) && hierarchy.every((p) => p.decided === p.total) && decided >= MIN_TOKENS;
+  return {
+    valid: problems.every((p) => p.severity !== "error"),
+    problems,
+    decided,
+    layers: { job, hierarchy, tokens: { decided, total: CHOICE_KEYS.length }, complete: complete && problems.every((p) => p.severity !== "error") },
+  };
 }

@@ -15,7 +15,8 @@ import type { Fingerprint } from "../fingerprint/index.js";
 import type { ArtDirection, ChoiceKey, DirectionChoice, DirectionSource } from "./types.js";
 import { DIRECTION_VERSION } from "./types.js";
 
-export const PROPOSED = "PROPOSED:";
+export { PROPOSED } from "./reason.js";
+import { PROPOSED } from "./reason.js";
 
 // ------------------------------------------------------------- palettes
 
@@ -101,6 +102,8 @@ export interface ProposeInput {
   current?: Fingerprint;
   /** The rest of the estate, so a proposal does not land on a sibling. */
   estate?: { id: string; fingerprint: Fingerprint }[];
+  /** Accents other sites have declared but not yet shipped: a sibling can happen before either is built. */
+  declared?: { id: string; accent: string }[];
 }
 
 export interface Proposal {
@@ -118,7 +121,13 @@ function accentCandidates(input: ProposeInput): Proposal["candidates"] {
       const parsed = parseColour(c);
       if (!parsed || !chromatic(parsed.oklch)) continue;
       const o = parsed.oklch;
-      const siblings = (input.estate ?? []).map((e) => ({ id: e.id, d: e.fingerprint.accent ? deltaEOk(o, e.fingerprint.accent) : 1 }));
+      const siblings = [
+        ...(input.estate ?? []).map((e) => ({ id: e.id, d: e.fingerprint.accent ? deltaEOk(o, e.fingerprint.accent) : 1 })),
+        ...(input.declared ?? []).flatMap((e) => {
+          const p = parseColour(e.accent);
+          return p ? [{ id: `${e.id} (declared)`, d: deltaEOk(o, p.oklch) }] : [];
+        }),
+      ];
       const nearest = siblings.sort((a, b) => a.d - b.d)[0];
       const penalty = isAiViolet(o) ? 1 : 0;
       out.push({

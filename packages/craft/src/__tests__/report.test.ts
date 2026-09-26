@@ -27,8 +27,19 @@ const findings = (list: Finding[]): CheckReport => ({
   summary: { files: 1, findings: list.length, byGeneration: { 1: 0, 2: 0, 3: 0 }, byTell: {}, blocking: 0 },
 });
 const typical = (score: number, shared: Typicality["shared"] = []): Typicality => ({ score, typical: score >= 0.1, distance: 0.2, baseline: 0.25, nearest: [], shared });
-const decided: DirectionReport = { valid: true, problems: [], decided: 7 };
-const undecided: DirectionReport = { valid: true, problems: [{ severity: "warn", at: "choices.accent", message: "not decided yet" }], decided: 3 };
+const decided: DirectionReport = {
+  valid: true,
+  problems: [],
+  decided: 7,
+  layers: { job: true, hierarchy: [{ page: "home", decided: 4, total: 4 }], tokens: { decided: 7, total: 7 }, complete: true },
+};
+const undecided: DirectionReport = {
+  valid: true,
+  problems: [{ severity: "warn", at: "choices.accent", message: "not decided yet" }],
+  decided: 3,
+  layers: { job: true, hierarchy: [{ page: "home", decided: 4, total: 4 }], tokens: { decided: 3, total: 7 }, complete: false },
+};
+const tokensOnly: DirectionReport = { ...decided, layers: { job: false, hierarchy: [], tokens: { decided: 7, total: 7 }, complete: false } };
 const noSibling: EstateMatch[] = [{ id: "chair", distance: 0.7, sibling: false, shared: [] }];
 
 describe("the verdict", () => {
@@ -60,7 +71,14 @@ describe("the verdict", () => {
   it("counts too few reasons as a raised signal", () => {
     const r = characterReport({ site: "s", findings: findings([]), typicality: typical(0.02), estate: noSibling, direction: undecided }, COPY);
     expect(r.verdict).toBe("mixed");
-    expect(r.signals.find((s) => s.id === "reasons")).toMatchObject({ raised: true, detail: "3 of 7 choices decided with a reason" });
+    expect(r.signals.find((s) => s.id === "reasons")).toMatchObject({ raised: true, detail: "job decided; hierarchy home 4 of 4; 3 of 7 choices decided with a reason" });
+  });
+
+  it("never calls seven reasoned tokens decided without the job and the hierarchy", () => {
+    const r = characterReport({ site: "s", findings: findings([]), typicality: typical(0.02), estate: noSibling, direction: tokensOnly }, COPY);
+    expect(r.verdict).toBe("mixed");
+    expect(r.signals.find((s) => s.id === "reasons")).toMatchObject({ raised: true, detail: "job not decided; hierarchy not decided; 7 of 7 choices decided with a reason" });
+    expect(r.actions[0].what).toMatch(/job map/);
   });
 });
 
