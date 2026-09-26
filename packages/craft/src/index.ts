@@ -150,6 +150,28 @@ export {
   type SpecificKind,
   type Specificity,
 } from "./character/specificity.js";
+export {
+  clauseDepth,
+  cv,
+  FUNCTION_WORDS,
+  hedgeCount,
+  hedgedClose,
+  isBlurb,
+  nominalisations,
+  paragraphUniformity,
+  participialClauses,
+  phrasalCoordinations,
+  shapeMoves,
+  shapeOf,
+  skeleton,
+  skeletonRepeat,
+  splitSentences,
+  stackedConditional,
+  tricolons,
+  words as shapeWords,
+  type ShapeFeatures,
+  type Tricolon,
+} from "./character/shape.js";
 export { HOME_FILE, HOME_URL, PROOF_NAMES, SPECIFICITY_COPY_TELLS, SPECIFICITY_RENDERED_TELLS, STANDING_CLAIM, unprovenClaims } from "./character/tells/specificity.js";
 export { auditSnapshot } from "./character/check.js";
 export {
