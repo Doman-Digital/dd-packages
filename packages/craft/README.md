@@ -94,6 +94,24 @@ reason, in `art-direction.json`:
 { "exceptions": [{ "tell": "ai-violet", "because": "Violet is on the van, the cards and the fascia." }] }
 ```
 
+Art direction v2 records the customer's job, a hierarchy for each page type,
+and seven expressive tokens, with reasons and evidence. Begin with job
+research, then hierarchy, then tokens:
+
+```bash
+npx craft direction research --brief "An electrician in Brackley repairing dangerous faults for local households"
+npx craft direction init --client "Copper Lane" --brief "<who, where, what they do>"
+npx craft direction validate --estate estate.json
+npx craft estate add --id copper-lane --direction art-direction.json --estate estate.json
+npx craft estate compare --estate estate.json --directions
+npx craft direction validate --snapshot http://localhost:3000 --page home --strict
+```
+
+`--snapshot` accepts saved files and preview or production URLs. Drift fails
+with `--strict`; declared estate comparisons stay advisory. Version 1 files
+still validate with a warning. See [CHARACTER.md](./CHARACTER.md) for the full
+v2 example and the meaning of each layer.
+
 ### In CI
 
 ```bash
@@ -163,7 +181,7 @@ console.log(formatReport(report, "craft scan"));
 
 ## The anchor guarantee
 
-Every hex you pass in comes back out unchanged — the same string, byte for byte.
+Every hex you pass in comes back out unchanged, the same string, byte for byte.
 That is what lets a live site adopt this without a single pixel moving. Only the
 steps you never picked by hand are generated.
 

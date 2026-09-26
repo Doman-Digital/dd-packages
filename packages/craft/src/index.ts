@@ -206,6 +206,11 @@ export {
   FINGERPRINT_VERSION,
   fingerprint,
   fingerprintDistance,
+  ACCENT_SCALE,
+  ACCENT_SHARED,
+  GROUND_SCALE,
+  GROUND_SHARED,
+  SHARED_PART,
   layoutDistance,
   nearest,
   type Fingerprint,
@@ -248,14 +253,39 @@ export {
   CHOICE_KEYS,
   DIRECTION_VERSION,
   SOURCE_KINDS,
+  CUSTOMER_KINDS,
+  CONSIDERATION,
+  DIRECTION_VERSIONS,
+  HIERARCHY_FIELDS,
+  PAGE_TYPES,
+  type ActionPosition,
   type ArtDirection,
   type ChoiceKey,
+  type Consideration,
+  type CustomerKind,
   type DirectionChoice,
   type DirectionProblem,
   type DirectionReport,
   type DirectionSource,
+  type JobMap,
+  type JobPart,
+  type PageHierarchy,
+  type PageType,
   type SourceKind,
 } from "./direction/types.js";
+export { checkReason, contentWords, CONVENTION, jobWords, MOOD, PREFERENCE, type ReasonInput } from "./direction/reason.js";
+export { isCategoryLabel, validateJob, type JobContext } from "./direction/job.js";
+export { checkOrder, renderedOrder, SECTION_ROLES, validateHierarchy, type PageResult } from "./direction/hierarchy.js";
+export { researchPrompt, tradeOf, type ResearchInput } from "./direction/research.js";
+export {
+  compareDirections,
+  compareToDeclared,
+  formatDirectionMatches,
+  summariseDirection,
+  type DirectionComparison,
+  type DirectionMatch,
+  type DirectionSummary,
+} from "./estate/direction.js";
 export { validateDirection, type ValidateContext } from "./direction/validate.js";
 export { initDirection } from "./direction/init.js";
 export { LICENCES, faceLicence, licencesJson, type LicenceEntry, type LicenceSubject, type MultiClient } from "./direction/licences.js";

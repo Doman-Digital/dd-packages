@@ -9,16 +9,15 @@ Inter, a glass card over the hero, a strip of logos, three icon cards, every
 section fading up on scroll. None of those is wrong. Together they say nobody
 chose anything.
 
-## Change the look, not the page grammar
+## Decide the page grammar; never reward strangeness
 
-First impressions favour pages that look typical for their category (Tuch et
-al., 2012). So this standard **never rewards strangeness**. Navigation, where
-the call to action sits, reading order and legibility stay conventional. They
-remain the job of STANDARD.md and the page audit.
+Section order, the primary action and what leads are decisions with reasons
+tied to the visitor's job. A conventional order is allowed and never penalised.
+What fails is an order nobody chose. Navigation, legibility and speed remain
+the floor in STANDARD.md and the page audit.
 
-Character goes into the surface: the display face, the accent, the shape
-language, the motif, the one signature moment. That is where a model's defaults
-show, and where a real business has something of its own to draw on.
+Character also comes from the display face, accent, shape, motif and one
+signature moment, with evidence from the client's world.
 
 ## Three signals, and a reason behind every choice
 
@@ -57,36 +56,222 @@ cleaned and should stay clean.
 
 ## Declaring the direction
 
-`art-direction.json` at the site root records the seven expressive choices
-(accent, ground, display face, body face, shape, motif, signature moment), the
-sources in the client's world they come from, and why. Layout and navigation
-are not choices here: they stay conventional.
+Version 2 of `art-direction.json` records three layers in order:
+
+1. **Job.** What the visitor needs to do, under what pressure, with the
+   functional, emotional and social sides shown by reviews, enquiries,
+   conversations or search evidence. Quote the customer's words and record
+   whether consideration is low, considered or high, with evidence.
+2. **Hierarchy.** For each page type, decide the primary action and its
+   positions, the section order, what leads and the visitor's journey. Each
+   reason must use this client's job. The primary action reason also names the
+   consideration level or an objection that explains where the ask sits.
+3. **Tokens.** The seven expressive choices (accent, ground, display, body,
+   shape, motif, signature), each with evidence from the client's world.
+
+This fictional example is also the executable fixture at
+`src/__tests__/fixtures/direction-v2.json`. Its customer quotes are invented
+fixture data, not research to reuse for a real client.
 
 ```json
 {
-  "version": 1,
-  "client": "RMP Electrical",
-  "brief": "A two-person electrical contractor in Brackley doing rewires and EV chargers.",
+  "version": 2,
+  "client": "Copper Lane Electrical (fictional)",
+  "brief": "A local electrician in Brackley repairing dangerous electrical faults for tenants and homeowners.",
   "sources": [
-    { "id": "van", "kind": "livery", "note": "The Transit van, bottle green with cream sign-writing.", "path": "brand/van.png" }
+    {
+      "id": "review",
+      "kind": "review",
+      "note": "The socket started sparking tonight. I need the fault fixed today without being overcharged. I want an exact call-out price before I ring. I need to reassure my landlord that the repair is safe."
+    },
+    {
+      "id": "van",
+      "kind": "livery",
+      "note": "The van carries copper lettering on white panels, with square painted borders.",
+      "colours": [
+        "#a64720",
+        "#ffffff"
+      ],
+      "lettering": "Square slab lettering and compact supporting text."
+    }
   ],
+  "job": {
+    "statement": {
+      "verb": "find",
+      "object": "an electrician who can repair a dangerous sparking socket",
+      "context": "tonight without being overcharged for the call-out"
+    },
+    "functional": {
+      "value": "The socket started sparking tonight and needs the fault fixed today.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "emotional": {
+      "value": "They worry about being overcharged and want an exact call-out price.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "social": {
+      "value": "They need to reassure their landlord that the repair is safe.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "consideration": {
+      "value": "low",
+      "because": "The socket started sparking tonight, leaving minutes to arrange the repair.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "objections": [
+      "being overcharged for the call-out",
+      "not knowing whether the repair is safe"
+    ],
+    "language": [
+      "The socket started sparking tonight",
+      "I want an exact call-out price before I ring"
+    ],
+    "evidence": [
+      "review"
+    ]
+  },
+  "hierarchy": {
+    "home": {
+      "primaryAction": {
+        "value": "Call for a repair",
+        "positions": [
+          "hero",
+          "footer-cta"
+        ],
+        "because": "The low consideration job needs a sparking socket repaired tonight, so the call is offered immediately and again after the price."
+      },
+      "order": [
+        {
+          "role": "hero",
+          "because": "The sparking socket needs repair tonight, so availability comes first."
+        },
+        {
+          "role": "pricing",
+          "because": "Callers expect a price before they ring, so pricing comes before asking again."
+        },
+        {
+          "role": "footer-cta",
+          "because": "Once the call-out price is clear, they can arrange the socket repair."
+        }
+      ],
+      "lead": {
+        "value": "Socket repairs tonight",
+        "subordinate": [
+          "planned rewires"
+        ],
+        "because": "The dangerous sparking socket is urgent, so tonight repairs lead ahead of planned rewires."
+      },
+      "journey": [
+        {
+          "stage": "reassure",
+          "because": "The dangerous socket needs a safe repair, so reassure the tenant first."
+        },
+        {
+          "stage": "act",
+          "because": "Once the call-out price is clear, arrange the repair before tonight ends."
+        }
+      ]
+    }
+  },
   "choices": {
     "accent": {
-      "value": "#1f4d3a",
-      "because": "The bottle green is the van's own paint, and the van is what people in Brackley recognise.",
-      "evidence": ["van"]
+      "value": "#a64720",
+      "because": "The van carries copper lettering, so the same copper colour marks calls to action.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "ground": {
+      "value": "#ffffff",
+      "because": "The van has white panels behind its lettering, so the page ground follows those panels.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "display": {
+      "value": "Roboto Slab",
+      "because": "The square slab lettering on the van gives headlines their squared forms.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "body": {
+      "value": "Source Sans 3",
+      "because": "The compact supporting text on the van keeps longer details readable at small sizes.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "shape": {
+      "value": "square corners",
+      "because": "The painted borders on the van are square, so the buttons keep those corners.",
+      "evidence": [
+        "van"
+      ]
     }
-  }
+  },
+  "exceptions": []
 }
 ```
 
-`craft direction validate` applies the reason rule. A choice is decided only
-when its reason is at least a sentence, cites a declared source, and mentions
-what that source shows (naming only the colour does not count). It rejects a
-preference ("the client likes it"), a mood board (two or more of modern,
-clean, premium, elegant and the rest), and a value on the tell catalogue
-without an exception carrying the same reason. Given a snapshot, it warns
-where the page does not show what the file declares.
+`craft direction validate` checks each layer and reports its decisions
+separately. The job and every declared page hierarchy must be complete, with
+at least five of seven tokens decided, before the reason signal can pass in
+`craft report`. Version 1 files remain valid with a warning and cannot settle
+that signal until their job and hierarchy have been recorded.
+
+A reason needs at least eight words. Token reasons cite a declared source and
+mention what it shows; job parts cite customer voice. Hierarchy reasons use
+content words from the job. This is a wording check, not a semantic model:
+review whether each reason actually explains the decision. Preferences, mood
+boards, proposals and category defaults such as "industry standard" or
+"a familiar layout" fail. "Callers expect a price before they ring" can pass
+when it answers this job's objection about being overcharged.
+
+A `reference` source records its outside category in `category`; a reference
+from the client's trade or a competitor's website fails. URL references warn
+that their category still needs review. The validator cannot identify a
+competitor from an arbitrary URL alone.
+
+Start research with `craft direction research --brief "<who, where, what>"`.
+It prints job questions and explicitly forbids descriptions of category
+websites or visual inspiration from them. `--visual` adds a separate prompt
+for references from outside the category. It does not call a model.
+
+CTA positions are a list: one or repeated asks are both valid. No universal
+position, F/Z pattern or fixed hero checklist is imposed. Snapshots measure
+vertical section order, not gaze paths; the evidence does not establish a
+universal CTA placement rule.
+
+```bash
+craft direction init --client "Copper Lane" --brief "<who, where, what>"
+craft direction validate --direction art-direction.json
+craft estate add --id copper-lane --direction art-direction.json --estate estate.json
+craft direction validate --estate estate.json
+craft direction validate --snapshot http://localhost:3000 --page home --strict
+craft estate compare --estate estate.json --directions
+```
+
+`--snapshot` accepts a saved snapshot, staging URL or live URL. It checks the
+hierarchy entry selected by `--page` (home by default) against section roles,
+and checks token values against the fingerprint. Drift warns; `--strict`
+makes drift fail. A snapshot without section roles says order is unmeasured.
+
+Directions can be registered before a site renders. These entries have no
+fingerprint and are omitted from rendered comparisons until a snapshot is
+added. `--directions` ranks declared pairs and names shared colours, fonts,
+shape and order. It is advisory, including under `--strict`, until calibrated;
+sharing a conventional order is a prompt to review reasons, not a verdict.
+Accent and ground use the rendered comparison's shared thresholds, ΔE_OK
+0.06 and 0.03. The calibration notes are in ROADMAP.md.
 
 It also reads the display and body faces against the licence register
 (`src/direction/licences.ts`, exported as `licences.json`) and warns on a face
@@ -103,7 +288,7 @@ choices decided.
 
 `craft direction propose` reads the dominant colours off each source's PNG
 photo, ranks accent candidates away from the reflex violet band and from the
-rest of the estate (`--estate` a folder of snapshots), and drafts choices.
+rest of the estate (`--estate` a folder of snapshots or estate register), and drafts choices.
 Every draft reason starts `PROPOSED:`, which validate rejects: a person looks
 at the van, agrees the green is the van's green, and says so in their own
 words.

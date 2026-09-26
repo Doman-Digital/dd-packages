@@ -26,6 +26,8 @@ Update this file in the same PR that moves a phase.
 | N | Specificity: `specificity(text, brief)`, `generic-hero-claim`, proof in context, `craft copy compare --competitor` | In review. Proof in context ships as `unproven-claim`, on rendered pages only: a section is a rendered idea, and a source file does not show which claim sits next to which review. |
 | O | `@domandigital/craft-judge`: a vision-model second opinion, advisory only | Later, once K to N are stable. |
 
+| Q | Art direction v2: customer job map, per-page hierarchy, one reason standard, declared estate comparison and job-only research prompts | Ready for review. 864 tests pass, including ten browser tests; typecheck and built CLI checks pass. v1 stays valid with warnings. Customer-voice and outside-category reference sources release the schema and source-kind work that could not fit v1. No catalogue change. |
+
 ## Waiting on the art direction
 
 Listed so they are not lost, and not built until the art direction exists:
@@ -33,8 +35,8 @@ Listed so they are not lost, and not built until the art direction exists:
 - Phase J, all of it.
 - The `imagery` choice key in `art-direction.json` (Phase M's other parts do
   not wait).
-- Any change to `SOURCE_KINDS` (for example, screenshots of delivered work).
-- Version 2 of the `art-direction.json` schema.
+- Further physical source kinds, for example screenshots of delivered work.
+  Phase Q adds customer voice and outside-category references for the new layers.
 - An `icons` choice key. Until then a site records its icon set as a source,
   and the licence register (`src/direction/licences.ts`) holds what each set
   allows. No house icon set: one set across every client is the estate
@@ -52,7 +54,8 @@ version 1 of the schema.
 - Every catalogue entry has a flag case per detection path and a pass case,
   each proved on its own. A copy tell's pass case is real persuasive copy: a
   tell that fires on good sales copy does not ship.
-- Change the look, never the page grammar. Never reward strangeness.
+- Decide the page grammar; never reward strangeness. A conventional order is
+  allowed, with reasons tied to the visitor's job.
 - craft stays zero-dependency. Anything needing a browser goes in a separate
   entry with an optional peer dependency.
 - Word lists go stale as models change. When a new model generation ships,
@@ -143,3 +146,41 @@ Recorded with dates in `CHARACTER.md` under Calibration once run.
   (proposals, emails, articles) and these are landing pages. **Not yet measured
   on long-form or on the estate.** Run the estate sweep before any of them is
   considered for `block`.
+
+## Phase Q: hierarchy scope and declared estate calibration
+
+The hierarchy records each page type separately and allows repeated action
+positions. Consideration is evidence for the action reason, not a rule that
+forces a low-consideration job into one particular position.
+
+[F-pattern eye-tracking research from NN/g](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/)
+describes scanning unformatted text and how formatting can change it. It does
+not provide a universal section-order template. Craft snapshots record
+vertical sections, so they cannot test two-dimensional F/Z gaze zones. No F/Z
+hot-zone rule, 70% text threshold or exactly-one-trust-signal hero rule ships.
+A future hero-composition diagnostic needs reliable rendered measurements
+and research supporting its scope first.
+
+Declared directions use the rendered estate's scales: accent 0.3 and ground
+0.15, with a shared part at 0.2 or below. Hence ΔE_OK 0.06 and 0.03. The
+seven-site check uses the saved 2026-09-23 fingerprints as token proxies;
+these are measured rendered colours, not newly decided client directions.
+No sibling threshold for declared directions is calibrated. Shared order and
+surface choices warn and rank; they cannot fail a gate on their own.
+
+The seven existing clients' v2 direction files are separate work. Phase Q
+builds and checks tooling; it does not invent their customer research.
+
+Seven-site proxy results, 2026-09-26:
+
+| Pair | Accent ΔE_OK | Ground ΔE_OK | Shared | Flag |
+| --- | --- | --- | --- | --- |
+| DD + HJ Beauty | unmeasured on both | 0.03094 | Fraunces headline | no |
+| Chair + RMP | 0.21531 | 0.80623 | none | no |
+
+The expected DD + HJ Beauty colour flag was not reproduced: no accent was
+measured, and the ground sits just outside the existing 0.03 threshold. The
+rendered sibling verdict (0.28) uses a broader weighted fingerprint and also
+shared absences; this declared comparison does not infer missing choices.
+The thresholds stay unchanged. This limitation must remain visible until
+real decided directions provide a calibration set.

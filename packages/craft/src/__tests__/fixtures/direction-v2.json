@@ -1,0 +1,146 @@
+{
+  "version": 2,
+  "client": "Copper Lane Electrical (fictional)",
+  "brief": "A local electrician in Brackley repairing dangerous electrical faults for tenants and homeowners.",
+  "sources": [
+    {
+      "id": "review",
+      "kind": "review",
+      "note": "The socket started sparking tonight. I need the fault fixed today without being overcharged. I want an exact call-out price before I ring. I need to reassure my landlord that the repair is safe."
+    },
+    {
+      "id": "van",
+      "kind": "livery",
+      "note": "The van carries copper lettering on white panels, with square painted borders.",
+      "colours": [
+        "#a64720",
+        "#ffffff"
+      ],
+      "lettering": "Square slab lettering and compact supporting text."
+    }
+  ],
+  "job": {
+    "statement": {
+      "verb": "find",
+      "object": "an electrician who can repair a dangerous sparking socket",
+      "context": "tonight without being overcharged for the call-out"
+    },
+    "functional": {
+      "value": "The socket started sparking tonight and needs the fault fixed today.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "emotional": {
+      "value": "They worry about being overcharged and want an exact call-out price.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "social": {
+      "value": "They need to reassure their landlord that the repair is safe.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "consideration": {
+      "value": "low",
+      "because": "The socket started sparking tonight, leaving minutes to arrange the repair.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "objections": [
+      "being overcharged for the call-out",
+      "not knowing whether the repair is safe"
+    ],
+    "language": [
+      "The socket started sparking tonight",
+      "I want an exact call-out price before I ring"
+    ],
+    "evidence": [
+      "review"
+    ]
+  },
+  "hierarchy": {
+    "home": {
+      "primaryAction": {
+        "value": "Call for a repair",
+        "positions": [
+          "hero",
+          "footer-cta"
+        ],
+        "because": "The low consideration job needs a sparking socket repaired tonight, so the call is offered immediately and again after the price."
+      },
+      "order": [
+        {
+          "role": "hero",
+          "because": "The sparking socket needs repair tonight, so availability comes first."
+        },
+        {
+          "role": "pricing",
+          "because": "Callers expect a price before they ring, so pricing comes before asking again."
+        },
+        {
+          "role": "footer-cta",
+          "because": "Once the call-out price is clear, they can arrange the socket repair."
+        }
+      ],
+      "lead": {
+        "value": "Socket repairs tonight",
+        "subordinate": [
+          "planned rewires"
+        ],
+        "because": "The dangerous sparking socket is urgent, so tonight repairs lead ahead of planned rewires."
+      },
+      "journey": [
+        {
+          "stage": "reassure",
+          "because": "The dangerous socket needs a safe repair, so reassure the tenant first."
+        },
+        {
+          "stage": "act",
+          "because": "Once the call-out price is clear, arrange the repair before tonight ends."
+        }
+      ]
+    }
+  },
+  "choices": {
+    "accent": {
+      "value": "#a64720",
+      "because": "The van carries copper lettering, so the same copper colour marks calls to action.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "ground": {
+      "value": "#ffffff",
+      "because": "The van has white panels behind its lettering, so the page ground follows those panels.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "display": {
+      "value": "Roboto Slab",
+      "because": "The square slab lettering on the van gives headlines their squared forms.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "body": {
+      "value": "Source Sans 3",
+      "because": "The compact supporting text on the van keeps longer details readable at small sizes.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "shape": {
+      "value": "square corners",
+      "because": "The painted borders on the van are square, so the buttons keep those corners.",
+      "evidence": [
+        "van"
+      ]
+    }
+  },
+  "exceptions": []
+}

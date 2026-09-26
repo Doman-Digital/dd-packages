@@ -6,7 +6,7 @@ import { merge } from "../audit/cli.js";
 import { auditSnapshot, CATALOGUE, checkCopy, scanSource } from "../character/check.js";
 import { COPY_FILE, loadConfig, loadExceptions, NOT_COPY_DIR, parseFlags, readPaths, SOURCE_FILE, type Io } from "../character/cli.js";
 import { applySeverity } from "../character/config.js";
-import type { ArtDirection } from "../direction/types.js";
+import { PAGE_TYPES, type ArtDirection, type PageType } from "../direction/types.js";
 import { validateDirection } from "../direction/validate.js";
 import { loadEstate } from "../estate/cli.js";
 import { compareToEstate, SIBLING_AT } from "../estate/index.js";
@@ -38,6 +38,8 @@ export async function runReport(command: "report" | "retrofit", args: string[], 
     if (typeof flags === "string") throw new Error(flags);
     const target = flags.positional[0];
     if (!target) throw new Error(USAGE);
+    const page = (flags.page ?? "home") as PageType;
+    if (!(PAGE_TYPES as readonly string[]).includes(page)) throw new Error(`--page takes one of ${PAGE_TYPES.join(", ")}`);
 
     const local = resolve(io.cwd, target);
     let snap: Snapshot;
@@ -80,7 +82,15 @@ export async function runReport(command: "report" | "retrofit", args: string[], 
     let directionReport = null;
     if (existsSync(directionFile)) {
       direction = JSON.parse(readFileSync(directionFile, "utf8")) as ArtDirection;
-      directionReport = validateDirection(direction, { fingerprint: fp, pathExists: (p) => existsSync(resolve(dirname(directionFile), p)) });
+      directionReport = validateDirection(direction, {
+        fingerprint: fp, snapshot: snap, page, strict: flags.strict,
+        pathExists: (p) => existsSync(resolve(dirname(directionFile), p)),
+        readSource: (s) => {
+          if (!s.path || /^https?:/.test(s.path) || !/\.(?:txt|md|markdown|csv|json|html?)$/i.test(s.path)) return undefined;
+          const path = resolve(dirname(directionFile), s.path);
+          return existsSync(path) ? readFileSync(path, "utf8") : undefined;
+        },
+      });
     } else if (flags.direction) {
       throw new Error(`no such file: ${flags.direction}`);
     }

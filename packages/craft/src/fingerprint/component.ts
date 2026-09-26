@@ -105,10 +105,10 @@ export interface ComponentPair {
  */
 export function estateComponentPairs(register: EstateRegister, role: SectionRole): ComponentPair[] {
   const out: ComponentPair[] = [];
-  const s = register.sites;
+  const s = register.sites.filter((site) => site.fingerprint);
   for (let i = 0; i < s.length; i += 1) {
     for (let j = i + 1; j < s.length; j += 1) {
-      const c = closestComponents(s[i].fingerprint, s[j].fingerprint, role);
+      const c = closestComponents(s[i].fingerprint!, s[j].fingerprint!, role);
       if (c) out.push({ a: s[i].id, b: s[j].id, ...c });
     }
   }
