@@ -16,7 +16,7 @@ import { checkOrder, validateHierarchy } from "./hierarchy.js";
 import { validateJob } from "./job.js";
 import { faceLicence } from "./licences.js";
 import { checkReason } from "./reason.js";
-import { tradeOf } from "./research.js";
+import { categoryMatchesBrief } from "./research.js";
 import {
   CHOICE_KEYS,
   DIRECTION_VERSIONS,
@@ -115,7 +115,7 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
     // A reference is inspiration from outside the category: the category's own sites are the average it replaces.
     if (s.kind === "reference") {
       if (typeof s.category !== "string" || !s.category.trim()) err(`${at}.category`, "say where the reference comes from: print, a place, another trade");
-      else if (/\b(?:web ?sites?|web design|competitors?|dribbble|behance|awwwards|themeforest)\b/i.test(s.category) || tradeOf(typeof d.brief === "string" ? d.brief : "").some((t) => tradeOf(s.category!).includes(t))) {
+      else if (/\b(?:web ?sites?|web design|competitors?|dribbble|behance|awwwards|themeforest)\b/i.test(s.category) || categoryMatchesBrief(s.category, typeof d.brief === "string" ? d.brief : "")) {
         err(`${at}.category`, `"${s.category}" is inside the client's category. A reference must come from outside it, or it hands back the category average.`);
       }
       if (typeof s.path === "string" && /^https?:/.test(s.path)) warn(`${at}.path`, "a web page as a reference: check it is not a site in the client's category");

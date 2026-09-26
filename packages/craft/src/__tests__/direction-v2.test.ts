@@ -74,6 +74,9 @@ describe("direction version 2", () => {
     expect(problems(d)).toEqual([]);
     d.sources.at(-1)!.category = "electrician";
     expect(problems(d).some((p) => p.at === "sources[2].category")).toBe(true);
+    d.brief = "A local salon in Oxford taking appointments from neighbourhood customers.";
+    d.sources.at(-1)!.category = "salon";
+    expect(problems(d).some((p) => p.at === "sources[2].category")).toBe(true);
     d.sources.at(-1)!.category = "print";
     d.sources.at(-1)!.note = "The competitor's website provided the source for this decision.";
     expect(problems(d).some((p) => p.at === "sources[2]")).toBe(true);

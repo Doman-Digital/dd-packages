@@ -25,6 +25,16 @@ export function tradeOf(brief: string): string[] {
   return TRADE_NOUNS.filter((t) => new RegExp(`\\b${t.replace(/ /g, "\\s+")}s?\\b`).test(text));
 }
 
+/** Exact category labels also cover trades outside the seed lexicon, such as salons. */
+export function categoryMatchesBrief(category: string, brief: string): boolean {
+  const known = tradeOf(category);
+  if (tradeOf(brief).some((t) => known.includes(t))) return true;
+  const label = category.trim().replace(/^(?:(?:a|an|the|local|independent)\s+)+/i, "");
+  if (!label) return false;
+  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+  return new RegExp(`\\b${escaped}s?\\b`, "i").test(brief);
+}
+
 export function researchPrompt(input: ResearchInput): string {
   const trade = tradeOf(input.brief);
   const category = trade.length ? trade.join(", ") : "this kind of business";
