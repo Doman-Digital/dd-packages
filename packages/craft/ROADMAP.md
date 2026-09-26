@@ -16,7 +16,7 @@ Update this file in the same PR that moves a phase.
 | D | Counterfactual null model (`claude -p`, about 20 runs a brief), `craft tells harvest` | Merged: dd-packages #21. |
 | E | Estate register, `craft estate add\|compare` | Merged: dd-packages #22. |
 | F | Character report, `craft retrofit`, the character skill, trawl and drift-guards switches | Merged: dd-packages #23, drift-guards #4, trawl #6, claude-kit #8. |
-| G | Retrofits, one session per site | Done, outside this repo, 2026-09-24. Results are tracked in Linear. The art direction they feed is being written; J waits on it. |
+| G | Visual review and retrofit decisions, one session per site | Reopened, 2026-09-27. All seven existing reports and decision packs are unvalidated drafts. MMM has a disputed image reference, and the saved report mixes public-site, portal and planning-file findings. Rebuild from current desktop/mobile screenshots and verify each asset reference before making recommendations. CRO-19 is still In Progress; J remains blocked. |
 | H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, eight research tells, the `craft copy compare` preservation gate, the copy-check skill rebuilt, and `@domandigital/sanity-copy` for the Studio | Merged: dd-packages #24 and #26, claude-kit #10 and #11. `sanity-copy` in review; installing it in the DD Studio waits on its first npm release. Runs alongside G and does not block it. |
 | I | Enterprise foundation: `craft.config.json` (ignore globs, `copyPaths`, severity changes with a reason), `--baseline`/`--update-baseline`, `--sarif`, `schemaVersion` on every `--json`, `craft audit --pages` and `--viewport`; `.claude`, `.agents` and `.cursor` never walked | Merged: dd-packages #41. |
 | J | `craft direction build` (tokens from decided choices), `craft brief` (instructions for an agent), `craft loop` (build, audit, change list), and the skill | Waiting on the art direction. Released by the first two or three decided `art-direction.json` files. |
@@ -25,10 +25,47 @@ Update this file in the same PR that moves a phase.
 | M | Imagery and provenance: every image in the snapshot, an XMP/C2PA byte scan for AI-generated media, `stock-photo`, `ai-image`, `stock-avatar`, `no-real-imagery` | Merged: dd-packages #54. `blob-illustration` dropped: no reliable flag case without an SVG's path data or pixels, which a cross-origin picture does not give the page. Not yet read against the estate. The `imagery` choice key in `art-direction.json` still waits on the art direction. |
 | N | Specificity: `specificity(text, brief)`, `generic-hero-claim`, proof in context, `craft copy compare --competitor` | In review. Proof in context ships as `unproven-claim`, on rendered pages only: a section is a rendered idea, and a source file does not show which claim sits next to which review. |
 | O | `@domandigital/craft-judge`: a vision-model second opinion, advisory only | Later, once K to N are stable. |
-
 | P | Short-copy shape measurements and frozen, register-stratified calibration | Draft foundation. Five human baselines extracted; 113/450 original/edit pairs complete after the Claude usage limit. No feature approved, no catalogue or house-policy change. See calibration/copy-shape/README.md and report.md. |
-
 | Q | Art direction v2: customer job map, per-page hierarchy, one reason standard, declared estate comparison and job-only research prompts | Implemented. 864 tests pass, including ten browser tests; typecheck and built CLI checks pass. v1 stays valid with warnings. Customer-voice and outside-category reference sources release the schema and source-kind work that could not fit v1. No catalogue change. |
+
+## Phase G: evidence before decisions
+
+The seven original reports and PDFs are historical drafts, not accepted
+client directions. Producing a pack did not finish a retrofit. On 2026-09-27,
+CRO-19 was In Progress, Doman Digital's decision issue was In Progress, and
+the other six were Todo. The user reported an unused picture being treated
+as MMM site-wide evidence. Its exact identity still needs verification.
+
+The saved MMM report also cites portal routes and old planning files as
+copy findings while discussing the public site. A file in a repository does
+not prove that its code or image appears on a published page. The claim that
+soft-square nails are booked most has no supporting booking evidence in the
+issue. Withdraw that as a reason until the client confirms it.
+
+Rebuild each pack with a visual scan of the current public pages, at desktop
+and mobile widths, before interpreting source findings. Include the main
+page types, the URL, capture date, viewport and relevant interaction state.
+Retain original screenshots and annotate observations by page and section.
+A home-page scan cannot establish that something appears across the site.
+
+Every cited image needs a rendered occurrence and a captured source URL.
+Record loaded/visible state and section; check background images and video
+posters too. A network request alone proves neither visible use nor ownership.
+Client-owned assets absent from the live site may be proposed references, but
+must be labelled separately and their provenance checked. Mark unavailable
+or disputed evidence as unverified and withhold dependent recommendations.
+
+Keep current observations, candidate designs and decisions distinct. Visual
+review may suggest candidates; customer research supplies the job and reasons.
+Do not invent booking popularity, brand ownership or customer preferences from
+screenshots. Show alternatives in context before asking for a decision.
+Completion needs checked visual evidence, client picks and reasons, v2
+validation, implementation and a fresh rendered review. A craft verdict is
+one input to that review, not proof that a pack's evidence is correct.
+
+MMM is the replacement-method pilot. Its visual pack covers home, treatments,
+gallery and contact on desktop/mobile; it does not certify the other six
+clients, every MMM route, the portal, or a completed retrofit.
 
 ## Waiting on the art direction
 

@@ -1,0 +1,513 @@
+{
+  "backgrounds": [
+    {
+      "image": "linear-gradient(160deg, rgb(212, 247, 234), rgb(173, 239, 209) 55%, rgb(143, 212, 184))",
+      "rect": {
+        "height": 44,
+        "width": 106.25,
+        "x": 204.75,
+        "y": 929.5
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "image": "linear-gradient(to right bottom in oklab, rgb(250, 248, 245) 0px, rgb(255, 255, 255) 100%)",
+      "rect": {
+        "height": 474.5,
+        "width": 375,
+        "x": 0,
+        "y": 168
+      },
+      "tag": "SECTION"
+    },
+    {
+      "image": "linear-gradient(to top, oklab(0 0 0 / 0.55) 0px, rgba(0, 0, 0, 0) 100%)",
+      "rect": {
+        "height": 58,
+        "width": 333,
+        "x": 21,
+        "y": 1216.5
+      },
+      "tag": "DIV"
+    },
+    {
+      "image": "linear-gradient(to top, oklab(0 0 0 / 0.55) 0px, rgba(0, 0, 0, 0) 100%)",
+      "rect": {
+        "height": 58,
+        "width": 333,
+        "x": 21,
+        "y": 1590.09375
+      },
+      "tag": "DIV"
+    },
+    {
+      "image": "linear-gradient(160deg, rgb(212, 247, 234), rgb(173, 239, 209) 55%, rgb(143, 212, 184))",
+      "rect": {
+        "height": 44,
+        "width": 343,
+        "x": 16,
+        "y": 14227.71875
+      },
+      "tag": "A"
+    }
+  ],
+  "headings": [
+    {
+      "rect": {
+        "height": 36,
+        "width": 80.75,
+        "x": 36,
+        "y": 254
+      },
+      "tag": "H1",
+      "text": "Gallery"
+    },
+    {
+      "rect": {
+        "height": 17.59375,
+        "width": 343,
+        "x": 16,
+        "y": 14379.71875
+      },
+      "tag": "H2",
+      "text": "VISIT"
+    },
+    {
+      "rect": {
+        "height": 17.59375,
+        "width": 343,
+        "x": 16,
+        "y": 14859.3125
+      },
+      "tag": "H2",
+      "text": "EXPLORE"
+    },
+    {
+      "rect": {
+        "height": 17.59375,
+        "width": 343,
+        "x": 16,
+        "y": 15246.90625
+      },
+      "tag": "H2",
+      "text": "HELP"
+    },
+    {
+      "rect": {
+        "height": 17.59375,
+        "width": 343,
+        "x": 16,
+        "y": 15667.5
+      },
+      "tag": "H2",
+      "text": "STUDIO UPDATES"
+    }
+  ],
+  "height": 16120,
+  "images": [
+    {
+      "alt": "MMM Beauty",
+      "loaded": true,
+      "rect": {
+        "height": 48,
+        "width": 40,
+        "x": 20,
+        "y": 927.5
+      },
+      "src": "https://www.mmm-beauty.co.uk/images/mmm-triangle-logo.svg",
+      "visible": true
+    },
+    {
+      "alt": "MMM Beauty",
+      "loaded": true,
+      "rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 900
+      },
+      "src": "https://www.mmm-beauty.co.uk/images/mmm-triangle-logo-dark.svg",
+      "visible": false
+    },
+    {
+      "alt": "Brow Lamination ",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 941.5
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F854752567c11668f2097131d17864f2972ff51bf-1284x2778.png%3Frect%3D0%2C1098%2C1284%2C1160%26w%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": true
+    },
+    {
+      "alt": "Brow Lamination",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 1315.09375
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F939bccd4c572fab4e95e55b789e45ecd7d300c3a-1059x1059.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": true
+    },
+    {
+      "alt": "Brow Lamination",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 1720.6875
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F12cd6abf86f9653fab71113c39ef8d609b05609c-5142x6429.png%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short Nude Nails with Colourful Spring Garden Design ",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 2094.28125
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F84eb39abf6beb2d27af0b312672f2f82ddb07b80-6480x8100.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Builder gel nails with bright rainbow French tips on a nude base.",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 2467.875
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Ff8d9e9bd040dba4ba3f7e7d7ee211a312298a12a-6098x7623.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Close-up of short oval builder gel nails in a nude base with a soft silver glitter fade.",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 2841.46875
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F4ad2a131e618938a2163716ffa604ce7f026be0f-6477x8097.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Close-up of short oval builder gel nails in a glossy classic red finish.",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 3215.0625
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F485888ed406a9e8e492e3c70ac527cfb28e76aa3-6480x8100.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Close-up of short square builder gel nails in deep brown, finished with white polka dot nail art.",
+      "loaded": true,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 3588.65625
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Fd74c69d1df8792eca798c7b5f444cc667777e6cf-7623x9531.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=640&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Close-up of short oval builder gel nails in deep burgundy and nude, finished with fine silver line detailing.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 3962.25
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Ff13459cf8140366bb065b7ab94b25a828712c685-6480x8100.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Soft pink builder gel manicure on natural nails, photographed in a studio setting",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 4335.84375
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F4275df645d5a79585049b677d4b04df7ab098a7d-6480x8100.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short square nails with red and pink candy cane\u2013style stripes, fine gold line detailing and a glossy festive finish",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 4709.4375
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F207d543927f0a7a193aa86983596e0f704530e9f-2159x2697.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short square nude nails with silver starburst detailing and small metallic stud accents on a glossy finish",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 5083.03125
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F8d375f4a05d46de941d2b19c069170f5227dce30-2038x2548.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short square nude nails with fine gold glitter gradient tips and delicate white snowflake nail art on a glossy finish",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 5456.625
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Fa6ece49fd2387297e303c8dd8cafa1089a2c005a-6477x8091.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short almond nude nails with red ribbon-inspired line art and delicate bow detailing, finished with a glossy top coat",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 5830.21875
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Feb5dd431bb4e21ad762e456bc001684cd0a17dc2-6480x8100.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short almond nails with red glitter French tips on a nude base, finished with gold star charm detailing and a glossy shine",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 6203.8125
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F15451004d3ef9f7d95be66f8d99889b26fac752b-6480x8100.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short almond nails in deep ruby red with gold glitter accent nails, delicate star detailing and gift bow nail art on a soft nude base",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 6577.40625
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F5ee2a8bbf800178682c1fe8b48cee547f5990da2-6480x8100.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short almond nude nails with deep berry red French tips and a fine metallic silver outline, glossy finish",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 6951
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F3f5735ab4979cc613b290c4b14d0e79ef5d19525-6477x8091.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Red almond nails with white snowflake nail art and glossy festive finish",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 7324.59375
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F9ba68df44ba10f8866bcbb5a79a6d69c8a044bf0-6398x7998.webp%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short oval nails painted deep burgundy with hand painted white snowflake and dot accents on select fingers",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 7698.1875
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F1cc87dc30d8dad31044c121f1f51068bde3b1c6b-6480x8100.webp%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Close-up of short round nails alternating navy blue and nude polish, each decorated with hand-painted white or blue snowflake designs.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 8071.78125
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F29b8b092e80a59cccc0002fd1799d6649bd3eb58-3750x3750.webp%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Mismatched gel nail set with nude nails featuring gold star accents, olive green nails with silver studs, and burgundy nails with black and gold geometric lines",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 8445.375
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F41896306c30da44c82f671cb497ca2426c274ec7-6477x8091.webp%3Frect%3D0%2C1919%2C6477%2C4225%26w%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Round nails with nude base and blue glitter ombre tips, hand-painted white snowflake and star details on gel overlay",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 8818.96875
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F9643371dcf36330ae9b3a02c9f5827cc53465dee-6477x8091.webp%3Frect%3D0%2C2085%2C6477%2C4010%26w%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short oval nails with glossy dark chocolate brown gel overlay on both hands",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 9192.5625
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Fccaa10625de2c98910ac21abe9b23cae329b71f1-6477x8091.webp%3Frect%3D0%2C1732%2C6477%2C4456%26w%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short round nails painted deep burgundy red with two accent nails featuring nude polish and leopard print spots.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 9566.15625
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Ffff76392bdb69f0bd6c5d6b67d1c33ceb0273309-6480x8100.webp%3Frect%3D0%2C3478%2C6480%2C3840%26w%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short natural-look nails with sheer pink gel overlay and small hand-painted blue leaf accents near the cuticle on each nail.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 9939.75
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Fc88b3095bd5611920bdd54e4339b706fd84f87c0-4096x4096.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short square nails with alternating cobalt blue gel and sheer nude gel, some nude nails accented with small blue leaf-shaped details.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 10313.34375
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2Fa7ae9878da332ae8d456ebc01476b92b2562305c-2034x2034.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short natural-shaped nails with a nude base and pale butter yellow French tips on both hands.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 10686.9375
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F5185d5eebd1d3df3b005901e64c90de64e0877da-4096x4096.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Close-up of a hand with short almond-shaped nails finished in a sheer pink chrome polish with a subtle metallic shimmer.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 11060.53125
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F4dfd703a92b54811d6b26f0d84224f9c624338a5-1005x1005.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "Short square nails with a sheer nude base, each nail featuring a single small dot accent in red, blue, or yellow.",
+      "loaded": false,
+      "rect": {
+        "height": 333,
+        "width": 333,
+        "x": 21,
+        "y": 11434.125
+      },
+      "src": "https://www.mmm-beauty.co.uk/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0vq91l88%2Fproduction%2F1f796ef350e7528d99fd9681fe608cc7f159a23a-4096x4096.jpg%3Fw%3D1200%26q%3D80%26auto%3Dformat&w=1920&q=75",
+      "visible": false
+    },
+    {
+      "alt": "MMM Beauty",
+      "loaded": true,
+      "rect": {
+        "height": 56,
+        "width": 59.140625,
+        "x": 16,
+        "y": 14086.21875
+      },
+      "src": "https://www.mmm-beauty.co.uk/images/mmm-triangle-logo.svg",
+      "visible": true
+    },
+    {
+      "alt": "MMM Beauty",
+      "loaded": true,
+      "rect": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 900
+      },
+      "src": "https://www.mmm-beauty.co.uk/images/mmm-triangle-logo-dark.svg",
+      "visible": false
+    }
+  ],
+  "text": "Skip to main content\nBook Now\nGallery\n\nBrowse recent nails, brows, and skin work from MMM Beauty in Brackley. This gallery helps you choose a finish, shape, and overall vibe before you book.\n\nSee something you love? Screenshot it and send it with your booking note or message.\n\nAll Results\n\ud83d\udc85 Nails\n\u2728 Brows\n\n29 results\n\nTap any image to view full size - screenshot what you love and send it when you book.\n\nBrow Lamination\n\nTap to view full size\n\nbrow lamination\n\nTap to view full size\n\nBrow Lamination\n\nTap to view full size\n\nSpring Garden Nails\n\nTap to view full size\n\nRainbow French Tips\n\nTap to view full size\n\nNude Builder Gel with Silver Glitter Fade\n\nTap to view full size\n\nClassic Red Short Oval Builder Gel Nails\n\nTap to view full size\n\nBrown Builder Gel with White Polka Dot Detail\n\nTap to view full size\n\nBurgundy & Nude Builder Gel Nails\n\nTap to view full size\n\nSoft Pink Builder Gel Manicure\n\nTap to view full size\n\nCandy Cane Chrome\n\nTap to view full size\n\nCelestial Nude\n\nTap to view full size\n\nSoft Snow Nude\n\nTap to view full size\n\nRibbon French\n\nTap to view full size\n\nCrimson Star French\n\nTap to view full size\n\nRuby Gift Shimmer\n\nTap to view full size\n\nBerry French Luxe\n\nTap to view full size\n\nRed Festive Snowflake Nails\n\nTap to view full size\n\nBurgundy Snowflake Winter Nails\n\nTap to view full size\n\nNavy and Nude Snowflake Nail Art\n\nTap to view full size\n\nMismatched Olive and Burgundy Nail Art\n\nTap to view full size\n\nBlue Glitter Snowflake Winter Nails\n\nTap to view full size\n\nChocolate Brown Gel Overlay\n\nTap to view full size\n\nBurgundy Red with Leopard Print Accent Nails\n\nTap to view full size\n\nBlue Leaf Accent Nails on Sheer Pink\n\nTap to view full size\n\nCobalt Blue and Nude Accent Nails\n\nTap to view full size\n\nButter Yellow French Tips\n\nTap to view full size\n\nSheer Pink Chrome Nails\n\nTap to view full size\n\nNude Nails with Single Colour Dot Accents\n\nTap to view full size\n\nWhat this gallery includes\nNails\n\u2022 Builder Gel overlays (clean, strengthened, natural-looking)\n\u2022 Gel manicures (glossy colour, crisp finish)\n\u2022 Minimal detail: French, chrome accents, soft art\n\u2022 Short and wearable shapes (square, soft almond, rounded)\nBrows\n\u2022 Brow lamination (lifted, defined, brushed-up)\n\u2022 HD Brows (tinted, shaped, and sculpted)\n\u2022 Tinting (deeper colour, more definition)\n\u2022 Natural shaping (wax and tweeze)\nNot sure what to book?\nBuilder Gel\n\nBest for strength, structure, and a natural finish that lasts.\n\nGel Manicure\n\nBest if your nails are already strong and you want colour with a glossy finish.\n\nIf you're unsure, send a screenshot and we'll point you to the right option.\n\nRequest a look\n1) Screenshot the set you like\n2) Send it when you book or message\n3) We'll recommend the right service + timing\n\nWe'll match the mood and finish. Small differences can happen depending on nails, lighting, and products.\n\nQuick questions\nHow do I ask for a look from the gallery?\n\nScreenshot the set you like and send it with your booking note or message.\n\nDo you offer nail art?\n\nYes. Minimal details, French, chrome accents, and clean add-ons. Share a screenshot so we can confirm timing.\n\nHow long do results last?\n\nMost clients book maintenance around 2\u20133 weeks, depending on lifestyle and aftercare.\n\nSeen something you like?\n\nScreenshot the set and send it when you book. We will sort the rest.\n\nBook your appointment\nBook your appointment\n\u00d7\n\nConsidered nails, brows and skin in Brackley.\n\nBook Now\nVISIT\nThu 12pm \u2013 8pm\nFri 12pm \u2013 8pm\nSat 9am \u2013 4pm\nClosed Mon, Tue, Wed, Sun\n07449 137478\nWhatsApp us\nhello@mmm-beauty.co.uk\nTudor Way, Brackley NN13 6NH \u00b7 Free on-street parking\n\nExact door number provided in your booking confirmation.\n\nEXPLORE\nTreatments\nNails\nBrows\nSkin\nJournal\nAreas we serve\nHELP\nGift cards\nAftercare\nAbout & FAQs\nPolicies\nAccessibility\nCookie settings\nSTUDIO UPDATES\n\nOccasional offers and studio news from Meghan. Unsubscribe any time. See our Privacy Policy.\n\nEmail address\nSubscribe\n\u00a9 2026 MMM Beauty, the trading name of Meghan Meehan, a sole trader \u00b7 Brackley, UK\nWebsite by\nDoman Digital\n\nLumi\n\nLumi can help with treatments, aftercare, or booking questions.\n\nResponses are AI-generated. Conversations are kept for 24 hours to stay in context, then deleted automatically.\n\nOnline\n\nI'm Lumi, MMM Beauty's digital assistant. How can I help you today?\n\nMessage Lumi\nBook Appointment\n\nWe use optional analytics cookies to improve the site.\n\nAllow\nNo thanks\nSettings",
+  "title": "Gallery | Before & After Results | MMM Beauty Brackley",
+  "url": "https://www.mmm-beauty.co.uk/gallery",
+  "videos": [],
+  "viewport": {
+    "height": 844,
+    "width": 390
+  }
+}
