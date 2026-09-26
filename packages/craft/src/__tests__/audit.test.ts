@@ -1,4 +1,6 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { createServer, type Server } from "node:http";
 import type { AddressInfo } from "node:net";
 import { fileURLToPath } from "node:url";
@@ -43,6 +45,23 @@ describe.skipIf(!chromium)("craft audit in a real browser", () => {
     base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
   });
   afterAll(() => new Promise<void>((done) => server.close(() => done())));
+
+  it("validates a direction against a preview URL and fails strict order drift (Phase Q)", async () => {
+    const { run } = await import("../character/cli.js");
+    const dir = mkdtempSync(join(tmpdir(), "craft-preview-"));
+    const out: string[] = [], err: string[] = [];
+    const io = { cwd: dir, out: (s: string) => out.push(s), err: (s: string) => err.push(s) };
+    try {
+      writeFileSync(join(dir, "art-direction.json"), readFileSync(new URL("./fixtures/direction-v2.json", import.meta.url)));
+      expect(await run(["direction", "validate", "--snapshot", `${base}/roles`, "--json"], io), err.join("\n")).toBe(0);
+      const report = JSON.parse(out.at(-1)!);
+      expect(report.problems).toEqual(expect.arrayContaining([expect.objectContaining({ at: "hierarchy.home.order", severity: "warn" })]));
+      expect(await run(["direction", "validate", "--snapshot", `${base}/roles`, "--strict", "--json"], io)).toBe(1);
+      expect(JSON.parse(out.at(-1)!).problems).toEqual(expect.arrayContaining([expect.objectContaining({ at: "hierarchy.home.order", severity: "error" })]));
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }, 60_000);
 
   it("finds the generated look on a page built from it", async () => {
     const { snapshotUrl } = await import("../audit/index.js");

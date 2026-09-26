@@ -12,8 +12,12 @@ import { addSite, compareToEstate, emptyEstate, ESTATE_VERSION, estatePairs, SIB
 import { toJson } from "../character/json.js";
 import { closestComponents, COMPONENT_ROLES, estateComponentPairs, type ComponentPair } from "../fingerprint/component.js";
 import type { SectionRole } from "../snapshot/types.js";
+import { compareDirections, compareToDeclared, formatDirectionMatches, summariseDirection, type DirectionSummary } from "./direction.js";
+import type { ArtDirection } from "../direction/types.js";
+import { validateDirection } from "../direction/validate.js";
 
-const USAGE = "usage: craft estate add <url | snapshot.json> --id <id> [--client <name>] | craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--component <role>] [--json] [--strict]";
+const USAGE =
+  "usage: craft estate add [<url | snapshot.json>] --id <id> [--client <name>] [--direction <art-direction.json>] | craft estate compare [<url | snapshot.json | id>] [--null <dir>] [--component <role>] [--directions] [--json] [--strict]";
 
 export function loadEstate(path: string): EstateRegister {
   if (!existsSync(path)) return emptyEstate();
@@ -57,7 +61,7 @@ function componentRole(name: string): SectionRole {
 
 /** Sites whose fingerprint has a component of this role: only version 2 snapshots measure roles. */
 const withRole = (register: EstateRegister, role: SectionRole): number =>
-  register.sites.filter((s) => (s.fingerprint.sections ?? []).some((x) => x.role === role)).length;
+  register.sites.filter((s) => (s.fingerprint?.sections ?? []).some((x) => x.role === role)).length;
 
 export function formatComponentPairs(role: SectionRole, pairs: ComponentPair[], measured: number, sites: number): string {
   const lines = [`craft estate: ${role} components, ${measured} of ${sites} sites have one, closest pairs first (no sibling line yet: ranked, not judged)`];
@@ -81,6 +85,21 @@ export async function runEstate(args: string[], io: Io): Promise<number> {
     const register = loadEstate(file);
     const at = flags.null ? siblingLine(flags.null.split(",").map((p) => loadNull(p.trim(), io.cwd).runs.map((r) => r.fingerprint))) : SIBLING_AT;
 
+    const directionFile = flags.direction ? JSON.parse(readFileSync(resolve(io.cwd, flags.direction), "utf8")) as ArtDirection : undefined;
+    if (directionFile && !validateDirection(directionFile).valid) throw new Error("the direction has errors: run craft direction validate before registering it");
+    const declared = (): DirectionSummary => summariseDirection(directionFile!);
+
+    if (sub === "add" && !target && flags.id && flags.direction) {
+      // A direction before a site: record what it declares, so the next one is checked against it.
+      const existing = register.sites.find((s) => s.id === flags.id);
+      const direction = declared();
+      const next = addSite(register, { ...(existing ?? { id: flags.id, client: flags.client ?? directionFile!.client, url: "", tells: [], addedAt: new Date().toISOString() }), direction });
+      writeFileSync(file, `${JSON.stringify(next, null, 2)}\n`);
+      io.out(`craft estate: ${flags.id} direction recorded.`);
+      io.out(formatDirectionMatches(flags.id, compareToDeclared(direction, next.sites, flags.id)));
+      return 0;
+    }
+
     if (sub === "add") {
       if (!target || !flags.id) throw new Error(USAGE);
       const snap = await snapshotOf(target, io.cwd);
@@ -92,10 +111,23 @@ export async function runEstate(args: string[], io: Io): Promise<number> {
         fingerprint: fp,
         tells: [...new Set(auditSnapshot(snap).findings.map((f) => f.tell))].sort(),
         addedAt: snap.capturedAt,
+        ...(flags.direction ? { direction: declared() } : register.sites.find((s) => s.id === flags.id)?.direction ? { direction: register.sites.find((s) => s.id === flags.id)!.direction } : {}),
       });
       writeFileSync(file, `${JSON.stringify(next, null, 2)}\n`);
       io.out(`craft estate: ${flags.id} ${register.sites.some((s) => s.id === flags.id) ? "updated" : "added"}, ${next.sites.length} sites in ${flags.estate ?? "estate.json"}`);
       io.out(formatMatches(flags.id, compareToEstate(fp, next, { exclude: flags.id, siblingAt: at }).slice(0, 3), at));
+      return 0;
+    }
+
+    if (sub === "compare" && flags.directions) {
+      const withDirection = register.sites.filter((s) => s.direction);
+      const pairs = withDirection.flatMap((a, i) => withDirection.slice(i + 1).map((b) => ({ a: a.id, b: b.id, ...compareDirections(a.direction!, b.direction!) })));
+      pairs.sort((x, y) => y.shared.length - x.shared.length);
+      if (flags.json) io.out(toJson({ sites: withDirection.length, pairs }));
+      else {
+        io.out(`craft estate: ${withDirection.length} of ${register.sites.length} sites have a declared direction, ${pairs.filter((p) => p.flagged).length} pair(s) worth a look (ranked, not judged)`);
+        for (const p of pairs) io.out(`  ${`${p.a} + ${p.b}`.padEnd(34)} ${p.flagged ? "LOOK  " : "      "}${p.shared.length ? `shares ${p.shared.join(", ")}` : "nothing shared"}`);
+      }
       return 0;
     }
 
@@ -108,12 +140,13 @@ export async function runEstate(args: string[], io: Io): Promise<number> {
         return 0;
       }
       const known = register.sites.find((s) => s.id === target);
-      const fp = known ? known.fingerprint : fingerprint(await snapshotOf(target, io.cwd));
+      if (known && !known.fingerprint) throw new Error(`${target} has a declared direction only; add a snapshot to compare rendered components`);
+      const fp = known ? known.fingerprint! : fingerprint(await snapshotOf(target, io.cwd));
       if (!(fp.sections ?? []).some((x) => x.role === role)) throw new Error(`${known?.id ?? target} has no ${role} section measured (roles need snapshot version 2)`);
       const pairs: ComponentPair[] = register.sites
-        .filter((s) => s.id !== known?.id)
+        .filter((s) => s.id !== known?.id && s.fingerprint)
         .flatMap((s) => {
-          const c = closestComponents(fp, s.fingerprint, role);
+          const c = closestComponents(fp, s.fingerprint!, role);
           return c ? [{ a: known?.id ?? target, b: s.id, ...c }] : [];
         })
         .sort((x, y) => x.distance - y.distance);
@@ -128,7 +161,8 @@ export async function runEstate(args: string[], io: Io): Promise<number> {
         return flags.strict && pairs.some((p) => p.sibling) ? 1 : 0;
       }
       const known = register.sites.find((s) => s.id === target);
-      const fp = known ? known.fingerprint : fingerprint(await snapshotOf(target, io.cwd));
+      if (known && !known.fingerprint) throw new Error(`${target} has a declared direction only; add a snapshot to compare rendered sites`);
+      const fp = known ? known.fingerprint! : fingerprint(await snapshotOf(target, io.cwd));
       const matches = compareToEstate(fp, register, { exclude: known?.id, siblingAt: at });
       io.out(flags.json ? toJson({ siblingAt: at, matches }) : formatMatches(known?.id ?? target, matches, at));
       return flags.strict && matches.some((m) => m.sibling) ? 1 : 0;
