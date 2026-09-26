@@ -13,9 +13,7 @@
  * where it stopped.
  */
 
-import { spawn } from "node:child_process";
-import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { auditSnapshot, CATALOGUE_VERSION, checkCopy, scanSource } from "../character/check.js";
@@ -26,29 +24,10 @@ import type { Snapshot } from "../snapshot/types.js";
 import { readSnapshot } from "../snapshot/migrate.js";
 import { extractHtml, harvest, hueSwatch, NULL_VERSION, nullPrompt, type HarvestCandidate, type NullModel, type NullRun, type Typicality } from "./index.js";
 import { toJson } from "../character/json.js";
+import { generate } from "./generate.js";
 
 const readJson = <T>(path: string): T => JSON.parse(readFileSync(path, "utf8")) as T;
 const pad = (n: number): string => String(n).padStart(2, "0");
-
-function generate(prompt: string, model: string | undefined): Promise<string> {
-  const bin = process.env.CRAFT_CLAUDE ?? "claude";
-  const args = ["-p", "--tools", "", "--no-session-persistence", "--disable-slash-commands", "--setting-sources", "", "--strict-mcp-config", ...(model ? ["--model", model] : []), prompt];
-  // An empty directory: no CLAUDE.md, no repo, nothing to read but the brief.
-  const cwd = mkdtempSync(join(tmpdir(), "craft-null-"));
-  return new Promise((done, fail) => {
-    const child = spawn(bin, args, { cwd, stdio: ["ignore", "pipe", "pipe"] });
-    let out = "";
-    let err = "";
-    child.stdout.on("data", (d: Buffer) => (out += d.toString()));
-    child.stderr.on("data", (d: Buffer) => (err += d.toString()));
-    child.on("error", (e) => fail(new Error(`${bin}: ${e.message}. Install Claude Code, or set CRAFT_CLAUDE.`)));
-    child.on("close", (code) => {
-      rmSync(cwd, { recursive: true, force: true });
-      if (code === 0) done(out);
-      else fail(new Error(`${bin} exited ${code}: ${(err || out).trim().slice(0, 200)}`));
-    });
-  });
-}
 
 async function pool<T>(items: T[], size: number, work: (item: T) => Promise<void>): Promise<void> {
   const queue = [...items];

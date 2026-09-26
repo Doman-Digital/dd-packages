@@ -26,7 +26,9 @@ Update this file in the same PR that moves a phase.
 | N | Specificity: `specificity(text, brief)`, `generic-hero-claim`, proof in context, `craft copy compare --competitor` | In review. Proof in context ships as `unproven-claim`, on rendered pages only: a section is a rendered idea, and a source file does not show which claim sits next to which review. |
 | O | `@domandigital/craft-judge`: a vision-model second opinion, advisory only | Later, once K to N are stable. |
 
-| Q | Art direction v2: customer job map, per-page hierarchy, one reason standard, declared estate comparison and job-only research prompts | Ready for review. 864 tests pass, including ten browser tests; typecheck and built CLI checks pass. v1 stays valid with warnings. Customer-voice and outside-category reference sources release the schema and source-kind work that could not fit v1. No catalogue change. |
+| P | Short-copy shape measurements and frozen, register-stratified calibration | Draft foundation. Five human baselines extracted; 113/450 original/edit pairs complete after the Claude usage limit. No feature approved, no catalogue or house-policy change. See calibration/copy-shape/README.md and report.md. |
+
+| Q | Art direction v2: customer job map, per-page hierarchy, one reason standard, declared estate comparison and job-only research prompts | Implemented. 864 tests pass, including ten browser tests; typecheck and built CLI checks pass. v1 stays valid with warnings. Customer-voice and outside-category reference sources release the schema and source-kind work that could not fit v1. No catalogue change. |
 
 ## Waiting on the art direction
 
@@ -146,6 +148,15 @@ Recorded with dates in `CHARACTER.md` under Calibration once run.
   (proposals, emails, articles) and these are landing pages. **Not yet measured
   on long-form or on the estate.** Run the estate sweep before any of them is
   considered for `block`.
+
+## Phase P follow-ups
+
+Complete fresh generation and measure again before shipping any structural
+copy tells. Keep a register style guide for a future DD brand-voice skill,
+a real POS-template feature behind an optional dependency, a personal DD
+voice corpus from 2025 onwards, and other generation providers as separate
+work. The current function-word skeleton is experimental and cannot ship as
+a tell.
 
 ## Phase Q: hierarchy scope and declared estate calibration
 
