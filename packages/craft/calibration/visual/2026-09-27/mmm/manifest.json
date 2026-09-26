@@ -1,0 +1,161 @@
+{
+  "capturedAt": "2026-09-26T22:59:30.526571+00:00",
+  "scope": "MMM public site only",
+  "pages": [
+    {
+      "page": "home",
+      "device": "desktop",
+      "url": "https://www.mmm-beauty.co.uk/",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "screenshot": "home-desktop.jpg",
+      "fullScreenshot": "home-desktop-full.jpg",
+      "inventory": "home-desktop.json"
+    },
+    {
+      "page": "home",
+      "device": "mobile",
+      "url": "https://www.mmm-beauty.co.uk/",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "screenshot": "home-mobile.jpg",
+      "fullScreenshot": "home-mobile-full.jpg",
+      "inventory": "home-mobile.json"
+    },
+    {
+      "page": "treatments",
+      "device": "desktop",
+      "url": "https://www.mmm-beauty.co.uk/treatments",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "screenshot": "treatments-desktop.jpg",
+      "fullScreenshot": "treatments-desktop-full.jpg",
+      "inventory": "treatments-desktop.json"
+    },
+    {
+      "page": "treatments",
+      "device": "mobile",
+      "url": "https://www.mmm-beauty.co.uk/treatments",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "screenshot": "treatments-mobile.jpg",
+      "fullScreenshot": "treatments-mobile-full.jpg",
+      "inventory": "treatments-mobile.json"
+    },
+    {
+      "page": "gallery",
+      "device": "desktop",
+      "url": "https://www.mmm-beauty.co.uk/gallery",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "screenshot": "gallery-desktop.jpg",
+      "fullScreenshot": "gallery-desktop-full.jpg",
+      "inventory": "gallery-desktop.json"
+    },
+    {
+      "page": "gallery",
+      "device": "mobile",
+      "url": "https://www.mmm-beauty.co.uk/gallery",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "screenshot": "gallery-mobile.jpg",
+      "fullScreenshot": "gallery-mobile-full.jpg",
+      "inventory": "gallery-mobile.json"
+    },
+    {
+      "page": "contact",
+      "device": "desktop",
+      "url": "https://www.mmm-beauty.co.uk/contact",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "screenshot": "contact-desktop.jpg",
+      "fullScreenshot": "contact-desktop-full.jpg",
+      "inventory": "contact-desktop.json"
+    },
+    {
+      "page": "contact",
+      "device": "mobile",
+      "url": "https://www.mmm-beauty.co.uk/contact",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "screenshot": "contact-mobile.jpg",
+      "fullScreenshot": "contact-mobile-full.jpg",
+      "inventory": "contact-mobile.json"
+    }
+  ],
+  "limitations": [
+    "No portal, booking completion, private analytics or client source-asset ownership verified.",
+    "Screenshots and rendered URLs prove appearance in the captured state only.",
+    "Full-page captures contain viewport-dependent reveals. Inspect section captures; blank areas in a full-page capture are not evidence of a live layout defect."
+  ],
+  "sectionCaptures": [
+    {
+      "file": "home-services-desktop.jpg",
+      "inventory": "home-services-desktop.json"
+    },
+    {
+      "file": "home-services-mobile.jpg",
+      "inventory": "home-services-mobile.json"
+    },
+    {
+      "file": "gallery-results-desktop.jpg",
+      "inventory": "gallery-results-desktop.json"
+    },
+    {
+      "file": "gallery-results-mobile.jpg",
+      "inventory": "gallery-results-mobile.json"
+    }
+  ],
+  "sha256": {
+    "README.md": "01bbe056503ef213a85a867a5565943a1d392abac973cd0a07fa40ec59bbf61e",
+    "contact-desktop-full.jpg": "e9d58292de2e98d632b599a4408511da3e1be3b43bc79a392e48b81f3b5e7525",
+    "contact-desktop.jpg": "b2d175acda8b94c97004b23ba9768cfc8207e0c1e1c3c2dbb96ad78294271836",
+    "contact-desktop.json": "31a7a8aa5aec99d72d8fdf6cc2de4f0c31c47459f7703ebeb0fa5cb4984f3e32",
+    "contact-mobile-full.jpg": "a5102473b8f4afc68e0f24d38eb0c15487e14c5e4611e4bde6b73115df9e81a1",
+    "contact-mobile.jpg": "f147eb5d34043e513e95788aec1c10826ad5b1d65df836403f09a71d1d47e2f9",
+    "contact-mobile.json": "9e61f934d55ea47df47acf56d65b637aaa15d4fa598fb33761c04c2c337875f2",
+    "gallery-desktop-full.jpg": "0a887763d7a06259ade646ca78bc11d053b77e68e720f6f3ecd9ca40dc975592",
+    "gallery-desktop.jpg": "228ae0cd079f8aafb793d14032fc0e69a52f07fb6a214113ba9dbad3c54fa510",
+    "gallery-desktop.json": "a0b6918e0276d59c7f7893da0482271bd2147600b3f5549122b9fddec966aa9c",
+    "gallery-mobile-full.jpg": "e672897792e516ec9bdd34c8ab880552411cbabf368746c9898df69f947bc18d",
+    "gallery-mobile.jpg": "b6ee4de994c42bd3a36a2a648bc169b249adf47ec20870c3f93e9bc2e8975bed",
+    "gallery-mobile.json": "368bd122f4e36f4c9f23199bb02a1f45fdb14e4f8d25b25839efd7255eb1dd8f",
+    "gallery-results-desktop.jpg": "e1e44309c8b55a97af2fe28d66a9836ee848174ce66a705274721f294c6cf5fb",
+    "gallery-results-desktop.json": "97a34359f48665e20bee4ddc2d938f562b674d8c2f226bfc60447c4d3c1e8741",
+    "gallery-results-mobile.jpg": "65ca002a7bf3f919c8026dc82b36a7fb0447fb4b940b8ea1a604447ac221efd8",
+    "gallery-results-mobile.json": "9aecb53fb28d769f44d2dc7fd0801dc823f8c973d52a23f491d550383dd5be18",
+    "home-desktop-full.jpg": "770025394c8f861e7ea7a108d8b759940233cc1bdad9575760b6b02db9dfd011",
+    "home-desktop.jpg": "6b88e85834a501fae0210112ad42389f5ccd312667105784d634e652cfa747c1",
+    "home-desktop.json": "9551a6a8d8d211508d7c6d92fa0888ce08ea71edeb0067b204150f723e44bb28",
+    "home-mobile-full.jpg": "180f4139ca6ff096f09a2fe85117b6651178b62ec7ade3f796e816f45d99c637",
+    "home-mobile.jpg": "634f900c62da0ec75fd7f6de79983b7190ea3824679c818bc875e56e55fef333",
+    "home-mobile.json": "e057da07c6dc7993beacf55eb88b292ab945d0025838412dd0cb1d1735a29ae6",
+    "home-services-desktop.jpg": "10e812b07ece4ef595fb4cd5f4d3d4fab7af44af7209cb25907ab28655736ca8",
+    "home-services-desktop.json": "fba47952f9797d145a21dbfa2b8154aa6cc8a482abb9d6aa6c8a7f9e3dc01523",
+    "home-services-mobile.jpg": "c65d4f7f0bbd822b266f6bae9291d70b68b72f0d1230180bd29f6ed24bb3732c",
+    "home-services-mobile.json": "961e72fb97c4896f97b11c2c694751b4c67ba18004f1222dd9b3d479029b1ef4",
+    "index.html": "eb618966cbb19b44cb83e1e9ecd3813104deabf49e6cbe85548e3676be85dd73",
+    "treatments-desktop-full.jpg": "3943cbc53e92ddf7826c3cb1697976437284003203cc1a637ec0c8b9785c041a",
+    "treatments-desktop.jpg": "3defcead42f4759c65c32228c2080e7822bb65038d535bd68492705eddafadf8",
+    "treatments-desktop.json": "14ba26b5bcf349e95ca0033a944b006a307bbeb069f5fb0d83449b8e1f565a89",
+    "treatments-mobile-full.jpg": "7648bf530353faa7203f092573277e67af385751f226c34a96ba30d7627c18ef",
+    "treatments-mobile.jpg": "c38513b55856b82749c869d13e05f36132546f67bc9fa5d044a36f66d132090f",
+    "treatments-mobile.json": "01e13e8ab92eb40077559ca0b8df84d30655d9500d5e61eeaad8bd5e5bf033dc"
+  }
+}

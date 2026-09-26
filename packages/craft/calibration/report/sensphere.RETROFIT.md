@@ -1,3 +1,8 @@
+> Historical, unvalidated draft. Phase G was reopened on 27 September 2026.
+> Do not use this checklist or its old counts to approve a client direction.
+> Recheck each finding against current desktop/mobile screenshots and asset evidence.
+> See README.md in this directory.
+
 # Retrofit: https://sensphere.co.uk/
 
 **Now:** mixed. 1 of 4 signals raised: tells.
