@@ -183,8 +183,16 @@ export function characterReport(input: CharacterInputs, copyTells: Set<string> =
   // The reason rule.
   if (input.direction) {
     const d = input.direction;
-    const raised = !d.valid || d.decided < MIN_DECIDED;
-    signals.push({ id: "reasons", raised, detail: `${d.decided} of 7 choices decided with a reason${d.valid ? "" : ", art-direction.json has errors"}` });
+    const layers = d.layers;
+    const raised = !d.valid || d.decided < MIN_DECIDED || !layers.complete;
+    const pages = layers.hierarchy.map((p) => `${p.page} ${p.decided} of ${p.total}`).join(", ");
+    const detail = [
+      `job ${layers.job ? "decided" : "not decided"}`,
+      `hierarchy ${pages || "not decided"}`,
+      `${d.decided} of 7 choices decided with a reason`,
+    ].join("; ");
+    signals.push({ id: "reasons", raised, detail: `${detail}${d.valid ? "" : ", art-direction.json has errors"}` });
+    if (!layers.job) actions.push({ area: "direction", what: "Write the job map: what the visitor is trying to get done, from reviews, enquiries and conversations. Run craft direction research for the questions.", why: "structure and look are decided from the job", priority: 1 });
     for (const p of d.problems) {
       const key = p.at.match(/^choices\.(\w+)/)?.[1] as ChoiceKey | undefined;
       if (p.severity === "error" || p.message === "not decided yet") {

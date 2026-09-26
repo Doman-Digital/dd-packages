@@ -47,7 +47,7 @@ describe("the register", () => {
     r = addSite(r, site("chair", BARBER));
     r = addSite(r, site("electrician", SALON));
     expect(r.sites.map((s) => s.id)).toEqual(["chair", "electrician"]);
-    expect(r.sites[1].fingerprint.accent?.h).toBe(155);
+    expect(r.sites[1].fingerprint?.accent?.h).toBe(155);
   });
 
   it("refuses an id that is not short kebab-case", () => {
