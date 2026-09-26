@@ -1,6 +1,6 @@
 {
   "name": "@domandigital/create-site",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "The first thing that runs on a new Doman Digital client site: installs the house packages and writes the per-site files they read (the facts file, route policy, backlink register, redirects, JSON-LD, the designer credit, house docs and the SEO checks), so every build starts on the same foundation and stays upgradeable by bumping packages.",
   "license": "Apache-2.0",

@@ -1,5 +1,12 @@
 # @domandigital/create-site
 
+## 0.3.1
+
+### Patch Changes
+
+- 8b6618b: New sites install `@domandigital/craft@^0.14.0`, the release with `specificity`, the `generic-hero-claim` and `unproven-claim` tells and `craft copy compare`.
+- 006c97d: New sites install `@domandigital/craft@^0.15.0`, matching the pending craft minor release.
+
 ## 0.3.0
 
 ### Minor Changes
