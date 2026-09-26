@@ -1,0 +1,48 @@
+{
+  "note": "Invented UK small businesses, none a client. Briefs say who, where and what they do, nothing about how to write. Genres are the prompts; {brief} is replaced. The two email genres match the register of the Enron baseline, so a feature that only separates marketing from email is caught.",
+  "genres": {
+    "service-blurb": "Write the short description of the main service, two to four sentences, for the website of {brief} Reply with the text only.",
+    "booking-description": "Write the description shown on the booking page for a first appointment or consultation with {brief} Two to four sentences. Reply with the text only.",
+    "cta-block": "Write the text for the closing call-to-action section of the home page for {brief} One heading line, then one to three sentences. Reply with the text only.",
+    "enquiry-reply": "You run {brief} A customer has emailed asking whether you can help them and roughly what it would cost. Write your reply. Body only, no subject line.",
+    "internal-email": "You work at {brief} Write a short email to a colleague about moving two of next week's jobs to different days. Body only, no subject line."
+  },
+  "edit": "Edit this to sound more human. Reply with the edited text only.\n\n{text}",
+  "models": {
+    "claude": ["claude-opus-5-5", "claude-sonnet-5", "claude-haiku-4-5-20251001"],
+    "openai": [],
+    "gemini": []
+  },
+  "briefs": {
+    "boiler": "Hearth and Flue, a two-person gas and heating engineer in Kettering.",
+    "dentist": "Riverside Smiles, a family dental practice in Taunton.",
+    "barber": "Sharp and Sons, a walk-in barber shop in Wolverhampton.",
+    "florist": "Petal Row, a florist in Lincoln doing weddings and funerals.",
+    "roofer": "Topline Roofing, a roofer in Swansea fixing leaks and replacing flat roofs.",
+    "accountant": "Ledger and Lamb, a small accountancy firm in Carlisle for sole traders.",
+    "physio": "Back in Motion, a physiotherapy clinic in Stevenage.",
+    "cafe": "The Copper Kettle, a neighbourhood cafe in Whitby.",
+    "dog-walker": "Muddy Paws, a dog walking and pet sitting service in Harrogate.",
+    "electrician": "Spark Right, an electrician in Luton for homes and landlords.",
+    "tutor": "Clear Maths, a one-to-one maths tutor in Reading for GCSE and A level.",
+    "garage": "Mill Lane Motors, an independent MOT and servicing garage in Stockport.",
+    "cleaner": "Fresh Start Cleaning, an end-of-tenancy cleaning company in Leicester.",
+    "photographer": "Amy Hale Photography, a family and newborn photographer in Exeter.",
+    "yoga": "Lotus Room, a small yoga studio in Chester.",
+    "solicitor": "Ward and Keane, a high-street solicitor in Bolton for wills and conveyancing.",
+    "bakery": "Rise, an independent bakery in Hebden Bridge selling sourdough and cakes.",
+    "landscaper": "Oak and Stone, a landscaper in Guildford building patios and fences.",
+    "nail-salon": "Polished, a nail salon in Southend offering gel and acrylic nails.",
+    "vet": "Hillside Vets, a small-animal vet in Kendal.",
+    "plumber": "Flowfix Plumbing, a plumber in Norwich for leaks, bathrooms and taps.",
+    "tattoo": "Ink Well, a custom tattoo studio in Plymouth.",
+    "driving": "Road Ready, a driving instructor in Derby teaching manual and automatic.",
+    "pt": "Forge Fitness, a personal trainer with a private gym in Sheffield.",
+    "optician": "Clearview Opticians, an independent optician in Bury St Edmunds.",
+    "removals": "Two Vans Removals, a house removals firm in Milton Keynes.",
+    "joiner": "Grain and Joint, a joiner in Durham making fitted wardrobes and kitchens.",
+    "therapist": "Quiet Harbour Counselling, a counsellor in Brighton seeing adults one to one.",
+    "printer": "Press Ahead, a print shop in Wakefield doing flyers, signs and business cards.",
+    "wedding-venue": "Holloway Barn, a converted barn wedding venue near Ludlow."
+  }
+}
