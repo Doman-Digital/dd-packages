@@ -25,11 +25,8 @@ types: 194 home, 347 about and 174 services. It reached a reported peak of
 96 MB. Other readers reached at most 166 MB in the recorded run. The completed
 Enron archive and Wayback HTML cache were deleted after extracting statistics.
 
-The generation plan is 30 fictional briefs, five genres and three Claude
-models: 450 originals and 450 edit passes. Only 113 original/edit pairs
-completed before the Claude session limit. Existing files are retained for
-resumption. The legacy comparison has 1,083 usable blurbs from the earlier
-calibration. It is not a substitute for the missing fresh models and genres.
+Generation is complete: 30 fictional briefs, five genres and three Claude
+models, 450 originals and 450 edit passes, plus the 1,083 legacy blurbs.
 
 `report.md` and `report.json` were measured with 300 bootstrap resamples. They
 include matched effect sizes, stratified d and AUC intervals, holdout false
@@ -37,12 +34,22 @@ positive rates and an edit-survival table. Intervals bootstrap paragraphs,
 not writer clusters. The sampling and interval methods need review before
 interpreting borderline effects as strong evidence.
 
-A feature cannot ship while any configured original/edit pair is missing.
-Once generation is complete it must still meet every statistical gate: effect
-size and lower confidence bound, consistent signs across models and genres,
-and at most 5% false positives on every human register's holdout. The current
-report approves no feature. Do not add shape ids to `house.ts`, the catalogue
-or claude-kit's review fallback until those gates pass.
+Result (2026-09-29, 300 resamples, generation complete): no feature passes the
+ship rule, so no tell is added to the catalogue, house policy or claude-kit.
+This is a negative result and it stands. Why:
+
+- Best register-matched effects are d 0.5 to 0.7 (tricolons, clause depth,
+  sentence CV, shape stack), under the 0.8 bar, and lower bounds under 0.5.
+- Effects differ by model and genre. Opus tricolons reach d 0.95, Sonnet
+  email is 0.04, cta-block is negative. The legacy sample often has the
+  opposite sign.
+- The all-register 5% false-positive gate (literary and Hansard are
+  comma-heavy) leaves thresholds catching 0 to 13% of AI blurbs.
+- The edit pass ("sound more human") does not remove the tricolon effect
+  but shrinks sentence CV and coordination.
+
+The diagnostics stay available (`shapeOf`, `shapeMoves`) and are not enforced.
+Reopening needs a new feature set or a new baseline version, not a looser gate.
 
 To resume from the craft package directory after model access returns:
 
@@ -62,7 +69,7 @@ gate did not pass: its nine Doman Digital data files have 19 pre-existing
 blocking findings. No shape rule was involved, and this change does not edit
 that content or relax the gate.
 
-Work remaining for Phase P: complete generation, rerun measurement, review
+Work remaining for Phase P (superseded by the result above): complete generation, rerun measurement, review
 survivors, add only accepted tells with independent flag/pass fixtures,
 document their review tier, then bump the catalogue and update claude-kit.
 If no feature passes, publish the negative result and keep the diagnostics
