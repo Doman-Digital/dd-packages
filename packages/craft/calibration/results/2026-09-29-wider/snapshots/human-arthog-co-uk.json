@@ -1,0 +1,509 @@
+{
+  "version": 2,
+  "url": "https://www.arthog.co.uk/",
+  "capturedAt": "2026-09-29T10:25:11.721Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 1428,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(244, 239, 231)",
+        "area": 2108948,
+        "chars": 0
+      },
+      {
+        "value": "rgb(234, 229, 220)",
+        "area": 442305,
+        "chars": 0
+      },
+      {
+        "value": "rgb(13, 51, 113)",
+        "area": 291308,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 159, 227)",
+        "area": 143573,
+        "chars": 0
+      },
+      {
+        "value": "rgb(53, 88, 32)",
+        "area": 132480,
+        "chars": 0
+      },
+      {
+        "value": "rgb(244, 244, 244)",
+        "area": 35054,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 22224,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 676
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 272
+      },
+      {
+        "value": "rgb(53, 88, 32)",
+        "area": 0,
+        "chars": 121
+      },
+      {
+        "value": "rgb(234, 229, 220)",
+        "area": 0,
+        "chars": 40
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Helvetica",
+      "chars": 1044,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "customFont1",
+      "chars": 39,
+      "displayChars": 39,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "customFont2",
+      "chars": 26,
+      "displayChars": 26,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "customFont1",
+      "sizePx": 34,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Learn outdoors",
+      "top": 97
+    },
+    {
+      "level": 2,
+      "family": "customFont2",
+      "sizePx": 30,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Where the adventure begins",
+      "top": 145
+    },
+    {
+      "level": 3,
+      "family": "customFont1",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Outdoor education venues:",
+      "top": 570
+    }
+  ],
+  "controls": [],
+  "sections": [
+    {
+      "top": 0,
+      "height": 229,
+      "kind": "hero",
+      "label": "Learn outdoors",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.222,
+        "mirrorSymmetry": 0.955,
+        "whitespaceRatio": 0.172,
+        "contentWidthRatio": 0.764,
+        "background": "rgb(244, 239, 231)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Learn outdoors",
+        "Where the adventure begins"
+      ]
+    },
+    {
+      "top": 229,
+      "height": 330,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(244, 239, 231)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 610,
+      "height": 247,
+      "kind": "cards",
+      "label": "Arthog Outdoor Education Centre is a purpose built residenti",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.874,
+        "whitespaceRatio": 0.514,
+        "contentWidthRatio": 0.931,
+        "background": "rgb(234, 229, 220)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Arthog Outdoor Education Centre is a purpose built residential centre within its own private grounds in a stunning location overlooking Barmouth Bay and the Mawddach estuary.",
+        "Based in Wellington we operate locally to bring the adventures to you - or with the minimum of travel take you to the adventure! Arthog Outreach has the same ethos and focus on high quality outdoor education as the residential centre in North Wales.",
+        "Have fun outdoors make route choices to set your own level of challenge and adventure way up above the ground! We've got multiple activity choices to keep you busy for hours!"
+      ]
+    },
+    {
+      "top": 878,
+      "height": 192,
+      "kind": "text",
+      "label": "Arthog Outdoor Education Services based in and around Telfor",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.895,
+        "whitespaceRatio": 0.554,
+        "contentWidthRatio": 0.75,
+        "background": "rgb(13, 51, 113)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Arthog Outdoor Education Services based in and around Telford and Wrekin and Mid Wales!",
+        "We're all about discovering the great outdoors, having fun and making memories to last a lifetime.",
+        "Adventures begin with a first step, so take yours today and get in contact!"
+      ]
+    },
+    {
+      "top": 1130,
+      "height": 294,
+      "kind": "text",
+      "label": "Outdoor education venues:",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.975,
+        "whitespaceRatio": 0.19,
+        "contentWidthRatio": 1,
+        "background": "rgb(244, 239, 231)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.188,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(161, 177, 5, 0.7)",
+          "rgba(81, 89, 3, 0.7)"
+        ],
+        "area": 139680,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://www.arthog.co.uk/site/images/compass-top.png",
+      "host": "www.arthog.co.uk",
+      "width": 1440,
+      "height": 1130,
+      "top": 0,
+      "role": "photo",
+      "alt": null,
+      "decorative": true,
+      "section": null,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 31616
+      }
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/mainhomepagebannerwales.jpg",
+      "host": "www.arthog.co.uk",
+      "width": 1440,
+      "height": 330,
+      "top": 229,
+      "role": "photo",
+      "alt": "First slide",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/Arthog-web.png",
+      "host": "www.arthog.co.uk",
+      "width": 1440,
+      "height": 194,
+      "top": 1130,
+      "role": "photo",
+      "alt": "Arthog silhouette",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 167484
+      }
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/nsew-half.png",
+      "host": "www.arthog.co.uk",
+      "width": 448,
+      "height": 248,
+      "top": 0,
+      "role": "photo",
+      "alt": "Illustration of a compass, showing North, South, East and West",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 17242
+      }
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/arthogwaleslogo.png",
+      "host": "www.arthog.co.uk",
+      "width": 259,
+      "height": 181,
+      "top": 282,
+      "role": "logo",
+      "alt": "Arthog Wales logo",
+      "decorative": false,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/twclogonew-white.png",
+      "host": "www.arthog.co.uk",
+      "width": 400,
+      "height": 90,
+      "top": 1335,
+      "role": "logo",
+      "alt": "Telford & Wrekin Council logo",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/arthog-logo.png",
+      "host": "www.arthog.co.uk",
+      "width": 187,
+      "height": 97,
+      "top": 0,
+      "role": "logo",
+      "alt": "Arthog logo",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/arthogwaleslogo.png",
+      "host": "www.arthog.co.uk",
+      "width": 150,
+      "height": 105,
+      "top": 610,
+      "role": "logo",
+      "alt": "Arthog Wales logo",
+      "decorative": false,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/arthogtelfordlogo.png",
+      "host": "www.arthog.co.uk",
+      "width": 150,
+      "height": 88,
+      "top": 610,
+      "role": "logo",
+      "alt": "Arthog Telford logo",
+      "decorative": false,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/header-trees.png",
+      "host": "www.arthog.co.uk",
+      "width": 100,
+      "height": 97,
+      "top": 0,
+      "role": "logo",
+      "alt": "Illustration of three green trees",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/Telford_Aerial_Adventures.png",
+      "host": "www.arthog.co.uk",
+      "width": 232,
+      "height": 25,
+      "top": 610,
+      "role": "logo",
+      "alt": "Telford Aerial Adventures logo",
+      "decorative": false,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/circle-left.png",
+      "host": "www.arthog.co.uk",
+      "width": 50,
+      "height": 50,
+      "top": 434,
+      "role": "icon",
+      "alt": "Illustrastion of a green circle with a white arrow pointing left",
+      "decorative": false,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://www.arthog.co.uk/site/images/circle-right.png",
+      "host": "www.arthog.co.uk",
+      "width": 50,
+      "height": 50,
+      "top": 434,
+      "role": "icon",
+      "alt": "Illustrastion of a green circle with a white arrow pointing right",
+      "decorative": false,
+      "section": null,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Learn outdoors",
+    "Where the adventure begins",
+    "Outdoor education venues:",
+    "Arthog Outdoor Education Centre is a purpose built residential centre within its own private grounds in a stunning location overlooking Barmouth Bay and the Mawddach estuary.",
+    "Based in Wellington we operate locally to bring the adventures to you - or with the minimum of travel take you to the adventure! Arthog Outreach has the same ethos and focus on high quality outdoor education as the residential centre in North Wales.",
+    "Have fun outdoors make route choices to set your own level of challenge and adventure way up above the ground! We've got multiple activity choices to keep you busy for hours!"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 5,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      16,
+      20,
+      22,
+      30,
+      34
+    ],
+    "fontWeights": [
+      400,
+      700
+    ],
+    "radii": [
+      "10px",
+      "4px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 35.3,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 16
+  },
+  "visual": {
+    "colourfulness": 87.2,
+    "edgeDensity": 0.091,
+    "symmetry": 0.905,
+    "width": 1440,
+    "height": 1428,
+    "sampled": 514080
+  }
+}

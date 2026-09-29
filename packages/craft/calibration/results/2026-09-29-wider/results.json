@@ -1,0 +1,1213 @@
+{
+  "schemaVersion": 1,
+  "labelsFile": "../../labels.json",
+  "notes": [
+    "Typicality against 140 null pages from 7 briefs, pooled."
+  ],
+  "pages": {
+    "ai-accountant": {
+      "id": "ai-accountant",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "no-real-imagery",
+        "reflex-font",
+        "reflex-font-2",
+        "stats-row"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.96,
+        "typical": true
+      }
+    },
+    "ai-bakery": {
+      "id": "ai-bakery",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "hero-eyebrow-chip",
+        "no-real-imagery",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.05,
+        "typical": false
+      }
+    },
+    "ai-bike-shop": {
+      "id": "ai-bike-shop",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "icon-tile-grid",
+        "no-real-imagery",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "reflex-font-2",
+        "stats-row",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.21,
+        "typical": true
+      }
+    },
+    "ai-cafe": {
+      "id": "ai-cafe",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "no-real-imagery",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font-2"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.09,
+        "typical": false
+      }
+    },
+    "ai-cleaner": {
+      "id": "ai-cleaner",
+      "label": "ai",
+      "tells": [
+        "hero-eyebrow-chip",
+        "no-real-imagery",
+        "pill-everything",
+        "pricing-trio-popular",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.64,
+        "typical": true
+      }
+    },
+    "ai-dentist": {
+      "id": "ai-dentist",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "pill-everything",
+        "reflex-font",
+        "reflex-font-2",
+        "stock-photo",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.19,
+        "typical": true
+      }
+    },
+    "ai-dog-groomer": {
+      "id": "ai-dog-groomer",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "icon-tile-grid",
+        "no-real-imagery",
+        "pill-everything",
+        "radial-spotlight-glow"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.06,
+        "typical": false
+      }
+    },
+    "ai-driving-school": {
+      "id": "ai-driving-school",
+      "label": "ai",
+      "tells": [
+        "hero-eyebrow-chip",
+        "italic-serif-display",
+        "no-real-imagery",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.96,
+        "typical": true
+      }
+    },
+    "ai-estate-agent": {
+      "id": "ai-estate-agent",
+      "label": "ai",
+      "tells": [
+        "reflex-font",
+        "reflex-font-2",
+        "stock-photo",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.76,
+        "typical": true
+      }
+    },
+    "ai-florist": {
+      "id": "ai-florist",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "reflex-font-2",
+        "stock-photo"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.48,
+        "typical": true
+      }
+    },
+    "ai-gym": {
+      "id": "ai-gym",
+      "label": "ai",
+      "tells": [
+        "glass-panel",
+        "hero-then-proof",
+        "pricing-trio-popular",
+        "reflex-font",
+        "stats-row",
+        "stock-photo"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.06,
+        "typical": false
+      }
+    },
+    "ai-landscaper": {
+      "id": "ai-landscaper",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "reflex-font-2",
+        "stats-row",
+        "stock-photo"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "ai-music-teacher": {
+      "id": "ai-music-teacher",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "no-real-imagery",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.49,
+        "typical": true
+      }
+    },
+    "ai-photographer": {
+      "id": "ai-photographer",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "reflex-font-2",
+        "stats-row",
+        "stock-photo"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.57,
+        "typical": true
+      }
+    },
+    "ai-physio": {
+      "id": "ai-physio",
+      "label": "ai",
+      "tells": [
+        "glass-panel",
+        "gradient-text",
+        "italic-serif-display",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "stats-row",
+        "stock-photo"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "ai-plumber": {
+      "id": "ai-plumber",
+      "label": "ai",
+      "tells": [
+        "hero-eyebrow-chip",
+        "italic-serif-display",
+        "no-real-imagery",
+        "pill-everything",
+        "reflex-font",
+        "reflex-font-2",
+        "stats-row"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.62,
+        "typical": true
+      }
+    },
+    "ai-solicitor": {
+      "id": "ai-solicitor",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "grid-background",
+        "no-real-imagery",
+        "reflex-font-2"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.09,
+        "typical": false
+      }
+    },
+    "ai-tattoo": {
+      "id": "ai-tattoo",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "stats-row",
+        "stock-photo"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.31,
+        "typical": true
+      }
+    },
+    "ai-vet": {
+      "id": "ai-vet",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "no-real-imagery",
+        "pill-everything",
+        "reflex-font-2",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.57,
+        "typical": true
+      }
+    },
+    "ai-yoga": {
+      "id": "ai-yoga",
+      "label": "ai",
+      "tells": [
+        "cream-palette",
+        "glass-panel",
+        "no-real-imagery",
+        "pill-everything",
+        "reflex-font-2"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.36,
+        "typical": true
+      }
+    },
+    "human-animations-dev": {
+      "id": "human-animations-dev",
+      "label": "human",
+      "tells": [
+        "generic-hero-claim",
+        "marquee",
+        "reflex-font",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-domandigital": {
+      "id": "human-domandigital",
+      "label": "human",
+      "tells": [
+        "icon-tile-grid",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font-2",
+        "stats-row"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-linear": {
+      "id": "human-linear",
+      "label": "human",
+      "tells": [
+        "ai-violet",
+        "grid-background",
+        "icon-tile-grid",
+        "marquee",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "thin-border-wide-shadow"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-rauno": {
+      "id": "human-rauno",
+      "label": "human",
+      "tells": [
+        "generic-hero-claim",
+        "no-real-imagery"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-stripe": {
+      "id": "human-stripe",
+      "label": "human",
+      "tells": [
+        "ai-violet",
+        "blue-purple-gradient",
+        "glass-panel",
+        "radial-spotlight-glow",
+        "stats-row"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-utopia": {
+      "id": "human-utopia",
+      "label": "human",
+      "tells": [
+        "hero-then-proof",
+        "no-real-imagery",
+        "pill-everything"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "ai-looking-wiredge": {
+      "id": "ai-looking-wiredge",
+      "label": "ai-looking",
+      "tells": [
+        "generic-hero-claim",
+        "glass-panel",
+        "intro-cinematic",
+        "marquee",
+        "pill-everything"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-gov-uk": {
+      "id": "human-gov-uk",
+      "label": "human",
+      "tells": [
+        "hero-then-proof",
+        "icon-tile-grid",
+        "no-real-imagery"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-theguardian-com-uk": {
+      "id": "human-theguardian-com-uk",
+      "label": "human",
+      "tells": [
+        "glass-panel",
+        "grid-background",
+        "pill-everything"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-monzo-com": {
+      "id": "human-monzo-com",
+      "label": "human",
+      "tells": [
+        "icon-tile-grid",
+        "pill-everything"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-wise-com-gb": {
+      "id": "human-wise-com-gb",
+      "label": "human",
+      "tells": [
+        "grid-background",
+        "icon-tile-grid",
+        "pill-everything",
+        "reflex-font"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-notion-com": {
+      "id": "human-notion-com",
+      "label": "human",
+      "tells": [
+        "icon-tile-grid",
+        "marquee"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-figma-com": {
+      "id": "human-figma-com",
+      "label": "human",
+      "tells": [
+        "generic-hero-claim",
+        "hero-then-proof",
+        "no-real-imagery"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-github-com": {
+      "id": "human-github-com",
+      "label": "human",
+      "tells": [
+        "blue-purple-gradient",
+        "glass-panel",
+        "icon-tile-grid",
+        "intro-cinematic",
+        "marquee",
+        "radial-spotlight-glow",
+        "reveal-everywhere",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-mozilla-org-en-gb": {
+      "id": "human-mozilla-org-en-gb",
+      "label": "human",
+      "tells": [],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-apple-com-uk": {
+      "id": "human-apple-com-uk",
+      "label": "human",
+      "tells": [
+        "hero-eyebrow-chip",
+        "pill-everything",
+        "radial-spotlight-glow"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-basecamp-com": {
+      "id": "human-basecamp-com",
+      "label": "human",
+      "tells": [
+        "no-real-imagery",
+        "stats-row",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-en-wikipedia-org-wiki-main-page": {
+      "id": "human-en-wikipedia-org-wiki-main-page",
+      "label": "human",
+      "tells": [
+        "icon-tile-grid"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-paulgraham-com": {
+      "id": "human-paulgraham-com",
+      "label": "human",
+      "tells": [],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-nhs-uk": {
+      "id": "human-nhs-uk",
+      "label": "human",
+      "tells": [],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-bbc-co-uk": {
+      "id": "human-bbc-co-uk",
+      "label": "human",
+      "tells": [
+        "generic-hero-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-ikea-com-gb-en": {
+      "id": "human-ikea-com-gb-en",
+      "label": "human",
+      "tells": [],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-pentagram-com": {
+      "id": "human-pentagram-com",
+      "label": "human",
+      "tells": [
+        "glass-panel"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-tailwindcss-com": {
+      "id": "human-tailwindcss-com",
+      "label": "human",
+      "tells": [
+        "grid-background",
+        "reflex-font"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-astro-build": {
+      "id": "human-astro-build",
+      "label": "human",
+      "tells": [
+        "blue-purple-gradient",
+        "generic-hero-claim",
+        "gradient-text",
+        "hero-eyebrow-chip",
+        "icon-tile-grid",
+        "marquee",
+        "pill-everything"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-bannerjones-co-uk": {
+      "id": "human-bannerjones-co-uk",
+      "label": "human",
+      "tells": [
+        "stock-photo",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-arthog-co-uk": {
+      "id": "human-arthog-co-uk",
+      "label": "human",
+      "tells": [
+        "cream-palette"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-cheshireturfandtopsoil-co-uk": {
+      "id": "human-cheshireturfandtopsoil-co-uk",
+      "label": "human",
+      "tells": [
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-cristinicarpets-co-uk": {
+      "id": "human-cristinicarpets-co-uk",
+      "label": "human",
+      "tells": [
+        "glass-panel",
+        "icon-tile-grid",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-jtrecruit-co-uk": {
+      "id": "human-jtrecruit-co-uk",
+      "label": "human",
+      "tells": [],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-kent-teach-com": {
+      "id": "human-kent-teach-com",
+      "label": "human",
+      "tells": [
+        "generic-hero-claim",
+        "marquee",
+        "stats-row",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-bhmh-org-uk": {
+      "id": "human-bhmh-org-uk",
+      "label": "human",
+      "tells": [
+        "gradient-text"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-greenbankgroup-com": {
+      "id": "human-greenbankgroup-com",
+      "label": "human",
+      "tells": [],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-grenadier-co-uk": {
+      "id": "human-grenadier-co-uk",
+      "label": "human",
+      "tells": [
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-instant-landscapes-co-uk": {
+      "id": "human-instant-landscapes-co-uk",
+      "label": "human",
+      "tells": [
+        "centred-everything",
+        "intro-cinematic"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0,
+        "typical": false
+      }
+    },
+    "human-gardner-leader-co-uk": {
+      "id": "human-gardner-leader-co-uk",
+      "label": "human",
+      "tells": [
+        "stock-photo",
+        "unproven-claim"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    },
+    "human-cotswoldfarm-co-uk": {
+      "id": "human-cotswoldfarm-co-uk",
+      "label": "human",
+      "tells": [
+        "faq-accordion-closer",
+        "reflex-font"
+      ],
+      "blocking": 0,
+      "typicality": {
+        "score": 0.01,
+        "typical": false
+      }
+    }
+  },
+  "typicality": true,
+  "labels": [
+    {
+      "label": "ai",
+      "pages": 20,
+      "flagged": 20,
+      "typical": 13,
+      "tellHeavy": 20,
+      "blocking": 0
+    },
+    {
+      "label": "ai-looking",
+      "pages": 1,
+      "flagged": 1,
+      "typical": 0,
+      "tellHeavy": 1,
+      "blocking": 0
+    },
+    {
+      "label": "human",
+      "pages": 36,
+      "flagged": 14,
+      "typical": 0,
+      "tellHeavy": 14,
+      "blocking": 0
+    }
+  ],
+  "tells": [
+    {
+      "tell": "pill-everything",
+      "hits": {
+        "ai": 10,
+        "ai-looking": 1,
+        "human": 7
+      },
+      "precision": 0.61,
+      "recall": 0.52
+    },
+    {
+      "tell": "no-real-imagery",
+      "hits": {
+        "ai": 12,
+        "ai-looking": 0,
+        "human": 5
+      },
+      "precision": 0.71,
+      "recall": 0.57
+    },
+    {
+      "tell": "glass-panel",
+      "hits": {
+        "ai": 10,
+        "ai-looking": 1,
+        "human": 5
+      },
+      "precision": 0.69,
+      "recall": 0.52
+    },
+    {
+      "tell": "reflex-font",
+      "hits": {
+        "ai": 11,
+        "ai-looking": 0,
+        "human": 5
+      },
+      "precision": 0.69,
+      "recall": 0.52
+    },
+    {
+      "tell": "cream-palette",
+      "hits": {
+        "ai": 14,
+        "ai-looking": 0,
+        "human": 1
+      },
+      "precision": 0.93,
+      "recall": 0.67
+    },
+    {
+      "tell": "reflex-font-2",
+      "hits": {
+        "ai": 14,
+        "ai-looking": 0,
+        "human": 1
+      },
+      "precision": 0.93,
+      "recall": 0.67
+    },
+    {
+      "tell": "unproven-claim",
+      "hits": {
+        "ai": 5,
+        "ai-looking": 0,
+        "human": 9
+      },
+      "precision": 0.36,
+      "recall": 0.24
+    },
+    {
+      "tell": "icon-tile-grid",
+      "hits": {
+        "ai": 2,
+        "ai-looking": 0,
+        "human": 10
+      },
+      "precision": 0.17,
+      "recall": 0.1
+    },
+    {
+      "tell": "radial-spotlight-glow",
+      "hits": {
+        "ai": 7,
+        "ai-looking": 0,
+        "human": 5
+      },
+      "precision": 0.58,
+      "recall": 0.33
+    },
+    {
+      "tell": "stats-row",
+      "hits": {
+        "ai": 8,
+        "ai-looking": 0,
+        "human": 4
+      },
+      "precision": 0.67,
+      "recall": 0.38
+    },
+    {
+      "tell": "stock-photo",
+      "hits": {
+        "ai": 8,
+        "ai-looking": 0,
+        "human": 2
+      },
+      "precision": 0.8,
+      "recall": 0.38
+    },
+    {
+      "tell": "generic-hero-claim",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 1,
+        "human": 6
+      },
+      "precision": 0.14,
+      "recall": 0.05
+    },
+    {
+      "tell": "marquee",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 1,
+        "human": 6
+      },
+      "precision": 0.14,
+      "recall": 0.05
+    },
+    {
+      "tell": "hero-eyebrow-chip",
+      "hits": {
+        "ai": 4,
+        "ai-looking": 0,
+        "human": 2
+      },
+      "precision": 0.67,
+      "recall": 0.19
+    },
+    {
+      "tell": "grid-background",
+      "hits": {
+        "ai": 1,
+        "ai-looking": 0,
+        "human": 4
+      },
+      "precision": 0.2,
+      "recall": 0.05
+    },
+    {
+      "tell": "hero-then-proof",
+      "hits": {
+        "ai": 1,
+        "ai-looking": 0,
+        "human": 3
+      },
+      "precision": 0.25,
+      "recall": 0.05
+    },
+    {
+      "tell": "blue-purple-gradient",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 0,
+        "human": 3
+      },
+      "precision": 0,
+      "recall": 0
+    },
+    {
+      "tell": "gradient-text",
+      "hits": {
+        "ai": 1,
+        "ai-looking": 0,
+        "human": 2
+      },
+      "precision": 0.33,
+      "recall": 0.05
+    },
+    {
+      "tell": "intro-cinematic",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 1,
+        "human": 2
+      },
+      "precision": 0.33,
+      "recall": 0.05
+    },
+    {
+      "tell": "italic-serif-display",
+      "hits": {
+        "ai": 3,
+        "ai-looking": 0,
+        "human": 0
+      },
+      "precision": 1,
+      "recall": 0.14
+    },
+    {
+      "tell": "ai-violet",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 0,
+        "human": 2
+      },
+      "precision": 0,
+      "recall": 0
+    },
+    {
+      "tell": "pricing-trio-popular",
+      "hits": {
+        "ai": 2,
+        "ai-looking": 0,
+        "human": 0
+      },
+      "precision": 1,
+      "recall": 0.1
+    },
+    {
+      "tell": "centred-everything",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 0,
+        "human": 1
+      },
+      "precision": 0,
+      "recall": 0
+    },
+    {
+      "tell": "faq-accordion-closer",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 0,
+        "human": 1
+      },
+      "precision": 0,
+      "recall": 0
+    },
+    {
+      "tell": "reveal-everywhere",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 0,
+        "human": 1
+      },
+      "precision": 0,
+      "recall": 0
+    },
+    {
+      "tell": "thin-border-wide-shadow",
+      "hits": {
+        "ai": 0,
+        "ai-looking": 0,
+        "human": 1
+      },
+      "precision": 0,
+      "recall": 0
+    }
+  ],
+  "silent": [
+    "shadcn-dump",
+    "shadcn-card-stock",
+    "icon-tile-stack",
+    "bento-grid",
+    "ai-vocabulary",
+    "stock-phrase",
+    "ai-phrase",
+    "plainer-word",
+    "plain-english",
+    "buzzword",
+    "negative-reassurance",
+    "vague-word",
+    "review-phrase",
+    "hollow-imperative",
+    "rhetorical-opener",
+    "em-dash",
+    "emoji",
+    "not-just-but",
+    "no-x-no-y",
+    "no-x-badge",
+    "staccato-triplet",
+    "where-x-meets-y",
+    "chatbot-residue",
+    "prompt-context",
+    "placeholder",
+    "question-reveal",
+    "inline-label-list",
+    "ing-tail",
+    "vague-attribution",
+    "closing-summary",
+    "false-range",
+    "phrase-density",
+    "aphorism-density",
+    "contraction-scarcity",
+    "sentence-rhythm",
+    "repeated-sentence",
+    "heading-shape",
+    "heading-echo",
+    "cta-band-stock",
+    "testimonial-avatar-carousel",
+    "stock-avatar",
+    "ai-image"
+  ],
+  "targets": [
+    {
+      "target": "1. Generated pages get caught",
+      "met": true,
+      "detail": "20 of 20 (100%) flagged, target 90% or more"
+    },
+    {
+      "target": "2. Good human sites don't get caught",
+      "met": true,
+      "detail": "0 block hits, target 0; 0 of 36 (0%) typical, target 10% or fewer; 5 not measured, counted neither way"
+    },
+    {
+      "target": "3. Sites a person labelled AI-looking get caught",
+      "met": true,
+      "detail": "1 of 1 (100%) flagged, target 90% or more"
+    }
+  ],
+  "unmeasured": [
+    {
+      "id": "human-candy-aesthetics",
+      "label": "human",
+      "reason": "a preview gate on 2026-09-23, not the site"
+    },
+    {
+      "id": "human-starr-luxury",
+      "label": "human",
+      "reason": "a preview gate on 2026-09-23, not the site"
+    },
+    {
+      "id": "human-apca",
+      "label": "human",
+      "reason": "would not render: page.goto: net::ERR_ADDRESS_UNREACHABLE at https://www.myndex.com/APCA/\nCall log:\n\u001b[2m  - navigating to \"https://www.myndex.com/APCA/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "id": "human-screwfix-com",
+      "label": "human",
+      "reason": "would not render: HTTP 403"
+    },
+    {
+      "id": "human-mubi-com",
+      "label": "human",
+      "reason": "would not render: HTTP 503"
+    }
+  ]
+}

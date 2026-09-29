@@ -1,0 +1,755 @@
+{
+  "version": 2,
+  "url": "file:///home/dimz/dd-packages/packages/craft/calibration/ai-set/bike-shop/pages/01.html",
+  "capturedAt": "2026-09-29T10:19:22.034Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4697,
+  "ground": "rgb(246, 242, 234)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(246, 242, 234)",
+        "area": 1771785,
+        "chars": 0
+      },
+      {
+        "value": "rgb(239, 232, 216)",
+        "area": 1758735,
+        "chars": 0
+      },
+      {
+        "value": "rgb(28, 35, 33)",
+        "area": 787107,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 547022,
+        "chars": 0
+      },
+      {
+        "value": "rgb(74, 93, 69)",
+        "area": 503236,
+        "chars": 0
+      },
+      {
+        "value": "rgb(179, 80, 43)",
+        "area": 21738,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(74, 74, 74)",
+        "area": 0,
+        "chars": 1216
+      },
+      {
+        "value": "rgb(28, 35, 33)",
+        "area": 0,
+        "chars": 574
+      },
+      {
+        "value": "rgb(60, 68, 63)",
+        "area": 0,
+        "chars": 555
+      },
+      {
+        "value": "rgb(51, 51, 51)",
+        "area": 0,
+        "chars": 338
+      },
+      {
+        "value": "rgb(217, 208, 191)",
+        "area": 0,
+        "chars": 168
+      },
+      {
+        "value": "rgb(228, 232, 222)",
+        "area": 0,
+        "chars": 99
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 95
+      },
+      {
+        "value": "rgb(74, 93, 69)",
+        "area": 0,
+        "chars": 95
+      },
+      {
+        "value": "rgb(154, 161, 151)",
+        "area": 0,
+        "chars": 81
+      },
+      {
+        "value": "rgb(85, 85, 85)",
+        "area": 0,
+        "chars": 80
+      },
+      {
+        "value": "rgb(179, 80, 43)",
+        "area": 0,
+        "chars": 66
+      },
+      {
+        "value": "rgb(102, 102, 102)",
+        "area": 0,
+        "chars": 23
+      },
+      {
+        "value": "rgb(239, 232, 216)",
+        "area": 0,
+        "chars": 23
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3007,
+      "displayChars": 0,
+      "italicChars": 338,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 406,
+      "displayChars": 333,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 53,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bikes fixed properly. Bikes sold honestly.",
+      "top": 329
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Repairs & servicing",
+      "top": 925
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Puncture repair",
+      "top": 1170
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Full service",
+      "top": 1170
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Wheel building & truing",
+      "top": 1170
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "E-bike diagnostics",
+      "top": 1449
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Full rebuild",
+      "top": 1449
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fit & upgrade",
+      "top": 1449
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bikes for sale",
+      "top": 1759
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Thornbury City Hybrid",
+      "top": 2184
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Merrifield Audax",
+      "top": 2184
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dawson Trail 3-Speed",
+      "top": 2184
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Run by mechanics, not a franchise",
+      "top": 2534
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What Oxford says",
+      "top": 3043
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to get your bike sorted?",
+      "top": 3583
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Visit the shop",
+      "top": 3954
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Spoke and Chain",
+      "top": 4040
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 43,
+      "background": "rgb(179, 80, 43)",
+      "text": "Book a repair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(179, 80, 43)",
+      "text": "Book a repair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Browse bikes"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 42,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Enquire"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 42,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Enquire"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 42,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Enquire"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(179, 80, 43)",
+      "text": "Book a repair"
+    }
+  ],
+  "sections": [
+    {
+      "top": 26,
+      "height": 193,
+      "kind": "hero",
+      "label": "Spoke and Chain Repairs Bikes About Reviews Visit Book a rep",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.907,
+        "whitespaceRatio": 0.933,
+        "contentWidthRatio": 0.744,
+        "background": "rgb(246, 242, 234)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Repairs",
+        "Bikes",
+        "About",
+        "Reviews",
+        "Visit"
+      ]
+    },
+    {
+      "top": 219,
+      "height": 523,
+      "kind": "hero",
+      "label": "Bikes fixed properly. Bikes sold honestly.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.988,
+        "whitespaceRatio": 0.62,
+        "contentWidthRatio": 0.757,
+        "background": "rgb(246, 242, 234)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Bikes fixed properly. Bikes sold honestly.",
+        "Spoke and Chain has been keeping Oxford moving since 2011 — from same-day punctures to full rebuilds, plus a hand-picked range of new and reconditioned bikes for every kind of rider.",
+        "Cowley Road, Oxford"
+      ]
+    },
+    {
+      "top": 741,
+      "height": 112,
+      "kind": "stats",
+      "label": "13+years on Cowley Road 4.9/5average rating Same-daypuncture",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "stats",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.985,
+        "whitespaceRatio": 0.606,
+        "contentWidthRatio": 0.983,
+        "background": "rgb(246, 242, 234)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "years on Cowley Road",
+        "punctures & quick fixes",
+        "bikes rebuilt each year"
+      ]
+    },
+    {
+      "top": 853,
+      "height": 834,
+      "kind": "cards",
+      "label": "Repairs & servicing",
+      "cards": 6,
+      "iconCards": 6,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.3,
+        "mirrorSymmetry": 0.996,
+        "whitespaceRatio": 0.8,
+        "contentWidthRatio": 0.738,
+        "background": "rgb(246, 242, 234)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Repairs & servicing",
+        "From a wobbly wheel to a full strip-down, our mechanics work on every make and model — road, gravel, hybrid, e-bike, and cargo.",
+        "Puncture repair",
+        "While-you-wait tube and tyre fixes. No appointment needed for most punctures.",
+        "Full service",
+        "Gears, brakes, headset and bottom bracket checked, adjusted and lubricated. Includes safety check.",
+        "Wheel building & truing",
+        "Hand-built wheels to order, plus truing and spoke replacement for wheels that have seen better days.",
+        "E-bike diagnostics",
+        "Battery, motor and display checks for all major e-bike systems, with genuine replacement parts.",
+        "Full rebuild",
+        "Frame stripped, cleaned and reassembled with new cables, bearings and finishing kit as needed.",
+        "Fit & upgrade",
+        "Saddle height, reach and cleat set-up, plus advice and fitting for new components and racks."
+      ]
+    },
+    {
+      "top": 1687,
+      "height": 738,
+      "kind": "cards",
+      "label": "Bikes for sale",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.235,
+        "mirrorSymmetry": 0.995,
+        "whitespaceRatio": 0.768,
+        "contentWidthRatio": 0.749,
+        "background": "rgb(239, 232, 216)",
+        "controls": 3
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Bikes for sale",
+        "New models from trusted brands, plus fully reconditioned second-hand bikes — every one safety-checked and covered by our workshop guarantee.",
+        "Thornbury City Hybrid",
+        "Lightweight aluminium frame, hub gears and mudguards fitted — built for Oxford's cobbles and cycle lanes.",
+        "Merrifield Audax",
+        "Steel-framed endurance road bike with disc brakes and a relaxed geometry for long rides out to the Cotswolds.",
+        "Dawson Trail 3-Speed",
+        "A well-loved bike fully rebuilt in our workshop: new tyres, cables and bearings, ready to ride away today.",
+        "New · Commuter",
+        "New · Road",
+        "Reconditioned · Hybrid"
+      ]
+    },
+    {
+      "top": 2425,
+      "height": 546,
+      "kind": "text",
+      "label": "Run by mechanics, not a franchise",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.921,
+        "whitespaceRatio": 0.638,
+        "contentWidthRatio": 0.732,
+        "background": "rgb(246, 242, 234)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Run by mechanics, not a franchise",
+        "Spoke and Chain opened on Cowley Road in 2011 with two workstands and a lot of borrowed tools. Today it's a five-strong team of qualified mechanics who still do every repair by hand, on-site, in full view of the shop floor.",
+        "We stock parts for common repairs so most jobs are done same-day, and we're proud to be one of the few shops in Oxford still building wheels in-house.",
+        "Cytech-qualified mechanics",
+        "90-day guarantee on all repairs",
+        "Free bike health check with every service"
+      ]
+    },
+    {
+      "top": 2971,
+      "height": 483,
+      "kind": "cards",
+      "label": "What Oxford says",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.385,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.762,
+        "contentWidthRatio": 0.74,
+        "background": "rgb(239, 232, 216)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What Oxford says",
+        "\"Got a puncture on the way to a lecture and they had me back on the road in fifteen minutes. Fair price, no upselling.\"",
+        "\"Bought a reconditioned hybrid here two years ago and it's still going strong. They clearly know what they're doing.\"",
+        "\"They rebuilt my old e-bike battery pack when the manufacturer had written it off. Saved me hundreds.\""
+      ]
+    },
+    {
+      "top": 3455,
+      "height": 427,
+      "kind": "text",
+      "label": "Ready to get your bike sorted?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.898,
+        "contentWidthRatio": 0.733,
+        "background": "rgb(246, 242, 234)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready to get your bike sorted?",
+        "Drop it in, call ahead, or book online — most repairs are done the same day you bring your bike in."
+      ]
+    },
+    {
+      "top": 3882,
+      "height": 490,
+      "kind": "text",
+      "label": "Visit the shop",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.303,
+        "whitespaceRatio": 0.816,
+        "contentWidthRatio": 0.65,
+        "background": "rgb(246, 242, 234)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Visit the shop",
+        "Spoke and Chain",
+        "142 Cowley Road, Oxford, OX4 1JE01865 555 214 · hello@spokeandchain.co.uk",
+        "Monday – Friday",
+        "9:00 – 18:00",
+        "Saturday",
+        "9:00 – 17:00",
+        "Sunday",
+        "Closed",
+        "142 Cowley Road, Oxford"
+      ]
+    },
+    {
+      "top": 4372,
+      "height": 299,
+      "kind": "cards",
+      "label": "Spoke and Chain Independent bike repair and sales on Cowley ",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.939,
+        "whitespaceRatio": 0.822,
+        "contentWidthRatio": 0.778,
+        "background": "rgb(28, 35, 33)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.456,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(179, 80, 43, 0.12)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 753008,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(217, 208, 191)",
+          "rgb(239, 232, 216)"
+        ],
+        "area": 78911,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(217, 208, 191)",
+          "rgb(239, 232, 216)"
+        ],
+        "area": 78911,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(217, 208, 191)",
+          "rgb(239, 232, 216)"
+        ],
+        "area": 78914,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "Bikes fixed properly. Bikes sold honestly.",
+    "Spoke and Chain has been keeping Oxford moving since 2011 — from same-day punctures to full rebuilds, plus a hand-picked range of new and reconditioned bikes for every kind of rider.",
+    "Cowley Road, Oxford",
+    "years on Cowley Road",
+    "punctures & quick fixes",
+    "bikes rebuilt each year"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      24,
+      26,
+      37,
+      53
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "14px",
+      "16px",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 69.8,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 15.2,
+    "edgeDensity": 0.06,
+    "symmetry": 0.877,
+    "width": 1440,
+    "height": 4697,
+    "sampled": 751680
+  }
+}

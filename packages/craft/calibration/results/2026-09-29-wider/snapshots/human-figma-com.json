@@ -1,0 +1,1425 @@
+{
+  "version": 2,
+  "url": "https://www.figma.com/",
+  "capturedAt": "2026-09-29T10:23:16.638Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 8973,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 24243751,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 2066991,
+        "chars": 0
+      },
+      {
+        "value": "oklch(0 0 none / 0)",
+        "area": 9643,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.24)",
+        "area": 5184,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.16)",
+        "area": 3621,
+        "chars": 0
+      },
+      {
+        "value": "oklch(0 0 none / 0.04)",
+        "area": 1296,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 1084
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 1031
+      },
+      {
+        "value": "oklch(0 0 none / 0.54)",
+        "area": 0,
+        "chars": 569
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.6)",
+        "area": 0,
+        "chars": 37
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "figmaSans",
+      "chars": 2670,
+      "displayChars": 1088,
+      "italicChars": 0,
+      "weights": [
+        320,
+        330,
+        400
+      ]
+    },
+    {
+      "family": "figmaMono",
+      "chars": 51,
+      "displayChars": 37,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "figmaSans",
+      "sizePx": 56,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "The full-stack creative canvas",
+      "top": 424
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 30,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "One workspace for your entire product development process.",
+      "top": 1050
+    },
+    {
+      "level": 3,
+      "family": "figmaSans",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design anything you can imagine",
+      "top": 1838
+    },
+    {
+      "level": 3,
+      "family": "figmaSans",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build with intention",
+      "top": 1838
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 30,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Move fast in the right direction on an AI-native canvas.",
+      "top": 2115
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 30,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Powerfully expressive. Incredibly precise.",
+      "top": 3204
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 30,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Start with design context. Build with consistency.",
+      "top": 4813
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "The products you love are designed in Figma",
+      "top": 5895
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ideas no longer have to wait their turn",
+      "top": 6586
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Explore what you can do in Figma.",
+      "top": 6955
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "UI kits",
+      "top": 7668
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Websites",
+      "top": 7504
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Social media",
+      "top": 7668
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Mobile apps",
+      "top": 7504
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Presentations",
+      "top": 7389
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Wireframes",
+      "top": 7504
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Illustrations",
+      "top": 7389
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Portfolios",
+      "top": 7504
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Web ads",
+      "top": 7668
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Icons",
+      "top": 7504
+    },
+    {
+      "level": 2,
+      "family": "figmaSans",
+      "sizePx": 18,
+      "weight": 330,
+      "italic": false,
+      "italicPart": false,
+      "text": "Figma Socials",
+      "top": 7976
+    },
+    {
+      "level": 2,
+      "family": "figmaMono",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Product",
+      "top": 7893
+    },
+    {
+      "level": 2,
+      "family": "figmaMono",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Plans",
+      "top": 8525
+    },
+    {
+      "level": 2,
+      "family": "figmaMono",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Use cases",
+      "top": 7893
+    },
+    {
+      "level": 2,
+      "family": "figmaMono",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Resources",
+      "top": 7893
+    },
+    {
+      "level": 2,
+      "family": "figmaMono",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Company",
+      "top": 7893
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 25,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Cookies settings"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 46,
+      "background": "rgb(255, 255, 255)",
+      "text": "Allow all cookies"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 46,
+      "background": "rgb(255, 255, 255)",
+      "text": "Do not allow cookies"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 39,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Products"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 39,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Solutions"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 39,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Community"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 39,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Resources"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 46,
+      "background": "oklch(0 0 none / 0)",
+      "text": "Contact sales"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 46,
+      "background": "rgb(0, 0, 0)",
+      "text": "Get started for free"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 16,
+      "heightPx": 84,
+      "background": "rgb(0, 0, 0)",
+      "text": "Get started"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 39,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "English"
+    }
+  ],
+  "sections": [
+    {
+      "top": 78,
+      "height": 860,
+      "kind": "hero",
+      "label": "The full-stack creative canvas",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.5,
+        "mirrorSymmetry": 0.278,
+        "whitespaceRatio": 0.948,
+        "contentWidthRatio": 0.898,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The full-stack creative canvas"
+      ]
+    },
+    {
+      "top": 938,
+      "height": 1065,
+      "kind": "logos",
+      "label": "One workspace for your entire product development process.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0.125,
+        "mirrorSymmetry": 0.938,
+        "whitespaceRatio": 0.934,
+        "contentWidthRatio": 0.769,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "One workspace for your entire product development process.",
+        "Made so your whole team can go from WIP to ship, together.",
+        "Design anything you can imagine Turn your ideas into apps, websites, and products.Explore design tools",
+        "Build with intention Dev tools that take you all the way to production.Explore build tools"
+      ]
+    },
+    {
+      "top": 2003,
+      "height": 1089,
+      "kind": "text",
+      "label": "Move fast in the right direction on an AI-native canvas.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.968,
+        "whitespaceRatio": 0.941,
+        "contentWidthRatio": 0.626,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Move fast in the right direction on an AI-native canvas.",
+        "Teammates and AI agents work in the same space with shared context. Generate new design directions, refine, and align—together."
+      ]
+    },
+    {
+      "top": 3092,
+      "height": 1609,
+      "kind": "logos",
+      "label": "Powerfully expressive. Incredibly precise.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.652,
+        "whitespaceRatio": 0.584,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Powerfully expressive. Incredibly precise.",
+        "Every technical tool you need to dial in the details."
+      ]
+    },
+    {
+      "top": 4701,
+      "height": 1113,
+      "kind": "text",
+      "label": "Start with design context. Build with consistency.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.667,
+        "mirrorSymmetry": 0.964,
+        "whitespaceRatio": 0.939,
+        "contentWidthRatio": 0.785,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Start with design context. Build with consistency.",
+        "Your context, codebase, and agents stay connected so what you design is what gets shipped."
+      ]
+    },
+    {
+      "top": 5815,
+      "height": 660,
+      "kind": "logos",
+      "label": "The products you love are designed in Figma",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.797,
+        "whitespaceRatio": 0.49,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 1,
+      "carousel": false,
+      "figures": 2,
+      "text": [
+        "The products you love are designed in Figma",
+        "Everyone is able to influence, inspire, and give input without ever leaving the design file. That creates a really transparent, open, and honest process throughout the whole project.",
+        "Francisco SeizSenior Design Director, Code and Theory",
+        "95%45%95% of the Fortune 500 uses Figma",
+        "Based on data from March 2025."
+      ]
+    },
+    {
+      "top": 6474,
+      "height": 400,
+      "kind": "text",
+      "label": "Ideas no longer have to wait their turn",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.896,
+        "contentWidthRatio": 0.626,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ideas no longer have to wait their turn"
+      ]
+    },
+    {
+      "top": 6875,
+      "height": 898,
+      "kind": "logos",
+      "label": "Explore what you can do in Figma.",
+      "cards": 9,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0.04,
+        "mirrorSymmetry": 0.708,
+        "whitespaceRatio": 0.018,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Explore what you can do in Figma.",
+        "Browse resources made by the community."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.347,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAIAAACjcK",
+      "host": null,
+      "width": 328,
+      "height": 492,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Components for chips, cards, tiles, and checkboxes",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAIAAACjcK",
+      "host": null,
+      "width": 328,
+      "height": 492,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Social media graphic promoting brunch at a coffee shop",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAIAAACjcK",
+      "host": null,
+      "width": 328,
+      "height": 492,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Ad for a sale",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAIAAAC+dZ",
+      "host": null,
+      "width": 348,
+      "height": 435,
+      "top": 3767,
+      "role": "logo",
+      "alt": "UI showing different brush stokes that can be applied to type",
+      "decorative": false,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAIAAAC+dZ",
+      "host": null,
+      "width": 348,
+      "height": 435,
+      "top": 3767,
+      "role": "logo",
+      "alt": "A cursor vector editing a design",
+      "decorative": false,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAIAAAC+dZ",
+      "host": null,
+      "width": 348,
+      "height": 435,
+      "top": 3767,
+      "role": "logo",
+      "alt": "Type on a path shown in purple and teal against a pink background",
+      "decorative": false,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAIAAAC+dZ",
+      "host": null,
+      "width": 348,
+      "height": 435,
+      "top": 4218,
+      "role": "logo",
+      "alt": "A prompt node and a pre-selected image node connect to create the visual output of a butterfly on the Figma Weave interface",
+      "decorative": false,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw",
+      "host": null,
+      "width": 348,
+      "height": 435,
+      "top": 4218,
+      "role": "logo",
+      "alt": "UI over a butterfly bitmap mosaic with optionality to change the spacing and establish minimum and maximum sizes",
+      "decorative": false,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/b82592e52a6cc84b26ac68a8fd0fd5f2d05e0a34-656x816.png?q=75&fit=max&auto=format&dpr=2",
+      "host": "cdn.sanity.io",
+      "width": 348,
+      "height": 433,
+      "top": 3316,
+      "role": "logo",
+      "alt": "A mock website showing Texture values",
+      "decorative": false,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64",
+      "host": null,
+      "width": 328,
+      "height": 328,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Laptop displaying a camping website",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64",
+      "host": null,
+      "width": 328,
+      "height": 328,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Running mobile app displaying a map",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR",
+      "host": null,
+      "width": 328,
+      "height": 328,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Wireframe of a website",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64",
+      "host": null,
+      "width": 328,
+      "height": 328,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Personal portfolio website pulled up on an ipad",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/0d876c21c66527fa11544614dae3e6f69f3b6919-984x984.png?q=75&fit=max&auto=format&dpr=2",
+      "host": "cdn.sanity.io",
+      "width": 328,
+      "height": 328,
+      "top": 7160,
+      "role": "logo",
+      "alt": "sixteen icon variations in purple and pink",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMt",
+      "host": null,
+      "width": 328,
+      "height": 213,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Brand Vision presentation template",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMt",
+      "host": null,
+      "width": 328,
+      "height": 213,
+      "top": 7160,
+      "role": "logo",
+      "alt": "Butterfly illustration",
+      "decorative": false,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6a3dc606d7d09fc8e5c6750e614571151be3700d-380x56.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 217,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "mercado libre logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6a3dc606d7d09fc8e5c6750e614571151be3700d-380x56.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 217,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "mercado libre logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6a3dc606d7d09fc8e5c6750e614571151be3700d-380x56.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 217,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "mercado libre logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6a3dc606d7d09fc8e5c6750e614571151be3700d-380x56.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 217,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "mercado libre logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/41d8568f985d041ccbcb64865c56c5d04dacbe77-180x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 180,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "the new york times logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/41d8568f985d041ccbcb64865c56c5d04dacbe77-180x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 180,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "the new york times logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/41d8568f985d041ccbcb64865c56c5d04dacbe77-180x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 180,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "the new york times logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/41d8568f985d041ccbcb64865c56c5d04dacbe77-180x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 180,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "the new york times logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/855afc6ef4bb9d8394d6e431355190296391803d-155x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 155,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "atlassian logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/855afc6ef4bb9d8394d6e431355190296391803d-155x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 155,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "atlassian logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/855afc6ef4bb9d8394d6e431355190296391803d-155x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 155,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "atlassian logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/855afc6ef4bb9d8394d6e431355190296391803d-155x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 155,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "atlassian logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/86f3e1fdd939b2b55742aeb050901033ac11df68-130x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 130,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "pentagram logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/86f3e1fdd939b2b55742aeb050901033ac11df68-130x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 130,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "pentagram logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/86f3e1fdd939b2b55742aeb050901033ac11df68-130x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 130,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "pentagram logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/86f3e1fdd939b2b55742aeb050901033ac11df68-130x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 130,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "pentagram logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/b294234a9bfdd4a158e20e92fbac3c629f6e9170-124x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 124,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "dropbox logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/b294234a9bfdd4a158e20e92fbac3c629f6e9170-124x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 124,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "dropbox logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/b294234a9bfdd4a158e20e92fbac3c629f6e9170-124x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 124,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "dropbox logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/b294234a9bfdd4a158e20e92fbac3c629f6e9170-124x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 124,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "dropbox logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6b1738a69bdca9a6b7eb575a5e9aad7851edfab6-120x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 120,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "microsoft logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6b1738a69bdca9a6b7eb575a5e9aad7851edfab6-120x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 120,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "microsoft logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6b1738a69bdca9a6b7eb575a5e9aad7851edfab6-120x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 120,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "microsoft logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/6b1738a69bdca9a6b7eb575a5e9aad7851edfab6-120x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 120,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "microsoft logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/04c81a93b530b57e29b1fabbb263cd398637e0c3-107x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 107,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "duolingo logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/04c81a93b530b57e29b1fabbb263cd398637e0c3-107x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 107,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "duolingo logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/04c81a93b530b57e29b1fabbb263cd398637e0c3-107x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 107,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "duolingo logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/04c81a93b530b57e29b1fabbb263cd398637e0c3-107x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 107,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "duolingo logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/717af6633a6896341b7c95807c05f449597ef769-98x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 98,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "airbnb logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/717af6633a6896341b7c95807c05f449597ef769-98x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 98,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "airbnb logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/717af6633a6896341b7c95807c05f449597ef769-98x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 98,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "airbnb logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/717af6633a6896341b7c95807c05f449597ef769-98x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 98,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "airbnb logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/f810691e526e4f771f2ebf33ddcd0f566117da1f-97x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 97,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "slack logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/f810691e526e4f771f2ebf33ddcd0f566117da1f-97x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 97,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "slack logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/f810691e526e4f771f2ebf33ddcd0f566117da1f-97x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 97,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "slack logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/f810691e526e4f771f2ebf33ddcd0f566117da1f-97x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 97,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "slack logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9e4f6f88c28e657c5b56355f210f3b0ca4f6f93c-87x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 87,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "github logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9e4f6f88c28e657c5b56355f210f3b0ca4f6f93c-87x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 87,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "github logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9e4f6f88c28e657c5b56355f210f3b0ca4f6f93c-87x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 87,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "github logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9e4f6f88c28e657c5b56355f210f3b0ca4f6f93c-87x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 87,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "github logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9152f45c8c5c17a2071ee4d2f04507c89240eafe-86x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 86,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "zoom logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9152f45c8c5c17a2071ee4d2f04507c89240eafe-86x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 86,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "zoom logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9152f45c8c5c17a2071ee4d2f04507c89240eafe-86x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 86,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "zoom logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://cdn.sanity.io/images/599r6htc/regionalized/9152f45c8c5c17a2071ee4d2f04507c89240eafe-86x32.svg?q=75&fit=max&auto=format",
+      "host": "cdn.sanity.io",
+      "width": 86,
+      "height": 32,
+      "top": 6360,
+      "role": "logo",
+      "alt": "zoom logo",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "This website uses cookies, pixel tags, and local storage for performance, personalization, and marketing purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default. Cookies settings",
+    "The full-stack creative canvas"
+  ],
+  "motion": {
+    "hiddenSections": 1,
+    "sections": 8,
+    "animations": 1,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      16,
+      18,
+      30,
+      44,
+      56,
+      88
+    ],
+    "fontWeights": [
+      320,
+      330,
+      400
+    ],
+    "radii": [
+      "16px",
+      "24px",
+      "2px",
+      "50%",
+      "8px",
+      "9999px"
+    ],
+    "shadows": [
+      "oklch(0 0 none / 0.16) 0px 0px 0px 1px inset"
+    ],
+    "spacingOnScalePct": 85.4,
+    "bodyLineLengthCh": 45,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 8.5,
+    "edgeDensity": 0.016,
+    "symmetry": 0.96,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

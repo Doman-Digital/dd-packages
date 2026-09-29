@@ -1,0 +1,458 @@
+{
+  "version": 2,
+  "url": "https://utopia.fyi/type/calculator/",
+  "capturedAt": "2026-09-29T10:22:09.577Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 2511,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(241, 242, 243)",
+        "area": 907602,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 31, 53)",
+        "area": 738379,
+        "chars": 0
+      },
+      {
+        "value": "rgb(229, 233, 235)",
+        "area": 161569,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 46216,
+        "chars": 0
+      },
+      {
+        "value": "rgba(230, 235, 240, 0.5)",
+        "area": 42483,
+        "chars": 0
+      },
+      {
+        "value": "rgb(204, 210, 215)",
+        "area": 7940,
+        "chars": 0
+      },
+      {
+        "value": "rgb(133, 112, 71)",
+        "area": 1568,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(0, 31, 53)",
+        "area": 0,
+        "chars": 1099
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 86
+      },
+      {
+        "value": "rgb(133, 112, 71)",
+        "area": 0,
+        "chars": 71
+      },
+      {
+        "value": "rgb(102, 121, 134)",
+        "area": 0,
+        "chars": 60
+      },
+      {
+        "value": "rgb(34, 34, 34)",
+        "area": 0,
+        "chars": 48
+      },
+      {
+        "value": "rgb(157, 141, 108)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgb(51, 76, 93)",
+        "area": 0,
+        "chars": 30
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "monospace",
+      "chars": 604,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "garamond-premier-pro-caption",
+      "chars": 425,
+      "displayChars": 61,
+      "italicChars": 61,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "source-sans-pro",
+      "chars": 401,
+      "displayChars": 25,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "garamond-premier-pro-caption",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fluid type scale calculator",
+      "top": 134
+    },
+    {
+      "level": 2,
+      "family": "garamond-premier-pro-caption",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Calculated font sizes",
+      "top": 506
+    },
+    {
+      "level": 2,
+      "family": "garamond-premier-pro-caption",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "CSS Generator",
+      "top": 1519
+    },
+    {
+      "level": 3,
+      "family": "source-sans-pro",
+      "sizePx": 15,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Configuration options",
+      "top": 1656
+    },
+    {
+      "level": 3,
+      "family": "source-sans-pro",
+      "sizePx": 15,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Code",
+      "top": 1828
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "viewport width"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgb(133, 112, 71)",
+      "text": "Add another positive step"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Remove step 5"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Remove step -2"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 28,
+      "heightPx": 28,
+      "background": "rgb(133, 112, 71)",
+      "text": "Add another negative step"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 38,
+      "heightPx": 46,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Copy"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 86,
+      "kind": "hero",
+      "label": "Type Space Grid Clamp Blog Showcase Merch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.143,
+        "mirrorSymmetry": 0.862,
+        "whitespaceRatio": 0.868,
+        "contentWidthRatio": 0.661,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 212,
+      "height": 246,
+      "kind": "stats",
+      "label": "Min viewport Width Font size Type scale 1.067 1.125 1.2 1.25",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "stats",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.572,
+        "contentWidthRatio": 0.661,
+        "background": "rgb(0, 31, 53)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 24,
+      "text": []
+    },
+    {
+      "top": 506,
+      "height": 276,
+      "kind": "text",
+      "label": "Calculated font sizes",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.167,
+        "mirrorSymmetry": 0.814,
+        "whitespaceRatio": 0.359,
+        "contentWidthRatio": 0.661,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Calculated font sizes",
+        "This table lists font size values in px for your type scales at the min and max viewport widths entered above.",
+        "Insert a viewport width to show values at a given point on your scale between min and max. This can be useful if you need to design a mockup for a particular device size.",
+        "Add a scale step to extend your scale up or down."
+      ]
+    },
+    {
+      "top": 880,
+      "height": 592,
+      "kind": "logos",
+      "label": "Scale step Viewport width Insert width Add another positive ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.043,
+        "mirrorSymmetry": 0.975,
+        "whitespaceRatio": 0.292,
+        "contentWidthRatio": 0.656,
+        "background": "rgb(255, 255, 255)",
+        "controls": 4
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 24,
+      "text": [
+        "Scale step",
+        "Viewport width",
+        "Insert width",
+        "Add another positive step",
+        "360",
+        "1240",
+        "Remove step 5 5",
+        "44.79",
+        "61.04",
+        "37.32",
+        "48.83",
+        "31.10",
+        "39.06",
+        "25.92",
+        "31.25",
+        "21.60",
+        "25.00",
+        "18.00",
+        "20.00",
+        "-1",
+        "15.00",
+        "16.00",
+        "Remove step -2 -2",
+        "12.50",
+        "12.80",
+        "Add another negative step"
+      ]
+    },
+    {
+      "top": 1628,
+      "height": 549,
+      "kind": "text",
+      "label": "Configuration options",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.167,
+        "mirrorSymmetry": 0.963,
+        "whitespaceRatio": 0.44,
+        "contentWidthRatio": 0.628,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Configuration options",
+        "Code"
+      ]
+    },
+    {
+      "top": 2249,
+      "height": 262,
+      "kind": "text",
+      "label": "Created by James Gilyead & Trys Mudford Supported by Clearle",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.986,
+        "whitespaceRatio": 0.807,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(0, 31, 53)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.532,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://utopia.fyi/images/logo.svg",
+      "host": "utopia.fyi",
+      "width": 161,
+      "height": 38,
+      "top": 48,
+      "role": "logo",
+      "alt": "Utopia Logo",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Fluid type scale calculator",
+    "Calculated font sizes",
+    "This table lists font size values in px for your type scales at the min and max viewport widths entered above.",
+    "Insert a viewport width to show values at a given point on your scale between min and max. This can be useful if you need to design a mockup for a particular device size.",
+    "Add a scale step to extend your scale up or down."
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 6,
+    "animations": 1,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      15,
+      19,
+      24,
+      30,
+      36
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "100%",
+      "38.4px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 32.5,
+    "bodyLineLengthCh": 87,
+    "bodyFontSizePx": 24
+  },
+  "visual": {
+    "colourfulness": 22.9,
+    "edgeDensity": 0.039,
+    "symmetry": 0.974,
+    "width": 1440,
+    "height": 2511,
+    "sampled": 904320
+  }
+}

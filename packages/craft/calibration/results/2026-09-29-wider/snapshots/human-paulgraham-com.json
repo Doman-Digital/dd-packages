@@ -1,0 +1,144 @@
+{
+  "version": 2,
+  "url": "https://www.paulgraham.com/",
+  "capturedAt": "2026-09-29T10:24:03.295Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 900,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 204, 51)",
+        "area": 10250,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 153, 34)",
+        "area": 10250,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(0, 0, 153)",
+        "area": 0,
+        "chars": 48
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 43
+      },
+      {
+        "value": "rgb(204, 204, 204)",
+        "area": 0,
+        "chars": 11
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "verdana",
+      "chars": 102,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [],
+  "controls": [],
+  "sections": [],
+  "rhythmVariance": null,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://s.turbifycdn.com/aah/paulgraham/index-21.gif",
+      "host": "s.turbifycdn.com",
+      "width": 410,
+      "height": 308,
+      "top": 69,
+      "role": "photo",
+      "alt": null,
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 11677
+      }
+    },
+    {
+      "src": "https://s.turbifycdn.com/aah/paulgraham/img-32.gif",
+      "host": "s.turbifycdn.com",
+      "width": 69,
+      "height": 399,
+      "top": 8,
+      "role": "icon",
+      "alt": null,
+      "decorative": false,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://s.turbifycdn.com/aah/paulgraham/bel-8.gif",
+      "host": "s.turbifycdn.com",
+      "width": 410,
+      "height": 45,
+      "top": 8,
+      "role": "icon",
+      "alt": null,
+      "decorative": false,
+      "section": null,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "New: Making Startups Powerful | Universities Want to start a startup? Get funded by Y Combinator. © mmxxvi pg"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 0,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      10,
+      13
+    ],
+    "fontWeights": [
+      400,
+      700
+    ],
+    "radii": [],
+    "shadows": [],
+    "spacingOnScalePct": 0,
+    "bodyLineLengthCh": null,
+    "bodyFontSizePx": null
+  },
+  "visual": {
+    "colourfulness": 30.1,
+    "edgeDensity": 0.029,
+    "symmetry": 0.827,
+    "width": 1440,
+    "height": 900,
+    "sampled": 324000
+  }
+}

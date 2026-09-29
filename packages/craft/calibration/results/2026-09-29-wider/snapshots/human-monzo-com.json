@@ -1,0 +1,1922 @@
+{
+  "version": 2,
+  "url": "https://monzo.com/",
+  "capturedAt": "2026-09-29T10:22:48.542Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 13733,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(242, 248, 243)",
+        "area": 23698448,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 21057515,
+        "chars": 0
+      },
+      {
+        "value": "rgb(17, 34, 49)",
+        "area": 4443012,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 79, 64)",
+        "area": 217600,
+        "chars": 0
+      },
+      {
+        "value": "rgb(9, 23, 35)",
+        "area": 160290,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "area": 125550,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.3)",
+        "area": 21288,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.2)",
+        "area": 9758,
+        "chars": 0
+      },
+      {
+        "value": "rgb(59, 76, 84)",
+        "area": 576,
+        "chars": 0
+      },
+      {
+        "value": "rgb(117, 129, 126)",
+        "area": 384,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgba(9, 23, 35, 0.6)",
+        "area": 0,
+        "chars": 6645
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 2061
+      },
+      {
+        "value": "rgb(9, 23, 35)",
+        "area": 0,
+        "chars": 1245
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 293
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 54
+      },
+      {
+        "value": "rgb(255, 79, 64)",
+        "area": 0,
+        "chars": 29
+      },
+      {
+        "value": "rgb(0, 0, 238)",
+        "area": 0,
+        "chars": 15
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "MonzoSansText",
+      "chars": 9142,
+      "displayChars": 4,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "MonzoSansDisplay",
+      "chars": 1200,
+      "displayChars": 1008,
+      "italicChars": 0,
+      "weights": [
+        600,
+        700,
+        800
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "MonzoSansDisplay",
+      "sizePx": 49,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Spend your money on life, not your life on money",
+      "top": 346
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get the most out of Monzo",
+      "top": 1043
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Current accounts",
+      "top": 1634
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Savings",
+      "top": 1634
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Credit",
+      "top": 1634
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Investments",
+      "top": 1634
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Pensions",
+      "top": 1634
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Homeownership",
+      "top": 1634
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Quit the app juggling act",
+      "top": 2020
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 31,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sort your salary",
+      "top": 2408
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 31,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Put bills in their place",
+      "top": 2408
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 31,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Round up your spare change",
+      "top": 2459
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 31,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earn cashback on brands you love",
+      "top": 2401
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 31,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Invest automatically",
+      "top": 2367
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "It all starts with a Hot Coral card",
+      "top": 3002
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Personal account",
+      "top": 3283
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Joint account",
+      "top": 3283
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Under 16s account",
+      "top": 3283
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Extra",
+      "top": 3588
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Perks",
+      "top": 3588
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Max",
+      "top": 3588
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Aura credit card",
+      "top": 3899
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Flex credit card",
+      "top": 3899
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Business account",
+      "top": 3899
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "The bank made for travel",
+      "top": 3993
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fee-free spending abroad",
+      "top": 4584
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Live exchange rates",
+      "top": 4584
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "No surprises at checkout",
+      "top": 4584
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Card freeze",
+      "top": 4584
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Multi-trip travel cover",
+      "top": 4584
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Save like a superhero",
+      "top": 4870
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Instant Access Savings",
+      "top": 5520
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Select Access Savings",
+      "top": 5520
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "ISAs",
+      "top": 5520
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Make payday twice as nice",
+      "top": 5916
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "A regulated bank with 24/7 support",
+      "top": 6901
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Which? recommended 2 years in a row",
+      "top": 7556
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Apply for an account in 10 minutes",
+      "top": 8158
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Security you can bank on",
+      "top": 9141
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 44,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Independent service quality survey results",
+      "top": 10417
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Great Britain",
+      "top": 10363
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Northern Ireland",
+      "top": 11092
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 44,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Authorised push payment (APP) fraud rankings in 2024",
+      "top": 11876
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 39,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Site information and links",
+      "top": 12219
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Products",
+      "top": 12220
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Company",
+      "top": 12220
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Using Monzo",
+      "top": 12220
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Help and security",
+      "top": 12220
+    },
+    {
+      "level": 3,
+      "family": "MonzoSansDisplay",
+      "sizePx": 25,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Site and app information",
+      "top": 12749
+    },
+    {
+      "level": 2,
+      "family": "MonzoSansDisplay",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Can we use optional cookies?",
+      "top": 677
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 40,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Personal"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 500,
+      "heightPx": 51,
+      "background": "rgb(9, 23, 35)",
+      "text": "Sign up"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 500,
+      "heightPx": 48,
+      "background": "rgb(255, 255, 255)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Learn more"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Learn more"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Learn more"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Learn more"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Learn more"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Learn more"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore Salary Sorter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore Pots"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore cashback"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore investments"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View all"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore travel"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore savings"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Explore Double Payday"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(255, 255, 255)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Open a free Monzo account"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "How we protect your money"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 500,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "View full results for Great Britain"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 500,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "View full results for Northern Ireland"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 100,
+      "heightPx": 34,
+      "background": "rgba(255, 255, 255, 0.2)",
+      "text": "🇬🇧United Kingdom | English"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Accept all"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgb(9, 23, 35)",
+      "text": "Reject all"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 128,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Customise"
+    }
+  ],
+  "sections": [
+    {
+      "top": 87,
+      "height": 868,
+      "kind": "hero",
+      "label": "Spend your money on life, not your life on money",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.25,
+        "mirrorSymmetry": 0.95,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Spend your money on life, not your life on money",
+        "Your salary sorted into Pots. Your spare change turned into savings. Your money, doing what it should with Monzo.",
+        "UK residents. Ts&Cs apply."
+      ]
+    },
+    {
+      "top": 979,
+      "height": 977,
+      "kind": "cards",
+      "label": "Get the most out of Monzo",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.292,
+        "mirrorSymmetry": 0.822,
+        "whitespaceRatio": 0.138,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 7
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Get the most out of Monzo",
+        "Whatever stage of life you're at, we've got your money covered.",
+        "Current accounts",
+        "From joint accounts and accounts for kids, to accounts with worldwide travel insurance – choose one that works for you.",
+        "Savings",
+        "Grow your money in Monzo with up to 3.65% AER interest (variable), paid monthly.",
+        "Credit",
+        "Get a credit card with Monzo magic. Whether you're new to credit or a seasoned pro, there's something to suit you. Age 18+.",
+        "Investments",
+        "Choose from a range of options to suit your interests and the level of risk you’re happy with. Starting with as little as £1.",
+        "Pensions",
+        "Track down and bring your old pensions together under one roof, and top up whenever you like. Ages 18-70.",
+        "Homeownership",
+        "Connect a mortgage from any lender in 60 seconds. And get insights that could save you thousands.",
+        "UK residents. Individual product Ts&Cs apply.",
+        "The value of investments and pensions could go up or down, and you could get back less than you invest.",
+        "UK current account needed for: investments, pensions, savings accounts, mortgage tool, and Flex. Flex eligibility criteria applies. Missed payments may negatively impact credit scores."
+      ]
+    },
+    {
+      "top": 2020,
+      "height": 854,
+      "kind": "text",
+      "label": "Quit the app juggling act",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.435,
+        "mirrorSymmetry": 0.06,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 5
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Quit the app juggling act",
+        "From everyday spending to bigger goals, it's the one app to fit your finances.",
+        "Go to slide 1",
+        "Go to slide 2",
+        "Go to slide 3",
+        "Go to slide 4",
+        "Go to slide 5",
+        "Sort your salary",
+        "Use Salary Sorter to divide up your income or student loan into separate Pots for bills, spending and whatever else you need to budget for. Set it up once, and we’ll take it from there.",
+        "Put bills in their place",
+        "You don’t enjoy paying bills, but we enjoy making it easier. Set up Direct Debits and standing orders to come directly from a dedicated bills Pot.",
+        "Round up your spare change",
+        "Want to save without even thinking about it? Automatically send spare change to your savings every time you spend.",
+        "Earn cashback on brands you love",
+        "Pick your offers, shop in person or online, and earn 2-10% cashback every time. It’s that simple.",
+        "Invest automatically",
+        "Auto invest features help you set investing habits and let them tick along in the background. You can also automatically invest any interest you earn on your savings each month.",
+        "The value of your investments could go up or down and you could get back less than you put in. 18+, Monzo current account required."
+      ]
+    },
+    {
+      "top": 2914,
+      "height": 991,
+      "kind": "cards",
+      "label": "It all starts with a Hot Coral card",
+      "cards": 6,
+      "iconCards": 6,
+      "hiddenAtLoad": true,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.265,
+        "mirrorSymmetry": 0.985,
+        "whitespaceRatio": 0.699,
+        "contentWidthRatio": 0.875,
+        "background": "rgb(255, 255, 255)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "It all starts with a Hot Coral card",
+        "Personal accountOur signature Hot Coral current account that fits your finances.UK residents. Ts&Cs apply.",
+        "Joint accountA shared bank account that helps you manage joint costs.You'll both need a Monzo current account. Aged 18+. UK residents. Ts&Cs apply.",
+        "Under 16s accountA free account for kids that keeps up as they grow up. Set spending limits and see what they're up to with instant notifications.Ages 6-15. 18+ parent/guardian account needed first. UK residents. Ts&Cs apply.",
+        "Extra£3 a monthUnlock more money tools, see your other banks and credit cards in Monzo, and create custom spending categories.Age 18+. UK residents. Ts&Cs apply.",
+        "Perks£9 a monthEnjoy the best of Monzo with a boosted savings rate and added benefits like an annual Railcard and weekly Greggs treat.Age 18+. UK residents. Ts&Cs apply.",
+        "MaxFrom £19 a monthProtect the things that matter with worldwide travel and phone insurance, UK & Europe breakdown cover, and more. Ages 18-69. 3-month minimum term. UK residents. Ts&Cs apply.",
+        "Aura credit card£15 a monthThe credit card that invests as you spend, with partner perks worth over £360 a year. Representative 64.2% APR (variable), includes monthly fee.18+. UK residents. Eligibility criteria & Ts&Cs apply. Missed payments may negatively impact credit score.",
+        "Flex credit cardA credit card with Monzo magic, Section 75 protection and a representative 29% APR (variable).18+. UK residents. Eligibility criteria & Ts&Cs apply. Missed payments may negatively impact credit scores.",
+        "Business accountAn account packed with everything you need to make life easier for you and your customers.Only sole traders or limited company directors in the UK can apply. Ts&Cs apply."
+      ]
+    },
+    {
+      "top": 3929,
+      "height": 829,
+      "kind": "cards",
+      "label": "The bank made for travel",
+      "cards": 5,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.125,
+        "mirrorSymmetry": 0.92,
+        "whitespaceRatio": 0.208,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "The bank made for travel",
+        "No foreign transaction fees or added costs – so travel feels lighter from the start.",
+        "Fee-free spending abroad",
+        "Pay anywhere, in any currency – on your debit or credit card – with no foreign transaction fees.",
+        "Live exchange rates",
+        "As soon as you pay, we’ll show you the amount in pounds in the app. No waiting, no guessing, and no more napkin maths.",
+        "No surprises at checkout",
+        "See the price of things before you go with our currency converter.",
+        "Card freeze",
+        "Freeze and unfreeze your card at any time if it goes exploring without you.",
+        "Multi-trip travel cover",
+        "Get multi-trip insurance with Max. From £19 a month. Ages 18-69. UK residents. 3 month minimum term. Ts&Cs apply."
+      ]
+    },
+    {
+      "top": 4758,
+      "height": 1006,
+      "kind": "cards",
+      "label": "Save like a superhero",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.545,
+        "mirrorSymmetry": 0.993,
+        "whitespaceRatio": 0.184,
+        "contentWidthRatio": 0.822,
+        "background": "rgb(242, 248, 243)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Save like a superhero",
+        "Keep your money at your fingertips in personalised Savings Pots, or earn tax-free interest with an ISA.",
+        "Instant Access Savings",
+        "The most flexible way to save. Earn from 2.75% to 3.25% AER interest (variable) paid monthly, depending on your subscription plan.",
+        "Select Access Savings",
+        "Grow your money faster without locking it away and get a higher rate for making 2 (or fewer) withdrawals a year. Earn up to 3.65% AER interest (variable), paid monthly. £500 minimum deposit.",
+        "ISAs",
+        "Earn tax-free on your savings and investments with a Monzo ISA. The taxes you pay depend on your circumstances and could change in the future."
+      ]
+    },
+    {
+      "top": 5804,
+      "height": 624,
+      "kind": "text",
+      "label": "Make payday twice as nice",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.167,
+        "mirrorSymmetry": 0.423,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.911,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Make payday twice as nice",
+        "Get paid into Monzo through Bacs and get your salary one business day early.You could also land a Double Payday. It works like this: if you earn £1,500, we'll add an extra £1,500 to your account. It’s yours to spend, save or invest – and you won’t pay tax on your winnings. There are 10 lucky custome",
+        "UK residents. 18+. Eligibility based on previous month’s salary. Current Account and Double Payday Ts&Cs apply."
+      ]
+    },
+    {
+      "top": 6516,
+      "height": 832,
+      "kind": "text",
+      "label": "A regulated bank with 24/7 support",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.986,
+        "whitespaceRatio": 0.581,
+        "contentWidthRatio": 0.911,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "A regulated bank with 24/7 support",
+        "24/7 support",
+        "You can speak to us through our in-app chat – whenever, wherever. We're here for you 24/7.",
+        "Deposit cash and cheques",
+        "Add cash to your account at any PayPoint or Post Office (£1 per deposit), and pay in cheques via the app.",
+        "No hidden fees",
+        "Our current accounts are free and we don’t charge monthly fees or surprise you with hidden costs.",
+        "FSCS protected",
+        "Your eligible money in Monzo is protected by the FSCS up to £120,000 per person."
+      ]
+    },
+    {
+      "top": 7388,
+      "height": 554,
+      "kind": "text",
+      "label": "Which? recommended 2 years in a row",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 0.333,
+        "mirrorSymmetry": 0.468,
+        "whitespaceRatio": 0.565,
+        "contentWidthRatio": 0.822,
+        "background": "rgb(17, 34, 49)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Which? recommended 2 years in a row",
+        "Join 16 million people already banking with Monzo."
+      ]
+    },
+    {
+      "top": 8070,
+      "height": 919,
+      "kind": "text",
+      "label": "Apply for an account in 10 minutes",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.3,
+        "mirrorSymmetry": 0.677,
+        "whitespaceRatio": 0.164,
+        "contentWidthRatio": 0.822,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Apply for an account in 10 minutes",
+        "Step1Open a free Monzo accountIt takes just 10 minutes to apply, and comes with innovative features to help you manage your money.",
+        "Step2Fill out a few questionsWe'll ask you some questions to help us set up your account, but there's no lengthy paperwork to fill in. In fact, it only takes a few minutes.",
+        "Step3Add your Hot Coral card to your digital walletOnce your account's open, you can start using your card straight away with your digital wallet.",
+        "Join over 16 million personal and business customers who've changed the way they bank."
+      ]
+    },
+    {
+      "top": 9053,
+      "height": 1181,
+      "kind": "text",
+      "label": "Security you can bank on",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.942,
+        "whitespaceRatio": 0.655,
+        "contentWidthRatio": 0.911,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Security you can bank on",
+        "We help keep your money safe with industry-first fraud protection and 24/7 support."
+      ]
+    },
+    {
+      "top": 10235,
+      "height": 1523,
+      "kind": "text",
+      "label": "Independent service quality survey results",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.25,
+        "mirrorSymmetry": 0.545,
+        "whitespaceRatio": 0.752,
+        "contentWidthRatio": 0.878,
+        "background": "rgb(255, 255, 255)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Independent service quality survey results",
+        "Personal current accounts",
+        "As part of a regulatory requirement, independent surveys were conducted to ask customers of the largest personal current account providers in Great Britain and Northern Ireland if they would recommend their provider to friends and family. The results represent the view of customers who took part in ",
+        "Great Britain",
+        "Northern Ireland",
+        "Published August 2026"
+      ]
+    },
+    {
+      "top": 11758,
+      "height": 334,
+      "kind": "text",
+      "label": "Authorised push payment (APP) fraud rankings in 2024",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.981,
+        "whitespaceRatio": 0.663,
+        "contentWidthRatio": 0.878,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Authorised push payment (APP) fraud rankings in 2024",
+        "Authorised push payment (APP) scams happen when someone is tricked into transferring money to a fraudster’s bank account. Information about Monzo’s performance prior to the introduction of the reimbursement requirement in October 2024 can be found in PSR's latest APP Scams Performance Report publish",
+        "Published February 2026"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.317,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2Bu0h3YClZVtG89sfAoHXy/b4b8e7192aaaeff5d66bd541b287de9d/get-busy-living-hero-desktop.avif?w=1440&h=810&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 1392,
+      "height": 750,
+      "top": 87,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 21210
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/5I3NjbqQKbzh5YglpUjeOU/cfa03af228c543e1e022157cf58a2b81/homepage_make-payday-twice-as-nice.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 624,
+      "height": 624,
+      "top": 5804,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 18698
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/5KDnIlkutzusDEyGoV9kHQ/c2fc62e4a73da4886e34057731742d8c/homepage_salary-sorter.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 571,
+      "height": 571,
+      "top": 2223,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 181365
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/4U47B7L6SUdNISachKry59/8bd7a77b39500b75f2d3538002d04547/homepage_bills.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 571,
+      "height": 571,
+      "top": 2223,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 33317
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2SovhMBp17YKjzk743Ar0f/a11c9c624f9fd8f7a692d7adf0eeffbe/homepage_roundups.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 571,
+      "height": 571,
+      "top": 2223,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 177097
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/138imLtKj1Z37Os3yyRCR8/f0370b174a308a06b80a9ca55dfe639b/homepage_cashback.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 571,
+      "height": 571,
+      "top": 2223,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 21489
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2mb4IwgA0dCjKX1zZAaYwf/0f9bc4ccac46bc1185c9264f83c98104/homepage-invest-automatically.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 571,
+      "height": 571,
+      "top": 2223,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 48119
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/59ZDhGpL2Eqgfm1wE3HikT/c1112161637b1d7d2a4efc117ca73ea4/hoempage-open-a-free-monzo-account.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 560,
+      "height": 560,
+      "top": 8389,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 9,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 13749
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/6pZOJcwMcEntdxJT53Iw3u/c908d70e89fa8c89e4ac0151bacf4eb9/homepage_which-badges.avif?w=780&h=585&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 568,
+      "height": 426,
+      "top": 7452,
+      "role": "photo",
+      "alt": "Two Which? recommended provider for current accounts badges for 2024 and 2025.",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 24362
+      }
+    },
+    {
+      "src": "https://static-assets.monzo.com/monzo-com/ab9d1ee8ba290029e7d116bc3406e65d6058e15e/_next/static/media/overall-service-quality-cropped.aeda27b3.avif",
+      "host": "static-assets.monzo.com",
+      "width": 422,
+      "height": 430,
+      "top": 10390,
+      "role": "photo",
+      "alt": "Graph showing the results of the CMA scoring of UK banks in the Overall Service Quality category. The CMA asked customers how likely they would be to recommend their personal current account provider to friends and family. The rankings with percentage scores are: 1st Monzo with 79%. 2nd Starling with 76%. Joint 3rd Nationwide and First Direct with 75%. 5th Chase with 68%.",
+      "decorative": false,
+      "section": 11,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 134788
+      }
+    },
+    {
+      "src": "https://static-assets.monzo.com/monzo-com/ab9d1ee8ba290029e7d116bc3406e65d6058e15e/_next/static/media/overall-service-quality-cropped.322bd208.avif",
+      "host": "static-assets.monzo.com",
+      "width": 422,
+      "height": 430,
+      "top": 11119,
+      "role": "photo",
+      "alt": "Graph showing the results of the CMA scoring of UK banks in the Overall Service Quality category. The CMA asked customers how likely they would be to recommend their personal current account provider to friends and family. The rankings with percentage scores are: 1st Monzo with 82%. 2nd Starling with 79%. 3rd Nationwide with 76%. 4th HSBC UK with 71%. 5th Chase with 68%.",
+      "decorative": false,
+      "section": 11,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 134671
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2CgEeYRU8IUJC3MCubOiX9/de636039b535d90676c16ae04dcaae4c/homepge-Instant-access.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 379,
+      "height": 379,
+      "top": 5117,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 50964
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/Lg25Va7KGJIIz3BEmW0wX/cec1213b2597304c20061bc1f86fd137/homepage-Select-access.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 379,
+      "height": 379,
+      "top": 5117,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 19388
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2XhAvPPPo63AUzbxpcI5FE/8e8b45987eeb348198a3b99c540e7cf0/homepage-ISA.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 379,
+      "height": 379,
+      "top": 5117,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 42346
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2eXg9548eheK5xgz8ui7yi/c9bea8b4e98bbc2ea3e4606870230b2b/homepage_current-accounts.avif?w=396&h=396&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 1290,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 32663
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/1PY0tYoQ0CQLZaJGPRDp9P/9ec8ea0a730a2b8467d4cb23eefed9ad/homepage-savings.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 1290,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 12651
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/6SLW2sBjLSbGouuEqm198e/df2f7edff82ee7b2382045958322dc9b/homepage_credit.avif?w=396&h=396&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 1290,
+      "role": "photo",
+      "alt": "Man holding a bag of eucalyptus and a Monzo Flex card in his hand with his phone.",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 21971
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2Ib8mEh3FA3Za5ZJ6WKgG8/75855431c6535efe495dd3a42c362744/homepage-investments.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 1290,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 11449
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/QF3f70KEbSWVi5Nsk5OjV/2cd28b050e3b328d44638fe0253c703b/homepage_pensions.avif?w=396&h=396&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 1290,
+      "role": "photo",
+      "alt": "Woman sitting with her feet up on the sofa whilst reading the newspaper, with a coffee, croissant and her Monzo card on the table next to her.",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 20545
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/3CwK0FfaXIx902hGZcmpQO/a397f1d9782ca751acb6e8f2a1b349d4/homepage_fee-free-spending.avif?w=396&h=396&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 4240,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 18297
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/5qWOc9DEc2h4zCNm5H93ZQ/3cf8cfac75f281c92286bfb3b5579a59/homepage_live-exchange-rates.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 4240,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 9089
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/3HMJrPjx2rJGPAKTNwtH1N/a22c38c0f3b863a93bbe8d331d5e90b3/homepage_no-surprises-at-checkout.avif?w=396&h=396&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 4240,
+      "role": "photo",
+      "alt": "Two people hugging with GBP to USD exchange overlayed, with other currencies showed above.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 32273
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/3sgz9QaOdysAfIBSwC7JDm/1e45ea9e9a4d745d5417ef00b4d93dfa/homepage_card-freeze__1_.avif?w=1440&h=1440&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 4240,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 25006
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/1DkuPNL89Z1cm2WPWS3eUg/05571c968cc13b88c4e5b3ae6033e607/homepage_multi-trip-cover.avif?w=396&h=396&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 320,
+      "height": 320,
+      "top": 4240,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 38178
+      }
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/uWc37UJfhjW7jAoR2VDnA/e2c794b0a1577451c10504ab0af1e32d/homepage-no-hidden-fees.avif?w=1440&h=1080&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 340,
+      "height": 178,
+      "top": 6580,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/7KlRY5VYmnj5Ol4SKV71s9/2e3f19255fd7e7a3253792cc3f97e791/homepage_FSCS-on-transparent.avif?w=396&h=297&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 340,
+      "height": 178,
+      "top": 6964,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/49z7ESgdpoX7pnhbMlvGYm/aa588c24504916081bb6075b46cba0ef/homepage-deposit-cash-and-cheques.avif?w=1440&h=1080&q=75&fm=avif",
+      "host": "images.ctfassets.net",
+      "width": 340,
+      "height": 156,
+      "top": 6964,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2ST9v6xxvjtK1fn5aU57Yw/4576856ecf5a05874bb3da186a0071ef/which-current-account-november-2025.png",
+      "host": "images.ctfassets.net",
+      "width": 135,
+      "height": 107,
+      "top": 151,
+      "role": "icon",
+      "alt": "Which? Recommended Provider for Current Accounts, November 2025.",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/3BG7l6BqbCiuDWZPE0NBYv/b12a53e3f4f08c8713df4db9d99b8913/cass-lightmode.svg",
+      "host": "images.ctfassets.net",
+      "width": 143,
+      "height": 70,
+      "top": 703,
+      "role": "illustration",
+      "alt": "Current Account Switch Guarantee",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/2Ifuc6xBw1zL2zfxpXrll7/064c067ef76fbf334f84fea55e7f7e5e/FSCS-badge-desktop.svg",
+      "host": "images.ctfassets.net",
+      "width": 53,
+      "height": 70,
+      "top": 703,
+      "role": "icon",
+      "alt": "FSCS protected",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/6APf6BZU8ahucecTNxuzqJ/1a18db203cdc26698fd1273ba7ece691/Industry_First.png",
+      "host": "images.ctfassets.net",
+      "width": 56,
+      "height": 56,
+      "top": 9584,
+      "role": "icon",
+      "alt": "Industry first",
+      "decorative": false,
+      "section": 10,
+      "background": false
+    },
+    {
+      "src": "https://images.ctfassets.net/ro61k101ee59/6APf6BZU8ahucecTNxuzqJ/1a18db203cdc26698fd1273ba7ece691/Industry_First.png",
+      "host": "images.ctfassets.net",
+      "width": 56,
+      "height": 56,
+      "top": 9706,
+      "role": "icon",
+      "alt": "Industry first",
+      "decorative": false,
+      "section": 10,
+      "background": false
+    },
+    {
+      "src": "https://static-assets.monzo.com/monzo-com/ab9d1ee8ba290029e7d116bc3406e65d6058e15e/_next/static/media/instagram.1bbdc4ed.svg",
+      "host": "static-assets.monzo.com",
+      "width": 54,
+      "height": 54,
+      "top": 13616,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://static-assets.monzo.com/monzo-com/ab9d1ee8ba290029e7d116bc3406e65d6058e15e/_next/static/media/facebook.94997288.svg",
+      "host": "static-assets.monzo.com",
+      "width": 54,
+      "height": 54,
+      "top": 13616,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://static-assets.monzo.com/monzo-com/ab9d1ee8ba290029e7d116bc3406e65d6058e15e/_next/static/media/linkedin.9fc87684.svg",
+      "host": "static-assets.monzo.com",
+      "width": 54,
+      "height": 54,
+      "top": 13616,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://static-assets.monzo.com/monzo-com/ab9d1ee8ba290029e7d116bc3406e65d6058e15e/_next/static/media/youtube.8039ba10.svg",
+      "host": "static-assets.monzo.com",
+      "width": 54,
+      "height": 54,
+      "top": 13616,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BM",
+      "host": null,
+      "width": 56,
+      "height": 48,
+      "top": 3827,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Spend your money on life, not your life on money",
+    "Your salary sorted into Pots. Your spare change turned into savings. Your money, doing what it should with Monzo.",
+    "UK residents. Ts&Cs apply.",
+    "Can we use optional cookies?",
+    "We’re not talking about the crunchy, tasty kind. These cookies help us keep our website safe, give you a better experience and show more relevant ads. You can learn more about our cookie policy."
+  ],
+  "motion": {
+    "hiddenSections": 3,
+    "sections": 13,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      16,
+      20,
+      24,
+      25,
+      31,
+      32,
+      39,
+      44,
+      49
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "100px",
+      "128px",
+      "16px",
+      "32px",
+      "4px",
+      "500px",
+      "64px",
+      "8px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 94.3,
+    "bodyLineLengthCh": 37,
+    "bodyFontSizePx": 16
+  },
+  "visual": {
+    "colourfulness": 16.2,
+    "edgeDensity": 0.016,
+    "symmetry": 0.976,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

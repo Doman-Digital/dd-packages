@@ -1,0 +1,2963 @@
+{
+  "version": 2,
+  "url": "https://www.theguardian.com/uk",
+  "capturedAt": "2026-09-29T10:22:39.913Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 900,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 27996160,
+        "chars": 0
+      },
+      {
+        "value": "rgb(246, 246, 246)",
+        "area": 6107564,
+        "chars": 0
+      },
+      {
+        "value": "rgb(237, 237, 237)",
+        "area": 3253867,
+        "chars": 0
+      },
+      {
+        "value": "rgb(5, 41, 98)",
+        "area": 1735213,
+        "chars": 0
+      },
+      {
+        "value": "rgb(4, 31, 74)",
+        "area": 167680,
+        "chars": 0
+      },
+      {
+        "value": "rgb(243, 251, 251)",
+        "area": 126500,
+        "chars": 0
+      },
+      {
+        "value": "rgb(193, 216, 252)",
+        "area": 72000,
+        "chars": 0
+      },
+      {
+        "value": "rgb(254, 241, 248)",
+        "area": 70800,
+        "chars": 0
+      },
+      {
+        "value": "rgb(254, 249, 245)",
+        "area": 35400,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 244, 242)",
+        "area": 35400,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 246, 239)",
+        "area": 35400,
+        "chars": 0
+      },
+      {
+        "value": "rgb(241, 248, 252)",
+        "area": 35400,
+        "chars": 0
+      },
+      {
+        "value": "rgba(18, 18, 18, 0.7)",
+        "area": 33152,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 229, 0)",
+        "area": 21384,
+        "chars": 0
+      },
+      {
+        "value": "rgb(199, 0, 0)",
+        "area": 10876,
+        "chars": 0
+      },
+      {
+        "value": "rgb(220, 220, 220)",
+        "area": 5508,
+        "chars": 0
+      },
+      {
+        "value": "rgb(9, 97, 91)",
+        "area": 5041,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 119, 182)",
+        "area": 1846,
+        "chars": 0
+      },
+      {
+        "value": "rgba(18, 18, 18, 0.2)",
+        "area": 196,
+        "chars": 0
+      },
+      {
+        "value": "rgb(18, 18, 18)",
+        "area": 65,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(18, 18, 18)",
+        "area": 0,
+        "chars": 14048
+      },
+      {
+        "value": "rgb(112, 112, 112)",
+        "area": 0,
+        "chars": 2091
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 1089
+      },
+      {
+        "value": "rgb(246, 246, 246)",
+        "area": 0,
+        "chars": 970
+      },
+      {
+        "value": "rgb(84, 84, 84)",
+        "area": 0,
+        "chars": 804
+      },
+      {
+        "value": "rgb(199, 0, 0)",
+        "area": 0,
+        "chars": 597
+      },
+      {
+        "value": "rgb(187, 59, 128)",
+        "area": 0,
+        "chars": 473
+      },
+      {
+        "value": "rgb(51, 51, 51)",
+        "area": 0,
+        "chars": 406
+      },
+      {
+        "value": "rgb(134, 109, 80)",
+        "area": 0,
+        "chars": 304
+      },
+      {
+        "value": "rgb(0, 119, 182)",
+        "area": 0,
+        "chars": 270
+      },
+      {
+        "value": "rgb(199, 70, 0)",
+        "area": 0,
+        "chars": 235
+      },
+      {
+        "value": "rgb(26, 26, 26)",
+        "area": 0,
+        "chars": 69
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 63
+      },
+      {
+        "value": "rgb(220, 220, 220)",
+        "area": 0,
+        "chars": 52
+      },
+      {
+        "value": "rgb(0, 0, 238)",
+        "area": 0,
+        "chars": 39
+      },
+      {
+        "value": "rgb(12, 122, 115)",
+        "area": 0,
+        "chars": 38
+      },
+      {
+        "value": "rgb(254, 200, 211)",
+        "area": 0,
+        "chars": 27
+      },
+      {
+        "value": "rgb(9, 97, 91)",
+        "area": 0,
+        "chars": 23
+      },
+      {
+        "value": "rgb(255, 244, 242)",
+        "area": 0,
+        "chars": 23
+      },
+      {
+        "value": "rgb(5, 41, 98)",
+        "area": 0,
+        "chars": 21
+      },
+      {
+        "value": "rgb(231, 212, 185)",
+        "area": 0,
+        "chars": 10
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "GH Guardian Headline",
+      "chars": 13233,
+      "displayChars": 625,
+      "italicChars": 0,
+      "weights": [
+        500,
+        700
+      ]
+    },
+    {
+      "family": "GuardianTextSans",
+      "chars": 8296,
+      "displayChars": 352,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "Times New Roman",
+      "chars": 123,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "‘Just look at this monstrosity!’Britain’s backyard shed wars",
+      "top": 377
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Chris Stokel-Walkerdouble quotation markI do not trust AI firms to stop their models going rogue",
+      "top": 377
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Social careLabour insiders confident Burnham can sell his reforms",
+      "top": 377
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "No island of strangersWhy I’m using art to unite a fractured nation",
+      "top": 377
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Barney Ronaydouble quotation markManchester City and rope‑a‑dope litigation",
+      "top": 377
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "PestsI turned the toaster upside down. A mouse fell out",
+      "top": 377
+    },
+    {
+      "level": 2,
+      "family": "GH Guardian Headline",
+      "sizePx": 28,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "News",
+      "top": 713
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 28,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "PoliticsAndy Burnham expected to say he will push ahead with electoral reform plans",
+      "top": 721
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "PensionsBurnham to signal willingness to look at scrapping pension triple lock to fund social care",
+      "top": 1225
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "UK politics liveCampaigners welcome Miliband’s claim Palestine Action ban not meant to criminalise ‘grannies’",
+      "top": 1225
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "ExclusiveBurnham promises to roll back privatisation with government-backed grid plan",
+      "top": 1225
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Law and order‘Intimidatory’ far-right marches should not be allowed, says Rayner",
+      "top": 1225
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Latest updatesRAF Fairford: Rubio says ‘foreign actor’ behind plot as some evacuated residents begin to return home",
+      "top": 1330
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "FairfordMarco Rubio says foreign actor was ‘clearly’ behind suspected RAF Fairford plot",
+      "top": 1706
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "PoliceFive UK nationals arrested near RAF Fairford released on bail",
+      "top": 1706
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "UK newsLocal politicians question official accounts after suspected plot",
+      "top": 1706
+    },
+    {
+      "level": 3,
+      "family": "GuardianTextSans",
+      "sizePx": 14,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "AnalysisQuestions remain over Iran’s link to alleged plot",
+      "top": 1706
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Facial recognitionTrial of live facial recognition in London stations ends with a false positive and no arrests",
+      "top": 1792
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "ScotlandFormer snooker world champion Graeme Dott jailed for child sexual abuse",
+      "top": 1792
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Mohamed Al FayedFayed survivors say GMC let abuse continue by refusing to investigate doctors",
+      "top": 2000
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "MediaDale Vince plans London-wide news operation to take on ‘rightwing bias’ in the media",
+      "top": 2000
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Insurance industryNew UK homes in flood-risk areas could become uninsurable, says Aviva boss",
+      "top": 2208
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "ScotlandFire fears as vape shop prepares to open next to Glasgow’s Mackintosh Tearooms",
+      "top": 2208
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "South KoreaLarge shark stuck in South Korean city canal draws 600,000 visitors",
+      "top": 2416
+    },
+    {
+      "level": 2,
+      "family": "GuardianTextSans",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "In focus",
+      "top": 3122
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Stateside with Kai and CarterWhy is Israel so afraid of the film NAZA? We spoke to its directors",
+      "top": 3138
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Spain‘It keeps growing’: the tent camp that stands against Spain’s housing crisis",
+      "top": 3540
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "MadagascarMurdered for their eyes: people with albinism living in terror in Madagascar",
+      "top": 3540
+    },
+    {
+      "level": 2,
+      "family": "GH Guardian Headline",
+      "sizePx": 28,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Features",
+      "top": 3756
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Homes‘Just look at this monstrosity!’ Inside Britain’s bilious back yard shed wars",
+      "top": 4238
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The big interview‘Online sex workers literally have to bare it all’: why Patricia Nilsson is exposing the world’s bigges",
+      "top": 4211
+    },
+    {
+      "level": 2,
+      "family": "GuardianTextSans",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "More features",
+      "top": 4363
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Food Angel Delight croissants?! The autumn food trends hotlist",
+      "top": 4371
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "WhiskyOn the rocks? Scotch distilleries pause production as unsold ‘whisky loch’ grows",
+      "top": 4371
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The FilterIs tech the secret to a more analogue life? How gadgets, apps and tips could actually reduce your screen time",
+      "top": 4579
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Music‘A genre-defying monument’: how Sign o’ the Times captured Prince at his creative peak",
+      "top": 4579
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Football‘Goodison Gazza’ Billy Kenny: ‘The only time I’ve had peace was when I was locked up’",
+      "top": 4787
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Politics booksThe Fall of the West by Owen Jones review – a bracing history of the changing world order",
+      "top": 4787
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "PhotographyStructural decline: what happened to Japan’s iconic buildings? – in pictures",
+      "top": 5003
+    },
+    {
+      "level": 2,
+      "family": "GH Guardian Headline",
+      "sizePx": 28,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "The long read",
+      "top": 5755
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 28,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why am I obsessed with China’s ancient golden age? I took my daughter on a trip to find out",
+      "top": 5763
+    },
+    {
+      "level": 2,
+      "family": "GH Guardian Headline",
+      "sizePx": 28,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opinion",
+      "top": 6299
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markCutting immigration to the UK means billions less for the Treasury. Can the country really afford t",
+      "top": 6307
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markBritons are not ageing healthily – we need to learn from countries that have made it a priority",
+      "top": 6504
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markAs AI models go rogue, do you still trust OpenAI and Anthropic to stop them? I don’t and neither sh",
+      "top": 6904
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markBurnham has a battle plan, with social care the flagship. Risks lie ahead, but Labour now travels i",
+      "top": 6904
+    },
+    {
+      "level": 2,
+      "family": "GuardianTextSans",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "More opinion",
+      "top": 7044
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markHow Senate Democrats can stop Trump from stealing the midterms",
+      "top": 7052
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markNetanyahu is using Mamdani as a foil in his re-election campaign",
+      "top": 7052
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markA leftwing victory in Berlin shows people want freedom, and liberals cannot deliver it",
+      "top": 7052
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "double quotation markReality pays a visit to the Labour party conference, but it’s the ‘Hope Again’ that kills you",
+      "top": 7052
+    },
+    {
+      "level": 2,
+      "family": "GuardianTextSans",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Editorials",
+      "top": 7400
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The Guardian viewThe Drumcree parade: ghosts from the past have brought Stormont to the brink",
+      "top": 7408
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The Guardian viewBritain’s new chancellor: his purpose must be to protect living standards",
+      "top": 7408
+    },
+    {
+      "level": 2,
+      "family": "GuardianTextSans",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Letters",
+      "top": 7518
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "FootballHow the Manchester City scandal could play out",
+      "top": 7526
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "TelevisionWhat if the Seven Up! series started today?",
+      "top": 7526
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "North-south divideDon’t get your kegs, keks and kex in a twist",
+      "top": 7629
+    },
+    {
+      "level": 3,
+      "family": "GH Guardian Headline",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "CultureDo the British Museum’s links with Palantir and BP bring it into disrepute?",
+      "top": 7629
+    },
+    {
+      "level": 2,
+      "family": "GuardianTextSans",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cartoon",
+      "top": 7722
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 28,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Edition"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 24,
+      "heightPx": 24,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Learn more about Guardian Labs content"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 26,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Labour"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 26,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "England"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 26,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Europe"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 26,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Food"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 26,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "AI (artificial intelligence)"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 36,
+      "heightPx": 36,
+      "background": "rgb(255, 255, 255)",
+      "text": "Sign up for our email"
+    }
+  ],
+  "sections": [
+    {
+      "top": 713,
+      "height": 2111,
+      "kind": "hero",
+      "label": "News",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.128,
+        "mirrorSymmetry": 0.563,
+        "whitespaceRatio": 0.337,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "News",
+        "PoliticsAndy Burnham expected to say he will push ahead with electoral reform plansExclusive: Labour conference speech will kick off process that could replace current system with proportional representation1h agoPensionsBurnham to signal willingness to look at scrapping pension triple lock to fund ",
+        "Latest updatesRAF Fairford: Rubio says ‘foreign actor’ behind plot as some evacuated residents begin to return homeUS secretary of state and Donald Trump express concerns about decision to bail suspects; some residents reported as hesitant to return home23m agoFairfordMarco Rubio says foreign actor ",
+        "Facial recognitionTrial of live facial recognition in London stations ends with a false positive and no arrests32m ago",
+        "ScotlandFormer snooker world champion Graeme Dott jailed for child sexual abuse43m ago",
+        "Mohamed Al FayedFayed survivors say GMC let abuse continue by refusing to investigate doctors 52m ago",
+        "MediaDale Vince plans London-wide news operation to take on ‘rightwing bias’ in the media32m ago",
+        "Insurance industryNew UK homes in flood-risk areas could become uninsurable, says Aviva boss51m ago",
+        "ScotlandFire fears as vape shop prepares to open next to Glasgow’s Mackintosh Tearooms2h ago",
+        "South KoreaLarge shark stuck in South Korean city canal draws 600,000 visitors Port city of Busan inundated with tourists keen to see the 3.5-metre animal close up4h ago"
+      ]
+    },
+    {
+      "top": 2824,
+      "height": 298,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(246, 246, 246)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 3122,
+      "height": 634,
+      "kind": "text",
+      "label": "In focus",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.083,
+        "mirrorSymmetry": 0.737,
+        "whitespaceRatio": 0.498,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "In focus",
+        "Stateside with Kai and CarterWhy is Israel so afraid of the film NAZA? We spoke to its directorsComposed of interviews with 24 anonymous Israeli intelligence officers and soldiers, the documentary NAZA is a haunting exposé of the tools that the Israeli military uses to carry out the remote killing o",
+        "Spain‘It keeps growing’: the tent camp that stands against Spain’s housing crisis6h ago",
+        "MadagascarMurdered for their eyes: people with albinism living in terror in Madagascar1h ago"
+      ]
+    },
+    {
+      "top": 3756,
+      "height": 607,
+      "kind": "text",
+      "label": "Features",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.852,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Features",
+        "Homes‘Just look at this monstrosity!’ Inside Britain’s bilious back yard shed wars6h ago",
+        "The big interview‘Online sex workers literally have to bare it all’: why Patricia Nilsson is exposing the world’s biggest porn bosses1h ago"
+      ]
+    },
+    {
+      "top": 4363,
+      "height": 1094,
+      "kind": "cards",
+      "label": "More features",
+      "cards": 5,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.28,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "More features",
+        "Food Angel Delight croissants?! The autumn food trends hotlist19m ago",
+        "WhiskyOn the rocks? Scotch distilleries pause production as unsold ‘whisky loch’ grows1h ago",
+        "The FilterIs tech the secret to a more analogue life? How gadgets, apps and tips could actually reduce your screen time1h ago",
+        "Music‘A genre-defying monument’: how Sign o’ the Times captured Prince at his creative peak1h ago…… comments",
+        "Football‘Goodison Gazza’ Billy Kenny: ‘The only time I’ve had peace was when I was locked up’3h ago",
+        "Politics booksThe Fall of the West by Owen Jones review – a bracing history of the changing world order 2h ago",
+        "Namba Apollo petrol station, 1956, designed by Junzo SakakuraTaisekiji Shohondo temple, Shizuoka Prefecture, 1972, Kimio YokoyamaNational Aquarium, Marine Life Park, Okinawa, 1975, Fumihiko MakiSony building, Tokyo, 1966, Yoshinobu AshiharaTsuda Hall, Tokyo, 1988, Fumihiko MakiPhotographyStructural "
+      ]
+    },
+    {
+      "top": 5457,
+      "height": 298,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(246, 246, 246)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 5755,
+      "height": 544,
+      "kind": "text",
+      "label": "The long read",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.427,
+        "whitespaceRatio": 0.115,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The long read",
+        "Why am I obsessed with China’s ancient golden age? I took my daughter on a trip to find outThe long read: I felt a duty to write about the Tang dynasty and its incredible social and cultural sophistication – but also to connect my Chinese past with my child6h ago"
+      ]
+    },
+    {
+      "top": 6299,
+      "height": 745,
+      "kind": "text",
+      "label": "Opinion",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.176,
+        "mirrorSymmetry": 0.489,
+        "whitespaceRatio": 0.386,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Opinion",
+        "double quotation markCutting immigration to the UK means billions less for the Treasury. Can the country really afford that?Zoe Williams‘Taking back control’ turns out to be staggeringly expensive. That’s something to mull over as budget day approaches, writes Zoe Williams19m ago",
+        "double quotation markBritons are not ageing healthily – we need to learn from countries that have made it a priorityDevi SridharAlthough we’re living longer, the data on healthy life expectancy in the UK isn’t good. Andy Burnham must reverse this trend to protect the NHS and social care, says public",
+        "double quotation markAs AI models go rogue, do you still trust OpenAI and Anthropic to stop them? I don’t and neither should youChris Stokel-Walker5h ago…… comments",
+        "double quotation markBurnham has a battle plan, with social care the flagship. Risks lie ahead, but Labour now travels in hopePolly Toynbee…… comments"
+      ]
+    },
+    {
+      "top": 7044,
+      "height": 357,
+      "kind": "cards",
+      "label": "More opinion",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.091,
+        "mirrorSymmetry": 0.996,
+        "whitespaceRatio": 0.299,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "More opinion",
+        "double quotation markHow Senate Democrats can stop Trump from stealing the midtermsDavid Walbert19m ago",
+        "double quotation markNetanyahu is using Mamdani as a foil in his re-election campaignMohamad Bazzi",
+        "double quotation markA leftwing victory in Berlin shows people want freedom, and liberals cannot deliver itEva von Redecker6h ago",
+        "double quotation markReality pays a visit to the Labour party conference, but it’s the ‘Hope Again’ that kills youJohn Crace"
+      ]
+    },
+    {
+      "top": 7400,
+      "height": 118,
+      "kind": "text",
+      "label": "Editorials",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.98,
+        "whitespaceRatio": 0.612,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Editorials",
+        "The Guardian viewThe Drumcree parade: ghosts from the past have brought Stormont to the brink",
+        "The Guardian viewBritain’s new chancellor: his purpose must be to protect living standards…… comments"
+      ]
+    },
+    {
+      "top": 7518,
+      "height": 204,
+      "kind": "text",
+      "label": "Letters",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.906,
+        "whitespaceRatio": 0.724,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Letters",
+        "FootballHow the Manchester City scandal could play out",
+        "TelevisionWhat if the Seven Up! series started today?",
+        "North-south divideDon’t get your kegs, keks and kex in a twist",
+        "CultureDo the British Museum’s links with Palantir and BP bring it into disrepute?"
+      ]
+    },
+    {
+      "top": 7722,
+      "height": 608,
+      "kind": "text",
+      "label": "Cartoon",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.524,
+        "whitespaceRatio": 0.047,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Cartoon",
+        "Ben Jennings The suspected terror plot at RAF Fairford The five men arrested near the base in Gloucestershire are all British nationals in their 20s from London, counter-terrorism police have said"
+      ]
+    },
+    {
+      "top": 8330,
+      "height": 298,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(246, 246, 246)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 8628,
+      "height": 1762,
+      "kind": "cards",
+      "label": "Sport",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.043,
+        "mirrorSymmetry": 0.43,
+        "whitespaceRatio": 0.277,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Sport",
+        "Football liveAustralia v Brazil – international football friendlyMinute-by-minute report: The Socceroos take on the Seleção in Brisbane for the second and final match of the series. Join Sam Lewis for updates1m agoEnglandTuchel resists change against Czechia despite defensive errorsEnglandTuchel get",
+        "double quotation markScale of City sanctions is only story but Premier League must bear some responsibilityBarney RonayManchester City have come out fighting against the guilty verdict but the Premier League faces questions of its ownLatest newsSoriano maintains City's innocence as rivals push for f",
+        "FootballAston Villa sack manager Arroyo with club second-bottom of WSL1h agoWSL talking pointsChelsea punish Arsenal and Putellas finds her rhythm",
+        "FootballFifa accuses Uefa of ‘harassment’ and ‘misinformation’ in push against Infantino3h agoFifaInfantino ready to accept demands for larger payouts from $6bn reserves",
+        "CricketCounty cricket 2026 awards: the good, the bad and the best manFeaturing: a teenager taking a debut hat-trick, a win for one of cricket’s nice guys, and a hard summer for ground staff3h ago…… commentsAli MartinCounty pride and England chaos relegated Hundred to undercardCounty ChampionshipWarw"
+      ]
+    },
+    {
+      "top": 10390,
+      "height": 286,
+      "kind": "text",
+      "label": "More sport",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.992,
+        "whitespaceRatio": 0.551,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "More sport",
+        "FootballChelsea’s Potter gets first England squad call-up but no Kelly or Toone19m ago",
+        "FootballIsrael captain stokes feud by saying ‘our country is 10 times better than Ireland’",
+        "double quotation markEvery saint has a past: how man at heart of City’s first scandal became a United hero Sean Ingle3h ago",
+        "NHLAmerican exodus: why do so many US stars want out of Canada?19m ago"
+      ]
+    },
+    {
+      "top": 10676,
+      "height": 298,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(246, 246, 246)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 10974,
+      "height": 1000,
+      "kind": "text",
+      "label": "More top stories",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.08,
+        "mirrorSymmetry": 0.647,
+        "whitespaceRatio": 0.202,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "More top stories",
+        "Europe live‘We will not be intimidated,’ says Estonian PM after attributing recent arson attack to RussiaKristen Michal says attack ‘against Milrem Robotics was ordered by Russian special services’, after Kremlin denies involvement12m ago‘This is terrorism’Daytime Russian strike hits science academy",
+        "US politics liveTrump denies offering Iran sanctions relief for nuclear concessions7m ago",
+        "Business liveUK mortgage approvals lowest since December 2023; diesel hits new record high near £2 a litre11m ago",
+        "NHSHospitals in England hit by shortages of common drugs such as paracetamol4h ago",
+        "Gisèle Pelicot‘Jaw-dropping’ play based on Pelicot rape trial comes to London for one night3h agoFranceGisèle Pelicot’s daughter launches awareness campaign for potential victims of drugging and sexual assault"
+      ]
+    },
+    {
+      "top": 11974,
+      "height": 375,
+      "kind": "cards",
+      "label": "Climate crisis & environment",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.182,
+        "mirrorSymmetry": 0.862,
+        "whitespaceRatio": 0.211,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Climate crisis & environment",
+        "ForestsUN warns of ‘narrowing window’ to restore world’s forests4h ago",
+        "Pfas‘Are these chemicals in my blood?’: How one UK community learned the truth about Pfas pollution",
+        "Labour conferenceCost of green transition could be spread among taxpayers, energy secretary says",
+        "Wildlife‘The Chorng believed they were still there’: how local people helped rediscover the Siamese crocodile5h ago"
+      ]
+    },
+    {
+      "top": 12349,
+      "height": 281,
+      "kind": "text",
+      "label": "UK news",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.926,
+        "whitespaceRatio": 0.545,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "UK news",
+        "UKMerseyside blaze that killed mother and three children caused by lithium-ion battery",
+        "UK foreign policyPalestine has become electoral issue in UK for first time, says solidarity campaign chief",
+        "Politics WeeklyCan Labour bring down our energy bills?Video8:38",
+        "AnalysisAbsence of violence in Drumcree does not make standoff any less significant"
+      ]
+    },
+    {
+      "top": 12630,
+      "height": 227,
+      "kind": "text",
+      "label": "World news",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.951,
+        "whitespaceRatio": 0.651,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "World news",
+        "ICE 2.0Three deaths, three states, 24 hours: one day in ICE’s quiet but ‘gruesome’ surge19m ago",
+        "Cornell University Investigation of alleged gang-rape at Cornell University fraternity house reopened",
+        "Children's healthHigh screen time can hurt children’s learning and language skills, study suggests",
+        "Fiji‘Children are dying’: Fiji hopes declaring an HIV emergency will help it tackle crisis9h ago"
+      ]
+    },
+    {
+      "top": 12857,
+      "height": 225,
+      "kind": "text",
+      "label": "Business & technology",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.908,
+        "whitespaceRatio": 0.684,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Business & technology",
+        "MetaMeta’s AI agent Muse gives out user’s home address without permission, sending buyer to his house11h ago",
+        "Artificial intelligenceOpenAI scraps release of new model over safety concerns in internal testing3h ago",
+        "AIAI godfathers warn of runaway ‘intelligence explosion’",
+        "TariffsFoie gras, live dolphins and toasters: China and US cut reciprocal tariffs on $30bn each of goods"
+      ]
+    },
+    {
+      "top": 13083,
+      "height": 298,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(246, 246, 246)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 13457,
+      "height": 607,
+      "kind": "text",
+      "label": "Culture",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.861,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Culture",
+        "FictionStations by Louise Kennedy review – a superb follow-up to Trespasses4h ago…… comments",
+        "ArtNo island of strangers: why I’m using art to unite a fractured nation6h ago"
+      ]
+    },
+    {
+      "top": 14064,
+      "height": 397,
+      "kind": "cards",
+      "label": "What to watch",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.083,
+        "mirrorSymmetry": 0.872,
+        "whitespaceRatio": 0.236,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "What to watch",
+        "FilmThe Portuguese House review – picturesque, polite drama of secrets and revelations at a country estate2h ago",
+        "FilmChild review – jump scares abound in twisty organ transplant fable that keeps horror at its heart19m ago",
+        "ReviewMichael Palin in the Philippines review – who else could cause such a weird moment with the president?",
+        "FilmApril X review – Connor Storrie searches for missing twin in dystopian dream-tech sci-fi thriller4h ago"
+      ]
+    },
+    {
+      "top": 14460,
+      "height": 395,
+      "kind": "cards",
+      "label": "What to listen to",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.083,
+        "mirrorSymmetry": 0.84,
+        "whitespaceRatio": 0.261,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "What to listen to",
+        "How we made‘We wanted it to be a battlecry’: how Republica made 90s anthem Ready to Go…… comments",
+        "Best podcasts of the weekObama and Tom Hanks have an inspirational chat: best podcasts of the week…… comments",
+        "Classical musicParaorchestra; Sinfonietta/Jonny Greenwood review – Reich’s kaleidoscopic music bursts into life…… comments",
+        "Honest playlist‘Eminem’s Lose Yourself is my anthem for getting the kids out of the house’: Kimberly Wyatt’s honest playlist"
+      ]
+    },
+    {
+      "top": 14855,
+      "height": 262,
+      "kind": "text",
+      "label": "What to read",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.98,
+        "whitespaceRatio": 0.479,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "What to read",
+        "HistoryDeep into the Sixties: Britain 1965-66 by David Kynaston review – a tour de force of popular history…… comments",
+        "FictionRange by Dorthe Nors review – an astrophysicist at odds with reality",
+        "InterviewTomi Adeyemi on the film of her hit novel Children of Blood and Bone: ‘I don’t plan to watch it’",
+        "Interview‘My generation of novelists is dying’: Rose Tremain on 70 years of writing, and late-life inspiration"
+      ]
+    },
+    {
+      "top": 15117,
+      "height": 281,
+      "kind": "text",
+      "label": "What to play",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.975,
+        "whitespaceRatio": 0.53,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "What to play",
+        "ReviewAce Combat 8: Wings of Theve – brilliant aerial combat game fulfils the Top Gun fantasy",
+        "double quotation markPlaying video games with my 22-year-old son has brought me to tearsDominik Diamond…… comments",
+        "PokémonMeet the real-life Pokémon professors, the unsung heroes of competitive monster-battling",
+        "MarvelWhy fans are digging their claws into Wolverine over its patronising gameplayNewsletter"
+      ]
+    },
+    {
+      "top": 15399,
+      "height": 385,
+      "kind": "cards",
+      "label": "What to visit",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.222,
+        "mirrorSymmetry": 0.858,
+        "whitespaceRatio": 0.23,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "What to visit",
+        "TheatreHappy Days review – Beckett’s bewitching heroine buries her existential fears",
+        "StageThe First Year (of the Gaza Genocide in the Media) review – bold but uneven focus on Palestinian voices",
+        "StageA Midsummer Night’s Dream review – Munya Chawawa bewitches in lovingly juiced-up 90s rave",
+        "StageTru – review: a five-star performance of a three-star script about the life of Truman Capote"
+      ]
+    },
+    {
+      "top": 15784,
+      "height": 413,
+      "kind": "cards",
+      "label": "More culture",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.091,
+        "mirrorSymmetry": 0.89,
+        "whitespaceRatio": 0.279,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "More culture",
+        "Photography‘You’ve got to be pretty tough to be a drag queen out there’: Damien Frost’s immaculate queer portraits10h ago",
+        "ReviewSchool Girls; Or, The African Mean Girls Play review – comedy makes a near-flawless Broadway debut 9h ago",
+        "Art Painting the French Riviera review – about as erotic and glamorous as a wet day in Margate",
+        "MusicStevie Wonder releases four unheard songs from Songs in the Key of Life sessions"
+      ]
+    },
+    {
+      "top": 16887,
+      "height": 607,
+      "kind": "logos",
+      "label": "Lifestyle",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.86,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Lifestyle",
+        "HomesThe pest I’ll never forget: I turned the toaster upside down. A mouse fell out4h ago…… comments",
+        "AppleMac mini M6 review: truly mighty but now more pricey4h ago"
+      ]
+    },
+    {
+      "top": 17494,
+      "height": 390,
+      "kind": "cards",
+      "label": "The Filter",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.182,
+        "mirrorSymmetry": 0.829,
+        "whitespaceRatio": 0.235,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The Filter",
+        "The FilterGet cosy: a stylish scarf, a comfy mattress topper and other buys you loved in SeptemberNewsletter",
+        "Cooking‘I may have turned into a sausage by the time you read this’: the best casserole dishes for stews and pasta sauces – tested",
+        "Food‘Wonderful, full-fat indulgence’: the best (and worst) supermarket lemon cheesecake, tasted and rated…… comments",
+        "AutumnFrom chunky knits to go-anywhere boots: 52 women’s autumn wardrobe updates (some are even free)"
+      ]
+    },
+    {
+      "top": 17884,
+      "height": 373,
+      "kind": "cards",
+      "label": "Food",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.071,
+        "mirrorSymmetry": 0.853,
+        "whitespaceRatio": 0.216,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Food",
+        "ChickenThomasina Miers’ recipes for turmeric chicken and cardamom apple tart5h ago…… comments",
+        "Quick and easySanjana Modha’s quick and easy recipe for baked beans butter masala …… comments",
+        "Italian foodRice ‘polenta’ with sausage sauce and rice with pork, lemon and saffron: Pasta Grannies’ Italian rice recipes…… comments",
+        "AlcoholThe ‘elixir of long life’: how the elusive Chartreuse quietly became the trendiest drink around…… comments"
+      ]
+    },
+    {
+      "top": 18257,
+      "height": 263,
+      "kind": "text",
+      "label": "Relationships",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.96,
+        "whitespaceRatio": 0.498,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Relationships",
+        "The pet I'll never forgetThe pet I’ll never forget: Dennis the terrier – who once farted on Jilly Cooper’s sofa",
+        "The experts‘Whose job is it to empty the dishwasher?’ Experts on the conversations every couple needs to have",
+        "Kindness of strangersTwo helicopter pilots flew down low to wave to my three-year-old son – he was beside himself with joy…… comments",
+        "Dining across the divideEvery rightwing person should have a woke friend and vice versa"
+      ]
+    },
+    {
+      "top": 18520,
+      "height": 262,
+      "kind": "text",
+      "label": "Money & consumer",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.979,
+        "whitespaceRatio": 0.534,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Money & consumer",
+        "ExplainedWhat you need to know about Your First Home scheme for first-time buyers",
+        "Consumer championsLV= insurance is ignoring us while our house literally falls apart4h ago…… comments",
+        "SavingsShould you lock into a fixed-rate savings account paying 5.25%?",
+        "Consumer championsTfL’s bailiffs are chasing me for a stranger’s unpaid Ulez fines…… comments"
+      ]
+    },
+    {
+      "top": 18782,
+      "height": 281,
+      "kind": "text",
+      "label": "Health & fitness",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.965,
+        "whitespaceRatio": 0.564,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Health & fitness",
+        "Pregnancy‘12 weeks and SO disgusted by my dog’: what happens when you’re pregnant and can’t stand your pet?",
+        "Weight-loss drugsDoes GLP-1 use result in significant hair loss?",
+        "ExperienceA brain surgeon dropped part of my skull on the floor…… comments",
+        "Science WeeklyAre girls more social from birth?Video20:36"
+      ]
+    },
+    {
+      "top": 19064,
+      "height": 340,
+      "kind": "cards",
+      "label": "Fashion & beauty",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.111,
+        "mirrorSymmetry": 0.872,
+        "whitespaceRatio": 0.186,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Fashion & beauty",
+        "Armani With turbulence all around, Armani plays it safe and easy in Milan",
+        "Fashion industry‘It’s problematic’: concern as weight-loss jab maker sponsors Vogue World event",
+        "TrendsCamo’s back: noughties pop’s military style is on the march again",
+        "Milan fashion weekDolce & Gabbana mixes it up as pressure mounts for turnaround"
+      ]
+    },
+    {
+      "top": 19404,
+      "height": 352,
+      "kind": "cards",
+      "label": "Travel",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.083,
+        "mirrorSymmetry": 0.885,
+        "whitespaceRatio": 0.198,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Travel",
+        "ScandinaviaSaunas, cinnamon buns and coastal scenery on the new rail route from Malmö to Oslo 4h ago…… comments",
+        "Germany‘The champagne of pale ales’: my search for the perfect kölsch beer in Cologne…… comments",
+        "Cottages15 great cottages and cabins for an autumn escape in the UK",
+        "Travel15 great small hotels, inns and restaurants with rooms for an autumn stay in the UK"
+      ]
+    },
+    {
+      "top": 19755,
+      "height": 278,
+      "kind": "text",
+      "label": "More lifestyle",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.984,
+        "whitespaceRatio": 0.559,
+        "contentWidthRatio": 0.819,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "More lifestyle",
+        "PlantsHouseplant hacks: should you water plants less in winter?1h ago…… comments",
+        "The one change that workedAnxiety had me hiding from the world – then two magic questions set me free",
+        "Pass notesThe hunk shortage: where are England’s handsomest men hiding?",
+        "Country diaryA tangle of butterflies and battle re-enactments 6h ago…… comments"
+      ]
+    },
+    {
+      "top": 20033,
+      "height": 298,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(246, 246, 246)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 20331,
+      "height": 618,
+      "kind": "text",
+      "label": "Documentary",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.723,
+        "whitespaceRatio": 0.461,
+        "contentWidthRatio": 0.814,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Documentary",
+        "Letters from prisonPrison Letters: the teenager writing letters to jailed climate activists – documentaryA teenager struggling with climate anxiety searches for hope in an unexpected place – writing letters to imprisoned activists. Max, 14, is on a quest to understand the human stories behind direct"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.803,
+  "effects": {
+    "glass": 9,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 229, 0)",
+          "rgb(228, 229, 232)"
+        ],
+        "area": 98800,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 1,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://i.guim.co.uk/img/media/e95a693157d9535c9b5e5dca14b870beef0c1f30/0_0_5000_4000/master/5000.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 700,
+      "height": 560,
+      "top": 7730,
+      "role": "photo",
+      "alt": "Ben Jennings on the suspected terror plot at RAF Fairford – cartoon",
+      "decorative": false,
+      "section": 11,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 40129
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/05b0500345361153de96aa383f6be271ba17299c/0_0_3250_2600/master/3250.png?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 692,
+      "height": 554,
+      "top": 22229,
+      "role": "photo",
+      "alt": "Gallery trail 280926",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 45807
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/58b7dc793b169fd2d57e80a96d5d2ae1d66e1ecd/1414_662_5984_4788/master/5984.jpg?width=620&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 620,
+      "height": 496,
+      "top": 721,
+      "role": "photo",
+      "alt": "Burnham speaking on the Labour conference stage",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 23990
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/fb96e4a86261ae8122eb1a14668b344a7aff928d/737_0_7313_5852/master/7313.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 620,
+      "height": 496,
+      "top": 5763,
+      "role": "photo",
+      "alt": "Visitors surround a clay warrior from the terracotta Army at the mausoleum of Qin Shi Huang.",
+      "decorative": false,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 34324
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/cc875adbcbac913788e627f82d29eab7eba016ad/561_0_5405_4324/master/5405.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 620,
+      "height": 496,
+      "top": 8636,
+      "role": "photo",
+      "alt": "Riley McGree passes the ball during the warm up",
+      "decorative": false,
+      "section": 13,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 29761
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/569e32f5018215bc2d4682ad4d78565135a78cc0/727_0_5120_4096/master/5120.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 620,
+      "height": 496,
+      "top": 10982,
+      "role": "photo",
+      "alt": "Prime minister of Estonia Kristen Michal pictured earlier this month.",
+      "decorative": false,
+      "section": 16,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 18543
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/45b41ea3535cf960070364d0aa22483daf60e308/0_0_4000_5000/master/4000.jpg?width=460&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 3764,
+      "role": "photo",
+      "alt": "A composite image of various garden sheds. ",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 48372
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/75fb6c7055219e9585180c9843978fcf6bf561d0/1112_0_3200_4000/master/3200.jpg?width=460&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 3764,
+      "role": "photo",
+      "alt": "The journalist Patricia Nilsson stands in front of a tree. ",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 51625
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/a2b18b7d01448c4c7eeba21b58f909a43965fb94/514_0_1838_2298/master/1838.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 13465,
+      "role": "photo",
+      "alt": "People gather in a London pub in 1982, drinking beer and talking amid soft lamplight",
+      "decorative": false,
+      "section": 22,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 42684
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/1a2054fb6d489900b7490db351a76403c6ab3fa1/1242_0_3200_4000/master/3200.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 13465,
+      "role": "photo",
+      "alt": "Sculpture \"Accounts\" by Alex Margo Arden: working men bound by rope, one holding a wooden frame overhead",
+      "decorative": false,
+      "section": 22,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 36804
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/21d1dacb0c091fe85a4c61f27cddc074836f9dce/1_0_2549_2040/master/2549.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 16204,
+      "role": "photo",
+      "alt": "A woman with curly hair pulls a yellow turtleneck sweater up over her nose",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 37823
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/45f13d465b2fcd2e21a636e91bda038cddc87a9a/0_473_1950_1559/master/1950.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 16204,
+      "role": "photo",
+      "alt": "Unusual fashion portrait of modern woman wearing winter outfit and posing on toy horse over white background",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 59201
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/fa4716edc7ba2ed1a62938e1c5473fff00063ed0/577_0_1920_2400/master/1920.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 16895,
+      "role": "logo",
+      "alt": "composite of a huge mouse sitting on a toaster",
+      "decorative": false,
+      "section": 29,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/cad96c598dadda08b314e52bf0f8fbba0beb0e57/2038_595_2920_3650/master/2920.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 575,
+      "top": 16895,
+      "role": "logo",
+      "alt": "A hand holds up a small silver Mac mini M6 with an Apple logo on top.",
+      "decorative": false,
+      "section": 29,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/641cdb2dd31f8c587e4203d4696932cdd417fce8/416_0_3179_2544/master/3179.jpg?width=460&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 368,
+      "top": 1330,
+      "role": "photo",
+      "alt": "Police officers guard an area as roadblocks remain in place near RAF Fairford airbase on 29 September, 2026. ",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 35976
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/30771e6d988cb854596a33aa0fda387b5d52c622/823_0_3537_2830/master/3537.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 368,
+      "top": 6504,
+      "role": "photo",
+      "alt": "Rear view of senior man holding gym rings",
+      "decorative": false,
+      "section": 7,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 17256
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/d5a30fc3088b7829358fee9fdb824c4aff2a1954/802_0_4350_3479/master/4350.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 368,
+      "top": 9227,
+      "role": "photo",
+      "alt": "Vincent Kompany and his Manchester City teammates lift the Premier League trophy in 2018.",
+      "decorative": false,
+      "section": 13,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 55363
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/ce378730e3993beed4d3ac31388aef2d32cda915/0_0_5000_4000/master/5000.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 460,
+      "height": 368,
+      "top": 9954,
+      "role": "photo",
+      "alt": "Tom Norton, Ethan Bamber, groundstaff during the summer heatwaves.",
+      "decorative": false,
+      "section": 13,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 39851
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/352559e1287f9dcb7da25ccbe9bce644eba88969/24_0_3252_2602/master/3252.jpg?width=460&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 452,
+      "height": 362,
+      "top": 5003,
+      "role": "photo",
+      "alt": "Namba Apollo petrol station, 1956, designed by Junzo Sakakura",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 16523
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/a18957ffe8b8a057cd8db6e33315af34eb32c224/237_0_2622_2098/master/2622.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 452,
+      "height": 362,
+      "top": 5003,
+      "role": "photo",
+      "alt": "Taisekiji Shohondo temple, Shizuoka Prefecture, 1972, Kimio Yokoyama",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 30271
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/294558622d47c5a758794016e7ab0277ee8bebd6/28_0_3254_2603/master/3254.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 452,
+      "height": 362,
+      "top": 5003,
+      "role": "photo",
+      "alt": "National Aquarium, Marine Life Park, Okinawa, 1975, Fumihiko Maki",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 21876
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/94e8b79c9b1f9844ea95e7767369103cb2f75e8a/209_40_3033_2426/master/3033.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 452,
+      "height": 362,
+      "top": 5003,
+      "role": "photo",
+      "alt": "Sony building, Tokyo, 1966, Yoshinobu Ashihara",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 36400
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/0dfe6879afd9f0297a1306d201401bfe76e41b69/75_0_3219_2575/master/3219.jpg?width=465&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 452,
+      "height": 362,
+      "top": 5003,
+      "role": "photo",
+      "alt": "Tsuda Hall, Tokyo, 1988, Fumihiko Maki",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 24005
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/08b7ea559964b7e98f1d42a60096a1dad9cd1b16/1638_0_2458_3072/master/2458.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 300,
+      "height": 375,
+      "top": 20957,
+      "role": "photo",
+      "alt": "Small child and yellow bulldozer with collapsed buildings in backdrop and rebar in foreground",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 66595
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/eb716903a9bd44112fe2252b6488b772f09bf8d1/4127_662_3576_4473/master/3576.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 300,
+      "height": 375,
+      "top": 20957,
+      "role": "photo",
+      "alt": "Burnt-out homes in Stourbridge.",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 62574
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/90219b597985e2160fed6749a2ac071e3e228738/14_0_802_1002/master/802.jpg?width=465&dpr=1&s=none&crop=4%3A5",
+      "host": "i.guim.co.uk",
+      "width": 300,
+      "height": 375,
+      "top": 20957,
+      "role": "photo",
+      "alt": "War-damaged buildings in Oleshky",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 57593
+      }
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/3d984cf92bf83efa8a42fc05fa2c895c1ecb1d0b/500_0_5000_4000/master/5000.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 1792,
+      "role": "photo",
+      "alt": "People at Waterloo station in London",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/1b91859d4ce2f1c824e5cd608e6f26b15d82920c/531_245_4998_3999/master/4998.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 1792,
+      "role": "photo",
+      "alt": "Dott, wearing a suit, walks down the street outside court",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/e81f4e0ed449df393ed4d95f58cba6bab747efb2/1575_404_6321_5060/master/6321.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 2000,
+      "role": "photo",
+      "alt": "Pelham Spong sitting on a bench outside a house.",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/86d8c4f889689b5893ff26b232a63d196604895b/170_0_2589_2072/master/2589.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 2000,
+      "role": "photo",
+      "alt": "Dale Vince, smiling, wears a keffiyeh outside a glass building.",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/cefd26c78fd6cd56e639a5fccc588a3ed7dcbb05/195_0_2884_2308/master/2884.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 2208,
+      "role": "photo",
+      "alt": "Flooding in Retford in Nottinghamshire, after Storm Babet battered the UK in 2023",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/70d514f775705645d445ede0c7557d0443352fc1/0_753_2316_1853/master/2316.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 2208,
+      "role": "photo",
+      "alt": "Ashley Rawson stands outside the vape shop and tearoom.",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/661ac098210768df287caad3315823c4c1f005fd/26_357_1143_914/master/1143.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 3540,
+      "role": "photo",
+      "alt": "Mart Garcia holding a fist aloft",
+      "decorative": false,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/b7ffb6f228921414a4127d29873f518261b8cc15/294_0_3195_2556/master/3195.jpg?width=220&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 3540,
+      "role": "photo",
+      "alt": "A black man and a black woman holding a framed portrait of a young man with albinism",
+      "decorative": false,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/dc1fb9c92efada08c43f8f08d209a7fe84730780/87_0_2999_2400/master/2999.png?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 4371,
+      "role": "photo",
+      "alt": "A dome-shaped green marzipan cake topped with a peach rose sits on a white lace doily",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/627e86a47a1d55befdb29af14506080090b9a0a4/547_0_5000_4000/master/5000.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 4371,
+      "role": "photo",
+      "alt": "A man walks past two large copper domes in an old industrial building",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/861c774cae7728769c883754eae13a537a5c7320/0_0_5000_4000/master/5000.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 4579,
+      "role": "photo",
+      "alt": "Two people walk hand in hand along a leaf-covered path in Cannizaro Park, London",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/c5217b99b8512b3d8c871d2c633d2ffdb2467699/196_16_2353_1883/master/2353.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 4579,
+      "role": "photo",
+      "alt": "Prince in 1987.",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/b8d7e6c79750e72fa38a9b4293984df028cfe6f1/330_0_7200_5760/master/7200.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 4787,
+      "role": "photo",
+      "alt": "Billy Kenny, the former Everton midfielder, sits indoors gazing upward with a thoughtful expression",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/408778e9b19e9dffdf9ddd8dd0540544744c91b0/60_9_2432_1945/master/2432.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 4787,
+      "role": "photo",
+      "alt": "An anti-Iraq war march in London, 2003.",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/eae501d438b47df74dbf1a3e82cf33b6a8b93a36/0_0_6235_4990/master/6235.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 7200,
+      "role": "photo",
+      "alt": "capitol building with people walking by",
+      "decorative": false,
+      "section": 8,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/c572f8985145eeede17f3a7ea0f2e437f6b723cc/0_0_5000_4000/master/5000.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 7200,
+      "role": "photo",
+      "alt": "netanyahu and mamdani in side by side photos",
+      "decorative": false,
+      "section": 8,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/5ddb18d3d9df5071a6131b211119e60d897f0423/1016_0_6465_5172/master/6465.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 7200,
+      "role": "photo",
+      "alt": "Die Linke’s top candidate, Elif Eralp (with flowers) during a meeting of its Berlin state branch on 25 September 2026.",
+      "decorative": false,
+      "section": 8,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/d276df26f49ef52db7405ffcd81a272776e03412/201_327_3126_2501/master/3126.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 9690,
+      "role": "photo",
+      "alt": "Natalia Arroyo ",
+      "decorative": false,
+      "section": 13,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/9a78301caadfbbac87fab22f976897fbf9b38450/431_251_4681_3745/master/4681.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 9690,
+      "role": "photo",
+      "alt": "Fifa president Gianni Infantino speaks during the opening of new offices at the Latvian Football Association in Riga ",
+      "decorative": false,
+      "section": 13,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/898a097080768b1f4383b38fda862140e0a6eefa/453_0_4838_3872/master/4838.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 11510,
+      "role": "photo",
+      "alt": "People drive near an anti-US mural in Tehran earlier this month",
+      "decorative": false,
+      "section": 16,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/2f5bb9c1abd04e0075c825b257fe8411998b462a/495_0_4948_3959/master/4948.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 11510,
+      "role": "photo",
+      "alt": "People browsing the window of an estate agent in Wimbledon, southwest London.",
+      "decorative": false,
+      "section": 16,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/9c47163091260bebf37ccfa6dce99c4db8a39b5e/41_0_4267_3414/master/4267.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 11718,
+      "role": "photo",
+      "alt": "An outstretched palm holding containing medication with a glass of water in the other hand",
+      "decorative": false,
+      "section": 16,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/c520d4380b2d466759438a9be98a1d22f6039851/197_0_1354_1083/master/1354.jpg?width=120&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 11718,
+      "role": "photo",
+      "alt": "Gisele Pelicot, with red hair and a pink jacket, looks downward outside court",
+      "decorative": false,
+      "section": 16,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/24034cb8f4a11b3659780e02b81f93c2f21376d7/150_0_1620_1296/master/1620.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 12149,
+      "role": "photo",
+      "alt": "Deforestation in the Amazon - detail of an area",
+      "decorative": false,
+      "section": 17,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/a12604231cb674d295769ca09a0d5fc6bb7117f3/70_0_7200_5760/master/7200.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 12149,
+      "role": "photo",
+      "alt": "Hammond holds a small duckling while standing in her garden",
+      "decorative": false,
+      "section": 17,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/527a2586d713a57183b086e5bc0f342cef1db282/356_0_3888_3110/master/3888.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 12149,
+      "role": "photo",
+      "alt": "Closeup of Fahnbulleh speaking at lectern against red background ",
+      "decorative": false,
+      "section": 17,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/953dc4a0932e8d826e93eaefe98c8b2e4582f361/23_325_2841_2275/master/2841.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 12149,
+      "role": "photo",
+      "alt": "Close up of a baby Siamese crocodile held in hands against a Buddhist monk's orange clothing.",
+      "decorative": false,
+      "section": 17,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/f54dd16e4ca2ae6fb25b08531d2b0f97444f9a1e/365_0_2595_2076/master/2595.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 14260,
+      "role": "photo",
+      "alt": "Maria de Medeiros and Manolo Solo from The Portuguese House stand outdoors with serious expressions",
+      "decorative": false,
+      "section": 23,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/04a579e16454d9b53789f8afa2994271c1c3f572/972_0_2144_1716/master/2144.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 14260,
+      "role": "photo",
+      "alt": "Child.",
+      "decorative": false,
+      "section": 23,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/e9284a2d0d5f8c95e369bafd02946f2ef9b1a18b/97_0_2906_2325/master/2906.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 14260,
+      "role": "photo",
+      "alt": "Michael Palin smiles near a market stall as a woman prepares food behind him",
+      "decorative": false,
+      "section": 23,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/1a1baa654e05f989bbeab0a22eb19ab76f7a4c9e/803_0_1596_1278/master/1596.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 14260,
+      "role": "photo",
+      "alt": "Lilly Krug as April and Connor Storrie as Baxter in April X. ",
+      "decorative": false,
+      "section": 23,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/5a34d955780434c2db91350555350a48fe80e6dd/30_0_1523_1219/master/1523.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 14655,
+      "role": "photo",
+      "alt": "Singer Saffron of Republica sings passionately into a microphone on stage",
+      "decorative": false,
+      "section": 24,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/41782131ac9bf236255c3bf47eed4f6574fce3b4/922_47_1878_1503/master/1878.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 14655,
+      "role": "photo",
+      "alt": "Barack Obama ",
+      "decorative": false,
+      "section": 24,
+      "background": false
+    },
+    {
+      "src": "https://i.guim.co.uk/img/media/dfe6ec35f7534089dd6042ae576d2aea773b7a1b/500_0_5000_4000/master/5000.jpg?width=200&dpr=1&s=none&crop=5%3A4",
+      "host": "i.guim.co.uk",
+      "width": 220,
+      "height": 176,
+      "top": 14655,
+      "role": "photo",
+      "alt": "Paraorchestra performance: two dancers move on a wooden floor as a seated crowd watches under stage lights",
+      "decorative": false,
+      "section": 24,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "You are viewing the UK homepage View the Europe homepage",
+    "News",
+    "PoliticsAndy Burnham expected to say he will push ahead with electoral reform plansExclusive: Labour conference speech will kick off process that could replace current system with proportional representation1h agoPensionsBurnham to signal willingness to look at scrapping pension triple lock to fund "
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 40,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      15,
+      16,
+      17,
+      20,
+      24,
+      28
+    ],
+    "fontWeights": [
+      400,
+      500,
+      700
+    ],
+    "radii": [
+      "12px",
+      "24px",
+      "36px",
+      "50%"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 68.5,
+    "bodyLineLengthCh": null,
+    "bodyFontSizePx": null
+  },
+  "visual": {
+    "colourfulness": 34.1,
+    "edgeDensity": 0.096,
+    "symmetry": 0.916,
+    "width": 1440,
+    "height": 900,
+    "sampled": 324000
+  }
+}
