@@ -853,12 +853,15 @@ AI set and the null can include more than Claude. Give each builder the prompt
 Target 5, the blind test, is a protocol for people, not a command: see
 `docs/blind-test.md`.
 
-**No run recorded yet.** The first run needs a browser that can reach live
-pages: wiredge.studio has no snapshot, and `--fresh` re-snapshots every page on
-snapshot v2, which is the recalibration Phase K still owes. The pinned
-2026-09-23 snapshots are version 1, so the rendered tells added in phases K to
-N mostly cannot fire on them. Record the run here, with its date, alongside the
-2026-09-23 numbers.
+**First run, 2026-09-29** (`craft calibrate calibration/labels.json --fresh`, Playwright driving a headless Chrome through `CRAFT_CHROMIUM`, every page re-snapshotted on the current snapshot version; results in `calibration/results/2026-09-29/`). Against 140 null pages from 7 briefs:
+
+| Target | Result |
+| --- | --- |
+| 1. Generated pages get caught | met: 20 of 20 flagged |
+| 2. Good human sites don't get caught | met on its definition: 0 block hits, 0 of 6 typical. 3 pages not measured: two preview gates and myndex.com, unreachable from this machine |
+| 3. AI-looking sites get caught | met: 1 of 1 (wiredge.studio), one page, so weak evidence |
+
+Read the second row with care. The flagged rule (typical against the null, or three or more distinct design tells) flagged 5 of the 6 measured human sites as tell-heavy, though none is typical and none has a blocking tell. Target 2 as written does not count that. If the rule is meant to say "this looks AI-made", 5 of 6 is a false-positive problem to fix before anything gates on it. It would want a decision on the target, not a quiet threshold change. The set is also small (20 AI, 6 human, 1 AI-looking), all AI pages are Claude's, and 46 of 68 tells never fired on it. Target 4 (the estate) and target 5 (the blind test) are not measured by this command.
 
 ### Character report first read, 2026-09-23
 
