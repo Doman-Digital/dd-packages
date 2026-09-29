@@ -7,7 +7,7 @@
 // Home plus up to N more same-origin pages, found from the links on the home page
 // and picked by what they are for (services, about, gallery, pricing, contact,
 // journal). For each: desktop 1440x900 and mobile 390x844, first screen, then a
-// screenshot every viewport-height down the page (max 8). Originals are kept.
+// screenshot every viewport-height down the page (max 8, or --max). Originals are kept.
 // No form is submitted, and cookie banners are left as found.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -17,6 +17,8 @@ const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i === -
 const site = arg("site");
 const out = arg("out");
 const extra = Number(arg("pages", 5));
+// --max: most screens per page and device (default 8; a long single-page site needs more).
+const maxSteps = Number(arg("max", 8));
 // --urls "services=https://x/services,about=https://x/about": exact pages, for sites whose links the crawl cannot find.
 const explicit = arg("urls") ? Object.fromEntries(arg("urls").split(",").map((kv) => kv.split(/=(.+)/).slice(0, 2))) : null;
 if (!site || !out) throw new Error("usage: --site <url> --out <dir> [--pages 5]");
@@ -62,7 +64,7 @@ for (const { page, url } of pages) {
     const status = await p.goto(url, { waitUntil: "networkidle", timeout: 45000 }).then((r) => r?.status()).catch((e) => `error: ${e.message.slice(0, 60)}`);
     await p.waitForTimeout(2500);
     const total = await p.evaluate(() => document.documentElement.scrollHeight);
-    const steps = Math.min(8, Math.max(1, Math.ceil(total / viewport.height)));
+    const steps = Math.min(maxSteps, Math.max(1, Math.ceil(total / viewport.height)));
     for (let s = 0; s < steps; s += 1) {
       await p.evaluate((y) => window.scrollTo(0, y), s * viewport.height);
       await p.waitForTimeout(1200);
