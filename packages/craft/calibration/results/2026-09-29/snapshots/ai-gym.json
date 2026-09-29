@@ -1,0 +1,814 @@
+{
+  "version": 2,
+  "url": "file:///home/dimz/dd-packages/packages/craft/calibration/ai-set/gym/pages/01.html",
+  "capturedAt": "2026-09-29T08:45:19.328Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7250,
+  "ground": "rgb(13, 13, 13)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(22, 22, 22)",
+        "area": 3948819,
+        "chars": 0
+      },
+      {
+        "value": "rgb(13, 13, 13)",
+        "area": 868880,
+        "chars": 0
+      },
+      {
+        "value": "rgb(198, 93, 46)",
+        "area": 584507,
+        "chars": 0
+      },
+      {
+        "value": "rgba(13, 13, 13, 0.9)",
+        "area": 110183,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(154, 154, 154)",
+        "area": 0,
+        "chars": 3046
+      },
+      {
+        "value": "rgb(216, 211, 203)",
+        "area": 0,
+        "chars": 694
+      },
+      {
+        "value": "rgb(243, 239, 233)",
+        "area": 0,
+        "chars": 624
+      },
+      {
+        "value": "rgb(207, 202, 194)",
+        "area": 0,
+        "chars": 300
+      },
+      {
+        "value": "rgb(224, 118, 64)",
+        "area": 0,
+        "chars": 180
+      },
+      {
+        "value": "rgba(13, 13, 13, 0.8)",
+        "area": 0,
+        "chars": 90
+      },
+      {
+        "value": "rgb(13, 13, 13)",
+        "area": 0,
+        "chars": 43
+      },
+      {
+        "value": "rgb(198, 93, 46)",
+        "area": 0,
+        "chars": 10
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4530,
+      "displayChars": 0,
+      "italicChars": 489,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Bebas Neue",
+      "chars": 457,
+      "displayChars": 439,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Bebas Neue",
+      "sizePx": 88,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "TRAIN HARD.OWN YOUR STRENGTH.",
+      "top": 340
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Built by lifters, for lifters",
+      "top": 1111
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Training that fits how you want to work",
+      "top": 1960
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Open Gym Access",
+      "top": 2256
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Personal Training",
+      "top": 2256
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small Group Coaching",
+      "top": 2256
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Powerlifting Programming",
+      "top": 2586
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Beginner Foundations",
+      "top": 2586
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Nutrition Check-ins",
+      "top": 2586
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Coaches who lift alongside you",
+      "top": 3054
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Marcus Reid",
+      "top": 3756
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Aisha Bello",
+      "top": 3756
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tom Hargreaves",
+      "top": 3756
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Straightforward pricing, no contracts",
+      "top": 4181
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Open Gym",
+      "top": 4431
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Coached Membership",
+      "top": 4431
+    },
+    {
+      "level": 3,
+      "family": "Bebas Neue",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Personal Training",
+      "top": 4431
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What our members say",
+      "top": 5161
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "First session is on us",
+      "top": 5762
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Come and see the floor",
+      "top": 6213
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 42,
+      "background": "rgb(198, 93, 46)",
+      "text": "Book a Tour"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 59,
+      "background": "rgb(198, 93, 46)",
+      "text": "See Membership Plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 59,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a Free Trial"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 59,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get Started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 59,
+      "background": "rgb(198, 93, 46)",
+      "text": "Get Started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 59,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Enquire Now"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 59,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Claim Your Free Trial"
+    }
+  ],
+  "sections": [
+    {
+      "top": 26,
+      "height": 900,
+      "kind": "hero",
+      "label": "TRAIN HARD.OWN YOUR STRENGTH.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.907,
+        "whitespaceRatio": 0.848,
+        "contentWidthRatio": 0.414,
+        "background": "rgb(13, 13, 13)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "TRAIN HARD.OWN YOUR STRENGTH.",
+        "Iron Works is a no-frills strength gym tucked into a converted steelworks unit in Kelham Island. Free weights, real coaching, and a community that pushes each other to lift more than they thought possible.",
+        "Independent Strength Gym — Sheffield"
+      ]
+    },
+    {
+      "top": 926,
+      "height": 890,
+      "kind": "stats",
+      "label": "Built by lifters, for lifters",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "stats",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.774,
+        "whitespaceRatio": 0.543,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(13, 13, 13)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Built by lifters, for lifters",
+        "Iron Works opened in 2016 in a disused steel unit off Alma Street, and we've kept the bones of the building — exposed brick, girders, and a floor that's seen more chalk than paint. We're not a chain gym. There's no smoothie bar, no tanning beds, and no sales pitch waiting at the door.",
+        "What you'll find is proper equipment — power racks, deadlift platforms, and enough plates to go around — plus a small team of coaches who actually know your name and your numbers. Whether you're chasing your first pull-up or your next competition total, this is a gym built around getting stronger, s",
+        "Est. in Kelham Island"
+      ]
+    },
+    {
+      "top": 1816,
+      "height": 1094,
+      "kind": "cards",
+      "label": "Training that fits how you want to work",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.921,
+        "whitespaceRatio": 0.728,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(22, 22, 22)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Training that fits how you want to work",
+        "From solo barbell sessions to fully coached programmes, everything at Iron Works is built around strength — how you build it, keep it, and use it.",
+        "Open Gym Access",
+        "24/7 key-fob entry to our full floor of power racks, platforms, dumbbells up to 60kg, and a dedicated conditioning corner. Train on your own schedule, day or night.",
+        "Personal Training",
+        "One-to-one coaching with a qualified strength coach who builds your programme around your goals, your schedule, and your joints. Ideal for beginners and competitive lifters alike.",
+        "Small Group Coaching",
+        "Semi-private sessions of up to four people, run three times a week. Get hands-on coaching and the accountability of training alongside others, at a fraction of the cost of 1-to-1.",
+        "Powerlifting Programming",
+        "Remote or in-person programming for squat, bench, and deadlift, written and adjusted weekly by our coaches. Includes video form checks and meet-day support.",
+        "Beginner Foundations",
+        "A four-week introduction covering the big lifts, gym etiquette, and how to structure your own training. The starting point for every new member who's new to lifting.",
+        "Nutrition Check-ins",
+        "Fortnightly check-ins with a coach to keep your eating in line with your training goals — no fad diets, just consistent, sustainable habits.",
+        "What We Offer"
+      ]
+    },
+    {
+      "top": 2909,
+      "height": 1127,
+      "kind": "cards",
+      "label": "Coaches who lift alongside you",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.417,
+        "mirrorSymmetry": 0.968,
+        "whitespaceRatio": 0.491,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(13, 13, 13)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Coaches who lift alongside you",
+        "Every coach at Iron Works trains here themselves. You're learning from people who compete, not just people who certify.",
+        "Marcus Reid",
+        "Competing powerlifter of 12 years and a British Powerlifting-accredited coach. Marcus built Iron Works after years of training in gyms that didn't take strength seriously.",
+        "Aisha Bello",
+        "Specialises in beginner foundations and post-injury return to training. Aisha has a background in sports rehabilitation and a knack for making technique clear and simple.",
+        "Tom Hargreaves",
+        "Runs our small group sessions and remote programming. Tom competed in strongman for six years and brings that same event-based conditioning into general strength work.",
+        "Meet The Team",
+        "Head Coach & Founder"
+      ]
+    },
+    {
+      "top": 4036,
+      "height": 980,
+      "kind": "stats",
+      "label": "Straightforward pricing, no contracts",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.393,
+        "mirrorSymmetry": 0.933,
+        "whitespaceRatio": 0.676,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(22, 22, 22)",
+        "controls": 3
+      },
+      "badges": [
+        "Most Popular"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Straightforward pricing, no contracts",
+        "Every plan is rolling monthly — cancel any time with 14 days' notice. No joining fee, no lock-in.",
+        "Open Gym",
+        "24/7 key-fob access",
+        "Full use of racks & platforms",
+        "Free foundations induction",
+        "Monthly member socials",
+        "Coached Membership",
+        "Everything in Open Gym",
+        "2x small group sessions weekly",
+        "Monthly programme review",
+        "Fortnightly nutrition check-in",
+        "Personal Training",
+        "1-to-1 with your own coach",
+        "Fully bespoke programming",
+        "Video form analysis",
+        "Packages of 5 & 10 available"
+      ]
+    },
+    {
+      "top": 5016,
+      "height": 676,
+      "kind": "cards",
+      "label": "What our members say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.429,
+        "mirrorSymmetry": 0.998,
+        "whitespaceRatio": 0.709,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(13, 13, 13)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What our members say",
+        "\"I'd never touched a barbell before walking in. Eighteen months on I've pulled a 130kg deadlift and actually look forward to leg day. The coaching here is worth every penny.\"",
+        "\"No mirrors full of people taking selfies, no queue for equipment. Just a proper gym with proper kit. Marcus and the team know every regular by name.\"",
+        "\"Tom's remote programming got me from a 90kg squat to competing at my first meet within a year. Honest feedback, quick replies, and he actually watches every video.\"",
+        "Member since 2023",
+        "Member since 2019",
+        "Remote coaching client"
+      ]
+    },
+    {
+      "top": 5692,
+      "height": 377,
+      "kind": "text",
+      "label": "First session is on us",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.765,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(198, 93, 46)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "First session is on us",
+        "Come and see the gym floor, meet a coach, and try a session before you commit to anything."
+      ]
+    },
+    {
+      "top": 6069,
+      "height": 811,
+      "kind": "text",
+      "label": "Come and see the floor",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.883,
+        "contentWidthRatio": 0.372,
+        "background": "rgb(13, 13, 13)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Come and see the floor",
+        "Address",
+        "Unit 4, Alma Steel Works, Alma Street, Kelham Island, Sheffield S3 8SG",
+        "Hours",
+        "Open gym: 24/7 for membersStaffed hours: Mon–Fri 6am–8pm, Sat–Sun 8am–2pm",
+        "Phone",
+        "0114 496 2213",
+        "Email",
+        "train@ironworks-sheffield.co.uk",
+        "Get In Touch"
+      ]
+    },
+    {
+      "top": 6880,
+      "height": 344,
+      "kind": "text",
+      "label": "IRONWORKS An independent strength gym in Kelham Island, Shef",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.308,
+        "mirrorSymmetry": 0.812,
+        "whitespaceRatio": 0.743,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(13, 13, 13)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.335,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(13, 13, 13, 0.55)",
+          "rgba(13, 13, 13, 0.85)",
+          "rgb(13, 13, 13)"
+        ],
+        "area": 1296000,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(198, 93, 46, 0.08)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 186465,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80",
+      "host": "images.unsplash.com",
+      "width": 1440,
+      "height": 900,
+      "top": 26,
+      "role": "photo",
+      "alt": null,
+      "decorative": true,
+      "section": 0,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+      "host": "images.unsplash.com",
+      "width": 536,
+      "height": 670,
+      "top": 1036,
+      "role": "photo",
+      "alt": "Strength training area at Iron Works gym in Sheffield",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 94038
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=500&q=80",
+      "host": "images.unsplash.com",
+      "width": 357,
+      "height": 476,
+      "top": 3259,
+      "role": "photo",
+      "alt": "Marcus Reid, head coach at Iron Works",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 29735
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=500&q=80",
+      "host": "images.unsplash.com",
+      "width": 357,
+      "height": 476,
+      "top": 3259,
+      "role": "photo",
+      "alt": "Aisha Bello, personal trainer at Iron Works",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 80132
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=500&q=80",
+      "host": "images.unsplash.com",
+      "width": 357,
+      "height": 476,
+      "top": 3259,
+      "role": "photo",
+      "alt": "Tom Hargreaves, strength coach at Iron Works",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 62836
+      }
+    }
+  ],
+  "firstScreenText": [
+    "TRAIN HARD.OWN YOUR STRENGTH.",
+    "Iron Works is a no-frills strength gym tucked into a converted steelworks unit in Kelham Island. Free weights, real coaching, and a community that pushes each other to lift more than they thought possible.",
+    "Independent Strength Gym — Sheffield"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      22,
+      24,
+      27,
+      42,
+      48,
+      51,
+      88
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "4px",
+      "50%"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 55.4,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 37.1,
+    "edgeDensity": 0.087,
+    "symmetry": 0.909,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}
