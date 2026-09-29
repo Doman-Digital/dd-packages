@@ -1,0 +1,785 @@
+{
+  "version": 2,
+  "url": "https://www.gov.uk/",
+  "capturedAt": "2026-09-29T10:22:30.945Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4923,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(244, 248, 251)",
+        "area": 1756800,
+        "chars": 0
+      },
+      {
+        "value": "rgb(29, 112, 184)",
+        "area": 766419,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 522380,
+        "chars": 0
+      },
+      {
+        "value": "rgb(15, 122, 82)",
+        "area": 17670,
+        "chars": 0
+      },
+      {
+        "value": "rgb(210, 226, 241)",
+        "area": 2500,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(11, 12, 12)",
+        "area": 0,
+        "chars": 1995
+      },
+      {
+        "value": "rgb(26, 101, 166)",
+        "area": 0,
+        "chars": 1666
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 131
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 15
+      },
+      {
+        "value": "rgb(29, 112, 184)",
+        "area": 0,
+        "chars": 13
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "GDS Transport",
+      "chars": 3807,
+      "displayChars": 248,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 13,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cookies on GOV.UK",
+      "top": 20
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Navigation menu",
+      "top": 325
+    },
+    {
+      "level": 1,
+      "family": "GDS Transport",
+      "sizePx": 64,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "The best place to find government services and information",
+      "top": 416
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Popular on GOV.UK",
+      "top": 871
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Services and information",
+      "top": 1196
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Benefits",
+      "top": 1271
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Births, deaths, marriages and care",
+      "top": 1380
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Business and self-employed",
+      "top": 1489
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Childcare and parenting",
+      "top": 1598
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Citizenship and living in the UK",
+      "top": 1732
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Crime, justice and the law",
+      "top": 1841
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Disabled people",
+      "top": 1950
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Driving and transport",
+      "top": 2059
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Education and learning",
+      "top": 2168
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Employing people",
+      "top": 2277
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Environment and countryside",
+      "top": 2386
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Housing and local services",
+      "top": 2495
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Money and tax",
+      "top": 2604
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Passports, travel and living abroad",
+      "top": 2713
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Visas and immigration",
+      "top": 2822
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Working, jobs and pensions",
+      "top": 2931
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Featured",
+      "top": 1196
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Find a job",
+      "top": 1266
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "National Insurance",
+      "top": 1406
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cost of living support",
+      "top": 1546
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get the GOV.UK app",
+      "top": 1750
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Government activity",
+      "top": 3139
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Departments",
+      "top": 3249
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "News",
+      "top": 3358
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Guidance and regulation",
+      "top": 3467
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Research and statistics",
+      "top": 3576
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Policy papers and consultations",
+      "top": 3685
+    },
+    {
+      "level": 3,
+      "family": "GDS Transport",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Transparency documents",
+      "top": 3794
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "More on GOV.UK",
+      "top": 3139
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 16,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Is this page useful?",
+      "top": 4032
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Services and information",
+      "top": 4191
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Government activity",
+      "top": 4191
+    },
+    {
+      "level": 2,
+      "family": "GDS Transport",
+      "sizePx": 29,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Support links",
+      "top": 4723
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 38,
+      "background": "rgb(15, 122, 82)",
+      "text": "Accept additional cookies"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 38,
+      "background": "rgb(15, 122, 82)",
+      "text": "Reject additional cookies"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 61,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Menu"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 61,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Search GOV.UK ×"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 50,
+      "background": "rgb(210, 226, 241)",
+      "text": "Search GOV.UK"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 37,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Yes this page is useful"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 37,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "No this page is not useful"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 37,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Report a problem with this page"
+    }
+  ],
+  "sections": [
+    {
+      "top": 386,
+      "height": 425,
+      "kind": "hero",
+      "label": "The best place to find government services and information",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.333,
+        "mirrorSymmetry": 0.689,
+        "whitespaceRatio": 0.665,
+        "contentWidthRatio": 0.533,
+        "background": "rgb(29, 112, 184)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The best place to find government services and information"
+      ]
+    },
+    {
+      "top": 811,
+      "height": 321,
+      "kind": "logos",
+      "label": "Popular on GOV.UK",
+      "cards": 6,
+      "iconCards": 6,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0.429,
+        "mirrorSymmetry": 0.981,
+        "whitespaceRatio": 0.768,
+        "contentWidthRatio": 0.667,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Popular on GOV.UK",
+        "HMRC account: sign in or set up",
+        "eVisas: access and use your online immigration status",
+        "Universal Credit account: sign in",
+        "Personal tax account: sign in or set up",
+        "Childcare account: sign in",
+        "Check your State Pension forecast"
+      ]
+    },
+    {
+      "top": 1136,
+      "height": 1939,
+      "kind": "text",
+      "label": "Services and information",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.723,
+        "whitespaceRatio": 0.757,
+        "contentWidthRatio": 0.667,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Services and information",
+        "Benefits Includes eligibility, appeals, tax credits and Universal Credit",
+        "Births, deaths, marriages and care Parenting, civil partnerships, divorce and Lasting Power of Attorney",
+        "Business and self-employed Tools and guidance for businesses",
+        "Childcare and parenting Includes giving birth, fostering, adopting, benefits for children, childcare and schools",
+        "Citizenship and living in the UK Voting, community participation, life in the UK, international projects",
+        "Crime, justice and the law Legal processes, courts and the police",
+        "Disabled people Includes carers, your rights, benefits and the Equality Act",
+        "Driving and transport Includes vehicle tax, MOT and driving licences",
+        "Education and learning Includes student loans, admissions and apprenticeships",
+        "Employing people Includes pay, contracts, hiring and redundancies",
+        "Environment and countryside Includes flooding, recycling, farming and wildlife",
+        "Housing and local services Owning or renting and council services",
+        "Money and tax Includes debt and Self Assessment",
+        "Passports, travel and living abroad Includes renewing passports and travel advice by country",
+        "Visas and immigration Apply to visit, work, study, settle or seek asylum in the UK",
+        "Working, jobs and pensions Includes holidays, finding a job and redundancy",
+        "Featured",
+        "Find a job",
+        "National Insurance",
+        "Cost of living support",
+        "Get the GOV.UK app",
+        "Search and apply for jobs in England, Scotland and Wales.",
+        "Check your record to see if you can add more contributions.",
+        "Find out what support is available to help with the cost of living.",
+        "Your government services and information, on the go."
+      ]
+    },
+    {
+      "top": 3079,
+      "height": 823,
+      "kind": "text",
+      "label": "Government activity",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.778,
+        "whitespaceRatio": 0.744,
+        "contentWidthRatio": 0.667,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Government activity",
+        "Find out what the government is doing",
+        "Departments Departments, agencies and public bodies",
+        "News News stories, speeches, letters and notices",
+        "Guidance and regulation Detailed guidance, regulations and rules",
+        "Research and statistics Reports, analysis and official statistics",
+        "Policy papers and consultations Consultations and strategy",
+        "Transparency documents Data, Freedom of Information releases and corporate reports",
+        "More on GOV.UK",
+        "HMRC services: sign in",
+        "Check MOT history of a vehicle",
+        "Tax your vehicle",
+        "Universal Credit",
+        "Foreign travel advice",
+        "Check your State Pension age",
+        "Childcare account: sign in",
+        "Student finance: sign in",
+        "Self Assessment tax returns",
+        "Apply for a passport"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.731,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://www.gov.uk/assets/frontend/homepage/find-a-job-4d38717b0451da3bb223ddea7f681d79e48c1c022da5a08f16aba3f681503150.png",
+      "host": "www.gov.uk",
+      "width": 80,
+      "height": 80,
+      "top": 1266,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://www.gov.uk/assets/frontend/homepage/national-insurance-featured-7169e3631b639dcfc7be22469daf155ad0aa7516143ff8cf2e6f95ba29c8656c.png",
+      "host": "www.gov.uk",
+      "width": 80,
+      "height": 80,
+      "top": 1406,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://www.gov.uk/assets/frontend/homepage/cost-of-living-featured-4cd41cec449e0bd47e707812a5c3b5c52726bed0acb4f31c9b66548cc6ff6309.png",
+      "host": "www.gov.uk",
+      "width": 80,
+      "height": 80,
+      "top": 1546,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://www.gov.uk/assets/frontend/app-promo/govuk-app-icon-0bca94cf05737106d8e80f32a66f773d7b6ff9b9652fc555917d855914309af0.png",
+      "host": "www.gov.uk",
+      "width": 80,
+      "height": 80,
+      "top": 1750,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Cookies on GOV.UK",
+    "We use some essential cookies to make this website work.",
+    "We’d like to set additional cookies to understand how you use GOV.UK, remember your settings and improve government services.",
+    "We also use cookies set by other sites to help us deliver content from their services.",
+    "The best place to find government services and information",
+    "Popular on GOV.UK"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 4,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      16,
+      19,
+      24,
+      29,
+      36,
+      64
+    ],
+    "fontWeights": [
+      400,
+      700
+    ],
+    "radii": [],
+    "shadows": [
+      "rgb(11, 12, 12) 0px 3px 0px 0px",
+      "rgb(8, 61, 41) 0px 2px 0px 0px"
+    ],
+    "spacingOnScalePct": 51.5,
+    "bodyLineLengthCh": null,
+    "bodyFontSizePx": null
+  },
+  "visual": {
+    "colourfulness": 47.5,
+    "edgeDensity": 0.074,
+    "symmetry": 0.954,
+    "width": 1440,
+    "height": 4923,
+    "sampled": 787680
+  }
+}

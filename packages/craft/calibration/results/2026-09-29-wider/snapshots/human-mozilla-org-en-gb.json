@@ -1,0 +1,988 @@
+{
+  "version": 2,
+  "url": "https://www.mozilla.org/en-GB/",
+  "capturedAt": "2026-09-29T10:23:34.656Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7813,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(22, 22, 22)",
+        "area": 6376735,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1626750,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 241, 248)",
+        "area": 687150,
+        "chars": 0
+      },
+      {
+        "value": "rgb(65, 65, 65)",
+        "area": 27200,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 210, 48)",
+        "area": 9216,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 151, 226)",
+        "area": 2048,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 2127
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 2027
+      },
+      {
+        "value": "rgb(65, 65, 65)",
+        "area": 0,
+        "chars": 509
+      },
+      {
+        "value": "rgb(179, 179, 179)",
+        "area": 0,
+        "chars": 24
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Mozilla Text",
+      "chars": 4234,
+      "displayChars": 30,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Mozilla Headline",
+      "chars": 453,
+      "displayChars": 453,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Mozilla Headline",
+      "sizePx": 128,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Welcome to Mozilla",
+      "top": 169
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 80,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Love the internet again",
+      "top": 882
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 80,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Donate to Mozilla Foundation",
+      "top": 1865
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 80,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Join the movement: AI for the people",
+      "top": 2432
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Mozilla Data Collective",
+      "top": 3116
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Owners, Not Renters",
+      "top": 3116
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A Rebel Alliance?",
+      "top": 3116
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Mozilla Ventures",
+      "top": 3762
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A Double Bottom Line for Tech",
+      "top": 3762
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Otari",
+      "top": 3762
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "You, AI and the internet — what’s really going on?",
+      "top": 4027
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 80,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "State of Mozilla",
+      "top": 5010
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 80,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Explore issues shaping the future of the internet",
+      "top": 6040
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Open Source AI Is Winning",
+      "top": 6620
+    },
+    {
+      "level": 3,
+      "family": "Mozilla Headline",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Nothing Personal",
+      "top": 6620
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Company",
+      "top": 7072
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Support",
+      "top": 7072
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Headline",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Developers",
+      "top": 7072
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Text",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Follow @Mozilla",
+      "top": 7072
+    },
+    {
+      "level": 2,
+      "family": "Mozilla Text",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Follow @Firefox",
+      "top": 7163
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 32,
+      "background": "rgb(22, 22, 22)",
+      "text": "Pause animation Play animation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 76,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Firefox: Get the gold standard for browsing with speed, priv"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 76,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Thunderbird: Go chaos-free with one app for all your emails,"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 76,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Mozilla VPN: Keep your location and online adventures privat"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 76,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Mozilla Monitor: Get a heads-up if your personal info is at "
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 76,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Firefox Relay: Mask your email and phone number so you only "
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 76,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "0DIN: Secure your AI by finding and fixing GenAI vulnerabili"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 76,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Tabstack: Reliably automate web tasks with a simple develope"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Fast Company News Mozilla’s new AI strategy marks a "
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Mozilla Open Source AI Mozilla and Mila announce str"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Video Mozilla Products Why Firefox is Letting You Turn Off A"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Le Monde News AI summit in India pushes a 'third way"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Video Impact Alpha Products (Human) agents of impact are sha"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Rest of World News Fed up with Big Tech, communities"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Mozilla Foundation Open Source AI Our first Democrac"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Marketplace Privacy & Security Who should get an AI "
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Mark Surman Artificial Intelligence Mozilla Presiden"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article The Register Products Mozilla throws Thunderbolt at "
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 68,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Article Raffi Krikorian Privacy & Security New York Times: I"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 40,
+      "background": "rgb(22, 22, 22)",
+      "text": "Sign Up Now Sending"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 40,
+      "background": "rgb(22, 22, 22)",
+      "text": "Donate"
+    }
+  ],
+  "sections": [
+    {
+      "top": 57,
+      "height": 671,
+      "kind": "hero",
+      "label": "Welcome to Mozilla",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.25,
+        "mirrorSymmetry": 0.424,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(22, 22, 22)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Welcome to Mozilla",
+        "From trustworthy tech to policies that defend your digital rights, we put you first — always.",
+        "Learn about us"
+      ]
+    },
+    {
+      "top": 728,
+      "height": 90,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 818,
+      "height": 983,
+      "kind": "text",
+      "label": "Love the internet again",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.935,
+        "whitespaceRatio": 0.723,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(255, 255, 255)",
+        "controls": 7
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Love the internet again",
+        "Break free from big tech — our products put you in control of a safer, more private internet experience.",
+        "Firefox: Get the gold standard for browsing with speed, privacy and control.",
+        "Thunderbird: Go chaos-free with one app for all your emails, calendars and contacts.",
+        "Mozilla VPN: Keep your location and online adventures private — stream like a local, anywhere.",
+        "Mozilla Monitor: Get a heads-up if your personal info is at risk and lock it down like a pro.",
+        "Firefox Relay: Mask your email and phone number so you only get the messages you want.",
+        "0DIN: Secure your AI by finding and fixing GenAI vulnerabilities before attackers do.",
+        "Tabstack: Reliably automate web tasks with a simple developer-focused API.",
+        "Explore our products"
+      ]
+    },
+    {
+      "top": 1801,
+      "height": 477,
+      "kind": "text",
+      "label": "Donate to Mozilla Foundation",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.861,
+        "whitespaceRatio": 0.448,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(255, 241, 248)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Donate to Mozilla Foundation",
+        "Mozilla Foundation is building a future where technology is powered by people, and open by design. That’s why we fuel community-centered tech through advocacy, education, funding, and innovation — to make sure that the future of tech is good for everyone. But that’s only possible if we do it togethe",
+        "Donate"
+      ]
+    },
+    {
+      "top": 2278,
+      "height": 90,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(22, 22, 22)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 2368,
+      "height": 1595,
+      "kind": "cards",
+      "label": "Join the movement: AI for the people",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.154,
+        "mirrorSymmetry": 0.98,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(22, 22, 22)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Join the movement: AI for the people",
+        "Our mission is to make it easy for people to build with, and collaborate on, open-source, trustworthy AI.",
+        "Mozilla Data Collective",
+        "Mozilla Data Collective is rebuilding the AI data ecosystem with communities at the center.",
+        "Join today",
+        "Owners, Not Renters",
+        "Join our new Open Source AI community.",
+        "Sign up today",
+        "A Rebel Alliance?",
+        "How Mozilla is taking on AI Industry Heavyweights.",
+        "Read here.",
+        "Mozilla Ventures",
+        "Got an early-stage startup? Pitch your company to Mozilla Ventures and secure funding to drive positive change for the future of AI and the internet.",
+        "Read more",
+        "A Double Bottom Line for Tech",
+        "Mark Surman discusses how we can build a tech ecosystem with a double bottom line — one that values both mission and money.",
+        "Watch now",
+        "Otari",
+        "Otari eliminates the complexity of managing multiple AI providers by unifying routing, security, budgeting, failover, and auditing behind a single API endpoint.",
+        "Get started"
+      ]
+    },
+    {
+      "top": 3963,
+      "height": 983,
+      "kind": "text",
+      "label": "You, AI and the internet — what’s really going on?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.866,
+        "whitespaceRatio": 0.772,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(255, 255, 255)",
+        "controls": 11
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "You, AI and the internet — what’s really going on?",
+        "Type Author(s) Topic Intro",
+        "Article Fast Company News Mozilla’s new AI strategy marks a return to its ‘rebel alliance’ roots",
+        "Article Mozilla Open Source AI Mozilla and Mila announce strategic research partnership",
+        "Video Mozilla Products Why Firefox is Letting You Turn Off AI",
+        "Article Le Monde News AI summit in India pushes a 'third way' between US and China",
+        "Video Impact Alpha Products (Human) agents of impact are shaping the algorithm for ‘good AI’",
+        "Article Rest of World News Fed up with Big Tech, communities turn to data collectives for control",
+        "Article Mozilla Foundation Open Source AI Our first Democracy x AI incubator cohort is announced",
+        "Article Marketplace Privacy & Security Who should get an AI kill switch?",
+        "Article Mark Surman Artificial Intelligence Mozilla President: meet the open source ‘rebel alliance’ that could break Big Tech’s grip on AI",
+        "Article The Register Products Mozilla throws Thunderbolt at enterprise AI providers",
+        "Article Raffi Krikorian Privacy & Security New York Times: It’s the End of the Internet As We Know It"
+      ]
+    },
+    {
+      "top": 4946,
+      "height": 1030,
+      "kind": "text",
+      "label": "State of Mozilla",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.935,
+        "whitespaceRatio": 0.345,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(22, 22, 22)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 1,
+      "text": [
+        "State of Mozilla",
+        "We’re at a crossroads for the future of technology, with Big AI companies consolidating power. The 2025 State of Mozilla report is an invitation to choose a different future together."
+      ]
+    },
+    {
+      "top": 5976,
+      "height": 826,
+      "kind": "text",
+      "label": "Explore issues shaping the future of the internet",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.999,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Explore issues shaping the future of the internet",
+        "Open Source AI Is Winning",
+        "At a critical moment for the future of AI, our inaugural, annual survey looks at where open AI is winning, and where it is exposed.",
+        "Read the report",
+        "Nothing Personal",
+        "Our new magazine for independent thinkers, technologists, and creatives on the front lines of digital culture.",
+        "Read Now"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.606,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://www.mozilla.org/media/cms/images/showcase-som-2025.width-1376.png",
+      "host": "www.mozilla.org",
+      "width": 1376,
+      "height": 515,
+      "top": 5268,
+      "role": "photo",
+      "alt": "Choose Your Future",
+      "decorative": false,
+      "section": 7,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 55626
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/img/logos/m24/wordmark-white.2d673bb5b33a.svg",
+      "host": "www.mozilla.org",
+      "width": 1376,
+      "height": 285,
+      "top": 7491,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/download_1.39e371cc.fill-400x200.png",
+      "host": "www.mozilla.org",
+      "width": 680,
+      "height": 340,
+      "top": 6264,
+      "role": "photo",
+      "alt": "State of Open Source AI",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 69333
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/np-1450.2e16d0ba.fill-400x200.jpg",
+      "host": "www.mozilla.org",
+      "width": 680,
+      "height": 340,
+      "top": 6264,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 22817
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/collective-mobile-1450.2e16d0ba.fill-600x600.jpg",
+      "host": "www.mozilla.org",
+      "width": 448,
+      "height": 448,
+      "top": 2652,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 34368
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/image1.2e16d0ba.fill-600x600.jpg",
+      "host": "www.mozilla.org",
+      "width": 448,
+      "height": 448,
+      "top": 2652,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 12732
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/lamp-mobile-1450.2e16d0ba.fill-600x600.jpg",
+      "host": "www.mozilla.org",
+      "width": 448,
+      "height": 448,
+      "top": 2652,
+      "role": "photo",
+      "alt": "Image of Mark Surman",
+      "decorative": false,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 46378
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/ventures-mobile-1450_GxBP35h.2e16d0ba.fill-600x600.jpg",
+      "host": "www.mozilla.org",
+      "width": 448,
+      "height": 448,
+      "top": 3298,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 34100
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/ecosystem-mobile-1450.2e16d0ba.fill-600x600.jpg",
+      "host": "www.mozilla.org",
+      "width": 448,
+      "height": 448,
+      "top": 3298,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 32357
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/download.2e16d0ba.fill-600x600.png",
+      "host": "www.mozilla.org",
+      "width": 448,
+      "height": 448,
+      "top": 3298,
+      "role": "photo",
+      "alt": "Otari",
+      "decorative": false,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 107649
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/cms/images/donate.2e16d0ba.fill-800x400.jpg",
+      "host": "www.mozilla.org",
+      "width": 564,
+      "height": 282,
+      "top": 1865,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 49363
+      }
+    },
+    {
+      "src": "https://www.mozilla.org/media/img/logos/m24/lockup-black.f2ddba3f0724.svg",
+      "host": "www.mozilla.org",
+      "width": 100,
+      "height": 24,
+      "top": 16,
+      "role": "logo",
+      "alt": "Mozilla",
+      "decorative": false,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://www.mozilla.org/media/img/logos/m24/symbol-white.05fe537b39ce.svg",
+      "host": "www.mozilla.org",
+      "width": 40,
+      "height": 48,
+      "top": 6866,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Welcome to Mozilla",
+    "From trustworthy tech to policies that defend your digital rights, we put you first — always.",
+    "Learn about us",
+    "Love the internet again"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 12,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      16,
+      18,
+      24,
+      32,
+      48,
+      80,
+      128
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [],
+    "shadows": [],
+    "spacingOnScalePct": 100,
+    "bodyLineLengthCh": 67,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 32.6,
+    "edgeDensity": 0.093,
+    "symmetry": 0.881,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

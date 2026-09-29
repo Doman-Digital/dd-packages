@@ -863,6 +863,16 @@ Target 5, the blind test, is a protocol for people, not a command: see
 
 Read the second row with care. The flagged rule (typical against the null, or three or more distinct design tells) flagged 5 of the 6 measured human sites as tell-heavy, though none is typical and none has a blocking tell. Target 2 as written does not count that. If the rule is meant to say "this looks AI-made", 5 of 6 is a false-positive problem to fix before anything gates on it. It would want a decision on the target, not a quiet threshold change. The set is also small (20 AI, 6 human, 1 AI-looking), all AI pages are Claude's, and 46 of 68 tells never fired on it. Target 4 (the estate) and target 5 (the blind test) are not measured by this command.
 
+**Wider human set, 2026-09-29** (`calibration/results/2026-09-29-wider/`). The human set grew from 6 to 36 measured sites: 20 professionally built well-known sites and 12 live UK small-business sites from the Wayback seed list, plus the original six. The AI and AI-looking sets are unchanged (20 and 1).
+
+| Target | Result |
+| --- | --- |
+| 1. Generated pages get caught | met: 20 of 20 |
+| 2. Good human sites don't get caught | met on its definition: 0 block hits, 0 of 36 typical. 5 not measured (two preview gates, myndex.com unreachable, screwfix.com 403, mubi.com 503) |
+| 3. AI-looking sites get caught | met: 1 of 1, still one page |
+
+The caveat from the first run holds and is now firmer. The flagged rule marked **14 of 36 human sites (39%)** as tell-heavy. It needs either a tighter rule or to stop being read as "looks AI-made". No threshold was changed; that is a decision on the target. Per-tell precision on this set also separates the tells that earn their keep from the ones that do not: `icon-tile-grid` 0.17, `generic-hero-claim` 0.14, `marquee` 0.14, `grid-background` 0.20 and `unproven-claim` 0.36 fire more on human sites than on the AI set, while `cream-palette`, `reflex-font-2`, `italic-serif-display` and `pricing-trio-popular` are at 0.93 or better. 42 of 68 tells never fired. The human sites are not a random sample: they are chosen, well-made and mostly large-brand, and the AI pages are all Claude's. Still to do: an AI set from other builders (`craft null import`), and a decision on the flagged rule.
+
 ### Character report first read, 2026-09-23
 
 `craft report` on each live snapshot with its repo, its own brief's null and

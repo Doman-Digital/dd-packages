@@ -1,0 +1,1567 @@
+{
+  "version": 2,
+  "url": "https://tailwindcss.com/",
+  "capturedAt": "2026-09-29T10:24:47.430Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 10345,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 8365424,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.129999 -0.00404751 -0.027702 / 0.05)",
+        "area": 8169516,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.129999 -0.00404751 -0.027702 / 0.025)",
+        "area": 3505110,
+        "chars": 0
+      },
+      {
+        "value": "lab(1.90334 0.278696 -5.48866)",
+        "area": 1813633,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+        "area": 1671067,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.999994 0.0000455678 0.0000200868 / 0.15)",
+        "area": 497664,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.129999 -0.00404751 -0.027702 / 0.1)",
+        "area": 168000,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0 0 0 / 0.05)",
+        "area": 88032,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.999994 0.0000455678 0.0000200868 / 0.025)",
+        "area": 80087,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 11680,
+        "chars": 0
+      },
+      {
+        "value": "lab(56.9303 76.8162 -8.07021)",
+        "area": 8600,
+        "chars": 0
+      },
+      {
+        "value": "lab(70.687 -23.6078 -45.9483)",
+        "area": 7760,
+        "chars": 0
+      },
+      {
+        "value": "lab(63.3038 -18.433 -51.0407)",
+        "area": 5532,
+        "chars": 0
+      },
+      {
+        "value": "lab(59.866 22.4834 -64.4485)",
+        "area": 4160,
+        "chars": 0
+      },
+      {
+        "value": "lab(63.6946 47.6127 -59.2066)",
+        "area": 4160,
+        "chars": 0
+      },
+      {
+        "value": "lab(64.5597 64.3615 -12.7988)",
+        "area": 4160,
+        "chars": 0
+      },
+      {
+        "value": "lab(13.003 29.04 16.7519)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(14.1747 23.4515 19.4461)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(15.8111 20.9107 23.3752)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(16.8146 15.7422 23.1133)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(16.5113 -15.1841 22.0145)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(15.6845 -20.4225 11.7249)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(15.0582 -17.9507 2.38369)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(16.6371 -15.3183 -3.81732)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(19.1528 -9.68757 -15.5267)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(17.8299 -5.31271 -21.1584)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(15.6723 8.86232 -32.2945)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(12.4853 14.9672 -31.3418)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(14.0706 33.3353 -46.7553)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(14.8253 38.9005 -44.5861)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(15.7348 39.0235 -27.4073)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(15.6116 35.2166 3.53979)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(14.2323 34.0086 9.80922)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(28.5139 44.5539 29.0463)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(30.2951 36.0434 37.671)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(31.2288 30.2627 40.0378)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(32.3865 21.1273 38.5959)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(31.9931 -20.7654 33.7379)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(30.797 -29.6927 17.382)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(28.8637 -26.9249 5.45986)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(29.506 -21.4706 -3.59886)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(30.372 -13.1853 -18.7887)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(29.1959 -8.34689 -28.2453)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(26.1542 15.7545 -51.5504)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(23.3911 24.6978 -50.4718)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(24.3783 45.7525 -61.4902)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(24.9401 45.2703 -51.2728)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(27.755 48.6174 -34.3553)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(29.4367 49.3962 3.35757)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(29.7104 51.514 12.6253)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(33.7174 55.8993 41.0293)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(37.1566 46.6433 50.5562)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(37.8822 37.1699 52.2718)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(38.7484 23.5833 51.4916)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(37.7655 -25.1694 43.0683)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(37.4616 -36.7971 22.9692)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(35.3675 -33.1188 8.04002)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(35.5975 -26.6648 -4.34487)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(36.5114 -17.1989 -21.6292)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "lab(35.164 -9.57692 -34.4068)",
+        "area": 2560,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "lab(35.6337 -1.58697 -10.8425)",
+        "area": 0,
+        "chars": 2190
+      },
+      {
+        "value": "lab(1.90334 0.278696 -5.48866)",
+        "area": 0,
+        "chars": 1009
+      },
+      {
+        "value": "lab(80.3307 -20.2945 -31.385)",
+        "area": 0,
+        "chars": 485
+      },
+      {
+        "value": "lab(98.1434 -0.369519 -1.05966)",
+        "area": 0,
+        "chars": 268
+      },
+      {
+        "value": "lab(90.7612 -33.1343 -0.542295)",
+        "area": 0,
+        "chars": 217
+      },
+      {
+        "value": "oklab(0 0 0 / 0.2)",
+        "area": 0,
+        "chars": 207
+      },
+      {
+        "value": "lab(84.7652 -1.94535 -7.93337)",
+        "area": 0,
+        "chars": 174
+      },
+      {
+        "value": "lab(64.5597 64.3615 -12.7988)",
+        "area": 0,
+        "chars": 163
+      },
+      {
+        "value": "oklab(0.129999 -0.00404751 -0.027702 / 0.75)",
+        "area": 0,
+        "chars": 156
+      },
+      {
+        "value": "lab(47.7841 -0.393182 -10.0268)",
+        "area": 0,
+        "chars": 153
+      },
+      {
+        "value": "lab(65.5349 -2.25151 -14.5072)",
+        "area": 0,
+        "chars": 153
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 141
+      },
+      {
+        "value": "lab(27.1134 -0.956401 -12.3224)",
+        "area": 0,
+        "chars": 51
+      },
+      {
+        "value": "lab(86.15 -4.04379 -21.0797)",
+        "area": 0,
+        "chars": 50
+      },
+      {
+        "value": "lab(63.3038 -18.433 -51.0407)",
+        "area": 0,
+        "chars": 48
+      },
+      {
+        "value": "lab(49.5493 79.8381 2.31768)",
+        "area": 0,
+        "chars": 25
+      },
+      {
+        "value": "lab(56.4256 83.132 -64.639)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "lab(56.9303 76.8162 -8.07021)",
+        "area": 0,
+        "chars": 17
+      },
+      {
+        "value": "oklab(0.129999 -0.00404751 -0.027702 / 0.5)",
+        "area": 0,
+        "chars": 12
+      },
+      {
+        "value": "lab(95.1845 -17.4212 -0.425422)",
+        "area": 0,
+        "chars": 6
+      },
+      {
+        "value": "lab(35.164 -9.57692 -34.4068)",
+        "area": 0,
+        "chars": 4
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "inter",
+      "chars": 3509,
+      "displayChars": 304,
+      "italicChars": 12,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "plexMono",
+      "chars": 2040,
+      "displayChars": 0,
+      "italicChars": 102,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "inter",
+      "sizePx": 96,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Rapidly build modern websites without ever leaving your HTML.",
+      "top": 153
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 40,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Supported by the best.",
+      "top": 1221
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 40,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Built for the modern web.",
+      "top": 3095
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Browse properties",
+      "top": 5423
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Redefining real-time performance",
+      "top": 6831
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 40,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ship faster and smaller.",
+      "top": 7463
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 40,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build whatever you want, without touching your CSS file.",
+      "top": 8485
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tailwind CSS",
+      "top": 9930
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Resources",
+      "top": 9930
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Community",
+      "top": 9930
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 16,
+      "heightPx": 24,
+      "background": "oklab(0.129999 -0.00404751 -0.027702 / 0.05)",
+      "text": "v4.3"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "oklab(0.129999 -0.00404751 -0.027702 / 0.02)",
+      "text": "⌘KCtrl K"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 32,
+      "heightPx": 40,
+      "background": "rgb(0, 0, 0)",
+      "text": "Get started"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 40,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Quick search⌘KCtrl K"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 32,
+      "heightPx": 40,
+      "background": "rgb(0, 0, 0)",
+      "text": "Become a sponsor"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 40,
+      "background": "lab(56.9303 76.8162 -8.07021)",
+      "text": "Check availability"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 4,
+      "heightPx": 28,
+      "background": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+      "text": "index.html"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 4,
+      "heightPx": 28,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "app.css"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 4,
+      "heightPx": 28,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "package.json"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 4,
+      "heightPx": 28,
+      "background": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+      "text": "Terminal"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 4,
+      "heightPx": 28,
+      "background": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+      "text": "build.css"
+    }
+  ],
+  "sections": [
+    {
+      "top": 57,
+      "height": 96,
+      "kind": "hero",
+      "label": "text-4xl text-5xl text-6xl text-8xl text-gray-950 text-white",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.955,
+        "contentWidthRatio": 0.253,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 153,
+      "height": 192,
+      "kind": "hero",
+      "label": "Rapidly build modern websites without ever leaving your HTML",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 617,
+      "height": 412,
+      "kind": "text",
+      "label": "<div class=\"flex flex-col items-center p-7 rounded-2xl\"> <di",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.835,
+        "whitespaceRatio": 0.855,
+        "contentWidthRatio": 0.834,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "\"flex flex-col items-center p-7 rounded-2xl\""
+      ]
+    },
+    {
+      "top": 1501,
+      "height": 1402,
+      "kind": "logos",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.97,
+        "whitespaceRatio": 0.551,
+        "contentWidthRatio": 0.933,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 3295,
+      "height": 3976,
+      "kind": "text",
+      "label": "Browse properties",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.032,
+        "mirrorSymmetry": 0.998,
+        "whitespaceRatio": 0.622,
+        "contentWidthRatio": 1,
+        "background": "oklab(0.129999 -0.00404751 -0.027702 / 0.05)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 7,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Okay, it’s not exactly cutting edge, but just throw a screen size in front of literally any utility to apply it at a specific breakpoint.",
+        "This sunny and spacious room is for those traveling light and looking for a comfy and cozy place to lay their head for a night... Show more",
+        "What’s a website these days without a few backdrop blurs? Keep stacking filters until your designer asks you to please, please stop.",
+        "If you’re not a fan of burning your retinas, just stick dark: in front of any color to apply it in dark mode.",
+        "Customizing your theme is as simple as creating a few CSS variables.",
+        "The color palette now uses more vibrant wide gamut colors without you needing to understand what any of that even means.",
+        "Using grid utilities directly in your HTML makes it so much easier to reason about complex layouts.",
+        "Browse properties",
+        "Transitions that work the way you'd expect — throw a few utilities on an element and you're in business.",
+        "transition duration-750linear",
+        "transition duration-750ease-out",
+        "transition duration-750ease-in-out",
+        "transition duration-750ease-in",
+        "Tailwind uses CSS layers so you don’t have to worry about specificity issues.",
+        "Supporting multiple language text directions is no longer a nightmare.",
+        "Tag an element as a container to let children adapt to changes in its size.",
+        "No need to remember that complicated gradient syntax — create silky-smooth gradients with just a few utility classes.",
+        "Redefining real-time performance",
+        "Our next-generation rendering engine delivers unmatched speed and efficiency, empowering creators to push boundaries like never before.",
+        "Sometimes two dimensions aren’t enough. Scale, rotate, and translate any element in 3D space to add a touch of depth.",
+        "Beach House on Lake Huron",
+        "\"IBM Plex Mono\"",
+        "0.97 0.15 145",
+        "0.92 0.18 145",
+        "0.85 0.22 145",
+        "0.78 0.25 145",
+        "0.7 0.28 145",
+        "0.63 0.3 145",
+        "0.56 0.32 145",
+        "0.48 0.35 145",
+        "0.4 0.37 145",
+        "0.3 0.4 145",
+        "CSS grid layout",
+        "Transitions and animations",
+        "/* Your theme variables */",
+        "/* Preflight styles */",
+        "/* Your custom components */",
+        "/* Your utility classes */",
+        "Director of Operations",
+        "VP of Engineering"
+      ]
+    },
+    {
+      "top": 7543,
+      "height": 84,
+      "kind": "text",
+      "label": "Tailwind automatically removes all unused CSS when building ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 7691,
+      "height": 578,
+      "kind": "text",
+      "label": "index.htmlapp.csspackage.json<!DOCTYPE html><html lang=\"en\">",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.122,
+        "mirrorSymmetry": 0.279,
+        "whitespaceRatio": 0.94,
+        "contentWidthRatio": 0.736,
+        "background": "oklab(0.129999 -0.00404751 -0.027702 / 0.05)",
+        "controls": 5
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 8485,
+      "height": 80,
+      "kind": "text",
+      "label": "Build whatever you want, without touching your CSS file.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.624,
+        "contentWidthRatio": 0.356,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Build whatever you want, without touching your CSS file."
+      ]
+    },
+    {
+      "top": 8733,
+      "height": 997,
+      "kind": "text",
+      "label": "openai.comopalcamera.comfeastables.comgumroad.comskims.comre",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.066,
+        "contentWidthRatio": 0.933,
+        "background": "oklab(0.129999 -0.00404751 -0.027702 / 0.05)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 9890,
+      "height": 284,
+      "kind": "cards",
+      "label": "Tailwind CSS",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.083,
+        "mirrorSymmetry": 0.798,
+        "whitespaceRatio": 0.879,
+        "contentWidthRatio": 0.939,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 10175,
+      "height": 170,
+      "kind": "text",
+      "label": "Copyright © 2026 Tailwind Labs Inc.·Trademark Policy",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.431,
+        "whitespaceRatio": 0.953,
+        "contentWidthRatio": 0.876,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Copyright © 2026 Tailwind Labs Inc."
+      ]
+    }
+  ],
+  "rhythmVariance": 1.458,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(0, 0, 0, 0)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 75264,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(0, 0, 0, 0)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 75264,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 15,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://tailwindcss.com/_next/static/media/dark-mode.light.0tx34lu8jwt_1.png",
+      "host": "tailwindcss.com",
+      "width": 375,
+      "height": 621,
+      "top": 4167,
+      "role": "photo",
+      "alt": null,
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 116532
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/dark-mode.dark.11szx9d7s4zjz.png",
+      "host": "tailwindcss.com",
+      "width": 375,
+      "height": 621,
+      "top": 4167,
+      "role": "photo",
+      "alt": null,
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 108512
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/shopify.0--7_f_9g4gy7.png",
+      "host": "tailwindcss.com",
+      "width": 439,
+      "height": 408,
+      "top": 9021,
+      "role": "photo",
+      "alt": "Shopify",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/clerk.0c3y~b1gec0dx.png",
+      "host": "tailwindcss.com",
+      "width": 439,
+      "height": 285,
+      "top": 9436,
+      "role": "photo",
+      "alt": "Clerk",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 104359
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/rivian.0dac8q_85hv7i.png",
+      "host": "tailwindcss.com",
+      "width": 439,
+      "height": 272,
+      "top": 8741,
+      "role": "photo",
+      "alt": "Rivian",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/midjourney.0-hew7ka2ltkt.png",
+      "host": "tailwindcss.com",
+      "width": 257,
+      "height": 437,
+      "top": 8965,
+      "role": "photo",
+      "alt": "Midjourney",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/3d-transforms.02bsrv~jiqeb9.jpeg",
+      "host": "tailwindcss.com",
+      "width": 328,
+      "height": 328,
+      "top": 6851,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 47539
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/opal.17bsj~5nn-bhl.png",
+      "host": "tailwindcss.com",
+      "width": 266,
+      "height": 374,
+      "top": 8974,
+      "role": "photo",
+      "alt": "Opal",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 78635
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/feastables.0t-7e0p.xdo0z.png",
+      "host": "tailwindcss.com",
+      "width": 266,
+      "height": 366,
+      "top": 9356,
+      "role": "photo",
+      "alt": "Feastables",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/nasa.0rhlq.ak47fm..png",
+      "host": "tailwindcss.com",
+      "width": 257,
+      "height": 310,
+      "top": 9410,
+      "role": "photo",
+      "alt": "NASA/JPL",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/css-grid-4.0iikpmqc8shsg.png",
+      "host": "tailwindcss.com",
+      "width": 392,
+      "height": 196,
+      "top": 5671,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/css-grid-1.0c8bc8q87-upx.png",
+      "host": "tailwindcss.com",
+      "width": 192,
+      "height": 392,
+      "top": 5471,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/filters.17z4w2mm8xht2.png",
+      "host": "tailwindcss.com",
+      "width": 256,
+      "height": 256,
+      "top": 4247,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/googleio.0vxfs_7d-fn74.png",
+      "host": "tailwindcss.com",
+      "width": 175,
+      "height": 367,
+      "top": 9107,
+      "role": "photo",
+      "alt": "Google IO",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 123585
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/verge.07-a9z7tfaczw.png",
+      "host": "tailwindcss.com",
+      "width": 175,
+      "height": 358,
+      "top": 8741,
+      "role": "photo",
+      "alt": "The Verge",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 69896
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/gumroad.02mqjvoidm9od.png",
+      "host": "tailwindcss.com",
+      "width": 175,
+      "height": 354,
+      "top": 8741,
+      "role": "photo",
+      "alt": "Gumroad",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 134143
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/skims.17-pjntproup-.png",
+      "host": "tailwindcss.com",
+      "width": 175,
+      "height": 345,
+      "top": 9103,
+      "role": "photo",
+      "alt": "Skims",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/openai.0e5et8v5h.soe.png",
+      "host": "tailwindcss.com",
+      "width": 266,
+      "height": 225,
+      "top": 8741,
+      "role": "photo",
+      "alt": "OpenAI",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/responsive-1.10chodfonif1e.png",
+      "host": "tailwindcss.com",
+      "width": 372,
+      "height": 160,
+      "top": 3567,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/poolside.13~g4ne7r787g.png",
+      "host": "tailwindcss.com",
+      "width": 257,
+      "height": 217,
+      "top": 8741,
+      "role": "photo",
+      "alt": "Poolside",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 49859
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/reddit.0j_xuv2uowcvq.png",
+      "host": "tailwindcss.com",
+      "width": 175,
+      "height": 266,
+      "top": 9456,
+      "role": "photo",
+      "alt": "Reddit",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 108566
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/ted.0ikpe7d7m~~3n.png",
+      "host": "tailwindcss.com",
+      "width": 175,
+      "height": 239,
+      "top": 9482,
+      "role": "photo",
+      "alt": "TED Talks",
+      "decorative": false,
+      "section": 8,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 231159
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/css-grid-2.15b-x2ty8.g~z.png",
+      "host": "tailwindcss.com",
+      "width": 192,
+      "height": 192,
+      "top": 5471,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/css-grid-3.08b3dk7gkiatg.png",
+      "host": "tailwindcss.com",
+      "width": 192,
+      "height": 192,
+      "top": 5471,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 219803
+      }
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/cover.0g8-x6e87bh6a.png",
+      "host": "tailwindcss.com",
+      "width": 190,
+      "height": 192,
+      "top": 691,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/responsive-2.0cdenvbjn04n3.png",
+      "host": "tailwindcss.com",
+      "width": 182,
+      "height": 160,
+      "top": 3567,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/responsive-3.00654hu_8u-c4.png",
+      "host": "tailwindcss.com",
+      "width": 182,
+      "height": 160,
+      "top": 3567,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/avatar-4.147155nkju-ki.png",
+      "host": "tailwindcss.com",
+      "width": 48,
+      "height": 48,
+      "top": 6256,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/avatar-5.0hg2xy51~_xab.png",
+      "host": "tailwindcss.com",
+      "width": 48,
+      "height": 48,
+      "top": 6353,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/avatar-6.03.hh~61qqypr.png",
+      "host": "tailwindcss.com",
+      "width": 48,
+      "height": 48,
+      "top": 6450,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/avatar-7.0og44ub0nz8ek.png",
+      "host": "tailwindcss.com",
+      "width": 48,
+      "height": 48,
+      "top": 6547,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/avatar-1.15~cxxh-ptz0r.png",
+      "host": "tailwindcss.com",
+      "width": 48,
+      "height": 48,
+      "top": 6353,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/avatar-2.12imlx8.m5il..png",
+      "host": "tailwindcss.com",
+      "width": 48,
+      "height": 48,
+      "top": 6450,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://tailwindcss.com/_next/static/media/avatar-3.0co4yvnojd00m.png",
+      "host": "tailwindcss.com",
+      "width": 48,
+      "height": 48,
+      "top": 6547,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Rapidly build modern websites without ever leaving your HTML.",
+    "A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.",
+    "\"flex flex-col items-center p-7 rounded-2xl\""
+  ],
+  "motion": {
+    "hiddenSections": 1,
+    "sections": 11,
+    "animations": 1,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      20,
+      24,
+      30,
+      36,
+      40,
+      96
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "16px",
+      "3.35544e+07px",
+      "32px",
+      "4px",
+      "8px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.129999 -0.00404751 -0.027702 / 0.08) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.05) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px"
+    ],
+    "spacingOnScalePct": 96.9,
+    "bodyLineLengthCh": 92,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 27.9,
+    "edgeDensity": 0.077,
+    "symmetry": 0.85,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

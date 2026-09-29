@@ -1,0 +1,908 @@
+{
+  "version": 2,
+  "url": "file:///home/dimz/dd-packages/packages/craft/calibration/ai-set/cleaner/pages/01.html",
+  "capturedAt": "2026-09-29T10:19:34.843Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6877,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(247, 248, 250)",
+        "area": 3928689,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1948412,
+        "chars": 0
+      },
+      {
+        "value": "rgb(18, 35, 63)",
+        "area": 785475,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 201, 60)",
+        "area": 88724,
+        "chars": 0
+      },
+      {
+        "value": "rgba(42, 166, 160, 0.12)",
+        "area": 24552,
+        "chars": 0
+      },
+      {
+        "value": "rgb(239, 239, 239)",
+        "area": 19027,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.1)",
+        "area": 10095,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "area": 3888,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 114, 128)",
+        "area": 0,
+        "chars": 1801
+      },
+      {
+        "value": "rgb(59, 71, 88)",
+        "area": 0,
+        "chars": 1290
+      },
+      {
+        "value": "rgb(18, 35, 63)",
+        "area": 0,
+        "chars": 986
+      },
+      {
+        "value": "rgb(185, 196, 214)",
+        "area": 0,
+        "chars": 403
+      },
+      {
+        "value": "rgb(34, 48, 63)",
+        "area": 0,
+        "chars": 274
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 246
+      },
+      {
+        "value": "rgb(214, 222, 234)",
+        "area": 0,
+        "chars": 184
+      },
+      {
+        "value": "rgb(199, 209, 224)",
+        "area": 0,
+        "chars": 144
+      },
+      {
+        "value": "rgb(42, 166, 160)",
+        "area": 0,
+        "chars": 48
+      },
+      {
+        "value": "rgb(255, 201, 60)",
+        "area": 0,
+        "chars": 23
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4507,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 861,
+      "displayChars": 599,
+      "italicChars": 0,
+      "weights": [
+        500,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 31,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 50,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Reading's most reliable cleaning service, for home and office",
+      "top": 251
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get your free, no-obligation quote",
+      "top": 305
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleaning services built around your space",
+      "top": 1011
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Domestic Cleaning",
+      "top": 1321
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Office & Commercial",
+      "top": 1321
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Deep Cleaning",
+      "top": 1321
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "End of Tenancy",
+      "top": 1687
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Carpet & Upholstery",
+      "top": 1687
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Window Cleaning",
+      "top": 1687
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleaning you can trust, from people who live in Reading too",
+      "top": 2172
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Booked in four simple steps",
+      "top": 2865
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Simple, transparent pricing",
+      "top": 3306
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Domestic Cleaning",
+      "top": 3501
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Office Cleaning",
+      "top": 3496
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Deep & End of Tenancy",
+      "top": 3501
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What Reading customers say",
+      "top": 4033
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Proudly serving Reading and the surrounding area",
+      "top": 4569
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 28,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a brighter, cleaner space?",
+      "top": 5065
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 36,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions",
+      "top": 5380
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 20,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's get your free quote sorted",
+      "top": 5990
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Request your free quote",
+      "top": 5996
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 52,
+      "background": "rgb(18, 35, 63)",
+      "text": "Get a Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgb(255, 201, 60)",
+      "text": "Get a Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Call 0118 900 1234"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 50,
+      "heightPx": 46,
+      "background": "rgb(255, 201, 60)",
+      "text": "Request My Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 52,
+      "background": "rgb(18, 35, 63)",
+      "text": "Get This Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 54,
+      "background": "rgb(255, 201, 60)",
+      "text": "Get This Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 52,
+      "background": "rgb(18, 35, 63)",
+      "text": "Get This Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgb(255, 201, 60)",
+      "text": "Get a Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "0118 900 1234"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 50,
+      "heightPx": 46,
+      "background": "rgb(255, 201, 60)",
+      "text": "Send My Request"
+    }
+  ],
+  "sections": [
+    {
+      "top": 26,
+      "height": 85,
+      "kind": "hero",
+      "label": "Brightside Cleaning Services Why Us Pricing Reviews Areas Co",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.111,
+        "mirrorSymmetry": 0.994,
+        "whitespaceRatio": 0.787,
+        "contentWidthRatio": 0.772,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 111,
+      "height": 789,
+      "kind": "hero",
+      "label": "Reading's most reliable cleaning service, for home and offic",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.077,
+        "mirrorSymmetry": 0.675,
+        "whitespaceRatio": 0.675,
+        "contentWidthRatio": 0.753,
+        "background": "rgb(255, 255, 255)",
+        "controls": 3
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Reading's most reliable cleaning service, for home and office",
+        "Brightside Cleaning takes the chore off your plate. From weekly house cleans to daily office contracts, our vetted local team delivers a spotless result every single time — guaranteed.",
+        "Get your free, no-obligation quote",
+        "Takes under a minute. We'll reply within one working hour.",
+        "Fully Insured & DBS-Checked Cleaners",
+        "No contract, cancel anytime",
+        "£5m public liability cover",
+        "100% satisfaction guarantee",
+        "4.9/5 from 210+ Reading customers"
+      ]
+    },
+    {
+      "top": 900,
+      "height": 1103,
+      "kind": "cards",
+      "label": "Cleaning services built around your space",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.394,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.765,
+        "contentWidthRatio": 0.735,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Cleaning services built around your space",
+        "Whether it's a two-bedroom flat in Caversham or an office on Kings Road, we tailor every visit to your needs and budget.",
+        "Domestic Cleaning",
+        "Regular or one-off cleans that keep your home fresh without eating into your weekend.",
+        "Weekly, fortnightly or monthly visits",
+        "Kitchens, bathrooms, dusting & vacuuming",
+        "Same trusted cleaner each time",
+        "Office & Commercial",
+        "Daily, weekly or after-hours contract cleaning for offices, shops and workspaces across Reading.",
+        "Desks, kitchens & washrooms",
+        "Flexible out-of-hours scheduling",
+        "Consumables restocking available",
+        "Deep Cleaning",
+        "A thorough top-to-bottom clean for spring cleans, post-renovation or before a big event.",
+        "Inside ovens, fridges & cupboards",
+        "Skirting boards, doors & light fittings",
+        "Ideal one-off refresh",
+        "End of Tenancy",
+        "Move out with confidence and your full deposit, with our checklist-based tenancy clean.",
+        "Meets most landlord & agency standards",
+        "Carpet cleaning add-on available",
+        "Flexible move-day booking",
+        "Carpet & Upholstery",
+        "Professional steam cleaning to lift stains and refresh tired carpets and sofas.",
+        "Pet & stain treatment",
+        "Fast-drying, eco-safe products",
+        "Rugs, sofas & car interiors",
+        "Window Cleaning",
+        "Add-on window cleaning for homes and offices, inside and out, on a schedule that suits you.",
+        "Ground & first-floor access",
+        "Frames & sills included",
+        "Bundle with any regular clean",
+        "What We Do"
+      ]
+    },
+    {
+      "top": 2003,
+      "height": 752,
+      "kind": "text",
+      "label": "Cleaning you can trust, from people who live in Reading too",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.357,
+        "mirrorSymmetry": 0.061,
+        "whitespaceRatio": 0.83,
+        "contentWidthRatio": 0.402,
+        "background": "rgb(247, 248, 250)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Cleaning you can trust, from people who live in Reading too",
+        "Vetted, local cleaners",
+        "Every cleaner is interviewed, reference-checked and DBS-verified before they set foot in your property.",
+        "Fully insured, every visit",
+        "We carry £5 million public liability cover as standard, so you're always protected.",
+        "Satisfaction guaranteed",
+        "Not happy with a clean? Tell us within 24 hours and we'll put it right, free of charge.",
+        "No lock-in contracts",
+        "Pause, change frequency or cancel whenever you need — we earn your business every visit."
+      ]
+    },
+    {
+      "top": 2754,
+      "height": 441,
+      "kind": "cards",
+      "label": "Booked in four simple steps",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.845,
+        "contentWidthRatio": 0.772,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Booked in four simple steps",
+        "1. Get in touch",
+        "Call, email or fill in our quote form with a few details about your space.",
+        "2. Receive your quote",
+        "We send a clear, fixed-price quote — usually within one working hour.",
+        "3. Meet your cleaner",
+        "We match you with a vetted local cleaner and confirm your first visit date.",
+        "4. Enjoy the results",
+        "Sit back while we handle the cleaning, on the schedule that suits you.",
+        "How It Works"
+      ]
+    },
+    {
+      "top": 3195,
+      "height": 727,
+      "kind": "cards",
+      "label": "Simple, transparent pricing",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.714,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0.746,
+        "contentWidthRatio": 0.732,
+        "background": "rgb(247, 248, 250)",
+        "controls": 3
+      },
+      "badges": [
+        "Most Popular"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 1,
+      "text": [
+        "Simple, transparent pricing",
+        "Every quote is tailored to your property, but here's what most Reading customers pay.",
+        "Domestic Cleaning",
+        "2-hour minimum booking",
+        "Weekly, fortnightly or monthly",
+        "Bring your own products or ours",
+        "Same cleaner every visit",
+        "Office Cleaning",
+        "Based on office size & frequency",
+        "Daily, weekly or after-hours",
+        "Dedicated account contact",
+        "Supplies & equipment included",
+        "Deep & End of Tenancy",
+        "Based on property size",
+        "Full checklist provided",
+        "One-off, no commitment",
+        "Optional carpet clean add-on"
+      ]
+    },
+    {
+      "top": 3922,
+      "height": 535,
+      "kind": "cards",
+      "label": "What Reading customers say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.353,
+        "mirrorSymmetry": 0.99,
+        "whitespaceRatio": 0.8,
+        "contentWidthRatio": 0.732,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What Reading customers say",
+        "\"We've used Brightside for our house in Caversham for over a year now. Same cleaner every fortnight, always on time, always brilliant.\"",
+        "\"Switched our office cleaning to Brightside earlier this year and the difference in the washrooms and kitchen alone has been huge. Great communication too.\"",
+        "\"Booked an end of tenancy clean and got my full deposit back with no arguments from the agent. Would recommend to anyone moving in Reading.\"",
+        "Office Manager, Reading Town Centre"
+      ]
+    },
+    {
+      "top": 4458,
+      "height": 471,
+      "kind": "text",
+      "label": "Proudly serving Reading and the surrounding area",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.385,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.803,
+        "contentWidthRatio": 0.697,
+        "background": "rgb(247, 248, 250)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Proudly serving Reading and the surrounding area",
+        "Based in Reading, our teams cover the whole town and nearby villages.",
+        "Reading Town Centre"
+      ]
+    },
+    {
+      "top": 4929,
+      "height": 341,
+      "kind": "text",
+      "label": "Ready for a brighter, cleaner space?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.852,
+        "whitespaceRatio": 0.892,
+        "contentWidthRatio": 0.694,
+        "background": "rgb(255, 255, 255)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready for a brighter, cleaner space?",
+        "Get your free quote today — no obligation, no pushy sales calls."
+      ]
+    },
+    {
+      "top": 5270,
+      "height": 615,
+      "kind": "text",
+      "label": "Common questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.858,
+        "contentWidthRatio": 0.536,
+        "background": "rgb(247, 248, 250)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Common questions",
+        "Do I need to supply cleaning products?",
+        "What areas around Reading do you cover?",
+        "Is there a minimum contract length?",
+        "Are your cleaners insured and background-checked?",
+        "How quickly can you start?"
+      ]
+    },
+    {
+      "top": 5884,
+      "height": 602,
+      "kind": "text",
+      "label": "Let's get your free quote sorted",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "contact",
+      "geometry": {
+        "centredShare": 0.077,
+        "mirrorSymmetry": 0.661,
+        "whitespaceRatio": 0.756,
+        "contentWidthRatio": 0.75,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Let's get your free quote sorted",
+        "Reach us any way that suits you — we typically respond within one working hour.",
+        "Request your free quote",
+        "We reply within one working hour",
+        "Serving Reading & surrounding areas",
+        "8:00am – 6:00pm"
+      ]
+    },
+    {
+      "top": 6487,
+      "height": 365,
+      "kind": "text",
+      "label": "Brightside Cleaning Trusted domestic and office cleaning acr",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.875,
+        "whitespaceRatio": 0.828,
+        "contentWidthRatio": 0.772,
+        "background": "rgb(18, 35, 63)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.44,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(18, 35, 63)",
+          "rgb(28, 53, 92)",
+          "rgb(35, 74, 120)"
+        ],
+        "area": 1136363,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 166, 160)",
+          "rgb(18, 35, 63)"
+        ],
+        "area": 280122,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "images": [],
+  "firstScreenText": [
+    "Reading's most reliable cleaning service, for home and office",
+    "Brightside Cleaning takes the chore off your plate. From weekly house cleans to daily office contracts, our vetted local team delivers a spotless result every single time — guaranteed.",
+    "Get your free, no-obligation quote",
+    "Takes under a minute. We'll reply within one working hour.",
+    "Fully Insured & DBS-Checked Cleaners",
+    "No contract, cancel anytime",
+    "£5m public liability cover",
+    "100% satisfaction guarantee",
+    "4.9/5 from 210+ Reading customers"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      24,
+      28,
+      34,
+      36,
+      50
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "50%",
+      "50px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.25) 0px 30px 60px 0px",
+      "rgba(18, 35, 63, 0.12) 0px 20px 40px 0px",
+      "rgba(255, 201, 60, 0.35) 0px 8px 20px 0px"
+    ],
+    "spacingOnScalePct": 30.7,
+    "bodyLineLengthCh": 58,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 30.6,
+    "edgeDensity": 0.055,
+    "symmetry": 0.904,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

@@ -1,0 +1,1554 @@
+{
+  "version": 2,
+  "url": "https://animations.dev/",
+  "capturedAt": "2026-09-29T10:21:25.023Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 14045,
+  "ground": "rgb(253, 253, 252)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 12104328,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 253, 252)",
+        "area": 258831,
+        "chars": 0
+      },
+      {
+        "value": "rgb(247, 247, 247)",
+        "area": 220587,
+        "chars": 0
+      },
+      {
+        "value": "rgb(241, 240, 239)",
+        "area": 12598,
+        "chars": 0
+      },
+      {
+        "value": "rgb(23, 23, 23)",
+        "area": 7200,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 2800,
+        "chars": 0
+      },
+      {
+        "value": "rgb(222, 222, 222)",
+        "area": 268,
+        "chars": 0
+      },
+      {
+        "value": "rgb(248, 78, 59)",
+        "area": 144,
+        "chars": 0
+      },
+      {
+        "value": "rgb(218, 217, 214)",
+        "area": 56,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(77, 77, 77)",
+        "area": 0,
+        "chars": 18833
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 10207
+      },
+      {
+        "value": "rgb(130, 130, 124)",
+        "area": 0,
+        "chars": 353
+      },
+      {
+        "value": "rgb(67, 66, 61)",
+        "area": 0,
+        "chars": 245
+      },
+      {
+        "value": "rgb(33, 32, 28)",
+        "area": 0,
+        "chars": 160
+      },
+      {
+        "value": "rgb(141, 141, 134)",
+        "area": 0,
+        "chars": 38
+      },
+      {
+        "value": "rgb(152, 152, 152)",
+        "area": 0,
+        "chars": 23
+      },
+      {
+        "value": "rgb(0, 122, 255)",
+        "area": 0,
+        "chars": 15
+      },
+      {
+        "value": "rgb(153, 153, 153)",
+        "area": 0,
+        "chars": 11
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 10
+      },
+      {
+        "value": "rgb(89, 89, 89)",
+        "area": 0,
+        "chars": 9
+      },
+      {
+        "value": "rgb(28, 28, 30)",
+        "area": 0,
+        "chars": 9
+      },
+      {
+        "value": "rgb(194, 194, 194)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "inter",
+      "chars": 29848,
+      "displayChars": 572,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        575,
+        600
+      ]
+    },
+    {
+      "family": "mono",
+      "chars": 64,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "serifInline",
+      "chars": 7,
+      "displayChars": 0,
+      "italicChars": 7,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "inter",
+      "sizePx": 48,
+      "weight": 575,
+      "italic": false,
+      "italicPart": false,
+      "text": "How do you craft animations that feel right?",
+      "top": 503
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Enrollment is closed",
+      "top": 903
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "What if you knew exactly how to craft great animations?",
+      "top": 2084
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The interactive learning experience where you’ll learn the theory and practice behind great animations",
+      "top": 2469
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 15,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted by developers and designers at",
+      "top": 3499
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hey, I’m Emil",
+      "top": 4717
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 28,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "What you’ll learn",
+      "top": 5789
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Animation Theory",
+      "top": 6009
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "CSS animations",
+      "top": 7185
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Framer Motion (now Motion)",
+      "top": 7991
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 20,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Good vs Great animations",
+      "top": 8698
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "The Oddysey",
+      "top": 8891
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Angry Rabbits",
+      "top": 8966
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ghost town",
+      "top": 9041
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Pirates in the jungle",
+      "top": 9116
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 14,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lost in the mountains",
+      "top": 9191
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 24,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Walkthroughs",
+      "top": 9782
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Family’s drawer",
+      "top": 10144
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dynamic Island",
+      "top": 10496
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 26,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "You’ll also get…",
+      "top": 10884
+    },
+    {
+      "level": 2,
+      "family": "inter",
+      "sizePx": 28,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Join 13000+ designers and engineers learning animation.",
+      "top": 12133
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Course",
+      "top": 12686
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Purchasing",
+      "top": 13100
+    },
+    {
+      "level": 3,
+      "family": "inter",
+      "sizePx": 17,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Help",
+      "top": 13572
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Send me the course preview"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 48,
+      "background": "rgb(255, 255, 255)",
+      "text": "Show more reviews"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Render a toast"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Open Drawer"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 40,
+      "background": "rgb(23, 23, 23)",
+      "text": "Paste"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 40,
+      "background": "rgb(23, 23, 23)",
+      "text": "Paste"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(255, 255, 255)",
+      "text": "Add toast"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 36,
+      "background": "rgb(255, 255, 255)",
+      "text": "Feedback"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 24,
+      "background": "rgb(241, 240, 239)",
+      "text": "Get"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Try it out"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Idle"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Ring"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Timer"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get two free chapters"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Is this course for designers or engineers?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Is there an online community for the course?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What’s the format of the course?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Will this course stay up to date?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Will the coding parts be using Framer Motion only?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do you provide a certificate of completion?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do I need to pay for future updates?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Can I purchase multiple licenses, for my team or group?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Does the skill file require an additional payment?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What if I don’t like it?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Can I get an invoice?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Do you support Purchasing Power Parity (PPP)?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Is there a student discount?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "What if I get stuck? Can I ask questions?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Can’t find the answer you’re looking for?"
+    }
+  ],
+  "sections": [
+    {
+      "top": 80,
+      "height": 13917,
+      "kind": "marquee",
+      "label": "How do you craft animations that feel right?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "marquee",
+      "geometry": {
+        "centredShare": 0.026,
+        "mirrorSymmetry": 0.658,
+        "whitespaceRatio": 0.512,
+        "contentWidthRatio": 0.653,
+        "background": "rgb(253, 253, 252)",
+        "controls": 33
+      },
+      "badges": [],
+      "avatars": 1,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "How do you craft animations that feel right?",
+        "Learn the theory and practice behind great animations with this interactive learning experience.",
+        "Enrollment is closed",
+        "13,000+ designers and engineers have improved their animation skills with this course. The next enrollment opens sometime in 2027, for 10 days.",
+        "Join the waitlist to get two free preview lessons and behind-the-scenes content every two weeks. No spam, no nonsense.",
+        "Coding great animations is hard.",
+        "Unfortunately, many tutorials follow a happy path. They cover simple animations that are great for beginners, but aren’t that helpful once you go past the basics.",
+        "But it’s not just the code that makes an animation work. A bad easing or duration can ruin an otherwise great animation. But how do you know whether you made the right choices?",
+        "You don’t because animations are tricky.",
+        "It just doesn’t feel right and you can’t tell why.",
+        "Can you clearly explain why the animation on the right feels better?",
+        "What if you knew exactly how to craft great animations?",
+        "If you knew what a great animation consists of, you would know which easing to use, what the duration should be, what properties to animate to keep it performant.",
+        "You could stop guessing, “Does this easing work?” or “Is this enter transition too long?”, because you would know you chose the right ingredients.",
+        "And most importantly, you would be able to craft animations that your users love.",
+        "A skill in short supply, but high demand.",
+        "The interactive learning experience where you’ll learn the theory and practice behind great animations",
+        "animations.dev is a course where you’ll learn how to choose the right easing and timing, how to improve your taste, what spring animations are, and so much more.",
+        "You’ll finally be confident in your choices instead of guessing what might work.",
+        "All of that on a custom-built platform tailored to this course.",
+        "After learning the theory we’ll put it into practice.",
+        "We’ll build a lot, and there will be tons of exercises as that’s how you learn the most. After these lessons, you will know exactly how to code great and performant animations using CSS Animations and Framer Motion.",
+        "Trusted by developers and designers at",
+        "I say this every time, but this is the course you want. Real lessons, and the kind of stuff you can use right away.",
+        "This is a great course! Every engineer who touches frontend at Delphi has to go through it, fully coveredby the company.",
+        "Highly recommend this course. The single biggest force multiplier of recent years in the quality of my design execution. Emil’s continued support in improving the course’s content and resources for all subscribers is much appreciated as well!",
+        "Emil’s course taught me everything I know about UI animation.",
+        "This is an amazing course on animation, very easy to follow and with immediate applicability if you need it. I was able to purchase it, watch it and apply it in a PR in the same day. Highly recommend!",
+        "One of the few courses I bought that I still continuously refer back to. Even if you don’t plan on building these in code, the theory & resources alone really help you understand how to get your work from “good” to “great”",
+        "Don’t sleep on this course - learning from Emil is worth much more than this price tag.",
+        "Currently in progress for Emil’s course on animations. I’ve never used Framer Motion, but it’s so easy with the right guidance! 10/10 course, would recommend for beginners like me.",
+        "Having only just started my design and dev career, Emil’s course opened my eyes to the level of quality and detail that I want to reach one day.",
+        "As a rule of thumb, every front-end developer should purchase Emil’s animations course.",
+        "I just finished the first module of animations.dev in one sitting – great content.",
+        "Gotta say Emil’s animation course is really proving to be helpful!",
+        "Emil is extremely talented at what he does, you don’t want to miss his course!",
+        "Signed up for this and the course is amazing! Learnt so much and I’m only 50% done 😅 Already implemented some basic animations on Raven’s sidebar for toggling the channel list.",
+        "I bought Emil’s course on web animations last month and it is great! Happy to learn from the best! This is a great way level-up your design/frontend skills!",
+        "Emil, LOVED the animation course!",
+        "This course is sick. Would recommend."
+      ]
+    }
+  ],
+  "rhythmVariance": null,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(253, 253, 252)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 105853,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(253, 253, 252)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 936880,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 7,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://animations.dev/light-preview-7.jpg",
+      "host": "animations.dev",
+      "width": 698,
+      "height": 378,
+      "top": 2741,
+      "role": "photo",
+      "alt": "Screenshot of the course platform showing a video player in the center, course chapters listed on the left, and anchors to headings on the right sidebar. The selected chapter is ‘Spring animations’ under ‘Making it feel right,’ with the video at 0:49 of 5:46.",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 184853
+      }
+    },
+    {
+      "src": "https://animations.dev/discord.png",
+      "host": "animations.dev",
+      "width": 700,
+      "height": 152,
+      "top": 12924,
+      "role": "photo",
+      "alt": "A message from a user on Discord that is happy with it.",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 38043
+      }
+    },
+    {
+      "src": "https://animations.dev/marketing/brotzky.png",
+      "host": "animations.dev",
+      "width": 112,
+      "height": 140,
+      "top": 11482,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/mariana.png",
+      "host": "animations.dev",
+      "width": 99,
+      "height": 131,
+      "top": 11472,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/lochie.jpg",
+      "host": "animations.dev",
+      "width": 99,
+      "height": 131,
+      "top": 11451,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/henry.png",
+      "host": "animations.dev",
+      "width": 92,
+      "height": 127,
+      "top": 11462,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/sev.jpg",
+      "host": "animations.dev",
+      "width": 91,
+      "height": 67,
+      "top": 11117,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/miles.jpg",
+      "host": "animations.dev",
+      "width": 91,
+      "height": 67,
+      "top": 11117,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/apple-2.jpg",
+      "host": "animations.dev",
+      "width": 91,
+      "height": 67,
+      "top": 11117,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/motion.png",
+      "host": "animations.dev",
+      "width": 91,
+      "height": 67,
+      "top": 11199,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/family.jpg",
+      "host": "animations.dev",
+      "width": 91,
+      "height": 67,
+      "top": 11199,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/marketing/bdc.jpg",
+      "host": "animations.dev",
+      "width": 91,
+      "height": 67,
+      "top": 11199,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/how-i-use-framer-motion/how-i-code-animations/space.png",
+      "host": "animations.dev",
+      "width": 56,
+      "height": 56,
+      "top": 8885,
+      "role": "icon",
+      "alt": "Game",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/how-i-use-framer-motion/how-i-code-animations/rabbit.png",
+      "host": "animations.dev",
+      "width": 56,
+      "height": 56,
+      "top": 8960,
+      "role": "icon",
+      "alt": "Game",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/how-i-use-framer-motion/how-i-code-animations/ghost.webp",
+      "host": "animations.dev",
+      "width": 56,
+      "height": 56,
+      "top": 9035,
+      "role": "icon",
+      "alt": "Game",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/how-i-use-framer-motion/how-i-code-animations/pirate.png",
+      "host": "animations.dev",
+      "width": 56,
+      "height": 56,
+      "top": 9110,
+      "role": "icon",
+      "alt": "Game",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/how-i-use-framer-motion/how-i-code-animations/boy.webp",
+      "host": "animations.dev",
+      "width": 56,
+      "height": 56,
+      "top": 9184,
+      "role": "icon",
+      "alt": "Game",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/benji.png",
+      "host": "animations.dev",
+      "width": 40,
+      "height": 40,
+      "top": 5508,
+      "role": "avatar",
+      "alt": "Benji Taylor's profile picture",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 37308
+      }
+    },
+    {
+      "src": "https://animations.dev/una.jpg",
+      "host": "animations.dev",
+      "width": 40,
+      "height": 40,
+      "top": 9609,
+      "role": "avatar",
+      "alt": "Una's profile picture",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 25954
+      }
+    },
+    {
+      "src": "https://animations.dev/matt-perry.jpg",
+      "host": "animations.dev",
+      "width": 40,
+      "height": 40,
+      "top": 11844,
+      "role": "avatar",
+      "alt": "Matt Perry's profile picture",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 23653
+      }
+    },
+    {
+      "src": "https://animations.dev/hannu-oksa.jpg",
+      "host": "animations.dev",
+      "width": 38,
+      "height": 38,
+      "top": 13074,
+      "role": "avatar",
+      "alt": "Hannu Oksa",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 21553
+      }
+    },
+    {
+      "src": "https://animations.dev/valentin.jpg",
+      "host": "animations.dev",
+      "width": 38,
+      "height": 38,
+      "top": 13395,
+      "role": "avatar",
+      "alt": "Valentin Hervieu",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 19866
+      }
+    },
+    {
+      "src": "https://animations.dev/shadcn.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 3750,
+      "role": "logo",
+      "alt": "Profile picture of shadcn",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/founder-delphi.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 3963,
+      "role": "logo",
+      "alt": "Profile picture of Dara Ladjevardian",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/hannu-oksa.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 4227,
+      "role": "logo",
+      "alt": "Profile picture of Hannu Oksa",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 21553
+      }
+    },
+    {
+      "src": "https://animations.dev/max-barvian.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 4414,
+      "role": "logo",
+      "alt": "Profile picture of Max Barvian",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/guilherme.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 4652,
+      "role": "logo",
+      "alt": "Profile picture of Guilherme Castro",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/leo.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 4891,
+      "role": "logo",
+      "alt": "Profile picture of Leo Fernandez",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/mariana-castilho.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 5078,
+      "role": "logo",
+      "alt": "Profile picture of Mariana Castilho",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/nikitadrokin.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 5316,
+      "role": "logo",
+      "alt": "Profile picture of Nikita Drokin",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/jenson-wong.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 5529,
+      "role": "logo",
+      "alt": "Profile picture of Jenson Wong",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/anthony.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 5716,
+      "role": "logo",
+      "alt": "Profile picture of Anthony Rubio",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/luke-shiels.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 5903,
+      "role": "logo",
+      "alt": "Profile picture of Luke Shiels",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/ansub.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 6091,
+      "role": "logo",
+      "alt": "Profile picture of Ansub Khan",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/jamesm.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 6278,
+      "role": "logo",
+      "alt": "Profile picture of James McDonald",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/nikhil.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 6516,
+      "role": "logo",
+      "alt": "Profile picture of Nikhil",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/carlos-galarza.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 6729,
+      "role": "logo",
+      "alt": "Profile picture of Carlos Galarza",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/ishmam.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 6891,
+      "role": "logo",
+      "alt": "Profile picture of Ishmam",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/karl-koch.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 7052,
+      "role": "logo",
+      "alt": "Profile picture of Karl Koch",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/ishan.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 7291,
+      "role": "logo",
+      "alt": "Profile picture of Ishan",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/phil-nelson.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 7529,
+      "role": "logo",
+      "alt": "Profile picture of Phil Nelson",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/gabriel-batista.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 7742,
+      "role": "logo",
+      "alt": "Profile picture of Gabriel Batista",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/micah.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 7929,
+      "role": "logo",
+      "alt": "Profile picture of Micah Rich",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/jacob-frantz.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 8116,
+      "role": "logo",
+      "alt": "Profile picture of Jacob Frantz",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/biki.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 8303,
+      "role": "logo",
+      "alt": "Profile picture of Biki",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/alex-dalene.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 8465,
+      "role": "logo",
+      "alt": "Profile picture of Alex Dalene",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/vaibhav.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 8678,
+      "role": "logo",
+      "alt": "Profile picture of Vaibhav Khulbe",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/jacob.png",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 8916,
+      "role": "logo",
+      "alt": "Profile picture of Jacob Treb",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/montek.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 9103,
+      "role": "logo",
+      "alt": "Profile picture of Montek",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/benjamin.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 9290,
+      "role": "logo",
+      "alt": "Profile picture of Benjamin Glickenhaus",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/emre.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 9503,
+      "role": "logo",
+      "alt": "Profile picture of Emre Turan",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/udit.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 9716,
+      "role": "logo",
+      "alt": "Profile picture of Udit Kapoor",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/akshith.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 9903,
+      "role": "logo",
+      "alt": "Profile picture of Akshith Vyas",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/joel.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 10090,
+      "role": "logo",
+      "alt": "Profile picture of Joel Ipper",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/jeff-min.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 10277,
+      "role": "logo",
+      "alt": "Profile picture of Jeff Min",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/vlad.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 10490,
+      "role": "logo",
+      "alt": "Profile picture of Vlad Savruk",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/alessio-tortora.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 10677,
+      "role": "logo",
+      "alt": "Profile picture of Alessio Tortora",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/jitendra.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 10865,
+      "role": "logo",
+      "alt": "Profile picture of Jitendra Nirnejak",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/adam.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 11026,
+      "role": "logo",
+      "alt": "Profile picture of Adam",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://animations.dev/berry.jpg",
+      "host": "animations.dev",
+      "width": 36,
+      "height": 36,
+      "top": 11316,
+      "role": "logo",
+      "alt": "Profile picture of Berry Brazza",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "How do you craft animations that feel right?",
+    "Learn the theory and practice behind great animations with this interactive learning experience."
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 1,
+    "animations": 7,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      24,
+      26,
+      28,
+      48
+    ],
+    "fontWeights": [
+      400,
+      500,
+      575,
+      600
+    ],
+    "radii": [
+      "12px",
+      "2px",
+      "3.35544e+07px",
+      "8px",
+      "9999px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px 0px",
+      "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px 0px",
+      "rgba(255, 255, 255, 0.14) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px 0px, rgb(250, 200, 62) 0px 0px 0px 1px"
+    ],
+    "spacingOnScalePct": 97.4,
+    "bodyLineLengthCh": 82,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 7,
+    "edgeDensity": 0.05,
+    "symmetry": 0.977,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}
