@@ -3,7 +3,7 @@
  "issue": "CRO-27",
  "site": "https://www.chairandblade.co.uk/",
  "pages": [
-  "Home (one very long page)"
+  "Home (one very long page, looked at from top to footer)"
  ],
  "shots": [
   [
@@ -19,6 +19,10 @@
    "Home, signature cuts (desktop)"
   ],
   [
+   "home-desktop-13.jpg",
+   "Home, services and prices (desktop)"
+  ],
+  [
    "home-mobile-01.jpg",
    "Home, first screen (mobile)"
   ]
@@ -31,13 +35,18 @@
   "The first screen is a three-panel strip of clients mid-cut in the studio, with the logo lockup laid over it and two buttons (Book a cut, Signature cuts) and the address.",
   "A scrolling ticker sits under the hero: St John Street Manchester, Skin fades and tapers, Appointments only, Textured cuts, Barber to the cast of Hamilton, Precision sits here.",
   "Come have a look shows the studio itself: lit ceiling strips, the chair, a wall sign with the logo, a ring light, plants. Signature cuts is a named grid (Skin fade, Modern mullet, Crispy shape up, Flow cut and more), then a Portfolio strip linking to Instagram.",
-  "The page is one long scroll (about 15,800 pixels on desktop). The menu (The Studio, Signature Cuts, Portfolio, Services, About) looks like jumps within it."
+  "The page is one long scroll (about 15,800 pixels on desktop). The menu (The Studio, Signature Cuts, Portfolio, Services, About) jumps within it. In order it runs: first-screen strip, ticker, the studio, a one-line quote, signature cuts, a wall of portfolio photos linking to Instagram, reviews, services and prices, a FAQ, the barber, the footer.",
+  "Services is a two-column price list with dotted leaders: Haircut 30 pounds, Haircut and Beard Trim 35, Full Shape Up 20; Premium Grooming with a black mask 35, with beard trim 40, with facial 50; Hair Wash 10. Each column has a View more link.",
+  "The FAQ (Before you book) is a list of collapsed questions: how long a haircut takes, washing your hair first, not knowing what style you want, walk-ins.",
+  "The About section is one barber, Emmanuel, with a portrait and short points (official barber for the cast of Hamilton the Musical, London School of Barbering graduate, specialist in skin fades, tapers and textured cuts, educator and mentor) and a Book with Emmanuel button.",
+  "The footer gives the address (25 St John Street, Manchester M3 4DT), a phone number to call on arrival, appointments only, on-site parking, Get directions, a Show map box that says it loads from Google, and Instagram and TikTok links."
  ],
  "check": [
-  "Only the first eight screens of the long page were captured. The Services and About sections, and anything below the Portfolio strip, were not looked at. They need a second capture.",
-  "Large empty stretches on the screens may be scroll reveals that had not fired.",
-  "Small boxed characters appear before each ticker item. They may be missing symbols in the capture browser rather than a fault on the site.",
-  "The ticker says Barber to the cast of Hamilton. That is a client claim and needs the client's confirmation before it is treated as fact.",
+  "Large empty stretches on the screens may be scroll reveals that had not fired. A band of flat taupe about 135 pixels tall sits above the FAQ; cause unknown.",
+  "The reviews section heading was seen, but the review text itself was not visible in the screens taken, so nothing can be said about the reviews.",
+  "Small boxed characters appear before each ticker item and after View more. They may be missing symbols in the capture browser rather than a fault on the site.",
+  "The Hamilton claim appears in the ticker and in the barber's section. It is a client claim and needs the client's confirmation.",
+  "No booking form was seen; Book a cut and Book with Emmanuel go somewhere not followed here.",
   "The cookie bar was left open along the bottom."
  ],
  "today": {
