@@ -49,9 +49,18 @@ export interface NullRun {
 export interface NullModel {
   version: typeof NULL_VERSION;
   brief: string;
+  /**
+   * The prompt each page was built from. For imported pages, the prompt the
+   * person was asked to give the builder: `craft null prompt` prints it.
+   */
   prompt: string;
-  /** What was asked for with --model, or "default". */
+  /** What was asked for with --model, or "default"; "unknown" for imported pages unless given. */
   model: string;
+  /**
+   * The tool that built the pages, when they were imported rather than
+   * generated here: "v0", "lovable". Absent for `craft null build`.
+   */
+  builder?: string;
   catalogueVersion: string;
   builtAt: string;
   runs: NullRun[];
