@@ -74,3 +74,25 @@ survivors, add only accepted tells with independent flag/pass fixtures,
 document their review tier, then bump the catalogue and update claude-kit.
 If no feature passes, publish the negative result and keep the diagnostics
 separate from copy enforcement.
+
+## Lexical and specificity follow-up (2026-09-29)
+
+`scripts/shape/measure.mjs --lexical` measures word and specificity features
+(`src/character/lexical.ts`) on the same AI set and on new frozen lexical
+baselines (`human/*-lexical-v1.json`; counts only, no text). Report:
+`report-lexical.md`. Result: no feature ships, and no tell is added.
+
+- craft's own tell-word rate: d 0.28 against marketing and 0.07 against email;
+  the published "delve"-era words (Juzek and Ward) appear in 0% of current
+  Claude blurbs. Models change what they over-use between generations, so a
+  word list is a dated measurement, not a fact about models.
+- Specificity does not separate the sets. AI blurbs are not less specific
+  than small-business copy (the `generic` flag is *more* common in human
+  marketing copy, d -0.86) and use more trade nouns. Caveat: the briefs give
+  the model concrete details; a vague brief would test something else.
+- Closest word: "tailored to your", in 5.6% of matched AI blurbs and 0.6% of
+  human marketing blurbs (limit 0.5%). Not adopted.
+- The matched-register table in the report shows what each threshold would
+  catch if only the matched register had to hold at 5%. The best is
+  `tradePer100` at 10% (marketing) with 2.4% false positives, too weak to
+  ship. The 5% all-register rule was not changed.
