@@ -172,6 +172,15 @@ export {
   type ShapeFeatures,
   type Tricolon,
 } from "./character/shape.js";
+export {
+  LEXICAL_FEATURES,
+  STUDY_WORDS,
+  lexicalOf,
+  vocabulary,
+  vocabularyCounts,
+  type LexicalFeatures,
+  type StudyWord,
+} from "./character/lexical.js";
 export { HOME_FILE, HOME_URL, PROOF_NAMES, SPECIFICITY_COPY_TELLS, SPECIFICITY_RENDERED_TELLS, STANDING_CLAIM, unprovenClaims } from "./character/tells/specificity.js";
 export { auditSnapshot } from "./character/check.js";
 export {
