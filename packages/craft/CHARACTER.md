@@ -973,3 +973,7 @@ Catalogue version `2026.09.12`, 68 tells.
 | `no-real-imagery` | 1 | rendered | warn | No photograph on the page | A page with no photograph at all, only icons and illustrations, is the page a model builds when it has no assets. Icon tiles stand in for the evidence a buyer looks for: the work, the premises, the people. |
 | `unproven-claim` | 1 | rendered | warn | Claim with no proof next to it | "Trusted", "fully qualified" and "award-winning" ask the visitor to take the business's word for it. A page built with no reviews and no registration number makes the claim anyway, with nothing beside it. |
 <!-- craft:catalogue:end -->
+
+### Decision on the flagged rule (2026-09-30)
+
+Closed without changing the threshold. The rule was fixed before any result was read, and retuning it on the 56 pages it was measured on would break that. "Flagged" is a **look-closer signal**, not a verdict that a site is AI-made: it catches AI pages reliably (20 of 20) and also marks well-made human sites (14 of 36) that share a few common design habits. Nothing gates on it. Any change to the rule or to the five weak tells (`icon-tile-grid`, `generic-hero-claim`, `marquee`, `grid-background`, `unproven-claim`) must be judged on a fresh human set, not this one. Follow-up, not blocking: an AI set from other builders via `craft null import` (v0, Lovable and similar), which needs pages from those builders.
