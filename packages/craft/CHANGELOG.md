@@ -1,5 +1,12 @@
 # @domandigital/craft
 
+## 0.16.0
+
+### Minor Changes
+
+- 6545c2e: Calibration tooling. `craft null import <dir> --builder <name> --brief "<text>"` builds a null model from pages another builder made (v0, Lovable), each an HTML file or a folder holding a built `index.html`, served on loopback so root-relative assets resolve. `craft null prompt` prints the prompt to give that builder. `craft calibrate <labels.json>` measures a labelled set (`ai`, `human`, `ai-looking`) and reports precision and recall per tell and CHARACTER.md's first three targets; a page it cannot measure is listed and never counts as a pass. `NullModel` gains an optional `builder`. The blind-test protocol for target 5 is in `docs/blind-test.md`.
+- cb7317e: Lexical and specificity measurement. New exports `lexicalOf`, `vocabulary`, `vocabularyCounts`, `LEXICAL_FEATURES`, `STUDY_WORDS` and the `LexicalFeatures` and `StudyWord` types compute how often a block uses craft's own tell words and the published excess-use words, and how particular it is (names, places, figures, trade nouns). Every study word carries its source paper. Measured against the frozen human baselines and the Claude set, no feature met the ship rule, so no tell is added and `CATALOGUE_VERSION` is unchanged; the result is in `calibration/copy-shape/report-lexical.md`.
+
 ## 0.15.0
 
 ### Minor Changes
