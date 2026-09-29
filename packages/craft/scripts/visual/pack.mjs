@@ -94,12 +94,13 @@ const bullet = (t) => {
 };
 
 let n = 0;
-function field(name, label, { height = 26, multiline = false, hint } = {}) {
+function field(name, label, { height = 26, multiline = false, hint, value } = {}) {
   text(label, { size: 9, f: bold, color: ACCENT, gap: 3 });
   if (hint) text(hint, { size: 8.5, color: MUTED, gap: 3 });
   need(height + 8);
   const f = form.createTextField(name);
   if (multiline) f.enableMultiline();
+  if (value) f.setText(clean(value));
   f.addToPage(page, { x: M, y: y - height, width: W - 2 * M, height, borderWidth: 1, borderColor: RULE, font });
   f.setFontSize(10);
   y -= height + 10;
@@ -152,33 +153,20 @@ newPage();
 heading("What the live site looked like");
 text("Screenshots taken by machine and looked at by eye. The cookie banner was left as found; nothing was clicked or submitted.", { size: 9, color: MUTED, gap: 8 });
 const shots = review.shots;
-const cell = (W - 2 * M - 16) / 2;
-let col = 0;
-let rowTop = y;
-let rowH = 0;
 for (const [file, caption] of shots) {
   const img = await pdf.embedJpg(readFileSync(join(dir, file)));
   const mobile = /mobile/.test(file);
-  const h = mobile ? 250 : (cell * img.height) / img.width;
-  const w = mobile ? (h * img.width) / img.height : cell;
-  if (col === 0) {
-    need(Math.max(h, 190) + 34);
-    rowTop = y;
-    rowH = 0;
-  }
-  const x = M + col * (cell + 16);
-  page.drawRectangle({ x: x - 1, y: rowTop - h - 1, width: w + 2, height: h + 2, borderColor: RULE, borderWidth: 1 });
-  page.drawImage(img, { x, y: rowTop - h, width: w, height: h });
-  const capLines = wrap(caption, font, 8.5, cell);
-  capLines.forEach((l, i) => page.drawText(l, { x, y: rowTop - h - 12 - i * 10, size: 8.5, font, color: MUTED }));
-  rowH = Math.max(rowH, h + 14 + capLines.length * 10);
-  col += 1;
-  if (col === 2) {
-    y = rowTop - rowH - 10;
-    col = 0;
-  }
+  const h = mobile ? 300 : ((W - 2 * M) * img.height) / img.width;
+  const w = mobile ? (h * img.width) / img.height : W - 2 * M;
+  need(h + 26);
+  y -= 4;
+  page.drawRectangle({ x: M - 1, y: y - h - 1, width: w + 2, height: h + 2, borderColor: RULE, borderWidth: 1 });
+  // PACK_NO_IMAGES draws grey boxes: some PDF renderers used for previews cannot decode embedded JPEGs.
+  if (process.env.PACK_NO_IMAGES) page.drawRectangle({ x: M, y: y - h, width: w, height: h, color: rgb(0.85, 0.87, 0.9) });
+  else page.drawImage(img, { x: M, y: y - h, width: w, height: h });
+  page.drawText(clean(caption), { x: M, y: y - h - 12, size: 8.5, font, color: MUTED });
+  y -= h + 24;
 }
-if (col !== 0) y = rowTop - rowH - 10;
 
 // ------------------------------------------------------------- seen / check
 newPage();
@@ -217,7 +205,7 @@ for (const [i, name] of review.pagesForStructure.entries()) {
   newPage();
   heading(`Part 2: page structure, ${name}`);
   text("Decide what this page is for, what leads, and what order it runs in. Keeping today's order is allowed, with a reason.", { size: 9.5, gap: 8 });
-  field(`page.${i + 1}.name`, "Page", { height: 22, hint: `Prefilled: ${name}` });
+  field(`page.${i + 1}.name`, "Page", { height: 22, value: name });
   field(`page.${i + 1}.action.what`, "The one main action a visitor should take on this page (for example: call now, book, send an enquiry)", { height: 30, multiline: true });
   boxes(`page.${i + 1}.positions`, "Where the main action sits (tick all that apply)", [["header", "Header"], ["hero", "First screen"], ["after-proof", "After proof or reviews"], ["mid", "Middle of page"], ["footer", "Bottom of page"], ["sticky", "Stays on screen"]]);
   field(`page.${i + 1}.action.why`, "Why it sits there. Say how fast the customer decides, or which worry it answers", { height: 44, multiline: true });
@@ -241,7 +229,7 @@ for (const [i, [key, label, what, today]] of TOKENS.entries()) {
   text(what, { size: 10, color: MUTED, gap: 8 });
   text("On the site today (seen by eye)", { size: 9, f: bold, color: ACCENT, gap: 3 });
   text(today, { gap: 10 });
-  boxes(`tok.${key}.decision`, "Your decision", [["keep", "Keep what is there"], ["change", "Change it"], ["none", "None (for signature only)"]]);
+  boxes(`tok.${key}.decision`, "Your decision", [["keep", "Keep what is there"], ["change", "Change it"], ...(key === "signature" ? [["none", "None: no motion"]] : [])]);
   field(`tok.${key}.value`, key === "accent" || key === "ground" ? "What it should be. A colour name, or a hex code taken from something the client has" : "What it should be", { height: 40, multiline: true });
   field(`tok.${key}.source`, "Where it comes from: the logo, the premises, paperwork, the trade or the customers", { height: 40, multiline: true });
   field(`tok.${key}.why`, "Why, in your own words, about this client's customer", { height: 90, multiline: true });
