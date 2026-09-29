@@ -1,5 +1,11 @@
 # @domandigital/create-site
 
+## 0.3.2
+
+### Patch Changes
+
+- 6545c2e: New sites install `@domandigital/craft` at `^0.16.0`, the release that adds `craft calibrate` and `craft null import`.
+
 ## 0.3.1
 
 ### Patch Changes
