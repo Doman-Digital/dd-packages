@@ -1,0 +1,61 @@
+{
+ "name": "Harrisons Beauty (now Harrison James, harrisonjames.uk)",
+ "issue": "CRO-22",
+ "site": "https://www.harrisonjames.uk/",
+ "pages": [
+  "Home",
+  "Shop",
+  "A brand page (CNP)",
+  "Contact"
+ ],
+ "shots": [
+  [
+   "home-desktop-01.jpg",
+   "Home, first screen (desktop)"
+  ],
+  [
+   "home-desktop-04.jpg",
+   "Home, the range (desktop)"
+  ],
+  [
+   "brand-desktop-01.jpg",
+   "Brand page (desktop)"
+  ],
+  [
+   "contact-desktop-01.jpg",
+   "Contact link (desktop)"
+  ]
+ ],
+ "seen": [
+  "harrisonsbeauty.com now redirects to harrisonjames.uk. The shop calls itself HARRISON JAMES in a wide-spaced sans wordmark, black on white.",
+  "The page is white and off-white with a black announcement bar and a black promise strip; there is no accent colour, so colour comes only from product photos.",
+  "The hero headline is KOREAN SKINCARE, ALREADY IN THE UK. in capitals in a high-contrast serif over a dark, blurred photo with an olive-gold tint. Section headings elsewhere are the same serif in sentence case. Small labels (BROWSE, FEATURED) are spaced monospace capitals.",
+  "Corners are square with hairline dividers, but the main buttons (Shop, See the whole range) are pills.",
+  "Home runs: announcement bar, hero, three promises (free tracked delivery, 14 days to change your mind, genuine stock), shop by concern (seven icon tiles), brands (six), this week's hero product, the range as a product grid.",
+  "Product images are brand-supplied packshots (Celimax, AXIS-Y, CNP and others), not the shop's own photography.",
+  "On the CNP brand page one product sits beside a large empty beige panel.",
+  "The Contact link in the header opened a page that displayed 404 This page could not be found."
+ ],
+ "check": [
+  "Which brand and address this client is now trading as needs confirming: the estate lists Harrisons Beauty, and the live site is Harrison James. It shares a name with the accountancy site.",
+  "The hero photo is too blurred to say what it shows, so it cannot be judged or described as the client's own.",
+  "Whether the shop may use the brand packshots is not shown on the page.",
+  "The Contact link showed a 404 in the capture. Check it in a normal browser before treating it as a fault.",
+  "The cookie bar was left open along the bottom."
+ ],
+ "today": {
+  "display": "High-contrast serif capitals in the hero; same serif in sentence case elsewhere",
+  "body": "Plain sans; spaced monospace capitals for small labels",
+  "accent": "None: black and white",
+  "ground": "White and off-white with black bands",
+  "shape": "Square corners and hairlines; pill buttons",
+  "motif": "Icon tiles for concerns; spaced wordmark",
+  "signature": "Not seen in still screenshots"
+ },
+ "pagesForStructure": [
+  "Home",
+  "A brand page"
+ ],
+ "capturedAt": "2026-09-29",
+ "method": "Screenshots taken with scripts/visual/capture.mjs and looked at by eye. Descriptions say what was visible on the screen. Font names, hex codes and image ownership were not read from code and are not claimed."
+}

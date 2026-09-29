@@ -1,0 +1,65 @@
+{
+ "name": "Harrison James Ltd (accountants)",
+ "issue": "CRO-24",
+ "site": "https://www.harrisonjamesltd.co.uk/",
+ "pages": [
+  "Home",
+  "Services",
+  "About",
+  "Case studies",
+  "Pricing",
+  "Contact"
+ ],
+ "shots": [
+  [
+   "home-desktop-01.jpg",
+   "Home, first screen (desktop)"
+  ],
+  [
+   "about-desktop-01.jpg",
+   "About (desktop)"
+  ],
+  [
+   "pricing-desktop-01.jpg",
+   "Pricing (desktop)"
+  ],
+  [
+   "home-mobile-01.jpg",
+   "Home, first screen (mobile)"
+  ]
+ ],
+ "seen": [
+  "The logo is a gold outlined shield with an HJ monogram; in the footer it sits above HARRISON JAMES LTD in white on navy.",
+  "Pages are pale grey-blue and white, with a navy call-to-action band and footer. There is a moon icon in the header for a dark theme.",
+  "Every button that matters is mustard-gold with navy text; headlines are navy. Nothing else is used as an accent.",
+  "Headings are a heavy geometric sans; body text is a plain neutral sans.",
+  "Corners are modestly rounded; cards have thin borders; the four How we work steps sit in gold numbered circles.",
+  "The home page runs: centred headline and two buttons, three audience cards (growing businesses, freelancers, property investors), a grid of services, four steps, a navy call to action, a footer with the Brackley address. The first screen has no photo.",
+  "The About page opens with a wide photo of a crowded open-plan room of people at laptops, tinted navy. It looks like a large tech event and does not match a small practice.",
+  "Pricing shows three tiers: Starter from £150 a month, Growth from £400 (badged Most Popular), Partner from £800. The page calls them indicative.",
+  "The page called Case Studies says the practice is new and has nothing to show yet, with a button to book a call.",
+  "The Contact page has a form (including an annual turnover band) beside a details box with the company number."
+ ],
+ "check": [
+  "Where the About-page photo came from, and whether it can stand for this practice, is not known.",
+  "Nothing on the site shows which package clients actually choose. The Most Popular badge needs evidence or should go.",
+  "The client's own words about customers, worries and reasons for choosing a practice are not on the site. That is what the job map needs.",
+  "The Contact page took long to load in the capture; the page did appear.",
+  "The cookie bar was left open at the bottom."
+ ],
+ "today": {
+  "display": "Heavy geometric sans, navy",
+  "body": "Neutral sans",
+  "accent": "Mustard-gold buttons on navy and grey-blue",
+  "ground": "Pale grey-blue and white, navy bands",
+  "shape": "Modest corners, thin-bordered cards, gold number circles",
+  "motif": "Gold shield monogram",
+  "signature": "Not seen in still screenshots"
+ },
+ "pagesForStructure": [
+  "Home",
+  "Pricing"
+ ],
+ "capturedAt": "2026-09-29",
+ "method": "Screenshots taken with scripts/visual/capture.mjs and looked at by eye. Descriptions say what was visible on the screen. Font names, hex codes and image ownership were not read from code and are not claimed."
+}

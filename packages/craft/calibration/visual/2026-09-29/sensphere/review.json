@@ -1,0 +1,62 @@
+{
+ "name": "Sensphere",
+ "issue": "CRO-25",
+ "site": "https://sensphere.co.uk/",
+ "pages": [
+  "Home",
+  "Services",
+  "About",
+  "Pricing",
+  "Contact"
+ ],
+ "shots": [
+  [
+   "home-desktop-01.jpg",
+   "Home, first screen (desktop)"
+  ],
+  [
+   "home-desktop-03.jpg",
+   "Home, why families choose (desktop)"
+  ],
+  [
+   "pricing-desktop-01.jpg",
+   "Pricing and pathways (desktop)"
+  ],
+  [
+   "home-mobile-01.jpg",
+   "Home, first screen (mobile)"
+  ]
+ ],
+ "seen": [
+  "The logo is an S inside a circle with the word Sensphere in a rounded sans, in purple.",
+  "The first screen is a dark photo of a child's hands writing with a pencil, with a frosted-glass card holding the headline and two buttons, and a second glass strip of three tick points.",
+  "One strong violet is used for the top banner, buttons, logo and links, and the nav button has a violet glow.",
+  "Below the hero the page is white and very pale lavender; the How we help section has a faint dot-grid behind it.",
+  "Cards are very rounded with soft shadows; chips are pills; icons sit in small rounded squares.",
+  "Home runs: booking banner (currently booking for November 2026), hero, credentials (HCPC, RCOT, two universities), DBS and ICO badges, How we help (three cards), a comparison with NHS waiting lists, how it works, who we help, why families and schools choose.",
+  "The About page has a real photograph of the founder, Cherif Larbaoui, with a first-person account of his training.",
+  "The Pricing page shows no prices: it describes an initial assessment and a full assessment, each with Enquire for a quote, plus payment and cancellation terms."
+ ],
+ "check": [
+  "Home says reports are typically ready within 10 to 15 working days; the Pricing page says a summary is typically shared within 10 working days. These may be different documents, but a parent would read them as inconsistent.",
+  "The child's hands in the hero photo: it is not known whether this is a stock photo or a real child, or whether consent exists.",
+  "The badges (DBS enhanced checked, ICO registration number) and credentials are client claims to confirm.",
+  "A small boxed character appears after Services in the menu. It may be a missing symbol in the capture browser.",
+  "The cookie card was left open at the bottom."
+ ],
+ "today": {
+  "display": "Bold rounded sans",
+  "body": "Same rounded sans, lighter weight",
+  "accent": "One strong violet, with a glow on buttons",
+  "ground": "White and pale lavender; dark photo hero",
+  "shape": "Very rounded cards, pill chips, frosted glass",
+  "motif": "Dot grid; S-in-circle mark",
+  "signature": "Not seen in still screenshots"
+ },
+ "pagesForStructure": [
+  "Home",
+  "Pricing"
+ ],
+ "capturedAt": "2026-09-29",
+ "method": "Screenshots taken with scripts/visual/capture.mjs and looked at by eye. Descriptions say what was visible on the screen. Font names, hex codes and image ownership were not read from code and are not claimed."
+}

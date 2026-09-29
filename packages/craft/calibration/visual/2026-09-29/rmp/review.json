@@ -1,0 +1,63 @@
+{
+ "name": "RMP Electrical",
+ "issue": "CRO-23",
+ "site": "https://rmp-electrical.co.uk/",
+ "pages": [
+  "Home",
+  "Services",
+  "A service page (fault finding)",
+  "Guides"
+ ],
+ "shots": [
+  [
+   "home-desktop-01.jpg",
+   "Home, first screen (desktop)"
+  ],
+  [
+   "home-desktop-05.jpg",
+   "Home, recent work (desktop)"
+  ],
+  [
+   "service-page-desktop-01.jpg",
+   "Service page (desktop)"
+  ],
+  [
+   "home-mobile-01.jpg",
+   "Home, first screen (mobile)"
+  ]
+ ],
+ "seen": [
+  "The logo is a black serif RMP monogram with a small blue lightning bolt through the M, next to the words RMP Electrical.",
+  "The page is warm cream, alternating with white bands, and one near-black band (the quote form) with a faint grain.",
+  "Three action colours sit side by side: a green WhatsApp button, a near-black Call button, and navy for labels, links and icons.",
+  "Headlines are large light serif with the last words in italic (Your local electricians. / Small jobs, done properly. / Real jobs. Real homes.). The same italic-ending pattern repeats on every section.",
+  "Cards, photos and buttons have generous rounded corners; buttons are pills; the service tiles use small icons in pale grey-blue squares.",
+  "The first screen shows a real person (a man in grey work clothes reading his phone beside an EV charger) with a floating card saying Phone on, 24 hours a day, and a badge naming Uxbridge, West London and Ryan Pumfrey.",
+  "Recent work is a grid of phone-style job photos (ceiling light, backlit mirror, outdoor lantern with EV charger, spotlights, consumer unit, LED strip). Quality varies and some look soft.",
+  "Home runs: hero, trust strip (24/7, qualified, free quotes), dark quote form, eight service tiles, recent work, how quoting works, about Ryan, reviews with owner replies.",
+  "A green Message Ryan button floats bottom-right on every screen; a cookie card covers the bottom-left.",
+  "The service page is a plain reading layout with a breadcrumb; no photo was visible in the screens captured."
+ ],
+ "check": [
+  "The service page has an empty band of about 150 pixels between the intro line and the first paragraph. Cause unknown: it may be an image that did not load, or a scroll reveal.",
+  "The cookie card was left open, so it hides part of every screen. Nothing was clicked.",
+  "The site says every recent-work photo is from a real job. RMP should confirm that.",
+  "The reviews carry names and owner replies. Where they come from (Google or elsewhere) is not shown on the page.",
+  "The Areas page was not captured."
+ ],
+ "today": {
+  "display": "Large light serif, last words in italic",
+  "body": "Clean rounded sans",
+  "accent": "Navy for links and labels; green for WhatsApp; near-black for Call",
+  "ground": "Warm cream with white bands and one near-black band",
+  "shape": "Large rounded corners, pill buttons",
+  "motif": "Italic ending on each headline; small icons in pale squares",
+  "signature": "Not seen in still screenshots"
+ },
+ "pagesForStructure": [
+  "Home",
+  "A service page"
+ ],
+ "capturedAt": "2026-09-29",
+ "method": "Screenshots taken with scripts/visual/capture.mjs and looked at by eye. Descriptions say what was visible on the screen. Font names, hex codes and image ownership were not read from code and are not claimed."
+}

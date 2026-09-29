@@ -1,0 +1,63 @@
+{
+ "name": "MMM Beauty",
+ "issue": "CRO-26",
+ "site": "https://www.mmm-beauty.co.uk/",
+ "pages": [
+  "Home",
+  "Treatments",
+  "About",
+  "Gallery",
+  "Book (Square)"
+ ],
+ "shots": [
+  [
+   "home-desktop-01.jpg",
+   "Home, first screen (desktop)"
+  ],
+  [
+   "gallery-desktop-03.jpg",
+   "Gallery (desktop)"
+  ],
+  [
+   "services-desktop-02.jpg",
+   "Treatments (desktop)"
+  ],
+  [
+   "pricing-desktop-01.jpg",
+   "Book: Square page (desktop)"
+  ]
+ ],
+ "seen": [
+  "The logo is a gold and deep-green serif MM with the word BEAUTY under it.",
+  "The site is light: cool off-white and white, with cream at the top. The cookie bar is dark green. It is not a black site.",
+  "The first screen is a full-width looping video: a blurred pink-brown close-up too soft to say what it shows, with the headline over it in thin letter-spaced serif, an italic line, and a mint-green Book Now button.",
+  "Buttons are mint-green gradient pills; cards have thin dark outlines and rounded corners; section headings have a short mint bar beside them.",
+  "The three service cards use bright, generic-looking photos (hands, a face with eyes closed, a facial). The package cards use flat-lay props and a Dermalogica product shot.",
+  "The About page has a real photo of Meghan working on a client, with pills: VTCT certified, Brackley since 2023, Over 300 clients.",
+  "The Gallery shows real nail and brow close-ups. In the screens looked at, the nails sit on light grey, white or skin tones; some have a dark sleeve or dark fabric behind the hand, but none is a black studio setup. Most of the nail set is Christmas themed (snowflakes, reds) though the capture was in late September. The filter offers Nails and Brows only.",
+  "Treatments lists services with photos and a Most Popular badge on Builder Gel Manicure. Booking leaves the site for a Square page, which has Square's own look and a Square cookie prompt."
+ ],
+ "check": [
+  "Only gallery screens 1, 2, 3, 5, 7 and 8 of 8 were looked at; screens 4 and 6 were not.",
+  "The Most Popular badge needs booking evidence. The earlier claim that soft-square is the most-booked nail shape is still unsupported.",
+  "The service-card photos look like stock images. Their source is not known.",
+  "The exact disputed picture from the earlier review is still not identified.",
+  "Small boxed characters appear before Nails and Brows in the gallery filter. They may be missing symbols in the capture browser.",
+  "The cookie bar was left open."
+ ],
+ "today": {
+  "display": "Thin, letter-spaced high-contrast serif",
+  "body": "Plain humanist sans",
+  "accent": "Mint-green gradient buttons, with gold in the logo",
+  "ground": "Cool off-white and white; dark green cookie bar",
+  "shape": "Thin dark outlines, rounded corners, pill buttons",
+  "motif": "Short mint bar beside headings",
+  "signature": "Looping hero video"
+ },
+ "pagesForStructure": [
+  "Home",
+  "Treatments"
+ ],
+ "capturedAt": "2026-09-29",
+ "method": "Screenshots taken with scripts/visual/capture.mjs and looked at by eye. Descriptions say what was visible on the screen. Font names, hex codes and image ownership were not read from code and are not claimed."
+}

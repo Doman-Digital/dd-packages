@@ -1,0 +1,448 @@
+{
+ "site": "https://www.harrisonjamesltd.co.uk/",
+ "capturedAt": "2026-09-28T23:50:11.793Z",
+ "tool": "scripts/visual/capture.mjs (playwright chromium)",
+ "shots": [
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 3350
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 3350
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-desktop-03.jpg",
+   "scrollY": 1800,
+   "pageHeight": 3350
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-desktop-04.jpg",
+   "scrollY": 2700,
+   "pageHeight": 3350
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 5778
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 5778
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 5778
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 5778
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 5778
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-mobile-06.jpg",
+   "scrollY": 4220,
+   "pageHeight": 5778
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/",
+   "status": 200,
+   "file": "home-mobile-07.jpg",
+   "scrollY": 5064,
+   "pageHeight": 5778
+  },
+  {
+   "page": "services",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/services",
+   "status": 200,
+   "file": "services-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 1478
+  },
+  {
+   "page": "services",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/services",
+   "status": 200,
+   "file": "services-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 1478
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 3006
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 3006
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 3006
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 3006
+  },
+  {
+   "page": "about",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 4126
+  },
+  {
+   "page": "about",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 4126
+  },
+  {
+   "page": "about",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-desktop-03.jpg",
+   "scrollY": 1800,
+   "pageHeight": 4126
+  },
+  {
+   "page": "about",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-desktop-04.jpg",
+   "scrollY": 2700,
+   "pageHeight": 4126
+  },
+  {
+   "page": "about",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-desktop-05.jpg",
+   "scrollY": 3600,
+   "pageHeight": 4126
+  },
+  {
+   "page": "about",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 5701
+  },
+  {
+   "page": "about",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 5701
+  },
+  {
+   "page": "about",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 5701
+  },
+  {
+   "page": "about",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 5701
+  },
+  {
+   "page": "about",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 5701
+  },
+  {
+   "page": "about",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-mobile-06.jpg",
+   "scrollY": 4220,
+   "pageHeight": 5701
+  },
+  {
+   "page": "about",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/about",
+   "status": 200,
+   "file": "about-mobile-07.jpg",
+   "scrollY": 5064,
+   "pageHeight": 5701
+  },
+  {
+   "page": "gallery",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/case-studies",
+   "status": 200,
+   "file": "gallery-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 1216
+  },
+  {
+   "page": "gallery",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/case-studies",
+   "status": 200,
+   "file": "gallery-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 1216
+  },
+  {
+   "page": "gallery",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/case-studies",
+   "status": 200,
+   "file": "gallery-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 1760
+  },
+  {
+   "page": "gallery",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/case-studies",
+   "status": 200,
+   "file": "gallery-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 1760
+  },
+  {
+   "page": "gallery",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/case-studies",
+   "status": 200,
+   "file": "gallery-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 1760
+  },
+  {
+   "page": "pricing",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/pricing",
+   "status": 200,
+   "file": "pricing-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 1738
+  },
+  {
+   "page": "pricing",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/pricing",
+   "status": 200,
+   "file": "pricing-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 1738
+  },
+  {
+   "page": "pricing",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/pricing",
+   "status": 200,
+   "file": "pricing-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 3590
+  },
+  {
+   "page": "pricing",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/pricing",
+   "status": 200,
+   "file": "pricing-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 3590
+  },
+  {
+   "page": "pricing",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/pricing",
+   "status": 200,
+   "file": "pricing-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 3590
+  },
+  {
+   "page": "pricing",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/pricing",
+   "status": 200,
+   "file": "pricing-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 3590
+  },
+  {
+   "page": "pricing",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/pricing",
+   "status": 200,
+   "file": "pricing-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 3590
+  },
+  {
+   "page": "contact",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 1909
+  },
+  {
+   "page": "contact",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 1909
+  },
+  {
+   "page": "contact",
+   "device": "desktop",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-desktop-03.jpg",
+   "scrollY": 1800,
+   "pageHeight": 1909
+  },
+  {
+   "page": "contact",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 3527
+  },
+  {
+   "page": "contact",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 3527
+  },
+  {
+   "page": "contact",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 3527
+  },
+  {
+   "page": "contact",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 3527
+  },
+  {
+   "page": "contact",
+   "device": "mobile",
+   "url": "https://www.harrisonjamesltd.co.uk/contact",
+   "status": "error: page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navig",
+   "file": "contact-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 3527
+  }
+ ]
+}
