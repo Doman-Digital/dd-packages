@@ -1,0 +1,57 @@
+{
+ "name": "Chair and Blade",
+ "issue": "CRO-27",
+ "site": "https://www.chairandblade.co.uk/",
+ "pages": [
+  "Home (one very long page)"
+ ],
+ "shots": [
+  [
+   "home-desktop-01.jpg",
+   "Home, first screen (desktop)"
+  ],
+  [
+   "home-desktop-03.jpg",
+   "Home, the studio (desktop)"
+  ],
+  [
+   "home-desktop-06.jpg",
+   "Home, signature cuts (desktop)"
+  ],
+  [
+   "home-mobile-01.jpg",
+   "Home, first screen (mobile)"
+  ]
+ ],
+ "seen": [
+  "The logo is CHAIR AND BLADE in a heavy condensed capital face, with a razor-blade outline around it and a razor forming the A.",
+  "The whole page is near-black with off-white text. There is no accent colour: the only contrast is cream against black.",
+  "Headings are tall condensed capitals; small labels are wide-spaced capitals; a delicate italic serif is used for asides (PRECISION SITS HERE, It's in the Fades., 01 · The chair).",
+  "Corners are square. Buttons are either a cream block or a thin outlined box. Portfolio photos have a very slight rounding.",
+  "The first screen is a three-panel strip of clients mid-cut in the studio, with the logo lockup laid over it and two buttons (Book a cut, Signature cuts) and the address.",
+  "A scrolling ticker sits under the hero: St John Street Manchester, Skin fades and tapers, Appointments only, Textured cuts, Barber to the cast of Hamilton, Precision sits here.",
+  "Come have a look shows the studio itself: lit ceiling strips, the chair, a wall sign with the logo, a ring light, plants. Signature cuts is a named grid (Skin fade, Modern mullet, Crispy shape up, Flow cut and more), then a Portfolio strip linking to Instagram.",
+  "The page is one long scroll (about 15,800 pixels on desktop). The menu (The Studio, Signature Cuts, Portfolio, Services, About) looks like jumps within it."
+ ],
+ "check": [
+  "Only the first eight screens of the long page were captured. The Services and About sections, and anything below the Portfolio strip, were not looked at. They need a second capture.",
+  "Large empty stretches on the screens may be scroll reveals that had not fired.",
+  "Small boxed characters appear before each ticker item. They may be missing symbols in the capture browser rather than a fault on the site.",
+  "The ticker says Barber to the cast of Hamilton. That is a client claim and needs the client's confirmation before it is treated as fact.",
+  "The cookie bar was left open along the bottom."
+ ],
+ "today": {
+  "display": "Heavy condensed capitals",
+  "body": "Plain wide-set sans; italic serif for asides",
+  "accent": "None: cream on black",
+  "ground": "Near-black throughout",
+  "shape": "Square corners, thin outlined buttons",
+  "motif": "Razor-blade outline around the logo; scrolling ticker",
+  "signature": "A ticker and a scroll progress line across the top (motion not judged from stills)"
+ },
+ "pagesForStructure": [
+  "Home"
+ ],
+ "capturedAt": "2026-09-29",
+ "method": "Screenshots taken with scripts/visual/capture.mjs and looked at by eye. Descriptions say what was visible on the screen. Font names, hex codes and image ownership were not read from code and are not claimed."
+}

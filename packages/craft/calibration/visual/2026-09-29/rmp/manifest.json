@@ -1,0 +1,493 @@
+{
+ "site": "https://rmp-electrical.co.uk/",
+ "capturedAt": "2026-09-28T23:56:55.911Z",
+ "tool": "scripts/visual/capture.mjs (playwright chromium)",
+ "shots": [
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-03.jpg",
+   "scrollY": 1800,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-04.jpg",
+   "scrollY": 2700,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-05.jpg",
+   "scrollY": 3600,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-06.jpg",
+   "scrollY": 4500,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-07.jpg",
+   "scrollY": 5400,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-desktop-08.jpg",
+   "scrollY": 6300,
+   "pageHeight": 10986
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 12881
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 12881
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 12881
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 12881
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 12881
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-06.jpg",
+   "scrollY": 4220,
+   "pageHeight": 12881
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-07.jpg",
+   "scrollY": 5064,
+   "pageHeight": 12881
+  },
+  {
+   "page": "home",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/",
+   "status": 200,
+   "file": "home-mobile-08.jpg",
+   "scrollY": 5908,
+   "pageHeight": 12881
+  },
+  {
+   "page": "services",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 3115
+  },
+  {
+   "page": "services",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 3115
+  },
+  {
+   "page": "services",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-desktop-03.jpg",
+   "scrollY": 1800,
+   "pageHeight": 3115
+  },
+  {
+   "page": "services",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-desktop-04.jpg",
+   "scrollY": 2700,
+   "pageHeight": 3115
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 3897
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 3897
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 3897
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 3897
+  },
+  {
+   "page": "services",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services",
+   "status": 200,
+   "file": "services-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 3897
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-03.jpg",
+   "scrollY": 1800,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-04.jpg",
+   "scrollY": 2700,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-05.jpg",
+   "scrollY": 3600,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-06.jpg",
+   "scrollY": 4500,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-07.jpg",
+   "scrollY": 5400,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-desktop-08.jpg",
+   "scrollY": 6300,
+   "pageHeight": 6737
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 9570
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 9570
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 9570
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 9570
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 9570
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-06.jpg",
+   "scrollY": 4220,
+   "pageHeight": 9570
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-07.jpg",
+   "scrollY": 5064,
+   "pageHeight": 9570
+  },
+  {
+   "page": "service-page",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/services/fault-finding",
+   "status": 200,
+   "file": "service-page-mobile-08.jpg",
+   "scrollY": 5908,
+   "pageHeight": 9570
+  },
+  {
+   "page": "guides",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-desktop-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 5256
+  },
+  {
+   "page": "guides",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-desktop-02.jpg",
+   "scrollY": 900,
+   "pageHeight": 5256
+  },
+  {
+   "page": "guides",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-desktop-03.jpg",
+   "scrollY": 1800,
+   "pageHeight": 5256
+  },
+  {
+   "page": "guides",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-desktop-04.jpg",
+   "scrollY": 2700,
+   "pageHeight": 5256
+  },
+  {
+   "page": "guides",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-desktop-05.jpg",
+   "scrollY": 3600,
+   "pageHeight": 5256
+  },
+  {
+   "page": "guides",
+   "device": "desktop",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-desktop-06.jpg",
+   "scrollY": 4500,
+   "pageHeight": 5256
+  },
+  {
+   "page": "guides",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-mobile-01.jpg",
+   "scrollY": 0,
+   "pageHeight": 5582
+  },
+  {
+   "page": "guides",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-mobile-02.jpg",
+   "scrollY": 844,
+   "pageHeight": 5582
+  },
+  {
+   "page": "guides",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-mobile-03.jpg",
+   "scrollY": 1688,
+   "pageHeight": 5582
+  },
+  {
+   "page": "guides",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-mobile-04.jpg",
+   "scrollY": 2532,
+   "pageHeight": 5582
+  },
+  {
+   "page": "guides",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-mobile-05.jpg",
+   "scrollY": 3376,
+   "pageHeight": 5582
+  },
+  {
+   "page": "guides",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-mobile-06.jpg",
+   "scrollY": 4220,
+   "pageHeight": 5582
+  },
+  {
+   "page": "guides",
+   "device": "mobile",
+   "url": "https://rmp-electrical.co.uk/guides",
+   "status": 200,
+   "file": "guides-mobile-07.jpg",
+   "scrollY": 5064,
+   "pageHeight": 5582
+  }
+ ]
+}

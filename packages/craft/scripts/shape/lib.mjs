@@ -7,7 +7,7 @@
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { isBlurb, shapeOf } from "../../dist/index.js";
+import { LEXICAL_FEATURES, isBlurb, lexicalOf, shapeOf, vocabularyCounts } from "../../dist/index.js";
 
 export const BASELINE_VERSION = 1;
 export const FEATURES = [
@@ -28,6 +28,15 @@ export const FEATURES = [
   "coordinationRate",
   "skeletonRepeat",
 ];
+
+/**
+ * Which feature family a run measures: "shape" (the frozen v1 baselines) or
+ * "lexical" (words and specificity, written to separate -lexical- files).
+ * Same paragraphs, same blurb rule, same writer split.
+ */
+export const SET = process.argv.includes("--lexical") ? "lexical" : "shape";
+export const featuresOf = (set = SET) => (set === "lexical" ? [...LEXICAL_FEATURES] : FEATURES);
+export const isLexicalFile = (name) => name.includes("-lexical-");
 
 export const CALIBRATION = resolve(new URL("../../calibration/copy-shape", import.meta.url).pathname);
 
@@ -66,6 +75,8 @@ export class Baseline {
     this.counts = { paragraphs: 0, duplicates: 0, notBlurb: 0, blurbs: 0 };
     this.writers = new Set();
     this.byTag = {};
+    // Lexical runs only: how many kept blurbs contain each listed word. Counts, not text.
+    this.wordDocs = {};
     // Deterministic sampling: the same corpus always gives the same file.
     this.seed = 1;
   }
@@ -93,7 +104,13 @@ export class Baseline {
     const w = hash(String(writer));
     this.writers.add(w);
     const half = parseInt(w.slice(0, 2), 16) % 2 === 0 ? "tuning" : "holdout";
-    const row = tag ? [...vector(f), tag] : vector(f);
+    let numbers;
+    if (SET === "lexical") {
+      const lf = lexicalOf(text);
+      numbers = LEXICAL_FEATURES.map((k) => lf[k]);
+      for (const w of vocabularyCounts(text).keys()) this.wordDocs[w] = (this.wordDocs[w] ?? 0) + 1;
+    } else numbers = vector(f);
+    const row = tag ? [...numbers, tag] : numbers;
     if (tag) this.byTag[tag] = (this.byTag[tag] ?? 0) + 1;
     this.offered[half] += 1;
     const list = this.halves[half];
@@ -106,6 +123,7 @@ export class Baseline {
 
   /** Written once. A baseline that exists is never overwritten: add a new version instead. */
   write(file, { force = false } = {}) {
+    if (SET === "lexical") file = file.replace(/-v(\d+)\.json$/, "-lexical-v$1.json");
     const path = resolve(CALIBRATION, "human", file);
     if (existsSync(path) && !force) throw new Error(`${path} exists. Baselines are frozen: write a new version, or pass --force only if this run replaces a broken one.`);
     mkdirSync(dirname(path), { recursive: true });
@@ -117,7 +135,8 @@ export class Baseline {
       licence: this.licence,
       note: this.note,
       counts: { ...this.counts, writers: this.writers.size, tuning: this.halves.tuning.length, holdout: this.halves.holdout.length, byTag: this.byTag },
-      features: this.byTag && Object.keys(this.byTag).length ? [...FEATURES, "tag"] : FEATURES,
+      features: this.byTag && Object.keys(this.byTag).length ? [...featuresOf(), "tag"] : featuresOf(),
+      ...(SET === "lexical" ? { wordDocs: this.wordDocs } : {}),
       tuning: this.halves.tuning,
       holdout: this.halves.holdout,
     };

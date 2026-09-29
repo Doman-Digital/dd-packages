@@ -17,8 +17,12 @@
 
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { isBlurb, shapeOf } from "../../dist/index.js";
-import { CALIBRATION, FEATURES, flag, htmlProse, paragraphs, vector } from "./lib.mjs";
+import { LEXICAL_FEATURES, isBlurb, lexicalOf, shapeOf, vocabulary, vocabularyCounts } from "../../dist/index.js";
+import { CALIBRATION, FEATURES, SET, flag, htmlProse, isLexicalFile, paragraphs, vector } from "./lib.mjs";
+
+// --lexical measures words and specificity (lexical.ts) instead of sentence shape.
+const FEATURE_SET = SET === "lexical" ? [...LEXICAL_FEATURES] : FEATURES;
+const SUFFIX = SET === "lexical" ? "-lexical" : "";
 
 const BOOT = Number(flag("boot", 300));
 const MIN_REGISTER = 200;
@@ -34,20 +38,28 @@ const LEGACY = "legacy-2026-09-23";
 // ------------------------------------------------------------- data
 
 /** Derived features, computed from a stored vector so human and AI get the same. */
-const DERIVED = {
+const DERIVED = SET === "lexical" ? {} : {
   shapeStack: (v) => {
     const at = (k) => v[FEATURES.indexOf(k)] ?? 0;
     return (at("tricolons") > 0 ? 1 : 0) + (at("stackedConditionals") > 0 ? 1 : 0) + (at("hedgedClose") > 0 ? 1 : 0) + (at("participialRate") > 0 ? 1 : 0);
   },
 };
-const ALL = [...FEATURES, ...Object.keys(DERIVED)];
-const withDerived = (v) => [...v.slice(0, FEATURES.length), ...Object.values(DERIVED).map((f) => f(v))];
+const ALL = [...FEATURE_SET, ...Object.keys(DERIVED)];
+const withDerived = (v) => [...v.slice(0, FEATURE_SET.length), ...Object.values(DERIVED).map((f) => f(v))];
+
+/** Per register: kept blurbs and how many contain each listed word (lexical runs only). */
+const humanWords = {};
 
 function loadHuman() {
   const dir = join(CALIBRATION, "human");
   const out = [];
-  for (const file of readdirSync(dir).filter((f) => f.endsWith(".json"))) {
+  for (const file of readdirSync(dir).filter((f) => f.endsWith(".json") && isLexicalFile(f) === (SET === "lexical"))) {
     const b = JSON.parse(readFileSync(join(dir, file), "utf8"));
+    if (b.wordDocs) {
+      const w = (humanWords[b.register] ??= { blurbs: 0, docs: {} });
+      w.blurbs += b.counts.blurbs;
+      for (const [k, n] of Object.entries(b.wordDocs)) w.docs[k] = (w.docs[k] ?? 0) + n;
+    }
     const tagAt = b.features.indexOf("tag");
     for (const half of ["tuning", "holdout"]) {
       for (const row of b[half]) out.push({ register: b.register, source: b.source, tag: tagAt === -1 ? null : row[tagAt], half, v: withDerived(row) });
@@ -67,7 +79,12 @@ function walk(dir) {
 const blurbVectors = (paras) =>
   paras.flatMap((p) => {
     const f = shapeOf(p);
-    return isBlurb(f) ? [withDerived(vector(f))] : [];
+    if (!isBlurb(f)) return [];
+    if (SET === "lexical") {
+      const lf = lexicalOf(p);
+      return [{ v: withDerived(LEXICAL_FEATURES.map((k) => lf[k])), words: [...vocabularyCounts(p).keys()] }];
+    }
+    return [{ v: withDerived(vector(f)), words: [] }];
   });
 
 function loadAi() {
@@ -76,12 +93,12 @@ function loadAi() {
   for (const path of walk(root).filter((p) => p.endsWith(".txt"))) {
     const [provider, model, genre] = path.slice(root.length + 1).split("/");
     const edited = path.endsWith(".edited.txt");
-    for (const v of blurbVectors(paragraphs(readFileSync(path, "utf8")))) out.push({ provider, model, genre, edited, v });
+    for (const b of blurbVectors(paragraphs(readFileSync(path, "utf8")))) out.push({ provider, model, genre, edited, ...b });
   }
   // The earlier generation: 160 landing pages under calibration/ (Opus 4.x era), body prose only.
   const legacy = [...walk(join(CALIBRATION, "..", "ai-set")), ...walk(join(CALIBRATION, "..", "null"))].filter((p) => p.endsWith(".html"));
   for (const path of legacy) {
-    for (const v of blurbVectors(htmlProse(readFileSync(path, "utf8")))) out.push({ provider: "claude", model: "legacy-2026-09-23", genre: "landing-page", edited: false, v });
+    for (const b of blurbVectors(htmlProse(readFileSync(path, "utf8")))) out.push({ provider: "claude", model: "legacy-2026-09-23", genre: "landing-page", edited: false, ...b });
   }
   return out;
 }
@@ -225,6 +242,17 @@ for (const [i, feature] of ALL.entries()) {
   const found = threshold(i, up, Object.fromEntries(registers.map((r) => [r, tuning(r)])));
   const cut = found && !found.never ? found : null;
   const holdoutFp = cut ? Object.fromEntries(registers.map((r) => [r, share(col(human.filter((h) => h.half === "holdout" && h.register === r), i), cut.hit)])) : null;
+  // Informational, not a ship rule: the threshold that holds only the matched human register at 5%.
+  const matchedGate = Object.fromEntries(pairs.map((p) => {
+    const g = threshold(i, up, { [p.register]: tuning(p.register) });
+    const c = g && !g.never ? g : null;
+    return [p.register, c && {
+      t: c.t,
+      holdoutFp: share(col(human.filter((h) => h.half === "holdout" && h.register === p.register), i), c.hit),
+      tpr: share(aiIn(p.genres), c.hit),
+      tprEdited: share(aiIn(p.genres, aiEdited), c.hit),
+    }];
+  }));
   const targetGenres = pairs.flatMap((p) => p.genres);
   const tpr = cut ? share(aiIn(targetGenres), cut.hit) : null;
   const tprEdited = cut ? share(aiIn(targetGenres, aiEdited), cut.hit) : null;
@@ -259,6 +287,7 @@ for (const [i, feature] of ALL.entries()) {
     editedMatched,
     threshold: cut ? cut.t : null,
     holdoutFp,
+    matchedGate,
     tpr,
     tprEdited,
     ships: reasons.length === 0,
@@ -286,12 +315,12 @@ const counts = {
   ai: Object.fromEntries(models.map((m) => [m, aiOriginal.filter((x) => x.model === m).length])),
   edited: aiEdited.length,
 };
-writeFileSync(join(CALIBRATION, "report.json"), `${JSON.stringify({ measuredAt: new Date().toISOString().slice(0, 10), boot: BOOT, generation, counts, results }, null, 1)}\n`);
+writeFileSync(join(CALIBRATION, `report${SUFFIX}.json`), `${JSON.stringify({ measuredAt: new Date().toISOString().slice(0, 10), boot: BOOT, generation, counts, results }, null, 1)}\n`);
 
 const lines = [
-  "# Shape features: human baselines against AI copy",
+  SET === "lexical" ? "# Lexical and specificity features: human baselines against AI copy" : "# Shape features: human baselines against AI copy",
   "",
-  `Measured ${new Date().toISOString().slice(0, 10)} by \`scripts/shape/measure.mjs\`, ${BOOT} bootstrap resamples. Generated from \`report.json\`; do not edit by hand.`,
+  `Measured ${new Date().toISOString().slice(0, 10)} by \`scripts/shape/measure.mjs\`, ${BOOT} bootstrap resamples. Generated from \`report${SUFFIX}.json\`; do not edit by hand.`,
   "",
   `Generation: ${completePieces}/${expectedPieces} original/edit pairs complete. ${generation.complete ? "Complete." : "Preliminary report: no feature can ship until generation is complete."}`,
   "",
@@ -345,5 +374,45 @@ lines.push(
   ...results.map((r) => `| \`${r.feature}\` | ${pct(r.tpr)} | ${pct(r.tprEdited)} |`),
   "",
 );
-writeFileSync(join(CALIBRATION, "report.md"), `${lines.join("\n")}\n`);
-console.error(`measure: ${results.filter((r) => r.ships).map((r) => r.feature).join(", ") || "nothing"} ships. See calibration/copy-shape/report.md`);
+
+// Informational: the same features with the gate applied to the matched register alone.
+lines.push(
+  "## Matched-register gate (informational, not a ship rule)",
+  "",
+  "The ship rule holds every human register, literary and parliamentary included, at 5%. This shows what the threshold would catch if only the matched register had to hold at 5% on its tuning half. False positives are on that register's holdout half.",
+  "",
+  "| Feature | Register | Threshold | Holdout FP | TPR | TPR edited |",
+  "| --- | --- | ---: | ---: | ---: | ---: |",
+  ...results.flatMap((r) => pairs.map((p) => {
+    const g = r.matchedGate[p.register];
+    return g ? `| \`${r.feature}\` | ${p.register} | ${g.t} | ${pct(g.holdoutFp)} | ${pct(g.tpr)} | ${pct(g.tprEdited)} |` : `| \`${r.feature}\` | ${p.register} | – | – | – | – |`;
+  })),
+  "",
+);
+
+// Word level (lexical runs): which listed words are common in AI blurbs and rare in every human register.
+if (SET === "lexical") {
+  const target = fresh.filter((x) => pairs.some((p) => p.genres.includes(x.genre)));
+  const edited = aiEdited.filter((x) => pairs.some((p) => p.genres.includes(x.genre)));
+  const rate = (rows, w) => (rows.length ? rows.filter((x) => x.words.includes(w)).length / rows.length : 0);
+  const words = vocabulary().map(({ word, source }) => {
+    const humanRates = Object.fromEntries(Object.entries(humanWords).map(([r, h]) => [r, h.blurbs ? (h.docs[word] ?? 0) / h.blurbs : null]));
+    const worst = Math.max(...Object.values(humanRates).map((x) => x ?? 0));
+    const ai = rate(target, word);
+    return { word, source, ai, aiEdited: rate(edited, word), humanRates, worst, candidate: ai >= 0.015 && worst <= 0.005 };
+  }).sort((a, b) => b.ai - a.ai);
+  const hr = Object.keys(humanWords);
+  lines.push(
+    "## Words",
+    "",
+    `Share of blurbs containing each word: matched AI blurbs (${target.length}) against every human register. A candidate appears in at least 1.5% of matched AI blurbs and in at most 0.5% of every human register. A candidate is a word to consider for a review-tier list, not a tell; the 5% gate above still applies to any rate built from them.`,
+    "",
+    `| Word | Source | AI | AI edited | ${hr.join(" | ")} | Candidate |`,
+    `| --- | --- | ---: | ---: | ${hr.map(() => "---:").join(" | ")} | --- |`,
+    ...words.filter((w) => w.ai > 0 || w.worst > 0).map((w) => `| ${w.word} | ${w.source} | ${pct(w.ai)} | ${pct(w.aiEdited)} | ${hr.map((r) => pct(w.humanRates[r])).join(" | ")} | ${w.candidate ? "**yes**" : "no"} |`),
+    "",
+  );
+  writeFileSync(join(CALIBRATION, "report-lexical-words.json"), `${JSON.stringify({ measuredAt: new Date().toISOString().slice(0, 10), aiBlurbs: target.length, humanBlurbs: Object.fromEntries(Object.entries(humanWords).map(([r, h]) => [r, h.blurbs])), words }, null, 1)}\n`);
+}
+writeFileSync(join(CALIBRATION, `report${SUFFIX}.md`), `${lines.join("\n")}\n`);
+console.error(`measure: ${results.filter((r) => r.ships).map((r) => r.feature).join(", ") || "nothing"} ships. See calibration/copy-shape/report${SUFFIX}.md`);
