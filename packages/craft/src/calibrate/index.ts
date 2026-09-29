@@ -169,7 +169,7 @@ export function formatCalibration(c: Calibration, notes: string[] = []): string 
     lines.push("", `Not measured: ${c.unmeasured.length}. A page not measured never counts as a pass.`);
     for (const u of c.unmeasured) lines.push(`  ${u.id} (${u.label}): ${u.reason}`);
   }
-  lines.push("", "Targets");
+  lines.push("", "Flagged is a look-closer signal, not a verdict that a site is AI-made. Nothing gates on it.", "", "Targets");
   for (const t of c.targets) lines.push(`  ${t.target.padEnd(50)} ${t.met === null ? "not known" : t.met ? "met" : "NOT MET"}`, `    ${t.detail}`);
   lines.push("", `  ${"label".padEnd(11)} ${"pages".padStart(5)} ${"flagged".padStart(8)} ${"typical".padStart(8)} ${"tell-heavy".padStart(11)} ${"blocking".padStart(9)}`);
   for (const s of c.labels) {
