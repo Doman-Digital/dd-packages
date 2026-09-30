@@ -36,6 +36,8 @@ export interface LabelEntry {
   url?: string;
   /** Why this page is listed and not measured: a gated preview, a page that has gone. */
   skip?: string;
+  /** Whether the page is the site's home page. Default true: the sets are home pages, and a local file's URL cannot say so. */
+  home?: boolean;
   note?: string;
 }
 
@@ -60,6 +62,7 @@ export function parseLabels(raw: unknown, name: string): LabelFile {
     seen.add(p.id);
     if (!LABELS.includes(p.label)) throw new Error(`${at} (${p.id}): "label" is one of ${LABELS.join(", ")}`);
     if (!p.skip && !p.snapshot && !p.source && !p.url) throw new Error(`${at} (${p.id}): needs a snapshot, a source or a url, or a skip saying why not`);
+    if (p.home !== undefined && typeof p.home !== "boolean") throw new Error(`${at} (${p.id}): "home" is true or false`);
   }
   if (file.null !== undefined && (!Array.isArray(file.null) || file.null.some((n) => typeof n !== "string"))) throw new Error(`${name}: "null" is a list of paths`);
   return file as LabelFile;
@@ -134,7 +137,7 @@ export async function runCalibrate(args: string[], io: Io): Promise<number> {
     const measured: MeasuredPage[] = labels.pages
       .filter((e) => snapshots.has(e.id))
       .map((entry) => {
-        const snap = snapshots.get(entry.id) as Snapshot;
+        const snap = { ...(snapshots.get(entry.id) as Snapshot), home: entry.home ?? true };
         const rendered = auditSnapshot(snap);
         const source = entry.source && existsSync(resolve(base, entry.source)) ? scanSource([{ path: entry.source, text: readFileSync(resolve(base, entry.source), "utf8") }]) : undefined;
         const tells = new Set([...rendered.findings, ...(source?.findings ?? [])].map((f) => f.tell));

@@ -172,7 +172,7 @@ export const SPECIFICITY_COPY_TELLS: CopyTell[] = [
     },
     rendered: {
       detect: (s) => {
-        if (!s.firstScreenText || !HOME_URL.test(s.url)) return [];
+        if (!s.firstScreenText || !(s.home ?? HOME_URL.test(s.url))) return [];
         const text = s.firstScreenText.join("\n");
         if (!text.trim() || !specificity(text).generic) return [];
         const h1 = s.headings.find((h) => h.level === 1 && h.top < s.viewport.height);
