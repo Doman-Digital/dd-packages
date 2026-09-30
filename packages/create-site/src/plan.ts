@@ -11,6 +11,7 @@ import type { Project } from "./detect.js";
 import { hasDependency, patchPackageJson } from "./package-json.js";
 import { renderFacts, renderLinks, renderRedirects, renderRoutes } from "./render/data.js";
 import { renderBaseline, renderChecklist, renderDirection, renderHouseMd, renderWorkflow } from "./render/docs.js";
+import { renderStackEntry } from "./stack.js";
 import { readTemplate, rewriteSiteImports } from "./templates.js";
 import { HOUSE_DEPENDENCIES, HOUSE_DEV_DEPENDENCIES } from "./versions.js";
 import * as nextRoutes from "../templates/next/tests/seo/routes-on-disk.js";
@@ -72,6 +73,9 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
   const layout = layoutFor(project);
   const notes: string[] = [];
   if (project.packageManagerWarning) notes.push(project.packageManagerWarning);
+  notes.push(
+    "hand docs/client-facts.entry.json to Doman Digital's client register, and fill every null in it first (the register's own check names them).",
+  );
 
   const files: Omit<PlannedFile, "action">[] = [];
 
@@ -94,6 +98,7 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
     { path: "docs/DIRECTION.md", contents: renderDirection(answers, options.today), data: true },
     { path: "docs/seo-launch-checklist.md", contents: renderChecklist(answers), data: true },
     { path: "docs/seo-baseline.md", contents: renderBaseline(answers, options.today), data: true },
+    { path: "docs/client-facts.entry.json", contents: renderStackEntry(answers, project.framework, options.today), data: true },
   );
 
   const workflowPath = ".github/workflows/seo-check.yml";

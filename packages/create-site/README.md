@@ -38,6 +38,7 @@ it is copied, which is the failure this exists to avoid.
 | `tests/seo/*`, `tests/house.test.ts` | Route coverage, the redirect gate, JSON-LD integrity, the redirect wiring, and the rule that contact details live only in the facts file |
 | `docs/HOUSE.md` | The house rules, imported by `CLAUDE.md` (created if missing, otherwise one import line is added) |
 | `docs/DIRECTION.md`, `docs/seo-launch-checklist.md`, `docs/seo-baseline.md` | The site's decision and blocked registers, the listings to claim for its sector, and the launch, 90-day, 6-month and 12-month baseline |
+| `docs/client-facts.entry.json` | The technology the builder says the site uses, as an entry for Doman Digital's client register. Declared, not observed: every tracking tool has `consent: null` until someone fills it in from what the site does. Skipped answers are simply absent |
 | `.github/workflows/seo-check.yml` | Only if the project has no workflows yet |
 | `package.json` | `seo:check` and `launch:check` scripts, and the house packages |
 
@@ -69,7 +70,13 @@ create-site [dir] [--client <legal name>] [--trading-name <name>]
 `--answers` takes a JSON file with any of `legalName`, `tradingName`,
 `siteUrl`, `sector`, `description`, `phone`, `email`, `locality`,
 `postalCode`, `serviceAreas`, `registers` (ids from `src/sectors.ts`) and
-`previousHosts`.
+`previousHosts`, and the declared technology: `host`, `dns`, `cms`,
+`analytics` (a list, e.g. `["ga4", "gtm", "posthog"]`), `errorMonitoring` and
+`emailSending` (a list). Each can be skipped, and a skipped one is left out of
+`docs/client-facts.entry.json`, never filled with a guess. Common names are
+mapped to the register's (`Google Analytics` becomes `ga4`); anything that
+cannot be a register name (lowercase letters, digits, dots, hyphens) stops the
+run with exit code 2 before anything is written.
 
 Exit codes: 0 done, 1 refused (nothing written), 2 usage error.
 
