@@ -1,0 +1,1706 @@
+{
+  "version": 2,
+  "url": "https://neon.com/",
+  "capturedAt": "2026-09-30T15:08:09.903Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 11039,
+  "ground": "rgb(0, 0, 0)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 8581660,
+        "chars": 0
+      },
+      {
+        "value": "rgb(228, 241, 235)",
+        "area": 3204720,
+        "chars": 0
+      },
+      {
+        "value": "rgb(24, 25, 27)",
+        "area": 2298191,
+        "chars": 0
+      },
+      {
+        "value": "lab(0 0 0 / 0.8)",
+        "area": 1296000,
+        "chars": 0
+      },
+      {
+        "value": "rgb(21, 22, 23)",
+        "area": 1019520,
+        "chars": 0
+      },
+      {
+        "value": "rgb(205, 223, 215)",
+        "area": 439168,
+        "chars": 0
+      },
+      {
+        "value": "rgb(17, 19, 21)",
+        "area": 259205,
+        "chars": 0
+      },
+      {
+        "value": "rgb(19, 20, 21)",
+        "area": 226336,
+        "chars": 0
+      },
+      {
+        "value": "rgb(13, 34, 26)",
+        "area": 202496,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 91028,
+        "chars": 0
+      },
+      {
+        "value": "rgb(48, 50, 54)",
+        "area": 47320,
+        "chars": 0
+      },
+      {
+        "value": "rgb(36, 38, 40)",
+        "area": 38016,
+        "chars": 0
+      },
+      {
+        "value": "rgb(11, 12, 15)",
+        "area": 36468,
+        "chars": 0
+      },
+      {
+        "value": "rgb(10, 10, 11)",
+        "area": 18653,
+        "chars": 0
+      },
+      {
+        "value": "rgb(52, 213, 154)",
+        "area": 9733,
+        "chars": 0
+      },
+      {
+        "value": "rgb(239, 239, 240)",
+        "area": 2495,
+        "chars": 0
+      },
+      {
+        "value": "rgb(175, 177, 182)",
+        "area": 1280,
+        "chars": 0
+      },
+      {
+        "value": "rgb(97, 100, 107)",
+        "area": 431,
+        "chars": 0
+      },
+      {
+        "value": "rgb(121, 125, 134)",
+        "area": 36,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 1292
+      },
+      {
+        "value": "rgb(148, 151, 158)",
+        "area": 0,
+        "chars": 1187
+      },
+      {
+        "value": "rgb(121, 125, 134)",
+        "area": 0,
+        "chars": 830
+      },
+      {
+        "value": "rgb(201, 203, 207)",
+        "area": 0,
+        "chars": 652
+      },
+      {
+        "value": "rgb(97, 100, 107)",
+        "area": 0,
+        "chars": 534
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 316
+      },
+      {
+        "value": "rgb(175, 177, 182)",
+        "area": 0,
+        "chars": 289
+      },
+      {
+        "value": "rgb(48, 50, 54)",
+        "area": 0,
+        "chars": 279
+      },
+      {
+        "value": "rgb(202, 230, 220)",
+        "area": 0,
+        "chars": 233
+      },
+      {
+        "value": "rgb(172, 172, 172)",
+        "area": 0,
+        "chars": 42
+      },
+      {
+        "value": "rgb(228, 229, 231)",
+        "area": 0,
+        "chars": 38
+      },
+      {
+        "value": "rgb(26, 26, 26)",
+        "area": 0,
+        "chars": 34
+      },
+      {
+        "value": "rgb(12, 13, 13)",
+        "area": 0,
+        "chars": 21
+      },
+      {
+        "value": "lab(100 -0.0000298023 0.0000119209 / 0.6)",
+        "area": 0,
+        "chars": 10
+      },
+      {
+        "value": "rgb(24, 25, 27)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 5267,
+      "displayChars": 1304,
+      "italicChars": 0,
+      "weights": [
+        300,
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "family": "GeistMono",
+      "chars": 496,
+      "displayChars": 79,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Inter",
+      "sizePx": 56,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "The backend for apps and agents, built to scale on Lakebase Postgres.",
+      "top": 518
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Not just a Database. Neon is a complete backend platform with Authentication, Object Storage, Functions and an AI Gatewa",
+      "top": 969
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for coding agents. Create and branch environments the way you work with PRs, with full access via MCP, CLI, and SD",
+      "top": 1735
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Instant operations",
+      "top": 2027
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Branch everything",
+      "top": 2183
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 16,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Safe automation",
+      "top": 2339
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 44,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Scale from your first users to the Fortune 500. Startups ship on the same Neon primitives that enterprise teams run in p",
+      "top": 2864
+    },
+    {
+      "level": 3,
+      "family": "GeistMono",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "WHERE STARTUPSSTART",
+      "top": 3087
+    },
+    {
+      "level": 3,
+      "family": "GeistMono",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "WHERE AGENTPLATFORMS DEPLOY",
+      "top": 4064
+    },
+    {
+      "level": 3,
+      "family": "GeistMono",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "WHERE THE FORTUNE500 SCALES",
+      "top": 5112
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 52,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "The way we build software is changing, but the fundamentals remain the same: powerful databases, reliable infrastructure",
+      "top": 6267
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Autoscaling scales compute in real-time following your application. Optimized cost-performance, without capacity plannin",
+      "top": 7421
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Backed by giants. First founded by Postgres hackers with decades of expertise, Neon is now part of the Databricks Platfo",
+      "top": 8176
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 64,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Pay for what you use, not for the infrastructure you might need.",
+      "top": 9023
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 28,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Powerful Free Tier",
+      "top": 9597
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 28,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Starts at $0",
+      "top": 9632
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 28,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Efficient dev/test",
+      "top": 9632
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 28,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "No-Fee AI Gateway",
+      "top": 9619
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 72,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "The world's most advanced backend platform.",
+      "top": 9957
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 36,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Log in"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 36,
+      "background": "rgb(255, 255, 255)",
+      "text": "Sign up"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Get started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Read the docs"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 44,
+      "background": "rgb(48, 50, 54)",
+      "text": "Avoid outages"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 44,
+      "background": "rgb(24, 25, 27)",
+      "text": "Save costs"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(0, 0, 0)",
+      "text": "View Pricing"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(255, 255, 255)",
+      "text": "Get started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgba(255, 255, 255, 0.02)",
+      "text": "Read the docs"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 44,
+      "background": "rgb(52, 213, 154)",
+      "text": "$ npx neon init"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 32,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Opt out"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 32,
+      "background": "rgb(239, 239, 240)",
+      "text": "Accept"
+    }
+  ],
+  "sections": [
+    {
+      "top": 100,
+      "height": 741,
+      "kind": "marquee",
+      "label": "The backend for apps and agents, built to scale on Lakebase ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "marquee",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.99,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(0, 0, 0)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The backend for apps and agents, built to scale on Lakebase Postgres."
+      ]
+    },
+    {
+      "top": 969,
+      "height": 638,
+      "kind": "text",
+      "label": "Not just a Database. Neon is a complete backend platform wit",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.143,
+        "mirrorSymmetry": 0.932,
+        "whitespaceRatio": 0.112,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(0, 0, 0)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 1,
+      "text": [
+        "Not just a Database. Neon is a complete backend platform with Authentication, Object Storage, Functions and an AI Gateway.",
+        "Lakebase Postgres. Serverless postgres database that scales and branches with your app.",
+        "Authentication. Fully-managed user auth in every database for free, built on Better Auth.",
+        "Compute. Functions without timeouts running close to your database.",
+        "Storage. S3-compatible object storage that branches with your projects.",
+        "AI Gateway. One API for all frontier & open-source models, powered by Databricks.",
+        "BUILD YOUR BACKEND"
+      ]
+    },
+    {
+      "top": 1735,
+      "height": 1001,
+      "kind": "text",
+      "label": "Ready for coding agents. Create and branch environments the ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.077,
+        "mirrorSymmetry": 0.814,
+        "whitespaceRatio": 0.788,
+        "contentWidthRatio": 0.956,
+        "background": "rgb(0, 0, 0)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 1,
+      "text": [
+        "Ready for coding agents. Create and branch environments the way you work with PRs, with full access via MCP, CLI, and SDK.",
+        "Instant operationsInfrastructure that responds instantly. Agents don't wait for servers, tickets, or manual provisioning.",
+        "Branch everythingGive every idea its own environment. Agents can work in isolated copies of your entire backend.",
+        "Safe automationFast development requires fast recovery. Every change can be isolated, tested, and rolled back.",
+        "OPERATE IT WITH AGENTS"
+      ]
+    },
+    {
+      "top": 2864,
+      "height": 3275,
+      "kind": "text",
+      "label": "Scale from your first users to the Fortune 500. Startups shi",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "team",
+      "geometry": {
+        "centredShare": 0.08,
+        "mirrorSymmetry": 0.883,
+        "whitespaceRatio": 0.275,
+        "contentWidthRatio": 1,
+        "background": "rgb(0, 0, 0)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 2,
+      "text": [
+        "Scale from your first users to the Fortune 500. Startups ship on the same Neon primitives that enterprise teams run in production.",
+        "WHERE STARTUPSSTART",
+        "From Bootstrapped to VC Funded, Startups Ship Faster on Neon.",
+        "No projects yet. Create project?",
+        "Projects built and launched with Neon, from early-stage products to growing applications.",
+        "WHERE AGENTPLATFORMS DEPLOY",
+        "The backend behind every app they generate.",
+        "“Our users were asking for preview environments that already had their data in place. Neon’s branching was exactly what we needed”",
+        "Marcus KohlbergFounder at Encore",
+        "WHERE THE FORTUNE500 SCALES",
+        "Enterprises run critical workloads on Lakebase Postgres.",
+        "Fortune 500 Enterprises build on the Databricks Platform",
+        "SCALE YOUR APP AND AGENT",
+        "Trusted by enterprises"
+      ]
+    },
+    {
+      "top": 6139,
+      "height": 1186,
+      "kind": "text",
+      "label": "The way we build software is changing, but the fundamentals ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.98,
+        "whitespaceRatio": 0.748,
+        "contentWidthRatio": 0.892,
+        "background": "rgb(228, 241, 235)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The way we build software is changing, but the fundamentals remain the same: powerful databases, reliable infrastructure, and seamless scalability.",
+        "The lakebase architecture decouples storage and compute to deliver instant operations and scale without compromise on performance or reliability."
+      ]
+    },
+    {
+      "top": 7325,
+      "height": 787,
+      "kind": "text",
+      "label": "Autoscaling scales compute in real-time following your appli",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 0.222,
+        "mirrorSymmetry": 0.778,
+        "whitespaceRatio": 0.784,
+        "contentWidthRatio": 0.708,
+        "background": "rgb(24, 25, 27)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Autoscaling scales compute in real-time following your application. Optimized cost-performance, without capacity planning.",
+        "13,0240outages prevented by Autoscaling this year",
+        "Neon autoscaling",
+        "Database load",
+        "Fixed-resource provisioned",
+        "Neon monitors your database load ten times a second and autoscales CPU and memory to exactly fit your workload."
+      ]
+    },
+    {
+      "top": 8111,
+      "height": 750,
+      "kind": "text",
+      "label": "Backed by giants. First founded by Postgres hackers with dec",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.82,
+        "whitespaceRatio": 0.809,
+        "contentWidthRatio": 0.7,
+        "background": "rgb(24, 25, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Backed by giants. First founded by Postgres hackers with decades of expertise, Neon is now part of the Databricks Platform.",
+        "Neon has been part of the Databricks Platform since May 2025.Databricks",
+        "Databases started daily - built for scale and reliability.20M+",
+        "Developers building on Neon worldwide.3M+"
+      ]
+    },
+    {
+      "top": 8861,
+      "height": 1040,
+      "kind": "cards",
+      "label": "Pay for what you use, not for the infrastructure you might n",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0.083,
+        "mirrorSymmetry": 0.465,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(228, 241, 235)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Pay for what you use, not for the infrastructure you might need.",
+        "Neon is built for a world where developers create, test, and scale more than ever. Start free, experiment freely, and pay only for the resources your applications actually use.",
+        "Powerful Free Tier100 free projects with Database, Storage, Functions & Auth",
+        "Starts at $0There are no fixed fees for security and compliance features.",
+        "Efficient dev/testScale-to-zero and copy-on-write keep non-production costs low.",
+        "No-Fee AI GatewayAt-cost rates for frontier models with no add-on fees."
+      ]
+    },
+    {
+      "top": 9901,
+      "height": 708,
+      "kind": "text",
+      "label": "The world's most advanced backend platform.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.6,
+        "mirrorSymmetry": 0.979,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(21, 22, 23)",
+        "controls": 3
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The world's most advanced backend platform.",
+        "Trusted by developers, ready for agents. Build and scale applications faster with Neon."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.692,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(0, 0, 0, 0)",
+          "rgb(0, 0, 0)"
+        ],
+        "area": 126720,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 2,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/scale-noise.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 1687,
+      "height": 1163,
+      "top": 5137,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 1684
+      }
+    },
+    {
+      "src": "https://cdn.neonapi.io/public/pages/home/hero/poster.jpg",
+      "host": "cdn.neonapi.io",
+      "width": 1920,
+      "height": 832,
+      "top": 36,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/bg-noise.1ns12ci6g_tfk.jpg",
+      "host": "neon.com",
+      "width": 1175,
+      "height": 1040,
+      "top": 8861,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 141743
+      }
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg width='1920' height='944",
+      "host": null,
+      "width": 1440,
+      "height": 708,
+      "top": 9901,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 8,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-card-noise-progress.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 843,
+      "height": 522,
+      "top": 3162,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 1177
+      }
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/noise-background.1lpfb18ae-bjr.svg",
+      "host": "neon.com",
+      "width": 383,
+      "height": 365,
+      "top": 117,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 1591
+      }
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/banner-pattern.2mg0n3rbhdqit.svg",
+      "host": "neon.com",
+      "width": 383,
+      "height": 365,
+      "top": 117,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 13525
+      }
+    },
+    {
+      "src": "https://neon.com/videos/pages/home/hero/storage-20260827.jpg",
+      "host": "neon.com",
+      "width": 262,
+      "height": 302,
+      "top": 1305,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 23621
+      }
+    },
+    {
+      "src": "https://neon.com/videos/pages/home/hero/postgres-database-20260813-3.jpg",
+      "host": "neon.com",
+      "width": 262,
+      "height": 259,
+      "top": 1348,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 56568
+      }
+    },
+    {
+      "src": "https://neon.com/videos/pages/home/hero/authentication-20260821.jpg",
+      "host": "neon.com",
+      "width": 262,
+      "height": 196,
+      "top": 1411,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 27196
+      }
+    },
+    {
+      "src": "https://neon.com/videos/pages/home/hero/compute-20260821.jpg",
+      "host": "neon.com",
+      "width": 262,
+      "height": 133,
+      "top": 1474,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 22651
+      }
+    },
+    {
+      "src": "https://neon.com/videos/pages/home/hero/ai-gateway-20260814.jpg",
+      "host": "neon.com",
+      "width": 262,
+      "height": 98,
+      "top": 1509,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/left-pattern-xl.3ctmi_g720-l-.png",
+      "host": "neon.com",
+      "width": 340,
+      "height": 36,
+      "top": 0,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-revision-dojo.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 249,
+      "height": 44,
+      "top": 3431,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 9666
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-respeecher.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 243,
+      "height": 44,
+      "top": 3627,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 4783
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-airgoods.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 220,
+      "height": 44,
+      "top": 3725,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 5772
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-akgz-games-speedrun.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 217,
+      "height": 44,
+      "top": 3823,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 15028
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-y-combinator.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 215,
+      "height": 44,
+      "top": 3627,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 16922
+      }
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/right-pattern-xl.40fsuq7hsruhi.png",
+      "host": "neon.com",
+      "width": 260,
+      "height": 36,
+      "top": 0,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-elevate-pay.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 204,
+      "height": 44,
+      "top": 3725,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 7701
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-archbee.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 202,
+      "height": 44,
+      "top": 3529,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 11127
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-retail-book.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 198,
+      "height": 44,
+      "top": 3529,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 4239
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-nodecraft.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 195,
+      "height": 44,
+      "top": 3921,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 3393
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-endform.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 189,
+      "height": 44,
+      "top": 3921,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 6892
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-databuddy.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 187,
+      "height": 44,
+      "top": 3333,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 14415
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-medusa.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 184,
+      "height": 44,
+      "top": 3431,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 5427
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-medusa.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 184,
+      "height": 44,
+      "top": 3725,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 5427
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-just-paid.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 176,
+      "height": 44,
+      "top": 3529,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 7900
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-utopia.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 172,
+      "height": 44,
+      "top": 3823,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 2147
+      }
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-catch.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 171,
+      "height": 44,
+      "top": 3431,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-recrowd.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 164,
+      "height": 44,
+      "top": 3333,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-tanda.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 161,
+      "height": 44,
+      "top": 3627,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-avocado.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 160,
+      "height": 44,
+      "top": 3725,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-traconiq.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 154,
+      "height": 44,
+      "top": 3921,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-basehub.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 153,
+      "height": 44,
+      "top": 3823,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-nolla.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 153,
+      "height": 44,
+      "top": 3921,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-telgea.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 147,
+      "height": 44,
+      "top": 3431,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-telgea.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 147,
+      "height": 44,
+      "top": 3627,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-neptune.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 146,
+      "height": 44,
+      "top": 3333,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-daylight.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 135,
+      "height": 44,
+      "top": 3823,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-roame.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 131,
+      "height": 44,
+      "top": 3529,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-roame.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 131,
+      "height": 44,
+      "top": 3823,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-axess-intelligence.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 120,
+      "height": 44,
+      "top": 3333,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/databricks.20jg1h28psfve.svg",
+      "host": "neon.com",
+      "width": 72,
+      "height": 72,
+      "top": 8653,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/databricks-logo-dark.147gukn5u85gi.svg",
+      "host": "neon.com",
+      "width": 177,
+      "height": 28,
+      "top": 10642,
+      "role": "logo",
+      "alt": "Databricks",
+      "decorative": false,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/low-entry-barrier-icon.2z3qac_ic1u2i.svg",
+      "host": "neon.com",
+      "width": 56,
+      "height": 56,
+      "top": 9429,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/start-at-zero-icon.1nh6a5u-jecu5.svg",
+      "host": "neon.com",
+      "width": 56,
+      "height": 56,
+      "top": 9429,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/efficient-dev-test-icon.0r1-lnaejs78w.svg",
+      "host": "neon.com",
+      "width": 56,
+      "height": 56,
+      "top": 9429,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/multi-tenancy-icon.1emtaxkgw36z7.svg",
+      "host": "neon.com",
+      "width": 56,
+      "height": 56,
+      "top": 9429,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 7,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-magic-circle-game-studio.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 69,
+      "height": 44,
+      "top": 3627,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-unlabeled-mark-02.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 44,
+      "height": 44,
+      "top": 3529,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-unlabeled-mark-03.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 44,
+      "height": 44,
+      "top": 3725,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-unlabeled-mark-04.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 44,
+      "height": 44,
+      "top": 3921,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/technology-logos/encore.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 40,
+      "height": 40,
+      "top": 4499,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-unlabeled-mark-01.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 35,
+      "height": 44,
+      "top": 3333,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/images/pages/home/scale-your-app/startup-window-control.svg?dpl=dpl_2ckWMSFyfp622XkjXQUTmmcL53cy",
+      "host": "neon.com",
+      "width": 18,
+      "height": 18,
+      "top": 3343,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/databricks.20jg1h28psfve.svg",
+      "host": "neon.com",
+      "width": 16,
+      "height": 16,
+      "top": 483,
+      "role": "logo",
+      "alt": "Databricks logo",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/autoscaling.1q7avh91lh63-.svg",
+      "host": "neon.com",
+      "width": 16,
+      "height": 16,
+      "top": 7966,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/db-load.1kbpay2t12a04.svg",
+      "host": "neon.com",
+      "width": 16,
+      "height": 16,
+      "top": 7966,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://neon.com/_next/static/immutable/media/resource.281rq5vtl0sr2.svg",
+      "host": "neon.com",
+      "width": 16,
+      "height": 16,
+      "top": 7997,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "The backend for apps and agents, built to scale on Lakebase Postgres.",
+    "We use cookies to improve our services. Learn more in our Cookie Policy."
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 2,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      24,
+      28,
+      32,
+      36,
+      44,
+      52,
+      56,
+      64,
+      72,
+      80,
+      98,
+      128
+    ],
+    "fontWeights": [
+      300,
+      400,
+      500,
+      600
+    ],
+    "radii": [
+      "3.35544e+07px",
+      "4px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(48, 50, 54) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px"
+    ],
+    "spacingOnScalePct": 49.5,
+    "bodyLineLengthCh": 76,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 10.7,
+    "edgeDensity": 0.055,
+    "symmetry": 0.956,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

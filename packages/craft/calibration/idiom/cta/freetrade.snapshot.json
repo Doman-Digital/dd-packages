@@ -1,0 +1,1823 @@
+{
+  "version": 2,
+  "url": "https://freetrade.io/",
+  "capturedAt": "2026-09-30T14:56:43.986Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 14285,
+  "ground": "rgb(10, 10, 10)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(21, 21, 21)",
+        "area": 2448625,
+        "chars": 0
+      },
+      {
+        "value": "rgb(10, 10, 10)",
+        "area": 1782720,
+        "chars": 0
+      },
+      {
+        "value": "rgb(43, 8, 27)",
+        "area": 1368060,
+        "chars": 0
+      },
+      {
+        "value": "rgb(11, 11, 11)",
+        "area": 606218,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.04)",
+        "area": 86133,
+        "chars": 0
+      },
+      {
+        "value": "rgb(134, 19, 74)",
+        "area": 55703,
+        "chars": 0
+      },
+      {
+        "value": "rgb(31, 31, 31)",
+        "area": 20453,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 8788,
+        "chars": 0
+      },
+      {
+        "value": "rgb(143, 77, 254)",
+        "area": 8098,
+        "chars": 0
+      },
+      {
+        "value": "rgb(89, 13, 50)",
+        "area": 7413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(134, 88, 215)",
+        "area": 5343,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.15)",
+        "area": 3237,
+        "chars": 0
+      },
+      {
+        "value": "rgb(42, 42, 42)",
+        "area": 2560,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.16)",
+        "area": 2080,
+        "chars": 0
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.55)",
+        "area": 1936,
+        "chars": 0
+      },
+      {
+        "value": "rgb(165, 32, 106)",
+        "area": 392,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 151, 214)",
+        "area": 64,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.2)",
+        "area": 64,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 4100
+      },
+      {
+        "value": "rgb(169, 169, 169)",
+        "area": 0,
+        "chars": 1820
+      },
+      {
+        "value": "rgb(206, 206, 206)",
+        "area": 0,
+        "chars": 1535
+      },
+      {
+        "value": "rgb(255, 229, 245)",
+        "area": 0,
+        "chars": 1337
+      },
+      {
+        "value": "rgb(255, 151, 214)",
+        "area": 0,
+        "chars": 669
+      },
+      {
+        "value": "rgb(255, 171, 221)",
+        "area": 0,
+        "chars": 86
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.4)",
+        "area": 0,
+        "chars": 74
+      },
+      {
+        "value": "rgb(156, 156, 156)",
+        "area": 0,
+        "chars": 73
+      },
+      {
+        "value": "rgb(237, 132, 183)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgb(10, 10, 10)",
+        "area": 0,
+        "chars": 11
+      },
+      {
+        "value": "rgb(255, 190, 229)",
+        "area": 0,
+        "chars": 5
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "DM Sans (Local)",
+      "chars": 7361,
+      "displayChars": 1494,
+      "italicChars": 0,
+      "weights": [
+        300,
+        400,
+        500
+      ]
+    },
+    {
+      "family": "DM Mono (Local)",
+      "chars": 2347,
+      "displayChars": 5,
+      "italicChars": 0,
+      "weights": [
+        300,
+        400,
+        500
+      ]
+    },
+    {
+      "family": "Abcgravity Compressed",
+      "chars": 38,
+      "displayChars": 38,
+      "italicChars": 0,
+      "weights": [
+        400,
+        900
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "DM Sans (Local)",
+      "sizePx": 38,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Invest for your future. And theirs.",
+      "top": 237
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Latest news",
+      "top": 1433
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: Off the beaten track",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Top 10 bought stocks: September 2026",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: The original meme stock",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: Silicon chips & yoga pants",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: Nvidia leads AI charge",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Copper: A hot commodity?",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: Retail details",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: Space exploration and AI hardware",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Top 10 bought stocks: August 2026",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: Palantir, AMD, Uber, McDonald’s & more",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: MSFT, AMZN, META, AAPL, & more",
+      "top": 1789
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 16,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Earnings this week: Alphabet, Tesla, Intel, & more",
+      "top": 1789
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "76%of investors don’t know exactly how much they’re losing to fees*",
+      "top": 2204
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 72,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "We think that should change",
+      "top": 2874
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted by serious investors",
+      "top": 3306
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Switch in weeks, not months",
+      "top": 3306
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "How Freetrade keeps investing free",
+      "top": 3306
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Here’s what ourcustomerssay about us",
+      "top": 4466
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Retirement. Holidays. Everything in between.",
+      "top": 5259
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 48,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "8,600+ investment choices",
+      "top": 5680
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "How much are fees costing you?",
+      "top": 6428
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Compare what you get with Freetrade vs your current provider",
+      "top": 7625
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "vs Trading 212",
+      "top": 7646
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "vs Hargreaves Lansdown",
+      "top": 7834
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "vs Interactive Investor",
+      "top": 8022
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "vs AJ Bell",
+      "top": 8237
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "vs Vanguard",
+      "top": 8451
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Don't let tax eat into your returns",
+      "top": 8900
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "ISA",
+      "top": 9079
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "SIPP",
+      "top": 9079
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Junior ISA",
+      "top": 9079
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "FAQs",
+      "top": 9800
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "What is Freetrade?",
+      "top": 9893
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Is Freetrade safe?",
+      "top": 10126
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "How does Freetrade make money if investing is commission-free?",
+      "top": 10407
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "What does Freetrade cost?",
+      "top": 10647
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Can I transfer my ISA, JISA, or pension to Freetrade?",
+      "top": 10880
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "How much do I need to start investing?",
+      "top": 11114
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 32,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Explore resources",
+      "top": 11642
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Market news",
+      "top": 11984
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Guides",
+      "top": 11984
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Tools & calculators",
+      "top": 11984
+    },
+    {
+      "level": 3,
+      "family": "DM Sans (Local)",
+      "sizePx": 24,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Product updates",
+      "top": 11984
+    },
+    {
+      "level": 2,
+      "family": "DM Sans (Local)",
+      "sizePx": 40,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "You're just minutes away from commission-free investing",
+      "top": 12374
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 42,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get Started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 52,
+      "background": "rgba(255, 255, 255, 0.04)",
+      "text": "See how it works"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 30,
+      "background": "rgb(21, 21, 21)",
+      "text": "Discover"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 52,
+      "background": "rgba(255, 255, 255, 0.04)",
+      "text": "Calculate"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 100,
+      "heightPx": 52,
+      "background": "rgba(255, 255, 255, 0.04)",
+      "text": "See Freetrade benefits"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 52,
+      "background": "rgba(255, 255, 255, 0.04)",
+      "text": "Open an ISA"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 52,
+      "background": "rgba(255, 255, 255, 0.04)",
+      "text": "Open a SIPP"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 4,
+      "heightPx": 52,
+      "background": "rgba(255, 255, 255, 0.04)",
+      "text": "Open a JISA"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 1321,
+      "kind": "hero",
+      "label": "Invest for your future. And theirs.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.981,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(10, 10, 10)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Invest for your future. And theirs.",
+        "Freetrade is authorised and regulated by the Financial Conduct Authority (FCA) and eligible deposits and investments are covered by the Financial Services Compensation Scheme (FSCS)*. Freetrade is part of IG Group, a FTSE 100 listed company.",
+        "8,600+ investment choices: funds, stocks, ETFs, bonds, and more. Start your portfolio from just £1.",
+        "Freetrade is an award-winning app and web platform, chosen by 1.6m users.",
+        "Get to your goals faster with the UK's only platform to offer a free ISA, free pension, and free Junior ISA.",
+        "free Junior ISA",
+        "When you invest, your capital is at risk. ISA, SIPP & JISA rules apply. Other charges may apply. ‍*Check the FSCS website to learn more"
+      ]
+    },
+    {
+      "top": 1321,
+      "height": 665,
+      "kind": "cards",
+      "label": "Latest news",
+      "cards": 12,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.026,
+        "mirrorSymmetry": 0.37,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(10, 10, 10)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Latest news",
+        "Earnings this week: Off the beaten track",
+        "Top 10 bought stocks: September 2026",
+        "Earnings this week: The original meme stock",
+        "Earnings this week: Silicon chips & yoga pants",
+        "Earnings this week: Nvidia leads AI charge",
+        "Copper: A hot commodity?",
+        "Earnings this week: Retail details",
+        "Earnings this week: Space exploration and AI hardware",
+        "Top 10 bought stocks: August 2026",
+        "Earnings this week: Palantir, AMD, Uber, McDonald’s & more",
+        "Earnings this week: MSFT, AMZN, META, AAPL, & more",
+        "Earnings this week: Alphabet, Tesla, Intel, & more",
+        "15 Sep 2026",
+        "08 Sep 2026",
+        "07 Sep 2026",
+        "01 Sep 2026",
+        "25 Aug 2026",
+        "20 Aug 2026",
+        "17 Aug 2026",
+        "10 Aug 2026",
+        "06 Aug 2026",
+        "03 Aug 2026",
+        "28 Jul 2026",
+        "21 Jul 2026"
+      ]
+    },
+    {
+      "top": 1986,
+      "height": 760,
+      "kind": "text",
+      "label": "76%of investors don’t know exactly how much they’re losing t",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.865,
+        "contentWidthRatio": 0.444,
+        "background": "rgb(10, 10, 10)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 1,
+      "text": [
+        "76%of investors don’t know exactly how much they’re losing to fees*",
+        "Know their exact fee cost (24%)",
+        "Don't know what they're paying in fees (76%)",
+        "*Source: YouGov, 2083 investors, August 2025"
+      ]
+    },
+    {
+      "top": 2746,
+      "height": 1592,
+      "kind": "cards",
+      "label": "We think that should change",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.458,
+        "mirrorSymmetry": 0.949,
+        "whitespaceRatio": 0.749,
+        "contentWidthRatio": 0.844,
+        "background": "rgb(10, 10, 10)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 2,
+      "text": [
+        "We think that should change",
+        "Trusted by serious investors",
+        "The average ISA or SIPP transferred in is worth £110,000. It's where experienced investors bring their money.",
+        "Switch in weeks, not months",
+        "We handle the paperwork, you just confirm the move. Faster transfers mean your money stays invested longer.",
+        "How Freetrade keeps investing free",
+        "We pass those savings on to you; we don't charge account fees or trading commissions. See exactly how we make money.",
+        "With Freetrade, you know exactly what you're paying. Clear pricing, with no account fees and no commission.",
+        "no account fees",
+        "Freetrade holds over £4 billion in assets.",
+        "Assets under administration",
+        "Average SIPP and ISA transfer-in value (Q1 2026)",
+        "Users across the UK",
+        "The average transfer to Freetrade completes within 22 days.",
+        "Days faster than the industry standard (ISAs)",
+        "Freetrade avg. all accounts types (22 days)",
+        "ISA industry standard (30 days)",
+        "Our tech helps us deliver a better investing experience at a lower cost."
+      ]
+    },
+    {
+      "top": 4338,
+      "height": 794,
+      "kind": "cards",
+      "label": "Here’s what ourcustomerssay about us",
+      "cards": 12,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.354,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(10, 10, 10)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "Here’s what ourcustomerssay about us",
+        "For me, it is about getting out of that victim mindset and taking control over how my money changes over time.",
+        "Freetrade let me get my foot into investing without feeling like I was committing to something intimidating.",
+        "When Freetrade came along, I finally had an easy way to start building my own portfolio.",
+        "With Freetrade, I can move quickly when I need to. It’s a completely different world.",
+        "With no commission, you can buy ‘a little bit here and there’ and it’s easier to optimise your entry price over time.",
+        "Freetrade lets me test my ideas without putting too much of my pension at risk.",
+        "My goal is to keep compounding the money over my lifetime and eventually give most of it away.",
+        "The beauty of Freetrade is that you can invest very small amounts, which can add up over time.",
+        "Why rely on another person's financial education when I want to be the decision-maker?",
+        "I originally came for the ‘free’ angle but what really kept me was how simple and quiet it feels.",
+        "Financial freedom to me means choice, and that means choice over how you spend your time.",
+        "I have built something that gives me more stability and fewer reasons to worry about money."
+      ]
+    },
+    {
+      "top": 5131,
+      "height": 1169,
+      "kind": "text",
+      "label": "Retirement. Holidays. Everything in between.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.455,
+        "mirrorSymmetry": 0.462,
+        "whitespaceRatio": 0.654,
+        "contentWidthRatio": 0.865,
+        "background": "rgb(10, 10, 10)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Retirement. Holidays. Everything in between.",
+        "8,600+ investment choices",
+        "Whatever your goals are, investing starts here.",
+        "Search by ticker name, explore collections, or browse popular investments. All in one place.",
+        "Capital at risk. Always do your own research. Other charges may apply."
+      ]
+    },
+    {
+      "top": 6300,
+      "height": 1197,
+      "kind": "text",
+      "label": "How much are fees costing you?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "contact",
+      "geometry": {
+        "centredShare": 0.542,
+        "mirrorSymmetry": 0.701,
+        "whitespaceRatio": 0.781,
+        "contentWidthRatio": 0.872,
+        "background": "rgb(10, 10, 10)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "How much are fees costing you?",
+        "See how much your current fees could be worth if you invested them instead.",
+        "Your current platform fees",
+        "Annual management fee (%)",
+        "Cost per month",
+        "Commission fee per trade",
+        "Projected annual growth",
+        "You could be",
+        "better off after 30 years",
+        "Potential returns with Freetrade, after fees",
+        "Current potential returns, after fees",
+        "What your fees could be worth after 30 years",
+        "Projection shown is illustrative and should not be relied upon as a prediction of actual returns. Figures shown assume recurring contributions of £500 per month and trades in GBP only (excluding FX fees). When you invest, your capital is at risk. The value of your investments can go down as well as "
+      ]
+    },
+    {
+      "top": 7497,
+      "height": 1275,
+      "kind": "text",
+      "label": "Compare what you get with Freetrade vs your current provider",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 0.125,
+        "mirrorSymmetry": 0.424,
+        "whitespaceRatio": 0.928,
+        "contentWidthRatio": 0.676,
+        "background": "rgb(10, 10, 10)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Compare what you get with Freetrade vs your current provider",
+        "Explore fees, features, and investment choices, side by side."
+      ]
+    },
+    {
+      "top": 8772,
+      "height": 868,
+      "kind": "cards",
+      "label": "Don't let tax eat into your returns",
+      "cards": 3,
+      "iconCards": 3,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0.5,
+        "mirrorSymmetry": 0.96,
+        "whitespaceRatio": 0.82,
+        "contentWidthRatio": 0.832,
+        "background": "rgb(10, 10, 10)",
+        "controls": 3
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Don't let tax eat into your returns",
+        "ISA",
+        "SIPP",
+        "Junior ISA",
+        "All three tax-efficient accounts are free with Freetrade.",
+        "Free to open",
+        "Individual savings account",
+        "No UK tax on growth or dividends. A great way to build wealth tax-free.",
+        "Self-invested personal pension",
+        "Save for retirement with 20%+ tax relief on what you put in. Your money grows tax-free until you withdraw.",
+        "Junior individual savings account",
+        "Set them up for adulthood. Invest up to £9,000 each tax year, pay no UK tax on returns.",
+        "Tax treatment depends on personal circumstances and current rules may change."
+      ]
+    },
+    {
+      "top": 9640,
+      "height": 1890,
+      "kind": "text",
+      "label": "FAQs",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 0.375,
+        "mirrorSymmetry": 0.74,
+        "whitespaceRatio": 0.952,
+        "contentWidthRatio": 0.453,
+        "background": "rgb(10, 10, 10)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "FAQs",
+        "When you invest, your capital is at risk. ISA, SIPP, and JISA rules apply. Tax treatment depends on personal circumstances and current rules may change."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.323,
+  "effects": {
+    "glass": 0,
+    "gradientText": 10,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 151, 214)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 215003,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 190, 229)",
+          "rgb(43, 8, 27)"
+        ],
+        "area": 71680,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 171, 221)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 71666,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(10, 10, 10, 0)",
+          "rgba(17, 17, 17, 0.38)",
+          "rgb(29, 29, 29)"
+        ],
+        "area": 358169,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(10, 10, 10, 0)",
+          "rgba(17, 17, 17, 0.38)",
+          "rgb(29, 29, 29)"
+        ],
+        "area": 358183,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(10, 10, 10, 0)",
+          "rgba(17, 17, 17, 0.38)",
+          "rgb(29, 29, 29)"
+        ],
+        "area": 358169,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(45, 6, 25)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 1142640,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(43, 8, 27)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 112650,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(37, 31, 113, 0.6)",
+          "rgb(10, 10, 10)"
+        ],
+        "area": 408321,
+        "radial": true
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/668cf6aa1baced0f21a9801c_footer-vector.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 312,
+      "top": 13047,
+      "role": "illustration",
+      "alt": null,
+      "decorative": true,
+      "section": null,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 195
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/68caac208116d650ae803116_Bgd%202.avif",
+      "host": "cdn.prod.website-files.com",
+      "width": 639,
+      "height": 639,
+      "top": 5464,
+      "role": "photo",
+      "alt": null,
+      "decorative": true,
+      "section": 5,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 64304
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/6a0dcf431592fd565a1f4ac7_2f3e8531dcd50b4aacbaf4925fea0776_260520_homepage-hero-p-800.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 600,
+      "height": 446,
+      "top": 241,
+      "role": "photo",
+      "alt": "Tablet and smartphone displaying Freetrade app with investment portfolio and Junior ISA promotion.",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 71060
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7ed51a7ec72ab612f883f5_Ece_CSI_sq.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Woman with long hair and leather jacket smiling by a canal with buildings and tents in the background.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 67016
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a030b11153b2c27be388d8c_Mask%20group-3.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Smiling man wearing sunglasses holds a toddler dressed in floral clothes sitting on a tree branch.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 92434
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7ed5618347de7b3f2e7560_Wesley_CSI_sq.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Smiling man with beard and sunglasses and woman with glasses wearing jackets near a waterfall.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 54964
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7afbf39c3ef020db27d6e1_Mashood_card_CSI.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Smiling man with short dark hair wearing a navy blue polo shirt against a beige background.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 13406
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a030b0090ec73835969385c_Mask%20group-2.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Man in white shirt and blue jeans wearing a black cap, standing against a colorful mosaic tile wall.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 146482
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7ed4af3e2b7d61ba5c40a1_Ivan_CSI_sq.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Smiling bald man with mustache and glasses wearing a patterned shirt sitting outdoors on a stone bench.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 104928
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7ed5a4b580763ea47ebc1b_Shivam_CSI_sq.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Man in suit and woman in striped shirt and leggings standing outdoors on sunny pavement.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 93218
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7afddf572c69976c751845_Daniel_card_CSI.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Smiling man wearing a light hat and sunglasses, dressed in black shirt, standing in a sunny park.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 39572
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a030b32263c552004a6155a_Mask%20group.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Young woman in a gray sweater and black vest standing outdoors with autumn foliage behind her.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 146692
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a030b21ebae08973baa426d_Mask%20group-1.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Smiling young man and woman take a selfie on a busy narrow street with people walking behind them.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 118314
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7ed4f35043db41c3c06f8f_Charlie_CSI_sq.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Two smiling women posing indoors; one in a white shirt and glasses, the other in a pink sweater.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 75746
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a7ae8aaf4de5e107cf4a2f2_Ricardo_card_CSI.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 300,
+      "height": 376,
+      "top": 4539,
+      "role": "photo",
+      "alt": "Man in sunglasses and blue shirt smiling on the Great Wall of China with mountains in background.",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 48174
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6aa872c9d32f90a94058680f_Earing%20preview%2020_%20140926_1000x750px%20(1).webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Forgent, Lennar, and Trip.com logos against black and purple backdrop",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 44774
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6aa03282e10f533536887025_S%26P500%20Returns_header%20(1)-p-1080.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Stylised pound note against black and purple background",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 46124
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a9edd3097d94a7958ec7b81_Earing%20preview%2017_%2024%20Aug%202026_1000%20x%20750px%20(1).webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "GameStop, AeroVironment, Adobe, and Oracle logos against black and purple background",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 19882
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a96efa9bcbb808628cd529e_Earing%20preview18_280826_1000%20x%20750px.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Broadcom, Snowflake, Five Below, and Lululemon logos against black and purple backdrop",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 46820
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a8d524cc348c408a44dca24_Earing%20preview%2017_%2024%20Aug%202026_1000%20x%20750px.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Salesforce, Nvidia, CrowdStrike, and Marvell logos against black and purple backround",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 19254
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a86feb6569187b2f91d8356_quarry_16x9_1600x900.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Open copper mine with machinery",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 244138
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a8324d00db08333f8bfe92c_Earing%20preview6_280526_1000%20x%20750px%20(1).webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Walmart, Target, Home Depot, and Klarna logos against black and purple background",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 46726
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a79c55e742d81fb11965a0b_Earing%20preview_070826_1000x750.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "ASTS, Rocket Lab, Cisco, Cerebras, Applied Materials, and CoreWeave logos against black and purple background",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 26666
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a2033f38f46a3a56e19fade_S%26P500%20Returns_header%20(1).webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "stylised pound note on pink and black background",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 105986
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a70983f8d6487a776d663df_Earing%20preview%2014_310726_1200x630.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "McDonald's, Disney, AMD, Eli Lilly, Uber, and Palantir logos against black and purple background",
+      "decorative": false,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a68bbc631d4ff8f201869ea_Earing%20preview%2013_270726_1000%20x%20750px.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Microsoft, Apple, Meta, Amazon, Qualcomm, and Visa logos against black and purple background",
+      "decorative": false,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/662b354186a56c64929f8777/6a5f8c8e29707f9728ba21fe_Earing%20preview%2012_160726_1000%20x%20750px.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 302,
+      "height": 227,
+      "top": 1527,
+      "role": "photo",
+      "alt": "Alphabet, Intel, Tesla, Texas Instruments, Lockheed Martin, and RTX logos against purple and black background",
+      "decorative": false,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/69bada471046ccbded76a377_ae12275857a0039d60ff1b1f7198a076_awards-lockup_short-which-p-500.avif",
+      "host": "cdn.prod.website-files.com",
+      "width": 320,
+      "height": 64,
+      "top": 1066,
+      "role": "icon",
+      "alt": "Awards badges for Freetrade showing Which? Recommended Provider 2026, Finder Awards 2025 Provider of the Year, boring money's Value for Money Winner 2026, Best For Share Traders 2026, Best For Low-cost ISA 2026, Best for low-cost SIPP 2026, Best for ETFs 2026.",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/684bdf1c57cd88a06aef4d10_splide__arrow%20(white).svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 16,
+      "height": 16,
+      "top": 1875,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/684bdf1c57cd88a06aef4d10_splide__arrow%20(white).svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 16,
+      "height": 16,
+      "top": 1875,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/684bdf1c57cd88a06aef4d10_splide__arrow%20(white).svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 16,
+      "height": 16,
+      "top": 4486,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/66289cd2c30bc8d40bd60733/684bdf1c57cd88a06aef4d10_splide__arrow%20(white).svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 16,
+      "height": 16,
+      "top": 4486,
+      "role": "avatar",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Invest for your future. And theirs.",
+    "Get to your goals faster with the UK's only platform to offer a free ISA, free pension, and free Junior ISA.",
+    "free Junior ISA"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      20,
+      24,
+      32,
+      40,
+      48,
+      72,
+      112,
+      142
+    ],
+    "fontWeights": [
+      300,
+      400,
+      500,
+      900
+    ],
+    "radii": [
+      "100px",
+      "2px",
+      "4px",
+      "50%",
+      "6px",
+      "800px",
+      "8px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.08) 0px 2px 2px 0px"
+    ],
+    "spacingOnScalePct": 86.7,
+    "bodyLineLengthCh": 47,
+    "bodyFontSizePx": 14
+  },
+  "visual": {
+    "colourfulness": 20.9,
+    "edgeDensity": 0.067,
+    "symmetry": 0.909,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

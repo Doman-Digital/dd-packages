@@ -1,0 +1,761 @@
+{
+  "version": 2,
+  "url": "https://www.shop.io/",
+  "capturedAt": "2026-09-30T15:11:44.052Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6048,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(10, 7, 27)",
+        "area": 8616668,
+        "chars": 0
+      },
+      {
+        "value": "rgb(20, 17, 37)",
+        "area": 947534,
+        "chars": 0
+      },
+      {
+        "value": "rgb(81, 56, 238)",
+        "area": 611539,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 60398,
+        "chars": 0
+      },
+      {
+        "value": "rgb(42, 38, 63)",
+        "area": 35020,
+        "chars": 0
+      },
+      {
+        "value": "rgb(13, 234, 146)",
+        "area": 17120,
+        "chars": 0
+      },
+      {
+        "value": "rgb(56, 213, 123)",
+        "area": 10773,
+        "chars": 0
+      },
+      {
+        "value": "rgb(140, 135, 166)",
+        "area": 256,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(140, 135, 166)",
+        "area": 0,
+        "chars": 948
+      },
+      {
+        "value": "rgb(188, 184, 208)",
+        "area": 0,
+        "chars": 863
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 759
+      },
+      {
+        "value": "rgb(245, 243, 254)",
+        "area": 0,
+        "chars": 652
+      },
+      {
+        "value": "rgb(94, 198, 232)",
+        "area": 0,
+        "chars": 152
+      },
+      {
+        "value": "rgb(225, 223, 236)",
+        "area": 0,
+        "chars": 96
+      },
+      {
+        "value": "rgb(13, 234, 146)",
+        "area": 0,
+        "chars": 61
+      },
+      {
+        "value": "rgb(91, 86, 117)",
+        "area": 0,
+        "chars": 45
+      },
+      {
+        "value": "rgb(10, 7, 27)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(159, 169, 255)",
+        "area": 0,
+        "chars": 22
+      },
+      {
+        "value": "rgb(42, 38, 63)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3177,
+      "displayChars": 22,
+      "italicChars": 27,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Eudoxussans Display",
+      "chars": 462,
+      "displayChars": 346,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Eudoxussans Display",
+      "sizePx": 64,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Pay and employ people in 100+ countries",
+      "top": 321
+    },
+    {
+      "level": 3,
+      "family": "Eudoxussans Display",
+      "sizePx": 40,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hire from over 100+ countries",
+      "top": 1075
+    },
+    {
+      "level": 3,
+      "family": "Eudoxussans Display",
+      "sizePx": 40,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Shop for talent in minutes. Not months.",
+      "top": 1985
+    },
+    {
+      "level": 3,
+      "family": "Eudoxussans Display",
+      "sizePx": 40,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Move fast and break things. Literally.",
+      "top": 2948
+    },
+    {
+      "level": 3,
+      "family": "Eudoxussans Display",
+      "sizePx": 40,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Give your team the support and tools they need.",
+      "top": 3634
+    },
+    {
+      "level": 3,
+      "family": "Eudoxussans Display",
+      "sizePx": 40,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build Remote Teams Fast & Fearlessly",
+      "top": 4292
+    },
+    {
+      "level": 3,
+      "family": "Eudoxussans Display",
+      "sizePx": 40,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Request Beta Access Today",
+      "top": 5046
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 48,
+      "background": "rgb(255, 255, 255)",
+      "text": "Login"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 48,
+      "background": "rgb(13, 234, 146)",
+      "text": "Get Started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 0,
+      "heightPx": 52,
+      "background": "rgb(56, 213, 123)",
+      "text": "Request Beta Access"
+    }
+  ],
+  "sections": [
+    {
+      "top": 64,
+      "height": 96,
+      "kind": "hero",
+      "label": "Why ShopHow It WorksWe're Hiring ✨LoginGet Started",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.776,
+        "whitespaceRatio": 0.771,
+        "contentWidthRatio": 0.889,
+        "background": "rgb(10, 7, 27)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 285,
+      "height": 510,
+      "kind": "hero",
+      "label": "Pay and employ people in 100+ countries",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.984,
+        "whitespaceRatio": 0.655,
+        "contentWidthRatio": 0.466,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Pay and employ people in 100+ countries",
+        "We take on global payroll, compliance, taxes and benefits for you, to let you focus on building a top-notch remote team fully focused on your company's growth.",
+        "* pre-funding startups only",
+        "HIRE & Build FASTER WITH SHOP"
+      ]
+    },
+    {
+      "top": 160,
+      "height": 800,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 1075,
+      "height": 739,
+      "kind": "text",
+      "label": "Hire from over 100+ countries",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.992,
+        "whitespaceRatio": 0.179,
+        "contentWidthRatio": 0.764,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 1,
+      "text": [
+        "Hire from over 100+ countries",
+        "From hiring your first employees to scaling your fast-growing business, Shop helps you hire great employees and make them feel welcome and supported from the start."
+      ]
+    },
+    {
+      "top": 1794,
+      "height": 991,
+      "kind": "cards",
+      "label": "Shop for talent in minutes. Not months.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.462,
+        "mirrorSymmetry": 0.974,
+        "whitespaceRatio": 0.793,
+        "contentWidthRatio": 0.618,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Shop for talent in minutes. Not months.",
+        "Hiring shouldn’t take months. That's why we decided to make it easy. With just a few clicks, your team gets paid, your accounting is up to date and your tax benefits are being calculated.",
+        "Hire globally with no limitations",
+        "We support all your employer-related compliance needs. We’ll also report, file and remit your state, federal and local payroll taxes, and file W-2s and 1099s, so tax season is a lot less stressful for your team.",
+        "Pay your peoplewith ease",
+        "Run payroll seamlessly — we’ll take care of benefits deductions and tax withholdings for you. We take on vendor and contractor payments with powerful time tracking integration for a truly seamless payroll process.",
+        "Manage your team,remote or not",
+        "Ditch all the spreadsheets and manage your team from one place. Once you're on board, you can manage all your HR & PTO management work from your company's centralized dashboard on Shop.",
+        "How it works"
+      ]
+    },
+    {
+      "top": 2785,
+      "height": 686,
+      "kind": "text",
+      "label": "Move fast and break things. Literally.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.76,
+        "whitespaceRatio": 0.733,
+        "contentWidthRatio": 0.764,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Move fast and break things. Literally.",
+        "From hiring your first employees to scaling your fast-growing business, we help you find great employees and make them feel welcome and supported from the start.",
+        "Focus on building & growing your business and let us do the heavy lifting",
+        "We know how valuable a business owner's time is, especially when getting started. Let us save you some of that precious time by handling global payroll, compliance, taxes and benefits.",
+        "Effortless integration.",
+        "Easily integrate with all your favorite bookkeeping and payroll services through Shop's flexible API and Zapier integration.",
+        "Startup-FRIENDLY, Big Corp-ready"
+      ]
+    },
+    {
+      "top": 3471,
+      "height": 598,
+      "kind": "cards",
+      "label": "Give your team the support and tools they need.",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": true,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.333,
+        "mirrorSymmetry": 0.927,
+        "whitespaceRatio": 0.775,
+        "contentWidthRatio": 0.843,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Give your team the support and tools they need.",
+        "Shop streamlines hiring and paying employees & contractors",
+        "Average health & retirement benefits-related cost savings per employee.",
+        "Average duration of the setup & onboarding process for a new startup (*pre-funding).",
+        "Up to 5x reduction in HR and compliance related costs when compared to in-house work.",
+        "Reported reduction in HR leaders’ concerns related to hiring & payroll.",
+        "Shop in Numbers"
+      ]
+    },
+    {
+      "top": 4069,
+      "height": 762,
+      "kind": "text",
+      "label": "Build Remote Teams Fast & Fearlessly",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.25,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.835,
+        "contentWidthRatio": 0.313,
+        "background": "rgb(10, 7, 27)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Build Remote Teams Fast & Fearlessly",
+        "We help your business comply with state payroll tax requirements, keep up with state labor laws, and support your employees’ health and wellness, so you can stay focused on building a solid team.Important documents like Form I-9, W-2s, and 1099s are all found in one place. Create, assign, send, and "
+      ]
+    },
+    {
+      "top": 4831,
+      "height": 586,
+      "kind": "cards",
+      "label": "Request Beta Access Today",
+      "cards": 3,
+      "iconCards": 3,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0.884,
+        "contentWidthRatio": 0.413,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Request Beta Access Today",
+        "Submit your business email address to get early access to our private beta and skip the queue as we onboard more applicants!",
+        "No lock-in contract",
+        "Ongoing HR support",
+        "Broker integration",
+        "Ready to Hop on board?"
+      ]
+    },
+    {
+      "top": 5489,
+      "height": 519,
+      "kind": "cards",
+      "label": "Call Us+1 (424) 421-5850Email Usteam@shop.ioBuilt for youReq",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.318,
+        "mirrorSymmetry": 0.753,
+        "whitespaceRatio": 0.789,
+        "contentWidthRatio": 0.764,
+        "background": "rgb(10, 7, 27)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "+1 (424) 421-5850",
+        "team@shop.io",
+        "© 2024 SHOP Corp, LLC. All Rights Reserved.",
+        "Built for you"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.358,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15d7128f058dc_Feature%20Set%20Pattern.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 991,
+      "top": 1794,
+      "role": "illustration",
+      "alt": null,
+      "decorative": true,
+      "section": 4,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 6091
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15d04fbf05969_Triangles%20(Dark",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 834,
+      "top": 960,
+      "role": "photo",
+      "alt": null,
+      "decorative": true,
+      "section": null,
+      "background": true
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15d820ef058c6_Hero%20Modern%20Dark%20Pattern.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 800,
+      "top": 160,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 4659
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15d7128f058dc_Feature%20Set%20Pattern.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 762,
+      "top": 4069,
+      "role": "illustration",
+      "alt": null,
+      "decorative": true,
+      "section": 7,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 6091
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15ddea8f058df_Company%20Blue%20Pattern.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 586,
+      "top": 4831,
+      "role": "illustration",
+      "alt": null,
+      "decorative": true,
+      "section": 8,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 1298
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216e7166bf8757f03abf82b_map-p-1600.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 1100,
+      "height": 525,
+      "top": 1289,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15d6e83f05918_CTA%20Pattern%20Dark.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1100,
+      "height": 466,
+      "top": 4946,
+      "role": "illustration",
+      "alt": null,
+      "decorative": true,
+      "section": 8,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 3225
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15df14af0595b_Dark%20Shape.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 558,
+      "height": 530,
+      "top": 4256,
+      "role": "illustration",
+      "alt": null,
+      "decorative": true,
+      "section": 7,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 4563
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/621676fc02d10a76a0507ddd_shop-io-logo-p-500.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 118,
+      "height": 50,
+      "top": 5489,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 9,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/621676fc02d10a76a0507ddd_shop-io-logo-p-500.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 108,
+      "height": 46,
+      "top": 89,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6216765044a15d3f86f058ce_Chevron%20(Blue).svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 24,
+      "height": 26,
+      "top": 2655,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/6216765044a15d5851f05875/6217bb457af01177c6fd8e3a_angelist-icon.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 24,
+      "height": 24,
+      "top": 5971,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 9,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Pay and employ people in 100+ countries",
+    "We take on global payroll, compliance, taxes and benefits for you, to let you focus on building a top-notch remote team fully focused on your company's growth.",
+    "* pre-funding startups only",
+    "We started onboarding pre-funding startups into the private beta! Request access today.",
+    "HIRE & Build FASTER WITH SHOP"
+  ],
+  "motion": {
+    "hiddenSections": 4,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      14,
+      15,
+      16,
+      18,
+      24,
+      32,
+      40,
+      46,
+      56,
+      64
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "50px"
+    ],
+    "shadows": [
+      "rgba(0, 76, 108, 0.08) 53px 76px 114px -56px",
+      "rgba(114, 129, 167, 0.04) 2px 2px 2px 0px"
+    ],
+    "spacingOnScalePct": 80,
+    "bodyLineLengthCh": 51,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 25.3,
+    "edgeDensity": 0.014,
+    "symmetry": 0.99,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}
