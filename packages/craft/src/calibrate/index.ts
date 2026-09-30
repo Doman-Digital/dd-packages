@@ -58,6 +58,8 @@ export interface LabelSummary {
 
 export interface TellRate {
   tell: string;
+  /** The catalogue generation it belongs to; null for a tell the catalogue no longer holds. */
+  generation: number | null;
   hits: Record<Label, number>;
   /** Hits on `ai` and `ai-looking` pages over all hits. */
   precision: number;
@@ -85,6 +87,7 @@ export interface Calibration {
 }
 
 const SURFACE = new Map(CATALOGUE.map((t) => [t.id, t.surface]));
+const GENERATION = new Map(CATALOGUE.map((t) => [t.id, t.generation]));
 
 /** Tells about the look, not the words: what "tell-heavy" counts. */
 export function designTells(tells: string[]): string[] {
@@ -130,7 +133,7 @@ export function calibrate(pages: MeasuredPage[], unmeasured: UnmeasuredPage[] = 
     .map((tell) => {
       const hits = Object.fromEntries(LABELS.map((l) => [l, pages.filter((p) => p.label === l && p.tells.includes(tell)).length])) as Record<Label, number>;
       const on = hits.ai + hits["ai-looking"];
-      return { tell, hits, precision: round(on / (on + hits.human)), recall: positives ? round(on / positives) : null };
+      return { tell, generation: GENERATION.get(tell) ?? null, hits, precision: round(on / (on + hits.human)), recall: positives ? round(on / positives) : null };
     })
     .sort((a, b) => b.hits.ai + b.hits["ai-looking"] + b.hits.human - (a.hits.ai + a.hits["ai-looking"] + a.hits.human) || a.tell.localeCompare(b.tell));
 
@@ -176,11 +179,11 @@ export function formatCalibration(c: Calibration, notes: string[] = []): string 
     lines.push(`  ${s.label.padEnd(11)} ${String(s.pages).padStart(5)} ${String(s.flagged).padStart(8)} ${String(s.typical ?? "-").padStart(8)} ${String(s.tellHeavy).padStart(11)} ${String(s.blocking).padStart(9)}`);
   }
   lines.push("", "Per tell. A hit on ai or ai-looking counts for the tell; a hit on human counts against it.");
-  lines.push(`  ${"tell".padEnd(28)} ${"ai".padStart(7)} ${"ai-looking".padStart(10)} ${"human".padStart(7)} ${"precision".padStart(9)} ${"recall".padStart(7)}`);
+  lines.push(`  ${"tell".padEnd(28)} ${"gen".padStart(3)} ${"ai".padStart(7)} ${"ai-looking".padStart(10)} ${"human".padStart(7)} ${"precision".padStart(9)} ${"recall".padStart(7)}`);
   const of = (l: Label) => c.labels.find((s) => s.label === l)?.pages ?? 0;
   for (const t of c.tells) {
     lines.push(
-      `  ${t.tell.padEnd(28)} ${`${t.hits.ai}/${of("ai")}`.padStart(7)} ${`${t.hits["ai-looking"]}/${of("ai-looking")}`.padStart(10)} ${`${t.hits.human}/${of("human")}`.padStart(7)} ${t.precision.toFixed(2).padStart(9)} ${(t.recall === null ? "-" : t.recall.toFixed(2)).padStart(7)}`,
+      `  ${t.tell.padEnd(28)} ${String(t.generation ?? "-").padStart(3)} ${`${t.hits.ai}/${of("ai")}`.padStart(7)} ${`${t.hits["ai-looking"]}/${of("ai-looking")}`.padStart(10)} ${`${t.hits.human}/${of("human")}`.padStart(7)} ${t.precision.toFixed(2).padStart(9)} ${(t.recall === null ? "-" : t.recall.toFixed(2)).padStart(7)}`,
     );
   }
   if (!c.tells.length) lines.push("  no tell fired");

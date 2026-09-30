@@ -315,6 +315,12 @@ describe("the commands", () => {
     expect(err.join("\n")).toMatch(/v0 holds 1 page; a null model needs at least 5/);
   });
 
+  it("measureRun reads every null page as a home page, whatever its file is called", async () => {
+    const { measureRun } = await import("../null/cli.js");
+    const snapshot = { ...makeSnapshot({ firstScreenText: ["Quality you can trust", "We deliver reliable solutions tailored to your needs."] }), url: "pages/01.html" };
+    expect(measureRun("01", "<html></html>", snapshot).tells).toContain("generic-hero-claim");
+  });
+
   it("measureRun reads a built app's text off the page when its HTML is a shell", async () => {
     const { measureRun } = await import("../null/cli.js");
     const shell = `<html><body><div id="root"></div><script type="module" src="/assets/app.js"></script></body></html>`;

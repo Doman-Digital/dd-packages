@@ -254,6 +254,13 @@ export interface Snapshot {
    * claim, not its menu or its calls to action.
    */
   firstScreenText?: string[];
+  /**
+   * Whether this is a site's home page, set by whoever knows: `craft
+   * calibrate` from its labels, and `craft null build` and `null import`,
+   * which ask for a home page. Absent, the URL decides (`HOME_URL`), and a
+   * local file such as `pages/01.html` never reads as one.
+   */
+  home?: boolean;
   /** Set when a version 1 snapshot was read and upgraded in memory. */
   migratedFrom?: 1;
   /** The design-system measures trawl has collected since v7, kept so it can switch to this. */
