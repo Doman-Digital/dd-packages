@@ -894,6 +894,24 @@ same on all seven: the display face. It is the estate's common default, and
 the one choice the retrofits (phase G) should settle first. Not yet read by a
 person.
 
+### Recalibration on snapshot v2, 2026-09-30
+
+The estate and the seven null models were still on snapshot v1 (the AI set and the human set were re-snapshotted on 2026-09-29). This run moves them to v2 and changes nothing else: the same 140 null pages (each `calibration/null/<name>/pages/`, copied into `<name>-v2/`, so no model was called and the model is not a confound; the original build recorded its model as `default`) were re-snapshotted with `craft null build`, and the seven live home pages were re-snapshotted on 2026-09-30 into `calibration/estate/2026-09-30-v2/` and a new register, `estate/estate-v2.json`. The v1 folders and the 2026-09-23 snapshots are untouched. The `-v2` folders hold `null.json` and `snapshots/` only: their `pages/` are byte-for-byte the v1 pages, so to rebuild copy `<name>/pages/` across and rerun the same `craft null build`. Scoring is `calibration/null/score-v2.mjs` (the same method as `score.mjs`; the AI set is read from the v2 snapshots in `calibration/results/2026-09-29-wider/`). Outputs: `null/results-v2.json`, `null/score-v2.txt`, `null/harvest-v2.txt`, `estate/compare-2026-09-30-v2.txt`. The live sites may have changed since 2026-09-23, so the estate rows also move for that reason.
+
+| Measure | Before (v1) | After (v2) |
+|---|---|---|
+| Estate typicality against its own brief's null (own): dd, mmm, sensphere, harrison-james, hj-beauty, chair-and-blade, rmp | 0.15, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 | 0.10, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 |
+| Estate typicality against all seven pooled (same order) | 0.01, 0.00, 0.00, 0.09, 0.00, 0.01, 0.26 | 0.01, 0.00, 0.00, 0.10, 0.00, 0.01, 0.21 |
+| Distance to own null (same order) | 0.340, 0.450, 0.503, 0.277, 0.442, 0.361, 0.518 | 0.443, 0.420, 0.530, 0.304, 0.479, 0.381, 0.558 |
+| Sibling pairs in the estate (below 0.31) | 1 (dd + hjbeauty, 0.28) | 0 (dd + hjbeauty is now 0.58; closest pair is dd + rmp, 0.48) |
+| Null pages flagged when scored against the other six briefs (dd, mmm, sensphere, harrison-james, hj-beauty, chair-and-blade, rmp) | 20, 20, 19, 20, 19, 18, 15 of 20 | 20, 20, 20, 20, 20, 18, 18 of 20 |
+| Null pages typical against the other six (same order) | 13, 10, 10, 12, 10, 4, 2 | 14, 8, 9, 13, 6, 7, 3 |
+| AI set flagged against the pooled v2 null | 19 of 20 | 20 of 20 (typical 15, tell-heavy 20) |
+
+What moved: the estate is still atypical of what the model builds for its own brief (own typicality 0.10 or lower on all seven), and only RMP Electrical is close to the pooled null (0.21, down from 0.26; its shared traits are a hero eyebrow chip and pill buttons). The one sibling pair, Doman Digital and Harrisons Beauty, is no longer one; the pair that stays closest is Doman Digital and RMP Electrical (0.48). The AI set gained one flagged page (the 20 of 20 the flagged-rule decision records). Because the live sites were not frozen, the estate movement mixes the snapshot version with site changes, and this run cannot separate them.
+
+`craft tells harvest` on the v2 models gives the same three candidates as before (red accent #e77a63, 66 of 140; square shape, 47 of 140; the opening `hero > hero > cards`, 54 of 140) and 40 recurring phrases (the same count as before; the list was not diffed line by line). The only difference is in the already-caught list, which now includes `no-real-imagery` (117 of 140), `hero-eyebrow-chip` (53), `stats-row` (42) and `unproven-claim` (35): tells that came in with snapshot v2 and later phases, which the v1 harvest could not see. Nothing was added to the catalogue, and no tell or threshold changed.
+
 ## The catalogue
 
 Generated from the package. Run `pnpm --filter @domandigital/craft run docs`

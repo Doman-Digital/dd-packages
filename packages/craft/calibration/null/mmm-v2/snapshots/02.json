@@ -1,0 +1,688 @@
+{
+  "version": 2,
+  "url": "pages/02.html",
+  "capturedAt": "2026-09-30T13:51:59.922Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5413,
+  "ground": "rgb(253, 248, 245)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(246, 233, 230)",
+        "area": 982643,
+        "chars": 0
+      },
+      {
+        "value": "rgb(143, 74, 83)",
+        "area": 967815,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 706110,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 36, 34)",
+        "area": 493065,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "area": 254931,
+        "chars": 0
+      },
+      {
+        "value": "rgba(253, 248, 245, 0.92)",
+        "area": 128610,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 248, 245)",
+        "area": 111052,
+        "chars": 0
+      },
+      {
+        "value": "rgb(183, 110, 121)",
+        "area": 51679,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.92)",
+        "area": 39245,
+        "chars": 0
+      },
+      {
+        "value": "rgb(243, 217, 217)",
+        "area": 12544,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(90, 80, 76)",
+        "area": 0,
+        "chars": 1456
+      },
+      {
+        "value": "rgb(44, 36, 34)",
+        "area": 0,
+        "chars": 431
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 323
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 308
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 269
+      },
+      {
+        "value": "rgb(183, 110, 121)",
+        "area": 0,
+        "chars": 136
+      },
+      {
+        "value": "rgb(74, 58, 47)",
+        "area": 0,
+        "chars": 116
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.5)",
+        "area": 0,
+        "chars": 74
+      },
+      {
+        "value": "rgb(143, 74, 83)",
+        "area": 0,
+        "chars": 54
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.6)",
+        "area": 0,
+        "chars": 52
+      },
+      {
+        "value": "rgb(198, 161, 91)",
+        "area": 0,
+        "chars": 37
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 2900,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "family": "Cormorant Garamond",
+      "chars": 337,
+      "displayChars": 266,
+      "italicChars": 23,
+      "weights": [
+        400,
+        700
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 19,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Cormorant Garamond",
+      "sizePx": 54,
+      "weight": 700,
+      "italic": false,
+      "italicPart": true,
+      "text": "Look after yourself, beautifully, right here in Brackley.",
+      "top": 296
+    },
+    {
+      "level": 2,
+      "family": "Cormorant Garamond",
+      "sizePx": 38,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Treatments, done properly",
+      "top": 1095
+    },
+    {
+      "level": 3,
+      "family": "Cormorant Garamond",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Gel Nails",
+      "top": 1385
+    },
+    {
+      "level": 3,
+      "family": "Cormorant Garamond",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Manicures & Pedicures",
+      "top": 1385
+    },
+    {
+      "level": 3,
+      "family": "Cormorant Garamond",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Brows",
+      "top": 1385
+    },
+    {
+      "level": 3,
+      "family": "Cormorant Garamond",
+      "sizePx": 22,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Facials",
+      "top": 1385
+    },
+    {
+      "level": 2,
+      "family": "Cormorant Garamond",
+      "sizePx": 38,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "A calm space in the heart of Brackley",
+      "top": 1900
+    },
+    {
+      "level": 2,
+      "family": "Cormorant Garamond",
+      "sizePx": 38,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Recent work & studio moments",
+      "top": 2585
+    },
+    {
+      "level": 2,
+      "family": "Cormorant Garamond",
+      "sizePx": 38,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Kind words from Brackley & beyond",
+      "top": 3450
+    },
+    {
+      "level": 2,
+      "family": "Cormorant Garamond",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to treat yourself?",
+      "top": 4017
+    },
+    {
+      "level": 2,
+      "family": "Cormorant Garamond",
+      "sizePx": 38,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Visit or book with us",
+      "top": 4442
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book Now"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(183, 110, 121)",
+      "text": "Book an Appointment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View Treatments"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 56,
+      "background": "rgb(183, 110, 121)",
+      "text": "Book Your Appointment"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgb(183, 110, 121)",
+      "text": "Request Appointment"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 89,
+      "kind": "hero",
+      "label": "MMM Beauty Services About Gallery Reviews Contact Book Now",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.125,
+        "mirrorSymmetry": 0.981,
+        "whitespaceRatio": 0.812,
+        "contentWidthRatio": 0.786,
+        "background": "rgba(253, 248, 245, 0.92)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 0,
+      "height": 900,
+      "kind": "hero",
+      "label": "Look after yourself, beautifully, right here in Brackley.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.104,
+        "whitespaceRatio": 0.78,
+        "contentWidthRatio": 0.643,
+        "background": "rgb(253, 248, 245)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Look after yourself, beautifully, right here in Brackley.",
+        "MMM Beauty is a friendly, relaxed studio offering gel nails, manicures, pedicures, brow shaping and facials. Come in for an hour to yourself, leave feeling like the best version of you.",
+        "Nail · Brow · Skin Studio — Brackley",
+        "Loved by clients across Brackley"
+      ]
+    },
+    {
+      "top": 955,
+      "height": 808,
+      "kind": "cards",
+      "label": "Treatments, done properly",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.133,
+        "mirrorSymmetry": 0.835,
+        "whitespaceRatio": 0.778,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(253, 248, 245)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Treatments, done properly",
+        "Every treatment at MMM Beauty is unhurried and tailored to you — we use quality products and take the time to get the details right.",
+        "Gel Nails",
+        "Chip-free colour that lasts up to three weeks. Choose from classic shades, French tips or a fully custom design.",
+        "Manicures & Pedicures",
+        "Nail shaping, cuticle care and a hand or foot massage to finish. Add gel or classic polish, your choice.",
+        "Brows",
+        "Threading, tinting, waxing and lamination to shape and define your natural brow line.",
+        "Facials",
+        "Deep cleansing, exfoliation and hydration facials tailored to your skin, plus a relaxing face massage.",
+        "What We Do"
+      ]
+    },
+    {
+      "top": 1763,
+      "height": 682,
+      "kind": "text",
+      "label": "A calm space in the heart of Brackley",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.08,
+        "whitespaceRatio": 0.785,
+        "contentWidthRatio": 0.409,
+        "background": "rgb(246, 233, 230)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "A calm space in the heart of Brackley",
+        "MMM Beauty was started with one simple idea: everyone deserves a bit of time to feel looked after, without having to travel far or book weeks in advance. We're a small, welcoming studio in Brackley, Northamptonshire, serving clients from the town and surrounding villages.",
+        "We keep things personal — you'll always be looked after by someone who knows your nails, your brows and your skin, appointment after appointment.",
+        "Quality, long-lasting gel and salon products",
+        "Relaxed, unrushed appointments",
+        "Easy online and phone booking",
+        "Convenient Brackley location with parking nearby"
+      ]
+    },
+    {
+      "top": 2445,
+      "height": 875,
+      "kind": "text",
+      "label": "Recent work & studio moments",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.667,
+        "mirrorSymmetry": 0.798,
+        "whitespaceRatio": 0.901,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(253, 248, 245)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Recent work & studio moments",
+        "A small taste of the treatments we love creating — from soft nudes to statement sets.",
+        "A Peek Inside"
+      ]
+    },
+    {
+      "top": 3320,
+      "height": 617,
+      "kind": "cards",
+      "label": "Kind words from Brackley & beyond",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.947,
+        "whitespaceRatio": 0.735,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(143, 74, 83)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Kind words from Brackley & beyond",
+        "We're proud of the relationships we've built with our regulars.",
+        "\"My gel nails always last the full three weeks without a single chip. The studio is spotless and so relaxing.\"",
+        "\"Best brow shape I've ever had. It's such a friendly, unrushed appointment every single time.\"",
+        "\"The facial left my skin glowing for days. Lovely to finally have somewhere this good so close to home.\"",
+        "Monthly facial client"
+      ]
+    },
+    {
+      "top": 3937,
+      "height": 366,
+      "kind": "text",
+      "label": "Ready to treat yourself?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.772,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(253, 248, 245)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready to treat yourself?",
+        "Appointments are available Tuesday to Saturday. Book online or give us a call — spaces fill up fast around weekends."
+      ]
+    },
+    {
+      "top": 4303,
+      "height": 768,
+      "kind": "text",
+      "label": "Visit or book with us",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "contact",
+      "geometry": {
+        "centredShare": 0.048,
+        "mirrorSymmetry": 0.873,
+        "whitespaceRatio": 0.645,
+        "contentWidthRatio": 0.76,
+        "background": "rgb(253, 248, 245)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Visit or book with us",
+        "Location",
+        "MMM Beauty StudioBrackley, Northamptonshire",
+        "Contact",
+        "Phone: 01280 000 000Email: hello@mmmbeautystudio.co.uk",
+        "Opening Hours",
+        "Monday",
+        "Closed",
+        "Tuesday – Friday",
+        "9:30am – 6:00pm",
+        "Saturday",
+        "9:00am – 4:00pm",
+        "Sunday",
+        "Get In Touch"
+      ]
+    },
+    {
+      "top": 5071,
+      "height": 342,
+      "kind": "text",
+      "label": "MMM Beauty A nail, brow and skin studio in Brackley, Northam",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.882,
+        "whitespaceRatio": 0.821,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(44, 36, 34)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.436,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(231, 183, 184, 0.5)",
+          "rgba(0, 0, 0, 0)",
+          "rgba(198, 161, 91, 0.25)",
+          "rgba(0, 0, 0, 0)",
+          "rgb(253, 248, 245)",
+          "rgb(246, 233, 230)"
+        ],
+        "area": 1296000,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(243, 217, 217)",
+          "rgb(183, 110, 121)",
+          "rgb(143, 74, 83)"
+        ],
+        "area": 317520,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(198, 161, 91)",
+          "rgb(227, 183, 184)",
+          "rgb(183, 110, 121)"
+        ],
+        "area": 232701,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(183, 110, 121)",
+          "rgb(143, 74, 83)"
+        ],
+        "area": 164346,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(169, 131, 74)",
+          "rgb(198, 161, 91)"
+        ],
+        "area": 78260,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(243, 217, 217)",
+          "rgb(198, 161, 91)"
+        ],
+        "area": 526770,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 5,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "Look after yourself, beautifully, right here in Brackley.",
+    "MMM Beauty is a friendly, relaxed studio offering gel nails, manicures, pedicures, brow shaping and facials. Come in for an hour to yourself, leave feeling like the best version of you.",
+    "Nail · Brow · Skin Studio — Brackley",
+    "Loved by clients across Brackley"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      22,
+      24,
+      27,
+      35,
+      38,
+      54
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "50%",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(44, 36, 34, 0.2) 0px 12px 30px -18px"
+    ],
+    "spacingOnScalePct": 48.1,
+    "bodyLineLengthCh": 49,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 38.7,
+    "edgeDensity": 0.048,
+    "symmetry": 0.923,
+    "width": 1440,
+    "height": 5413,
+    "sampled": 866400
+  }
+}

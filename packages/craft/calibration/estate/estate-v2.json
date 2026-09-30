@@ -1,0 +1,1326 @@
+{
+  "version": 1,
+  "sites": [
+    {
+      "id": "chair",
+      "client": "Chair and Blade",
+      "url": "https://www.chairandblade.co.uk/",
+      "fingerprint": {
+        "version": 2,
+        "accent": {
+          "l": 0.6606294529024049,
+          "c": 0.0749872177195022,
+          "h": 152.25697064968472
+        },
+        "ground": {
+          "l": 0.1531545489315863,
+          "c": 0.0016782268983985757,
+          "h": 196.980941733382
+        },
+        "display": {
+          "family": "Bebas Neue",
+          "class": "sans"
+        },
+        "body": {
+          "family": "DM Sans",
+          "class": "sans"
+        },
+        "roundness": 0,
+        "motion": 0.6666666666666666,
+        "effects": [
+          "marquee"
+        ],
+        "layout": [
+          "hero",
+          "text",
+          "text",
+          "text",
+          "text",
+          "cards",
+          "text",
+          "text",
+          "logos",
+          "text"
+        ],
+        "sections": [
+          {
+            "role": "hero",
+            "centred": 0,
+            "width": 1,
+            "symmetry": 0.895,
+            "controls": 2,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.333,
+            "width": 0.711,
+            "symmetry": 0.825,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.16725399052922768,
+              "c": 0.001643350355466817,
+              "h": 196.99905815560123
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 1,
+            "width": 0.611,
+            "symmetry": 1,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.16725399052922768,
+              "c": 0.001643350355466817,
+              "h": 196.99905815560123
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.138,
+            "width": 0.89,
+            "symmetry": 0.958,
+            "controls": 0,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.25,
+            "width": 0.89,
+            "symmetry": 0.888,
+            "controls": 1,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "testimonials",
+            "centred": 0.313,
+            "width": 0.89,
+            "symmetry": 0.941,
+            "controls": 0,
+            "cards": 6,
+            "background": {
+              "l": 0.19100436211041344,
+              "c": 0.004332740518088384,
+              "h": 264.4657999807972
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.048,
+            "width": 0.89,
+            "symmetry": 0.938,
+            "controls": 3,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "cta-band",
+            "centred": 1,
+            "width": 0.89,
+            "symmetry": 0.996,
+            "controls": 1,
+            "cards": 0,
+            "background": {
+              "l": 0.8308880733204271,
+              "c": 0.014824137907500302,
+              "h": 84.5871634462593
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "faq",
+            "centred": 0,
+            "width": 0.89,
+            "symmetry": 0.478,
+            "controls": 9,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0,
+            "width": 0.89,
+            "symmetry": 0.838,
+            "controls": 1,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          }
+        ]
+      },
+      "tells": [
+        "marquee",
+        "reflex-font-2",
+        "reveal-everywhere"
+      ],
+      "addedAt": "2026-09-30T14:04:24.623Z"
+    },
+    {
+      "id": "dd",
+      "client": "Doman Digital",
+      "url": "https://www.domandigital.co.uk/",
+      "fingerprint": {
+        "version": 2,
+        "accent": {
+          "l": 0.21123928593993713,
+          "c": 0.0674682166729353,
+          "h": 16.89114960572141
+        },
+        "ground": {
+          "l": 0.9693164945650143,
+          "c": 0.00396968728741135,
+          "h": 106.47327732034933
+        },
+        "display": {
+          "family": "Fraunces",
+          "class": "serif"
+        },
+        "body": {
+          "family": "Inter Tight",
+          "class": "sans"
+        },
+        "roundness": 0.5,
+        "motion": 0.2222222222222222,
+        "effects": [
+          "radial-spotlight-glow"
+        ],
+        "layout": [
+          "hero",
+          "cards",
+          "text",
+          "cards",
+          "cards",
+          "cards",
+          "stats",
+          "text",
+          "text",
+          "text"
+        ],
+        "sections": [
+          {
+            "role": "hero",
+            "centred": 0.25,
+            "width": 1,
+            "symmetry": 0.589,
+            "controls": 3,
+            "cards": 8,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 0,
+            "width": 0.867,
+            "symmetry": 0.994,
+            "controls": 4,
+            "cards": 4,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0,
+            "width": 0.867,
+            "symmetry": 0.698,
+            "controls": 1,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "testimonials",
+            "centred": 0.182,
+            "width": 0.867,
+            "symmetry": 0.84,
+            "controls": 1,
+            "cards": 3,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 0,
+            "width": 0.867,
+            "symmetry": 0.819,
+            "controls": 1,
+            "cards": 4,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 1
+          },
+          {
+            "role": "faq",
+            "centred": 0,
+            "width": 0.867,
+            "symmetry": 0.685,
+            "controls": 4,
+            "cards": 4,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "process",
+            "centred": 0.286,
+            "width": 0.867,
+            "symmetry": 0.564,
+            "controls": 1,
+            "cards": 3,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 3
+          },
+          {
+            "role": "faq",
+            "centred": 0,
+            "width": 0.516,
+            "symmetry": 0.285,
+            "controls": 0,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.8,
+            "width": 0.755,
+            "symmetry": 0.869,
+            "controls": 0,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "footer-cta",
+            "centred": 1,
+            "width": 0.533,
+            "symmetry": 0.997,
+            "controls": 1,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          }
+        ]
+      },
+      "tells": [
+        "icon-tile-grid",
+        "pill-everything",
+        "radial-spotlight-glow",
+        "reflex-font-2",
+        "stats-row"
+      ],
+      "addedAt": "2026-09-30T14:06:17.980Z"
+    },
+    {
+      "id": "hj",
+      "client": "Harrison James",
+      "url": "https://www.harrisonjamesltd.co.uk/",
+      "fingerprint": {
+        "version": 2,
+        "accent": {
+          "l": 0.728005067806557,
+          "c": 0.13798294966314018,
+          "h": 89.72628816728746
+        },
+        "ground": {
+          "l": 0.9726661659096866,
+          "c": 0.0017112633286220837,
+          "h": 247.83921201712778
+        },
+        "display": {
+          "family": "Sora",
+          "class": "sans"
+        },
+        "body": {
+          "family": "Inter",
+          "class": "sans"
+        },
+        "roundness": 0.11538461538461539,
+        "motion": 0,
+        "effects": [],
+        "layout": [
+          "hero",
+          "cards",
+          "cards",
+          "cards",
+          "text"
+        ],
+        "sections": [
+          {
+            "role": "hero",
+            "centred": 1,
+            "width": 0.578,
+            "symmetry": 0.998,
+            "controls": 2,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 1,
+            "width": 0.844,
+            "symmetry": 0.951,
+            "controls": 0,
+            "cards": 3,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 0.3,
+            "width": 0.844,
+            "symmetry": 1,
+            "controls": 0,
+            "cards": 6,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "process",
+            "centred": 0.214,
+            "width": 0.844,
+            "symmetry": 1,
+            "controls": 0,
+            "cards": 4,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "footer-cta",
+            "centred": 1,
+            "width": 0.578,
+            "symmetry": 0.993,
+            "controls": 2,
+            "cards": 0,
+            "background": {
+              "l": 0.2296772265125249,
+              "c": 0.07408292336792734,
+              "h": 263.89999151293085
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          }
+        ]
+      },
+      "tells": [
+        "cta-band-stock",
+        "no-real-imagery",
+        "reflex-font",
+        "reflex-font-2"
+      ],
+      "addedAt": "2026-09-30T14:06:48.841Z"
+    },
+    {
+      "id": "hjbeauty",
+      "client": "Harrisons Beauty",
+      "url": "https://www.harrisonsbeauty.com/",
+      "fingerprint": {
+        "version": 2,
+        "accent": null,
+        "ground": {
+          "l": 0.9999999934735462,
+          "c": 3.727399553519285e-8,
+          "h": 0
+        },
+        "display": {
+          "family": "Fraunces",
+          "class": "serif"
+        },
+        "body": {
+          "family": "Archivo",
+          "class": "sans"
+        },
+        "roundness": 0.25,
+        "motion": 0,
+        "effects": [
+          "marquee"
+        ],
+        "layout": [
+          "hero",
+          "cards",
+          "logos",
+          "text",
+          "text",
+          "text",
+          "cards",
+          "text",
+          "text"
+        ],
+        "sections": [
+          {
+            "role": "hero",
+            "centred": 0.8,
+            "width": 1,
+            "symmetry": 0.989,
+            "controls": 1,
+            "cards": 0,
+            "background": {
+              "l": 0.17721822986743993,
+              "c": 0.002019099523033437,
+              "h": 106.60379988338059
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "features",
+            "centred": 0.333,
+            "width": 0.922,
+            "symmetry": 0.89,
+            "controls": 0,
+            "cards": 3,
+            "background": {
+              "l": 0.17721822986743993,
+              "c": 0.002019099523033437,
+              "h": 106.60379988338059
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "logos",
+            "centred": 1,
+            "width": 0.893,
+            "symmetry": 0.99,
+            "controls": 0,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0,
+            "width": 0.972,
+            "symmetry": 0.729,
+            "controls": 6,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.545,
+            "width": 0.742,
+            "symmetry": 0.954,
+            "controls": 3,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 1,
+            "width": 0.742,
+            "symmetry": 1,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.17721822986743993,
+              "c": 0.002019099523033437,
+              "h": 106.60379988338059
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "pricing",
+            "centred": 0.256,
+            "width": 1,
+            "symmetry": 0.892,
+            "controls": 0,
+            "cards": 11,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0,
+            "width": 0.967,
+            "symmetry": 0.536,
+            "controls": 0,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "contact",
+            "centred": 0.7,
+            "width": 0.312,
+            "symmetry": 0.967,
+            "controls": 3,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          }
+        ]
+      },
+      "tells": [
+        "icon-tile-grid",
+        "marquee",
+        "reflex-font-2"
+      ],
+      "addedAt": "2026-09-30T14:07:40.110Z"
+    },
+    {
+      "id": "mmm",
+      "client": "MMM Beauty",
+      "url": "https://www.mmm-beauty.co.uk/",
+      "fingerprint": {
+        "version": 2,
+        "accent": {
+          "l": 0.8996953848889294,
+          "c": 0.07822882389549882,
+          "h": 164.88884979395755
+        },
+        "ground": {
+          "l": 0.9789322245544005,
+          "c": 0.0028651394202394136,
+          "h": 264.54207416460844
+        },
+        "display": {
+          "family": "Cormorant Garamond",
+          "class": "serif"
+        },
+        "body": {
+          "family": "DM Sans",
+          "class": "sans"
+        },
+        "roundness": 0.36363636363636365,
+        "motion": 0.8,
+        "effects": [
+          "radial-spotlight-glow"
+        ],
+        "layout": [
+          "hero",
+          "hero",
+          "stats",
+          "cards",
+          "cards",
+          "stats",
+          "text",
+          "cards"
+        ],
+        "sections": [
+          {
+            "role": "hero",
+            "centred": 0,
+            "width": 0,
+            "symmetry": 1,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.15446479969240112,
+              "c": 0.014275721341654687,
+              "h": 160.23960231490003
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "hero",
+            "centred": 0.25,
+            "width": 1,
+            "symmetry": 0.994,
+            "controls": 1,
+            "cards": 0,
+            "background": {
+              "l": 0,
+              "c": 0,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "stats",
+            "centred": 1,
+            "width": 0.856,
+            "symmetry": 0.819,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 3
+          },
+          {
+            "role": "cards",
+            "centred": 0.333,
+            "width": 0.86,
+            "symmetry": 0.97,
+            "controls": 1,
+            "cards": 3,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "pricing",
+            "centred": 0.259,
+            "width": 0.861,
+            "symmetry": 0.961,
+            "controls": 4,
+            "cards": 4,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "process",
+            "centred": 0.3,
+            "width": 0.827,
+            "symmetry": 0.988,
+            "controls": 0,
+            "cards": 3,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 3
+          },
+          {
+            "role": "text",
+            "centred": 0,
+            "width": 0.733,
+            "symmetry": 0.697,
+            "controls": 2,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 0.267,
+            "width": 0.744,
+            "symmetry": 0.96,
+            "controls": 0,
+            "cards": 3,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          }
+        ]
+      },
+      "tells": [
+        "radial-spotlight-glow",
+        "reflex-font-2",
+        "reveal-everywhere",
+        "stats-row"
+      ],
+      "addedAt": "2026-09-30T14:08:27.036Z"
+    },
+    {
+      "id": "rmp",
+      "client": "RMP Electrical",
+      "url": "https://www.rmp-electrical.co.uk/",
+      "fingerprint": {
+        "version": 2,
+        "accent": {
+          "l": 0.44792468976576777,
+          "c": 0.10832057206122002,
+          "h": 151.32767935087702
+        },
+        "ground": {
+          "l": 0.9593087800585209,
+          "c": 0.010256130581941775,
+          "h": 81.7950615899831
+        },
+        "display": {
+          "family": "Fraunces",
+          "class": "serif"
+        },
+        "body": {
+          "family": "Manrope",
+          "class": "sans"
+        },
+        "roundness": 0.5,
+        "motion": 0.4,
+        "effects": [
+          "hero-eyebrow-chip"
+        ],
+        "layout": [
+          "hero",
+          "logos",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "text"
+        ],
+        "sections": [
+          {
+            "role": "hero",
+            "centred": 0,
+            "width": 0.756,
+            "symmetry": 0.936,
+            "controls": 2,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "logos",
+            "centred": 0,
+            "width": 0.73,
+            "symmetry": 0.993,
+            "controls": 0,
+            "cards": 4,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "contact",
+            "centred": 0.714,
+            "width": 1,
+            "symmetry": 0.999,
+            "controls": 1,
+            "cards": 0,
+            "background": {
+              "l": 0.20347304682399509,
+              "c": 0.01006615242733568,
+              "h": 67.21009219595669
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "features",
+            "centred": 0.143,
+            "width": 0.756,
+            "symmetry": 0.657,
+            "controls": 0,
+            "cards": 7,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.083,
+            "width": 0.756,
+            "symmetry": 0.996,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [
+              "before / after"
+            ],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 0.5,
+            "width": 0.667,
+            "symmetry": 0.995,
+            "controls": 0,
+            "cards": 3,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0,
+            "width": 0.758,
+            "symmetry": 0.928,
+            "controls": 2,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "features",
+            "centred": 0.37,
+            "width": 0.756,
+            "symmetry": 0.945,
+            "controls": 0,
+            "cards": 6,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "faq",
+            "centred": 0.455,
+            "width": 0.489,
+            "symmetry": 0.923,
+            "controls": 6,
+            "cards": 0,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 0.308,
+            "width": 0.756,
+            "symmetry": 0.813,
+            "controls": 0,
+            "cards": 3,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.259,
+            "width": 0.667,
+            "symmetry": 0.954,
+            "controls": 18,
+            "cards": 0,
+            "background": null,
+            "badges": [
+              "greater london",
+              "berkshire",
+              "buckinghamshire"
+            ],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "footer-cta",
+            "centred": 1,
+            "width": 0.578,
+            "symmetry": 0.997,
+            "controls": 2,
+            "cards": 0,
+            "background": {
+              "l": 0.20347304682399509,
+              "c": 0.01006615242733568,
+              "h": 67.21009219595669
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          }
+        ]
+      },
+      "tells": [
+        "cream-palette",
+        "cta-band-stock",
+        "hero-eyebrow-chip",
+        "hero-then-proof",
+        "icon-tile-grid",
+        "italic-serif-display",
+        "pill-everything",
+        "reflex-font-2",
+        "unproven-claim"
+      ],
+      "addedAt": "2026-09-30T14:09:26.877Z"
+    },
+    {
+      "id": "sensphere",
+      "client": "Sensphere",
+      "url": "https://sensphere.co.uk/",
+      "fingerprint": {
+        "version": 2,
+        "accent": {
+          "l": 0.4778847733325181,
+          "c": 0.22199474174545347,
+          "h": 285.21732511576033
+        },
+        "ground": {
+          "l": 0.9772684231375691,
+          "c": 0.005295802336335307,
+          "h": 286.30134192672733
+        },
+        "display": {
+          "family": "Inter",
+          "class": "sans"
+        },
+        "body": {
+          "family": "Inter",
+          "class": "sans"
+        },
+        "roundness": 0.24244897959183673,
+        "motion": 0,
+        "effects": [
+          "radial-spotlight-glow",
+          "thin-border-wide-shadow"
+        ],
+        "layout": [
+          "hero",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "cards",
+          "text",
+          "text",
+          "cards",
+          "cards",
+          "text"
+        ],
+        "sections": [
+          {
+            "role": "hero",
+            "centred": 1,
+            "width": 1,
+            "symmetry": 1,
+            "controls": 2,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "features",
+            "centred": 1,
+            "width": 0.711,
+            "symmetry": 0.874,
+            "controls": 0,
+            "cards": 3,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 1,
+            "width": 0.622,
+            "symmetry": 1,
+            "controls": 0,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "features",
+            "centred": 0.417,
+            "width": 0.756,
+            "symmetry": 0.998,
+            "controls": 0,
+            "cards": 3,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.375,
+            "width": 0.711,
+            "symmetry": 0.854,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "process",
+            "centred": 1,
+            "width": 0.756,
+            "symmetry": 0.955,
+            "controls": 0,
+            "cards": 4,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.429,
+            "width": 0.711,
+            "symmetry": 0.961,
+            "controls": 0,
+            "cards": 0,
+            "background": null,
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "text",
+            "centred": 0.111,
+            "width": 0.711,
+            "symmetry": 0.948,
+            "controls": 0,
+            "cards": 0,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "features",
+            "centred": 0.316,
+            "width": 0.712,
+            "symmetry": 0.966,
+            "controls": 0,
+            "cards": 3,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [
+              "quote checked",
+              "quote checked"
+            ],
+            "avatars": 0,
+            "carousel": true,
+            "figures": 0
+          },
+          {
+            "role": "cards",
+            "centred": 0.4,
+            "width": 0.676,
+            "symmetry": 0.988,
+            "controls": 0,
+            "cards": 3,
+            "background": null,
+            "badges": [
+              "for families",
+              "for families",
+              "for families"
+            ],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          },
+          {
+            "role": "process",
+            "centred": 1,
+            "width": 0.467,
+            "symmetry": 1,
+            "controls": 1,
+            "cards": 0,
+            "background": {
+              "l": 0.9999999934735462,
+              "c": 3.727399553519285e-8,
+              "h": 0
+            },
+            "badges": [],
+            "avatars": 0,
+            "carousel": false,
+            "figures": 0
+          }
+        ]
+      },
+      "tells": [
+        "ai-violet",
+        "icon-tile-grid",
+        "radial-spotlight-glow",
+        "reflex-font",
+        "thin-border-wide-shadow"
+      ],
+      "addedAt": "2026-09-30T14:12:22.469Z"
+    }
+  ]
+}

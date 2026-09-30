@@ -1,0 +1,943 @@
+{
+  "version": 2,
+  "url": "pages/09.html",
+  "capturedAt": "2026-09-30T13:50:26.866Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7117,
+  "ground": "rgb(250, 249, 246)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(242, 239, 232)",
+        "area": 3052440,
+        "chars": 0
+      },
+      {
+        "value": "rgb(19, 20, 23)",
+        "area": 2054646,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1816591,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 90, 54)",
+        "area": 484987,
+        "chars": 0
+      },
+      {
+        "value": "rgb(28, 29, 34)",
+        "area": 420217,
+        "chars": 0
+      },
+      {
+        "value": "rgb(32, 31, 34)",
+        "area": 222899,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 249, 246)",
+        "area": 135139,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 249, 246, 0.9)",
+        "area": 128610,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 240, 234)",
+        "area": 50029,
+        "chars": 0
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.35)",
+        "area": 9589,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 90, 54, 0.15)",
+        "area": 5701,
+        "chars": 0
+      },
+      {
+        "value": "rgb(231, 228, 221)",
+        "area": 5182,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(74, 77, 87)",
+        "area": 0,
+        "chars": 2615
+      },
+      {
+        "value": "rgb(19, 20, 23)",
+        "area": 0,
+        "chars": 1296
+      },
+      {
+        "value": "rgb(215, 214, 218)",
+        "area": 0,
+        "chars": 476
+      },
+      {
+        "value": "rgb(185, 184, 191)",
+        "area": 0,
+        "chars": 437
+      },
+      {
+        "value": "rgb(169, 168, 174)",
+        "area": 0,
+        "chars": 289
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 187
+      },
+      {
+        "value": "rgb(244, 242, 238)",
+        "area": 0,
+        "chars": 138
+      },
+      {
+        "value": "rgb(225, 70, 32)",
+        "area": 0,
+        "chars": 112
+      },
+      {
+        "value": "rgb(255, 227, 216)",
+        "area": 0,
+        "chars": 92
+      },
+      {
+        "value": "rgb(127, 126, 133)",
+        "area": 0,
+        "chars": 66
+      },
+      {
+        "value": "rgb(255, 138, 91)",
+        "area": 0,
+        "chars": 47
+      },
+      {
+        "value": "rgb(255, 90, 54)",
+        "area": 0,
+        "chars": 33
+      },
+      {
+        "value": "rgb(240, 165, 0)",
+        "area": 0,
+        "chars": 15
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 5165,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Sora",
+      "chars": 626,
+      "displayChars": 548,
+      "italicChars": 0,
+      "weights": [
+        500,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Sora",
+      "sizePx": 46,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "A great website, built for you and looked after every month.",
+      "top": 233
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything your website needs, in one plan",
+      "top": 1025
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Website design & build",
+      "top": 1324
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hosting & maintenance",
+      "top": 1324
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing edits",
+      "top": 1324
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Online bookings & shops",
+      "top": 1602
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO",
+      "top": 1602
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Monthly reporting",
+      "top": 1602
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "From first call to live site in about two weeks",
+      "top": 1991
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free consultation",
+      "top": 2276
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "We design & build",
+      "top": 2276
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Go live",
+      "top": 2276
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "We keep it running",
+      "top": 2276
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "One flat fee. No surprise invoices.",
+      "top": 2655
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Starter",
+      "top": 2853
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growth",
+      "top": 2845
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Storefront",
+      "top": 2853
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small businesses, real results",
+      "top": 3732
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 32,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "A small studio that only builds for small businesses",
+      "top": 4367
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 5094
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 34,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a website that actually works for you?",
+      "top": 5835
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 30,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get in touch",
+      "top": 6159
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(255, 90, 54)",
+      "text": "Get a free quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(255, 90, 54)",
+      "text": "See our plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Start with Starter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(255, 90, 54)",
+      "text": "Start with Growth"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Start with Storefront"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(19, 20, 23)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Email us instead"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 45,
+      "background": "rgb(255, 90, 54)",
+      "text": "Send message"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 89,
+      "kind": "hero",
+      "label": "Doman.Digital Services Pricing Work FAQ Contact Get a free q",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.143,
+        "mirrorSymmetry": 0.747,
+        "whitespaceRatio": 0.855,
+        "contentWidthRatio": 0.778,
+        "background": "rgba(250, 249, 246, 0.9)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 89,
+      "height": 661,
+      "kind": "hero",
+      "label": "A great website, built for you and looked after every month.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.04,
+        "whitespaceRatio": 0.737,
+        "contentWidthRatio": 0.391,
+        "background": "rgb(250, 249, 246)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "A great website, built for you and looked after every month.",
+        "Doman Digital designs and builds websites for small businesses, then hosts, updates and improves them for a flat monthly fee. No £3,000 invoice up front. No abandoned site a year later.",
+        "No contracts longer than 30 days. Cancel any time, keep your domain.",
+        "🇬🇧 Based in the UK, serving small businesses nationwide"
+      ]
+    },
+    {
+      "top": 751,
+      "height": 135,
+      "kind": "cards",
+      "label": "⭐ 4.9/5 from 60+ small business owners 🛠️ 120+ websites bui",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.25,
+        "mirrorSymmetry": 0.752,
+        "whitespaceRatio": 0.86,
+        "contentWidthRatio": 0.744,
+        "background": "rgb(250, 249, 246)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "⭐ 4.9/5 from 60+ small business owners",
+        "🛠️ 120+ websites built since 2018",
+        "📍 Studio in Sheffield, clients UK-wide",
+        "🔒 Hosted & secured, monitored daily"
+      ]
+    },
+    {
+      "top": 885,
+      "height": 966,
+      "kind": "cards",
+      "label": "Everything your website needs, in one plan",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.333,
+        "mirrorSymmetry": 0.985,
+        "whitespaceRatio": 0.798,
+        "contentWidthRatio": 0.701,
+        "background": "rgb(250, 249, 246)",
+        "controls": 0
+      },
+      "badges": [
+        "What we do"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything your website needs, in one plan",
+        "We design it, build it, host it, and keep it working — so you can get back to running your business.",
+        "Website design & build",
+        "A custom-designed site that fits your brand, written to actually sell what you do — not a recycled template.",
+        "Hosting & maintenance",
+        "Fast, secure hosting, software updates, backups and uptime monitoring, handled quietly in the background.",
+        "Ongoing edits",
+        "Need a price changed, a new photo added, or a page updated? Send us a message — most changes go live same day.",
+        "Online bookings & shops",
+        "Booking calendars, enquiry forms and simple online shops built in, so customers can act the moment they land.",
+        "Local SEO",
+        "Your site set up to be found on Google for the searches that matter locally, plus a Google Business listing.",
+        "Monthly reporting",
+        "A short, plain-English update each month on visitors, enquiries and anything worth acting on.",
+        "What we do"
+      ]
+    },
+    {
+      "top": 1851,
+      "height": 664,
+      "kind": "stats",
+      "label": "From first call to live site in about two weeks",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.977,
+        "whitespaceRatio": 0.79,
+        "contentWidthRatio": 0.713,
+        "background": "rgb(242, 239, 232)",
+        "controls": 0
+      },
+      "badges": [
+        "How it works"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 4,
+      "text": [
+        "From first call to live site in about two weeks",
+        "No lengthy briefs or design-by-committee. We ask the right questions and get moving fast.",
+        "Free consultation",
+        "A 20-minute call about your business, your customers, and what the site needs to do.",
+        "We design & build",
+        "You'll see a working draft within a week, with room for two rounds of feedback.",
+        "Go live",
+        "We connect your domain, set up hosting, and launch — usually within two weeks.",
+        "We keep it running",
+        "Your monthly plan starts, covering hosting, updates and edits from day one.",
+        "How it works"
+      ]
+    },
+    {
+      "top": 2515,
+      "height": 1078,
+      "kind": "cards",
+      "label": "One flat fee. No surprise invoices.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.439,
+        "mirrorSymmetry": 0.998,
+        "whitespaceRatio": 0.739,
+        "contentWidthRatio": 0.744,
+        "background": "rgb(19, 20, 23)",
+        "controls": 3
+      },
+      "badges": [
+        "Simple monthly plans",
+        "Most popular"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "One flat fee. No surprise invoices.",
+        "Every plan includes hosting, security and a real person to call. Upgrade or downgrade whenever you need to.",
+        "Starter",
+        "For sole traders and new businesses who need a clean, professional presence.",
+        "£39/mo",
+        "£249 one-off build fee",
+        "Up to 5 pages, custom designed",
+        "Mobile-friendly, fast-loading",
+        "Contact form & Google Maps",
+        "Hosting, SSL & daily backups",
+        "1 content edit per month",
+        "Growth",
+        "For established businesses that want bookings, enquiries and visibility on Google.",
+        "£79/mo",
+        "£399 one-off build fee",
+        "Up to 10 pages, custom designed",
+        "Booking calendar or enquiry system",
+        "Local SEO setup & Google Business listing",
+        "Hosting, SSL, backups & monitoring",
+        "4 content edits per month",
+        "Monthly performance report",
+        "Storefront",
+        "For businesses selling products or taking payments online.",
+        "£129/mo",
+        "£699 one-off build fee",
+        "Everything in Growth, plus:",
+        "Online shop, up to 100 products",
+        "Card payments via Stripe",
+        "Order & stock notifications",
+        "Unlimited content edits",
+        "Priority support",
+        "Not sure which plan fits? Tell us about your business and we'll recommend one — no pressure.",
+        "Simple monthly plans"
+      ]
+    },
+    {
+      "top": 3593,
+      "height": 610,
+      "kind": "cards",
+      "label": "Small businesses, real results",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.353,
+        "mirrorSymmetry": 0.983,
+        "whitespaceRatio": 0.786,
+        "contentWidthRatio": 0.704,
+        "background": "rgb(250, 249, 246)",
+        "controls": 0
+      },
+      "badges": [
+        "What clients say"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Small businesses, real results",
+        "\"Doman Digital built our salon's site in under two weeks and it's paid for itself in bookings within the first month. Any time I need something changed, it's done the same day.\"",
+        "\"I'd been putting off getting a website for years because I hate the idea of maintaining one. The monthly plan means I never have to think about it — they just handle it.\"",
+        "\"We moved from a freelancer who'd gone quiet on us. The team migrated everything, improved the design, and we're now showing up on Google for searches we never used to.\"",
+        "What clients say",
+        "Owner, The Beauty Loft, Leeds",
+        "Poulter Plumbing & Heating",
+        "Founder, Naz & Co. Bakery"
+      ]
+    },
+    {
+      "top": 4203,
+      "height": 751,
+      "kind": "cards",
+      "label": "A small studio that only builds for small businesses",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.25,
+        "mirrorSymmetry": 0.181,
+        "whitespaceRatio": 0.804,
+        "contentWidthRatio": 0.728,
+        "background": "rgb(242, 239, 232)",
+        "controls": 0
+      },
+      "badges": [
+        "About us"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 2,
+      "text": [
+        "A small studio that only builds for small businesses",
+        "Doman Digital started in 2018 with a simple observation: small businesses were being sold websites they couldn't maintain, then left to fend for themselves once the invoice was paid.",
+        "We do things differently. Every site we build comes with a monthly plan, so hosting, security and updates are simply taken care of — and if something breaks or needs changing, you speak to the same small team every time, not a support ticket queue.",
+        "We're based in Sheffield and work with businesses across the whole of the UK, from local trades and salons to independent shops and consultants.",
+        "Doman Digital studio, Sheffield"
+      ]
+    },
+    {
+      "top": 4954,
+      "height": 811,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.718,
+        "contentWidthRatio": 0.51,
+        "background": "rgb(250, 249, 246)",
+        "controls": 0
+      },
+      "badges": [
+        "Questions"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Frequently asked questions",
+        "What happens if I want to cancel?",
+        "You can cancel at any time with 30 days' notice. We'll hand over your files, content and domain access — no lock-in, no hidden exit fees.",
+        "Do I own the website?",
+        "Yes. The design and content are yours. The monthly fee covers hosting, maintenance and support rather than a licence, so if you ever leave, you take everything with you.",
+        "How long does a new site take to build?",
+        "Most Starter and Growth sites go live within two weeks of our first call. Storefront sites with a full product catalogue typically take three to four weeks.",
+        "What if I already have a domain and hosting?",
+        "No problem — we can work with your existing domain, or move hosting over to us so everything is managed in one place. We'll talk you through the options.",
+        "Can I upgrade my plan later?",
+        "Yes, you can move between Starter, Growth and Storefront at any time as your business grows. We'll only ever charge for the plan you're on."
+      ]
+    },
+    {
+      "top": 5765,
+      "height": 304,
+      "kind": "text",
+      "label": "Ready for a website that actually works for you?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.996,
+        "whitespaceRatio": 0.8,
+        "contentWidthRatio": 0.744,
+        "background": "rgb(255, 90, 54)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready for a website that actually works for you?",
+        "Book a free 20-minute call — no obligation, no sales pitch, just a chat about what you need."
+      ]
+    },
+    {
+      "top": 6069,
+      "height": 705,
+      "kind": "text",
+      "label": "Get in touch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "contact",
+      "geometry": {
+        "centredShare": 0.048,
+        "mirrorSymmetry": 0.642,
+        "whitespaceRatio": 0.763,
+        "contentWidthRatio": 0.722,
+        "background": "rgb(242, 239, 232)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get in touch",
+        "Tell us a bit about your business and what you're looking for. We reply to every enquiry within one working day.",
+        "0114 234 5678",
+        "Unit 4, Riverside Works, Sheffield, S3 8GG"
+      ]
+    },
+    {
+      "top": 6774,
+      "height": 343,
+      "kind": "text",
+      "label": "Doman.Digital Websites for small businesses, designed, built",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.851,
+        "whitespaceRatio": 0.765,
+        "contentWidthRatio": 0.744,
+        "background": "rgb(19, 20, 23)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.506,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 90, 54)",
+          "rgb(31, 111, 92)"
+        ],
+        "area": 261276,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "A great website, built for you and looked after every month.",
+    "Doman Digital designs and builds websites for small businesses, then hosts, updates and improves them for a flat monthly fee. No £3,000 invoice up front. No abandoned site a year later.",
+    "No contracts longer than 30 days. Cancel any time, keep your domain.",
+    "🇬🇧 Based in the UK, serving small businesses nationwide",
+    "⭐ 4.9/5 from 60+ small business owners",
+    "🛠️ 120+ websites built since 2018",
+    "📍 Studio in Sheffield, clients UK-wide",
+    "🔒 Hosted & secured, monitored daily"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      26,
+      27,
+      30,
+      32,
+      34,
+      35,
+      38,
+      46
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 42.9,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 50.1,
+    "edgeDensity": 0.058,
+    "symmetry": 0.94,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

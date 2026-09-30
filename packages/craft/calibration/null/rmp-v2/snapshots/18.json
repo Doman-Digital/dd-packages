@@ -1,0 +1,740 @@
+{
+  "version": 2,
+  "url": "pages/18.html",
+  "capturedAt": "2026-09-30T14:11:16.746Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4923,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(245, 247, 250)",
+        "area": 1708346,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1096088,
+        "chars": 0
+      },
+      {
+        "value": "rgb(11, 37, 69)",
+        "area": 1088746,
+        "chars": 0
+      },
+      {
+        "value": "rgb(8, 26, 51)",
+        "area": 522113,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 365393,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.97)",
+        "area": 128295,
+        "chars": 0
+      },
+      {
+        "value": "rgb(242, 169, 0)",
+        "area": 59238,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.12)",
+        "area": 15947,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 117, 128)",
+        "area": 0,
+        "chars": 1918
+      },
+      {
+        "value": "rgb(11, 37, 69)",
+        "area": 0,
+        "chars": 736
+      },
+      {
+        "value": "rgb(219, 228, 240)",
+        "area": 0,
+        "chars": 511
+      },
+      {
+        "value": "rgb(169, 182, 201)",
+        "area": 0,
+        "chars": 497
+      },
+      {
+        "value": "rgb(44, 51, 58)",
+        "area": 0,
+        "chars": 426
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 345
+      },
+      {
+        "value": "rgb(230, 236, 245)",
+        "area": 0,
+        "chars": 264
+      },
+      {
+        "value": "rgb(198, 211, 230)",
+        "area": 0,
+        "chars": 245
+      },
+      {
+        "value": "rgb(242, 169, 0)",
+        "area": 0,
+        "chars": 112
+      },
+      {
+        "value": "rgb(59, 44, 0)",
+        "area": 0,
+        "chars": 80
+      },
+      {
+        "value": "rgb(217, 148, 0)",
+        "area": 0,
+        "chars": 61
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4419,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 764,
+      "displayChars": 497,
+      "italicChars": 0,
+      "weights": [
+        500,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 43,
+      "weight": 800,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted Electricians for Homes & Small Businesses Across the Region",
+      "top": 236
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why homeowners & businesses call RMP first",
+      "top": 258
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Electrical Services for Every Job, Big or Small",
+      "top": 944
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Consumer Unit Upgrades",
+      "top": 1245
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Full & Partial Rewires",
+      "top": 1245
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "EV Charger Installation",
+      "top": 1245
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lighting Installation",
+      "top": 1245
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "EICR Safety Inspections",
+      "top": 1569
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fault Finding & Repairs",
+      "top": 1569
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlord Safety Certificates",
+      "top": 1569
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small Commercial Works",
+      "top": 1569
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local, Qualified, and Accountable",
+      "top": 1939
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Proudly Serving Uxbridge and Beyond",
+      "top": 2626
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What Our Customers Say",
+      "top": 3168
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 27,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Need an Electrician You Can Rely On?",
+      "top": 3690
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get In Touch",
+      "top": 3920
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Request a Free Quote",
+      "top": 3921
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 57,
+      "background": "rgb(242, 169, 0)",
+      "text": "Get a Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 57,
+      "background": "rgb(242, 169, 0)",
+      "text": "Request a Free Quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 57,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Call 01895 123 456"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 50,
+      "heightPx": 57,
+      "background": "rgb(11, 37, 69)",
+      "text": "Call 01895 123 456"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 50,
+      "heightPx": 50,
+      "background": "rgb(242, 169, 0)",
+      "text": "Send Enquiry"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 89,
+      "kind": "hero",
+      "label": "RMP Electrical Services Why Us Areas Covered Reviews Contact",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.896,
+        "whitespaceRatio": 0.754,
+        "contentWidthRatio": 0.786,
+        "background": "rgba(255, 255, 255, 0.97)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 89,
+      "height": 745,
+      "kind": "hero",
+      "label": "Trusted Electricians for Homes & Small Businesses Across the",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.791,
+        "whitespaceRatio": 0.618,
+        "contentWidthRatio": 0.766,
+        "background": "rgb(255, 255, 255)",
+        "controls": 2
+      },
+      "badges": [
+        "✔ NICEIC Registered",
+        "✔ Fully Insured",
+        "✔ Free Written Quotes"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Trusted Electricians for Homes & Small Businesses Across the Region",
+        "RMP Electrical is a Uxbridge-based electrical contractor serving London, Berkshire, Buckinghamshire and Oxfordshire. From a single socket to a full rewire, we deliver safe, tidy, and reliable electrical work — every time.",
+        "Why homeowners & businesses call RMP first",
+        "Same-week appointments across our coverage area",
+        "Upfront, fixed-price quotes — no surprise call-out fees",
+        "All work certified and compliant with BS 7671",
+        "Friendly, uniformed engineers who leave your property clean",
+        "Emergency call-outs available for urgent electrical faults",
+        "✔ NICEIC Registered",
+        "✔ Fully Insured",
+        "✔ Free Written Quotes",
+        "Average Customer Rating"
+      ]
+    },
+    {
+      "top": 834,
+      "height": 995,
+      "kind": "cards",
+      "label": "Electrical Services for Every Job, Big or Small",
+      "cards": 8,
+      "iconCards": 8,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0.158,
+        "mirrorSymmetry": 0.984,
+        "whitespaceRatio": 0.762,
+        "contentWidthRatio": 0.753,
+        "background": "rgb(245, 247, 250)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Electrical Services for Every Job, Big or Small",
+        "Whether you're a homeowner, landlord, or small business owner, our qualified electricians handle installation, repair, and safety work to the highest standard.",
+        "Consumer Unit Upgrades",
+        "Replace an outdated fuse box with a modern, RCD-protected consumer unit for better protection against electric shock and fire.",
+        "Full & Partial Rewires",
+        "Complete rewiring for older properties or targeted rewiring for extensions, renovations and loft conversions.",
+        "EV Charger Installation",
+        "OZEV-approved home and workplace charge point installation, including consumer unit assessment and load calculations.",
+        "Lighting Installation",
+        "Indoor and outdoor lighting design and fitting, from downlights and LED upgrades to garden and security lighting.",
+        "EICR Safety Inspections",
+        "Electrical Installation Condition Reports for homeowners, landlords and businesses to satisfy legal and insurance requirements.",
+        "Fault Finding & Repairs",
+        "Tripping circuits, power outages, flickering lights — we diagnose and fix electrical faults quickly and correctly first time.",
+        "Landlord Safety Certificates",
+        "EICRs, PAT testing and smoke/CO alarm compliance to keep rental properties safe and legally compliant.",
+        "Small Commercial Works",
+        "Office and shop fit-outs, emergency lighting, data cabling and periodic testing for small business premises.",
+        "What We Do"
+      ]
+    },
+    {
+      "top": 1829,
+      "height": 687,
+      "kind": "text",
+      "label": "Local, Qualified, and Accountable",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.316,
+        "whitespaceRatio": 0.741,
+        "contentWidthRatio": 0.799,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Local, Qualified, and Accountable",
+        "RMP Electrical was founded in Uxbridge with a simple aim: to give homeowners and small businesses an electrician they can actually trust. Every job — from a quick repair to a full rewire — is carried out by qualified, NICEIC-registered engineers who take pride in doing things properly.",
+        "NICEIC Approved Contractor",
+        "All installations are certified and comply fully with current UK wiring regulations (BS 7671).",
+        "Public & Employer's Liability Insured",
+        "You're fully covered on every job, whatever the size of the project.",
+        "Transparent, Fixed-Price Quotes",
+        "We agree the price before we start — no hidden extras or inflated call-out charges.",
+        "Local to Uxbridge, Reliable Everywhere",
+        "Based centrally, we reach clients across London and the Home Counties promptly.",
+        "Serving the region",
+        "About RMP Electrical"
+      ]
+    },
+    {
+      "top": 2516,
+      "height": 541,
+      "kind": "cards",
+      "label": "Proudly Serving Uxbridge and Beyond",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.273,
+        "mirrorSymmetry": 0.942,
+        "whitespaceRatio": 0.785,
+        "contentWidthRatio": 0.751,
+        "background": "rgb(11, 37, 69)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Proudly Serving Uxbridge and Beyond",
+        "Based centrally in Uxbridge, we cover a wide area across London and the surrounding Home Counties.",
+        "West London",
+        "Uxbridge, Hillingdon, Ealing, Harrow, Ruislip, Hayes, Hounslow, Southall",
+        "Buckinghamshire",
+        "High Wycombe, Amersham, Chesham, Aylesbury, Marlow, Beaconsfield, Gerrards Cross",
+        "Berkshire",
+        "Slough, Reading, Maidenhead, Windsor, Wokingham, Bracknell",
+        "Oxfordshire",
+        "Oxford, Thame, Wallingford, Didcot, Banbury, Witney"
+      ]
+    },
+    {
+      "top": 3057,
+      "height": 577,
+      "kind": "cards",
+      "label": "What Our Customers Say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "testimonials",
+      "geometry": {
+        "centredShare": 0.467,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0.751,
+        "contentWidthRatio": 0.744,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What Our Customers Say",
+        "We're proud of the reputation we've built across London and the Home Counties.",
+        "\"Rewired our whole terraced house in Uxbridge over three days. Tidy, professional, and left everything spotless. Wouldn't hesitate to recommend.\"",
+        "\"Called RMP after our fuse box kept tripping. Engineer arrived same day, diagnosed a faulty circuit and fixed it on the spot. Fair price too.\"",
+        "\"We needed an EICR for our shop premises before renewing our lease. Quick to book, thorough report, and they explained everything clearly.\"",
+        "High Wycombe, Buckinghamshire"
+      ]
+    },
+    {
+      "top": 3634,
+      "height": 170,
+      "kind": "text",
+      "label": "Need an Electrician You Can Rely On?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.555,
+        "whitespaceRatio": 0.814,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Need an Electrician You Can Rely On?",
+        "Get a free, no-obligation quote today — most enquiries answered within the hour."
+      ]
+    },
+    {
+      "top": 3804,
+      "height": 756,
+      "kind": "text",
+      "label": "Get In Touch",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "contact",
+      "geometry": {
+        "centredShare": 0.045,
+        "mirrorSymmetry": 0.516,
+        "whitespaceRatio": 0.729,
+        "contentWidthRatio": 0.735,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get In Touch",
+        "Monday – Friday",
+        "8:00 – 18:00",
+        "Saturday",
+        "9:00 – 14:00",
+        "Sunday",
+        "Emergency call-outs only",
+        "Request a Free Quote",
+        "By submitting, you agree to be contacted by RMP Electrical regarding your enquiry.",
+        "We reply within 1 business day",
+        "Covering London, Berkshire, Bucks & Oxfordshire"
+      ]
+    },
+    {
+      "top": 4561,
+      "height": 363,
+      "kind": "cards",
+      "label": "RMP Electrical NICEIC registered electricians based in Uxbri",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.738,
+        "whitespaceRatio": 0.793,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(8, 26, 51)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.506,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(11, 37, 69)",
+          "rgb(19, 51, 94)",
+          "rgb(28, 72, 132)"
+        ],
+        "area": 1072485,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(223, 232, 245)",
+          "rgb(199, 214, 236)"
+        ],
+        "area": 164624,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(242, 169, 0)",
+          "rgb(217, 148, 0)"
+        ],
+        "area": 245250,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "images": [],
+  "firstScreenText": [
+    "Trusted Electricians for Homes & Small Businesses Across the Region",
+    "RMP Electrical is a Uxbridge-based electrical contractor serving London, Berkshire, Buckinghamshire and Oxfordshire. From a single socket to a full rewire, we deliver safe, tidy, and reliable electrical work — every time.",
+    "Why homeowners & businesses call RMP first",
+    "Same-week appointments across our coverage area",
+    "Upfront, fixed-price quotes — no surprise call-out fees",
+    "All work certified and compliant with BS 7671",
+    "Friendly, uniformed engineers who leave your property clean",
+    "Emergency call-outs available for urgent electrical faults",
+    "✔ NICEIC Registered",
+    "✔ Fully Insured",
+    "✔ Free Written Quotes",
+    "Average Customer Rating"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      24,
+      26,
+      27,
+      34,
+      43
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "10px",
+      "50px"
+    ],
+    "shadows": [
+      "rgba(11, 37, 69, 0.08) 0px 10px 30px 0px"
+    ],
+    "spacingOnScalePct": 46.4,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "version": 2,
+  "url": "pages/11.html",
+  "capturedAt": "2026-09-30T14:03:57.398Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5853,
+  "ground": "rgb(244, 239, 232)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(17, 17, 17)",
+        "area": 2244173,
+        "chars": 0
+      },
+      {
+        "value": "rgb(176, 83, 43)",
+        "area": 903024,
+        "chars": 0
+      },
+      {
+        "value": "rgb(30, 28, 26)",
+        "area": 514575,
+        "chars": 0
+      },
+      {
+        "value": "rgba(17, 17, 17, 0.15)",
+        "area": 265960,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(63, 59, 54)",
+        "area": 0,
+        "chars": 986
+      },
+      {
+        "value": "rgb(244, 239, 232)",
+        "area": 0,
+        "chars": 680
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.6)",
+        "area": 0,
+        "chars": 543
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.9)",
+        "area": 0,
+        "chars": 218
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.75)",
+        "area": 0,
+        "chars": 183
+      },
+      {
+        "value": "rgb(17, 17, 17)",
+        "area": 0,
+        "chars": 123
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.55)",
+        "area": 0,
+        "chars": 106
+      },
+      {
+        "value": "rgb(176, 83, 43)",
+        "area": 0,
+        "chars": 68
+      },
+      {
+        "value": "rgb(143, 66, 34)",
+        "area": 0,
+        "chars": 22
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Work Sans",
+      "chars": 2685,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600
+      ]
+    },
+    {
+      "family": "Bebas Neue",
+      "chars": 244,
+      "displayChars": 203,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Bebas Neue",
+      "sizePx": 88,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber.One chair.No rush.",
+      "top": 340
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Just one barber. That's the point.",
+      "top": 1164
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every service, one-to-one",
+      "top": 1966
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "The chair, the tools, the work",
+      "top": 3254
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What clients say",
+      "top": 4126
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "St John Street, Manchester",
+      "top": 4729
+    },
+    {
+      "level": 2,
+      "family": "Bebas Neue",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "One chair. Your time.",
+      "top": 5392
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 40,
+      "background": "rgb(176, 83, 43)",
+      "text": "Book Now"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(176, 83, 43)",
+      "text": "Call to Book — 0161 234 5678"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(176, 83, 43)",
+      "text": "Call 0161 234 5678"
+    }
+  ],
+  "sections": [
+    {
+      "top": 77,
+      "height": 935,
+      "kind": "hero",
+      "label": "One barber.One chair.No rush.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.829,
+        "contentWidthRatio": 0.351,
+        "background": "rgb(244, 239, 232)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "St John Street, Manchester",
+        "One barber.One chair.No rush.",
+        "Chair and Blade is a one-to-one barber studio in the heart of Manchester's Northern Quarter fringe. No queue of chairs, no shouting over clippers — just you, your barber, and a proper haircut."
+      ]
+    },
+    {
+      "top": 1012,
+      "height": 820,
+      "kind": "text",
+      "label": "Just one barber. That's the point.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.869,
+        "whitespaceRatio": 0.54,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(244, 239, 232)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "The Studio",
+        "Just one barber. That's the point.",
+        "Chair and Blade was built around a simple idea: a haircut should feel like it's just for you. There's only one chair here, which means no handing you off to whoever's free, no rushing between three clients at once. When you sit down, you have my full attention until you walk out the door.",
+        "I trained across Manchester's independent barbershops for over a decade before opening this space on St John Street — a small, quiet corner of the city where I could do things properly: precise fades, sharp beard work, and old-school hot towel shaves, all at a pace that respects the craft.",
+        "Every appointment is one-to-one, booked by time slot, so you're never waiting behind a walk-in queue.",
+        "— Tom, Chair and Blade"
+      ]
+    },
+    {
+      "top": 1832,
+      "height": 1288,
+      "kind": "text",
+      "label": "Every service, one-to-one",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.136,
+        "mirrorSymmetry": 0.369,
+        "whitespaceRatio": 0.827,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(17, 17, 17)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 6,
+      "text": [
+        "Services & Pricing",
+        "Every service, one-to-one",
+        "No add-on upsells, no rushing the clock. Prices include a consultation, wash, and finish every time.",
+        "Cash and card accepted. Appointments only — no walk-ins, so every slot is one-to-one from start to finish.",
+        "Scissor or clipper cut, tailored to your hair type and how you wear it day to day.",
+        "Precision fade blended to a razor finish, styled on top to suit your face shape.",
+        "Cut & Beard Trim",
+        "Full haircut paired with a shaped beard trim and line-up.",
+        "Beard Trim & Shape",
+        "Beard-only service — trimmed, shaped, and edged with a straight razor.",
+        "Hot Towel Shave",
+        "Traditional straight-razor shave with hot towels and pre-shave oil.",
+        "The Full House",
+        "Cut, beard trim, and hot towel shave — the complete Chair and Blade experience."
+      ]
+    },
+    {
+      "top": 3120,
+      "height": 872,
+      "kind": "text",
+      "label": "The chair, the tools, the work",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.973,
+        "whitespaceRatio": 0.511,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(244, 239, 232)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Inside the Studio",
+        "The chair, the tools, the work"
+      ]
+    },
+    {
+      "top": 3991,
+      "height": 604,
+      "kind": "cards",
+      "label": "What clients say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "testimonials",
+      "geometry": {
+        "centredShare": 0.455,
+        "mirrorSymmetry": 0.966,
+        "whitespaceRatio": 0.775,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(176, 83, 43)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Word on the Street",
+        "What clients say",
+        "\"Best fade I've had in Manchester, full stop. No waiting around, no distractions — just a proper haircut and a good chat.\"",
+        "James H.",
+        "\"Been going for eight months now. Booking a specific time and knowing it's one-to-one makes such a difference — never feel like a number.\"",
+        "Adeyemi O.",
+        "\"The hot towel shave alone is worth the trip into town. Small studio, huge attention to detail.\"",
+        "Marcus T."
+      ]
+    },
+    {
+      "top": 4595,
+      "height": 707,
+      "kind": "text",
+      "label": "St John Street, Manchester",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.832,
+        "contentWidthRatio": 0.344,
+        "background": "rgb(244, 239, 232)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Find the Studio",
+        "St John Street, Manchester",
+        "Tucked just off Deansgate, a two-minute walk from Spinningfields. Look for the black frontage with the brass sign.",
+        "Address",
+        "Chair and Blade, 14 St John Street, Manchester, M3 4DQ",
+        "Phone",
+        "0161 234 5678",
+        "Email",
+        "book@chairandblade.co.uk",
+        "Hours",
+        "Tuesday – Friday: 9am – 6pmSaturday: 9am – 4pmSunday & Monday: Closed"
+      ]
+    },
+    {
+      "top": 5302,
+      "height": 357,
+      "kind": "text",
+      "label": "One chair. Your time.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "footer-cta",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.778,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(30, 28, 26)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "One chair. Your time.",
+        "Slots are limited since it's just me — book ahead to get the day and time you want."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.337,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(17, 17, 17, 0.55)",
+          "rgba(17, 17, 17, 0.75)"
+        ],
+        "area": 1346310,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=80",
+      "host": "images.unsplash.com",
+      "width": 1440,
+      "height": 935,
+      "top": 77,
+      "role": "photo",
+      "alt": null,
+      "decorative": true,
+      "section": 0,
+      "background": true,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80",
+      "host": "images.unsplash.com",
+      "width": 496,
+      "height": 620,
+      "top": 1112,
+      "role": "photo",
+      "alt": "Barber sharpening a straight razor at Chair and Blade studio",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 43188
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80",
+      "host": "images.unsplash.com",
+      "width": 518,
+      "height": 536,
+      "top": 3355,
+      "role": "photo",
+      "alt": "Chair and Blade barber studio interior",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 157116
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1521490878032-9a4a1ff2fd0e?auto=format&fit=crop&w=600&q=80",
+      "host": "images.unsplash.com",
+      "width": 251,
+      "height": 260,
+      "top": 3355,
+      "role": "photo",
+      "alt": "Barbering tools laid out at the studio",
+      "decorative": false,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1596728325488-58c87691e9af?auto=format&fit=crop&w=600&q=80",
+      "host": "images.unsplash.com",
+      "width": 251,
+      "height": 260,
+      "top": 3355,
+      "role": "photo",
+      "alt": "Client receiving a skin fade haircut",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 33453
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80",
+      "host": "images.unsplash.com",
+      "width": 251,
+      "height": 260,
+      "top": 3631,
+      "role": "photo",
+      "alt": "Beard trim in progress at the studio",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 106253
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80",
+      "host": "images.unsplash.com",
+      "width": 251,
+      "height": 260,
+      "top": 3631,
+      "role": "photo",
+      "alt": "Close up of finished haircut styling",
+      "decorative": false,
+      "section": 3,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 45401
+      }
+    }
+  ],
+  "firstScreenText": [
+    "St John Street, Manchester",
+    "One barber.One chair.No rush.",
+    "Chair and Blade is a one-to-one barber studio in the heart of Manchester's Northern Quarter fringe. No queue of chairs, no shouting over clippers — just you, your barber, and a proper haircut."
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 7,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      22,
+      26,
+      29,
+      48,
+      51,
+      88
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "4px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 23.7,
+    "bodyLineLengthCh": 48,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 44,
+    "edgeDensity": 0.075,
+    "symmetry": 0.885,
+    "width": 1440,
+    "height": 5853,
+    "sampled": 936480
+  }
+}

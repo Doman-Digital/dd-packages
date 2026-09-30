@@ -1,0 +1,809 @@
+{
+  "version": 2,
+  "url": "pages/20.html",
+  "capturedAt": "2026-09-30T14:02:16.385Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4307,
+  "ground": "rgb(250, 246, 241)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2363963,
+        "chars": 0
+      },
+      {
+        "value": "rgba(74, 93, 78, 0.05)",
+        "area": 731520,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 246, 241)",
+        "area": 515200,
+        "chars": 0
+      },
+      {
+        "value": "rgb(28, 25, 23)",
+        "area": 310610,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 243, 244)",
+        "area": 309136,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 246, 241, 0.95)",
+        "area": 116640,
+        "chars": 0
+      },
+      {
+        "value": "rgb(74, 93, 78)",
+        "area": 53292,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 228, 230)",
+        "area": 20440,
+        "chars": 0
+      },
+      {
+        "value": "rgb(207, 78, 100)",
+        "area": 18629,
+        "chars": 0
+      },
+      {
+        "value": "rgba(74, 93, 78, 0.1)",
+        "area": 1296,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(87, 83, 78)",
+        "area": 0,
+        "chars": 1219
+      },
+      {
+        "value": "rgb(68, 64, 60)",
+        "area": 0,
+        "chars": 508
+      },
+      {
+        "value": "rgb(28, 25, 23)",
+        "area": 0,
+        "chars": 478
+      },
+      {
+        "value": "rgb(120, 113, 108)",
+        "area": 0,
+        "chars": 313
+      },
+      {
+        "value": "rgb(168, 162, 158)",
+        "area": 0,
+        "chars": 295
+      },
+      {
+        "value": "rgb(214, 211, 209)",
+        "area": 0,
+        "chars": 121
+      },
+      {
+        "value": "rgb(250, 246, 241)",
+        "area": 0,
+        "chars": 118
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 73
+      },
+      {
+        "value": "rgb(179, 56, 78)",
+        "area": 0,
+        "chars": 67
+      },
+      {
+        "value": "rgb(41, 37, 36)",
+        "area": 0,
+        "chars": 44
+      },
+      {
+        "value": "rgb(149, 43, 64)",
+        "area": 0,
+        "chars": 38
+      },
+      {
+        "value": "rgb(224, 116, 133)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(207, 78, 100)",
+        "area": 0,
+        "chars": 12
+      },
+      {
+        "value": "rgb(246, 201, 207)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 2770,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 557,
+      "displayChars": 412,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 60,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Glass skin, without the wait.",
+      "top": 388
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 36,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why shop with Harrisons",
+      "top": 1217
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Real UK stock",
+      "top": 1449
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "1–3 day delivery",
+      "top": 1449
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Guaranteed authentic",
+      "top": 1449
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Skin-first advice",
+      "top": 1449
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 36,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bestsellers this month",
+      "top": 1720
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Advanced Snail 96 Mucin Power Essence",
+      "top": 2159
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Glow Deep Serum — Rice + Alpha Arbutin",
+      "top": 2159
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Heartleaf 77% Soothing Toner",
+      "top": 2159
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Dive-In Low Molecular Hyaluronic Acid Serum",
+      "top": 2159
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 36,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Not sure where to start?",
+      "top": 2461
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleanse",
+      "top": 2708
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Treat",
+      "top": 2708
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Seal + Protect",
+      "top": 2708
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 36,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Loved by skin across the UK",
+      "top": 3057
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 30,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 3621
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 24,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "3"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 9999,
+      "heightPx": 54,
+      "background": "rgb(207, 78, 100)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 9999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Build Your Routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(28, 25, 23)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(28, 25, 23)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(28, 25, 23)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 32,
+      "background": "rgb(28, 25, 23)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 9999,
+      "heightPx": 52,
+      "background": "rgb(207, 78, 100)",
+      "text": "Get my code"
+    }
+  ],
+  "sections": [
+    {
+      "top": 36,
+      "height": 81,
+      "kind": "hero",
+      "label": "Harrisons Beauty Bestsellers Brands Build a Routine Why Us R",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.143,
+        "mirrorSymmetry": 0.661,
+        "whitespaceRatio": 0.817,
+        "contentWidthRatio": 0.844,
+        "background": "rgba(250, 246, 241, 0.95)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 117,
+      "height": 922,
+      "kind": "hero",
+      "label": "Glass skin, without the wait.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.552,
+        "whitespaceRatio": 0.545,
+        "contentWidthRatio": 0.844,
+        "background": "rgb(250, 246, 241)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Glass skin, without the wait.",
+        "We hold real UK stock of the K-beauty brands your feed keeps recommending — COSRX, Beauty of Joseon, Anua, Torriden and more. Order today, no customs fees, no three-week wait, no risk of fakes.",
+        "Dispatched from Manchester — arrives in 1–3 days",
+        "Korean Skincare, Delivered From the UK",
+        "4.9/5 from 3,200+ UK customers"
+      ]
+    },
+    {
+      "top": 1039,
+      "height": 98,
+      "kind": "marquee",
+      "label": "COSRXBeauty of JoseonAnuaTorridenRound LabSKIN1004IsntreeNum",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "marquee",
+      "geometry": {
+        "centredShare": 0.063,
+        "mirrorSymmetry": 0.779,
+        "whitespaceRatio": 0.626,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Beauty of Joseon"
+      ]
+    },
+    {
+      "top": 1137,
+      "height": 502,
+      "kind": "cards",
+      "label": "Why shop with Harrisons",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.967,
+        "whitespaceRatio": 0.767,
+        "contentWidthRatio": 0.822,
+        "background": "rgb(250, 246, 241)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Why shop with Harrisons",
+        "We got tired of paying customs charges and waiting weeks for skincare that costs a few pounds. So we built the UK stockist we wished existed.",
+        "Real UK stock",
+        "Everything is held in our Manchester warehouse — no drop-shipping, no surprise customs bills.",
+        "1–3 day delivery",
+        "Order before 2pm and your skincare ships the same day, tracked from door to door.",
+        "Guaranteed authentic",
+        "Sourced directly from Korean manufacturers and verified distributors, batch-checked on arrival.",
+        "Skin-first advice",
+        "Concise, no-nonsense ingredient info and routine building — no 12-step overwhelm."
+      ]
+    },
+    {
+      "top": 1639,
+      "height": 742,
+      "kind": "cards",
+      "label": "Bestsellers this month",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.138,
+        "mirrorSymmetry": 0.928,
+        "whitespaceRatio": 0.608,
+        "contentWidthRatio": 0.844,
+        "background": "rgb(255, 255, 255)",
+        "controls": 4
+      },
+      "badges": [
+        "Bestseller",
+        "New in"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Bestsellers this month",
+        "The routine staples our UK customers keep reordering.",
+        "COSRX",
+        "Advanced Snail 96 Mucin Power Essence",
+        "Beauty of Joseon",
+        "Glow Deep Serum — Rice + Alpha Arbutin",
+        "Anua",
+        "Heartleaf 77% Soothing Toner",
+        "Torriden",
+        "Dive-In Low Molecular Hyaluronic Acid Serum"
+      ]
+    },
+    {
+      "top": 2381,
+      "height": 596,
+      "kind": "stats",
+      "label": "Not sure where to start?",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.286,
+        "mirrorSymmetry": 0.978,
+        "whitespaceRatio": 0.785,
+        "contentWidthRatio": 0.799,
+        "background": "rgb(250, 246, 241)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Not sure where to start?",
+        "Korean skincare works because of layering, not because it's complicated. Here's the order that actually matters.",
+        "Cleanse",
+        "Oil cleanser to dissolve SPF and makeup, followed by a gentle low-pH gel cleanser. Skin should feel clean, never tight.",
+        "Treat",
+        "Toner, essence, then serum — thinnest to thickest. This is where actives like niacinamide, snail mucin and centella do the work.",
+        "Seal + Protect",
+        "Moisturiser to lock everything in, and SPF every single morning — the real secret behind \"glass skin\"."
+      ]
+    },
+    {
+      "top": 2977,
+      "height": 508,
+      "kind": "cards",
+      "label": "Loved by skin across the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.96,
+        "whitespaceRatio": 0.739,
+        "contentWidthRatio": 0.844,
+        "background": "rgba(74, 93, 78, 0.05)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Loved by skin across the UK",
+        "★★★★★",
+        "\"Ordered on a Tuesday afternoon, had it Thursday morning. My old supplier from abroad took three weeks and once hit me with a £12 customs fee. Never going back.\"",
+        "Chloe R. — Leeds",
+        "\"The Beauty of Joseon serum cleared my dark spots in about six weeks. Genuinely didn't expect it to make this much difference for the price.\"",
+        "Amira K. — Birmingham",
+        "\"I was nervous about buying K-beauty online after getting a fake sheet mask elsewhere. Everything here has proper batch codes, feels completely legit.\"",
+        "Grace T. — Bristol"
+      ]
+    },
+    {
+      "top": 3485,
+      "height": 476,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.993,
+        "whitespaceRatio": 0.826,
+        "contentWidthRatio": 0.578,
+        "background": "rgb(250, 246, 241)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get 10% off your first order",
+        "Join our list for restock alerts, routine tips and first access to new K-beauty launches — no spam, unsubscribe any time."
+      ]
+    },
+    {
+      "top": 3961,
+      "height": 346,
+      "kind": "cards",
+      "label": "Harrisons Beauty Authentic Korean skincare, held in UK stock",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.048,
+        "mirrorSymmetry": 0.691,
+        "whitespaceRatio": 0.832,
+        "contentWidthRatio": 0.844,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.545,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(251, 228, 230)",
+          "rgb(253, 243, 244)",
+          "rgb(250, 246, 241)"
+        ],
+        "area": 426320,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 1,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "images": [
+    {
+      "src": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000&auto=format&fit=crop",
+      "host": "images.unsplash.com",
+      "width": 584,
+      "height": 730,
+      "top": 213,
+      "role": "photo",
+      "alt": "Korean skincare bottles arranged on a marble surface",
+      "decorative": false,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 131390
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop",
+      "host": "images.unsplash.com",
+      "width": 278,
+      "height": 278,
+      "top": 1841,
+      "role": "photo",
+      "alt": "COSRX Advanced Snail 96 Mucin Power Essence",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 51412
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=800&auto=format&fit=crop",
+      "host": "images.unsplash.com",
+      "width": 278,
+      "height": 278,
+      "top": 1841,
+      "role": "photo",
+      "alt": "Beauty of Joseon Glow Deep Serum",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 86965
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop",
+      "host": "images.unsplash.com",
+      "width": 278,
+      "height": 278,
+      "top": 1841,
+      "role": "photo",
+      "alt": "Anua Heartleaf 77% Soothing Toner",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 30753
+      }
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1620756236572-731c94d99688?q=80&w=800&auto=format&fit=crop",
+      "host": "images.unsplash.com",
+      "width": 278,
+      "height": 278,
+      "top": 1841,
+      "role": "photo",
+      "alt": "Torriden Dive-In Serum",
+      "decorative": false,
+      "section": 4,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Glass skin, without the wait.",
+    "We hold real UK stock of the K-beauty brands your feed keeps recommending — COSRX, Beauty of Joseon, Anua, Torriden and more. Order today, no customs fees, no three-week wait, no risk of fakes.",
+    "Free UK delivery on orders over £25 · Next-day dispatch from our Manchester warehouse · 100% authentic, sourced direct",
+    "Korean Skincare, Delivered From the UK",
+    "4.9/5 from 3,200+ UK customers"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 1,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      14,
+      16,
+      18,
+      24,
+      30,
+      36,
+      60
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600
+    ],
+    "radii": [
+      "16px",
+      "9999px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(246, 201, 207) 0px 10px 15px -3px, rgb(246, 201, 207) 0px 4px 6px -4px"
+    ],
+    "spacingOnScalePct": 90.8,
+    "bodyLineLengthCh": 44,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 16.4,
+    "edgeDensity": 0.055,
+    "symmetry": 0.945,
+    "width": 1440,
+    "height": 4307,
+    "sampled": 689280
+  }
+}

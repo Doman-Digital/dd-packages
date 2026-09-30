@@ -1,0 +1,810 @@
+{
+  "version": 2,
+  "url": "pages/10.html",
+  "capturedAt": "2026-09-30T14:00:53.158Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5218,
+  "ground": "rgb(251, 246, 241)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3427275,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 1200720,
+        "chars": 0
+      },
+      {
+        "value": "rgb(243, 217, 220)",
+        "area": 241072,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 157015,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 246, 241)",
+        "area": 115704,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 25200,
+        "chars": 0
+      },
+      {
+        "value": "rgb(231, 180, 187)",
+        "area": 18358,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.6)",
+        "area": 10444,
+        "chars": 0
+      },
+      {
+        "value": "rgb(169, 182, 161)",
+        "area": 4332,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(92, 83, 76)",
+        "area": 0,
+        "chars": 1054
+      },
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 0,
+        "chars": 857
+      },
+      {
+        "value": "rgb(74, 66, 60)",
+        "area": 0,
+        "chars": 698
+      },
+      {
+        "value": "rgb(207, 196, 186)",
+        "area": 0,
+        "chars": 335
+      },
+      {
+        "value": "rgb(119, 111, 103)",
+        "area": 0,
+        "chars": 289
+      },
+      {
+        "value": "rgb(184, 173, 163)",
+        "area": 0,
+        "chars": 261
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 255
+      },
+      {
+        "value": "rgb(148, 139, 131)",
+        "area": 0,
+        "chars": 223
+      },
+      {
+        "value": "rgb(201, 138, 125)",
+        "area": 0,
+        "chars": 134
+      },
+      {
+        "value": "rgb(138, 128, 121)",
+        "area": 0,
+        "chars": 98
+      },
+      {
+        "value": "rgb(119, 112, 106)",
+        "area": 0,
+        "chars": 54
+      },
+      {
+        "value": "rgb(244, 237, 230)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgb(224, 161, 58)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(168, 159, 150)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 3609,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 726,
+      "displayChars": 501,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 50,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Glass skin, without the customs form.",
+      "top": 250
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 35,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything for a proper K-beauty routine",
+      "top": 879
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleansers",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Toners & Essences",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Serums & Ampoules",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sheet Masks",
+      "top": 1222
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "SPF & Sun Care",
+      "top": 1477
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Moisturisers",
+      "top": 1477
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Eye Care",
+      "top": 1477
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lip & Tint",
+      "top": 1477
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 35,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "What our customers keep reordering",
+      "top": 1783
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Relief Sun: Rice + Probiotics SPF50+",
+      "top": 2187
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Advanced Snail 96 Mucin Power Essence",
+      "top": 2187
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Heartleaf 77% Soothing Toner",
+      "top": 2187
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Madagascar Centella Ampoule",
+      "top": 2187
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Not sure where to start? We'll build your routine.",
+      "top": 2578
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Korean skincare, made simple for the UK",
+      "top": 3160
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 35,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Loved by skin all over the UK",
+      "top": 3815
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 4378
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 40,
+      "background": "rgb(44, 38, 34)",
+      "text": "Bag (0)"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 54,
+      "background": "rgb(44, 38, 34)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Build Your Routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 18,
+      "heightPx": 36,
+      "background": "rgb(251, 246, 241)",
+      "text": "+"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 54,
+      "background": "rgb(231, 180, 187)",
+      "text": "Take the 2-Minute Skin Quiz"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 40,
+      "heightPx": 53,
+      "background": "rgb(44, 38, 34)",
+      "text": "Get My Code"
+    }
+  ],
+  "sections": [
+    {
+      "top": 114,
+      "height": 522,
+      "kind": "hero",
+      "label": "Glass skin, without the customs form.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.222,
+        "mirrorSymmetry": 0.589,
+        "whitespaceRatio": 0.731,
+        "contentWidthRatio": 0.793,
+        "background": "rgb(251, 246, 241)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Glass skin, without the customs form.",
+        "We import the Korean skincare everyone's talking about, hold it in our own UK warehouse, and get it to your door in 1–2 days — no import duty, no three-week wait, no guesswork.",
+        "Genuine Korean skincare · UK stock",
+        "10-Step Korean skincare, simplified for UK routines",
+        "⭐ 4.9/5 · 3,200+ reviews",
+        "🚚 Dispatched from the UK"
+      ]
+    },
+    {
+      "top": 636,
+      "height": 133,
+      "kind": "text",
+      "label": "🇬🇧 Shipped from UK stock — no customs charges ⚡ Order by 2",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.167,
+        "mirrorSymmetry": 0.808,
+        "whitespaceRatio": 0.768,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [
+        "🇬🇧",
+        "↩️"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "🇬🇧 Shipped from UK stock — no customs charges",
+        "⚡ Order by 2pm for next-day dispatch",
+        "✅ 100% authentic, sourced directly from Korean brands",
+        "↩️ Easy 30-day returns"
+      ]
+    },
+    {
+      "top": 769,
+      "height": 905,
+      "kind": "cards",
+      "label": "Everything for a proper K-beauty routine",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.794,
+        "contentWidthRatio": 0.751,
+        "background": "rgb(251, 246, 241)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything for a proper K-beauty routine",
+        "From double cleansing to the final glow-locking layer, we've got each step covered with brands trusted across Seoul and now Sheffield.",
+        "Cleansers",
+        "Oil balms & foams for double cleansing",
+        "Toners & Essences",
+        "Hydration-first, layerable formulas",
+        "Serums & Ampoules",
+        "Targeted fixes for texture, tone & lines",
+        "Sheet Masks",
+        "10-minute resets for tired, dull skin",
+        "SPF & Sun Care",
+        "Weightless, no white-cast sunscreens",
+        "Moisturisers",
+        "Barrier-repairing creams & gel-creams",
+        "Eye Care",
+        "Patches, creams & de-puffing tools",
+        "Lip & Tint",
+        "The gradient-lip look, made easy",
+        "Shop by Category"
+      ]
+    },
+    {
+      "top": 1673,
+      "height": 736,
+      "kind": "cards",
+      "label": "What our customers keep reordering",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.107,
+        "mirrorSymmetry": 0.936,
+        "whitespaceRatio": 0.842,
+        "contentWidthRatio": 0.764,
+        "background": "rgb(255, 255, 255)",
+        "controls": 4
+      },
+      "badges": [
+        "Bestseller",
+        "New in",
+        "Bestseller",
+        "Cult favourite"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What our customers keep reordering",
+        "All held in our own UK stockroom, so what you see is what's ready to post today.",
+        "Relief Sun: Rice + Probiotics SPF50+",
+        "Advanced Snail 96 Mucin Power Essence",
+        "Heartleaf 77% Soothing Toner",
+        "Madagascar Centella Ampoule",
+        "Beauty of Joseon"
+      ]
+    },
+    {
+      "top": 2409,
+      "height": 639,
+      "kind": "text",
+      "label": "Not sure where to start? We'll build your routine.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.474,
+        "whitespaceRatio": 0.842,
+        "contentWidthRatio": 0.586,
+        "background": "rgb(251, 246, 241)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Not sure where to start? We'll build your routine.",
+        "K-beauty can mean a 10-step routine or a simple 4-step one — either way, we'll match products to your skin type and concerns, and ship them together in one box.",
+        "Oil balm, then a gentle foam",
+        "Hydrating toner + targeted serum",
+        "Lock it all in with a barrier cream",
+        "SPF every single morning, rain or shine"
+      ]
+    },
+    {
+      "top": 3048,
+      "height": 657,
+      "kind": "cards",
+      "label": "Korean skincare, made simple for the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.091,
+        "mirrorSymmetry": 0.976,
+        "whitespaceRatio": 0.559,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 2,
+      "text": [
+        "Korean skincare, made simple for the UK",
+        "Harrisons Beauty was founded by two skincare obsessives who kept importing the same Korean products for friends and family. Rather than everyone dealing with slow overseas shipping and surprise customs charges, we now buy directly from Korean manufacturers, hold full stock in our own UK warehouse, a",
+        "That means the price you see is the price you pay, your order arrives in days rather than weeks, and if something's not right, returns are as easy as popping to the Post Office.",
+        "\"We started Harrisons Beauty because we were tired of waiting three weeks — and paying customs fees — for the products our skin actually loved.\"",
+        "Korean brands stocked",
+        "Average UK delivery"
+      ]
+    },
+    {
+      "top": 3705,
+      "height": 613,
+      "kind": "cards",
+      "label": "Loved by skin all over the UK",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.389,
+        "mirrorSymmetry": 0.979,
+        "whitespaceRatio": 0.765,
+        "contentWidthRatio": 0.746,
+        "background": "rgb(251, 246, 241)",
+        "controls": 0
+      },
+      "badges": [
+        "EM",
+        "RK",
+        "SP"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Loved by skin all over the UK",
+        "Real reviews from real customers — verified at checkout.",
+        "\"Ordered on a Tuesday evening, had my snail mucin essence by Thursday morning. Genuinely can't believe how fast it was — and no customs charge on top, unlike other sites I've used.\"",
+        "\"My skin has never looked this good. The Beauty of Joseon SPF doesn't leave a white cast at all and I've already repurchased twice. Packaging arrives really carefully wrapped too.\"",
+        "\"Did the skin quiz not expecting much and it recommended exactly the routine my dermatologist had suggested. Saved me hours of scrolling through Reddit threads.\"",
+        "Verified buyer, Leeds",
+        "Verified buyer, Bristol",
+        "Verified buyer, Cardiff"
+      ]
+    },
+    {
+      "top": 4318,
+      "height": 501,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.996,
+        "whitespaceRatio": 0.82,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(251, 246, 241)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get 10% off your first order",
+        "Join our list for new arrivals, restock alerts, and the occasional Korean skincare deep-dive — no spam, unsubscribe any time.",
+        "By signing up you agree to receive marketing emails from Harrisons Beauty. See our Privacy Policy."
+      ]
+    },
+    {
+      "top": 4819,
+      "height": 399,
+      "kind": "text",
+      "label": "Harrisons Beauty Authentic Korean skincare, shipped from our",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.811,
+        "whitespaceRatio": 0.839,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(44, 38, 34)",
+        "controls": 0
+      },
+      "badges": [
+        "IG",
+        "TT"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.363,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(243, 217, 220)",
+          "rgb(248, 233, 230)",
+          "rgb(251, 246, 241)"
+        ],
+        "area": 751590,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(231, 180, 187)"
+        ],
+        "area": 115600,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(243, 217, 220)",
+          "rgb(248, 233, 230)"
+        ],
+        "area": 476961,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "images": [],
+  "firstScreenText": [
+    "Glass skin, without the customs form.",
+    "We import the Korean skincare everyone's talking about, hold it in our own UK warehouse, and get it to your door in 1–2 days — no import duty, no three-week wait, no guesswork.",
+    "Everything for a proper K-beauty routine",
+    "Free UK delivery on orders over £30 · Dispatched from our Manchester warehouse within 24 hours",
+    "Genuine Korean skincare · UK stock",
+    "10-Step Korean skincare, simplified for UK routines",
+    "⭐ 4.9/5 · 3,200+ reviews",
+    "🚚 Dispatched from the UK",
+    "🇬🇧 Shipped from UK stock — no customs charges",
+    "⚡ Order by 2pm for next-day dispatch",
+    "✅ 100% authentic, sourced directly from Korean brands",
+    "↩️ Easy 30-day returns"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      24,
+      26,
+      27,
+      29,
+      32,
+      34,
+      35,
+      50
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "30px",
+      "40px",
+      "50%"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 31.9,
+    "bodyLineLengthCh": 47,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 16.9,
+    "edgeDensity": 0.059,
+    "symmetry": 0.959,
+    "width": 1440,
+    "height": 5218,
+    "sampled": 835200
+  }
+}

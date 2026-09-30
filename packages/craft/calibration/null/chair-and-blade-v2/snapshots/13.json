@@ -1,0 +1,652 @@
+{
+  "version": 2,
+  "url": "pages/13.html",
+  "capturedAt": "2026-09-30T14:04:15.931Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5053,
+  "ground": "rgb(244, 239, 232)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(22, 19, 17)",
+        "area": 3260070,
+        "chars": 0
+      },
+      {
+        "value": "rgb(234, 226, 214)",
+        "area": 2160225,
+        "chars": 0
+      },
+      {
+        "value": "rgb(169, 128, 63)",
+        "area": 520044,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.05)",
+        "area": 220095,
+        "chars": 0
+      },
+      {
+        "value": "rgb(36, 31, 25)",
+        "area": 214217,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.06)",
+        "area": 129501,
+        "chars": 0
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.92)",
+        "area": 113400,
+        "chars": 0
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.55)",
+        "area": 6124,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgba(22, 19, 17, 0.75)",
+        "area": 0,
+        "chars": 746
+      },
+      {
+        "value": "rgb(22, 19, 17)",
+        "area": 0,
+        "chars": 449
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.6)",
+        "area": 0,
+        "chars": 444
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.68)",
+        "area": 0,
+        "chars": 344
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.6)",
+        "area": 0,
+        "chars": 284
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.78)",
+        "area": 0,
+        "chars": 250
+      },
+      {
+        "value": "rgb(244, 239, 232)",
+        "area": 0,
+        "chars": 234
+      },
+      {
+        "value": "rgb(169, 128, 63)",
+        "area": 0,
+        "chars": 151
+      },
+      {
+        "value": "rgb(125, 94, 44)",
+        "area": 0,
+        "chars": 135
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.72)",
+        "area": 0,
+        "chars": 125
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.7)",
+        "area": 0,
+        "chars": 106
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.55)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgba(244, 239, 232, 0.65)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgba(22, 19, 17, 0.65)",
+        "area": 0,
+        "chars": 30
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 2841,
+      "displayChars": 27,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 529,
+      "displayChars": 229,
+      "italicChars": 48,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 58,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "One chair. One barber. Your full hour.",
+      "top": 226
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cutting hair on St John Street since day one",
+      "top": 865
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every service, full attention",
+      "top": 1593
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fewer chairs. Better haircuts.",
+      "top": 3177
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "No handovers",
+      "top": 3403
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fixed appointments",
+      "top": 3403
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A private room",
+      "top": 3403
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Find us on St John Street",
+      "top": 3779
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 12,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Address",
+      "top": 3855
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 12,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opening Hours",
+      "top": 3990
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 12,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contact",
+      "top": 4171
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 42,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for your hour?",
+      "top": 4438
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 42,
+      "background": "rgb(22, 19, 17)",
+      "text": "Book a Chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgb(169, 128, 63)",
+      "text": "Book Your Appointment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 53,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View Services & Prices"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 51,
+      "background": "rgb(22, 19, 17)",
+      "text": "Call 0161 496 0142"
+    }
+  ],
+  "sections": [
+    {
+      "top": 79,
+      "height": 603,
+      "kind": "hero",
+      "label": "One chair. One barber. Your full hour.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.425,
+        "whitespaceRatio": 0.718,
+        "contentWidthRatio": 0.73,
+        "background": "rgb(22, 19, 17)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "One chair. One barber. Your full hour.",
+        "Chair and Blade is a private, one-to-one barber studio in the heart of the Northern Quarter's neighbouring streets. No queue, no shared floor — just a proper conversation and a cut done properly, start to finish, by the same pair of hands every time.",
+        "St John Street, Manchester"
+      ]
+    },
+    {
+      "top": 682,
+      "height": 786,
+      "kind": "text",
+      "label": "Cutting hair on St John Street since day one",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.772,
+        "whitespaceRatio": 0.713,
+        "contentWidthRatio": 0.7,
+        "background": "rgb(234, 226, 214)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Cutting hair on St John Street since day one",
+        "Chair and Blade was built around a simple idea: a barber shop doesn't need six chairs to do great work — it needs one, run properly. I trained across Manchester's barbershops for over a decade before deciding the trade-off wasn't worth it anymore. Rushed appointments, three conversations happening a",
+        "Here, it's just you and me. Every booking is a fixed slot, every cut gets my full attention, and every client leaves knowing exactly what happened to their hair and why. It's barbering the way it used to be practised, on a quiet street two minutes from the city centre.",
+        "— Tom, founder of Chair and Blade",
+        "Owner & Barber"
+      ]
+    },
+    {
+      "top": 1468,
+      "height": 1050,
+      "kind": "text",
+      "label": "Every service, full attention",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.036,
+        "mirrorSymmetry": 0.708,
+        "whitespaceRatio": 0.833,
+        "contentWidthRatio": 0.717,
+        "background": "rgb(244, 239, 232)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Every service, full attention",
+        "No add-on menus, no upselling from a second barber. Prices are fixed and every appointment is timed so it never feels rushed.",
+        "First visit includes a proper consultation at no extra charge. Card and contactless payment only — there's no till in a one-chair studio.",
+        "Services & Prices",
+        "Consultation, wash, precision cut, style finish",
+        "Cut & Beard Sculpt",
+        "Full haircut with hot towel beard shape and line-up",
+        "Precision fade with razor finish and detailing",
+        "Beard Trim & Hot Towel",
+        "Shape, line-up, and traditional hot towel treatment",
+        "Straight Razor Shave",
+        "Traditional lather shave with hot and cold towels",
+        "The Full Sitting",
+        "Cut, beard sculpt, and straight razor shave — no clock watching"
+      ]
+    },
+    {
+      "top": 2518,
+      "height": 535,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(22, 19, 17)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 3052,
+      "height": 602,
+      "kind": "cards",
+      "label": "Fewer chairs. Better haircuts.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.25,
+        "mirrorSymmetry": 0.708,
+        "whitespaceRatio": 0.788,
+        "contentWidthRatio": 0.699,
+        "background": "rgb(22, 19, 17)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Fewer chairs. Better haircuts.",
+        "Most barbershops are built to keep three or four chairs busy at once. Chair and Blade is built around one.",
+        "No handovers",
+        "The barber who does your consultation is the one holding the clippers, and the one who'll remember exactly how you like it next time.",
+        "Fixed appointments",
+        "Your slot is yours. No double-booking, no \"just five more minutes\" while someone else is squeezed in beside you.",
+        "A private room",
+        "One room, one chair, no crowd of onlookers. It's a quieter, more personal way to get your hair cut."
+      ]
+    },
+    {
+      "top": 3654,
+      "height": 714,
+      "kind": "text",
+      "label": "Find us on St John Street",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.297,
+        "whitespaceRatio": 0.845,
+        "contentWidthRatio": 0.7,
+        "background": "rgb(234, 226, 214)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Find us on St John Street",
+        "Address",
+        "14 St John StreetManchester, M3 4DQTwo minutes' walk from Deansgate-Castlefield tram stop.",
+        "Opening Hours",
+        "Contact",
+        "0161 496 0142hello@chairandblade.co.uk",
+        "Visit the Studio",
+        "Tuesday – Friday",
+        "9:00 – 18:00",
+        "8:30 – 16:00",
+        "Sunday – Monday",
+        "14 St John Street, Manchester M3 4DQ"
+      ]
+    },
+    {
+      "top": 4368,
+      "height": 353,
+      "kind": "text",
+      "label": "Ready for your hour?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.75,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(169, 128, 63)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready for your hour?",
+        "Appointments are limited to one chair, so slots move quickly. Call, email, or send a message to reserve yours."
+      ]
+    },
+    {
+      "top": 4721,
+      "height": 332,
+      "kind": "text",
+      "label": "Chair & Blade A one-to-one barber studio on St John Street, ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.951,
+        "whitespaceRatio": 0.788,
+        "contentWidthRatio": 0.717,
+        "background": "rgb(22, 19, 17)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.352,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(169, 128, 63, 0.16)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 868298,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(60, 52, 42)",
+          "rgb(22, 19, 17)"
+        ],
+        "area": 297680,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(42, 36, 29)",
+          "rgb(23, 19, 16)"
+        ],
+        "area": 128522,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 1,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "One chair. One barber. Your full hour.",
+    "Chair and Blade is a private, one-to-one barber studio in the heart of the Northern Quarter's neighbouring streets. No queue, no shared floor — just a proper conversation and a cut done properly, start to finish, by the same pair of hands every time.",
+    "Cutting hair on St John Street since day one",
+    "St John Street, Manchester"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      24,
+      38,
+      42,
+      58
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px",
+      "6px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 46.9,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 29,
+    "edgeDensity": 0.046,
+    "symmetry": 0.865,
+    "width": 1440,
+    "height": 5053,
+    "sampled": 808800
+  }
+}

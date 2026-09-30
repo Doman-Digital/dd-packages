@@ -1,0 +1,601 @@
+{
+  "version": 2,
+  "url": "pages/04.html",
+  "capturedAt": "2026-09-30T13:49:48.754Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 8815,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(240, 240, 240)",
+        "area": 644,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 5162
+      },
+      {
+        "value": "rgb(0, 0, 238)",
+        "area": 0,
+        "chars": 311
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 18
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Times New Roman",
+      "chars": 5491,
+      "displayChars": 348,
+      "italicChars": 4,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Times New Roman",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": true,
+      "text": "A great website, built properly and kept that way.",
+      "top": 408
+    },
+    {
+      "level": 2,
+      "family": "Times New Roman",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything your website needs, in one place",
+      "top": 1303
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design & build",
+      "top": 1547
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hosting & maintenance",
+      "top": 1768
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Content updates",
+      "top": 1988
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Online bookings & shops",
+      "top": 2209
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO",
+      "top": 2429
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Real support",
+      "top": 2650
+    },
+    {
+      "level": 2,
+      "family": "Times New Roman",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "How a project runs",
+      "top": 2922
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free chat & quote",
+      "top": 3128
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design",
+      "top": 3309
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build & review",
+      "top": 3491
+    },
+    {
+      "level": 3,
+      "family": "Times New Roman",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Launch & look after",
+      "top": 3672
+    },
+    {
+      "level": 2,
+      "family": "Times New Roman",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Simple monthly plans",
+      "top": 3945
+    },
+    {
+      "level": 2,
+      "family": "Times New Roman",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What clients say",
+      "top": 5802
+    },
+    {
+      "level": 2,
+      "family": "Times New Roman",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions",
+      "top": 6851
+    },
+    {
+      "level": 2,
+      "family": "Times New Roman",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a website that just works?",
+      "top": 7364
+    }
+  ],
+  "controls": [],
+  "sections": [
+    {
+      "top": 333,
+      "height": 702,
+      "kind": "hero",
+      "label": "A great website, built properly and kept that way.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.992,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "A great website, built properly and kept that way.",
+        "We design, build and host websites for independent shops, tradespeople and local businesses — then look after them every month so you never have to think about it again.",
+        "No lock-in contracts · Cancel anytime · Based in the UK",
+        "\\n \\n Web design & hosting for UK small businesses\\n A great website, built properly and kept that way.\\n We design, build and host websites for independent shops, tradespeople and local businesses — then look after them every month so you never have to think about it again.\\n \\n Get a free quote\\n ",
+        "\\n Web design & hosting for UK small businesses\\n A great website, built properly and kept that way.\\n We design, build and host websites for independent shops, tradespeople and local businesses — then look after them every month so you never have to think about it again.\\n \\n Get a free quote\\n See",
+        "Web design & hosting for UK small businesses",
+        "\\n Get a free quote\\n See monthly plans\\n",
+        "\\n 60+sites built since 2019\\n 4.9/5average client rating\\n 2–3 wkstypical build time\\n",
+        "sites built since 2019",
+        "average client rating",
+        "typical build time",
+        "\\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+        "\\n \\n \\n \\n \\n \\n \\n"
+      ]
+    },
+    {
+      "top": 1053,
+      "height": 158,
+      "kind": "text",
+      "label": "\\n \\n Trusted by small businesses across the UK\\n \\n Millbro",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.125,
+        "mirrorSymmetry": 0.957,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Trusted by small businesses across the UK",
+        "\\n Trusted by small businesses across the UK\\n \\n Millbrook Joinery\\n The Reading Room Café\\n Fenwick & Rye Grooming\\n Coastal Physio\\n Alder Lane Nursery\\n \\n",
+        "\\n Millbrook Joinery\\n The Reading Room Café\\n Fenwick & Rye Grooming\\n Coastal Physio\\n Alder Lane Nursery\\n",
+        "The Reading Room Café",
+        "Fenwick & Rye Grooming",
+        "Alder Lane Nursery"
+      ]
+    },
+    {
+      "top": 1229,
+      "height": 1601,
+      "kind": "text",
+      "label": "Everything your website needs, in one place",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything your website needs, in one place",
+        "From the first sketch to the server it runs on, we handle the whole thing — so you can get back to running your business.",
+        "Design & build",
+        "A custom-designed site built around your business, not a stretched template. Fast, mobile-friendly and easy to find on Google.",
+        "Hosting & maintenance",
+        "Secure UK hosting, daily backups, software updates and uptime monitoring — all included, all handled by us.",
+        "Content updates",
+        "Need new prices, photos or a seasonal offer up? Just email us. Most changes go live within one working day.",
+        "Online bookings & shops",
+        "Take appointments, orders or payments online, integrated cleanly into your site rather than bolted on.",
+        "Local SEO",
+        "We set your site up to rank for the searches that matter locally, and share plain-English monthly reports.",
+        "Real support",
+        "A phone number and inbox with an actual person on the other end — not a ticket queue in another country.",
+        "\\n \\n Everything your website needs, in one place\\n From the first sketch to the server it runs on, we handle the whole thing — so you can get back to running your business.\\n \\n \\n \\n ✏️\\n Design & build\\n A custom-designed site built around your business, not a stretched template. Fast, mobile-fri",
+        "\\n Everything your website needs, in one place\\n From the first sketch to the server it runs on, we handle the whole thing — so you can get back to running your business.\\n",
+        "\\n \\n ✏️\\n Design & build\\n A custom-designed site built around your business, not a stretched template. Fast, mobile-friendly and easy to find on Google.\\n \\n \\n 🛠️\\n Hosting & maintenance\\n Secure UK hosting, daily backups, software updates and uptime monitoring — all included, all handled by us.",
+        "\\n ✏️\\n Design & build\\n A custom-designed site built around your business, not a stretched template. Fast, mobile-friendly and easy to find on Google.\\n",
+        "\\n 🛠️\\n Hosting & maintenance\\n Secure UK hosting, daily backups, software updates and uptime monitoring — all included, all handled by us.\\n",
+        "\\n ✍️\\n Content updates\\n Need new prices, photos or a seasonal offer up? Just email us. Most changes go live within one working day.\\n",
+        "\\n 🛒\\n Online bookings & shops\\n Take appointments, orders or payments online, integrated cleanly into your site rather than bolted on.\\n",
+        "\\n 📈\\n Local SEO\\n We set your site up to rank for the searches that matter locally, and share plain-English monthly reports.\\n",
+        "\\n 📞\\n Real support\\n A phone number and inbox with an actual person on the other end — not a ticket queue in another country.\\n"
+      ]
+    },
+    {
+      "top": 2848,
+      "height": 1005,
+      "kind": "text",
+      "label": "How a project runs",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "How a project runs",
+        "Four steps, no surprises. Most sites are live within two to three weeks of us starting.",
+        "Free chat & quote",
+        "Tell us about your business over a call or email. We'll send a fixed quote within 48 hours — no obligation.",
+        "Design",
+        "We put together a design for your homepage based on your brand and what your customers need to see.",
+        "Build & review",
+        "We build the full site and send you a private preview link to check everything and request changes.",
+        "Launch & look after",
+        "We go live on your domain, then your monthly plan kicks in — hosting, updates and support, sorted.",
+        "\\n \\n How a project runs\\n Four steps, no surprises. Most sites are live within two to three weeks of us starting.\\n \\n \\n \\n 01\\n Free chat & quote\\n Tell us about your business over a call or email. We'll send a fixed quote within 48 hours — no obligation.\\n \\n \\n 02\\n Design\\n We put together a d",
+        "\\n How a project runs\\n Four steps, no surprises. Most sites are live within two to three weeks of us starting.\\n",
+        "\\n \\n 01\\n Free chat & quote\\n Tell us about your business over a call or email. We'll send a fixed quote within 48 hours — no obligation.\\n \\n \\n 02\\n Design\\n We put together a design for your homepage based on your brand and what your customers need to see.\\n \\n \\n 03\\n Build & review\\n We build ",
+        "\\n 01\\n Free chat & quote\\n Tell us about your business over a call or email. We'll send a fixed quote within 48 hours — no obligation.\\n",
+        "\\n 02\\n Design\\n We put together a design for your homepage based on your brand and what your customers need to see.\\n",
+        "\\n 03\\n Build & review\\n We build the full site and send you a private preview link to check everything and request changes.\\n",
+        "\\n 04\\n Launch & look after\\n We go live on your domain, then your monthly plan kicks in — hosting, updates and support, sorted.\\n"
+      ]
+    },
+    {
+      "top": 3871,
+      "height": 1839,
+      "kind": "text",
+      "label": "Simple monthly plans",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.999,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Simple monthly plans",
+        "A one-off build fee to get your site live, then one monthly payment that covers hosting, support and updates. No hidden extras.",
+        "For a solo trader or small local business that needs a clear, professional presence online.",
+        "£350 one-off build fee",
+        "✓ 5-page custom-designed site",
+        "✓ Mobile-friendly & fast-loading",
+        "✓ UK hosting & SSL included",
+        "✓ 2 content updates a month",
+        "✓ Email support",
+        "For businesses that take bookings or orders and want to be found in local search.",
+        "£600 one-off build fee",
+        "✓ Everything in Starter",
+        "✓ Up to 10 pages",
+        "✓ Online bookings or orders",
+        "✓ Local SEO setup & monthly report",
+        "✓ Unlimited content updates",
+        "✓ Phone & email support",
+        "For multi-location or growing businesses with more complex needs and priority support.",
+        "£950 one-off build fee",
+        "✓ Everything in Growth",
+        "✓ Unlimited pages",
+        "✓ E-commerce with payments",
+        "✓ Quarterly strategy call",
+        "✓ Priority same-day support",
+        "\\n \\n Simple monthly plans\\n A one-off build fee to get your site live, then one monthly payment that covers hosting, support and updates. No hidden extras.\\n \\n \\n \\n Starter\\n For a solo trader or small local business that needs a clear, professional presence online.\\n £45/mo\\n £350 one-off build ",
+        "\\n Simple monthly plans\\n A one-off build fee to get your site live, then one monthly payment that covers hosting, support and updates. No hidden extras.\\n",
+        "\\n \\n Starter\\n For a solo trader or small local business that needs a clear, professional presence online.\\n £45/mo\\n £350 one-off build fee\\n \\n ✓ 5-page custom-designed site\\n ✓ Mobile-friendly & fast-loading\\n ✓ UK hosting & SSL included\\n ✓ 2 content updates a month\\n ✓ Email support\\n \\n Choos",
+        "\\n Starter\\n For a solo trader or small local business that needs a clear, professional presence online.\\n £45/mo\\n £350 one-off build fee\\n \\n ✓ 5-page custom-designed site\\n ✓ Mobile-friendly & fast-loading\\n ✓ UK hosting & SSL included\\n ✓ 2 content updates a month\\n ✓ Email support\\n \\n Choose S",
+        "\\n Most popular\\n Growth\\n For businesses that take bookings or orders and want to be found in local search.\\n £85/mo\\n £600 one-off build fee\\n \\n ✓ Everything in Starter\\n ✓ Up to 10 pages\\n ✓ Online bookings or orders\\n ✓ Local SEO setup & monthly report\\n ✓ Unlimited content updates\\n ✓ Phone & ",
+        "\\n Established\\n For multi-location or growing businesses with more complex needs and priority support.\\n £150/mo\\n £950 one-off build fee\\n \\n ✓ Everything in Growth\\n ✓ Unlimited pages\\n ✓ E-commerce with payments\\n ✓ Quarterly strategy call\\n ✓ Priority same-day support\\n \\n Choose Established\\n"
+      ]
+    },
+    {
+      "top": 5728,
+      "height": 1032,
+      "kind": "text",
+      "label": "What clients say",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "testimonials",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What clients say",
+        "We work with small businesses across the UK — here's what a few of them have said.",
+        "\\\"Our old site looked like it was built in 2010. Doman Digital sorted us out with something we're actually proud to send customers to, and bookings are up since launch.\\\"",
+        "\\\"I'm not techy at all, so having someone I can just email when I need the menu updated has been brilliant. Quick replies, no fuss.\\\"",
+        "\\\"The monthly plan makes budgeting easy — no big invoice every couple of years for a redesign. It just stays up to date.\\\"",
+        "\\n \\n What clients say\\n We work with small businesses across the UK — here's what a few of them have said.\\n \\n \\n \\n ★★★★★\\n \\\"Our old site looked like it was built in 2010. Doman Digital sorted us out with something we're actually proud to send customers to, and bookings are up since launch.\\\"\\n ",
+        "\\n What clients say\\n We work with small businesses across the UK — here's what a few of them have said.\\n",
+        "\\n \\n ★★★★★\\n \\\"Our old site looked like it was built in 2010. Doman Digital sorted us out with something we're actually proud to send customers to, and bookings are up since launch.\\\"\\n \\n RM\\n Rachel MottOwner, Coastal Physio\\n \\n \\n \\n ★★★★★\\n \\\"I'm not techy at all, so having someone I can just ",
+        "\\n ★★★★★\\n \\\"Our old site looked like it was built in 2010. Doman Digital sorted us out with something we're actually proud to send customers to, and bookings are up since launch.\\\"\\n \\n RM\\n Rachel MottOwner, Coastal Physio\\n \\n",
+        "\\n RM\\n Rachel MottOwner, Coastal Physio\\n",
+        "Owner, Coastal Physio",
+        "\\n ★★★★★\\n \\\"I'm not techy at all, so having someone I can just email when I need the menu updated has been brilliant. Quick replies, no fuss.\\\"\\n \\n JD\\n James DunmoreOwner, The Reading Room Café\\n \\n",
+        "\\n JD\\n James DunmoreOwner, The Reading Room Café\\n",
+        "Owner, The Reading Room Café",
+        "\\n ★★★★★\\n \\\"The monthly plan makes budgeting easy — no big invoice every couple of years for a redesign. It just stays up to date.\\\"\\n \\n SF\\n Sarah FenwickOwner, Fenwick & Rye Grooming\\n \\n",
+        "\\n SF\\n Sarah FenwickOwner, Fenwick & Rye Grooming\\n",
+        "Owner, Fenwick & Rye Grooming"
+      ]
+    },
+    {
+      "top": 6778,
+      "height": 513,
+      "kind": "text",
+      "label": "Common questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Common questions",
+        "Do I own the website?",
+        "Yes. The site, its content and your domain name are yours. If you ever leave, we hand everything over in full — no lock-in.",
+        "What's included in the monthly plan?",
+        "Hosting, security updates, backups, uptime monitoring, technical support and a set number of content changes each month, depending on your plan.",
+        "How long does a build take?",
+        "Most sites go live within two to three weeks of starting, depending on how quickly we receive your content and feedback.",
+        "Can I cancel the monthly plan?",
+        "Yes, anytime, with 30 days' notice. There are no long-term contracts — we'd rather earn your business every month.",
+        "Do you help with photography or writing the words?",
+        "We can. Every plan includes guidance on what to write, and we offer optional photography and copywriting add-ons if you'd rather we handled it.",
+        "I already have a website — can you take it over?",
+        "Often, yes. We'll review your current site and either move it onto our hosting and plans, or rebuild it if that makes more sense.",
+        "\\n \\n Common questions\\n \\n \\n \\n Do I own the website?\\n Yes. The site, its content and your domain name are yours. If you ever leave, we hand everything over in full — no lock-in.\\n \\n \\n What's included in the monthly plan?\\n Hosting, security updates, backups, uptime monitoring, technical suppor",
+        "\\n \\n Do I own the website?\\n Yes. The site, its content and your domain name are yours. If you ever leave, we hand everything over in full — no lock-in.\\n \\n \\n What's included in the monthly plan?\\n Hosting, security updates, backups, uptime monitoring, technical support and a set number of conten"
+      ]
+    },
+    {
+      "top": 7308,
+      "height": 243,
+      "kind": "text",
+      "label": "Ready for a website that just works?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.985,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 0.989,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready for a website that just works?",
+        "Tell us a little about your business and we'll get back to you within one working day with a free, no-obligation quote.",
+        "\\n Ready for a website that just works?\\n Tell us a little about your business and we'll get back to you within one working day with a free, no-obligation quote.\\n \\n Email hello@domandigital.co.uk\\n Call 0113 496 0021\\n \\n",
+        "\\n Email hello@domandigital.co.uk\\n Call 0113 496 0021\\n"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.639,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "A great website, built properly and kept that way.",
+    "We design, build and host websites for independent shops, tradespeople and local businesses — then look after them every month so you never have to think about it again.",
+    "No lock-in contracts · Cancel anytime · Based in the UK",
+    "\\n \\n Web design & hosting for UK small businesses\\n A great website, built properly and kept that way.\\n We design, build and host websites for independent shops, tradespeople and local businesses — then look after them every month so you never have to think about it again.\\n \\n Get a free quote\\n ",
+    "\\n Web design & hosting for UK small businesses\\n A great website, built properly and kept that way.\\n We design, build and host websites for independent shops, tradespeople and local businesses — then look after them every month so you never have to think about it again.\\n \\n Get a free quote\\n See",
+    "Web design & hosting for UK small businesses",
+    "\\n Get a free quote\\n See monthly plans\\n",
+    "\\n 60+sites built since 2019\\n 4.9/5average client rating\\n 2–3 wkstypical build time\\n",
+    "sites built since 2019",
+    "average client rating",
+    "typical build time",
+    "\\n \\n \\n \\n \\n \\n \\n \\n \\n \\n"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      19,
+      24,
+      32
+    ],
+    "fontWeights": [
+      400,
+      700
+    ],
+    "radii": [],
+    "shadows": [],
+    "spacingOnScalePct": 71.9,
+    "bodyLineLengthCh": 194,
+    "bodyFontSizePx": 16
+  },
+  "visual": {
+    "colourfulness": 13.4,
+    "edgeDensity": 0.026,
+    "symmetry": 0.982,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

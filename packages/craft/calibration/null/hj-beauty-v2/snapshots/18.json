@@ -1,0 +1,805 @@
+{
+  "version": 2,
+  "url": "pages/18.html",
+  "capturedAt": "2026-09-30T14:01:57.992Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5132,
+  "ground": "rgb(253, 246, 242)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2806744,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 238, 230)",
+        "area": 1298925,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 246, 242)",
+        "area": 557138,
+        "chars": 0
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 458984,
+        "chars": 0
+      },
+      {
+        "value": "rgba(253, 246, 242, 0.92)",
+        "area": 102803,
+        "chars": 0
+      },
+      {
+        "value": "rgb(232, 128, 159)",
+        "area": 24718,
+        "chars": 0
+      },
+      {
+        "value": "rgb(246, 166, 193)",
+        "area": 9816,
+        "chars": 0
+      },
+      {
+        "value": "rgb(127, 168, 138)",
+        "area": 1619,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 95, 90)",
+        "area": 0,
+        "chars": 2254
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 0,
+        "chars": 1080
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 205
+      },
+      {
+        "value": "rgb(232, 128, 159)",
+        "area": 0,
+        "chars": 205
+      },
+      {
+        "value": "rgb(216, 206, 200)",
+        "area": 0,
+        "chars": 158
+      },
+      {
+        "value": "rgb(232, 161, 58)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(74, 56, 48)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "rgb(246, 166, 193)",
+        "area": 0,
+        "chars": 3
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 3553,
+      "displayChars": 27,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Nanum Gothic",
+      "chars": 386,
+      "displayChars": 341,
+      "italicChars": 0,
+      "weights": [
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 21,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Nanum Gothic",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Glass skin, no customs delays.",
+      "top": 339
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything for a proper 10-step routine",
+      "top": 1087
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleansers",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Toners & Essences",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Serums & Ampoules",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sunscreen",
+      "top": 1392
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sheet Masks",
+      "top": 1601
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Moisturisers",
+      "top": 1601
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Eye Care",
+      "top": 1601
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Gift Sets",
+      "top": 1601
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "This week's bestsellers",
+      "top": 1869
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why Korean formulas actually work",
+      "top": 2719
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Start with these three steps",
+      "top": 3418
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Double cleanse",
+      "top": 3637
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Treat & hydrate",
+      "top": 3637
+    },
+    {
+      "level": 3,
+      "family": "Nanum Gothic",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Seal & protect",
+      "top": 3637
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "3,200+ five-star reviews",
+      "top": 3923
+    },
+    {
+      "level": 2,
+      "family": "Nanum Gothic",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 4386
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(43, 35, 32)",
+      "text": "Shop the range"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Build my routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 30,
+      "heightPx": 30,
+      "background": "rgb(43, 35, 32)",
+      "text": "Add"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(232, 128, 159)",
+      "text": "See ingredients by skin concern"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 40,
+      "heightPx": 51,
+      "background": "rgb(232, 128, 159)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 110,
+      "height": 760,
+      "kind": "hero",
+      "label": "Glass skin, no customs delays.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.328,
+        "whitespaceRatio": 0.832,
+        "contentWidthRatio": 0.807,
+        "background": "rgb(253, 246, 242)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Glass skin, no customs delays.",
+        "Harrisons Beauty brings the K-beauty routine you've seen all over TikTok straight to your door — every item held in our own UK warehouse, so there's no waiting on international parcels or surprise fees.",
+        "✨ Now stocking 40+ Korean skincare essentials",
+        "🚚 Same-day dispatch",
+        "Healthy Skin First",
+        "⭐ 4.8/5 from 3,200+ customers"
+      ]
+    },
+    {
+      "top": 871,
+      "height": 104,
+      "kind": "cards",
+      "label": "🇬🇧 UK Stock OnlyNo customs, no import tax 📦 Free Delivery",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.368,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "🇬🇧 UK Stock OnlyNo customs, no import tax",
+        "📦 Free DeliveryOn all orders over £25",
+        "↩️ 30-Day ReturnsUnopened items, no fuss",
+        "🔒 Secure CheckoutCards, PayPal & Klarna"
+      ]
+    },
+    {
+      "top": 976,
+      "height": 782,
+      "kind": "cards",
+      "label": "Everything for a proper 10-step routine",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.758,
+        "contentWidthRatio": 0.754,
+        "background": "rgb(253, 246, 242)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything for a proper 10-step routine",
+        "From first cleanse to final SPF, we've curated the categories that make Korean skincare so effective.",
+        "Cleansers",
+        "Oil & foam double cleanse sets",
+        "Toners & Essences",
+        "Hydration before anything else",
+        "Serums & Ampoules",
+        "Targeted, concentrated care",
+        "Sunscreen",
+        "Weightless, no white cast SPF",
+        "Sheet Masks",
+        "Multi-packs for movie nights in",
+        "Moisturisers",
+        "Barrier-loving creams & gels",
+        "Eye Care",
+        "Patches & creams for tired eyes",
+        "Gift Sets",
+        "Ready-wrapped routine bundles",
+        "Shop by category"
+      ]
+    },
+    {
+      "top": 1759,
+      "height": 850,
+      "kind": "cards",
+      "label": "This week's bestsellers",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.179,
+        "mirrorSymmetry": 0.999,
+        "whitespaceRatio": 0.602,
+        "contentWidthRatio": 0.785,
+        "background": "rgb(255, 255, 255)",
+        "controls": 4
+      },
+      "badges": [
+        "Bestseller",
+        "New in",
+        "Bestseller"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "This week's bestsellers",
+        "The five products our customers keep coming back to reorder.",
+        "96% snail secretion filtrate to fade marks and repair a compromised barrier overnight.",
+        "A gentle low-pH foam that brightens dull, tired skin without stripping moisture.",
+        "Rich in centella asiatica to calm redness, irritation and reactive skin days.",
+        "The no-white-cast, no-greasy-finish SPF that converted the whole office.",
+        "Seoul Glow Lab",
+        "Snail Mucin Repair Essence",
+        "Rice & Ferment Bright Cleanser",
+        "Centella Cica Soothing Cream",
+        "Daylight Skin Co.",
+        "Rice Bran Daily Sun Fluid SPF50+"
+      ]
+    },
+    {
+      "top": 2608,
+      "height": 700,
+      "kind": "text",
+      "label": "Why Korean formulas actually work",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.928,
+        "whitespaceRatio": 0.53,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(253, 246, 242)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Why Korean formulas actually work",
+        "K-beauty built its reputation on layering lightweight, fermented and naturally-derived actives rather than harsh, one-size-fits-all treatments. Here's what shows up again and again in our bestsellers:",
+        "Snail mucin — repairs, hydrates, and fades post-blemish marks",
+        "Centella asiatica (cica) — calms redness and strengthens the skin barrier",
+        "Propolis — antibacterial and glow-boosting for congested skin",
+        "Niacinamide — evens tone and refines the look of pores",
+        "Rice water & ferments — gently brightens without irritation"
+      ]
+    },
+    {
+      "top": 3308,
+      "height": 505,
+      "kind": "cards",
+      "label": "Start with these three steps",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.817,
+        "contentWidthRatio": 0.764,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Start with these three steps",
+        "You don't need ten products on day one. Build up gradually from a solid base.",
+        "Double cleanse",
+        "Oil cleanser to dissolve SPF and makeup, followed by a gentle low-pH foam.",
+        "Treat & hydrate",
+        "A hydrating toner, then one targeted serum or ampoule for your main concern.",
+        "Seal & protect",
+        "Moisturiser to lock everything in, and SPF every single morning — no exceptions.",
+        "New to K-beauty?"
+      ]
+    },
+    {
+      "top": 3813,
+      "height": 517,
+      "kind": "cards",
+      "label": "3,200+ five-star reviews",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "testimonials",
+      "geometry": {
+        "centredShare": 0.455,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.762,
+        "contentWidthRatio": 0.749,
+        "background": "rgb(251, 238, 230)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "3,200+ five-star reviews",
+        "\"Ordered on a Tuesday, had it Wednesday morning. Didn't expect Korean skincare to arrive faster than my Amazon parcels!\"",
+        "\"The snail mucin essence sorted out my post-breakout marks in about three weeks. My skin genuinely looks even for the first time in years.\"",
+        "\"Was nervous about trying K-beauty but the routine guide made it so easy to know where to start. No overwhelm, just results.\"",
+        "What customers say"
+      ]
+    },
+    {
+      "top": 4330,
+      "height": 337,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.995,
+        "whitespaceRatio": 0.753,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(43, 35, 32)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get 10% off your first order",
+        "Join our list for restock alerts, skincare tips, and first access to new arrivals — plus a welcome discount.",
+        "We'll never share your email. Unsubscribe anytime."
+      ]
+    },
+    {
+      "top": 4747,
+      "height": 385,
+      "kind": "text",
+      "label": "Harrisons Beauty Independent online retailer bringing the be",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.59,
+        "whitespaceRatio": 0.824,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(251, 238, 230)",
+        "controls": 0
+      },
+      "badges": [
+        "📷",
+        "🎵",
+        "📘"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.423,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(251, 238, 230)",
+          "rgb(253, 246, 242)"
+        ],
+        "area": 1094400,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 214, 228)",
+          "rgb(255, 233, 214)",
+          "rgb(217, 240, 226)"
+        ],
+        "area": 176400,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(255, 227, 236)",
+          "rgb(255, 243, 230)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(243, 233, 226)",
+          "rgb(238, 246, 239)"
+        ],
+        "area": 1007303,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(214, 235, 217)",
+          "rgb(246, 227, 208)"
+        ],
+        "area": 219511,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "images": [],
+  "firstScreenText": [
+    "Glass skin, no customs delays.",
+    "Harrisons Beauty brings the K-beauty routine you've seen all over TikTok straight to your door — every item held in our own UK warehouse, so there's no waiting on international parcels or surprise fees.",
+    "Free UK delivery on orders over £25 · Dispatched from our Leeds warehouse within 24 hours",
+    "✨ Now stocking 40+ Korean skincare essentials",
+    "🚚 Same-day dispatch",
+    "Healthy Skin First",
+    "⭐ 4.8/5 from 3,200+ customers",
+    "🇬🇧 UK Stock OnlyNo customs, no import tax",
+    "📦 Free DeliveryOn all orders over £25",
+    "↩️ 30-Day ReturnsUnopened items, no fuss",
+    "🔒 Secure CheckoutCards, PayPal & Klarna"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      24,
+      30,
+      34,
+      38,
+      42,
+      48,
+      58,
+      80
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "30px",
+      "40px",
+      "50%"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 46.4,
+    "bodyLineLengthCh": 49,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 18.8,
+    "edgeDensity": 0.048,
+    "symmetry": 0.969,
+    "width": 1440,
+    "height": 5132,
+    "sampled": 821280
+  }
+}

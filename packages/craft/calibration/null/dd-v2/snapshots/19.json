@@ -1,0 +1,791 @@
+{
+  "version": 2,
+  "url": "pages/19.html",
+  "capturedAt": "2026-09-30T13:51:32.876Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6285,
+  "ground": "rgb(250, 247, 242)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1281217,
+        "chars": 0
+      },
+      {
+        "value": "rgb(241, 236, 227)",
+        "area": 856718,
+        "chars": 0
+      },
+      {
+        "value": "rgb(55, 80, 63)",
+        "area": 843210,
+        "chars": 0
+      },
+      {
+        "value": "rgb(24, 22, 20)",
+        "area": 426460,
+        "chars": 0
+      },
+      {
+        "value": "rgb(192, 90, 58)",
+        "area": 252007,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "area": 246427,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 247, 242, 0.9)",
+        "area": 118440,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 247, 242)",
+        "area": 98688,
+        "chars": 0
+      },
+      {
+        "value": "rgb(231, 223, 210)",
+        "area": 31519,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.1)",
+        "area": 5357,
+        "chars": 0
+      },
+      {
+        "value": "rgb(220, 211, 196)",
+        "area": 3831,
+        "chars": 0
+      },
+      {
+        "value": "rgb(74, 70, 63)",
+        "area": 300,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(111, 102, 92)",
+        "area": 0,
+        "chars": 3101
+      },
+      {
+        "value": "rgb(24, 22, 20)",
+        "area": 0,
+        "chars": 1201
+      },
+      {
+        "value": "rgb(250, 247, 242)",
+        "area": 0,
+        "chars": 877
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 202
+      },
+      {
+        "value": "rgb(201, 194, 182)",
+        "area": 0,
+        "chars": 138
+      },
+      {
+        "value": "rgb(55, 80, 63)",
+        "area": 0,
+        "chars": 100
+      },
+      {
+        "value": "rgb(192, 90, 58)",
+        "area": 0,
+        "chars": 48
+      },
+      {
+        "value": "rgb(231, 156, 127)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Manrope",
+      "chars": 5034,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 627,
+      "displayChars": 510,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 12,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 52,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Websites for small businesses, built and looked after every month.",
+      "top": 226
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything your website needs, none of the faff.",
+      "top": 1066
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Website design & build",
+      "top": 1352
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hosting & security",
+      "top": 1352
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing updates",
+      "top": 1352
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO basics",
+      "top": 1629
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Booking & enquiry forms",
+      "top": 1629
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Analytics & reporting",
+      "top": 1629
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "From first chat to launch in about three weeks.",
+      "top": 1960
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free 20-minute call",
+      "top": 2197
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design draft",
+      "top": 2197
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build & feedback",
+      "top": 2197
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Launch & look after",
+      "top": 2197
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "One monthly plan. Everything included.",
+      "top": 2513
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small businesses, real results.",
+      "top": 3643
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions",
+      "top": 4228
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 30,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a website that looks after itself?",
+      "top": 5075
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's talk about your website.",
+      "top": 5401
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get a quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgb(192, 90, 58)",
+      "text": "See our plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Starter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgb(192, 90, 58)",
+      "text": "Choose Growth"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Established"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book your call"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 41,
+      "background": "rgb(192, 90, 58)",
+      "text": "Send enquiry"
+    }
+  ],
+  "sections": [
+    {
+      "top": 82,
+      "height": 712,
+      "kind": "hero",
+      "label": "Websites for small businesses, built and looked after every ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.058,
+        "whitespaceRatio": 0.713,
+        "contentWidthRatio": 0.742,
+        "background": "rgb(250, 247, 242)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Websites for small businesses, built and looked after every month.",
+        "We design, build and host your website — then keep it fast, secure and up to date for one flat monthly fee. No £3,000 invoice up front, no agency jargon, just a site that works and someone to call when you need a change.",
+        "Web design studio · Based in Leeds, serving the whole UK",
+        "Live in 2–3 weeks",
+        "No lock-in contracts",
+        "Hosting & support included",
+        "Ellwood & Sons Joinery"
+      ]
+    },
+    {
+      "top": 794,
+      "height": 148,
+      "kind": "text",
+      "label": "Trusted by small businesses across Yorkshire and beyond Ellw",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.333,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.779,
+        "contentWidthRatio": 0.758,
+        "background": "rgb(250, 247, 242)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Trusted by small businesses across Yorkshire and beyond",
+        "Ellwood & Sons Joinery",
+        "The Copper Kettle"
+      ]
+    },
+    {
+      "top": 941,
+      "height": 895,
+      "kind": "cards",
+      "label": "Everything your website needs, none of the faff.",
+      "cards": 6,
+      "iconCards": 6,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0.267,
+        "mirrorSymmetry": 0.777,
+        "whitespaceRatio": 0.799,
+        "contentWidthRatio": 0.74,
+        "background": "rgb(250, 247, 242)",
+        "controls": 0
+      },
+      "badges": [
+        "What we do"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything your website needs, none of the faff.",
+        "We handle the whole job — design, copywriting help, build, hosting and the boring admin — so you can get back to running your business.",
+        "Website design & build",
+        "A clean, fast site built around what your customers actually need to do — find you, trust you, and get in touch or book.",
+        "Hosting & security",
+        "Your site lives on fast UK/EU servers with an SSL certificate, daily backups and monitoring — all included in your plan.",
+        "Ongoing updates",
+        "Need new opening hours, a menu change or a fresh set of photos up? Send us the details and we'll make the changes for you.",
+        "Local SEO basics",
+        "Proper page titles, structured business info and a Google Business Profile set-up so people searching nearby can find you.",
+        "Booking & enquiry forms",
+        "Contact forms, callback requests and simple booking widgets connected straight to your inbox or calendar.",
+        "Analytics & reporting",
+        "A plain-English monthly summary of how many people visited, where they came from and what they clicked on.",
+        "What we do"
+      ]
+    },
+    {
+      "top": 1836,
+      "height": 553,
+      "kind": "cards",
+      "label": "From first chat to launch in about three weeks.",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.733,
+        "whitespaceRatio": 0.725,
+        "contentWidthRatio": 0.758,
+        "background": "rgb(241, 236, 227)",
+        "controls": 0
+      },
+      "badges": [
+        "How it works"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "From first chat to launch in about three weeks.",
+        "No lengthy discovery decks. We ask the right questions, build something you can see quickly, and refine it with you.",
+        "Free 20-minute call",
+        "Tell us about your business, what your current site is (or isn't) doing, and what you'd like it to do instead.",
+        "Design draft",
+        "Within a week you'll see a working preview of your homepage, built with your logo, photos and words wherever possible.",
+        "Build & feedback",
+        "We build out the rest of the pages and send you a private link to review. Two rounds of changes are included as standard.",
+        "Launch & look after",
+        "We point your domain, go live, and move straight onto your monthly plan — hosting, backups and updates handled from day one.",
+        "How it works"
+      ]
+    },
+    {
+      "top": 2389,
+      "height": 1129,
+      "kind": "cards",
+      "label": "One monthly plan. Everything included.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.41,
+        "mirrorSymmetry": 0.972,
+        "whitespaceRatio": 0.701,
+        "contentWidthRatio": 0.758,
+        "background": "rgb(250, 247, 242)",
+        "controls": 3
+      },
+      "badges": [
+        "Pricing"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "One monthly plan. Everything included.",
+        "Every plan covers hosting, security, backups and a set number of update requests each month. Cancel with 30 days' notice, no exit fees.",
+        "For a solo trader or new business that needs a smart, simple site to point people to.",
+        "Up to 5 pages",
+        "Hosting, SSL & daily backups",
+        "Contact form",
+        "2 update requests / month",
+        "Email support",
+        "For a business that wants bookings, a blog or shop items, and a bit more room to grow.",
+        "Up to 12 pages",
+        "Everything in Starter",
+        "Booking widget or blog",
+        "5 update requests / month",
+        "Monthly analytics summary",
+        "Priority phone & email support",
+        "For a multi-location or busier business that needs a bigger site and faster turnarounds.",
+        "Unlimited pages",
+        "Everything in Growth",
+        "Online shop or multi-location pages",
+        "Unlimited update requests",
+        "Dedicated account contact",
+        "Not sure which plan fits? Book a free call and we'll recommend one — no pressure, no hard sell.",
+        "Set-up fee of £299, or £0 with a 12-month term",
+        "Set-up fee of £499, or £0 with a 12-month term",
+        "Set-up fee of £899, or £0 with a 12-month term"
+      ]
+    },
+    {
+      "top": 3519,
+      "height": 586,
+      "kind": "cards",
+      "label": "Small businesses, real results.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.939,
+        "whitespaceRatio": 0.778,
+        "contentWidthRatio": 0.721,
+        "background": "rgb(55, 80, 63)",
+        "controls": 0
+      },
+      "badges": [
+        "What clients say",
+        "MC",
+        "DE",
+        "SH"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Small businesses, real results.",
+        "We're a small studio too — most of our new clients come from people we've already worked with.",
+        "\"Our old site was built by a nephew about eight years ago. Doman rebuilt it properly and now update it whenever we change our menu — usually the same day we ask.\"",
+        "\"Enquiries through the website went up almost immediately after launch. The monthly plan means we're not scared to ask for small tweaks — it's already paid for.\"",
+        "\"I liked that there wasn't a huge bill up front. It felt like a sensible way for a small clinic like ours to get a proper website without the risk.\"",
+        "What clients say",
+        "The Copper Kettle, Harrogate",
+        "Ellwood & Sons Joinery",
+        "Dr. Sarah Hart",
+        "Hartside Veterinary Practice"
+      ]
+    },
+    {
+      "top": 4104,
+      "height": 841,
+      "kind": "text",
+      "label": "Common questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 0.571,
+        "mirrorSymmetry": 0.889,
+        "whitespaceRatio": 0.628,
+        "contentWidthRatio": 0.528,
+        "background": "rgb(250, 247, 242)",
+        "controls": 0
+      },
+      "badges": [
+        "FAQ"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Common questions",
+        "Why a monthly plan instead of a one-off price? +",
+        "A one-off build is only half the job — websites need hosting, security patches, backups and the odd content update to stay useful. Rolling that into one monthly fee means there's no separate hosting bill, no surprise \"maintenance\" invoice, and a small team on hand whenever you need something changed",
+        "What happens if I want to leave? +",
+        "You can cancel with 30 days' notice on any plan. We'll hand over your domain and a full export of your site files and content so you're never locked in — although most clients stay simply because it's less hassle than switching.",
+        "What counts as an \"update request\"? +",
+        "Text changes, swapping photos, adding a new service or team member, updating prices or opening hours — the day-to-day stuff. Bigger jobs like adding a whole new section or an online shop are quoted separately, but we'll always tell you the cost before starting.",
+        "Do I own my website? +",
+        "Yes. Your domain, content and branding are yours. The site is hosted and maintained by us while you're on a plan, and we'll transfer everything to you or another provider if you ever decide to leave.",
+        "How long does a new build take? +",
+        "Most Starter and Growth sites go live within two to three weeks of our first call, assuming we get your logo, photos and any copy fairly promptly. Established plan builds typically take three to five weeks depending on scope.",
+        "Do you work with businesses outside Leeds? +",
+        "Yes — we're based in Leeds but work with small businesses right across the UK. Calls and reviews happen over video or phone, so location has never been a barrier."
+      ]
+    },
+    {
+      "top": 4945,
+      "height": 325,
+      "kind": "text",
+      "label": "Ready for a website that looks after itself?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.595,
+        "whitespaceRatio": 0.914,
+        "contentWidthRatio": 0.692,
+        "background": "rgb(250, 247, 242)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready for a website that looks after itself?",
+        "Book a free 20-minute call and we'll tell you honestly whether we're the right fit."
+      ]
+    },
+    {
+      "top": 5270,
+      "height": 677,
+      "kind": "text",
+      "label": "Let's talk about your website.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "contact",
+      "geometry": {
+        "centredShare": 0.056,
+        "mirrorSymmetry": 0.648,
+        "whitespaceRatio": 0.768,
+        "contentWidthRatio": 0.735,
+        "background": "rgb(250, 247, 242)",
+        "controls": 1
+      },
+      "badges": [
+        "Get in touch"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Let's talk about your website.",
+        "Fill in the form and we'll come back to you within one working day — usually much sooner. Prefer to talk first? Give us a ring.",
+        "Get in touch",
+        "0113 496 0142",
+        "14 Boar Lane, Leeds, LS1 5DA"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.428,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(241, 236, 227)"
+        ],
+        "area": 126362,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "Websites for small businesses, built and looked after every month.",
+    "We design, build and host your website — then keep it fast, secure and up to date for one flat monthly fee. No £3,000 invoice up front, no agency jargon, just a site that works and someone to call when you need a change.",
+    "Trusted by small businesses across Yorkshire and beyond",
+    "Web design studio · Based in Leeds, serving the whole UK",
+    "Live in 2–3 weeks",
+    "No lock-in contracts",
+    "Hosting & support included",
+    "Ellwood & Sons Joinery",
+    "The Copper Kettle"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      30,
+      32,
+      36,
+      42,
+      52
+    ],
+    "fontWeights": [
+      400,
+      600,
+      700
+    ],
+    "radii": [
+      "14px",
+      "8px",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 28.4,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 19
+  },
+  "visual": {
+    "colourfulness": 27.7,
+    "edgeDensity": 0.064,
+    "symmetry": 0.963,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}
