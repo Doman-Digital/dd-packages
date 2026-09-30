@@ -7,7 +7,7 @@
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { LEXICAL_FEATURES, isBlurb, lexicalOf, shapeOf, vocabularyCounts } from "../../dist/index.js";
+import { LEXICAL_FEATURES, REGISTER_FEATURES, isBlurb, lexicalOf, registerOf, shapeOf, vocabularyCounts } from "../../dist/index.js";
 
 export const BASELINE_VERSION = 1;
 export const FEATURES = [
@@ -30,12 +30,13 @@ export const FEATURES = [
 ];
 
 /**
- * Which feature family a run measures: "shape" (the frozen v1 baselines) or
- * "lexical" (words and specificity, written to separate -lexical- files).
+ * Which feature family a run measures: "shape" (the frozen v1 baselines),
+ * "lexical" (words and specificity, written to separate -lexical- files) or
+ * "register" (sentence length, contractions, person, passive: -register- files).
  * Same paragraphs, same blurb rule, same writer split.
  */
-export const SET = process.argv.includes("--lexical") ? "lexical" : "shape";
-export const featuresOf = (set = SET) => (set === "lexical" ? [...LEXICAL_FEATURES] : FEATURES);
+export const SET = process.argv.includes("--lexical") ? "lexical" : process.argv.includes("--register") ? "register" : "shape";
+export const featuresOf = (set = SET) => (set === "lexical" ? [...LEXICAL_FEATURES] : set === "register" ? [...REGISTER_FEATURES] : FEATURES);
 export const isLexicalFile = (name) => name.includes("-lexical-");
 
 export const CALIBRATION = resolve(new URL("../../calibration/copy-shape", import.meta.url).pathname);
@@ -109,6 +110,9 @@ export class Baseline {
       const lf = lexicalOf(text);
       numbers = LEXICAL_FEATURES.map((k) => lf[k]);
       for (const w of vocabularyCounts(text).keys()) this.wordDocs[w] = (this.wordDocs[w] ?? 0) + 1;
+    } else if (SET === "register") {
+      const rf = registerOf(text);
+      numbers = REGISTER_FEATURES.map((k) => Math.round(rf[k] * 1000) / 1000);
     } else numbers = vector(f);
     const row = tag ? [...numbers, tag] : numbers;
     if (tag) this.byTag[tag] = (this.byTag[tag] ?? 0) + 1;
@@ -124,6 +128,7 @@ export class Baseline {
   /** Written once. A baseline that exists is never overwritten: add a new version instead. */
   write(file, { force = false } = {}) {
     if (SET === "lexical") file = file.replace(/-v(\d+)\.json$/, "-lexical-v$1.json");
+    if (SET === "register") file = file.replace(/-v(\d+)\.json$/, "-register-v$1.json");
     const path = resolve(CALIBRATION, "human", file);
     if (existsSync(path) && !force) throw new Error(`${path} exists. Baselines are frozen: write a new version, or pass --force only if this run replaces a broken one.`);
     mkdirSync(dirname(path), { recursive: true });
