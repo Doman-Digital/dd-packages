@@ -84,6 +84,8 @@ export function loadNull(target: string, cwd: string): NullModel {
  */
 export function measureRun(id: string, html: string, snapshot: Snapshot, styles: SourceFile[] = []): NullRun {
   const file = { path: `${id}.html`, text: html };
+  // Every null page answers "build the home page", whatever its file is called.
+  snapshot = { ...snapshot, home: snapshot.home ?? true };
   const tells = new Set([...auditSnapshot(snapshot).findings, ...scanSource([file, ...styles]).findings].map((f) => f.tell));
   // Text a reader sees in place. Quoted strings in a page's script are mostly
   // class names and keys, and would harvest "btn btn-primary" as a phrase.
