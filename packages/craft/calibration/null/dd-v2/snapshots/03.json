@@ -1,0 +1,765 @@
+{
+  "version": 2,
+  "url": "pages/03.html",
+  "capturedAt": "2026-09-30T13:49:41.368Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5966,
+  "ground": "rgb(250, 248, 244)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(242, 237, 227)",
+        "area": 3289757,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1093606,
+        "chars": 0
+      },
+      {
+        "value": "rgb(47, 75, 60)",
+        "area": 394645,
+        "chars": 0
+      },
+      {
+        "value": "rgb(23, 24, 28)",
+        "area": 283560,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 96, 58)",
+        "area": 142279,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 248, 244, 0.9)",
+        "area": 119160,
+        "chars": 0
+      },
+      {
+        "value": "rgb(233, 228, 216)",
+        "area": 16286,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.15)",
+        "area": 5292,
+        "chars": 0
+      },
+      {
+        "value": "rgb(216, 210, 194)",
+        "area": 253,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 106, 99)",
+        "area": 0,
+        "chars": 1870
+      },
+      {
+        "value": "rgb(23, 24, 28)",
+        "area": 0,
+        "chars": 1607
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 790
+      },
+      {
+        "value": "rgb(169, 77, 44)",
+        "area": 0,
+        "chars": 122
+      },
+      {
+        "value": "rgb(217, 227, 220)",
+        "area": 0,
+        "chars": 109
+      },
+      {
+        "value": "rgb(32, 52, 38)",
+        "area": 0,
+        "chars": 59
+      },
+      {
+        "value": "rgb(207, 211, 205)",
+        "area": 0,
+        "chars": 56
+      },
+      {
+        "value": "rgb(201, 96, 58)",
+        "area": 0,
+        "chars": 15
+      },
+      {
+        "value": "rgb(47, 75, 60)",
+        "area": 0,
+        "chars": 12
+      },
+      {
+        "value": "rgba(0, 0, 0, 0)",
+        "area": 0,
+        "chars": 8
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Manrope",
+      "chars": 3934,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 714,
+      "displayChars": 635,
+      "italicChars": 12,
+      "weights": [
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 54,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "Websites that work as hard as you do — built, hosted, and looked after.",
+      "top": 229
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "From first chat to live site, without the headache",
+      "top": 990
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free discovery call",
+      "top": 1292
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design & build",
+      "top": 1292
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Review & launch",
+      "top": 1292
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing care",
+      "top": 1292
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything you need to be found and booked online",
+      "top": 1632
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Website design & build",
+      "top": 1928
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Monthly hosting & maintenance",
+      "top": 1928
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO & Google presence",
+      "top": 1928
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "One monthly plan. Everything included.",
+      "top": 2273
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Starter",
+      "top": 2539
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growth",
+      "top": 2529
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Commerce",
+      "top": 2539
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Real sites for real UK businesses",
+      "top": 3266
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Booking site with delivery slots",
+      "top": 3642
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Lead-generation site for a joiner",
+      "top": 3642
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Menu, hours & table booking",
+      "top": 3642
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What business owners say about working with us",
+      "top": 3925
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 4537
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready for a website that actually brings in customers?",
+      "top": 5322
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 46,
+      "background": "rgb(201, 96, 58)",
+      "text": "Get a quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(201, 96, 58)",
+      "text": "Book a free 20-minute call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See our plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Starter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(201, 96, 58)",
+      "text": "Choose Growth"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Commerce"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(201, 96, 58)",
+      "text": "Email hello@domandigital.co.uk"
+    }
+  ],
+  "sections": [
+    {
+      "top": 83,
+      "height": 797,
+      "kind": "hero",
+      "label": "Websites that work as hard as you do — built, hosted, and lo",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.134,
+        "whitespaceRatio": 0.672,
+        "contentWidthRatio": 0.773,
+        "background": "rgb(250, 248, 244)",
+        "controls": 2
+      },
+      "badges": [
+        "Book Now"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Websites that work as hard as you do — built, hosted, and looked after.",
+        "Doman Digital designs and builds websites for independent shops, tradespeople, and local services, then keeps them fast, secure, and up to date on one simple monthly plan. No agency jargon, no surprise invoices.",
+        "Based in the UK · Small business specialists",
+        "60+UK small businesses online",
+        "4.9/5average client rating",
+        "£45plans start from, per month",
+        "Loads in 0.8s ⚡",
+        "Live in 3 weeks"
+      ]
+    },
+    {
+      "top": 880,
+      "height": 642,
+      "kind": "stats",
+      "label": "From first chat to live site, without the headache",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.978,
+        "whitespaceRatio": 0.754,
+        "contentWidthRatio": 0.726,
+        "background": "rgb(250, 248, 244)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 4,
+      "text": [
+        "From first chat to live site, without the headache",
+        "We've streamlined the process so you spend your time running your business, not managing a web project.",
+        "Free discovery call",
+        "We learn about your business, your customers, and what you need your website to actually do.",
+        "Design & build",
+        "We design a site around your brand and build it on fast, reliable, modern foundations.",
+        "Review & launch",
+        "You review, we tweak, and once you're happy we launch — usually within three weeks.",
+        "Ongoing care",
+        "Your monthly plan covers hosting, updates, small edits, and a real person to call.",
+        "How it works"
+      ]
+    },
+    {
+      "top": 1522,
+      "height": 641,
+      "kind": "cards",
+      "label": "Everything you need to be found and booked online",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.222,
+        "mirrorSymmetry": 0.574,
+        "whitespaceRatio": 0.788,
+        "contentWidthRatio": 0.74,
+        "background": "rgb(242, 237, 227)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything you need to be found and booked online",
+        "We focus on the handful of things that actually move the needle for small businesses.",
+        "Website design & build",
+        "Clean, fast, mobile-friendly websites tailored to your business — from a simple brochure site to a full booking or e-commerce setup.",
+        "Monthly hosting & maintenance",
+        "Secure UK hosting, backups, software updates, and small content edits handled for you every month — no technical skills required.",
+        "Local SEO & Google presence",
+        "We set up and optimise your Google Business Profile and on-page SEO so local customers can actually find you.",
+        "What we do"
+      ]
+    },
+    {
+      "top": 2163,
+      "height": 992,
+      "kind": "cards",
+      "label": "One monthly plan. Everything included.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.385,
+        "mirrorSymmetry": 0.971,
+        "whitespaceRatio": 0.665,
+        "contentWidthRatio": 0.718,
+        "background": "rgb(250, 248, 244)",
+        "controls": 3
+      },
+      "badges": [
+        "Most popular"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "One monthly plan. Everything included.",
+        "A small setup fee to build your site, then a fixed monthly plan that covers hosting, updates, and support. Cancel any time — you own your domain and content regardless.",
+        "Starter",
+        "Up to 5 pages",
+        "Mobile-friendly design",
+        "UK hosting & SSL included",
+        "1 content edit per month",
+        "Email support",
+        "Growth",
+        "Up to 10 pages",
+        "Booking or enquiry forms",
+        "Local SEO setup & monitoring",
+        "4 content edits per month",
+        "Phone & email support",
+        "Commerce",
+        "Full online shop",
+        "Payment & delivery setup",
+        "Unlimited small edits",
+        "Priority support",
+        "For sole traders & new businesses",
+        "£350 one-off setup",
+        "For established small businesses",
+        "£600 one-off setup",
+        "For businesses selling online",
+        "£950 one-off setup"
+      ]
+    },
+    {
+      "top": 3156,
+      "height": 659,
+      "kind": "cards",
+      "label": "Real sites for real UK businesses",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.267,
+        "mirrorSymmetry": 0.83,
+        "whitespaceRatio": 0.655,
+        "contentWidthRatio": 0.758,
+        "background": "rgb(242, 237, 227)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Real sites for real UK businesses",
+        "A few examples of the kind of work we do — from local services to independent retail.",
+        "Booking site with delivery slots",
+        "Online ordering with local delivery scheduling, replacing phone-only orders.",
+        "Lead-generation site for a joiner",
+        "Quote request forms and a gallery of past work, built for local search visibility.",
+        "Menu, hours & table booking",
+        "A simple, fast site that keeps opening hours and menus always up to date.",
+        "Hollow & Bloom",
+        "Florist · Bristol",
+        "Trade · Leeds",
+        "The Salt Room",
+        "Café · Margate"
+      ]
+    },
+    {
+      "top": 3815,
+      "height": 612,
+      "kind": "cards",
+      "label": "What business owners say about working with us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.429,
+        "mirrorSymmetry": 0.991,
+        "whitespaceRatio": 0.758,
+        "contentWidthRatio": 0.724,
+        "background": "rgb(250, 248, 244)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What business owners say about working with us",
+        "\"Doman Digital took a job that would've stressed me out for months and had it sorted in under three weeks. Enquiries are up and I don't touch a thing — they just handle it.\"",
+        "\"I'd been putting off a website for years because it felt too complicated. The monthly plan made it a no-brainer, and they've updated our menu for us within the hour every time we've asked.\"",
+        "\"Genuinely the easiest supplier relationship we have. One flat monthly cost, no invoices to chase, and when something needs changing they just get on with it.\"",
+        "Kestrel Joinery, Leeds",
+        "The Salt Room, Margate",
+        "Hollow & Bloom, Bristol"
+      ]
+    },
+    {
+      "top": 4427,
+      "height": 755,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 0.583,
+        "mirrorSymmetry": 0.843,
+        "whitespaceRatio": 0.646,
+        "contentWidthRatio": 0.542,
+        "background": "rgb(242, 237, 227)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Frequently asked questions",
+        "Do I own my website?",
+        "Yes. Your domain name and all your content belong to you. The monthly plan covers the ongoing hosting, updates, and support — if you ever leave, we hand everything over cleanly.",
+        "What happens if I want to cancel?",
+        "You can cancel your plan with 30 days' notice at any time. There are no long lock-in contracts — we just ask for enough notice to arrange a smooth handover of your files and domain.",
+        "How long does it take to build a site?",
+        "Most Starter and Growth sites go live within 2–3 weeks of our first call. Commerce sites with a full online shop typically take 4–6 weeks depending on the number of products.",
+        "What if I need changes after launch?",
+        "Every plan includes a set number of content edits each month — updating text, photos, prices, or opening hours. Bigger changes, like new pages or features, are quoted separately and fairly.",
+        "Do you work with businesses outside the UK?",
+        "We're a UK studio and focus on UK small businesses, which lets us understand local SEO, compliance, and customer expectations properly. We host everything on UK-based servers."
+      ]
+    },
+    {
+      "top": 5182,
+      "height": 434,
+      "kind": "text",
+      "label": "Ready for a website that actually brings in customers?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.424,
+        "whitespaceRatio": 0.882,
+        "contentWidthRatio": 0.689,
+        "background": "rgb(250, 248, 244)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready for a website that actually brings in customers?",
+        "Book a free, no-obligation call and we'll tell you honestly what your business needs — even if that's not us."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.219,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(255, 255, 255)",
+          "rgb(251, 249, 245)"
+        ],
+        "area": 90827,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "images": [],
+  "firstScreenText": [
+    "Websites that work as hard as you do — built, hosted, and looked after.",
+    "Doman Digital designs and builds websites for independent shops, tradespeople, and local services, then keeps them fast, secure, and up to date on one simple monthly plan. No agency jargon, no surprise invoices.",
+    "Based in the UK · Small business specialists",
+    "60+UK small businesses online",
+    "4.9/5average client rating",
+    "£45plans start from, per month",
+    "Loads in 0.8s ⚡",
+    "Live in 3 weeks"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      26,
+      34,
+      35,
+      38,
+      42,
+      54
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "12px",
+      "14px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(23, 24, 28, 0.18) 0px 30px 60px -20px",
+      "rgba(23, 24, 28, 0.2) 0px 20px 40px -15px"
+    ],
+    "spacingOnScalePct": 47,
+    "bodyLineLengthCh": 54,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 26.2,
+    "edgeDensity": 0.056,
+    "symmetry": 0.964,
+    "width": 1440,
+    "height": 5966,
+    "sampled": 954720
+  }
+}

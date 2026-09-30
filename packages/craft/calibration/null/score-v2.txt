@@ -1,0 +1,39 @@
+Cross-brief: each brief's null pages against the other six
+  dd               typical 14/20  flagged 20/20
+  mmm              typical 8/20  flagged 20/20
+  sensphere        typical 9/20  flagged 20/20
+  harrison-james   typical 13/20  flagged 20/20
+  hj-beauty        typical 6/20  flagged 20/20
+  chair-and-blade  typical 7/20  flagged 18/20
+  rmp              typical 3/20  flagged 18/20
+
+Estate: typicality against its own brief's null, and all seven pooled
+  dd               own 0.10  pooled 0.01  shape pill (19/20), accent red (14/20), display Fraunces (13/20)
+  mmm              own 0.05  pooled 0.00  ground white (19/20), effects radial-spotlight-glow (13/20), display Cormorant Garamond (9/20)
+  sensphere        own 0.00  pooled 0.00  motion no scroll reveals (20/20), effects radial-spotlight-glow (10/20), ground white (8/20), body Inter (6/20)
+  harrison-james   own 0.10  pooled 0.10  motion no scroll reveals (20/20), body Inter (18/20), accent yellow (16/20), ground white (16/20)
+  hj-beauty        own 0.05  pooled 0.00  motion no scroll reveals (20/20), ground white (16/20), display Fraunces (5/20), effects marquee (5/20)
+  chair-and-blade  own 0.05  pooled 0.01  shape square (18/20), display Bebas Neue (9/20), ground dark (6/20), opening hero > text > text (6/20)
+  rmp              own 0.05  pooled 0.21  effects hero-eyebrow-chip (14/20), shape pill (6/20), body Manrope (5/20)
+
+AI set: 20/20 flagged (100%); typical 15, tell-heavy 20
+  accountant       score 0.96  tells 5  flagged
+  bakery           score 0.06  tells 8  flagged
+  bike-shop        score 0.24  tells 9  flagged
+  cafe             score 0.10  tells 6  flagged
+  cleaner          score 0.61  tells 7  flagged
+  dentist          score 0.21  tells 7  flagged
+  dog-groomer      score 0.06  tells 6  flagged
+  driving-school   score 0.96  tells 6  flagged
+  estate-agent     score 0.70  tells 4  flagged
+  florist          score 0.44  tells 4  flagged
+  gym              score 0.06  tells 6  flagged
+  landscaper       score 0.01  tells 4  flagged
+  music-teacher    score 0.31  tells 5  flagged
+  photographer     score 0.55  tells 4  flagged
+  physio           score 0.01  tells 7  flagged
+  plumber          score 0.55  tells 7  flagged
+  solicitor        score 0.10  tells 4  flagged
+  tattoo           score 0.33  tells 4  flagged
+  vet              score 0.49  tells 5  flagged
+  yoga             score 0.30  tells 5  flagged

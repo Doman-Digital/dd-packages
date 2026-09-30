@@ -1,0 +1,781 @@
+{
+  "version": 2,
+  "url": "pages/13.html",
+  "capturedAt": "2026-09-30T13:50:53.268Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5779,
+  "ground": "rgb(251, 250, 248)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(241, 239, 233)",
+        "area": 2027708,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1636881,
+        "chars": 0
+      },
+      {
+        "value": "rgb(27, 42, 74)",
+        "area": 212279,
+        "chars": 0
+      },
+      {
+        "value": "rgba(251, 250, 248, 0.85)",
+        "area": 126855,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 107, 61)",
+        "area": 35987,
+        "chars": 0
+      },
+      {
+        "value": "rgb(20, 23, 31)",
+        "area": 4096,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 107, 61, 0.12)",
+        "area": 1860,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.25)",
+        "area": 300,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(74, 79, 92)",
+        "area": 0,
+        "chars": 3474
+      },
+      {
+        "value": "rgb(20, 23, 31)",
+        "area": 0,
+        "chars": 937
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 209
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.92)",
+        "area": 0,
+        "chars": 165
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 129
+      },
+      {
+        "value": "rgb(224, 83, 42)",
+        "area": 0,
+        "chars": 69
+      },
+      {
+        "value": "rgb(255, 107, 61)",
+        "area": 0,
+        "chars": 15
+      },
+      {
+        "value": "rgb(27, 42, 74)",
+        "area": 0,
+        "chars": 13
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 4377,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Sora",
+      "chars": 640,
+      "displayChars": 530,
+      "italicChars": 0,
+      "weights": [
+        500,
+        700,
+        800
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Sora",
+      "sizePx": 51,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "A great website, built properly and looked after every month.",
+      "top": 233
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything a small business needs from a website — nothing it doesn't.",
+      "top": 1063
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Website design & build",
+      "top": 1405
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hosting & maintenance",
+      "top": 1405
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ongoing content updates",
+      "top": 1405
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Local SEO setup",
+      "top": 1680
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Monthly performance reports",
+      "top": 1680
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Online bookings & shops",
+      "top": 1680
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "From first chat to live site in around three weeks.",
+      "top": 2051
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Free discovery call",
+      "top": 2331
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Design & content",
+      "top": 2331
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build & review",
+      "top": 2331
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 17,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Launch & support",
+      "top": 2331
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Simple pricing, no long contracts.",
+      "top": 2713
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Starter",
+      "top": 2955
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growth",
+      "top": 2947
+    },
+    {
+      "level": 3,
+      "family": "Sora",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Commerce",
+      "top": 2955
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Small businesses, real results.",
+      "top": 3719
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 37,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 4298
+    },
+    {
+      "level": 2,
+      "family": "Sora",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's talk about your website.",
+      "top": 5087
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgb(255, 107, 61)",
+      "text": "Get a quote"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgb(255, 107, 61)",
+      "text": "Book a free 20-minute call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View monthly plans"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Starter"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 57,
+      "background": "rgb(255, 255, 255)",
+      "text": "Choose Growth"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose Commerce"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgb(255, 107, 61)",
+      "text": "Book your free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Call 01234 567 890"
+    }
+  ],
+  "sections": [
+    {
+      "top": 88,
+      "height": 697,
+      "kind": "hero",
+      "label": "A great website, built properly and looked after every month",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.382,
+        "whitespaceRatio": 0.731,
+        "contentWidthRatio": 0.711,
+        "background": "rgb(251, 250, 248)",
+        "controls": 2
+      },
+      "badges": [
+        "Live site"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "A great website, built properly and looked after every month.",
+        "Doman Digital designs and builds fast, easy-to-manage websites for independent shops, trades and service businesses — then hosts, updates and improves them for a flat monthly fee. No agency jargon, no surprise invoices.",
+        "Fixed setup cost · Cancel anytime · Based in the UK, working with clients nationwide",
+        "Millbrook Joinery",
+        "Bespoke carpentry & fitted furniture, Devon",
+        "Booking form · Gallery · Google reviews feed",
+        "This month's update",
+        "New seasonal offer added, page speed report sent, backups completed.",
+        "Website design & care plans for UK small businesses"
+      ]
+    },
+    {
+      "top": 785,
+      "height": 153,
+      "kind": "text",
+      "label": "Built for trades, shops & independents Cafés & salons Builde",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.572,
+        "whitespaceRatio": 0.839,
+        "contentWidthRatio": 0.571,
+        "background": "rgb(241, 239, 233)",
+        "controls": 0
+      },
+      "badges": [
+        "Cafés & salons",
+        "Builders & tradespeople",
+        "Clinics & therapists",
+        "Retailers & makers",
+        "Local services"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Built for trades, shops & independents",
+        "Cafés & salons",
+        "Builders & tradespeople",
+        "Clinics & therapists",
+        "Retailers & makers"
+      ]
+    },
+    {
+      "top": 938,
+      "height": 989,
+      "kind": "cards",
+      "label": "Everything a small business needs from a website — nothing i",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.333,
+        "mirrorSymmetry": 0.987,
+        "whitespaceRatio": 0.775,
+        "contentWidthRatio": 0.701,
+        "background": "rgb(251, 250, 248)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything a small business needs from a website — nothing it doesn't.",
+        "We keep the process straightforward: one point of contact, a site that actually gets finished, and ongoing support so it keeps working long after launch.",
+        "Website design & build",
+        "A custom-designed site built around what your business actually needs — booking forms, price lists, galleries, click-to-call, the lot.",
+        "Hosting & maintenance",
+        "Secure UK hosting, software updates, daily backups and uptime monitoring, handled for you as part of your plan.",
+        "Ongoing content updates",
+        "Need new photos, prices or an opening-hours change? Send us the details and we'll make the edit — no logins or tech skills required.",
+        "Local SEO setup",
+        "We optimise for the searches that bring in local customers, and connect your Google Business Profile to your site.",
+        "Monthly performance reports",
+        "A short, plain-English report each month showing visitors, enquiries and what we've done to improve your site.",
+        "Online bookings & shops",
+        "Add booking systems, payment links or a simple online shop, and we'll keep it running smoothly alongside the rest of your site.",
+        "What we do"
+      ]
+    },
+    {
+      "top": 1927,
+      "height": 662,
+      "kind": "cards",
+      "label": "From first chat to live site in around three weeks.",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.273,
+        "mirrorSymmetry": 0.975,
+        "whitespaceRatio": 0.804,
+        "contentWidthRatio": 0.713,
+        "background": "rgb(241, 239, 233)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "From first chat to live site in around three weeks.",
+        "No lengthy questionnaires or 40-page proposals — just a clear process built for busy business owners.",
+        "Free discovery call",
+        "A 20-minute chat about your business, your customers and what you want the site to achieve.",
+        "Design & content",
+        "We put together a design and draft copy for your review, using your photos and branding where you have them.",
+        "Build & review",
+        "Your site is built, tested on mobile and desktop, and sent over for two rounds of feedback.",
+        "Launch & support",
+        "We go live, connect your domain and analytics, then your monthly plan takes over from there.",
+        "How it works"
+      ]
+    },
+    {
+      "top": 2589,
+      "height": 1005,
+      "kind": "cards",
+      "label": "Simple pricing, no long contracts.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.421,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0.729,
+        "contentWidthRatio": 0.704,
+        "background": "rgb(251, 250, 248)",
+        "controls": 3
+      },
+      "badges": [
+        "Most popular"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Simple pricing, no long contracts.",
+        "A one-off setup fee covers the design and build. After that, one monthly plan covers hosting, updates and support — cancel any time with 30 days' notice.",
+        "Starter",
+        "A clean, professional site for businesses just getting online.",
+        "£350 one-off setup",
+        "✓ Up to 5 pages",
+        "✓ Mobile-friendly design",
+        "✓ UK hosting & SSL",
+        "✓ 1 content update per month",
+        "✓ Email support",
+        "Growth",
+        "Our most popular plan, built for businesses that update often.",
+        "£600 one-off setup",
+        "✓ Up to 10 pages",
+        "✓ Booking form or enquiry system",
+        "✓ Local SEO setup & Google Business link",
+        "✓ 4 content updates per month",
+        "✓ Monthly performance report",
+        "✓ Priority email & phone support",
+        "Commerce",
+        "For businesses selling products or taking payments online.",
+        "£950 one-off setup",
+        "✓ Up to 50 products or listings",
+        "✓ Online shop & secure payments",
+        "✓ Order & stock notifications",
+        "✓ Unlimited content updates",
+        "✓ Quarterly strategy call"
+      ]
+    },
+    {
+      "top": 3594,
+      "height": 579,
+      "kind": "cards",
+      "label": "Small businesses, real results.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.353,
+        "mirrorSymmetry": 0.972,
+        "whitespaceRatio": 0.786,
+        "contentWidthRatio": 0.707,
+        "background": "rgb(241, 239, 233)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Small businesses, real results.",
+        "\"Doman Digital rebuilt our old site in under three weeks. Enquiries through the contact form have more than doubled and we don't have to think about hosting or updates at all.\"",
+        "\"I run a plumbing business and had zero time to deal with a website. They handled everything — design, the booking form, even chasing me for photos. Genuinely painless.\"",
+        "\"The monthly report actually makes sense to me, which is rare. When I want a price changed I just email them and it's done the same day.\"",
+        "What clients say",
+        "Owner, The Willow Café",
+        "Director, Mercer Plumbing & Heating",
+        "Founder, Lotus Beauty Rooms"
+      ]
+    },
+    {
+      "top": 4174,
+      "height": 766,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.591,
+        "contentWidthRatio": 0.528,
+        "background": "rgb(251, 250, 248)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Frequently asked questions",
+        "Why is there a setup fee if it's a monthly plan?",
+        "The setup fee covers the design, build and testing of your site — the same work you'd pay for with a traditional web design project. The monthly plan then covers hosting, updates, support and ongoing improvements, so you're never paying twice for the same thing.",
+        "What happens if I want to cancel?",
+        "You can cancel any time with 30 days' notice. We'll export your content and, if you'd like to move your domain elsewhere, help you do that too. There are no long-term contracts to break.",
+        "Do I own the website?",
+        "Yes. The site is built for your business and the domain is registered in your name. Your monthly plan simply keeps it hosted, secure and up to date while you're with us.",
+        "How many changes can I actually ask for?",
+        "Each plan includes a set number of content updates a month, such as text changes, new photos or price updates. If you need something bigger, like a new page or a redesign of a section, we'll quote it separately before doing any work.",
+        "Can you work with a business that already has a website?",
+        "Yes — a lot of our clients come to us with an outdated or slow site that hasn't been touched in years. We'll review what you have, migrate anything worth keeping, and rebuild the rest.",
+        "Do you work with businesses outside your local area?",
+        "Yes, we work with small businesses across the UK. Calls and meetings are usually done over video, with everything else handled by email and phone."
+      ]
+    },
+    {
+      "top": 4939,
+      "height": 488,
+      "kind": "text",
+      "label": "Let's talk about your website.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "footer-cta",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0.874,
+        "contentWidthRatio": 0.689,
+        "background": "rgb(251, 250, 248)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Let's talk about your website.",
+        "Book a free, no-obligation call and we'll tell you honestly whether a new site (or a monthly plan) makes sense for your business."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.387,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(27, 42, 74)",
+          "rgb(13, 23, 48)"
+        ],
+        "area": 208920,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(27, 42, 74)",
+          "rgb(16, 25, 47)"
+        ],
+        "area": 334833,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "A great website, built properly and looked after every month.",
+    "Doman Digital designs and builds fast, easy-to-manage websites for independent shops, trades and service businesses — then hosts, updates and improves them for a flat monthly fee. No agency jargon, no surprise invoices.",
+    "Fixed setup cost · Cancel anytime · Based in the UK, working with clients nationwide",
+    "Millbrook Joinery",
+    "Bespoke carpentry & fitted furniture, Devon",
+    "Booking form · Gallery · Google reviews feed",
+    "This month's update",
+    "New seasonal offer added, page speed report sent, backups completed.",
+    "Built for trades, shops & independents",
+    "Website design & care plans for UK small businesses",
+    "Cafés & salons",
+    "Builders & tradespeople"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 8,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      35,
+      37,
+      38,
+      51
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "20px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(255, 107, 61, 0.35) 0px 6px 16px 0px",
+      "rgba(27, 42, 74, 0.5) 0px 30px 60px -24px"
+    ],
+    "spacingOnScalePct": 41,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 20.2,
+    "edgeDensity": 0.058,
+    "symmetry": 0.955,
+    "width": 1440,
+    "height": 5779,
+    "sampled": 924960
+  }
+}

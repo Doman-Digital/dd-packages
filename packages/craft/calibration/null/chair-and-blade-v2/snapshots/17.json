@@ -1,0 +1,607 @@
+{
+  "version": 2,
+  "url": "pages/17.html",
+  "capturedAt": "2026-09-30T14:04:50.052Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5296,
+  "ground": "rgb(20, 19, 16)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgba(20, 19, 16, 0.92)",
+        "area": 115268,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 163, 93)",
+        "area": 27403,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(169, 163, 151)",
+        "area": 0,
+        "chars": 2158
+      },
+      {
+        "value": "rgb(216, 211, 198)",
+        "area": 0,
+        "chars": 1073
+      },
+      {
+        "value": "rgb(245, 241, 232)",
+        "area": 0,
+        "chars": 579
+      },
+      {
+        "value": "rgb(201, 163, 93)",
+        "area": 0,
+        "chars": 246
+      },
+      {
+        "value": "rgb(20, 19, 16)",
+        "area": 0,
+        "chars": 44
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 3725,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 375,
+      "displayChars": 337,
+      "italicChars": 0,
+      "weights": [
+        400,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 61,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "One barber. One chair. Your full appointment, uninterrupted.",
+      "top": 228
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Run by one barber, on purpose.",
+      "top": 932
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Every price is fixed. Every slot is yours alone.",
+      "top": 1686
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "The whole appointment is about you, not the schedule.",
+      "top": 2973
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "No overlap",
+      "top": 3313
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Same barber, always",
+      "top": 3313
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Private by design",
+      "top": 3313
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Find the studio",
+      "top": 3661
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 16,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opening hours",
+      "top": 3803
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Getting here",
+      "top": 3707
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 42,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Regulars, not just repeat customers.",
+      "top": 4186
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 24,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Book your time with Theo",
+      "top": 4707
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 43,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a chair"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(201, 163, 93)",
+      "text": "Book your slot"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See services & prices"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 52,
+      "background": "rgb(201, 163, 93)",
+      "text": "Open in Maps"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgb(201, 163, 93)",
+      "text": "Call 0161 823 4471"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 2,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "@chairandbladehq"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 80,
+      "kind": "hero",
+      "label": "Chair & Blade Services About Location Contact Book a chair ☰",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.167,
+        "mirrorSymmetry": 0.992,
+        "whitespaceRatio": 0.84,
+        "contentWidthRatio": 0.764,
+        "background": "rgba(20, 19, 16, 0.92)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 80,
+      "height": 728,
+      "kind": "hero",
+      "label": "One barber. One chair. Your full appointment, uninterrupted.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.553,
+        "whitespaceRatio": 0.698,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(20, 19, 16)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "One barber. One chair. Your full appointment, uninterrupted.",
+        "Chair and Blade is a private barber studio run by a single barber, by appointment only. No queue, no second chair, no rushing — just the time you've booked, spent properly.",
+        "St John Street, Manchester"
+      ]
+    },
+    {
+      "top": 808,
+      "height": 755,
+      "kind": "text",
+      "label": "Run by one barber, on purpose.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.158,
+        "whitespaceRatio": 0.759,
+        "contentWidthRatio": 0.705,
+        "background": "rgb(20, 19, 16)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Run by one barber, on purpose.",
+        "Chair and Blade sits in a converted ground-floor unit on St John Street, a few minutes' walk from Deansgate. There's a single chair, a single basin, and a single barber — Theo Marsh — who books every appointment himself and cuts every head of hair that comes through the door.",
+        "Theo trained in Manchester and spent nine years cutting in busy city-centre shops before opening Chair and Blade in 2021. The idea was simple: strip away everything that makes a haircut feel rushed. One client at a time, one appointment at a time, with the full hour if that's what it takes.",
+        "There's no walk-in trade and no second barber to hand you off to. If you book with Chair and Blade, you're booking time with Theo.",
+        "Established2021",
+        "ChairsOne",
+        "BarbersTheo Marsh",
+        "BookingAppointment only",
+        "Walk-insNot taken",
+        "LocationSt John Street, M3"
+      ]
+    },
+    {
+      "top": 1562,
+      "height": 1287,
+      "kind": "text",
+      "label": "Every price is fixed. Every slot is yours alone.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.032,
+        "mirrorSymmetry": 0.294,
+        "whitespaceRatio": 0.797,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(20, 19, 16)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Every price is fixed. Every slot is yours alone.",
+        "Booked in named time slots — the price and duration below is exactly what's reserved for you, with no other client sharing the studio.",
+        "Services & Prices",
+        "Consultation, wash, precision cut, and finish. Theo's standard cut for most clients.",
+        "Close, bladed fade blended into length on top, finished with a straight-razor edge.",
+        "Cut & Beard",
+        "Full cut paired with a shaped and lined beard trim, hot towel included.",
+        "Beard Trim & Line-up",
+        "Shape, trim, and clean edges with a straight razor finish.",
+        "Hot Towel Shave",
+        "Traditional wet shave with hot towels, pre-shave oil, and balm finish.",
+        "Cut plus a natural-looking grey blend, colour-matched by eye, no dye kit boxes.",
+        "Cut, Under 12s",
+        "A relaxed, unhurried cut for younger clients — same one-to-one attention."
+      ]
+    },
+    {
+      "top": 2849,
+      "height": 722,
+      "kind": "stats",
+      "label": "The whole appointment is about you, not the schedule.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.333,
+        "mirrorSymmetry": 0.703,
+        "whitespaceRatio": 0.751,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(20, 19, 16)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "The whole appointment is about you, not the schedule.",
+        "There's no double-booking, no second client waiting behind the chair, and no handing you between staff.",
+        "No overlap",
+        "Only one appointment runs at a time. Theo isn't juggling two heads at once, so your slot stays your slot.",
+        "Same barber, always",
+        "Whoever cuts your hair the first time cuts it every time after. No re-explaining what you want to someone new.",
+        "Private by design",
+        "One chair means one client in the studio. Quiet, unhurried, and without an audience."
+      ]
+    },
+    {
+      "top": 3571,
+      "height": 491,
+      "kind": "text",
+      "label": "Find the studio",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.6,
+        "whitespaceRatio": 0.742,
+        "contentWidthRatio": 0.705,
+        "background": "rgb(20, 19, 16)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Find the studio",
+        "Chair and Blade, 24 St John Street, Manchester, M3 4DT. Two minutes from Deansgate, on-street pay-and-display parking nearby, and a short walk from Deansgate-Castlefield tram stop.",
+        "Opening hours",
+        "Tuesday – Friday",
+        "9:00 – 18:30",
+        "Saturday",
+        "8:30 – 16:00",
+        "Sunday & Monday",
+        "Closed",
+        "Getting here",
+        "As it's a one-chair studio, appointments run tightly back to back — please arrive on time, and let Theo know if you're running late so the next client isn't kept waiting."
+      ]
+    },
+    {
+      "top": 4062,
+      "height": 565,
+      "kind": "cards",
+      "label": "Regulars, not just repeat customers.",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.375,
+        "mirrorSymmetry": 0.732,
+        "whitespaceRatio": 0.748,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(20, 19, 16)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Regulars, not just repeat customers.",
+        "\"I used to sit for twenty minutes past my slot in other places. Here you walk in and Theo's ready for you, every time.\"",
+        "\"It's the same conversation picked up where we left off, and the same cut every six weeks. No surprises, which is exactly the point.\"",
+        "\"Booked my son in for his first proper cut. Theo took his time and there was no queue of adults staring. Made a difference.\"",
+        "What Clients Say",
+        "— James, client since 2022",
+        "— Michael, client since 2021",
+        "— Priya, parent"
+      ]
+    },
+    {
+      "top": 4627,
+      "height": 355,
+      "kind": "text",
+      "label": "Book your time with Theo",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0.828,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(20, 19, 16)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Book your time with Theo",
+        "Appointments are taken by phone, text, or Instagram DM. There's no online booking widget yet — every slot is confirmed personally."
+      ]
+    },
+    {
+      "top": 4982,
+      "height": 314,
+      "kind": "text",
+      "label": "Chair and Blade 24 St John StreetManchester, M3 4DT A one-to",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.877,
+        "whitespaceRatio": 0.755,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(20, 19, 16)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.552,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.08)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 1047600,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.05)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 194866,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.06)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 153714,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(201, 163, 93, 0.06)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 511043,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "One barber. One chair. Your full appointment, uninterrupted.",
+    "Chair and Blade is a private barber studio run by a single barber, by appointment only. No queue, no second chair, no rushing — just the time you've booked, spent properly.",
+    "St John Street, Manchester"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      22,
+      24,
+      26,
+      42,
+      61
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "2px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 34.7,
+    "bodyLineLengthCh": 59,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 14,
+    "edgeDensity": 0.049,
+    "symmetry": 0.963,
+    "width": 1440,
+    "height": 5296,
+    "sampled": 847680
+  }
+}

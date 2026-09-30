@@ -1,0 +1,867 @@
+{
+  "version": 2,
+  "url": "pages/08.html",
+  "capturedAt": "2026-09-30T13:57:43.636Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7520,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(247, 244, 238)",
+        "area": 4291290,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 2080136,
+        "chars": 0
+      },
+      {
+        "value": "rgb(16, 35, 61)",
+        "area": 1484665,
+        "chars": 0
+      },
+      {
+        "value": "rgb(227, 221, 209)",
+        "area": 650715,
+        "chars": 0
+      },
+      {
+        "value": "rgb(183, 138, 61)",
+        "area": 428611,
+        "chars": 0
+      },
+      {
+        "value": "rgba(183, 138, 61, 0.12)",
+        "area": 9216,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(92, 101, 114)",
+        "area": 0,
+        "chars": 3630
+      },
+      {
+        "value": "rgb(16, 35, 61)",
+        "area": 0,
+        "chars": 1200
+      },
+      {
+        "value": "rgb(28, 31, 36)",
+        "area": 0,
+        "chars": 1165
+      },
+      {
+        "value": "rgb(183, 194, 209)",
+        "area": 0,
+        "chars": 660
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 388
+      },
+      {
+        "value": "rgb(207, 217, 230)",
+        "area": 0,
+        "chars": 213
+      },
+      {
+        "value": "rgb(195, 205, 219)",
+        "area": 0,
+        "chars": 182
+      },
+      {
+        "value": "rgb(138, 151, 168)",
+        "area": 0,
+        "chars": 140
+      },
+      {
+        "value": "rgb(183, 138, 61)",
+        "area": 0,
+        "chars": 96
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 78
+      },
+      {
+        "value": "rgb(217, 184, 120)",
+        "area": 0,
+        "chars": 70
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 6894,
+      "displayChars": 0,
+      "italicChars": 529,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "chars": 912,
+      "displayChars": 554,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 16,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Fraunces",
+      "sizePx": 50,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Straight-talking accountancy for people who build things.",
+      "top": 229
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get your free 20-minute review",
+      "top": 232
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Specialist advice, built around your situation",
+      "top": 942
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "SMEs",
+      "top": 1244
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contractors",
+      "top": 1244
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Landlords",
+      "top": 1244
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "High Earners",
+      "top": 1244
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything you need under one roof",
+      "top": 1706
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Accountancy that feels like a partnership, not a filing service",
+      "top": 2631
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Switching accountants, made simple",
+      "top": 3235
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What clients say about working with us",
+      "top": 3785
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fixed monthly fees, no surprises",
+      "top": 4421
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sole Trader / Landlord",
+      "top": 4645
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Limited Company & Contractor",
+      "top": 4645
+    },
+    {
+      "level": 3,
+      "family": "Fraunces",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Growing SME",
+      "top": 4645
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 24,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Founded by accountants who were tired of the industry norm",
+      "top": 5457
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 37,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions",
+      "top": 6159
+    },
+    {
+      "level": 2,
+      "family": "Fraunces",
+      "sizePx": 30,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Let's talk about your accounts",
+      "top": 6899
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 3,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Book a Call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 3,
+      "heightPx": 54,
+      "background": "rgb(183, 138, 61)",
+      "text": "Get a Free Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 3,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "See Our Services"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 3,
+      "heightPx": 47,
+      "background": "rgb(16, 35, 61)",
+      "text": "Request Callback"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 3,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose this plan"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 3,
+      "heightPx": 54,
+      "background": "rgb(183, 138, 61)",
+      "text": "Choose this plan"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 3,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Choose this plan"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 3,
+      "heightPx": 54,
+      "background": "rgb(16, 35, 61)",
+      "text": "Call 0161 820 4477"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 91,
+      "kind": "hero",
+      "label": "HJ Harrison James Services Who We Help Pricing About FAQs 01",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.111,
+        "mirrorSymmetry": 0.992,
+        "whitespaceRatio": 0.803,
+        "contentWidthRatio": 0.781,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [
+        "HJ"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "0161 820 4477"
+      ]
+    },
+    {
+      "top": 91,
+      "height": 725,
+      "kind": "hero",
+      "label": "Straight-talking accountancy for people who build things.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.095,
+        "mirrorSymmetry": 0.728,
+        "whitespaceRatio": 0.649,
+        "contentWidthRatio": 0.757,
+        "background": "rgb(255, 255, 255)",
+        "controls": 3
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 2,
+      "text": [
+        "Straight-talking accountancy for people who build things.",
+        "Harrison James looks after the numbers for SMEs, contractors, landlords and high-earning individuals — so you can focus on running your business, not chasing HMRC deadlines.",
+        "Get your free 20-minute review",
+        "Tell us a little about your situation and one of our accountants will call you back.",
+        "No obligation. We reply within one working day.",
+        "Chartered Accountants, UK-wide",
+        "4.9/5average client rating",
+        "<24hrsaverage response time"
+      ]
+    },
+    {
+      "top": 816,
+      "height": 764,
+      "kind": "cards",
+      "label": "Specialist advice, built around your situation",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.706,
+        "whitespaceRatio": 0.791,
+        "contentWidthRatio": 0.762,
+        "background": "rgb(247, 244, 238)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Specialist advice, built around your situation",
+        "We don't do generic. Every client group has different pressures, deadlines and opportunities — our advice reflects that.",
+        "SMEs",
+        "Annual accounts, bookkeeping, payroll and cash flow forecasting for growing businesses, plus a named accountant who actually answers the phone.",
+        "Contractors",
+        "IR35 assessments, limited company set-up, dividend planning and take-home pay optimisation for contractors and freelancers.",
+        "Landlords",
+        "Rental accounts, Section 24 tax planning, incorporation advice and Capital Gains Tax returns for portfolios of any size.",
+        "High Earners",
+        "Self Assessment, pension and ISA tax planning, and strategies to protect your personal allowance and manage higher-rate exposure.",
+        "Who we help"
+      ]
+    },
+    {
+      "top": 1580,
+      "height": 926,
+      "kind": "cards",
+      "label": "Everything you need under one roof",
+      "cards": 9,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.286,
+        "mirrorSymmetry": 0.82,
+        "whitespaceRatio": 0.738,
+        "contentWidthRatio": 0.778,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything you need under one roof",
+        "From day-to-day bookkeeping to complex tax planning, we cover the full spectrum of accountancy so you never need three different advisers.",
+        "Annual Accounts & Corporation Tax",
+        "Statutory accounts prepared and filed with Companies House and HMRC, with corporation tax computations and clear explanations of what's owed and when.",
+        "Bookkeeping & VAT",
+        "Cloud bookkeeping in Xero or QuickBooks, MTD-compliant VAT returns, and monthly management information so you always know where you stand.",
+        "Payroll & Auto-Enrolment",
+        "Weekly or monthly payroll runs, payslips, P60s and P45s, and pension auto-enrolment administration handled end to end.",
+        "Self Assessment Tax Returns",
+        "Personal tax returns prepared, checked and filed, with proactive advice on reducing your liability well before the 31 January deadline.",
+        "IR35 & Contractor Structuring",
+        "Status assessments, limited company vs umbrella advice, and dividend/salary planning to keep more of what you earn, compliantly.",
+        "Property & Landlord Tax",
+        "Rental income accounts, mortgage interest relief planning, incorporation reviews and advice on Stamp Duty and Capital Gains Tax.",
+        "Tax Planning & Advisory",
+        "Proactive, forward-looking planning around pensions, dividends, capital gains, inheritance tax and business structure — not just compliance.",
+        "Company Formation & Structuring",
+        "Limited company incorporation, shareholder agreements, and guidance on the right structure for tax efficiency and future growth.",
+        "HMRC Enquiries & Investigations",
+        "Representation and correspondence handled on your behalf if HMRC opens an enquiry, with fee protection insurance available."
+      ]
+    },
+    {
+      "top": 2506,
+      "height": 604,
+      "kind": "stats",
+      "label": "Accountancy that feels like a partnership, not a filing serv",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.692,
+        "whitespaceRatio": 0.718,
+        "contentWidthRatio": 0.781,
+        "background": "rgb(16, 35, 61)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 4,
+      "text": [
+        "Accountancy that feels like a partnership, not a filing service",
+        "We built Harrison James around the things clients told us other firms got wrong: slow replies, jargon-heavy advice, and accounts prepared with no context on the business behind them.",
+        "A named accountant",
+        "You get one point of contact who knows your business, not a rotating call centre.",
+        "Fixed, transparent fees",
+        "Agreed upfront with no surprise invoices for a phone call or an email.",
+        "Cloud-based, real-time",
+        "Xero and QuickBooks integration means you see your numbers as they happen.",
+        "Proactive, not reactive",
+        "We flag tax-saving opportunities and deadlines before they become problems.",
+        "Why Harrison James"
+      ]
+    },
+    {
+      "top": 3110,
+      "height": 549,
+      "kind": "cards",
+      "label": "Switching accountants, made simple",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.273,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.805,
+        "contentWidthRatio": 0.781,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Switching accountants, made simple",
+        "Most clients are fully onboarded within two weeks, with no disruption to your filing deadlines.",
+        "Free consultation",
+        "A no-obligation call to understand your business, your goals and where you're currently losing time or money.",
+        "Fixed-fee proposal",
+        "We send a clear, itemised quote within 48 hours — no vague hourly rates, no hidden extras.",
+        "Seamless handover",
+        "We contact your previous accountant, request professional clearance and migrate your records for you.",
+        "Ongoing support",
+        "Regular check-ins, proactive tax planning, and a team that responds the same working day.",
+        "How it works"
+      ]
+    },
+    {
+      "top": 3659,
+      "height": 636,
+      "kind": "cards",
+      "label": "What clients say about working with us",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "testimonials",
+      "geometry": {
+        "centredShare": 0.429,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.756,
+        "contentWidthRatio": 0.737,
+        "background": "rgb(247, 244, 238)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What clients say about working with us",
+        "\"Switched from a high-street firm that took weeks to reply to anything. Harrison James turned our year-end accounts around in days and actually explained what the numbers meant.\"",
+        "\"As a contractor, IR35 had me worried. They walked me through my status assessment and restructured my dividends so I'm now paying significantly less than my last accountant had me on.\"",
+        "\"I have a portfolio of six rental properties and finally have an accountant who understands Section 24 properly. Their incorporation advice alone saved me thousands.\"",
+        "Director, Whitfield Design Studio",
+        "IT Contractor, Manchester"
+      ]
+    },
+    {
+      "top": 4296,
+      "height": 964,
+      "kind": "cards",
+      "label": "Fixed monthly fees, no surprises",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.382,
+        "mirrorSymmetry": 0.981,
+        "whitespaceRatio": 0.694,
+        "contentWidthRatio": 0.737,
+        "background": "rgb(255, 255, 255)",
+        "controls": 3
+      },
+      "badges": [
+        "Most Popular"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 3,
+      "text": [
+        "Fixed monthly fees, no surprises",
+        "Every package includes a named accountant, unlimited phone and email support, and access to your figures in real time. Bespoke quotes available for complex structures.",
+        "Sole Trader / Landlord",
+        "For sole traders and individual landlords who need reliable, low-cost compliance.",
+        "Self Assessment tax return",
+        "Rental accounts (up to 2 properties)",
+        "HMRC correspondence handling",
+        "Annual tax planning review",
+        "Limited Company & Contractor",
+        "Our most popular package for contractors and small limited companies.",
+        "Annual accounts & corporation tax",
+        "Confirmation statement filing",
+        "Payroll for up to 2 directors",
+        "VAT returns (MTD-compliant)",
+        "IR35 status review",
+        "Unlimited advisory calls",
+        "Growing SME",
+        "For established businesses with employees, higher turnover and more complexity.",
+        "Everything in Contractor plan",
+        "Payroll for up to 10 employees",
+        "Monthly management accounts",
+        "Cash flow forecasting",
+        "Quarterly strategy review"
+      ]
+    },
+    {
+      "top": 5259,
+      "height": 774,
+      "kind": "text",
+      "label": "Founded by accountants who were tired of the industry norm",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.133,
+        "whitespaceRatio": 0.793,
+        "contentWidthRatio": 0.763,
+        "background": "rgb(247, 244, 238)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Founded by accountants who were tired of the industry norm",
+        "Harrison James was founded in 2007 by two chartered accountants who believed small businesses and individuals deserved the same calibre of advice as large corporates — delivered without the jargon, the delays, or the surprise fees. Today our team supports over 1,200 clients across the UK, from sole ",
+        "Chartered and certified accountants (ICAEW & ACCA members)",
+        "Registered with HMRC as agents for all our clients",
+        "Professional indemnity insurance and client money protection",
+        "Cloud-first: Xero Platinum Partner and QuickBooks ProAdvisor",
+        "Harrison James — Head Office, Manchester",
+        "About Harrison James"
+      ]
+    },
+    {
+      "top": 6034,
+      "height": 805,
+      "kind": "text",
+      "label": "Common questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.716,
+        "contentWidthRatio": 0.521,
+        "background": "rgb(247, 244, 238)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Common questions",
+        "How much does it cost to switch accountants?",
+        "There's no cost to switch. We handle the professional clearance process with your existing accountant and can usually have your records transferred within a week, with no gap in your compliance cover.",
+        "Do you work with clients outside Manchester?",
+        "Yes — the majority of our clients are supported remotely by phone, video call and our client portal. We work with SMEs, contractors and landlords across the whole of the UK.",
+        "Can you help if I've received an HMRC enquiry letter?",
+        "Yes. We regularly represent clients in HMRC enquiries and can correspond with HMRC directly on your behalf. If you're not yet a client, get in touch as soon as possible — response deadlines are often tight.",
+        "What software do I need to use?",
+        "We're partnered with Xero and QuickBooks and recommend both for real-time bookkeeping. If you use a different system or spreadsheets, we can usually still work with what you have.",
+        "Do you offer fee protection insurance?",
+        "Yes, we offer optional fee protection insurance that covers the cost of our time if HMRC opens an enquiry into your affairs, so an investigation doesn't come with an unexpected bill."
+      ]
+    },
+    {
+      "top": 6839,
+      "height": 275,
+      "kind": "text",
+      "label": "Let's talk about your accounts",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.8,
+        "contentWidthRatio": 0.781,
+        "background": "rgb(183, 138, 61)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Let's talk about your accounts",
+        "Book a free, no-obligation 20-minute consultation with one of our accountants."
+      ]
+    },
+    {
+      "top": 7114,
+      "height": 406,
+      "kind": "text",
+      "label": "Harrison James Chartered accountants for SMEs, contractors, ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.693,
+        "whitespaceRatio": 0.81,
+        "contentWidthRatio": 0.781,
+        "background": "rgb(16, 35, 61)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.399,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(16, 35, 61)",
+          "rgb(11, 26, 48)"
+        ],
+        "area": 1043888,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(28, 58, 94)",
+          "rgb(11, 26, 48)"
+        ],
+        "area": 286552,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "Straight-talking accountancy for people who build things.",
+    "Harrison James looks after the numbers for SMEs, contractors, landlords and high-earning individuals — so you can focus on running your business, not chasing HMRC deadlines.",
+    "Get your free 20-minute review",
+    "Tell us a little about your situation and one of our accountants will call you back.",
+    "No obligation. We reply within one working day.",
+    "Chartered Accountants, UK-wide",
+    "4.9/5average client rating",
+    "<24hrsaverage response time"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 12,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      22,
+      24,
+      30,
+      32,
+      34,
+      37,
+      50
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600
+    ],
+    "radii": [
+      "3px",
+      "8px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.35) 0px 30px 60px 0px",
+      "rgba(183, 138, 61, 0.15) 0px 20px 40px 0px"
+    ],
+    "spacingOnScalePct": 41.5,
+    "bodyLineLengthCh": 56,
+    "bodyFontSizePx": 18
+  },
+  "visual": {
+    "colourfulness": 25.9,
+    "edgeDensity": 0.076,
+    "symmetry": 0.886,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

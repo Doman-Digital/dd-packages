@@ -1,0 +1,895 @@
+{
+  "version": 2,
+  "url": "pages/13.html",
+  "capturedAt": "2026-09-30T14:01:16.796Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5136,
+  "ground": "rgb(253, 250, 247)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3802348,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 1222536,
+        "chars": 0
+      },
+      {
+        "value": "rgb(246, 233, 230)",
+        "area": 937678,
+        "chars": 0
+      },
+      {
+        "value": "rgb(233, 201, 194)",
+        "area": 575775,
+        "chars": 0
+      },
+      {
+        "value": "rgb(253, 250, 247)",
+        "area": 110520,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 138, 125)",
+        "area": 14275,
+        "chars": 0
+      },
+      {
+        "value": "rgba(253, 250, 247, 0.9)",
+        "area": 13457,
+        "chars": 0
+      },
+      {
+        "value": "rgb(168, 102, 90)",
+        "area": 6164,
+        "chars": 0
+      },
+      {
+        "value": "rgb(138, 154, 131)",
+        "area": 4926,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(44, 38, 34)",
+        "area": 0,
+        "chars": 712
+      },
+      {
+        "value": "rgb(87, 79, 73)",
+        "area": 0,
+        "chars": 618
+      },
+      {
+        "value": "rgb(74, 65, 55)",
+        "area": 0,
+        "chars": 582
+      },
+      {
+        "value": "rgb(131, 122, 114)",
+        "area": 0,
+        "chars": 528
+      },
+      {
+        "value": "rgb(207, 198, 189)",
+        "area": 0,
+        "chars": 285
+      },
+      {
+        "value": "rgb(246, 233, 230)",
+        "area": 0,
+        "chars": 216
+      },
+      {
+        "value": "rgb(168, 102, 90)",
+        "area": 0,
+        "chars": 210
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 153
+      },
+      {
+        "value": "rgb(169, 159, 149)",
+        "area": 0,
+        "chars": 127
+      },
+      {
+        "value": "rgb(107, 98, 89)",
+        "area": 0,
+        "chars": 126
+      },
+      {
+        "value": "rgb(143, 134, 124)",
+        "area": 0,
+        "chars": 96
+      },
+      {
+        "value": "rgb(107, 74, 65)",
+        "area": 0,
+        "chars": 86
+      },
+      {
+        "value": "rgb(253, 250, 247)",
+        "area": 0,
+        "chars": 64
+      },
+      {
+        "value": "rgb(122, 90, 81)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgb(145, 138, 129)",
+        "area": 0,
+        "chars": 24
+      },
+      {
+        "value": "rgb(176, 168, 159)",
+        "area": 0,
+        "chars": 6
+      },
+      {
+        "value": "rgb(201, 138, 125)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 3585,
+      "displayChars": 304,
+      "italicChars": 0,
+      "weights": [
+        300,
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 290,
+      "displayChars": 260,
+      "italicChars": 15,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 48,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "Glass skin starts with the good stuff.",
+      "top": 263
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build your routine, one step at a time",
+      "top": 964
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Cleansers",
+      "top": 1212
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Serums & Ampoules",
+      "top": 1212
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Masks",
+      "top": 1212
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 17,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sun Care",
+      "top": 1212
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bestsellers this month",
+      "top": 1510
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Advanced Snail 96 Mucin Power Essence",
+      "top": 1956
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Rice + Probiotics Cleansing Oil",
+      "top": 1956
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Heartleaf 77% Soothing Toner",
+      "top": 1956
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Birch Juice Moisturizing Sunscreen SPF50+",
+      "top": 1956
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "DIVE-IN Low Molecule Hyaluronic Acid Serum",
+      "top": 2456
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Hyaluronic Acid Toner Gel",
+      "top": 2456
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "Glow Deep Serum: Propolis + Niacinamide",
+      "top": 2456
+    },
+    {
+      "level": 3,
+      "family": "Poppins",
+      "sizePx": 16,
+      "weight": 500,
+      "italic": false,
+      "italicPart": false,
+      "text": "N.M.F Aquaring Ampoule Mask (Box of 10)",
+      "top": 2456
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 32,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Started in a spare bedroom in Kent",
+      "top": 2940
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 29,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Not sure what your skin needs?",
+      "top": 3545
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 34,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What UK skincare fans are saying",
+      "top": 3861
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 29,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 4421
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 40,
+      "background": "rgb(201, 138, 125)",
+      "text": "Basket (0)"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgb(44, 38, 34)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Why Harrisons?"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(44, 38, 34)",
+      "text": "+"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 54,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View All Products"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 52,
+      "background": "rgb(201, 138, 125)",
+      "text": "Take the Skin Quiz"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgb(44, 38, 34)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 116,
+      "height": 624,
+      "kind": "hero",
+      "label": "Glass skin starts with the good stuff.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.128,
+        "whitespaceRatio": 0.694,
+        "contentWidthRatio": 0.69,
+        "background": "rgb(253, 250, 247)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Glass skin starts with the good stuff.",
+        "We source the Korean skincare that actually works — gentle acids, snail mucin, rice ferments and SPFs that don't leave a white cast — and keep it all in stock right here in the UK, so it lands on your doorstep in days, not weeks.",
+        "Authentic K-Beauty · UK Stock",
+        "Loved by 12,000+ UK skincare fans"
+      ]
+    },
+    {
+      "top": 740,
+      "height": 102,
+      "kind": "cards",
+      "label": "🇬🇧 UK WarehouseNo customs, no surprise fees 📦 Free Delive",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.326,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(44, 38, 34)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "🇬🇧 UK WarehouseNo customs, no surprise fees",
+        "📦 Free Delivery £30+Tracked Royal Mail, 1–3 days",
+        "✔ 100% AuthenticSourced directly from Korean brands",
+        "↩ Easy Returns30-day no-quibble policy"
+      ]
+    },
+    {
+      "top": 842,
+      "height": 545,
+      "kind": "cards",
+      "label": "Build your routine, one step at a time",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.849,
+        "contentWidthRatio": 0.757,
+        "background": "rgb(253, 250, 247)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Build your routine, one step at a time",
+        "No idea where to start? Shop by category and we'll do the thinking for you.",
+        "Cleansers",
+        "Oil, foam & gel",
+        "Serums & Ampoules",
+        "Targeted treatments",
+        "Masks",
+        "Sheet, wash-off & sleeping",
+        "Sun Care",
+        "SPF that never pills",
+        "Shop by Step"
+      ]
+    },
+    {
+      "top": 1388,
+      "height": 1428,
+      "kind": "cards",
+      "label": "Bestsellers this month",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0.08,
+        "mirrorSymmetry": 0.992,
+        "whitespaceRatio": 0.588,
+        "contentWidthRatio": 0.785,
+        "background": "rgb(255, 255, 255)",
+        "controls": 9
+      },
+      "badges": [
+        "Bestseller",
+        "New in",
+        "Bestseller",
+        "New in",
+        "Bestseller"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Bestsellers this month",
+        "The products our customers reorder again and again.",
+        "Advanced Snail 96 Mucin Power Essence",
+        "Lightweight, hydrating essence that repairs and plumps overnight.",
+        "Rice + Probiotics Cleansing Oil",
+        "Melts away SPF and makeup without stripping the skin barrier.",
+        "Heartleaf 77% Soothing Toner",
+        "Calms redness and rebalances after cleansing — cult favourite.",
+        "Birch Juice Moisturizing Sunscreen SPF50+",
+        "Weightless, no white cast, doubles as a hydrating base.",
+        "DIVE-IN Low Molecule Hyaluronic Acid Serum",
+        "Five weights of hyaluronic acid for deep, lasting hydration.",
+        "Hyaluronic Acid Toner Gel",
+        "A gel-toner hybrid that preps skin without any tackiness.",
+        "Glow Deep Serum: Propolis + Niacinamide",
+        "Evens tone and adds a lit-from-within glow.",
+        "N.M.F Aquaring Ampoule Mask (Box of 10)",
+        "A 15-minute reset for tired, dehydrated skin.",
+        "Beauty of Joseon"
+      ]
+    },
+    {
+      "top": 2816,
+      "height": 639,
+      "kind": "text",
+      "label": "Started in a spare bedroom in Kent",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.889,
+        "whitespaceRatio": 0.55,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(246, 233, 230)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Started in a spare bedroom in Kent",
+        "Harrisons Beauty began in 2021 when our founder, tired of six-week waits and unexpected customs bills, started importing her favourite Korean skincare in bulk and sharing it with friends. Word spread — and Harrisons Beauty was born.",
+        "Today we hold every product in our own UK warehouse, so nothing you order has to cross a border after you click \"buy\". Same great K-beauty, without the wait.",
+        "✓ Every product held in UK stock — no import delays",
+        "✓ Sourced directly from Korean brands and distributors",
+        "✓ Never tested on animals",
+        "✓ Real advice from a small, obsessive skincare team"
+      ]
+    },
+    {
+      "top": 3455,
+      "height": 285,
+      "kind": "text",
+      "label": "Not sure what your skin needs?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.373,
+        "whitespaceRatio": 0.869,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(44, 38, 34)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Not sure what your skin needs?",
+        "Take our 2-minute skin quiz and we'll build a routine around your skin type, concerns and budget."
+      ]
+    },
+    {
+      "top": 3739,
+      "height": 592,
+      "kind": "cards",
+      "label": "What UK skincare fans are saying",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.235,
+        "mirrorSymmetry": 0.929,
+        "whitespaceRatio": 0.804,
+        "contentWidthRatio": 0.746,
+        "background": "rgb(253, 250, 247)",
+        "controls": 0
+      },
+      "badges": [
+        "EM",
+        "SJ",
+        "RP"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What UK skincare fans are saying",
+        "\"Ordered on a Tuesday evening, had it Thursday morning. No customs charge, no waiting around — genuinely the easiest way to buy Korean skincare in the UK.\"",
+        "\"The heartleaf toner calmed my rosacea down within a week. I've recommended Harrisons to basically everyone I know.\"",
+        "\"Finally a Korean skincare shop that doesn't hit you with a customs fee at the door. Packaging is lovely too — feels like a proper treat.\""
+      ]
+    },
+    {
+      "top": 4331,
+      "height": 400,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.996,
+        "whitespaceRatio": 0.785,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(233, 201, 194)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get 10% off your first order",
+        "Plus first access to new arrivals, restocks and routine tips — straight to your inbox.",
+        "No spam, ever. Unsubscribe any time."
+      ]
+    },
+    {
+      "top": 4731,
+      "height": 406,
+      "kind": "text",
+      "label": "Harrisons Beauty Korean skincare, held in UK stock and shipp",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.635,
+        "whitespaceRatio": 0.829,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(44, 38, 34)",
+        "controls": 0
+      },
+      "badges": [
+        "IG",
+        "TT",
+        "FB"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.627,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(233, 201, 194)"
+        ],
+        "area": 253395,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(246, 233, 230)",
+          "rgb(255, 255, 255)"
+        ],
+        "area": 68382,
+        "radial": false
+      }
+    ],
+    "glows": 1,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "Glass skin starts with the good stuff.",
+    "We source the Korean skincare that actually works — gentle acids, snail mucin, rice ferments and SPFs that don't leave a white cast — and keep it all in stock right here in the UK, so it lands on your doorstep in days, not weeks.",
+    "✈ Free UK delivery over £30 · Dispatched from our warehouse in Kent · Orders before 2pm ship same day",
+    "Authentic K-Beauty · UK Stock",
+    "Loved by 12,000+ UK skincare fans",
+    "🇬🇧 UK WarehouseNo customs, no surprise fees",
+    "📦 Free Delivery £30+Tracked Royal Mail, 1–3 days",
+    "✔ 100% AuthenticSourced directly from Korean brands",
+    "↩ Easy Returns30-day no-quibble policy"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      22,
+      24,
+      29,
+      32,
+      34,
+      38,
+      48
+    ],
+    "fontWeights": [
+      300,
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "20px",
+      "50%",
+      "999px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 33,
+    "bodyLineLengthCh": 50,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 18.8,
+    "edgeDensity": 0.051,
+    "symmetry": 0.965,
+    "width": 1440,
+    "height": 5136,
+    "sampled": 821760
+  }
+}

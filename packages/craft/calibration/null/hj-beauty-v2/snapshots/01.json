@@ -1,0 +1,663 @@
+{
+  "version": 2,
+  "url": "pages/01.html",
+  "capturedAt": "2026-09-30T13:59:38.312Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 4125,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(253, 246, 243)",
+        "area": 2748097,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 1132860,
+        "chars": 0
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 568303,
+        "chars": 0
+      },
+      {
+        "value": "rgb(34, 27, 24)",
+        "area": 540023,
+        "chars": 0
+      },
+      {
+        "value": "rgb(224, 185, 160)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(201, 211, 189)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(231, 195, 201)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(217, 203, 184)",
+        "area": 75413,
+        "chars": 0
+      },
+      {
+        "value": "rgb(232, 135, 155)",
+        "area": 14262,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(84, 73, 67)",
+        "area": 0,
+        "chars": 863
+      },
+      {
+        "value": "rgb(43, 35, 32)",
+        "area": 0,
+        "chars": 577
+      },
+      {
+        "value": "rgb(122, 109, 103)",
+        "area": 0,
+        "chars": 417
+      },
+      {
+        "value": "rgb(203, 191, 186)",
+        "area": 0,
+        "chars": 278
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 232
+      },
+      {
+        "value": "rgb(217, 207, 201)",
+        "area": 0,
+        "chars": 172
+      },
+      {
+        "value": "rgb(169, 154, 146)",
+        "area": 0,
+        "chars": 146
+      },
+      {
+        "value": "rgb(143, 130, 124)",
+        "area": 0,
+        "chars": 91
+      },
+      {
+        "value": "rgb(232, 135, 155)",
+        "area": 0,
+        "chars": 73
+      },
+      {
+        "value": "rgb(224, 169, 56)",
+        "area": 0,
+        "chars": 55
+      },
+      {
+        "value": "rgb(253, 246, 243)",
+        "area": 0,
+        "chars": 45
+      },
+      {
+        "value": "rgb(179, 164, 157)",
+        "area": 0,
+        "chars": 12
+      },
+      {
+        "value": "rgb(244, 166, 183)",
+        "area": 0,
+        "chars": 9
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 2676,
+      "displayChars": 24,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Poppins",
+      "chars": 285,
+      "displayChars": 183,
+      "italicChars": 0,
+      "weights": [
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Arial",
+      "chars": 9,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Poppins",
+      "sizePx": 45,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Korean skincare that actually arrives on time.",
+      "top": 219
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Shop by Skin Concern",
+      "top": 795
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Bestsellers This Month",
+      "top": 1349
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "10-step routines shouldn't mean 10-day waits.",
+      "top": 2509
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What our customers say",
+      "top": 2987
+    },
+    {
+      "level": 2,
+      "family": "Poppins",
+      "sizePx": 30,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get 10% off your first order",
+      "top": 3521
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 52,
+      "background": "rgb(43, 35, 32)",
+      "text": "Shop Bestsellers"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 51,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Find Your Routine"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 17,
+      "heightPx": 34,
+      "background": "rgb(43, 35, 32)",
+      "text": "+"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 52,
+      "background": "rgb(232, 135, 155)",
+      "text": "Start Shopping"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 40,
+      "heightPx": 49,
+      "background": "rgb(43, 35, 32)",
+      "text": "Subscribe"
+    }
+  ],
+  "sections": [
+    {
+      "top": 115,
+      "height": 470,
+      "kind": "hero",
+      "label": "Korean skincare that actually arrives on time.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.615,
+        "mirrorSymmetry": 0.576,
+        "whitespaceRatio": 0.736,
+        "contentWidthRatio": 0.701,
+        "background": "rgb(255, 255, 255)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Korean skincare that actually arrives on time.",
+        "We stock genuine, in-date Korean skincare in our own UK warehouse — so your glass skin routine turns up in days, not weeks, with no customs charges and no surprises.",
+        "K-Beauty, without the wait"
+      ]
+    },
+    {
+      "top": 585,
+      "height": 140,
+      "kind": "cards",
+      "label": "🇬🇧 Shipped from UK stock — no customs fees ⚡ Order by 3pm,",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.167,
+        "mirrorSymmetry": 0.805,
+        "whitespaceRatio": 0.809,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "🇬🇧 Shipped from UK stock — no customs fees",
+        "⚡ Order by 3pm, dispatched same day",
+        "✅ 100% authentic, sourced direct from Korea",
+        "↩️ 30-day easy returns"
+      ]
+    },
+    {
+      "top": 725,
+      "height": 555,
+      "kind": "cards",
+      "label": "Shop by Skin Concern",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.336,
+        "whitespaceRatio": 0.921,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Shop by Skin Concern",
+        "Not sure where to start? Find the routine built for what your skin needs right now.",
+        "Hydration & Glow",
+        "Acne & Blemishes",
+        "Brightening & Tone"
+      ]
+    },
+    {
+      "top": 1279,
+      "height": 1169,
+      "kind": "cards",
+      "label": "Bestsellers This Month",
+      "cards": 8,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.938,
+        "whitespaceRatio": 0.544,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(253, 246, 243)",
+        "controls": 8
+      },
+      "badges": [
+        "Bestseller",
+        "Sale",
+        "New",
+        "Sale"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Bestsellers This Month",
+        "The cult favourites our customers keep coming back for — all in stock and ready to ship today.",
+        "Beauty of Joseon",
+        "Glow Deep Serum: Rice + Alpha Arbutin",
+        "Advanced Snail 96 Mucin Power Essence",
+        "Heartleaf 77% Soothing Toner",
+        "Birch Juice Moisturizing Sunscreen SPF50+",
+        "DIVE-IN Low Molecule Hyaluronic Acid Serum",
+        "Madagascar Centella Ampoule",
+        "Hyaluronic Acid Toner Gel",
+        "Some By Mi",
+        "AHA-BHA-PHA 30 Days Miracle Toner"
+      ]
+    },
+    {
+      "top": 2449,
+      "height": 338,
+      "kind": "text",
+      "label": "10-step routines shouldn't mean 10-day waits.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.754,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(43, 35, 32)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "10-step routines shouldn't mean 10-day waits.",
+        "Every product on Harrisons Beauty is held in our own UK fulfilment centre. That means genuine stock, fresh batch dates, and your parcel on the doorstep in 1–3 working days."
+      ]
+    },
+    {
+      "top": 2786,
+      "height": 131,
+      "kind": "text",
+      "label": "COSRX Beauty of Joseon Anua Round Lab Torriden SKIN1004 Isnt",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.143,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.896,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(253, 246, 243)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Beauty of Joseon"
+      ]
+    },
+    {
+      "top": 2917,
+      "height": 534,
+      "kind": "cards",
+      "label": "What our customers say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "testimonials",
+      "geometry": {
+        "centredShare": 0.286,
+        "mirrorSymmetry": 0.789,
+        "whitespaceRatio": 0.724,
+        "contentWidthRatio": 0.768,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What our customers say",
+        "Over 14,000 five-star reviews from skincare lovers across the UK.",
+        "\"Ordered on a Tuesday, it was on my doorstep Thursday morning. Genuinely faster than some UK brands I've bought from. The snail mucin essence has fixed my dry patches completely.\"",
+        "\"I was nervous about buying Korean skincare online after a bad experience elsewhere with expired stock. Harrisons is completely different — everything is clearly dated and packaged so well.\"",
+        "\"My skin has never looked better. The Beauty of Joseon serum is worth every penny, and being able to track my parcel from a UK address rather than Seoul made the wait so much less stressful.\""
+      ]
+    },
+    {
+      "top": 3451,
+      "height": 299,
+      "kind": "text",
+      "label": "Get 10% off your first order",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.996,
+        "whitespaceRatio": 0.711,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get 10% off your first order",
+        "Join our list for skincare tips, early access to new launches, and members-only offers."
+      ]
+    },
+    {
+      "top": 3750,
+      "height": 375,
+      "kind": "text",
+      "label": "Harrisons Beauty Authentic Korean skincare, held in UK stock",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.042,
+        "mirrorSymmetry": 0.668,
+        "whitespaceRatio": 0.83,
+        "contentWidthRatio": 0.786,
+        "background": "rgb(34, 27, 24)",
+        "controls": 0
+      },
+      "badges": [
+        "📷",
+        "🎵",
+        "📘"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.658,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(253, 241, 240)",
+          "rgb(253, 246, 243)",
+          "rgb(243, 246, 238)"
+        ],
+        "area": 676710,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(253, 241, 240)",
+          "rgb(243, 246, 238)"
+        ],
+        "area": 430898,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "Korean skincare that actually arrives on time.",
+    "We stock genuine, in-date Korean skincare in our own UK warehouse — so your glass skin routine turns up in days, not weeks, with no customs charges and no surprises.",
+    "Shop by Skin Concern",
+    "Not sure where to start? Find the routine built for what your skin needs right now.",
+    "🚚 Free UK tracked delivery over £25 · Dispatched same day from our Manchester warehouse",
+    "K-Beauty, without the wait",
+    "🇬🇧 Shipped from UK stock — no customs fees",
+    "⚡ Order by 3pm, dispatched same day",
+    "✅ 100% authentic, sourced direct from Korea",
+    "↩️ 30-day easy returns"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      24,
+      30,
+      42,
+      45
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700,
+      800
+    ],
+    "radii": [
+      "14px",
+      "16px",
+      "18px",
+      "24px",
+      "40px",
+      "50%"
+    ],
+    "shadows": [
+      "rgba(43, 35, 32, 0.18) 0px 30px 60px -20px"
+    ],
+    "spacingOnScalePct": 45.2,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 16.7,
+    "edgeDensity": 0.051,
+    "symmetry": 0.969,
+    "width": 1440,
+    "height": 4125,
+    "sampled": 660000
+  }
+}

@@ -1,0 +1,631 @@
+{
+  "version": 2,
+  "url": "pages/07.html",
+  "capturedAt": "2026-09-30T13:52:34.815Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5249,
+  "ground": "rgb(250, 243, 238)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(243, 231, 221)",
+        "area": 2048836,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 896003,
+        "chars": 0
+      },
+      {
+        "value": "rgb(46, 37, 35)",
+        "area": 530910,
+        "chars": 0
+      },
+      {
+        "value": "rgba(250, 243, 238, 0.92)",
+        "area": 115268,
+        "chars": 0
+      },
+      {
+        "value": "rgb(169, 100, 109)",
+        "area": 16838,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(107, 92, 88)",
+        "area": 0,
+        "chars": 2154
+      },
+      {
+        "value": "rgb(46, 37, 35)",
+        "area": 0,
+        "chars": 488
+      },
+      {
+        "value": "rgb(185, 172, 166)",
+        "area": 0,
+        "chars": 176
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 170
+      },
+      {
+        "value": "rgb(185, 143, 91)",
+        "area": 0,
+        "chars": 59
+      },
+      {
+        "value": "rgb(169, 100, 109)",
+        "area": 0,
+        "chars": 53
+      },
+      {
+        "value": "rgb(138, 125, 120)",
+        "area": 0,
+        "chars": 49
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Poppins",
+      "chars": 2904,
+      "displayChars": 0,
+      "italicChars": 399,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Playfair Display",
+      "chars": 245,
+      "displayChars": 227,
+      "italicChars": 16,
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Playfair Display",
+      "sizePx": 58,
+      "weight": 600,
+      "italic": false,
+      "italicPart": true,
+      "text": "Nails, brows & skin, done beautifully",
+      "top": 233
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Our Treatments",
+      "top": 970
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Gel Nails",
+      "top": 1277
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Manicures & Pedicures",
+      "top": 1277
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Brows",
+      "top": 1277
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 19,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Facials",
+      "top": 1277
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "A calm space to be looked after",
+      "top": 1835
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "A Glimpse Inside the Studio",
+      "top": 2598
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 38,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What Our Clients Say",
+      "top": 3481
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to treat yourself?",
+      "top": 3997
+    },
+    {
+      "level": 2,
+      "family": "Playfair Display",
+      "sizePx": 35,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Visit Us in Brackley",
+      "top": 4406
+    },
+    {
+      "level": 3,
+      "family": "Playfair Display",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Opening Hours",
+      "top": 4390
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 47,
+      "background": "rgb(169, 100, 109)",
+      "text": "Book Now"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgb(169, 100, 109)",
+      "text": "Book an Appointment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 49,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "View Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 47,
+      "background": "rgb(255, 255, 255)",
+      "text": "Book Your Appointment"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 80,
+      "kind": "hero",
+      "label": "MMM Beauty Services About Gallery Reviews Contact Book Now S",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.125,
+        "mirrorSymmetry": 0.915,
+        "whitespaceRatio": 0.823,
+        "contentWidthRatio": 0.967,
+        "background": "rgba(250, 243, 238, 0.92)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 80,
+      "height": 766,
+      "kind": "hero",
+      "label": "Nails, brows & skin, done beautifully",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.905,
+        "whitespaceRatio": 0.688,
+        "contentWidthRatio": 0.59,
+        "background": "rgb(250, 243, 238)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Brackley, Northamptonshire",
+        "Nails, brows & skin, done beautifully",
+        "MMM Beauty is a friendly nail, brow and skin studio in the heart of Brackley, offering long-lasting gel nails, luxurious manicures, precision brow shaping and glowing facials — all in one relaxed space.",
+        "Gel & BIAB Specialists",
+        "5-Star Rated Studio",
+        "Gentle, Skin-Friendly Products",
+        "Based in Brackley"
+      ]
+    },
+    {
+      "top": 846,
+      "height": 790,
+      "kind": "cards",
+      "label": "Our Treatments",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "pricing",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.948,
+        "whitespaceRatio": 0.818,
+        "contentWidthRatio": 0.731,
+        "background": "rgb(250, 243, 238)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What We Offer",
+        "Our Treatments",
+        "From strengthening gel manicures to skin-transforming facials, every treatment is tailored to you and delivered with care and attention to detail.",
+        "Gel Nails",
+        "Chip-free, high-shine gel overlays and BIAB builds finished with your choice of colour, shape and nail art.",
+        "Manicures & Pedicures",
+        "Classic and luxury manicures and pedicures with cuticle care, buffing and a relaxing hand or foot massage.",
+        "Brows",
+        "Brow shaping, tinting and lamination to define your natural arch and frame your face beautifully.",
+        "Facials",
+        "Deep-cleansing and hydrating facials using gentle, effective products chosen for your individual skin type."
+      ]
+    },
+    {
+      "top": 1636,
+      "height": 838,
+      "kind": "text",
+      "label": "A calm space to be looked after",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.835,
+        "contentWidthRatio": 0.365,
+        "background": "rgb(243, 231, 221)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Our Studio",
+        "A calm space to be looked after",
+        "MMM Beauty was created to bring high-quality nail, brow and skin treatments to Brackley in a warm, unhurried setting. We believe self-care shouldn't feel rushed — every client is welcomed with a coffee, a chat and our full attention.",
+        "Our team keeps up with the latest techniques and products, so whether you're after your first set of gel nails, a brow refresh before a big event, or a facial that actually fits your skin, you'll leave feeling looked after.",
+        "Fully qualified, insured technicians",
+        "Hygiene-first, sterilised tools for every client",
+        "Relaxed, welcoming studio in Brackley town",
+        "Treatments for all ages and skin types"
+      ]
+    },
+    {
+      "top": 2473,
+      "height": 884,
+      "kind": "text",
+      "label": "A Glimpse Inside the Studio",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.948,
+        "contentWidthRatio": 0.431,
+        "background": "rgb(250, 243, 238)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Our Work",
+        "A Glimpse Inside the Studio",
+        "A look at the treatments and finishes our clients love most."
+      ]
+    },
+    {
+      "top": 3357,
+      "height": 570,
+      "kind": "cards",
+      "label": "What Our Clients Say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "testimonials",
+      "geometry": {
+        "centredShare": 0.455,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.788,
+        "contentWidthRatio": 0.728,
+        "background": "rgb(243, 231, 221)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Kind Words",
+        "What Our Clients Say",
+        "\"My gel nails always last a full four weeks without a single chip. The studio is so relaxing and the team genuinely cares about getting it right.\"",
+        "\"Best brow lamination I've had. They took the time to shape them properly for my face rather than just following a template.\"",
+        "\"Booked in for a facial before my wedding and my skin has never looked better. So glad to have somewhere this good in Brackley.\""
+      ]
+    },
+    {
+      "top": 3927,
+      "height": 339,
+      "kind": "text",
+      "label": "Ready to treat yourself?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.794,
+        "contentWidthRatio": 0.772,
+        "background": "rgb(250, 243, 238)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready to treat yourself?",
+        "Book your next gel nails, brow or facial appointment at MMM Beauty and let us take care of the rest."
+      ]
+    },
+    {
+      "top": 4266,
+      "height": 615,
+      "kind": "text",
+      "label": "Visit Us in Brackley",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.486,
+        "whitespaceRatio": 0.835,
+        "contentWidthRatio": 0.749,
+        "background": "rgb(250, 243, 238)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get In Touch",
+        "Visit Us in Brackley",
+        "We'd love to welcome you to the studio. Get in touch to book an appointment or ask about any of our treatments.",
+        "Studio Location",
+        "MMM Beauty, Brackley, Northamptonshire",
+        "Email",
+        "Bookings",
+        "Message us to check availability and book your appointment",
+        "Opening Hours",
+        "9:00 – 17:00",
+        "9:00 – 19:00",
+        "9:00 – 16:00"
+      ]
+    },
+    {
+      "top": 4880,
+      "height": 369,
+      "kind": "text",
+      "label": "MMM Beauty A nail, brow and skin studio in Brackley, Northam",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.286,
+        "mirrorSymmetry": 0.942,
+        "whitespaceRatio": 0.778,
+        "contentWidthRatio": 0.967,
+        "background": "rgb(46, 37, 35)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    }
+  ],
+  "rhythmVariance": 0.439,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(201, 138, 146, 0.18)",
+          "rgba(0, 0, 0, 0)",
+          "rgba(185, 143, 91, 0.16)",
+          "rgba(0, 0, 0, 0)",
+          "rgb(250, 243, 238)",
+          "rgb(243, 231, 221)"
+        ],
+        "area": 1102838,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(201, 138, 146)",
+          "rgb(185, 143, 91)"
+        ],
+        "area": 345845,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(201, 138, 146)",
+          "rgb(169, 100, 109)"
+        ],
+        "area": 184128,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(201, 138, 146)",
+          "rgb(185, 143, 91)"
+        ],
+        "area": 87680,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(169, 100, 109)",
+          "rgb(185, 143, 91)"
+        ],
+        "area": 487508,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [],
+  "firstScreenText": [
+    "Brackley, Northamptonshire",
+    "Nails, brows & skin, done beautifully",
+    "MMM Beauty is a friendly nail, brow and skin studio in the heart of Brackley, offering long-lasting gel nails, luxurious manicures, precision brow shaping and glowing facials — all in one relaxed space.",
+    "Gel & BIAB Specialists",
+    "5-Star Rated Studio",
+    "Gentle, Skin-Friendly Products",
+    "Based in Brackley"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 9,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      24,
+      35,
+      38,
+      58
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "50%",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(46, 37, 35, 0.05) 0px 10px 30px 0px",
+      "rgba(46, 37, 35, 0.06) 0px 10px 30px 0px"
+    ],
+    "spacingOnScalePct": 40,
+    "bodyLineLengthCh": 59,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 31.6,
+    "edgeDensity": 0.044,
+    "symmetry": 0.932,
+    "width": 1440,
+    "height": 5249,
+    "sampled": 840000
+  }
+}

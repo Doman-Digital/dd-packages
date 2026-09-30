@@ -1,0 +1,759 @@
+{
+  "version": 2,
+  "url": "pages/11.html",
+  "capturedAt": "2026-09-30T13:55:38.899Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7030,
+  "ground": "rgb(251, 248, 243)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3224504,
+        "chars": 0
+      },
+      {
+        "value": "rgb(251, 248, 243)",
+        "area": 889712,
+        "chars": 0
+      },
+      {
+        "value": "rgb(28, 43, 46)",
+        "area": 550553,
+        "chars": 0
+      },
+      {
+        "value": "rgb(31, 107, 103)",
+        "area": 469637,
+        "chars": 0
+      },
+      {
+        "value": "rgba(251, 248, 243, 0.92)",
+        "area": 132615,
+        "chars": 0
+      },
+      {
+        "value": "rgb(47, 143, 138)",
+        "area": 66254,
+        "chars": 0
+      },
+      {
+        "value": "rgba(47, 143, 138, 0.1)",
+        "area": 42615,
+        "chars": 0
+      },
+      {
+        "value": "rgb(246, 168, 121)",
+        "area": 32976,
+        "chars": 0
+      },
+      {
+        "value": "rgba(47, 143, 138, 0.12)",
+        "area": 16224,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.15)",
+        "area": 6763,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(90, 107, 112)",
+        "area": 0,
+        "chars": 3059
+      },
+      {
+        "value": "rgb(35, 50, 56)",
+        "area": 0,
+        "chars": 1714
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.75)",
+        "area": 0,
+        "chars": 471
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 347
+      },
+      {
+        "value": "rgb(31, 107, 103)",
+        "area": 0,
+        "chars": 195
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "area": 0,
+        "chars": 183
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 146
+      },
+      {
+        "value": "rgb(246, 168, 121)",
+        "area": 0,
+        "chars": 15
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 5539,
+      "displayChars": 0,
+      "italicChars": 563,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "family": "Quicksand",
+      "chars": 591,
+      "displayChars": 495,
+      "italicChars": 0,
+      "weights": [
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Quicksand",
+      "sizePx": 46,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Helping children build the skills for everyday life",
+      "top": 221
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Child-led therapy, rooted in evidence",
+      "top": 975
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Occupational therapy services for children and young people",
+      "top": 1762
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "OT Assessments",
+      "top": 2092
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "1:1 Therapy Sessions",
+      "top": 2092
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Sensory Integration Therapy",
+      "top": 2092
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "School-Based Support",
+      "top": 2415
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Parent & Carer Coaching",
+      "top": 2415
+    },
+    {
+      "level": 3,
+      "family": "Quicksand",
+      "sizePx": 18,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "EHCP & SEND Reports",
+      "top": 2415
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Supporting children with a wide range of needs",
+      "top": 2809
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "A clear path from first enquiry to lasting support",
+      "top": 3461
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "A therapy partner your school can rely on",
+      "top": 4102
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "What parents and schools say",
+      "top": 4663
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Common questions from families",
+      "top": 5274
+    },
+    {
+      "level": 2,
+      "family": "Quicksand",
+      "sizePx": 34,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to talk about your child?",
+      "top": 6268
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get in touch"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgb(47, 143, 138)",
+      "text": "Book a Consultation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 55,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Explore Our Services"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 53,
+      "background": "rgb(255, 255, 255)",
+      "text": "Enquire About School Partnerships"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 999,
+      "heightPx": 53,
+      "background": "rgb(255, 255, 255)",
+      "text": "Book a Free Call"
+    }
+  ],
+  "sections": [
+    {
+      "top": 92,
+      "height": 620,
+      "kind": "hero",
+      "label": "Helping children build the skills for everyday life",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.184,
+        "whitespaceRatio": 0.773,
+        "contentWidthRatio": 0.71,
+        "background": "rgb(251, 248, 243)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Helping children build the skills for everyday life",
+        "Sensphere provides occupational therapy assessments and therapy for children and young people aged 2–18, working closely with families and schools across the UK to support movement, sensory processing, self-regulation and independence.",
+        "Paediatric Occupational Therapy",
+        "HCPC Registered Therapists",
+        "Enhanced DBS Checked",
+        "Clinic, Home & School Visits",
+        "Home & School Visits",
+        "Fine & Gross Motor"
+      ]
+    },
+    {
+      "top": 712,
+      "height": 127,
+      "kind": "text",
+      "label": "Trusted by families across England, Scotland & Wales Working",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.72,
+        "whitespaceRatio": 0.844,
+        "contentWidthRatio": 0.758,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Trusted by families across England, Scotland & Wales",
+        "Working alongside 40+ partner schools",
+        "Remote & in-person appointments",
+        "Reports written in plain, parent-friendly language"
+      ]
+    },
+    {
+      "top": 839,
+      "height": 787,
+      "kind": "text",
+      "label": "Child-led therapy, rooted in evidence",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.098,
+        "whitespaceRatio": 0.752,
+        "contentWidthRatio": 0.396,
+        "background": "rgb(251, 248, 243)",
+        "controls": 0
+      },
+      "badges": [
+        "About Sensphere"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Child-led therapy, rooted in evidence",
+        "Founded by a team of specialist paediatric occupational therapists, Sensphere exists to help children who are struggling with everyday tasks — from getting dressed and using cutlery, to sitting still at a desk or coping with a noisy classroom. We take time to understand each child as an individual, ",
+        "Fully qualified, HCPC-registered occupational therapists with specialist paediatric training",
+        "Assessments and reports suitable for EHCP applications and school support plans",
+        "Flexible appointments at our clinic, in the family home, or on-site at school",
+        "Ongoing parent and teacher coaching, not just one-off sessions"
+      ]
+    },
+    {
+      "top": 1626,
+      "height": 1047,
+      "kind": "cards",
+      "label": "Occupational therapy services for children and young people",
+      "cards": 6,
+      "iconCards": 6,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0.467,
+        "mirrorSymmetry": 0.975,
+        "whitespaceRatio": 0.773,
+        "contentWidthRatio": 0.721,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [
+        "What We Offer"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Occupational therapy services for children and young people",
+        "From initial assessment through to long-term therapy planning, our services are built around your child's needs and goals.",
+        "OT Assessments",
+        "Comprehensive, standardised assessments of motor skills, sensory processing and daily living skills, with a detailed written report and clear recommendations.",
+        "1:1 Therapy Sessions",
+        "Regular, goal-focused sessions delivered in clinic or at home, targeting handwriting, coordination, self-care and independence skills.",
+        "Sensory Integration Therapy",
+        "Structured, play-based programmes to help children who are over- or under-sensitive to sound, touch, movement or visual input.",
+        "School-Based Support",
+        "On-site observations, staff training and classroom strategies to help children access learning and thrive alongside their peers.",
+        "Parent & Carer Coaching",
+        "Practical strategies and home programmes so families can build therapy techniques into everyday routines with confidence.",
+        "EHCP & SEND Reports",
+        "Independent occupational therapy reports written to support Education, Health and Care Plan applications and annual reviews.",
+        "What We Offer"
+      ]
+    },
+    {
+      "top": 2673,
+      "height": 652,
+      "kind": "text",
+      "label": "Supporting children with a wide range of needs",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.499,
+        "whitespaceRatio": 0.734,
+        "contentWidthRatio": 0.654,
+        "background": "rgb(251, 248, 243)",
+        "controls": 0
+      },
+      "badges": [
+        "Who We Help"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Supporting children with a wide range of needs",
+        "We work with children and young people with a diagnosis, an emerging concern, or simply a parent's or teacher's instinct that something needs a closer look.",
+        "Who We Help",
+        "Developmental Coordination Disorder (Dyspraxia)",
+        "Sensory Processing Differences",
+        "Handwriting & Fine Motor Difficulties",
+        "Emotional Regulation & Anxiety",
+        "Feeding & Self-Care Challenges",
+        "Global Developmental Delay",
+        "School Attendance & Sensory Overwhelm"
+      ]
+    },
+    {
+      "top": 3324,
+      "height": 577,
+      "kind": "cards",
+      "label": "A clear path from first enquiry to lasting support",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.763,
+        "contentWidthRatio": 0.758,
+        "background": "rgb(251, 248, 243)",
+        "controls": 0
+      },
+      "badges": [
+        "How It Works"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "A clear path from first enquiry to lasting support",
+        "Enquiry & Chat",
+        "Tell us about your child. We offer a free 15-minute call to understand your concerns and explain how we can help.",
+        "Assessment",
+        "A qualified therapist carries out a thorough assessment at our clinic, at home, or in school, using standardised tools.",
+        "Report & Plan",
+        "You receive a clear written report with practical recommendations and a proposed therapy plan tailored to your child.",
+        "Ongoing Therapy",
+        "Regular sessions and reviews, with strategies shared with parents and teachers so progress continues day to day.",
+        "How It Works"
+      ]
+    },
+    {
+      "top": 3901,
+      "height": 626,
+      "kind": "text",
+      "label": "A therapy partner your school can rely on",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.742,
+        "whitespaceRatio": 0.804,
+        "contentWidthRatio": 0.658,
+        "background": "rgb(251, 248, 243)",
+        "controls": 1
+      },
+      "badges": [
+        "For Schools & SENCOs"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "A therapy partner your school can rely on",
+        "We work directly with schools to support pupils with sensory, motor and self-regulation needs — helping staff feel confident and reducing the barriers that get in the way of learning.",
+        "On-site pupil observations and classroom assessments",
+        "Staff training on sensory processing and regulation",
+        "Sensory circuits and movement break programmes",
+        "Reports to support EHCP reviews and funding applications",
+        "For Schools & SENCOs"
+      ]
+    },
+    {
+      "top": 4527,
+      "height": 611,
+      "kind": "cards",
+      "label": "What parents and schools say",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.455,
+        "mirrorSymmetry": 0.963,
+        "whitespaceRatio": 0.779,
+        "contentWidthRatio": 0.718,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [
+        "Families Tell Us"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "What parents and schools say",
+        "\"Our son used to dread the school run because of the noise in the corridors. Within a few months of sensory integration therapy, he was walking in calmly. The team explained everything to us in a way that finally made sense.\"",
+        "\"The assessment report was thorough and genuinely useful for our EHCP application. It was written in plain English, not jargon, and gave the panel exactly what they needed.\"",
+        "\"As a SENCO, having a therapist who visits the classroom and gives our staff practical, realistic strategies has made a real difference to several pupils this year.\"",
+        "Families Tell Us",
+        "SENCO, Primary School, Leeds"
+      ]
+    },
+    {
+      "top": 5138,
+      "height": 978,
+      "kind": "text",
+      "label": "Common questions from families",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.524,
+        "contentWidthRatio": 0.496,
+        "background": "rgb(251, 248, 243)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Common questions from families",
+        "Do we need a diagnosis before contacting Sensphere?",
+        "No. Many of the families we work with are still exploring what's going on for their child, or are on a waiting list for diagnosis elsewhere. An occupational therapy assessment looks at your child's functional skills and needs, regardless of diagnosis.",
+        "Where do appointments take place?",
+        "We offer appointments at our clinic, in your home, or on-site at your child's school, depending on what's most appropriate for the assessment or therapy goals. Some review sessions can also be held remotely by video call.",
+        "How long does an assessment take, and when will we get the report?",
+        "A full occupational therapy assessment typically takes 60–90 minutes. You'll receive a written report with findings and recommendations within three weeks.",
+        "Can Sensphere reports be used for EHCP applications?",
+        "Yes. Our assessment reports are written to a standard suitable for supporting Education, Health and Care Plan (EHCP) applications, annual reviews and school funding requests.",
+        "Do you work with schools directly, or only with families?",
+        "Both. Schools can commission observations, staff training or whole-class programmes directly, and we're happy to liaise with your child's school as part of an individual therapy plan, with parental consent.",
+        "What age range do you work with?",
+        "We work with children and young people from age 2 through to 18, adapting our approach for early years, primary and secondary-aged pupils.",
+        "Frequently Asked Questions"
+      ]
+    },
+    {
+      "top": 6116,
+      "height": 532,
+      "kind": "text",
+      "label": "Ready to talk about your child?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "footer-cta",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.864,
+        "contentWidthRatio": 0.669,
+        "background": "rgb(251, 248, 243)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready to talk about your child?",
+        "Book a free 15-minute call with one of our therapists to discuss your concerns and find out how Sensphere can help — no obligation, no jargon."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.367,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(220, 239, 236)",
+          "rgb(233, 229, 247)"
+        ],
+        "area": 217331,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(241, 233, 218)",
+          "rgb(230, 240, 238)"
+        ],
+        "area": 284658,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(238, 242, 239)",
+          "rgb(251, 248, 243)"
+        ],
+        "area": 830925,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(47, 143, 138)",
+          "rgb(139, 127, 214)"
+        ],
+        "area": 371273,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": true
+  },
+  "images": [],
+  "firstScreenText": [
+    "Helping children build the skills for everyday life",
+    "Sensphere provides occupational therapy assessments and therapy for children and young people aged 2–18, working closely with families and schools across the UK to support movement, sensory processing, self-regulation and independence.",
+    "Paediatric Occupational Therapy",
+    "HCPC Registered Therapists",
+    "Enhanced DBS Checked",
+    "Clinic, Home & School Visits",
+    "Home & School Visits",
+    "Fine & Gross Motor",
+    "Trusted by families across England, Scotland & Wales",
+    "Working alongside 40+ partner schools",
+    "Remote & in-person appointments",
+    "Reports written in plain, parent-friendly language"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 10,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      22,
+      34,
+      46
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "18px",
+      "22px",
+      "999px"
+    ],
+    "shadows": [
+      "rgba(35, 50, 56, 0.08) 0px 10px 30px 0px",
+      "rgba(47, 143, 138, 0.28) 0px 8px 20px 0px"
+    ],
+    "spacingOnScalePct": 66.5,
+    "bodyLineLengthCh": 62,
+    "bodyFontSizePx": 17
+  },
+  "visual": {
+    "colourfulness": 24.2,
+    "edgeDensity": 0.058,
+    "symmetry": 0.965,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

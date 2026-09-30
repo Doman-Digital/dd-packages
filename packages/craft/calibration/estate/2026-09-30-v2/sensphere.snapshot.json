@@ -1,0 +1,996 @@
+{
+  "version": 2,
+  "url": "https://sensphere.co.uk/",
+  "capturedAt": "2026-09-30T14:12:22.469Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6904,
+  "ground": "rgb(247, 247, 251)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 7218211,
+        "chars": 0
+      },
+      {
+        "value": "rgb(247, 247, 251)",
+        "area": 3252293,
+        "chars": 0
+      },
+      {
+        "value": "rgba(14, 11, 31, 0.72)",
+        "area": 116640,
+        "chars": 0
+      },
+      {
+        "value": "rgb(90, 53, 209)",
+        "area": 113235,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+        "area": 75264,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.96)",
+        "area": 25344,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.999994 0.0000455678 0.0000200868 / 0.15)",
+        "area": 12790,
+        "chars": 0
+      },
+      {
+        "value": "rgb(229, 222, 255)",
+        "area": 10022,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.687293 -0.123225 0.0325041 / 0.1)",
+        "area": 5079,
+        "chars": 0
+      },
+      {
+        "value": "rgb(217, 244, 236)",
+        "area": 64,
+        "chars": 0
+      },
+      {
+        "value": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4)",
+        "area": 32,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(95, 94, 115)",
+        "area": 0,
+        "chars": 4079
+      },
+      {
+        "value": "rgb(28, 27, 47)",
+        "area": 0,
+        "chars": 2371
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 457
+      },
+      {
+        "value": "rgb(90, 53, 209)",
+        "area": 0,
+        "chars": 153
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "rgb(59, 31, 158)",
+        "area": 0,
+        "chars": 36
+      },
+      {
+        "value": "oklab(0.999994 0.0000455678 0.0000200868 / 0.9)",
+        "area": 0,
+        "chars": 26
+      },
+      {
+        "value": "rgb(31, 110, 84)",
+        "area": 0,
+        "chars": 26
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.88)",
+        "area": 0,
+        "chars": 24
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "chars": 7208,
+      "displayChars": 842,
+      "italicChars": 716,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Inter",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Helping your child do the things that matter to them.",
+      "top": 229
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 30,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Professional training and affiliations",
+      "top": 835
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "How we help",
+      "top": 1458
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessments",
+      "top": 1691
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Therapy",
+      "top": 1691
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Children and young people",
+      "top": 1691
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why families choose Sensphere",
+      "top": 2083
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "When NHS waiting lists feel too long",
+      "top": 2236
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What you get from Sensphere",
+      "top": 2236
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "How it works",
+      "top": 2688
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Initial enquiry & discussion",
+      "top": 2884
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Assessment sessions and observations",
+      "top": 2884
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Feedback, recommendations and report",
+      "top": 2884
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Therapy and ongoing support",
+      "top": 2884
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Who we support",
+      "top": 3168
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Why families and schools choose Sensphere",
+      "top": 3913
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Evidence-based practice",
+      "top": 4078
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Clear, honest communication",
+      "top": 4078
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Practical strategies",
+      "top": 4337
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Collaborative working",
+      "top": 4337
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What families say",
+      "top": 4639
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Straight answers on OT assessments and reports",
+      "top": 5356
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "What's in an OT Assessment Report and How to Use It",
+      "top": 5585
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Fine Motor Delay in Children: Signs, Causes and When to Seek an OT Assessment",
+      "top": 5585
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "OT Assessment for EHCP: What Evidence You Need and Why It Matters",
+      "top": 5585
+    },
+    {
+      "level": 2,
+      "family": "Inter",
+      "sizePx": 36,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to take the next step?",
+      "top": 6014
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Regulated practice",
+      "top": 6567
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Links",
+      "top": 6363
+    },
+    {
+      "level": 3,
+      "family": "Inter",
+      "sizePx": 16,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Contact",
+      "top": 6363
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 44,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "enSelect language: English"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 50,
+      "background": "rgb(90, 53, 209)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 62,
+      "background": "rgb(90, 53, 209)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 62,
+      "background": "oklab(0.999994 0.0000455678 0.0000200868 / 0.15)",
+      "text": "Send an enquiry"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 12,
+      "heightPx": 60,
+      "background": "rgb(90, 53, 209)",
+      "text": "Book a free call"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 26,
+      "background": "rgb(247, 247, 251)",
+      "text": "Registered"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 33554400,
+      "heightPx": 26,
+      "background": "rgb(247, 247, 251)",
+      "text": "Member"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 33554400,
+      "heightPx": 48,
+      "background": "rgb(90, 53, 209)",
+      "text": "Experience tuner"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 12,
+      "heightPx": 49,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Essential only"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 12,
+      "heightPx": 49,
+      "background": "rgb(90, 53, 209)",
+      "text": "Accept"
+    }
+  ],
+  "sections": [
+    {
+      "top": 125,
+      "height": 630,
+      "kind": "hero",
+      "label": "Helping your child do the things that matter to them.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(247, 247, 251)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Helping your child do the things that matter to them.",
+        "Specialist occupational therapy assessments and support for children and young people, at home, at school, and in everyday life.",
+        "Autism-informed and neurodiversity-affirming practice",
+        "Sensory and functional skills support",
+        "No GP referral needed, refer directly"
+      ]
+    },
+    {
+      "top": 755,
+      "height": 347,
+      "kind": "cards",
+      "label": "Professional training and affiliations",
+      "cards": 3,
+      "iconCards": 3,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.874,
+        "whitespaceRatio": 0.9,
+        "contentWidthRatio": 0.711,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Professional training and affiliations",
+        "HCPC",
+        "Registered",
+        "RCOT",
+        "Member",
+        "Brunel University London",
+        "MSc Occupational Therapy",
+        "University of Portsmouth",
+        "Undergraduate training"
+      ]
+    },
+    {
+      "top": 1102,
+      "height": 268,
+      "kind": "text",
+      "label": "DBSEnhanced checkedSafeguarding-compliant practiceICORegiste",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.783,
+        "contentWidthRatio": 0.622,
+        "background": "rgb(247, 247, 251)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Data protection register ZC143099"
+      ]
+    },
+    {
+      "top": 1370,
+      "height": 584,
+      "kind": "cards",
+      "label": "How we help",
+      "cards": 3,
+      "iconCards": 3,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0.417,
+        "mirrorSymmetry": 0.998,
+        "whitespaceRatio": 0.726,
+        "contentWidthRatio": 0.756,
+        "background": "rgb(247, 247, 251)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "How we help",
+        "Assessments, therapy, and ongoing support for children and young people in their everyday lives.",
+        "Assessments",
+        "Clear, structured assessments that build a picture of your child or young person's strengths, needs and everyday participation.",
+        "Therapy",
+        "Goal-focused therapy to build functional skills, confidence and independence.",
+        "Children and young people",
+        "We work with children and young people across home, school, and community settings, from the early years through to teens."
+      ]
+    },
+    {
+      "top": 1975,
+      "height": 633,
+      "kind": "text",
+      "label": "Why families choose Sensphere",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.375,
+        "mirrorSymmetry": 0.854,
+        "whitespaceRatio": 0.719,
+        "contentWidthRatio": 0.711,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "How we compare",
+        "Why families choose Sensphere",
+        "Two quick comparisons most parents are weighing when they get in touch.",
+        "When NHS waiting lists feel too long",
+        "NHS paediatric occupational therapy is free, but waiting lists for community OT often run into many months, sometimes longer. Sensphere is private and paid: we typically begin within weeks, work to goals we agree with you, and produce a written report families and schools can use straight away. Repo",
+        "Sensphere is independent of NHS pathways and does not replace formal NHS clinical referrals.",
+        "What you get from Sensphere",
+        "Our practice is HCPC-registered, RCOT-member, and built around children with sensory, motor, and neurodevelopmental differences, including autism. Reports are properly explained so parents, teachers and SENCOs can put them to work the day they arrive."
+      ]
+    },
+    {
+      "top": 2608,
+      "height": 480,
+      "kind": "cards",
+      "label": "How it works",
+      "cards": 4,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.955,
+        "whitespaceRatio": 0.75,
+        "contentWidthRatio": 0.756,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "How it works",
+        "Our straightforward pathway from initial enquiry to ongoing support.",
+        "1Initial enquiry & discussionWe'll have a short conversation to understand your needs and answer any questions.",
+        "2Assessment sessions and observationsStructured assessment sessions, which may include observations at home or school.",
+        "3Feedback, recommendations and reportA clear conversation about findings, followed by a written report with practical recommendations.",
+        "4Therapy and ongoing supportIf appropriate, we can provide goal-focused therapy sessions and ongoing support."
+      ]
+    },
+    {
+      "top": 3088,
+      "height": 745,
+      "kind": "text",
+      "label": "Who we support",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.429,
+        "mirrorSymmetry": 0.961,
+        "whitespaceRatio": 0.757,
+        "contentWidthRatio": 0.711,
+        "background": "rgb(247, 247, 251)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Who we support",
+        "We work with children and young people who may find certain aspects of everyday life more challenging than their peers.",
+        "Sensphere supports participation across home, school, and community life with calm, practical recommendations that fit real routines.",
+        "Children and young people who find everyday tasks harder than peers, such as dressing, eating, or following routines.",
+        "Children and young people who experience sensory differences that affect comfort and participation in daily activities.",
+        "Children and young people with coordination, handwriting or fine motor difficulties that impact learning or daily living.",
+        "Children and young people with neurodevelopmental differences (including autism) needing functional support to participate fully in home, school and community life."
+      ]
+    },
+    {
+      "top": 3833,
+      "height": 726,
+      "kind": "text",
+      "label": "Why families and schools choose Sensphere",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.111,
+        "mirrorSymmetry": 0.948,
+        "whitespaceRatio": 0.79,
+        "contentWidthRatio": 0.711,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Why families and schools choose Sensphere",
+        "Evidence-based practice",
+        "Our assessments and interventions are based on current research and best practice in children's occupational therapy.",
+        "Clear, honest communication",
+        "We explain our findings and recommendations in plain language, ensuring families and schools understand the next steps.",
+        "Practical strategies",
+        "Our recommendations focus on real-world strategies you can use at home and in school settings.",
+        "Collaborative working",
+        "We work alongside parents, carers, schools and other professionals to support each child or young person's goals."
+      ]
+    },
+    {
+      "top": 4559,
+      "height": 737,
+      "kind": "cards",
+      "label": "What families say",
+      "cards": 3,
+      "iconCards": 3,
+      "hiddenAtLoad": false,
+      "role": "features",
+      "geometry": {
+        "centredShare": 0.316,
+        "mirrorSymmetry": 0.966,
+        "whitespaceRatio": 0.757,
+        "contentWidthRatio": 0.712,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [
+        "Quote checked",
+        "Quote checked"
+      ],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 0,
+      "text": [
+        "What families say",
+        "“The assessment was thorough and professional. The report accurately reflects my daughter's needs and clearly explains why the right support is so important for her safety and development.”",
+        "Adilha Z.",
+        "Parent",
+        "Google review (opens in new tab)",
+        "“Cherif is great at engaging children while still working towards meaningful goals. He keeps things simple and practical, which makes it easier for parents and schools to follow through. Approachable, knowledgeable, and genuinely supportive. I'd happily recommend him to others.”",
+        "Kyle L.",
+        "Google review (opens in new tab)Quote checked",
+        "“I would highly recommend Cherif. He is clearly very skilled in paediatric occupational therapy, professional, knowledgeable, and compassionate. His assessments are thorough and he explains things clearly, offering practical advice and strategies.”",
+        "Ishaaq",
+        "Read all reviews on Google (opens in new tab)"
+      ]
+    },
+    {
+      "top": 5276,
+      "height": 658,
+      "kind": "cards",
+      "label": "Straight answers on OT assessments and reports",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.4,
+        "mirrorSymmetry": 0.988,
+        "whitespaceRatio": 0.76,
+        "contentWidthRatio": 0.676,
+        "background": "rgb(247, 247, 251)",
+        "controls": 0
+      },
+      "badges": [
+        "For families",
+        "For families",
+        "For families"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Straight answers on OT assessments and reports",
+        "What parents and schools ask us most, written up in full.",
+        "What's in an OT Assessment Report and How to Use It",
+        "If your child has just had an occupational therapy assessment, you'll receive a report. It might look intimidating at first, full of technical terms, standardised scores, and recommendations. But this document is actu…",
+        "Fine Motor Delay in Children: Signs, Causes and When to Seek an OT Assessment",
+        "If you have noticed that your child struggles with holding a pencil, fastening buttons, or managing scissors when other children their age manage these tasks with ease, you may be wondering whether there is a cause fo…",
+        "OT Assessment for EHCP: What Evidence You Need and Why It Matters",
+        "If you are navigating the Education, Health and Care (EHC) needs assessment process, you may have heard that occupational therapy (OT) evidence is important. But what exactly do local authorities (LAs) look for in an …"
+      ]
+    },
+    {
+      "top": 5934,
+      "height": 364,
+      "kind": "text",
+      "label": "Ready to take the next step?",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.854,
+        "contentWidthRatio": 0.467,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready to take the next step?",
+        "Book a free 15-minute discovery call to talk through what your child needs. It is a conversation, and you are under no obligation to book anything afterwards."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.289,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(13, 6, 38)",
+          "rgb(27, 10, 78)",
+          "rgb(61, 26, 144)",
+          "rgb(94, 61, 212)"
+        ],
+        "area": 907200,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(10, 10, 24, 0.96)",
+          "rgba(10, 10, 24, 0.34)",
+          "rgba(10, 10, 24, 0.18)",
+          "rgba(18, 14, 44, 0.92)",
+          "rgba(36, 24, 82, 0.44)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 907200,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgba(229, 222, 255, 0.88)",
+          "rgba(255, 255, 255, 0.98)"
+        ],
+        "area": 124928,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgba(255, 255, 255, 0.98)",
+          "rgba(245, 242, 255, 0.82)"
+        ],
+        "area": 117391,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(255, 255, 255, 0.98)",
+          "rgba(245, 242, 255, 0.82)"
+        ],
+        "area": 117391,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(255, 255, 255, 0.98)",
+          "rgba(245, 242, 255, 0.82)"
+        ],
+        "area": 117391,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(255, 255, 255, 0.98)",
+          "rgba(245, 242, 255, 0.82)"
+        ],
+        "area": 117391,
+        "radial": false
+      }
+    ],
+    "glows": 1,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 6,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://sensphere.co.uk/hero.webp",
+      "host": "sensphere.co.uk",
+      "width": 1440,
+      "height": 630,
+      "top": 125,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 29846
+      }
+    }
+  ],
+  "firstScreenText": [
+    "Helping your child do the things that matter to them.",
+    "Specialist occupational therapy assessments and support for children and young people, at home, at school, and in everyday life.",
+    "Autism-informed and neurodiversity-affirming practice",
+    "Sensory and functional skills support",
+    "No GP referral needed, refer directly",
+    "Professional training and affiliations",
+    "We use optional measurement cookies (Google Analytics) to understand how the public site is used and which marketing pages lead to enquiries. See our Cookie Policy.",
+    "Currently booking initial assessments for November 2026"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 11,
+    "animations": 1,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      10,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      24,
+      27,
+      30,
+      36,
+      48
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "12px",
+      "16px",
+      "28px",
+      "3.35544e+07px",
+      "32px",
+      "4px",
+      "8px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.477868 0.0582881 -0.2142 / 0.3) 0px 4px 6px -1px, oklab(0.477868 0.0582881 -0.2142 / 0.3) 0px 2px 4px -2px",
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px",
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px",
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(28, 27, 47, 0.08) 0px 18px 48px 0px",
+      "rgba(28, 27, 47, 0.08) 0px 20px 52px 0px",
+      "rgba(45, 34, 102, 0.08) 0px 24px 60px 0px",
+      "rgba(7, 7, 20, 0.14) 0px 14px 36px 0px, rgba(7, 7, 20, 0.08) 0px 2px 10px 0px"
+    ],
+    "spacingOnScalePct": 91.7,
+    "bodyLineLengthCh": 53,
+    "bodyFontSizePx": 16
+  }
+}
