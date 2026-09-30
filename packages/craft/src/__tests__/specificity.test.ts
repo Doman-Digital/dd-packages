@@ -188,4 +188,18 @@ describe("the home page", () => {
       expect(HOME_URL.test(u), u).toBe(false);
     }
   });
+
+  it("takes a page's word that it is the home page over its URL", async () => {
+    const { CATALOGUE } = await import("../character/check.js");
+    const tell = CATALOGUE.find((t) => t.id === "generic-hero-claim")!;
+    const generic = { firstScreenText: ["Quality you can trust", "We deliver reliable solutions tailored to your needs."] };
+    // A generated page on disk: the URL cannot say it is a home page.
+    const local = makeSnapshot({ ...generic, url: "file:///work/ai-set/plumber/pages/01.html" });
+    expect(tell.rendered!.detect(local)).toEqual([]);
+    expect(tell.rendered!.detect({ ...local, home: true })).toHaveLength(1);
+    // A site root someone marked as not the home page (a landing page on its own domain) is left alone.
+    expect(tell.rendered!.detect(makeSnapshot({ ...generic, home: false }))).toEqual([]);
+    expect(tell.rendered!.detect(makeSnapshot(generic))).toHaveLength(1);
+  });
 });
+

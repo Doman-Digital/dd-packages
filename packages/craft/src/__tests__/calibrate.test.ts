@@ -44,7 +44,7 @@ describe("calibrate", () => {
     const c = calibrate(pages);
     const font = c.tells.find((t) => t.tell === "reflex-font");
     // Hit on 2 ai, 1 ai-looking, 1 human: precision 3/4; 3 of 3 positive pages.
-    expect(font).toEqual({ tell: "reflex-font", hits: { ai: 2, "ai-looking": 1, human: 1 }, precision: 0.75, recall: 1 });
+    expect(font).toEqual({ tell: "reflex-font", generation: 1, hits: { ai: 2, "ai-looking": 1, human: 1 }, precision: 0.75, recall: 1 });
     const glass = c.tells.find((t) => t.tell === "glass-panel");
     expect(glass).toMatchObject({ precision: 1, recall: 0.67 });
     // Most hits first.
@@ -158,7 +158,7 @@ describe("craft calibrate", () => {
     expect(text).toMatch(/gated \(human\): a preview gate, not the site/);
     expect(text).toMatch(/No null models: flagged means tell-heavy only\./);
     // The source scan found the reflex face on the generated page only.
-    expect(text).toMatch(/reflex-font\s+1\/1\s+0\/0\s+0\/1\s+1\.00\s+1\.00/);
+    expect(text).toMatch(/reflex-font\s+1\s+1\/1\s+0\/0\s+0\/1\s+1\.00\s+1\.00/);
     expect(err).toEqual([]);
   });
 
@@ -189,6 +189,20 @@ describe("craft calibrate", () => {
     writeFileSync(join(dir, "set", "labels.json"), JSON.stringify({ version: 1, pages: [{ id: "decided", label: "human", snapshot: "decided.json" }] }));
     expect(await run(["calibrate", "set/labels.json", "--fresh"], io())).toBe(0);
     expect(out.join("\n")).toMatch(/decided \(human\): --fresh, and no source or url to take one from/);
+  });
+
+  it("reads every labelled page as a home page unless the label says not", async () => {
+    const generic = { ...makeSnapshot({ firstScreenText: ["Quality you can trust", "We deliver reliable solutions tailored to your needs."] }), url: "file:///set/01.html" };
+    writeFileSync(join(dir, "set", "generic.json"), JSON.stringify(generic));
+    writeFileSync(
+      join(dir, "set", "labels.json"),
+      JSON.stringify({ version: 1, pages: [{ id: "generic", label: "ai", snapshot: "generic.json" }, { id: "subpage", label: "ai", snapshot: "generic.json", home: false }] }),
+    );
+    expect(await run(["calibrate", "set/labels.json", "--json"], io())).toBe(0);
+    const data = JSON.parse(out.join("\n"));
+    expect(data.pages.generic.tells).toContain("generic-hero-claim");
+    expect(data.pages.subpage.tells).not.toContain("generic-hero-claim");
+    expect(() => parseLabels({ version: 1, pages: [{ id: "a", label: "ai", snapshot: "a", home: "yes" }] }, "l")).toThrow(/"home" is true or false/);
   });
 
   it("says what it needs", async () => {
