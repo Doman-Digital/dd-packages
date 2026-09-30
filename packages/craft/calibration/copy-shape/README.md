@@ -96,3 +96,25 @@ baselines (`human/*-lexical-v1.json`; counts only, no text). Report:
   catch if only the matched register had to hold at 5%. The best is
   `tradePer100` at 10% (marketing) with 2.4% false positives, too weak to
   ship. The 5% all-register rule was not changed.
+
+## Register features, version 1 (2026-09-30)
+
+A third feature set for the register module, written to `-register-v1.json`
+files by the same readers under `--register`: words per sentence,
+contractions, second person, first person, passive share and word length
+(`src/register/features.ts`). Same blurb rule, dedupe and writer split, so
+the counts match v1 exactly: Enron 42,175 blurbs, HC3 30,493, Gutenberg
+34,483.
+
+Hansard and Wayback are not yet re-extracted: from the build container,
+TheyWorkForYou returned HTTP 503 and web.archive.org reset the connection.
+Run these where both are reachable:
+
+    node scripts/shape/sources/hansard.mjs --register
+    node scripts/shape/sources/wayback.mjs --register
+
+`report-registers.md` compares registers with each other, not with AI copy.
+It now measures at two levels: single blurbs, and the mean of five
+paragraphs from one register. Paragraphs are drawn across writers, so the
+document level is optimistic: a real document's paragraphs share a writer
+and vary together.

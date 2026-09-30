@@ -18,6 +18,11 @@ import { join } from "node:path";
 import { CALIBRATION, flag } from "./lib.mjs";
 
 const BOOT = Number(flag("boot", 200));
+// Document level: the mean of K paragraphs drawn from one register's half,
+// GROUPS times. Paragraphs are drawn across writers, so this approximates a
+// document; it measures how far averaging narrows the spread, not any one text.
+const K = Number(flag("k", 5));
+const GROUPS = 2000;
 const D_MIN = 0.8;
 const LO_MIN = 0.5;
 
@@ -52,9 +57,27 @@ for (const name of readdirSync(dir).filter((n) => n.endsWith("-v1.json")).sort()
   }
 }
 const registers = Object.keys(byRegister).sort();
-const features = Object.keys(byRegister[registers[0]].tuning).filter((f) => registers.every((r) => byRegister[r].tuning[f]));
+// A feature is tested on every pair where both registers carry it: a source not yet
+// re-extracted drops out of that feature's pairs, not the whole feature.
+const features = [...new Set(registers.flatMap((r) => Object.keys(byRegister[r].tuning)))].filter((f) => f !== "tag");
 
 // ------------------------------------------------------------- measure
+
+function documents(xs) {
+  return Array.from({ length: GROUPS }, () => {
+    let sum = 0;
+    for (let i = 0; i < K; i += 1) sum += xs[Math.floor(rand() * xs.length)];
+    return sum / K;
+  });
+}
+
+const LEVELS = ["blurb", `document (${K} paragraphs)`];
+const byLevel = { [LEVELS[0]]: byRegister, [LEVELS[1]]: {} };
+for (const r of registers) {
+  const x = byRegister[r];
+  byLevel[LEVELS[1]][r] = { source: x.source, tuning: {}, holdout: {} };
+  for (const half of ["tuning", "holdout"]) for (const f of features) if (x[half][f]?.length) byLevel[LEVELS[1]][r][half][f] = documents(x[half][f]);
+}
 
 function lowerBound(a, b, d) {
   const cap = (xs) => (xs.length > 2000 ? resample(xs).slice(0, 2000) : xs);
@@ -65,16 +88,17 @@ function lowerBound(a, b, d) {
 }
 
 const rows = [];
-for (const f of features) {
+for (const level of LEVELS) for (const f of features) {
   for (let i = 0; i < registers.length; i += 1) {
     for (let j = i + 1; j < registers.length; j += 1) {
-      const [a, b] = [byRegister[registers[i]], byRegister[registers[j]]];
+      const [a, b] = [byLevel[level][registers[i]], byLevel[level][registers[j]]];
+      if (!a.tuning[f] || !b.tuning[f] || !a.holdout[f] || !b.holdout[f]) continue;
       const d = cohenD(a.tuning[f], b.tuning[f]);
       const hold = cohenD(a.holdout[f], b.holdout[f]);
       if (d === null || hold === null) continue;
       const lo = lowerBound(a.tuning[f], b.tuning[f], d);
       const passes = Math.abs(d) >= D_MIN && lo >= LO_MIN && Math.abs(hold) >= D_MIN && Math.sign(hold) === Math.sign(d);
-      rows.push({ feature: f, a: registers[i], b: registers[j], d, lo, hold, passes });
+      rows.push({ level, feature: f, a: registers[i], b: registers[j], d, lo, hold, passes });
     }
   }
 }
@@ -104,46 +128,50 @@ for (const r of registers) {
 out();
 
 const pairs = registers.flatMap((a, i) => registers.slice(i + 1).map((b) => [a, b]));
-out("## Features that pass, per register pair");
-out();
-out("| Pair | Passing features (tuning d / holdout d) |");
-out("| --- | --- |");
-for (const [a, b] of pairs) {
-  const hit = rows.filter((r) => r.a === a && r.b === b && r.passes).sort((x, y) => Math.abs(y.d) - Math.abs(x.d));
-  out(`| ${a} vs ${b} | ${hit.length ? hit.map((r) => `\`${r.feature}\` ${r2(r.d)} / ${r2(r.hold)}`).join("; ") : "none"} |`);
-}
-out();
-
-out("## Profile candidates, per register");
-out();
-out("A feature is a candidate for a register's profile when it separates that register from at least one other. The band is the tuning half's 10th, 50th and 90th percentile.");
-out();
-for (const r of registers) {
-  const hits = rows.filter((x) => x.passes && (x.a === r || x.b === r));
-  const byFeature = {};
-  for (const h of hits) (byFeature[h.feature] ??= []).push(h.a === r ? h.b : h.a);
-  const fs = Object.keys(byFeature).sort((x, y) => byFeature[y].length - byFeature[x].length);
-  out(`### ${r}`);
+for (const level of LEVELS) {
+  const at = rows.filter((r) => r.level === level);
+  out(`## Features that pass, per register pair: ${level}`);
   out();
-  if (fs.length === 0) {
-    out("No feature separates this register from any other.");
-    out();
-    continue;
+  out("| Pair | Passing features (tuning d / holdout d) |");
+  out("| --- | --- |");
+  for (const [a, b] of pairs) {
+    const hit = at.filter((r) => r.a === a && r.b === b && r.passes).sort((x, y) => Math.abs(y.d) - Math.abs(x.d));
+    out(`| ${a} vs ${b} | ${hit.length ? hit.map((r) => `\`${r.feature}\` ${r2(r.d)} / ${r2(r.hold)}`).join("; ") : "none"} |`);
   }
-  out("| Feature | Band (p10 / p50 / p90) | Separates from |");
-  out("| --- | --- | --- |");
-  for (const f of fs) out(`| \`${f}\` | ${band(byRegister[r].tuning[f]).map(r2).join(" / ")} | ${byFeature[f].join(", ")} |`);
   out();
+
+  out(`## Profile candidates, per register: ${level}`);
+  out();
+  out("A feature is a candidate for a register's profile when it separates that register from at least one other. The band is the tuning half's 10th, 50th and 90th percentile.");
+  out();
+  for (const r of registers) {
+    const hits = at.filter((x) => x.passes && (x.a === r || x.b === r));
+    const byFeature = {};
+    for (const h of hits) (byFeature[h.feature] ??= []).push(h.a === r ? h.b : h.a);
+    const fs = Object.keys(byFeature).sort((x, y) => byFeature[y].length - byFeature[x].length);
+    out(`### ${r}`);
+    out();
+    if (fs.length === 0) {
+      out("No feature separates this register from any other.");
+      out();
+      continue;
+    }
+    out("| Feature | Band (p10 / p50 / p90) | Separates from |");
+    out("| --- | --- | --- |");
+    for (const f of fs) out(`| \`${f}\` | ${band(byLevel[level][r].tuning[f]).map(r2).join(" / ")} | ${byFeature[f].join(", ")} |`);
+    out();
+  }
 }
 
 out("## Every pair and feature");
 out();
-out("| Feature | Pair | d tuning | bound | d holdout | Passes |");
-out("| --- | --- | ---: | ---: | ---: | --- |");
-for (const r of rows) out(`| \`${r.feature}\` | ${r.a} vs ${r.b} | ${r2(r.d)} | ${r2(r.lo)} | ${r2(r.hold)} | ${r.passes ? "yes" : "no"} |`);
+out("| Level | Feature | Pair | d tuning | bound | d holdout | Passes |");
+out("| --- | --- | --- | ---: | ---: | ---: | --- |");
+for (const r of rows) out(`| ${r.level} | \`${r.feature}\` | ${r.a} vs ${r.b} | ${r2(r.d)} | ${r2(r.lo)} | ${r2(r.hold)} | ${r.passes ? "yes" : "no"} |`);
 out();
 
 const target = join(CALIBRATION, "report-registers.md");
 writeFileSync(target, lines.join("\n"));
 const passing = rows.filter((r) => r.passes);
-console.log(`${registers.length} registers, ${features.length} features, ${rows.length} pair tests, ${passing.length} pass. Wrote ${target}`);
+for (const level of LEVELS) console.log(`${level}: ${rows.filter((r) => r.level === level && r.passes).length} of ${rows.filter((r) => r.level === level).length} pair tests pass`);
+console.log(`${registers.length} registers, ${features.length} features. Wrote ${target}`);
