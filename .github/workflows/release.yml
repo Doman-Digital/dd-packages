@@ -114,11 +114,11 @@ jobs:
       # Confirmed by running the real publish path in CI on both majors: npm
       # 12.0.2 dies on flag parsing, npm 11.19.1 reaches the registry.
       #
-      # The upstream fix is @changesets/cli 3.x ("route package manager calls
-      # through their respective CLIs during pnpm publish"), which needs pnpm
-      # >= 10 and Node >= 22.11. Node 20 left ci.yml in 2026-09; pnpm 10 is the
-      # remaining step. Do that deliberately, not as a side effect of a version
-      # float: see docs/releasing.md.
+      # The upstream fix, @changesets/cli 3.x with pnpm 10, is in place: it
+      # calls `pnpm publish` itself, so the flag no longer reaches npm.
+      # `pnpm publish --dry-run --no-git-checks` was rehearsed under npm 11 and
+      # npm 12 (see docs/releasing.md). No real OIDC publish has run on npm 12
+      # from this repo, so the pin stays until one has.
       - name: Use an npm that understands trusted publishing
         run: npm install -g "npm@^11.5.1"
 
