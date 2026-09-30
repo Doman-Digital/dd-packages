@@ -117,6 +117,7 @@ ${rest.map(line).join("\n")}
 
 - [ ] Every URL of any previous site that other sites link to has a redirect in \`redirects.json\`, and \`seo:check\` passes. On Astro with static output, redirects are meta-refresh pages: use a host adapter or host-level redirects for a migration.
 - [ ] \`launch:check\` passes.
+- [ ] The site is in Doman Digital's client register: \`docs/client-facts.entry.json\` handed over with every null filled in.
 - [ ] Search Console property verified and the sitemap submitted.
 - [ ] The launch column of \`docs/seo-baseline.md\` filled in.
 `;

@@ -5,6 +5,8 @@
 import { readFileSync } from "node:fs";
 import { SECTORS, registersFor } from "./sectors.js";
 import type { Sector } from "./sectors.js";
+import { toolName } from "./stack.js";
+import type { StackAnswers } from "./stack.js";
 
 export type Answers = {
   legalName: string;
@@ -21,6 +23,8 @@ export type Answers = {
   registers: string[];
   /** Hostnames of a previous site that will redirect here. */
   previousHosts: string[];
+  /** What the builder says the site uses. Declared, not observed: see stack.ts. */
+  stack: StackAnswers;
 };
 
 export type AnswerSources = {
@@ -52,6 +56,35 @@ export function validateSiteUrl(value: string): string | null {
   } catch {
     return `not a URL: ${value}`;
   }
+}
+
+type Optional = (key: string, question: string) => Promise<unknown>;
+
+/** The technology the builder declares. Every question can be skipped; skipped stays null. */
+async function collectStack(optional: Optional): Promise<StackAnswers | string> {
+  const problems: string[] = [];
+  const name = (key: string, value: string): string => {
+    const n = toolName(value);
+    if (!n) problems.push(`${key}: "${value}" is not a usable name (lowercase letters, digits, dots and hyphens)`);
+    return n ?? value;
+  };
+  const single = async (key: string, question: string): Promise<string | null> => {
+    const v = text(await optional(key, question));
+    return v === null ? null : name(key, v);
+  };
+  const many = async (key: string, question: string): Promise<string[]> => [
+    ...new Set(list(await optional(key, question)).map((v) => name(key, v))),
+  ];
+
+  const stack: StackAnswers = {
+    host: await single("host", "Hosting, e.g. vercel"),
+    dns: await single("dns", "DNS host, e.g. cloudflare"),
+    cms: await single("cms", "CMS, e.g. sanity"),
+    analytics: await many("analytics", "Analytics and tags, comma separated, e.g. ga4, gtm, posthog"),
+    errorMonitoring: await single("errorMonitoring", "Error monitoring, e.g. sentry"),
+    emailSending: await many("emailSending", "Email sending services, comma separated, e.g. resend"),
+  };
+  return problems.length > 0 ? problems.join("; ") : stack;
 }
 
 /** Resolves every answer, or returns an error message naming what is missing or wrong. */
@@ -104,6 +137,9 @@ export async function collectAnswers(sources: AnswerSources): Promise<Answers | 
 
   const previousHosts = list(await optional("previousHosts", "Previous website hostname, if moving from one"));
 
+  const stack = await collectStack(optional);
+  if (typeof stack === "string") return stack;
+
   return {
     legalName: values.legalName!,
     tradingName,
@@ -117,5 +153,6 @@ export async function collectAnswers(sources: AnswerSources): Promise<Answers | 
     serviceAreas,
     registers,
     previousHosts,
+    stack,
   };
 }
