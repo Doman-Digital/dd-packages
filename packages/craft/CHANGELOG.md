@@ -1,5 +1,16 @@
 # @domandigital/craft
 
+## 0.17.0
+
+### Minor Changes
+
+- ef257c9: Add `craft register`: briefs for writing in four registers (plain, persuasive, warm, literary), and a review-only check that places a document of five paragraphs or more against human baselines for the chosen register. New exports: `registerOf`, `REGISTER_FEATURES`, `REGISTERS`, `registerBrief`, `checkRegister`, `PROFILE`. `REGISTERS.md` ships in the package.
+
+### Patch Changes
+
+- 000f345: `craft calibrate` now says plainly that "flagged" is a look-closer signal, not a verdict that a site is AI-made. No threshold changed.
+- 539b760: A labelled page, a null page and an imported page now count as a home page, so `generic-hero-claim` can fire on them. Before, every local `file://` page read as an inner page and the tell could never fire on a labelled or null set. `Snapshot` gains an optional `home`; absent, the URL decides as before. `craft calibrate` takes `home: false` on a label entry, and its per-tell table shows each tell's catalogue generation.
+
 ## 0.16.0
 
 ### Minor Changes
