@@ -181,6 +181,7 @@ export {
   type LexicalFeatures,
   type StudyWord,
 } from "./character/lexical.js";
+export { REGISTER_FEATURES, registerOf, type RegisterFeatures } from "./register/features.js";
 export { HOME_FILE, HOME_URL, PROOF_NAMES, SPECIFICITY_COPY_TELLS, SPECIFICITY_RENDERED_TELLS, STANDING_CLAIM, unprovenClaims } from "./character/tells/specificity.js";
 export { auditSnapshot } from "./character/check.js";
 export {

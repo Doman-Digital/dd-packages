@@ -53,7 +53,7 @@ const humanWords = {};
 function loadHuman() {
   const dir = join(CALIBRATION, "human");
   const out = [];
-  for (const file of readdirSync(dir).filter((f) => f.endsWith(".json") && isLexicalFile(f) === (SET === "lexical"))) {
+  for (const file of readdirSync(dir).filter((f) => f.endsWith(".json") && isLexicalFile(f) === (SET === "lexical") && !f.includes("-register-"))) {
     const b = JSON.parse(readFileSync(join(dir, file), "utf8"));
     if (b.wordDocs) {
       const w = (humanWords[b.register] ??= { blurbs: 0, docs: {} });
