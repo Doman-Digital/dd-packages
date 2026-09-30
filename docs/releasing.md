@@ -68,14 +68,21 @@ release can publish:
 
 ## Tool versions, and why they are pinned
 
-- **pnpm 9.15.9** (`packageManager`). Changesets 2 passes pnpm's
-  `--no-git-checks` through to npm; npm 12 rejects it. The fix is
-  `@changesets/cli` 3, which requires pnpm 10 or later and Node `^22.11 || ^24
-  || >=26` (its npm manifest). Node 20 is already gone; move pnpm and
-  Changesets together, on a rehearsal branch, with a dry-run release before
-  merging.
-- **npm `^11.5.1`** in `release.yml`, for the reason above. Do not float it to
-  `latest`.
+- **pnpm 10.34.6** (`packageManager`) and **`@changesets/cli` 3.0.3**. They
+  move together: Changesets 3 requires pnpm 10 or later and Node `^22.11 ||
+  ^24 || >=26` (its npm manifest). Changesets 2 passed pnpm's `--no-git-checks`
+  through to npm, and npm 12 rejects it. Changesets 3 calls `pnpm publish`
+  itself, so the flag stays with pnpm. Rehearsed 2026-09-30:
+  `changeset version` works, and `pnpm publish --dry-run --no-git-checks`
+  succeeds under both npm 11.20.0 and npm 12.1.0. A real publish through
+  OIDC is not rehearsed yet; the first release after this change is that test.
+  pnpm 10 does not run dependency install scripts by default, and prints
+  "Ignored build scripts: esbuild" on install. That is expected: esbuild's
+  binary arrives as a prebuilt optional package, its script only checks it,
+  and build, test and the tarball gate pass without it.
+- **npm `^11.5.1`** in `release.yml`. The flag leak that forced this pin is
+  gone, but no real OIDC publish has run on npm 12 from this repo, so leave the
+  pin until one has, then try `latest` on its own branch.
 - **Node**: every package declares `engines.node >=22.12`. Node 20 reached end
   of life on 2026-04-30. CI runs 22 and 24; add 26 when it becomes LTS on
   2026-10-28.
