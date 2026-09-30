@@ -1,0 +1,1576 @@
+{
+  "version": 2,
+  "url": "https://www.povbudapest.com/",
+  "capturedAt": "2026-09-30T15:08:46.355Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 10153,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(253, 247, 236)",
+        "area": 21729375,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 69, 28)",
+        "area": 5300495,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 3938587,
+        "chars": 0
+      },
+      {
+        "value": "rgb(239, 224, 196)",
+        "area": 1440,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(255, 69, 28)",
+        "area": 0,
+        "chars": 4653
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 851
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 0,
+        "chars": 127
+      },
+      {
+        "value": "rgb(255, 227, 221)",
+        "area": 0,
+        "chars": 6
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Stabilgrotesk",
+      "chars": 5527,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500
+      ]
+    },
+    {
+      "family": "Abcvariable",
+      "chars": 60,
+      "displayChars": 60,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "Abcgravity Semicondensed",
+      "chars": 35,
+      "displayChars": 35,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "Abcgravity Extracondensed",
+      "chars": 15,
+      "displayChars": 15,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 3,
+      "family": "Abcgravity Extracondensed",
+      "sizePx": 56,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "the act",
+      "top": 2195
+    },
+    {
+      "level": 3,
+      "family": "Abcgravity Semicondensed",
+      "sizePx": 40,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "lineup",
+      "top": 2823
+    },
+    {
+      "level": 3,
+      "family": "Abcgravity Extracondensed",
+      "sizePx": 56,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Schedule",
+      "top": 5491
+    },
+    {
+      "level": 3,
+      "family": "Abcgravity Semicondensed",
+      "sizePx": 40,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Location",
+      "top": 6853
+    },
+    {
+      "level": 3,
+      "family": "Abcgravity Semicondensed",
+      "sizePx": 40,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "NEWS",
+      "top": 7285
+    },
+    {
+      "level": 3,
+      "family": "Abcgravity Semicondensed",
+      "sizePx": 40,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "FOUNDING PARTNERS",
+      "top": 8099
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(255, 69, 28)",
+      "text": "LiveLive"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(255, 69, 28)",
+      "text": "TicketsTickets"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(255, 69, 28)",
+      "text": "Schedule"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 40,
+      "heightPx": 56,
+      "background": "rgb(255, 69, 28)",
+      "text": "Play Aftermovie"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 6,
+      "heightPx": 36,
+      "background": "rgb(255, 255, 255)",
+      "text": "Cookie Settings"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 6,
+      "heightPx": 36,
+      "background": "rgb(255, 69, 28)",
+      "text": "Deny All"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 6,
+      "heightPx": 36,
+      "background": "rgb(255, 69, 28)",
+      "text": "Accept All"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 164,
+      "kind": "hero",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(253, 247, 236)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 36,
+      "height": 128,
+      "kind": "text",
+      "label": "LiveLiveTicketsTickets",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.464,
+        "whitespaceRatio": 0.907,
+        "contentWidthRatio": 0.844,
+        "background": "rgb(253, 247, 236)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": -1179,
+      "height": 900,
+      "kind": "text",
+      "label": "MoreABOUTNEWSCONTACTDINNER CLUBEvent 2026LINEUPSCHEDULELOCAT",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.607,
+        "whitespaceRatio": 0.848,
+        "contentWidthRatio": 0.788,
+        "background": "rgb(255, 69, 28)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "16-20 September 2026"
+      ]
+    },
+    {
+      "top": 188,
+      "height": 826,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(253, 247, 236)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 1063,
+      "height": 960,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 2087,
+      "height": 544,
+      "kind": "text",
+      "label": "the act",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.441,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 69, 28)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "the act",
+        "We have seen this moment coming: design systems built to scale are now moving into countless contexts, the last missing piece falling into place. As they slip from controlled environments, they enter cities, organisations, services, everyday routines.What lived on screens now acts under real conditi"
+      ]
+    },
+    {
+      "top": 2903,
+      "height": 1387,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.146,
+        "contentWidthRatio": 0.734,
+        "background": "rgb(253, 247, 236)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 4340,
+      "height": 543,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.011,
+        "contentWidthRatio": 0.736,
+        "background": "rgb(253, 247, 236)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 4947,
+      "height": 424,
+      "kind": "text",
+      "label": "Previous guests",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.993,
+        "contentWidthRatio": 0.1,
+        "background": "rgb(255, 69, 28)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Previous guests"
+      ]
+    },
+    {
+      "top": 5371,
+      "height": 544,
+      "kind": "text",
+      "label": "Schedule",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cta-band",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0,
+        "whitespaceRatio": 0.868,
+        "contentWidthRatio": 0.354,
+        "background": "rgb(253, 247, 236)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Schedule",
+        "Five days in the Hungarian capital, 16–20 September. The main talks land on Thursday and Friday. The rest of the week unfolds across the city, with workshops, design walks, exhibitions, networking, afterparties, and quieter gatherings in between. Exact schedule coming soon."
+      ]
+    },
+    {
+      "top": 5915,
+      "height": 810,
+      "kind": "text",
+      "label": "",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 1,
+        "contentWidthRatio": 0,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 6725,
+      "height": 432,
+      "kind": "text",
+      "label": "Location",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.828,
+        "whitespaceRatio": 0.858,
+        "contentWidthRatio": 0.736,
+        "background": "rgb(255, 69, 28)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Location"
+      ]
+    },
+    {
+      "top": 7221,
+      "height": 686,
+      "kind": "cards",
+      "label": "NEWS",
+      "cards": 34,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.019,
+        "mirrorSymmetry": 0.086,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "NEWS",
+        "Sept 4, 2026",
+        "July 28, 2026",
+        "June 30, 2026",
+        "Apr 21, 2026",
+        "Feb 26, 2026",
+        "Feb 9, 2026",
+        "Sept 18, 2025",
+        "Sept 10, 2025",
+        "Sept 9, 2025",
+        "Aug 27, 2025",
+        "May 16, 2025",
+        "Apr 15, 2025",
+        "Dec 13, 2024",
+        "Dec 4, 2024",
+        "Dec 1, 2024",
+        "Sept 27, 2024",
+        "Sept 25, 2024",
+        "Sept 20, 2024",
+        "Sept 18, 2024",
+        "Sept 12, 2024",
+        "Aug 30, 2024",
+        "Aug 9, 2024",
+        "Aug 5, 2024",
+        "July 9, 2024",
+        "July 4, 2024",
+        "July 1, 2024",
+        "Jun 4, 2024",
+        "May 24, 2024",
+        "Apr 12, 2024",
+        "Mar 26, 2024",
+        "Mar 25, 2024"
+      ]
+    },
+    {
+      "top": 8035,
+      "height": 598,
+      "kind": "text",
+      "label": "FOUNDING PARTNERS",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.846,
+        "whitespaceRatio": 0.16,
+        "contentWidthRatio": 0.77,
+        "background": "rgb(253, 247, 236)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "FOUNDING PARTNERS"
+      ]
+    },
+    {
+      "top": 8789,
+      "height": 568,
+      "kind": "text",
+      "label": "Strategic Media PartnerSponsors",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.986,
+        "contentWidthRatio": 0.149,
+        "background": "rgb(255, 69, 28)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Strategic Media Partner",
+        "Sponsors"
+      ]
+    },
+    {
+      "top": 9421,
+      "height": 291,
+      "kind": "text",
+      "label": "Thank you! Your submission has been received!Oops! Something",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "contact",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.865,
+        "whitespaceRatio": 0.836,
+        "contentWidthRatio": 1,
+        "background": "rgb(253, 247, 236)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": []
+    },
+    {
+      "top": 9712,
+      "height": 441,
+      "kind": "text",
+      "label": "Point of View Budapest.Conference for visual practices.Lineu",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.959,
+        "whitespaceRatio": 0.907,
+        "contentWidthRatio": 0.736,
+        "background": "rgb(253, 247, 236)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Point of View Budapest.",
+        "Conference for visual practices.",
+        "Copyright © 2025. All rights reserved."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.5,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/692d439ef729c98ef02e528c_SBT_1522-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 960,
+      "top": 1063,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/69fc94043d966614bfee0c3c_Frame%20427322259-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 1060,
+      "height": 544,
+      "top": 2087,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 5,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 70386
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6a0c6214680c240463e946f4_perplexity-thumbnail-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 2905,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 202819
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6a43d1b6034e246617237e8b_big-thumbnail-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 2905,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6a2adab659406a3601c2ecbf_saffron-thumbnail-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 2905,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 205468
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6a352b14efa2277a552c2cae_manvsmachine-thumbnail-web-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 3381,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 246513
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6a02018cd2c10885cfaf8e5b_david-robert-thumbnail-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 3380,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 178581
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/69f89be153444ce3d0818a0c_sdl-thumbnail-v2-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 3380,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 197281
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6a0f20fb0355206aa3e1b930_david-dean-thumbnail-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 3856,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 198098
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/69c3bd85deec09a403559035_POV%2026%20SPEAKERCARD%20DEFAULT%20STATE%20STUDIO%20FOLCH-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 3856,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 250490
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6a92d2bbc04cc7c74d3fa77e_massive-thumbnail.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 323,
+      "height": 431,
+      "top": 3856,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/6a9e57351e25c8d9ba2a7772_tbi-alright-studio-interview.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/6a688d5b3229c751e43e3027_tbi-sdl-interview-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 101995
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/6a688d23af20f82e2e0257ee_elle-pr-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 255690
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/6a688e3edef12d17d39ce51b_Frame%20427322400-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 68004
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/69e7353e835bbff3d3b44db7_index-space-chinatown-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/69b93d6b5ddaaf83c4d3046e_forbes30-boldizsar-matyas-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 140114
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/69b93d1c8c95aa36b32738c4_european-design-award-matyas-czel-jury-p-1600.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/692d4a15c07766001b228b9e_monocle-news-povbudapest-v2.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 28798
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/692d4bd0f4be598ba559a68b_base-interview-cover-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 67046
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/692d4920759865c85c7ac30d__SLN2547-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 111082
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/692d4b9553cb1ab7efde9b55_mouthwash-interview-cover-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 42184
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/6827273c825d0686e2caf4ca_VDH_POV-Website_1.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 18294
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/68272b9374faa097e870451e_pov-tbi-news-2025-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 230788
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675c11b689dbc0e182373067_POV_D1_342s.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675bf94bbb02f0e50a1409d7_POV_D2_376s.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/67d2847065d39aa60f5308d5_pov-apt-thumbnail.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675c13d526509ba6174e7896_POV_D1_314s.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675ed2ae79874b35a7bbedca_POVAfter35mmKikiMinkova-20.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675c164c3c9a5429787bc1d9_POV_D1_093s-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675c14dcb2d2aac8ae1a63a8_2024-09-18_11-41-46_351101-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/66ea82de37db4d05a05889f8_buck-thumbnail.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/66d16d6c4b5f67bde72e8721_koto-pr-web-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/66b609957297786178b875cd_porto-rocha-interview.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/66b60480e31dca1d24f6cb50_tomcsanyi-interview.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675c12880ae559a0358fcd41_2d1a2a33-688d-4e42-91cf-48cec508bfa5_rw_3840%20(1).webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675c144a26509ba6174ede7d_56639673_00fbc91d453d4b86db459bf2d0e13d5e_wm.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/668255da2bfb8e5430bc7eb5_how%26how-2-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/665f04fbbe9430108fe774bc_pov-blog-05-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/665438cf73405a7d6f0411ca_200-39-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/665437fa13532f4308b015a1_200-22-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/675ed5173d5ef80a2010ff48_66129aed419c4453778243-p-1600.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/660284a73924a898972faee8_Frame%2044218.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/66015492d9c576672df5e343_a-first-look-at-pov-budapest-a-spanking-new-design-festival-taking-over-the-city-this-september.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cf48f66131cbdd5fa0e0/66b603cde72b0fa91bdfc733_porto-rocha-interview.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 344,
+      "height": 229,
+      "top": 7365,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/69303b2cae54bf0c0c14b752_map-img.jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 510,
+      "height": 96,
+      "top": 6933,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 11,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/65e0a4dd8fa2c283bd896f34_2d1a2a33-688d-4e42-91cf-48cec508bfa5_rw_3840%20(1).jpg",
+      "host": "cdn.prod.website-files.com",
+      "width": 510,
+      "height": 28,
+      "top": 6936,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 11,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6763295b99b89a841cbb433d_location-svg-2025.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 510,
+      "height": 28,
+      "top": 7004,
+      "role": "illustration",
+      "alt": "",
+      "decorative": true,
+      "section": 11,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/65e39f7a2688029857e74068_logo-primary.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 103,
+      "height": 64,
+      "top": 68,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/65e39ef3cd2f1bebcd17d36b_logo-white.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 103,
+      "height": 64,
+      "top": 68,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7763,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7763,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7731,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7763,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7763,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7731,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7699,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7763,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7763,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b0d1f8e005f449e8cf1563/6708eed00e3a996e19be7878_blog-sep-icon.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 8,
+      "height": 8,
+      "top": 7731,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 12,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "By accepting, you consent to cookie storage on your device for improved navigation, site usage analysis, and marketing support."
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 17,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      13,
+      14,
+      15,
+      16,
+      20,
+      24,
+      40,
+      56,
+      80
+    ],
+    "fontWeights": [
+      400,
+      500
+    ],
+    "radii": [
+      "2px",
+      "40px",
+      "6px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 61.5,
+    "bodyLineLengthCh": null,
+    "bodyFontSizePx": null
+  },
+  "visual": {
+    "colourfulness": 126.8,
+    "edgeDensity": 0.127,
+    "symmetry": 0.905,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

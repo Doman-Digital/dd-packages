@@ -1,0 +1,1654 @@
+{
+  "version": 2,
+  "url": "https://short.io/",
+  "capturedAt": "2026-09-30T15:12:16.147Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 7746,
+  "ground": "rgb(255, 255, 255)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 8893265,
+        "chars": 0
+      },
+      {
+        "value": "rgb(248, 250, 252)",
+        "area": 4522357,
+        "chars": 0
+      },
+      {
+        "value": "rgba(15, 23, 42, 0.5)",
+        "area": 1296000,
+        "chars": 0
+      },
+      {
+        "value": "rgb(250, 251, 252)",
+        "area": 913523,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "area": 548383,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.85)",
+        "area": 103680,
+        "chars": 0
+      },
+      {
+        "value": "rgb(31, 176, 126)",
+        "area": 57237,
+        "chars": 0
+      },
+      {
+        "value": "rgba(31, 176, 126, 0.05)",
+        "area": 54602,
+        "chars": 0
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.03)",
+        "area": 27334,
+        "chars": 0
+      },
+      {
+        "value": "rgba(31, 176, 126, 0.06)",
+        "area": 14579,
+        "chars": 0
+      },
+      {
+        "value": "rgb(227, 243, 234)",
+        "area": 13339,
+        "chars": 0
+      },
+      {
+        "value": "rgba(31, 176, 126, 0.08)",
+        "area": 6448,
+        "chars": 0
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.7)",
+        "area": 6400,
+        "chars": 0
+      },
+      {
+        "value": "rgb(242, 242, 242)",
+        "area": 4639,
+        "chars": 0
+      },
+      {
+        "value": "rgba(31, 176, 126, 0.1)",
+        "area": 4012,
+        "chars": 0
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.05)",
+        "area": 3072,
+        "chars": 0
+      },
+      {
+        "value": "rgba(31, 176, 126, 0.12)",
+        "area": 2304,
+        "chars": 0
+      },
+      {
+        "value": "rgba(15, 23, 42, 0.2)",
+        "area": 968,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(100, 116, 139)",
+        "area": 0,
+        "chars": 3115
+      },
+      {
+        "value": "rgb(71, 85, 105)",
+        "area": 0,
+        "chars": 1238
+      },
+      {
+        "value": "rgb(15, 23, 42)",
+        "area": 0,
+        "chars": 710
+      },
+      {
+        "value": "rgb(113, 128, 150)",
+        "area": 0,
+        "chars": 474
+      },
+      {
+        "value": "rgb(45, 55, 72)",
+        "area": 0,
+        "chars": 347
+      },
+      {
+        "value": "rgb(74, 85, 104)",
+        "area": 0,
+        "chars": 305
+      },
+      {
+        "value": "rgb(31, 176, 126)",
+        "area": 0,
+        "chars": 215
+      },
+      {
+        "value": "rgb(26, 26, 26)",
+        "area": 0,
+        "chars": 111
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 92
+      },
+      {
+        "value": "rgba(15, 23, 42, 0.66)",
+        "area": 0,
+        "chars": 84
+      },
+      {
+        "value": "rgb(56, 55, 56)",
+        "area": 0,
+        "chars": 79
+      },
+      {
+        "value": "rgb(31, 122, 77)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "rgb(15, 110, 86)",
+        "area": 0,
+        "chars": 18
+      },
+      {
+        "value": "rgb(30, 41, 59)",
+        "area": 0,
+        "chars": 18
+      },
+      {
+        "value": "rgb(148, 163, 184)",
+        "area": 0,
+        "chars": 8
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "chars": 6729,
+      "displayChars": 380,
+      "italicChars": 212,
+      "weights": [
+        400,
+        450,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "ui-monospace",
+      "chars": 54,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "family": "system-ui",
+      "chars": 51,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        600,
+        700
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 16,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "We value your privacy",
+      "top": 799
+    },
+    {
+      "level": 1,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 56,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "URL shortener withteam collaborationcustom domainsanalyticsQR codesAPI accessteam collaboration",
+      "top": 196
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 20,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Shorten your link",
+      "top": 259
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 44,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Everything you need to manage links",
+      "top": 1121
+    },
+    {
+      "level": 3,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Advanced analytics",
+      "top": 1462
+    },
+    {
+      "level": 3,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Custom domains",
+      "top": 1462
+    },
+    {
+      "level": 3,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Team collaboration",
+      "top": 1462
+    },
+    {
+      "level": 3,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "QR codes",
+      "top": 1904
+    },
+    {
+      "level": 3,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "API access",
+      "top": 1904
+    },
+    {
+      "level": 3,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 18,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Link management",
+      "top": 1904
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "See Short.io in action",
+      "top": 2293
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Connect with your favorite tools",
+      "top": 2940
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Built for every team",
+      "top": 3605
+    },
+    {
+      "level": 3,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 32,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Marketing teams",
+      "top": 3913
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 44,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted at scale",
+      "top": 4331
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 48,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Loved by teams worldwide",
+      "top": 4820
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 44,
+      "weight": 700,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions",
+      "top": 5455
+    },
+    {
+      "level": 2,
+      "family": "Plus Jakarta Sans-1bd2da13eb602dc3",
+      "sizePx": 44,
+      "weight": 600,
+      "italic": false,
+      "italicPart": false,
+      "text": "Ready to get started?",
+      "top": 6657
+    }
+  ],
+  "controls": [
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Customize"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Reject non-essential"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 38,
+      "background": "rgb(31, 176, 126)",
+      "text": "Accept all"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 6,
+      "heightPx": 32,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "tools"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "EN"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 40,
+      "background": "rgb(31, 176, 126)",
+      "text": "Get started"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 10,
+      "heightPx": 52,
+      "background": "rgb(31, 176, 126)",
+      "text": "Create free account"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 10,
+      "heightPx": 52,
+      "background": "rgb(255, 255, 255)",
+      "text": "View demo"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 10,
+      "heightPx": 54,
+      "background": "rgb(31, 176, 126)",
+      "text": "Shorten"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 6,
+      "heightPx": 28,
+      "background": "rgb(255, 255, 255)",
+      "text": "Customize"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Transportation & Logistics"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Retail & E-commerce"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Technology & AI"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Food & Hospitality"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Government & Public Sector"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Media & Entertainment"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Finance & Banking"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Healthcare & Pharma"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Transportation & Logistics"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Retail & E-commerce"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Technology & AI"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Food & Hospitality"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Government & Public Sector"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Media & Entertainment"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Finance & Banking"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 0,
+      "heightPx": 45,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Healthcare & Pharma"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 10,
+      "heightPx": 52,
+      "background": "rgb(31, 176, 126)",
+      "text": "View all integrations"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 42,
+      "background": "rgb(255, 255, 255)",
+      "text": "Marketing teams"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 42,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Sales teams"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 8,
+      "heightPx": 42,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Infrastructure teams"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 10,
+      "heightPx": 52,
+      "background": "rgb(31, 176, 126)",
+      "text": "Contact Support"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 10,
+      "heightPx": 54,
+      "background": "rgb(227, 243, 234)",
+      "text": "Get started for free"
+    },
+    {
+      "kind": "button",
+      "radiusPx": 10,
+      "heightPx": 54,
+      "background": "rgb(255, 255, 255)",
+      "text": "View demo"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "العربية"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Български"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "বাংলা"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Deutsch"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "English"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Español"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Français"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "עברית"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "हिंदी"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Bahasa Indonesia"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Italiano"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "日本語"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "한국어"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Nederlands"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Polski"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Português"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Русский"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Svenska"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "ไทย"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Türkçe"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Українська"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 33,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Tiếng Việt"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "中文"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "繁體中文（香港）"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 8,
+      "heightPx": 34,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "繁體中文"
+    }
+  ],
+  "sections": [
+    {
+      "top": 72,
+      "height": 583,
+      "kind": "hero",
+      "label": "URL shortener withteam collaborationcustom domainsanalyticsQ",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.2,
+        "mirrorSymmetry": 0.531,
+        "whitespaceRatio": 0.732,
+        "contentWidthRatio": 0.874,
+        "background": "rgb(255, 255, 255)",
+        "controls": 4
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Free plan available • No credit card required",
+        "URL shortener withteam collaborationcustom domainsanalyticsQR codesAPI accessteam collaboration",
+        "Create branded short links with your custom domain or use ours. Free link shortener with detailed analytics, QR codes, and API. Track every click, run A/B tests, and optimize your campaigns.",
+        "Shorten your link",
+        "Want your own domain? Create free account",
+        "Your short link:"
+      ]
+    },
+    {
+      "top": 655,
+      "height": 155,
+      "kind": "logos",
+      "label": "Free forever planUp to 1,000 branded linksCustom domain supp",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.828,
+        "contentWidthRatio": 0.827,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Free forever plan",
+        "Up to 1,000 branded links",
+        "Custom domain support",
+        "Use your own domain name",
+        "No credit card required",
+        "Start creating links instantly",
+        "Rich analytics included",
+        "Track clicks and performance"
+      ]
+    },
+    {
+      "top": 810,
+      "height": 204,
+      "kind": "marquee",
+      "label": "Used by Fortune 500 companies and startups worldwideClient c",
+      "cards": 16,
+      "iconCards": 16,
+      "hiddenAtLoad": false,
+      "role": "marquee",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.478,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(248, 250, 252)",
+        "controls": 16
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Used by Fortune 500 companies and startups worldwideClient confidentiality"
+      ]
+    },
+    {
+      "top": 1013,
+      "height": 1208,
+      "kind": "cards",
+      "label": "Everything you need to manage links",
+      "cards": 6,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.17,
+        "mirrorSymmetry": 0.969,
+        "whitespaceRatio": 0.616,
+        "contentWidthRatio": 0.833,
+        "background": "rgb(248, 250, 252)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Everything you need to manage links",
+        "Advanced link management tools that help you track performance and optimize campaigns",
+        "Advanced analytics",
+        "Track clicks, conversions, and user behavior with detailed insights and real-time reporting",
+        "Real-time click stream",
+        "Device, browser & referrer breakdowns",
+        "Country and city-level geo data",
+        "Custom domains",
+        "Use your own branded domain to create professional short links that build trust",
+        "Free automated SSL",
+        "Unlimited domains per account",
+        "Bring your own or buy in-app",
+        "Team collaboration",
+        "Work together with your team, manage permissions, and share link analytics",
+        "Role-based access (Admin, Member)",
+        "Shared analytics & folders",
+        "SSO for enterprise plans",
+        "QR codes",
+        "Generate dynamic QR codes that can be edited anytime without reprinting",
+        "Editable destinations, no reprint",
+        "Full colors, logo & finder shapes",
+        "PNG, SVG & PDF exports",
+        "API access",
+        "Integrate Short.io into your applications with our powerful REST API",
+        "15+ REST endpoints",
+        "JavaScript, Node.js, iOS & Android SDKs",
+        "Bulk operations & webhooks",
+        "Link management",
+        "Organize, edit, and manage thousands of links with bulk operations and tags",
+        "Folders, tags & search",
+        "Bulk create / edit via CSV or API",
+        "UTM builder & campaign tracking"
+      ]
+    },
+    {
+      "top": 2221,
+      "height": 648,
+      "kind": "text",
+      "label": "See Short.io in action",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.807,
+        "whitespaceRatio": 0.028,
+        "contentWidthRatio": 0.945,
+        "background": "rgb(255, 255, 255)",
+        "controls": 0
+      },
+      "badges": [
+        "01",
+        "02",
+        "03",
+        "04"
+      ],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "See Short.io in action",
+        "Discover how easy it is to create, manage, and track your links"
+      ]
+    },
+    {
+      "top": 2868,
+      "height": 664,
+      "kind": "logos",
+      "label": "Connect with your favorite tools",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.997,
+        "whitespaceRatio": 0.86,
+        "contentWidthRatio": 0.833,
+        "background": "rgb(255, 255, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Connect with your favorite tools",
+        "Connect Short.io to your existing tools with ready-made integrations and API access"
+      ]
+    },
+    {
+      "top": 3533,
+      "height": 726,
+      "kind": "text",
+      "label": "Built for every team",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0.455,
+        "mirrorSymmetry": 0.565,
+        "whitespaceRatio": 0.654,
+        "contentWidthRatio": 0.833,
+        "background": "rgb(255, 255, 255)",
+        "controls": 3
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Built for every team",
+        "See how different teams use Short.io to achieve their goals",
+        "Marketing teams",
+        "Track campaign performance and optimize conversions",
+        "Campaign tracking",
+        "A/B testing",
+        "ROI measurement",
+        "Conversion optimization"
+      ]
+    },
+    {
+      "top": 4259,
+      "height": 489,
+      "kind": "logos",
+      "label": "Trusted at scale",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.996,
+        "whitespaceRatio": 0.85,
+        "contentWidthRatio": 0.833,
+        "background": "rgb(248, 250, 252)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 5,
+      "text": [
+        "Trusted at scale",
+        "Marketing teams, developers, and businesses worldwide rely on Short.io to track what matters",
+        "Years on the market"
+      ]
+    },
+    {
+      "top": 4748,
+      "height": 634,
+      "kind": "text",
+      "label": "Loved by teams worldwide",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 1,
+        "whitespaceRatio": 0.821,
+        "contentWidthRatio": 0.694,
+        "background": "rgb(250, 251, 252)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Loved by teams worldwide",
+        "See what our customers have to say about Short.io",
+        "\"We are currently using your service for geolocation of social media links. It allows us to route users to the US or Canada based on IP so we can track user journeys properly. Very happy with the service so far.\""
+      ]
+    },
+    {
+      "top": 5383,
+      "height": 1203,
+      "kind": "text",
+      "label": "Frequently asked questions",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "faq",
+      "geometry": {
+        "centredShare": 0.583,
+        "mirrorSymmetry": 0.901,
+        "whitespaceRatio": 0.657,
+        "contentWidthRatio": 0.592,
+        "background": "rgb(248, 250, 252)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Frequently asked questions",
+        "Can't find what you're looking for?",
+        "How do I get started with Short.io?",
+        "Getting started is easy! Simply sign up for a free account, and you can start shortening links immediately. No credit card required for the free plan.",
+        "Can I use my own domain?",
+        "Yes! You can connect your own custom domain to create branded short links. This helps build trust and recognition with your audience.",
+        "What analytics are available?",
+        "We provide comprehensive analytics including click tracking, geographic data, device types, referrers, and conversion tracking. All data is available in real-time.",
+        "Is there an API available?",
+        "Yes, we offer a powerful REST API that allows you to integrate Short.io into your applications. You can create, manage, and track links programmatically.",
+        "How secure are my links?",
+        "We take security seriously. All links are served over HTTPS, and we offer password protection, expiration dates, and advanced security features for your links.",
+        "What's included in the free plan?",
+        "The free plan includes 1,000 branded links, basic analytics, QR codes, and API access. Perfect for individuals and small projects.",
+        "Can I cancel my subscription anytime?",
+        "Absolutely! You can upgrade, downgrade, or cancel your subscription at any time. No long-term contracts or hidden fees.",
+        "Is Short.io a free URL shortener?",
+        "Yes! Short.io offers a free forever plan with up to 1,000 branded links, custom domains, analytics, QR codes, and API access. No credit card required to get started.",
+        "Can I use custom domains with the free link shortener?",
+        "Absolutely! Even on the free plan, you can connect your own custom domain to create branded short links. This helps build trust with your audience and strengthens your brand identity.",
+        "What link analytics are included in the free plan?",
+        "The free plan includes comprehensive analytics: click tracking, geographic location data, device and browser types, referral sources, and time-based reports. All analytics are available in real-time.",
+        "Still have questions?"
+      ]
+    },
+    {
+      "top": 6585,
+      "height": 390,
+      "kind": "logos",
+      "label": "Ready to get started?",
+      "cards": 4,
+      "iconCards": 4,
+      "hiddenAtLoad": false,
+      "role": "logos",
+      "geometry": {
+        "centredShare": 1,
+        "mirrorSymmetry": 0.851,
+        "whitespaceRatio": 0.892,
+        "contentWidthRatio": 0.515,
+        "background": "rgb(255, 255, 255)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Ready to get started?",
+        "Join over 1.2 million users shortening links with Short.io",
+        "No credit card required",
+        "Free plan forever",
+        "Fast support response"
+      ]
+    }
+  ],
+  "rhythmVariance": 0.517,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(31, 176, 126, 0.2)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 250000,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgba(31, 176, 126, 0.15)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "area": 160000,
+        "radial": true
+      }
+    ],
+    "glows": 2,
+    "gridBackgrounds": 0,
+    "marquees": 1,
+    "hairlineShadowCards": 2,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://short.io/_astro/hero-preview-light.pOedowgC_ZlHYMX.webp",
+      "host": "short.io",
+      "width": 698,
+      "height": 393,
+      "top": 2431,
+      "role": "photo",
+      "alt": "Short.io link management dashboard showing branded short links, click analytics, and QR codes",
+      "decorative": false,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://short.io/_astro/marketing-team.BW86zEey.webp",
+      "host": "short.io",
+      "width": 570,
+      "height": 360,
+      "top": 3854,
+      "role": "photo",
+      "alt": "Short.io link analytics dashboard for marketing campaign tracking",
+      "decorative": false,
+      "section": 6,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 257396
+      }
+    },
+    {
+      "src": "https://short.io/_astro/logo_wide-on-light.D2IMU2w5_1MMeYb.webp",
+      "host": "short.io",
+      "width": 141,
+      "height": 28,
+      "top": 22,
+      "role": "logo",
+      "alt": "Short.io link shortener",
+      "decorative": false,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/logo_wide-on-light.D2IMU2w5_1MMeYb.webp",
+      "host": "short.io",
+      "width": 126,
+      "height": 25,
+      "top": 7049,
+      "role": "logo",
+      "alt": "Short.io logo",
+      "decorative": false,
+      "section": null,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/transportation_hover.U1in-JB2_Z1T1YdS.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/retail_hover.DV-OL5bO_Z1OMPFG.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/technology_hover.DpAXKDuv_1dd5CD.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/food_hover.CMGevkyr_Z23nqpX.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/government_hover.B9fCOQUm_22yHr9.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/media_hover.COEVjeeA_Z2gdaw9.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/finance_hover.8uY10Jni_mJere.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/healthcare_hover.DQEoo9XK_20TG9H.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/transportation_hover.U1in-JB2_Z1T1YdS.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/retail_hover.DV-OL5bO_Z1OMPFG.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/technology_hover.DpAXKDuv_1dd5CD.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/food_hover.CMGevkyr_Z23nqpX.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/government_hover.B9fCOQUm_22yHr9.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/media_hover.COEVjeeA_Z2gdaw9.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/finance_hover.8uY10Jni_mJere.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/healthcare_hover.DQEoo9XK_20TG9H.webp",
+      "host": "short.io",
+      "width": 45,
+      "height": 45,
+      "top": 919,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/zapier.Bg-J7UTt_Z1ibTvo.svg",
+      "host": "short.io",
+      "width": 32,
+      "height": 32,
+      "top": 3151,
+      "role": "logo",
+      "alt": "Zapier",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/slack.NWsNGd9-_Z1ibTvo.svg",
+      "host": "short.io",
+      "width": 32,
+      "height": 32,
+      "top": 3151,
+      "role": "logo",
+      "alt": "Slack",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/ga.vr81XGt0_Z1ibTvo.svg",
+      "host": "short.io",
+      "width": 32,
+      "height": 32,
+      "top": 3151,
+      "role": "logo",
+      "alt": "Google Analytics",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/chrome.CouFhQIm_Z1ibTvo.svg",
+      "host": "short.io",
+      "width": 32,
+      "height": 32,
+      "top": 3297,
+      "role": "logo",
+      "alt": "Google Chrome",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/make.BDZj-hSp_Z1ibTvo.svg",
+      "host": "short.io",
+      "width": 32,
+      "height": 32,
+      "top": 3297,
+      "role": "logo",
+      "alt": "Make",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/segment.CDgH9jn4_Z26J2Oh.webp",
+      "host": "short.io",
+      "width": 32,
+      "height": 32,
+      "top": 3297,
+      "role": "logo",
+      "alt": "Segment",
+      "decorative": false,
+      "section": 5,
+      "background": false
+    },
+    {
+      "src": "https://short.io/_astro/twitter.B8D3n_Py_j3OI6.svg",
+      "host": "short.io",
+      "width": 20,
+      "height": 20,
+      "top": 7469,
+      "role": "avatar",
+      "alt": "twitter icon",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 510
+      }
+    },
+    {
+      "src": "https://short.io/_astro/linkedin.CZNQ2UKL_j3OI6.svg",
+      "host": "short.io",
+      "width": 20,
+      "height": 20,
+      "top": 7469,
+      "role": "avatar",
+      "alt": "linkedin icon",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 465
+      }
+    },
+    {
+      "src": "https://short.io/_astro/fb.tUO53PyI_j3OI6.svg",
+      "host": "short.io",
+      "width": 20,
+      "height": 20,
+      "top": 7469,
+      "role": "avatar",
+      "alt": "facebook icon",
+      "decorative": false,
+      "section": null,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 348
+      }
+    }
+  ],
+  "firstScreenText": [
+    "We value your privacy",
+    "We use cookies to keep the site running, measure usage, and improve your experience. Learn more",
+    "Live chat needs functional cookies.",
+    "Free plan available • No credit card required",
+    "URL shortener withteam collaborationcustom domainsanalyticsQR codesAPI accessteam collaboration",
+    "Create branded short links with your custom domain or use ours. Free link shortener with detailed analytics, QR codes, and API. Track every click, run A/B tests, and optimize your campaigns.",
+    "Shorten your link",
+    "Want your own domain? Create free account",
+    "Free forever plan",
+    "Up to 1,000 branded links",
+    "Custom domain support",
+    "Use your own domain name"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 11,
+    "animations": 50,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      6,
+      7,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      32,
+      44,
+      45,
+      48,
+      56
+    ],
+    "fontWeights": [
+      400,
+      450,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "10px",
+      "12px",
+      "16px",
+      "20px",
+      "50%",
+      "6px",
+      "8px"
+    ],
+    "shadows": [
+      "rgba(0, 0, 0, 0.05) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 20px 50px -12px",
+      "rgba(0, 0, 0, 0.08) 0px 10px 40px 0px",
+      "rgba(0, 0, 0, 0.1) 0px 2px 8px 0px",
+      "rgba(31, 176, 126, 0.25) 0px 2px 8px 0px"
+    ],
+    "spacingOnScalePct": 43.3,
+    "bodyLineLengthCh": 55,
+    "bodyFontSizePx": 19
+  },
+  "visual": {
+    "colourfulness": 15.6,
+    "edgeDensity": 0.048,
+    "symmetry": 0.972,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}
