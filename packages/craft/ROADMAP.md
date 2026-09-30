@@ -117,6 +117,22 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   pages and the human set. The article was fixed and every claim a token had
   backed was sourced, corrected or cut.
 
+## Register module, 2026-09-30
+
+- **Briefs shipped** (`REGISTERS.md`, `craft register brief`): four registers,
+  positive directives, each tagged with its source.
+- **Check shipped, review only** (`craft register check --as <id>`):
+  documents of five paragraphs or more, style features only, against
+  document-level bands generated from the human baselines. Single passages
+  do not separate (26 of 258 pair tests); five-paragraph averages separate
+  every register pair (78 of 258). See `calibration/copy-shape/report-registers.md`.
+- **Open:** Hansard and Wayback register baselines (contractions, "you" rate
+  and passive voice for institutional and marketing), which failed to download
+  from the build container; commands in `calibration/copy-shape/README.md`.
+  Rerun `registers.mjs --profile` after. Then test the check on real
+  documents: the five-paragraph averages mix writers, so the bands are
+  optimistic.
+
 ## Not built yet, on purpose
 
 - Document metrics as diagnostics (sentence-length spread, MATTR, trigram

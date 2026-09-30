@@ -170,6 +170,14 @@ sentence a reader would take as a checkable fact, marked `sourced` (a source is
 named) or `UNSOURCED`, for a person to check against the primary source. It
 always exits 0: a checklist, not a verdict.
 
+To write in a chosen register (plain, persuasive, warm, literary), read the
+brief before drafting and check a finished document after. See `REGISTERS.md`.
+
+```bash
+npx craft register brief warm                  # what to do before drafting
+npx craft register check letter.md --as warm   # five paragraphs or more; never fails
+```
+
 The same checks run in code:
 
 ```ts

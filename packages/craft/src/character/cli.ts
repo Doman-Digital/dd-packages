@@ -58,6 +58,9 @@ Usage
   craft report <url | snapshot.json> [--repo <dir>] [--null <dir>] [--estate <file>] [--direction <file>] [--json] [--strict]
   craft retrofit <url | snapshot.json> [the same] [--out RETROFIT.md]
   craft calibrate <labels.json> [--out <dir>] [--fresh] [--json]
+  craft register list [--json]
+  craft register brief <plain|persuasive|warm|literary> [--json]
+  craft register check <file> --as <register> [--json]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
@@ -108,6 +111,10 @@ calibrate How well the catalogue separates a labelled set (ai, human,
           first three targets. --out keeps results.json and any snapshots it
           took; --fresh takes every snapshot again. A page not measured is
           listed, and never counts as a pass. A measure: always exit 0.
+register  Writing in a chosen register (REGISTERS.md). brief prints what to
+          do before drafting; check places a draft of five or more
+          paragraphs against the human baselines for that register. Never
+          fails: exit 0, or 2 on bad usage.
 
 ci options (scan, copy, audit)
   --baseline <file>     Report only findings the baseline does not already
@@ -387,6 +394,9 @@ export function run(argv: string[], io: Io): number | Promise<number> {
   }
   if (command === "report" || command === "retrofit") {
     return import("../report/cli.js").then((m) => m.runReport(command, rest, io));
+  }
+  if (command === "register") {
+    return import("../register/cli.js").then((m) => m.runRegister(rest, io));
   }
   if (command === "estate") {
     return import("../estate/cli.js").then((m) => m.runEstate(rest, io));

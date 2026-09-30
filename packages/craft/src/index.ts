@@ -182,6 +182,9 @@ export {
   type StudyWord,
 } from "./character/lexical.js";
 export { REGISTER_FEATURES, registerOf, type RegisterFeatures } from "./register/features.js";
+export { REGISTERS, REGISTER_IDS, getRegister, registerBrief, registersDoc, type Register, type RegisterId } from "./register/registers.js";
+export { checkRegister, CONTENT_FEATURES, documentParagraphs, featureLabel, MIN_PARAGRAPHS, REGISTER_BASELINE, type Band, type RegisterCheck, type RegisterProfile } from "./register/check.js";
+export { PROFILE, PROFILE_MEASURED, PROFILE_PARAGRAPHS } from "./register/profile.js";
 export { HOME_FILE, HOME_URL, PROOF_NAMES, SPECIFICITY_COPY_TELLS, SPECIFICITY_RENDERED_TELLS, STANDING_CLAIM, unprovenClaims } from "./character/tells/specificity.js";
 export { auditSnapshot } from "./character/check.js";
 export {

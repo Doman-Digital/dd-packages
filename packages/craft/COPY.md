@@ -194,6 +194,11 @@ and confident, never matey: no over-familiar asides ("with me nowhere near
 it"), no American idiom ("shallow wins", "looks busy"), no "honestly" as an
 intensifier. Do not change a brand name, domain or legal entity wording.
 
+For a register other than the house one (plain, persuasive, warm, literary),
+see `REGISTERS.md`: a brief to read before drafting, and a check that places
+a document of five paragraphs or more against human baselines. It reports
+where a draft sits; a person still decides whether the register is right.
+
 ## Word limits
 
 | Element | Limit |

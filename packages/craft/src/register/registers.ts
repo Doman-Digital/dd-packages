@@ -99,11 +99,11 @@ export const REGISTERS: readonly Register[] = [
     sources: [
       {
         name: OGILVY,
-        note: "Headlines carry the promise because far more people read the headline than the body; specific, informative copy outsells vague copy. Taken from the widely quoted principles, not checked page by page against the book in this pass.",
+        note: "Headlines carry the promise because far more people read the headline than the body; specific, informative copy outsells vague copy. Taken from the widely quoted principles; a page-by-page check against the book is still to do.",
       },
       {
         name: CAPLES,
-        note: "Headlines that appeal to the reader's self-interest, and copy judged by tested response rather than taste. Not checked page by page against the book in this pass.",
+        note: "Headlines that appeal to the reader's self-interest, and copy judged by tested response rather than taste. A page-by-page check against the book is still to do.",
       },
       {
         name: "COPY.md",
