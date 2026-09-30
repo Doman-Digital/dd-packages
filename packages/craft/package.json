@@ -48,6 +48,7 @@
     "LICENSE",
     "PRINCIPLES.md",
     "README.md",
+    "REGISTERS.md",
     "STANDARD.md",
     "word-lists.json",
     "licences.json",
@@ -59,7 +60,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "prepublishOnly": "pnpm run build",
-    "docs": "tsup && node scripts/write-catalogue.mjs && node scripts/write-word-lists.mjs && node scripts/write-licences.mjs"
+    "docs": "tsup && node scripts/write-catalogue.mjs && node scripts/write-word-lists.mjs && node scripts/write-licences.mjs && node scripts/write-registers.mjs"
   },
   "devDependencies": {
     "tsup": "^8.3.5",
