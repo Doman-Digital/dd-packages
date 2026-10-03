@@ -26,6 +26,8 @@ export function layoutFor(project: Project): Layout {
     { template: "shared/tests/seo/redirects.test.ts", dest: "tests/seo/redirects.test.ts" },
     { template: "shared/tests/seo/graph.test.ts", dest: "tests/seo/graph.test.ts" },
     { template: "shared/tests/house.test.ts", dest: "tests/house.test.ts" },
+    { template: "shared/lib/consent.ts", dest: `${base}lib/consent.ts` },
+    { template: "shared/lib/legal.ts", dest: `${base}lib/legal.ts` },
   ];
   const siteKeys: Record<string, string> = {
     facts: "site.facts.ts",
@@ -35,11 +37,18 @@ export function layoutFor(project: Project): Layout {
     "site-adapter": `${base}lib/graph/site-adapter.ts`,
     "page-graph": `${base}lib/graph/page-graph.ts`,
     "routes-on-disk": "tests/seo/routes-on-disk.ts",
+    consent: `${base}lib/consent.ts`,
+    legal: `${base}lib/legal.ts`,
   };
   if (project.configFile) siteKeys["framework-config"] = project.configFile;
 
   if (project.framework === "next") {
     siteKeys["components/JsonLd"] = `${base}components/JsonLd.tsx`;
+    siteKeys["components/CookieBanner"] = `${base}components/CookieBanner.tsx`;
+    const legalPages = ["privacy", "cookies", "terms", "accessibility"].map((page) => ({
+      template: `next/app/${page}/page.tsx`,
+      dest: `${project.routesDir}/${page}/page.tsx`,
+    }));
     return {
       siteKeys,
       templates: [
@@ -50,6 +59,8 @@ export function layoutFor(project: Project): Layout {
         { template: "next/components/DesignerCredit.tsx", dest: `${base}components/DesignerCredit.tsx` },
         { template: "next/app/press/page.tsx", dest: `${project.routesDir}/press/page.tsx` },
         { template: "next/app/resources/page.tsx", dest: `${project.routesDir}/resources/page.tsx` },
+        { template: "next/components/CookieBanner.tsx", dest: `${base}components/CookieBanner.tsx` },
+        ...legalPages,
       ],
     };
   }
@@ -65,6 +76,8 @@ export function layoutFor(project: Project): Layout {
       { template: "astro/components/DesignerCredit.astro", dest: "src/components/DesignerCredit.astro" },
       { template: "astro/pages/press.astro", dest: "src/pages/press.astro" },
       { template: "astro/pages/resources/index.astro", dest: "src/pages/resources/index.astro" },
+      { template: "astro/components/CookieBanner.astro", dest: "src/components/CookieBanner.astro" },
+      ...["privacy", "cookies", "terms", "accessibility"].map((page) => ({ template: `astro/pages/${page}.astro`, dest: `src/pages/${page}.astro` })),
     ],
   };
 }
