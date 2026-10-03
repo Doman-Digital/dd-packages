@@ -7,3 +7,5 @@ A new site now passes the DD Framework rulebook (`dd doctor`) on the day it is m
 `--check` prints the plan, never prompts, and exits 3 when there is anything to do, a house file that differs from its template included, so CI and the nightly starter job can tell an up-to-date site from a drifted one.
 
 The privacy, cookie, terms and accessibility pages and the cookie banner come over from dd-base (Doman-Digital/dd-library), rewritten to read `site.facts.ts` instead of `{{TOKEN}}` placeholders: a new optional `legal` block holds company number, ICO number, retention, processors, governing law and a review date, and a page leaves out what is null. `launch:check` now fails until the banner is placed and the legal facts every site needs are filled in. The banner stores the choice under the same key dd-base used, offers "Necessary only" and "Accept measurement" with equal weight, and `openCookieSettings()` brings it back.
+
+New sites install `@domandigital/craft` `^0.18.0`, the release that adds `gradientContrast` and `checkPhotoReview`.
