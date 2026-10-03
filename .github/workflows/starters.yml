@@ -1,0 +1,107 @@
+name: starters
+
+# The nightly starter check (DD Framework, phase 4). Every night it makes each
+# starter from scratch exactly as `dd new` does: create-next-app (or
+# create-astro), this commit's @domandigital/create-site, dd adopt, and
+# dd doctor, which must be clean (nothing failing, warning or exempt). Then it
+# builds the site and runs the checks the site ships with. A red starter posts
+# to the ops Slack channel, the same way dd-repo-registry's estate sweep does
+# (scripts/slack-post.mjs).
+#
+# It exists because a starter rots without anyone touching it: a new
+# create-next-app, a new rule in the rulebook, a house package release. The
+# day one of those breaks a new site, this says so, before the next `dd new`.
+#
+# GitHub-hosted on purpose: this repo is public, and a public repo never uses
+# the self-hosted runners (dd doctor CI-002). The cron is registered in
+# Doman-Digital/dd-ci-standards budget.yml.
+#
+# The rulebook comes from dd-ci-standards at v1, the same version the policy
+# check and the estate sweep run. On pull requests that touch create-site or
+# this file it runs without Slack, so a change that breaks a starter is red on
+# its own PR.
+
+on:
+  schedule:
+    - cron: "43 3 * * *"
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "packages/create-site/**"
+      - ".github/workflows/starters.yml"
+      - "scripts/slack-post.mjs"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  starter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: [next, astro]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Checkout the rulebook
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: Doman-Digital/dd-ci-standards
+          ref: v1
+          path: ci-standards
+
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22.x"
+          cache: "pnpm"
+
+      - name: Build create-site from this commit
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm --filter @domandigital/create-site run build
+
+      # The answers a builder would give. The site is never deployed; the
+      # URL is a reserved example domain.
+      - name: Make the starter with dd new --local
+        env:
+          FRAMEWORK: ${{ matrix.framework }}
+        run: |
+          cat > "$RUNNER_TEMP/answers.json" <<'JSON'
+          {"legalName":"DD Starter Ltd","tradingName":"DD Starter","siteUrl":"https://starter.example","sector":"trades","description":"A starter made every night to prove the house foundation builds and passes the rulebook."}
+          JSON
+          node ci-standards/bin/dd.mjs new --kind dd-site "dd-starter-$FRAMEWORK" --local \
+            --framework "$FRAMEWORK" \
+            --dir "$RUNNER_TEMP/starter" \
+            --description "A starter made every night by dd-packages to prove the house foundation passes the rulebook." \
+            --answers "$RUNNER_TEMP/answers.json" \
+            --create-site packages/create-site/dist/cli.js
+
+      - name: Build the starter
+        working-directory: ${{ runner.temp }}/starter
+        run: pnpm run build
+
+      - name: The starter's own checks
+        working-directory: ${{ runner.temp }}/starter
+        run: pnpm run seo:check
+
+      - name: create-site --check finds nothing left to do
+        working-directory: ${{ runner.temp }}/starter
+        run: node "$GITHUB_WORKSPACE/packages/create-site/dist/cli.js" --check --answers "$RUNNER_TEMP/answers.json"
+
+      - name: Tell the ops channel
+        if: failure() && github.event_name != 'pull_request'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_OPS_CHANNEL: ${{ secrets.SLACK_OPS_CHANNEL }}
+          SLACK_TEXT: "*Nightly starter (${{ matrix.framework }}) is red.* A site made today with dd new would not build, or would not pass dd doctor. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        run: node scripts/slack-post.mjs

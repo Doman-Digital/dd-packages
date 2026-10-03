@@ -7,6 +7,7 @@ import type { Answers } from "../answers.js";
 import type { Project } from "../detect.js";
 import { SECTORS, registersFor } from "../sectors.js";
 import type { Register } from "../sectors.js";
+import { ACTIONS } from "../versions.js";
 
 const run = (pm: Project["packageManager"], script: string) => (pm === "npm" ? `npm run ${script}` : `${pm} ${script}`);
 
@@ -146,19 +147,37 @@ ${rows.map(([measure, source]) => `| ${measure} | | | | | ${source} |`).join("\n
 `;
 }
 
-export function renderWorkflow(project: Project): string | null {
+export type Visibility = "private" | "public";
+
+/**
+ * The seo-check workflow, written to pass the DD Framework rulebook
+ * (Doman-Digital/dd-ci-standards rules.json) on the day it lands:
+ *
+ *   SEC-001  every action pinned to a full commit SHA (ACTIONS in versions.ts)
+ *   CI-001   a private repo runs on vars.CI_RUNNER, falling back to GitHub's
+ *            runners where the variable is not set (a client's own account)
+ *   CI-002   a public repo never names the self-hosted runners
+ *   CI-003   a timeout; CI-004 a concurrency group that cancels
+ *
+ * Until 2026-10-03 it named tags (actions/checkout@v5) and ubuntu-latest,
+ * so every new site started with warnings that become failures on
+ * 2026-12-31. The nightly starter job in dd-packages runs dd doctor on a
+ * generated site, so a rule this stops meeting is noticed the next morning.
+ */
+export function renderWorkflow(project: Project, visibility: Visibility = "private"): string | null {
   const pm = project.packageManager;
   if (pm !== "pnpm" && pm !== "npm") return null;
+  const runsOn = visibility === "public" ? "ubuntu-latest" : "${{ vars.CI_RUNNER || 'ubuntu-latest' }}";
   const setup =
     pm === "pnpm"
-      ? `      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v5
+      ? `      - uses: ${ACTIONS.setupPnpm}
+      - uses: ${ACTIONS.setupNode}
         with:
           node-version: '22.x'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm seo:check`
-      : `      - uses: actions/setup-node@v5
+      : `      - uses: ${ACTIONS.setupNode}
         with:
           node-version: '22.x'
           cache: 'npm'
@@ -167,7 +186,10 @@ export function renderWorkflow(project: Project): string | null {
   return `name: seo-check
 
 # The house SEO checks on every pull request: route coverage, redirects,
-# JSON-LD and the facts-file rule. Written by @domandigital/create-site.
+# JSON-LD and the facts-file rule. Written by @domandigital/create-site to pass
+# the Doman Digital rulebook (dd doctor): actions pinned to a commit SHA,
+# ${visibility === "public" ? "GitHub's runners (a public repo never uses the self-hosted ones)" : "the organisation's runner where CI_RUNNER is set, GitHub's otherwise"},
+# a timeout, and a concurrency group.
 
 on:
   pull_request:
@@ -181,10 +203,12 @@ concurrency:
 
 jobs:
   seo:
-    runs-on: ubuntu-latest
+    runs-on: ${runsOn}
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: ${ACTIONS.checkout}
+        with:
+          persist-credentials: false
 ${setup}
 `;
 }
