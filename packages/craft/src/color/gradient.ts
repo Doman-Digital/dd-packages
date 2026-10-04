@@ -115,17 +115,20 @@ function parseStops(gradient: string): Stop[] {
 
   const stops: Stop[] = [];
   for (const part of parts) {
-    // A stop may carry one or two positions: `#fff 10%`, `#fff 10% 20%`.
+    // The direction or shape argument carries no colour. Judged on the part
+    // as written: with its angle stripped, `from 45deg` would read as `from`.
+    if (/^(to\s|circle|ellipse|closest|farthest|at\s|from\s|in\s|-?[\d.]+(deg|turn|rad|grad)$)/i.test(part)) continue;
+    // A stop may carry one or two positions: `#fff 10%`, `#fff 10% 20%`, or
+    // angles in a conic gradient: `#fff 90deg`, `#fff 0.5turn`.
     const positions: Position[] = [];
     let colour = part;
     for (let i = 0; i < 2; i++) {
-      const m = /\s+(-?[\d.]+)(%|px|r?em|vw|vh)\s*$/i.exec(colour);
+      const m = /\s+(-?[\d.]+)(%|px|r?em|vw|vh|deg|turn|rad|grad)\s*$/i.exec(colour);
       if (!m) break;
       positions.unshift({ value: parseFloat(m[1]), unit: m[2].toLowerCase() });
       colour = colour.slice(0, m.index);
     }
     colour = colour.trim();
-    if (/^(to\s|circle|ellipse|closest|farthest|at\s|from\s|in\s|-?[\d.]+(deg|turn|rad|grad)$)/i.test(colour)) continue;
     if (!toRgba(colour)) throw new Error(`unreadable gradient stop "${colour}" in ${gradient}`);
     stops.push({ colour, positions });
   }

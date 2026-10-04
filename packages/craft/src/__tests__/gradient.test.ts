@@ -60,5 +60,7 @@ describe("gradientStops", () => {
   it("keeps commas inside a colour, and drops the direction, shape and positions", () => {
     expect(gradientStops("radial-gradient(circle at top, rgba(1, 2, 3, 0.4) 10%, #fff 50% 60%)")).toEqual(["rgba(1, 2, 3, 0.4)", "#fff"]);
     expect(gradientStops("linear-gradient(135deg, white, black)")).toEqual(["white", "black"]);
+    // Conic stops are positioned by angle (Codex review on dd-packages#91).
+    expect(gradientStops("conic-gradient(from 45deg, #ff0000 0deg, #0000ff 180deg, #ff0000 0.5turn 1turn)")).toEqual(["#ff0000", "#0000ff", "#ff0000"]);
   });
 });
