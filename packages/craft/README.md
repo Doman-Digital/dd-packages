@@ -213,7 +213,8 @@ restraint rule) and art direction (`craft direction`, `craft estate`).
   against the worst point. The worst point is sampled along every segment, not
   only at the stops: mid-grey text on a black-to-white gradient clears 4.5:1
   against both ends and is about 1:1 in the middle, which the drift-guards
-  version passed. WCAG defines no method for gradients, so this is craft's
+  version passed. A hard stop (`#000 50%, #fff 50%`) is a jump the browser
+  paints without a blend, so it is not sampled across. WCAG defines no method for gradients, so this is craft's
   rule, not a conformance claim.
 - **`checkPhotoReview(text, { minScore, required })`**: gates a build on the
   report `halide review --json` wrote. It takes the report's text (null when
