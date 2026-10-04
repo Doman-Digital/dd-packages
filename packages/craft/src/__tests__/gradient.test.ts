@@ -30,6 +30,21 @@ describe("gradientContrast", () => {
     expect(r.wcag).toBeLessThan(1.05);
   });
 
+  it("never blends across a hard stop, which the browser paints as a jump", () => {
+    // #000 50%, #fff 50%: black then white, no grey between. Mid-grey clears
+    // 4.5:1 against both, so this passes; sampling across the edge would
+    // invent a ~1:1 grey (Codex review on dd-drift-guards#8).
+    for (const gradient of [
+      "linear-gradient(90deg, #000000 50%, #ffffff 50%)",
+      "linear-gradient(90deg, #000000 0% 50%, #ffffff 50% 100%)",
+      "linear-gradient(90deg, #000000 60%, #ffffff 40%)",
+    ]) {
+      expect(gradientContrast("#767676", gradient).passesAA, gradient).toBe(true);
+    }
+    // A blend that is painted is still sampled.
+    expect(gradientContrast("#767676", "linear-gradient(90deg, #000000 40%, #ffffff 60%)").passesAA).toBe(false);
+  });
+
   it("composites a translucent stop over what sits beneath", () => {
     const r = gradientContrast("#ffffff", "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))", "#ffffff");
     expect(r.stops).toEqual(["#808080", "#808080"]);

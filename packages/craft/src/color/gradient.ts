@@ -17,7 +17,8 @@
  * the backdrop's luminance comes closest to the text's: mid-grey text on a
  * black-to-white gradient clears 4.5:1 against both ends and about 1:1 in the
  * middle. So each segment is sampled, interpolated as browsers paint legacy
- * colours (sRGB, premultiplied alpha). Pure.
+ * colours (sRGB, premultiplied alpha), except across a hard stop
+ * (`#000 50%, #fff 50%`), where the browser paints a jump and no blend. Pure.
  */
 
 import { parseColour } from "../character/color.js";
@@ -87,6 +88,14 @@ function composite(top: Rgba, under: Rgb): Rgb {
  * Throws on a stop it cannot read: a skipped stop could be the worst one.
  */
 export function gradientStops(gradient: string): string[] {
+  return parseStops(gradient).map((s) => s.colour);
+}
+
+type Position = { value: number; unit: string };
+type Stop = { colour: string; positions: Position[] };
+
+/** The stops with their positions (up to two each), as written. */
+function parseStops(gradient: string): Stop[] {
   const inner = /gradient\(([\s\S]*)\)\s*$/.exec(gradient.trim());
   if (!inner) throw new Error(`not a CSS gradient: ${gradient}`);
   const parts: string[] = [];
@@ -104,16 +113,51 @@ export function gradientStops(gradient: string): string[] {
   }
   if (current.trim()) parts.push(current.trim());
 
-  const stops: string[] = [];
+  const stops: Stop[] = [];
   for (const part of parts) {
     // A stop may carry one or two positions: `#fff 10%`, `#fff 10% 20%`.
-    const colour = part.replace(/(\s+-?[\d.]+(%|px|r?em|deg|turn|vw|vh))+\s*$/i, "").trim();
+    const positions: Position[] = [];
+    let colour = part;
+    for (let i = 0; i < 2; i++) {
+      const m = /\s+(-?[\d.]+)(%|px|r?em|vw|vh)\s*$/i.exec(colour);
+      if (!m) break;
+      positions.unshift({ value: parseFloat(m[1]), unit: m[2].toLowerCase() });
+      colour = colour.slice(0, m.index);
+    }
+    colour = colour.trim();
     if (/^(to\s|circle|ellipse|closest|farthest|at\s|from\s|in\s|-?[\d.]+(deg|turn|rad|grad)$)/i.test(colour)) continue;
     if (!toRgba(colour)) throw new Error(`unreadable gradient stop "${colour}" in ${gradient}`);
-    stops.push(colour);
+    stops.push({ colour, positions });
   }
   if (stops.length === 0) throw new Error(`no colour stops in ${gradient}`);
   return stops;
+}
+
+/**
+ * The adjacent stops the browser blends between. A stop with two positions is
+ * a solid band. CSS moves a stop placed at or before an earlier one up to it,
+ * so such a stop starts a hard edge: the colour jumps and nothing between is
+ * painted, so sampling there would invent a backdrop that does not exist.
+ * Positions are compared within one unit only; a stop with no position, or a
+ * mix of units, counts as blended, which can only over-report.
+ */
+function blendedSegments(stops: Stop[]): [Rgba, Rgba][] {
+  const entries: { rgba: Rgba; pos: Position | null }[] = [];
+  for (const s of stops) {
+    const rgba = toRgba(s.colour)!;
+    if (s.positions.length === 0) entries.push({ rgba, pos: null });
+    for (const pos of s.positions) entries.push({ rgba, pos });
+  }
+  const furthest: Record<string, number> = {};
+  const pairs: [Rgba, Rgba][] = [];
+  for (let i = 0; i + 1 < entries.length; i++) {
+    const pos = entries[i].pos;
+    if (pos) furthest[pos.unit] = Math.max(furthest[pos.unit] ?? -Infinity, pos.value);
+    const next = entries[i + 1].pos;
+    const hard = next !== null && furthest[next.unit] !== undefined && next.value <= furthest[next.unit];
+    if (!hard) pairs.push([entries[i].rgba, entries[i + 1].rgba]);
+  }
+  return pairs;
 }
 
 export interface GradientContrast {
@@ -144,13 +188,17 @@ export function gradientContrast(text: string, gradient: string, beneath = "#fff
   const fg = toRgba(text);
   if (!fg || fg.a < 1) throw new Error(`text must be an opaque colour, got ${text}`);
   const textHex = formatHex(fg);
-  const raw = gradientStops(gradient).map((s) => toRgba(s)!);
-  const stops = raw.map((s) => formatHex(composite(s, under)));
+  const parsed = parseStops(gradient);
+  const stops = parsed.map((s) => formatHex(composite(toRgba(s.colour)!, under)));
   let worst = stops[0];
   let worstRatio = wcagContrast(textHex, worst);
-  for (let i = 0; i + 1 < raw.length; i++) {
-    for (let k = 1; k <= SAMPLES_PER_SEGMENT; k++) {
-      const point = formatHex(composite(mix(raw[i], raw[i + 1], k / SAMPLES_PER_SEGMENT), under));
+  for (const s of stops) {
+    const ratio = wcagContrast(textHex, s);
+    if (ratio < worstRatio) [worst, worstRatio] = [s, ratio];
+  }
+  for (const [a, b] of blendedSegments(parsed)) {
+    for (let k = 1; k < SAMPLES_PER_SEGMENT; k++) {
+      const point = formatHex(composite(mix(a, b, k / SAMPLES_PER_SEGMENT), under));
       const ratio = wcagContrast(textHex, point);
       if (ratio < worstRatio) [worst, worstRatio] = [point, ratio];
     }
