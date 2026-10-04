@@ -23,6 +23,8 @@ export function applyPlan(plan: Plan, clientName: string, exec: Exec): string[] 
   }
   if (plan.packageJson) writeInside(root, "package.json", plan.packageJson.text);
   if (plan.config) writeInside(root, plan.config.file, plan.config.text);
+  // Before the install, so the install already waits out fresh releases.
+  if (plan.pnpmWorkspace) writeInside(root, "pnpm-workspace.yaml", plan.pnpmWorkspace.text);
   if (plan.claudeMd) writeInside(root, "CLAUDE.md", plan.claudeMd.text);
 
   for (const c of plan.commands) exec(c.cmd, c.args, root);

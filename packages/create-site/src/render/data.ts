@@ -5,6 +5,9 @@ import type { Answers } from "../answers.js";
 import { policyPatternsFor } from "../patterns.js";
 import { SECTORS } from "../sectors.js";
 
+/** The pages create-site writes from dd-base's legal set. */
+export const LEGAL_ROUTES = ["/accessibility", "/cookies", "/privacy", "/terms"];
+
 const q = (value: string | null) => (value === null ? "null" : JSON.stringify(value));
 const arr = (values: string[]) => `[${values.map((v) => JSON.stringify(v)).join(", ")}]`;
 
@@ -46,14 +49,33 @@ export const facts: SiteFacts = {
   // { kind, name, url, status }. Only "live" profiles become sameAs.
   profiles: [],
   previousHosts: ${arr(a.previousHosts)},
+  // The privacy, cookie, terms and accessibility pages read these. A null is
+  // left off the page; launch:check fails until retention, the processors
+  // (the host at least), the governing law and reviewedOn are set.
+  legal: {
+    companyNumber: null,
+    registeredOffice: null,
+    icoNumber: null,
+    privacyEmail: null,
+    retention: null,
+    // { name, purpose, setsCookies }
+    processors: [],
+    governingLaw: null,
+    accessibilityIssues: [],
+    reviewedOn: null,
+  },
 };
 `;
 }
 
 export function renderRoutes(routesOnDisk: string[], dynamicRoutesOnDisk: string[] = []): string {
-  // /resources is added below as noindex, whatever is on disk.
-  const routes = [...new Set([...routesOnDisk, "/press"])].filter((r) => r !== "/resources").sort();
+  // /resources is added below as noindex, and the legal pages out of the
+  // sitemap, whatever is on disk.
+  const routes = [...new Set([...routesOnDisk, "/press"])].filter((r) => r !== "/resources" && !LEGAL_ROUTES.includes(r)).sort();
   const entries = routes.map((path) => `  { path: ${JSON.stringify(path)}, indexable: true, inSitemap: true },`);
+  for (const path of LEGAL_ROUTES) {
+    entries.push(`  { path: ${JSON.stringify(path)}, indexable: true, inSitemap: false, reason: "Legal page: linked from every page's footer, not a search landing page." },`);
+  }
   const patterns = new Map<string, string>();
   for (const route of dynamicRoutesOnDisk) {
     for (const pattern of policyPatternsFor(route)) if (pattern.endsWith("/*") && !patterns.has(pattern)) patterns.set(pattern, route);
@@ -93,6 +115,10 @@ export const trailLabels: TrailLabel[] = [
   { path: "/", label: "Home" },
   { path: "/press", label: "Press" },
   { path: "/resources", label: "Resources" },
+  { path: "/privacy", label: "Privacy policy" },
+  { path: "/cookies", label: "Cookie policy" },
+  { path: "/terms", label: "Website terms" },
+  { path: "/accessibility", label: "Accessibility" },
 ];
 
 /**

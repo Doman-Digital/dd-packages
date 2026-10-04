@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, describe, expect, test } from "vitest";
 import { run } from "../run";
@@ -187,5 +187,106 @@ describe("a config it cannot edit safely", () => {
     const { out } = await scaffold(root);
     expect(readFileSync(join(root, "next.config.ts"), "utf8")).toBe(before);
     expect(out.join("\n")).toMatch(/already defines redirects: read redirects\.json in next\.config/);
+  });
+});
+
+describe("--check", () => {
+  test("exits 3 and lists the work on a project that has none of the house files, writing nothing", async () => {
+    const root = project("next-root");
+    const before = snapshotTree(root);
+    const { code, err } = await scaffold(root, ["--check"]);
+    expect(code).toBe(3);
+    expect(err.join("\n")).toMatch(/missing: site\.facts\.ts/);
+    expect(snapshotTree(root)).toEqual(before);
+  });
+
+  test("exits 0 once the scaffold has run, and 3 again when a house file drifts from its template", async () => {
+    const root = project("astro");
+    await scaffold(root);
+    expect((await scaffold(root, ["--check"])).code).toBe(0);
+    writeFileSync(join(root, "src/components/CookieBanner.astro"), "<div />\n");
+    const { code, err } = await scaffold(root, ["--check"]);
+    expect(code).toBe(3);
+    expect(err.join("\n")).toMatch(/differs from the house template: src\/components\/CookieBanner\.astro/);
+  });
+
+  test("never prompts: a missing answer is a usage error", async () => {
+    const root = project("next-root");
+    const asked: string[] = [];
+    const { io } = captureIo(root, { ask: async (q) => (asked.push(q), "x") });
+    expect(await run(["--check", "--skip-install", "--client", "Acme Ltd"], io)).toBe(2);
+    expect(asked).toEqual([]);
+  });
+});
+
+describe("the CI workflow passes the rulebook", () => {
+  const workflow = async (extra: string[]) => {
+    const root = project("next-root");
+    await scaffold(root, extra);
+    return readFileSync(join(root, ".github/workflows/seo-check.yml"), "utf8");
+  };
+
+  test("every action is pinned to a full commit SHA (SEC-001), with a timeout and a cancelling concurrency group", async () => {
+    const text = await workflow([]);
+    const uses = [...text.matchAll(/uses:\s*(\S+)/g)].map((m) => m[1]!);
+    expect(uses.length).toBeGreaterThan(0);
+    expect(uses.filter((u) => !/@[0-9a-f]{40}$/.test(u))).toEqual([]);
+    expect(text).toMatch(/timeout-minutes: \d+/);
+    expect(text).toMatch(/cancel-in-progress: true/);
+  });
+
+  test("a private repo runs on CI_RUNNER, falling back to GitHub's runners (CI-001)", async () => {
+    expect(await workflow([])).toContain("runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}");
+  });
+
+  test("a public repo never names the self-hosted runners (CI-002)", async () => {
+    const text = await workflow(["--visibility", "public"]);
+    expect(text).toContain("runs-on: ubuntu-latest");
+    expect(text).not.toContain("CI_RUNNER");
+  });
+
+  test("an unknown visibility is a usage error", async () => {
+    const root = project("next-root");
+    expect((await scaffold(root, ["--visibility", "internal"])).code).toBe(2);
+  });
+});
+
+describe("pnpm install protections (SEC-002)", () => {
+  test("adds minimumReleaseAge to the pnpm-workspace.yaml create-next-app wrote, keeping what was there", async () => {
+    const root = project("next-root", { "pnpm-workspace.yaml": "ignoredBuiltDependencies:\n  - sharp\n" });
+    await scaffold(root);
+    const text = readFileSync(join(root, "pnpm-workspace.yaml"), "utf8");
+    expect(text.startsWith("ignoredBuiltDependencies:\n  - sharp\n\n")).toBe(true);
+    expect(text).toMatch(/^minimumReleaseAge: 1440$/m);
+    expect(text).toContain('  - "@domandigital/*"');
+  });
+
+  test("creates the file when there is none, and leaves a project's own setting alone", async () => {
+    const root = project("next-root");
+    await scaffold(root);
+    expect(readFileSync(join(root, "pnpm-workspace.yaml"), "utf8")).toMatch(/^minimumReleaseAge: 1440$/m);
+    const own = project("next-root", { "pnpm-workspace.yaml": "minimumReleaseAge: 4320\n" });
+    await scaffold(own);
+    expect(readFileSync(join(own, "pnpm-workspace.yaml"), "utf8")).toBe("minimumReleaseAge: 4320\n");
+  });
+
+  test("is not written for an npm project", async () => {
+    const root = project("next-root", { "pnpm-lock.yaml": "", "package-lock.json": "{}\n" });
+    rmSync(join(root, "pnpm-lock.yaml"));
+    await scaffold(root);
+    expect(existsSync(join(root, "pnpm-workspace.yaml"))).toBe(false);
+  });
+});
+
+describe("the legal pages and cookie banner from dd-base", () => {
+  test("are written, and the facts file starts with every legal fact unknown", async () => {
+    const root = project("next-root");
+    await scaffold(root);
+    for (const file of ["app/privacy/page.tsx", "app/cookies/page.tsx", "app/terms/page.tsx", "app/accessibility/page.tsx", "components/CookieBanner.tsx", "lib/consent.ts", "lib/legal.ts"]) {
+      expect(existsSync(join(root, file)), file).toBe(true);
+    }
+    const facts = readFileSync(join(root, "site.facts.ts"), "utf8");
+    expect(facts).toMatch(/legal: \{\n\s+companyNumber: null,/);
+    expect(facts).not.toMatch(/\{\{|TODO|TBC/);
   });
 });
