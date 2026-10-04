@@ -1,2 +1,6 @@
 packages:
   - "packages/*"
+
+# dd doctor SEC-002: a release must be a day old before pnpm installs it. The
+# 2025 npm worms spread through releases installed minutes after publishing.
+minimumReleaseAge: 1440
