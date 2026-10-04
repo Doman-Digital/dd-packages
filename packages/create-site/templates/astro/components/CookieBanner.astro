@@ -1,0 +1,42 @@
+---
+// The cookie banner. Written by @domandigital/create-site, from the dd-base
+// banner (Doman-Digital/dd-library). Unstyled: style it with the site's own
+// classes. Put <CookieBanner /> once in the base layout; launch:check fails
+// until it is placed.
+//
+// Hidden until the script finds no stored choice, so a returning visitor
+// never sees it flash. The two buttons carry equal weight: refusing must be
+// as easy as accepting. Any element with data-cookie-settings brings it back.
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={className} role="region" aria-label="Cookie choices" data-cookie-banner hidden>
+  <p>
+    We use cookies the site needs to work. With your permission we also use measurement cookies to see how the site is
+    used. <a href="/cookies">Cookie policy</a>
+  </p>
+  <button type="button" data-cookie-choice="necessary">Necessary only</button>
+  <button type="button" data-cookie-choice="measurement">Accept measurement</button>
+</div>
+
+<script>
+  import { SETTINGS_EVENT, getConsent, setConsent } from "~site/consent";
+
+  const banner = document.querySelector<HTMLElement>("[data-cookie-banner]");
+  if (banner) {
+    banner.hidden = getConsent() !== null;
+    banner.querySelectorAll<HTMLButtonElement>("[data-cookie-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setConsent(button.dataset.cookieChoice === "measurement");
+        banner.hidden = true;
+      });
+    });
+    window.addEventListener(SETTINGS_EVENT, () => {
+      banner.hidden = false;
+    });
+  }
+</script>

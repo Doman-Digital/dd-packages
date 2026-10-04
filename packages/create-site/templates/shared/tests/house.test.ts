@@ -8,6 +8,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { describe, expect, test } from "vitest";
 import { facts } from "~site/facts";
+import { legal } from "~site/legal";
 
 const ROOT = process.cwd();
 const SOURCE_DIRS = ["app", "src", "components", "lib", "content"];
@@ -51,6 +52,21 @@ describe.runIf(mode === "launch")("ready to launch", () => {
   test("the designer credit is placed on the site", () => {
     const placed = sourceFiles().some((file) => !/DesignerCredit\.(tsx|astro)$/.test(file) && readFileSync(file, "utf8").includes("<DesignerCredit"));
     expect(placed).toBe(true);
+  });
+
+  test("the cookie banner is placed on the site", () => {
+    const placed = sourceFiles().some((file) => !/CookieBanner\.(tsx|astro)$/.test(file) && readFileSync(file, "utf8").includes("<CookieBanner"));
+    expect(placed).toBe(true);
+  });
+
+  test("the legal pages have what every site needs: retention, the processors, the governing law, a review date", () => {
+    const missing = [
+      legal.retention ? null : "legal.retention",
+      legal.processors.length > 0 ? null : "legal.processors (the host at least)",
+      legal.governingLaw ? null : "legal.governingLaw",
+      legal.reviewedOn ? null : "legal.reviewedOn",
+    ].filter(Boolean);
+    expect(missing).toEqual([]);
   });
 
   test("phone and postcode are filled in", () => {

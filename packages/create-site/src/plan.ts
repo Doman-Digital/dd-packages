@@ -11,6 +11,8 @@ import type { Project } from "./detect.js";
 import { hasDependency, patchPackageJson } from "./package-json.js";
 import { renderFacts, renderLinks, renderRedirects, renderRoutes } from "./render/data.js";
 import { renderBaseline, renderChecklist, renderDirection, renderHouseMd, renderWorkflow } from "./render/docs.js";
+import type { Visibility } from "./render/docs.js";
+import { patchPnpmWorkspace } from "./pnpm-workspace.js";
 import { renderStackEntry } from "./stack.js";
 import { readTemplate, rewriteSiteImports } from "./templates.js";
 import { HOUSE_DEPENDENCIES, HOUSE_DEV_DEPENDENCIES } from "./versions.js";
@@ -34,6 +36,8 @@ export type Plan = {
   files: PlannedFile[];
   packageJson: { text: string; changes: string[] } | null;
   config: { file: string; text: string } | null;
+  /** pnpm projects: minimumReleaseAge added to pnpm-workspace.yaml (created if missing). */
+  pnpmWorkspace: { text: string; created: boolean } | null;
   /** CLAUDE.md gains an import of docs/HOUSE.md; it is created if missing, never replaced. */
   claudeMd: { text: string; created: boolean } | null;
   commands: Command[];
@@ -42,7 +46,7 @@ export type Plan = {
   notes: string[];
 };
 
-export type PlanOptions = { force: boolean; skipInstall: boolean; today: string };
+export type PlanOptions = { force: boolean; skipInstall: boolean; today: string; visibility?: Visibility };
 
 const PM_ADD: Record<Project["packageManager"], { add: string[]; dev: string }> = {
   pnpm: { add: ["add"], dev: "-D" },
@@ -102,7 +106,7 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
   );
 
   const workflowPath = ".github/workflows/seo-check.yml";
-  const workflow = renderWorkflow(project);
+  const workflow = renderWorkflow(project, options.visibility ?? "private");
   if (existsSync(join(root, workflowPath)) || (workflow && !hasWorkflows(root))) {
     if (workflow) files.push({ path: workflowPath, contents: workflow, data: false });
   } else if (!workflow) {
@@ -145,6 +149,14 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
     if (patched.kind === "manual") notes.push(`${patched.reason}: ${MANUAL_INSTRUCTIONS[project.framework]}. tests/seo/config.test.ts fails until it does.`);
   }
 
+  let pnpmWorkspace: Plan["pnpmWorkspace"] = null;
+  if (project.packageManager === "pnpm") {
+    const path = join(root, "pnpm-workspace.yaml");
+    const current = existsSync(path) ? readFileSync(path, "utf8") : null;
+    const text = patchPnpmWorkspace(current);
+    if (text !== null) pnpmWorkspace = { text, created: current === null };
+  }
+
   // create-next-app writes its own CLAUDE.md ("@AGENTS.md"), so the house
   // rules live in docs/HOUSE.md and CLAUDE.md imports them.
   const claudePath = join(root, "CLAUDE.md");
@@ -166,6 +178,7 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
     files: planned,
     packageJson: pkg.changes.length ? pkg : null,
     config,
+    pnpmWorkspace,
     claudeMd,
     commands,
     craftInit,
@@ -178,10 +191,29 @@ export function hasWork(plan: Plan): boolean {
     plan.files.some((f) => f.action === "create" || f.action === "overwrite") ||
     plan.packageJson !== null ||
     plan.config !== null ||
+    plan.pnpmWorkspace !== null ||
     plan.claudeMd !== null ||
     plan.commands.length > 0 ||
     plan.craftInit
   );
+}
+
+/**
+ * What --check counts as work: everything a run would do, plus a house file
+ * that differs from its template (a run leaves it alone without --force, but
+ * the site has drifted from the house). Empty means the site is up to date.
+ */
+export function pendingWork(plan: Plan): string[] {
+  const out = plan.files
+    .filter((f) => f.action === "create" || f.action === "overwrite" || f.action === "skip-exists")
+    .map((f) => `${f.action === "skip-exists" ? "differs from the house template" : "missing"}: ${f.path}`);
+  if (plan.packageJson) out.push(`package.json: ${plan.packageJson.changes.join(", ")}`);
+  if (plan.config) out.push(`${plan.config.file}: does not serve redirects.json`);
+  if (plan.pnpmWorkspace) out.push("pnpm-workspace.yaml: no minimumReleaseAge");
+  if (plan.claudeMd) out.push("CLAUDE.md: does not import docs/HOUSE.md");
+  for (const c of plan.commands) out.push(`not installed: ${c.args.filter((a) => a.includes("@", 1)).join(" ")}`);
+  if (plan.craftInit) out.push("no art-direction.json");
+  return out;
 }
 
 const LABEL: Record<FileAction, string> = {
@@ -204,6 +236,7 @@ export function formatPlan(plan: Plan, clientName: string): string {
   for (const f of plan.files) lines.push(`  ${LABEL[f.action]}  ${f.path}${SUFFIX[f.action] ?? ""}`);
   if (plan.packageJson) lines.push(`  patch      package.json: ${plan.packageJson.changes.join(", ")}`);
   if (plan.config) lines.push(`  patch      ${plan.config.file}: serve redirects.json`);
+  if (plan.pnpmWorkspace) lines.push(`  ${plan.pnpmWorkspace.created ? "create   " : "patch    "}  pnpm-workspace.yaml: minimumReleaseAge (install protection)`);
   if (plan.claudeMd) lines.push(`  ${plan.claudeMd.created ? "create   " : "patch    "}  CLAUDE.md: import docs/HOUSE.md`);
   for (const c of plan.commands) lines.push(`  run        ${c.cmd} ${c.args.join(" ")}`);
   if (plan.craftInit) lines.push(`  run        craft direction init --client ${JSON.stringify(clientName)}`);

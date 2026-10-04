@@ -1,0 +1,72 @@
+---
+// The cookie policy, from dd-base (Doman-Digital/dd-library). The third
+// parties are the processors in site.facts.ts that set cookies. The button
+// brings back the banner the site's layout carries. A whole document: move
+// it into your layout. Written by @domandigital/create-site.
+import { isRouteIndexable } from "@domandigital/seo";
+import JsonLd from "~site/components/JsonLd.astro";
+import { facts } from "~site/facts";
+import { legal, privacyEmail } from "~site/legal";
+import { buildPageGraph } from "~site/page-graph";
+import { policy } from "~site/routes";
+
+const title = `Cookie policy: ${facts.tradingName}`;
+const description = `How ${facts.tradingName} uses cookies, and how to change your choice.`;
+const indexable = isRouteIndexable(policy, "/cookies");
+const thirdParties = legal.processors.filter((p) => p.setsCookies);
+---
+
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {!indexable && <meta name="robots" content="noindex" />}
+    <JsonLd graph={buildPageGraph({ path: "/cookies", name: title, description })} />
+  </head>
+  <body>
+    <main>
+      <h1>Cookie policy</h1>
+      {legal.reviewedOn && <p>Last reviewed {legal.reviewedOn}.</p>}
+
+      <section>
+        <h2>What cookies are</h2>
+        <p>Cookies are small files a website stores in your browser, to make the site work or to learn how it is used.</p>
+      </section>
+
+      <section>
+        <h2>What we use</h2>
+        <p>
+          <strong>Strictly necessary.</strong> Needed for the site to work, including the one that remembers your cookie
+          choice. These do not need your consent.
+        </p>
+        <p>
+          <strong>Measurement.</strong> Off until you choose "Accept measurement". They count visits and where they come
+          from.
+        </p>
+      </section>
+
+      {thirdParties.length > 0 && (
+        <section>
+          <h2>Other companies' cookies</h2>
+          <ul>
+            {thirdParties.map((p) => <li>{p.name}: {p.purpose}</li>)}
+          </ul>
+        </section>
+      )}
+
+      <section>
+        <h2>Changing your choice</h2>
+        <p>You can change your choice at any time.</p>
+        <button type="button" data-cookie-settings>Change cookie settings</button>
+        {privacyEmail && <p>Questions about cookies: <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a>.</p>}
+      </section>
+    </main>
+    <script>
+      import { openCookieSettings } from "~site/consent";
+
+      document.querySelectorAll("[data-cookie-settings]").forEach((el) => el.addEventListener("click", openCookieSettings));
+    </script>
+  </body>
+</html>

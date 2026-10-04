@@ -33,6 +33,14 @@ pnpm create @domandigital/site
 ```
 
 See [`packages/create-site`](packages/create-site) for what it writes and why.
+For an organisation repo, `dd new` in Doman-Digital/dd-ci-standards runs both
+steps, adopts the rulebook and registers the repo.
+
+`.github/workflows/starters.yml` makes the Next.js and Astro starters from
+scratch every night at 03:43 UTC, exactly as `dd new` does, builds them and runs
+`dd doctor` on them. A red starter posts to the ops Slack channel
+(`scripts/slack-post.mjs`, the same call as dd-repo-registry's estate sweep). It
+needs the `SLACK_BOT_TOKEN` and `SLACK_OPS_CHANNEL` Actions secrets on this repo.
 
 ## Development
 
