@@ -200,13 +200,35 @@ the house APCA bar, which is the failure mode a WCAG-only check cannot see. The
 accent fork emits its measured ratios as a CSS comment, so the choice is
 checkable rather than asserted.
 
+## Build gates folded in from drift-guards
+
+Two checks that lived only in `Doman-Digital/dd-drift-guards` (pinned by git tag
+in a few client repos) are part of craft since 0.18.0. The other three guards
+there were already here: restraint (`checkRestraint`), reduced motion (a
+restraint rule) and art direction (`craft direction`, `craft estate`).
+
+- **`gradientContrast(text, gradient, beneath)`**: text on a CSS gradient, the
+  case axe-core and Lighthouse mark "incomplete" and never score. It composites
+  the gradient over what sits beneath and scores the text, WCAG and APCA,
+  against the worst point. The worst point is sampled along every segment, not
+  only at the stops: mid-grey text on a black-to-white gradient clears 4.5:1
+  against both ends and is about 1:1 in the middle, which the drift-guards
+  version passed. WCAG defines no method for gradients, so this is craft's
+  rule, not a conformance claim.
+- **`checkPhotoReview(text, { minScore, required })`**: gates a build on the
+  report `halide review --json` wrote. It takes the report's text (null when
+  there is none) and never runs halide. One weak image fails the build even
+  under a passing average, and a truncated report fails rather than reading as
+  "no report".
+
 ## API
 
 | Area | Exports |
 | --- | --- |
 | Colour space | `hexToOklch`, `oklchToHex`, `toGamut`, `inSrgbGamut`, `inP3Gamut`, `deltaEOk`, `deltaEOkHex` |
 | Ramps | `ramp`, `rampFromAnchors`, `RAMP_STEPS`, `LIGHTNESS_CURVE` |
-| Contrast | `wcagContrast`, `apcaContrast`, `checkPair` |
+| Contrast | `wcagContrast`, `apcaContrast`, `checkPair`, `gradientContrast`, `gradientStops` |
+| Photography | `checkPhotoReview` |
 | Semantic | `semantic`, `accentFork` |
 | Motion | `EASE`, `EASE_TUPLE`, `DURATION_MS`, `DURATION_S`, `SPRING`, `SCALE`, `exitDuration`, `shouldAnimate` |
 | Type | `fluidType`, `fluidClamp`, `typeFeatureTokens`, `HOUSE_TYPE`, `TYPE_STEPS` |

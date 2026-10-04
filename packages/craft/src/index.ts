@@ -28,6 +28,8 @@ export {
   checkPair,
   wcagContrast,
 } from "./color/contrast.js";
+export { type GradientContrast, SAMPLES_PER_SEGMENT, gradientContrast, gradientStops } from "./color/gradient.js";
+export { type PhotoReviewOptions, type PhotoReviewResult, checkPhotoReview } from "./photo/review.js";
 export {
   type AccentFork,
   type AccentForkOptions,
