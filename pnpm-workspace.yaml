@@ -8,3 +8,5 @@ minimumReleaseAge: 1440
 # compromised release, and without this a craft or create-site release could not be installed for a day.
 minimumReleaseAgeExclude:
   - "@domandigital/*"
+  # Renovate security update: vitest@4.1.11
+  - vitest@4.1.11
