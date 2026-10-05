@@ -6,3 +6,11 @@ node_modules/
 # dist/ was only ever needed for the git-dependency era. Keeping it out avoids
 # a second source of truth that can drift from src/ silently.
 packages/*/dist/
+
+# secrets: never tracked (SEC-005)
+.env
+.env.*
+!.env.example
+!.env.*.example
+.dev.vars
+.doppler-token
