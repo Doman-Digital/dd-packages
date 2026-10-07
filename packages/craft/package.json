@@ -63,6 +63,7 @@
     "docs": "tsup && node scripts/write-catalogue.mjs && node scripts/write-word-lists.mjs && node scripts/write-licences.mjs && node scripts/write-registers.mjs"
   },
   "devDependencies": {
+    "@types/node": "^20.19.43",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "vitest": "^4.0.0"
