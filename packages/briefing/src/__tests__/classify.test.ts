@@ -24,6 +24,13 @@ describe("rules", () => {
     expect(classifyEntry(entry(4, "chore(deps): update dependency postcss to v8.5.23 [security]")).kind).toBe("security");
   });
 
+  it("a dependency security bump drops the author's line for the house sentence, unless a ## Briefing block says otherwise", () => {
+    const c = classifyEntry(entry(11, "fix(deps): astro 5.18.1 (security)", "A security update to the framework the site runs on."));
+    expect(c).toMatchObject({ bucket: "live", kind: "security", text: null, textSource: null });
+    const b = classifyEntry(entry(12, "fix(deps): astro 5.18.1 (security)", null, { body: briefingBlock("outcome: We closed a gap in how your contact form checks messages.") }));
+    expect(b.text).toBe("We closed a gap in how your contact form checks messages.");
+  });
+
   it.each(["chore: adopt the rulebook", "ci: run all checks in one job", "docs: bring the README up to date", "test: cover the form", "build: resolve the package from npm", "chore(guards): take the contrast maths from craft"])(
     "%s is maintenance",
     (title) => {
