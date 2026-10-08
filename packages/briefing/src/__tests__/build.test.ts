@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { BriefingBuildError, buildBriefing, MAX_APPROVALS } from "../build";
 import { BriefingLintError } from "../lint";
 import { sha256Hex } from "../hash";
+import { SECURITY_FALLBACK } from "../rank";
 import type { ClientConfig, RawInput } from "../types";
 import { approval, briefingBlock, config, entry, fixture, input, privateFixture } from "./helpers";
 
@@ -173,15 +174,13 @@ describe("the copy gate fails the build", () => {
 
 /** The real fortnight, 27 September to 10 October 2026, redacted. */
 describe("the fortnight fixture", () => {
-  it("the raw entries alone, with no ## Briefing blocks, fail the copy gate on jargon", () => {
+  it("the raw entries alone, with no ## Briefing blocks, build: the security bump takes the house sentence, not the author's jargon", () => {
     const f = fixture();
     for (const e of f.input.entries) delete e.body;
-    try {
-      buildBriefing(f.input, f.config);
-      expect.unreachable();
-    } catch (e) {
-      expect((e as BriefingLintError).findings).toContainEqual(expect.objectContaining({ rule: "jargon", match: "framework" }));
-    }
+    const { briefing } = buildBriefing(f.input, f.config);
+    const security = briefing.changes.find((c) => c.kind === "security");
+    expect(security).toMatchObject({ title: SECURITY_FALLBACK.title, outcome: SECURITY_FALLBACK.outcome });
+    expect(JSON.stringify(briefing)).not.toMatch(/framework/i);
   });
 
   it("builds clean, with the founder's flags", () => {

@@ -43,7 +43,10 @@ any client-readable string breaks the copy rules.
 
 **Classify.** Each merged PR becomes *needs you*, *live*, *ready* or
 *maintenance*. A line that asks the client something is needs you; a
-`chore(deps)` security bump is a live security change; chore, ci, docs, test,
+`chore(deps)` or `fix(deps)` security bump is a live security change, worded
+with the house sentence ("We applied a security update to the software your
+site runs on.") rather than the author's line, unless a `## Briefing` block
+gives a title or outcome; chore, ci, docs, test,
 build and refactor titles are maintenance; "not live yet" and "switch over" are
 ready. A PR with no client line counts as maintenance and is flagged.
 
