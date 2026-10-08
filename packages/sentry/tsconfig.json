@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // The presets run in browsers and Workers as well as Node, so the library
+    // sees web types only. The CLI and the tests reference Node's themselves.
+    "lib": ["ES2022", "DOM"],
+    "types": [],
+    // Typecheck against synthetic's source, so a fresh checkout does not need
+    // it built first (CI typechecks before it builds). The published build
+    // still imports @domandigital/synthetic as a normal dependency.
+    "paths": { "@domandigital/synthetic": ["../synthetic/src/index.ts"] }
+  },
+  "include": ["src"]
+}
