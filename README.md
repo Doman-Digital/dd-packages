@@ -8,6 +8,7 @@ Doman Digital's public npm packages, in one repo.
 | Package | | |
 |---|---|---|
 | [`@domandigital/create-site`](packages/create-site) | The first thing that runs on a new client site | [npm](https://www.npmjs.com/package/@domandigital/create-site) |
+| [`@domandigital/briefing`](packages/briefing) | The editorial rules for a client briefing: what it says, in what order, and the copy gate | [npm](https://www.npmjs.com/package/@domandigital/briefing) |
 | [`@domandigital/craft`](packages/craft) | The house design and copy standards, and the checks that enforce them | [npm](https://www.npmjs.com/package/@domandigital/craft) |
 | [`@domandigital/graph`](packages/graph) | Schema.org entity-graph builders | [npm](https://www.npmjs.com/package/@domandigital/graph) |
 | [`@domandigital/gbp`](packages/gbp) | Google Business Profile OAuth + reviews client | [npm](https://www.npmjs.com/package/@domandigital/gbp) |
