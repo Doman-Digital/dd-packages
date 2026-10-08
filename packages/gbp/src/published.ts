@@ -123,7 +123,8 @@ export async function getPublishedReviews(options: GetPublishedReviewsOptions): 
   };
   const { response } = await fetchWithRetry(url, init, "reviews.published", resolvePolicy(request));
   if (!response.ok) {
-    throw new GbpPublishedError("http", client, `${response.status} ${excerpt(await readErrorBody(response), 120)}`.trim(), response.status);
+    const body = excerpt(await readErrorBody(response), 120);
+    throw new GbpPublishedError("http", client, String(response.status), response.status, body || undefined);
   }
   let body: unknown;
   try {

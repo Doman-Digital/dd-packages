@@ -26,6 +26,15 @@ export {
 } from "./published";
 export type { GetPublishedReviewsOptions, PublishedReviewsResult } from "./published";
 
+export {
+  getBusinessReviewsSafe,
+  getPublishedReviewsSafe,
+  DEFAULT_REPORT_INTERVAL_MS,
+  DEFAULT_MAX_STALE_MS,
+  DEFAULT_AUTH_RETRY_MS,
+} from "./safe";
+export type { ReviewsSource, SafeReviewsResult, SafePublishedReviewsResult, SafeReviewsOptions, GbpFailureReport } from "./safe";
+
 export { parseRetryAfter, DEFAULT_REQUEST_POLICY } from "./http";
 export type { GbpRequestOptions } from "./http";
 
