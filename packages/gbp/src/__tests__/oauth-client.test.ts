@@ -80,6 +80,6 @@ describe("getGoogleOAuthAccessToken", () => {
       text: async () => "invalid_grant",
     } as Response);
 
-    await expect(getGoogleOAuthAccessToken()).rejects.toThrow(/Google OAuth token refresh failed: 401/);
+    await expect(getGoogleOAuthAccessToken()).rejects.toThrow("GBP token refresh failed: invalid_grant");
   });
 });
