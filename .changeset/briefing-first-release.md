@@ -1,5 +1,0 @@
----
-"@domandigital/briefing": minor
----
-
-First release: the editorial rules for a client briefing. `buildBriefing(input, config)` classifies a period's merged PRs (with a per-PR `## Briefing` override block), keeps the latest of each superseded or duplicate entry, ranks at most three changes, puts approvals first, works out uptime, speed, search and visits without overstating them, gates the track record behind `trackRecordEnabled`, and fails the build on an empty headline or note and on any copy-gate finding. Returns the briefing, the founder's flags and the full log.
