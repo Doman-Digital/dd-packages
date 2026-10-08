@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Explicit rather than relying on automatic @types discovery. The source
+    // is Web Crypto only (fetch, crypto.subtle, TextEncoder); @types/node
+    // supplies those globals for the typecheck, and node:crypto appears only
+    // in the tests, as an independent cross-check.
+    "types": ["node"]
+  },
+  "include": ["src"]
+}
