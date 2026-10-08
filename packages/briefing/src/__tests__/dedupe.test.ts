@@ -14,9 +14,9 @@ describe("duplicate merge", () => {
     const live = groups.filter((g) => g.bucket === "live");
     expect(live).toHaveLength(1);
     expect(live[0]!.members.map((m) => m.entry.number)).toEqual([56, 61]);
-    // The later entry leads; its missing line is filled from the earlier one.
+    // The later entry leads. Neither keeps an author line: a dependency bump takes the house sentence when ranked.
     expect(live[0]!.id).toBe(`${REPO}#61`);
-    expect(live[0]!.text).toBe("This is a security update to the software the site runs on.");
+    expect(live[0]!.text).toBeNull();
     expect(supersessions).toContainEqual(expect.objectContaining({ reason: "security updates in one period are one item" }));
   });
 
