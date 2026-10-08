@@ -101,3 +101,21 @@ export function excerpt(text: string, max = 300): string {
   const flat = text.replace(/\s+/g, " ").trim();
   return flat.length > max ? `${flat.slice(0, max)}...` : flat;
 }
+
+/**
+ * A published reviews file could not be used: the address answered an error (`http`, with `status`), the file was
+ * malformed or for another client (`invalid`), or it uses a schema this version does not read (`unknown_schema`,
+ * upgrade the package). The caller keeps the copy it already has.
+ */
+export class GbpPublishedError extends GbpError {
+  readonly reason: "http" | "invalid" | "unknown_schema";
+  readonly client: string;
+  readonly status?: number;
+
+  constructor(reason: "http" | "invalid" | "unknown_schema", client: string, detail: string, status?: number) {
+    super(`Published reviews for ${client} unusable (${reason}): ${detail}`);
+    this.reason = reason;
+    this.client = client;
+    this.status = status;
+  }
+}
