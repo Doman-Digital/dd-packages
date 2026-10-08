@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Web platform only: no Node types, so the source cannot reach for
+    // Buffer or node:crypto and still typecheck. It has to run in a Worker.
+    "lib": ["ES2022", "DOM"],
+    "types": [],
+    "resolveJsonModule": true
+  },
+  "include": ["src"]
+}
