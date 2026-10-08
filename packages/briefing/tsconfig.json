@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Web platform only: no Node types, so the source cannot reach for
+    // node:fs or Buffer and still typecheck. The relay Worker runs it.
+    "lib": ["ES2022", "DOM"],
+    "types": [],
+    "resolveJsonModule": true
+  },
+  "include": ["src"]
+}
