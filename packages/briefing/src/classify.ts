@@ -180,6 +180,11 @@ export function classifyEntry(entry: RawEntry, notes?: Record<string, string>): 
     return { ...base, bucket: block.bucket, kind, rule: "## Briefing block", missingLine: false };
   }
   if (block?.kind) return { ...base, ...ruled, kind: block.kind, rule: `${ruled.rule}, kind from ## Briefing block` };
+  // A dependency bump's author line names the software ("the framework the site runs on"), which the client never needs:
+  // without a ## Briefing block it takes the house sentence (SECURITY_FALLBACK in rank.ts), never the author's words.
+  if (ruled.rule === "dependency security update" && !block?.outcome && !block?.title) {
+    return { ...base, ...ruled, text: null, textSource: null };
+  }
   return { ...base, ...ruled };
 }
 
