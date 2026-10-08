@@ -61,6 +61,35 @@ remove such markup and "You won't get a manual action just for this"
 Showing the reviews on the page is unaffected. Just do not sell or expect the
 stars. `@domandigital/graph`'s `findGraphIssues` can flag the pattern.
 
+## Reading the published file (no Google token on the site)
+
+Client sites should read reviews from the file Doman Digital publishes rather
+than from Google. One collector holds the only Google credential, the portal
+stores what it reads, and each night it writes
+`https://files.domandigital.co.uk/reviews/<client-slug>.json`:
+
+```ts
+import { getPublishedReviews } from "@domandigital/gbp";
+
+// Throws when the file is missing or malformed: keep the copy you already have.
+const { averageRating, totalReviewCount, reviews, syncedAt } = await getPublishedReviews({
+  client: "chair-and-blade",
+});
+```
+
+The result has the same shape as `getBusinessReviews`, plus `syncedAt`. The
+file already holds only what a site shows (four and five stars, with words,
+and owner replies Google shows); `filterMinStars` can only raise that floor.
+
+It throws `GbpPublishedError` instead of returning an empty result. Catch it
+where the site has an older copy to fall back to (a Next.js fetch keeps its
+last good response; a static build should refuse to publish and leave the
+last deploy live), and render no rating, count or review section when there
+is no copy at all. Never fall back to a hardcoded number.
+
+A site that reads this file needs none of the `GBP_*` or `GOOGLE_BUSINESS_*`
+variables below.
+
 ## Why Business Profile API, not Places API
 
 Places API's `Review` object has no field for the business's reply, full

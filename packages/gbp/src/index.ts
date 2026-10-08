@@ -17,8 +17,17 @@ export type {
   ReviewOrder,
 } from "./reviews";
 
+export {
+  getPublishedReviews,
+  parsePublishedReviews,
+  publishedReviewsUrl,
+  DEFAULT_PUBLISHED_REVIEWS_BASE_URL,
+  PUBLISHED_REVIEWS_SCHEMA,
+} from "./published";
+export type { GetPublishedReviewsOptions, PublishedReviewsResult } from "./published";
+
 export { parseRetryAfter, DEFAULT_REQUEST_POLICY } from "./http";
 export type { GbpRequestOptions } from "./http";
 
-export { GbpError, GbpAuthError, GbpApiError, GbpTimeoutError, GbpPaginationError } from "./errors";
+export { GbpError, GbpAuthError, GbpApiError, GbpTimeoutError, GbpPaginationError, GbpPublishedError } from "./errors";
 export type { GbpAuthErrorCode } from "./errors";
