@@ -1,5 +1,11 @@
 # @domandigital/briefing
 
+## 0.1.1
+
+### Patch Changes
+
+- 871b3fc: A dependency security bump with no `## Briefing` block now uses the house sentence instead of the author's line, so wording such as "the framework the site runs on" no longer fails the jargon lint.
+
 ## 0.1.0
 
 ### Minor Changes
