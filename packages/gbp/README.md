@@ -81,7 +81,7 @@ The result has the same shape as `getBusinessReviews`, plus `syncedAt`. The
 file already holds only what a site shows (four and five stars, with words,
 and owner replies Google shows); `filterMinStars` can only raise that floor.
 
-It throws `GbpPublishedError` rather than returning an empty result. Catch it
+It throws `GbpPublishedError` instead of returning an empty result. Catch it
 where the site has an older copy to fall back to (a Next.js fetch keeps its
 last good response; a static build should refuse to publish and leave the
 last deploy live), and render no rating, count or review section when there
