@@ -13,6 +13,7 @@ Doman Digital's public npm packages, in one repo.
 | [`@domandigital/gbp`](packages/gbp) | Google Business Profile OAuth + reviews client | [npm](https://www.npmjs.com/package/@domandigital/gbp) |
 | [`@domandigital/sanity-copy`](packages/sanity-copy) | craft's copy rules as Sanity Studio field warnings | [npm](https://www.npmjs.com/package/@domandigital/sanity-copy) |
 | [`@domandigital/seo`](packages/seo) | Route policy, link graph, coverage and redirect validators | [npm](https://www.npmjs.com/package/@domandigital/seo) |
+| [`@domandigital/synthetic`](packages/synthetic) | Signed synthetic form submissions for dd-checks (Web Crypto only) | [npm](https://www.npmjs.com/package/@domandigital/synthetic) |
 
 Each package versions and publishes independently (see `.changeset/config.json`),
 so nothing is released that did not change.

@@ -1,0 +1,11 @@
+title = "dd-packages"
+
+[extend]
+useDefault = true
+
+# packages/synthetic publishes test vectors. Their secret is the 32 bytes
+# 0x00..0x1f, which is public by design and signs nothing real. It is allowed
+# by value, not by path, so a real secret added to that file is still caught.
+[allowlist]
+description = "published @domandigital/synthetic test-vector secret"
+regexes = ['''AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8''']

@@ -1,0 +1,65 @@
+{
+  "name": "@domandigital/synthetic",
+  "version": "0.0.0",
+  "private": false,
+  "description": "Signed synthetic-submission protocol (X-DD-Synth v1) for Doman Digital form handlers and dd-checks. Web Crypto only: runs in Workers, Node, Vercel and browsers.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./test-vectors.json": "./test-vectors.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "test-vectors.json",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm run test:node && pnpm run test:workers",
+    "test:node": "vitest run",
+    "test:workers": "vitest run -c vitest.workers.config.ts",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "0.22.0",
+    "@types/node": "^20",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "packageManager": "pnpm@9.15.9",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doman-Digital/dd-packages.git",
+    "directory": "packages/synthetic"
+  },
+  "homepage": "https://github.com/Doman-Digital/dd-packages/tree/main/packages/synthetic#readme",
+  "bugs": {
+    "url": "https://github.com/Doman-Digital/dd-packages/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
