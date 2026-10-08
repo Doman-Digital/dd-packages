@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Published test secret in the @domandigital/synthetic test vectors (bytes 0..31). It protects nothing."
+paths = ['''packages/synthetic/test-vectors\.json''']

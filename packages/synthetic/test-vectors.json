@@ -1,0 +1,57 @@
+{
+  "note": "Published test vectors for @domandigital/synthetic protocol v1. The secret is a test value (bytes 0..31).",
+  "secret": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8",
+  "vectors": [
+    {
+      "name": "json-probe",
+      "kid": "example-2026-10",
+      "ts": 1790000000,
+      "runId": "abcdefghijklmnop",
+      "mode": "probe",
+      "client": "example",
+      "form": "enquiry",
+      "url": "https://www.example.co.uk/api/enquiry",
+      "contentType": "application/json",
+      "body": "{\"name\":\"DD Synthetic Check\",\"email\":\"s-abcdefghijklmnop@canary.domandigital.co.uk\"}",
+      "host": "www.example.co.uk",
+      "path": "/api/enquiry",
+      "bodySha256": "a5a9b7c5475e096665678545f2d4494d7ddac6e748b549722ae5b7f7b8a16ec3",
+      "canonical": "DD-SYNTH-V1\nexample-2026-10\n1790000000\nabcdefghijklmnop\nprobe\nexample\nenquiry\nPOST\nwww.example.co.uk\n/api/enquiry\napplication/json\na5a9b7c5475e096665678545f2d4494d7ddac6e748b549722ae5b7f7b8a16ec3",
+      "signature": "v1=cb6b24a29617cc6ff4d04f82ec7d873ea38384bcae9cdd05a6dc8d91fb59f8fc"
+    },
+    {
+      "name": "form-urlencoded-full-with-port-and-query",
+      "kid": "example-2026-10",
+      "ts": 1790000060,
+      "runId": "765432abcdefghij",
+      "mode": "full",
+      "client": "example",
+      "form": "newsletter",
+      "url": "https://staging.example.co.uk:8443/forms/newsletter?utm=1",
+      "contentType": "application/x-www-form-urlencoded",
+      "body": "email=u-765432abcdefghij%40canary.domandigital.co.uk",
+      "host": "staging.example.co.uk:8443",
+      "path": "/forms/newsletter",
+      "bodySha256": "6524ecfe25e889ce3c21b3d96b4483afd80b68819de0ca5695548841079169bf",
+      "canonical": "DD-SYNTH-V1\nexample-2026-10\n1790000060\n765432abcdefghij\nfull\nexample\nnewsletter\nPOST\nstaging.example.co.uk:8443\n/forms/newsletter\napplication/x-www-form-urlencoded\n6524ecfe25e889ce3c21b3d96b4483afd80b68819de0ca5695548841079169bf",
+      "signature": "v1=83dc7e9acb75925416fcf7c459e0371cd34cc88fef8ef123bda8ab918435d8b4"
+    },
+    {
+      "name": "empty-body",
+      "kid": "example-2026-10",
+      "ts": 1790000120,
+      "runId": "aaaaaaaaaaaaaaaa",
+      "mode": "probe",
+      "client": "example",
+      "form": "enquiry",
+      "url": "https://www.example.co.uk/api/enquiry",
+      "contentType": "application/json",
+      "body": "",
+      "host": "www.example.co.uk",
+      "path": "/api/enquiry",
+      "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "canonical": "DD-SYNTH-V1\nexample-2026-10\n1790000120\naaaaaaaaaaaaaaaa\nprobe\nexample\nenquiry\nPOST\nwww.example.co.uk\n/api/enquiry\napplication/json\ne3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "signature": "v1=66277f46d5dae730e3dcff6748439dc2b725122a4404c3cabb1816d39b4fb494"
+    }
+  ]
+}
