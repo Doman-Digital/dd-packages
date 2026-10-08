@@ -3,16 +3,37 @@
  * "Google is having a bad minute" from "our code looped", and log the
  * difference without ever logging a credential.
  *
- * No message here carries a client id, client secret, refresh token, access
- * token or review text. Bodies from Google are cut to a short, bounded
- * excerpt.
+ * Every message is short and stable: the same failure always reads the same,
+ * so an error tracker groups it as one issue rather than one per response
+ * body. What varies (status, Google's description, a body excerpt) sits in
+ * `context`, and `fingerprint` is `["gbp", code]` for a tracker that takes
+ * one (Sentry's `captureException(error, { fingerprint, extra: context })`).
+ *
+ * No message or context here carries a client id, client secret, refresh
+ * token, access token or review text. Bodies from Google are cut to a short,
+ * bounded excerpt.
  */
 
 /** Base class: `instanceof GbpError` catches every failure this package throws. */
 export class GbpError extends Error {
-  constructor(message: string) {
+  /** Short, stable name for the failure, e.g. `invalid_grant` or `api_5xx`. */
+  readonly code: string;
+  /** True when the same request may well work later without anyone changing anything. */
+  readonly transient: boolean;
+  /** What varies between occurrences: status, Google's description, a body excerpt. Never a credential. */
+  readonly context: Record<string, unknown>;
+
+  constructor(message: string, code = "unknown", transient = false, context: Record<string, unknown> = {}) {
     super(message);
     this.name = new.target.name;
+    this.code = code;
+    this.transient = transient;
+    this.context = context;
+  }
+
+  /** `["gbp", code]`: one error-tracker issue per kind of failure. */
+  get fingerprint(): string[] {
+    return ["gbp", this.code];
   }
 }
 
@@ -27,17 +48,19 @@ export type GbpAuthErrorCode = "invalid_grant" | "invalid_client" | "token_reque
  * 100 live refresh tokens for this client and the oldest was dropped.
  */
 export class GbpAuthError extends GbpError {
-  readonly code: GbpAuthErrorCode;
+  declare readonly code: GbpAuthErrorCode;
   readonly reauthorizationRequired: boolean;
   readonly status: number;
   readonly description?: string;
 
   constructor(code: GbpAuthErrorCode, status: number, description?: string) {
-    super(
-      `Google OAuth token refresh failed: ${status} ${code}${description ? ` (${description})` : ""}` +
-        (code === "invalid_grant" ? ". Reauthorise the Google account and replace GBP_REFRESH_TOKEN." : ""),
-    );
-    this.code = code;
+    // A 5xx from the token endpoint is Google having a bad minute; anything
+    // else needs a person to change the credential or the environment.
+    super(`GBP token refresh failed: ${code}`, code, code === "token_request_failed" && status >= 500, {
+      status,
+      ...(description ? { description } : {}),
+      ...(code === "invalid_grant" ? { remedy: "Reauthorise the Google account and replace GBP_REFRESH_TOKEN." } : {}),
+    });
     this.reauthorizationRequired = code === "invalid_grant";
     this.status = status;
     this.description = description;
@@ -53,8 +76,20 @@ export class GbpApiError extends GbpError {
   /** Set when Google asked for a longer wait than this package will sleep through. */
   readonly retryAfterMs?: number;
 
+  /** A short excerpt of Google's error body. In `context` too, never in the message. */
+  readonly body?: string;
+
   constructor(options: { operation: string; status: number; retryable: boolean; attempts: number; body?: string; retryAfterMs?: number }) {
-    super(`Business Profile reviews failed: ${options.status}${options.body ? ` ${options.body}` : ""}`);
+    // Every 5xx is one kind of failure (Google having a bad minute), so one issue.
+    const server = options.status >= 500;
+    super(`GBP ${options.operation} failed: ${server ? "5xx" : options.status}`, server ? "api_5xx" : `api_${options.status}`, options.retryable, {
+      operation: options.operation,
+      status: options.status,
+      attempts: options.attempts,
+      ...(options.body ? { body: options.body } : {}),
+      ...(options.retryAfterMs !== undefined ? { retryAfterMs: options.retryAfterMs } : {}),
+    });
+    this.body = options.body;
     this.operation = options.operation;
     this.status = options.status;
     this.retryable = options.retryable;
@@ -69,7 +104,7 @@ export class GbpTimeoutError extends GbpError {
   readonly timeoutMs: number;
 
   constructor(operation: string, timeoutMs: number) {
-    super(`${operation} timed out after ${timeoutMs}ms`);
+    super(`GBP ${operation} timed out`, "timeout", true, { operation, timeoutMs });
     this.operation = operation;
     this.timeoutMs = timeoutMs;
   }
@@ -88,8 +123,11 @@ export class GbpPaginationError extends GbpError {
   constructor(reason: "repeated_token" | "page_limit", pagesFetched: number) {
     super(
       reason === "repeated_token"
-        ? `Business Profile returned a page token it had already returned, after ${pagesFetched} page(s)`
-        : `Business Profile reviews stopped at the page limit (${pagesFetched} pages)`,
+        ? "GBP reviews.list returned a page token it had already returned"
+        : "GBP reviews.list stopped at the page limit",
+      `pagination_${reason}`,
+      false,
+      { pagesFetched },
     );
     this.reason = reason;
     this.pagesFetched = pagesFetched;
@@ -112,8 +150,13 @@ export class GbpPublishedError extends GbpError {
   readonly client: string;
   readonly status?: number;
 
-  constructor(reason: "http" | "invalid" | "unknown_schema", client: string, detail: string, status?: number) {
-    super(`Published reviews for ${client} unusable (${reason}): ${detail}`);
+  constructor(reason: "http" | "invalid" | "unknown_schema", client: string, detail: string, status?: number, body?: string) {
+    const transient = reason === "http" && status !== undefined && (status === 429 || status >= 500);
+    super(`Published reviews for ${client} unusable (${reason}): ${detail}`, `published_${reason}`, transient, {
+      client,
+      ...(status !== undefined ? { status } : {}),
+      ...(body ? { body } : {}),
+    });
     this.reason = reason;
     this.client = client;
     this.status = status;
