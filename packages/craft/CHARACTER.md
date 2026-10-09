@@ -912,6 +912,22 @@ What moved: the estate is still atypical of what the model builds for its own br
 
 `craft tells harvest` on the v2 models gives the same three candidates as before (red accent #e77a63, 66 of 140; square shape, 47 of 140; the opening `hero > hero > cards`, 54 of 140) and 40 recurring phrases (the same count as before; the list was not diffed line by line). The only difference is in the already-caught list, which now includes `no-real-imagery` (117 of 140), `hero-eyebrow-chip` (53), `stats-row` (42) and `unproven-claim` (35): tells that came in with snapshot v2 and later phases, which the v1 harvest could not see. Nothing was added to the catalogue, and no tell or threshold changed.
 
+### Direction boards, 2026-10-09: fit before distance
+
+The first visual-direction boards for Doman Digital's own site were built in the hour after `craft null build` finished, with the harvest in front of the session. Every one of the seven choices on all three boards was argued from what the null set did (17 of 20 Fraunces, 20 of 20 cream, 20 of 20 terracotta) and what the estate already had. The reasons were real and each cited a source, and the boards were still wrong in the way that matters: placeholder boxes where the client's interface should have been, a ledger explained in a block beside the proof instead of on it, a legend whose line types only read after their labels, and three headlines where one constant line was needed. A reviewer reading this document caught it in one pass: craft asks for fit with a reason and says never to reward strangeness, and the boards had optimised for distance.
+
+What the tool did and did not do. `null build`, `tells harvest` and the estate register gave the session a precise picture of the default and nothing that said "show the work". `direction validate` would have passed a file whose seven choices cite only `reference`, `estate` and the null, and whose sources hold no `product` or `photo` at all. Those are the two gaps, tracked as a warning pair in Linear (DOM, 9 October).
+
+Rules for a direction board, recorded so the next one starts here:
+
+- **The null is a floor, never the argument.** A choice clears the null set and the estate; its reason comes from the client's world. A reason of the form "the null never picks this" is not a reason.
+- **One line of copy, one image, every board.** The headline, subline, routes and the work shown are identical across directions, so the look is the only variable. The headline is checked against every null page before it goes on a board.
+- **The work is on the board, large, and real.** A placeholder where the interface should be is a board about a site that does not exist. Use the client's own published interface with its period, and put the responsibility labels on the work: this is run, this is built and connected, this is yours. The ledger explained beside the proof is the weaker form of the ledger shown on it.
+- **A legend is learned where it points.** Line types, colours and marks carry meaning only at the moment they point at something; a key read first is a key forgotten.
+- **A generated concept image is a composition study.** It can show a layout worth adopting. It is never evidence, never ships, and its headline is checked like any other: the one produced in this review had the null set's own shape.
+
+The board in question is the DD redesign's Stage 05 artefact (DOM-397, CRO-21); v1.1 applied all five.
+
 ## The catalogue
 
 Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
