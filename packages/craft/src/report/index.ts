@@ -109,7 +109,7 @@ const PART_AREA: Record<string, { area: Area; choice?: ChoiceKey }> = {
  * page and no scroll reveals are what a plain site has. Telling someone to add
  * reveals would reward strangeness.
  */
-const DEFAULTS = /^(?:ground )?(?:white|grey)(?: ground)?$|no scroll reveals|no reveals|accent (?:none|neutral)|^no buttons|shape no buttons/;
+const DEFAULTS = /^(?:ground )?(?:white|grey|light)(?: ground)?$|no scroll reveals|no reveals|accent (?:none|neutral)|^no buttons|shape no buttons|^light page throughout$/;
 
 function designFindings(findings: CheckReport | null | undefined, copyTells: Set<string>): Finding[] {
   return (findings?.findings ?? []).filter((f) => !copyTells.has(f.tell));
@@ -240,7 +240,7 @@ function areaOfShared(part: string): Area {
   if (/accent|ground/.test(part)) return "colour";
   if (/buttons/.test(part)) return "shape";
   if (/reveal/.test(part)) return "motion";
-  if (/running order/.test(part)) return "layout";
+  if (/running order|hero|page throughout/.test(part)) return "layout";
   return "effects";
 }
 
@@ -251,5 +251,5 @@ function choiceOfShared(part: string): ChoiceKey | undefined {
   if (/ground/.test(part)) return "ground";
   if (/buttons/.test(part)) return "shape";
   if (/reveal/.test(part)) return "signature";
-  return /running order/.test(part) ? undefined : "motif";
+  return /running order|hero|page throughout/.test(part) ? undefined : "motif";
 }
