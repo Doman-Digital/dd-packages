@@ -1,0 +1,1347 @@
+{
+  "version": 2,
+  "url": "https://www.langchain.com/",
+  "capturedAt": "2026-09-30T15:00:59.454Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 6712,
+  "ground": "rgb(3, 7, 16)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(242, 250, 255)",
+        "area": 4291845,
+        "chars": 0
+      },
+      {
+        "value": "rgb(5, 7, 11)",
+        "area": 3240000,
+        "chars": 0
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.7)",
+        "area": 1322041,
+        "chars": 0
+      },
+      {
+        "value": "rgb(3, 7, 16)",
+        "area": 987324,
+        "chars": 0
+      },
+      {
+        "value": "rgba(3, 7, 16, 0.7)",
+        "area": 90947,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 109, 221)",
+        "area": 66925,
+        "chars": 0
+      },
+      {
+        "value": "rgb(229, 244, 255)",
+        "area": 30050,
+        "chars": 0
+      },
+      {
+        "value": "rgb(11, 16, 24)",
+        "area": 14408,
+        "chars": 0
+      },
+      {
+        "value": "rgba(3, 7, 16, 0.1)",
+        "area": 4676,
+        "chars": 0
+      },
+      {
+        "value": "rgb(22, 31, 52)",
+        "area": 2467,
+        "chars": 0
+      },
+      {
+        "value": "rgba(3, 7, 16, 0.2)",
+        "area": 144,
+        "chars": 0
+      },
+      {
+        "value": "rgb(127, 200, 255)",
+        "area": 64,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(3, 7, 16)",
+        "area": 0,
+        "chars": 1116
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.6)",
+        "area": 0,
+        "chars": 788
+      },
+      {
+        "value": "rgb(127, 200, 255)",
+        "area": 0,
+        "chars": 614
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 380
+      },
+      {
+        "value": "rgb(204, 233, 255)",
+        "area": 0,
+        "chars": 313
+      },
+      {
+        "value": "rgba(195, 221, 248, 0.5)",
+        "area": 0,
+        "chars": 92
+      },
+      {
+        "value": "rgb(242, 250, 255)",
+        "area": 0,
+        "chars": 55
+      },
+      {
+        "value": "rgba(3, 7, 16, 0.6)",
+        "area": 0,
+        "chars": 52
+      },
+      {
+        "value": "rgb(232, 237, 245)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(139, 150, 168)",
+        "area": 0,
+        "chars": 30
+      },
+      {
+        "value": "rgba(127, 200, 255, 0.4)",
+        "area": 0,
+        "chars": 23
+      },
+      {
+        "value": "rgb(229, 244, 255)",
+        "area": 0,
+        "chars": 20
+      },
+      {
+        "value": "rgb(125, 200, 255)",
+        "area": 0,
+        "chars": 19
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "Twklausanne",
+      "chars": 2579,
+      "displayChars": 384,
+      "italicChars": 0,
+      "weights": [
+        300
+      ]
+    },
+    {
+      "family": "Aeonik",
+      "chars": 958,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Twklausanne",
+      "sizePx": 64,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Meet LangSmith Engine",
+      "top": 204
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 56,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Accelerating the Agent Development Lifecycle",
+      "top": 969
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 48,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build",
+      "top": 1185
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 48,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Test",
+      "top": 1257
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 48,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Deploy",
+      "top": 1234
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 48,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Monitor",
+      "top": 1257
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 48,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Iterate",
+      "top": 1263
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 48,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Govern",
+      "top": 1263
+    },
+    {
+      "level": 3,
+      "family": "Twklausanne",
+      "sizePx": 56,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Build with our open source frameworks",
+      "top": 3323
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 56,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Learn from teams running agents in production",
+      "top": 4295
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 64,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Trusted by the largest builder community in AI",
+      "top": 5126
+    },
+    {
+      "level": 2,
+      "family": "Twklausanne",
+      "sizePx": 64,
+      "weight": 300,
+      "italic": false,
+      "italicPart": false,
+      "text": "Get started with LangSmith",
+      "top": 5696
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgb(229, 244, 255)",
+      "text": "Try LangSmith"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get a demo"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgb(229, 244, 255)",
+      "text": "Start building"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get a demo"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Deep Agents"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "LangGraph"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "LangChain"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Fleet"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Observability"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Evaluation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Deployment"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Sandboxes"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Context Hub"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Observability"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Evaluation"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Engine"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 38,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "LLM Gateway"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgb(3, 7, 16)",
+      "text": "More customer stories"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgb(229, 244, 255)",
+      "text": "Start building"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 6,
+      "heightPx": 48,
+      "background": "rgba(0, 0, 0, 0)",
+      "text": "Get a demo"
+    }
+  ],
+  "sections": [
+    {
+      "top": 126,
+      "height": 747,
+      "kind": "hero",
+      "label": "Meet LangSmith Engine",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "hero",
+      "geometry": {
+        "centredShare": 0.375,
+        "mirrorSymmetry": 0.992,
+        "whitespaceRatio": 0,
+        "contentWidthRatio": 1,
+        "background": "rgb(3, 7, 16)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Meet LangSmith Engine",
+        "We catch your drift",
+        "Case study ↗"
+      ]
+    },
+    {
+      "top": 873,
+      "height": 2250,
+      "kind": "text",
+      "label": "Accelerating the Agent Development Lifecycle",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "process",
+      "geometry": {
+        "centredShare": 0.522,
+        "mirrorSymmetry": 0.413,
+        "whitespaceRatio": 0.509,
+        "contentWidthRatio": 1,
+        "background": "rgb(5, 7, 11)",
+        "controls": 13
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Accelerating the Agent Development Lifecycle",
+        "Build",
+        "Build agents fast with or without code. Choose your model. Own your harness.",
+        "Start with proven agent patterns, customize when you need control",
+        "Own your harness, context, memory, and model choice",
+        "Enable every team build to agents in natural language with Fleet",
+        "Test",
+        "Validate behavior before you ship. Turn traces into realistic datasets and eval every step.",
+        "Debug agent runs with step-by-step tracing",
+        "Query complex traces in under a second with SmithDB",
+        "Turn expert review into standardized evals",
+        "Deploy",
+        "Ship agents on infra built for long-running tasks, persistent state, and secure execution.",
+        "Build the right UX with 30+ Agent Server endpoints",
+        "Standardize on one deployment pattern org-wide",
+        "Run agent-generated code in isolated sandboxes",
+        "Monitor",
+        "Catch issues in production with online evals, dashboards, and alerts built for agents.",
+        "Measure quality across production agent runs",
+        "Catch regressions before users do",
+        "Track cost, latency, errors, and tool behavior",
+        "Iterate",
+        "Compound agent intelligence through a feedback loop you own.",
+        "Detect production issues automatically with Engine, the agent for agent engineering",
+        "Find root causes and make targeted fixes",
+        "Feed every fix back into your eval loop",
+        "Govern",
+        "Enforce cost limits and detect sensitive data before damage happens.",
+        "Control model calls, spend, and sensitive data with LLM Gateway",
+        "Require human approval for sensitive agent actions",
+        "Deploy in SaaS, BYOC, or self-hosted environments"
+      ]
+    },
+    {
+      "top": 3123,
+      "height": 1020,
+      "kind": "cards",
+      "label": "Build with our open source frameworks",
+      "cards": 3,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.143,
+        "mirrorSymmetry": 0.952,
+        "whitespaceRatio": 0.605,
+        "contentWidthRatio": 0.94,
+        "background": "rgb(242, 250, 255)",
+        "controls": 0
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Build with our open source frameworks",
+        "Build agents fast with any model provider. Choose the right framework for the job from batteries included to low-level control.",
+        "Build intelligent agents for open-ended work",
+        "Quick start agents with any model provider",
+        "Build reliable agents with low-level control"
+      ]
+    },
+    {
+      "top": 4143,
+      "height": 1452,
+      "kind": "cards",
+      "label": "Learn from teams running agents in production",
+      "cards": 5,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "cards",
+      "geometry": {
+        "centredShare": 0.105,
+        "mirrorSymmetry": 0.819,
+        "whitespaceRatio": 0.767,
+        "contentWidthRatio": 1,
+        "background": "rgb(242, 250, 255)",
+        "controls": 1
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": true,
+      "figures": 1,
+      "text": [
+        "Learn from teams running agents in production",
+        "Klarna’s AI assistant reduced case resolution time by 80% with LangSmith",
+        "Monday Service achieved 8.7x faster feedback loops for evals with LangSmith",
+        "Podium reduced engineering escalations by 90% with LangSmith",
+        "C.H. Robinson automated 5,500 orders per day, saving 600+ hours daily with LangSmith",
+        "ServiceNow orchestrates agents across 8 customer stages using LangSmith",
+        "Trusted by the largest builder community in AI",
+        "Monthly open source downloads",
+        "Active LangSmith customers",
+        "Of the Fortune 10",
+        "are LangSmith customers"
+      ]
+    },
+    {
+      "top": 5595,
+      "height": 448,
+      "kind": "text",
+      "label": "Get started with LangSmith",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "text",
+      "geometry": {
+        "centredShare": 0,
+        "mirrorSymmetry": 0.189,
+        "whitespaceRatio": 0.583,
+        "contentWidthRatio": 0.794,
+        "background": "rgb(3, 7, 16)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "Get started with LangSmith",
+        "Use LangSmith, the agent engineering platform, to improve every step of the agent development lifecycle."
+      ]
+    }
+  ],
+  "rhythmVariance": 0.53,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgba(0, 0, 0, 0)",
+          "rgb(3, 7, 16)"
+        ],
+        "area": 115200,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(0, 0, 0, 0)",
+          "rgb(3, 7, 16)"
+        ],
+        "area": 345600,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(4, 6, 10)",
+          "rgb(4, 6, 10)",
+          "rgb(10, 19, 34)",
+          "rgba(45, 75, 130, 0.4)",
+          "rgba(127, 200, 255, 0.1)"
+        ],
+        "area": 236196,
+        "radial": true
+      },
+      {
+        "stops": [
+          "rgb(10, 16, 28)",
+          "rgb(19, 31, 54)",
+          "rgb(36, 52, 79)",
+          "rgb(44, 62, 94)"
+        ],
+        "area": 193043,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(10, 16, 28)",
+          "rgb(19, 31, 54)",
+          "rgb(36, 52, 79)",
+          "rgb(44, 62, 94)"
+        ],
+        "area": 191118,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(10, 16, 28)",
+          "rgb(19, 31, 54)",
+          "rgb(36, 52, 79)",
+          "rgb(44, 62, 94)"
+        ],
+        "area": 191118,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(10, 16, 28)",
+          "rgb(19, 31, 54)",
+          "rgb(36, 52, 79)",
+          "rgb(44, 62, 94)"
+        ],
+        "area": 191118,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(10, 16, 28)",
+          "rgb(19, 31, 54)",
+          "rgb(36, 52, 79)",
+          "rgb(44, 62, 94)"
+        ],
+        "area": 191118,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgb(10, 16, 28)",
+          "rgb(19, 31, 54)",
+          "rgb(36, 52, 79)",
+          "rgb(44, 62, 94)"
+        ],
+        "area": 191118,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(153, 211, 255, 0.25)",
+          "rgb(153, 211, 255)"
+        ],
+        "area": 147964,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(153, 211, 255, 0.25)",
+          "rgb(153, 211, 255)"
+        ],
+        "area": 147964,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(153, 211, 255, 0.25)",
+          "rgb(153, 211, 255)"
+        ],
+        "area": 147964,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(153, 211, 255, 0.25)",
+          "rgb(153, 211, 255)"
+        ],
+        "area": 147964,
+        "radial": false
+      },
+      {
+        "stops": [
+          "rgba(153, 211, 255, 0.25)",
+          "rgb(153, 211, 255)"
+        ],
+        "area": 147964,
+        "radial": false
+      }
+    ],
+    "glows": 0,
+    "gridBackgrounds": 0,
+    "marquees": 0,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a606c354df0819ae336d4b8_franklin-langchain_main-p-1600.avif",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 747,
+      "top": 126,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 166615
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a606c0ac5e70a0e4ba97e12_9e9734c81515e2632fcf8556d38b99e6_franklin-langchain-bg-p-1600.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 1440,
+      "height": 747,
+      "top": 126,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 262144
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/698b2d053d82a375e355b0ab_Group%202147239175.avif",
+      "host": "cdn.prod.website-files.com",
+      "width": 508,
+      "height": 480,
+      "top": 5611,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 4,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 29064
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a759cbd01423e8a4b3ff5f0_Build.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 498,
+      "height": 332,
+      "top": 1267,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 27442
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a759cbcd5a320264717feab_Group%202147239151.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 495,
+      "height": 331,
+      "top": 1315,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 26746
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a759cbceec5583c65e03db5_Deploy.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 495,
+      "height": 331,
+      "top": 1315,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 27346
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a759cbc7f4e6f918297b9d9_Deploy-1.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 495,
+      "height": 331,
+      "top": 1315,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 33014
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a759cbc344a96974fd3f201_lse-wrap.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 495,
+      "height": 331,
+      "top": 1315,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 47442
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a759cbc3f09e6a52abb2aac_Usage%20%E2%80%93%20UI%20Illustration.webp",
+      "host": "cdn.prod.website-files.com",
+      "width": 495,
+      "height": 331,
+      "top": 1315,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 1,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 22848
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/698b2ab3a27435f0af4607ce_83408050bc46f6f7d309df03d6155be9_graph-2.avif",
+      "host": "cdn.prod.website-files.com",
+      "width": 435,
+      "height": 272,
+      "top": 3526,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 5614
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/698b2ab36ec04bd906a45a47_04a211ab00b30e07dc51edffebd9aff2_graph.avif",
+      "host": "cdn.prod.website-files.com",
+      "width": 435,
+      "height": 272,
+      "top": 3526,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 5393
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/698b2ab3357e0836fe4cdcac_70f00ac3114760cac8e792a9375a4814_graph-1.avif",
+      "host": "cdn.prod.website-files.com",
+      "width": 435,
+      "height": 272,
+      "top": 3526,
+      "role": "photo",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 4568
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/69a03b8bf31109c9aa556568_logo_rakuten.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 214,
+      "height": 80,
+      "top": 4547,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/69a03b8b8dc42ed899d1fcaf_servicenow.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 196,
+      "height": 80,
+      "top": 4547,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/69a03b8b7bec6d94a146a30f_servicenow-1.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 185,
+      "height": 80,
+      "top": 4547,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/69a03b8b008adda0b0b309fb_podium.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 162,
+      "height": 80,
+      "top": 4547,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/69a03fbd88f7622a14049a2b_logo_klarna.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 139,
+      "height": 80,
+      "top": 4547,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 3,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a70d15276db6b56dc2694b1_autodesk-logo-white.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 138,
+      "height": 40,
+      "top": 713,
+      "role": "logo",
+      "alt": "Autodesk",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/69a03ace58968e58f476ce24_monday.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 136,
+      "height": 40,
+      "top": 801,
+      "role": "illustration",
+      "alt": "monday.com",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 4340
+      }
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/698af613b1e439fab3cbda6d_logo_klarna-2.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 117,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "RIPPLING",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a2a6f957755e2245d259a0e_bms%20logo%20(2).svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 109,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "Bristol Myers Squibb",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/69f07e27d6b85b9690276be2_Nvidia%20logo.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 104,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "Nvidia",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/69a03b07847c18efb637c5e1_mercor.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 102,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "Mercor",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/699ecc28698fe26c8324c1b2_servicenow.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 98,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "servicenow",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a972fd99360de4bc5964fdb_expedia-white-1x.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 97,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "Expedia",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/698af6a5bce126b2dc318630_logo_rakuten-1.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 88,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "coinbase",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/69a03b15e423c55ca7219fec_bridgewater.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 85,
+      "height": 40,
+      "top": 789,
+      "role": "icon",
+      "alt": "BRIDGEWATER",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a056e362caf179dbc8ecc60_clay_logo.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 84,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "clay",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/698af60a3595f5918eb55b2f_logo_klarna-1.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 80,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "Vanta",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/698af648fc78763596e95934_logo_klarna-4.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 80,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "Harvey",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/699ef03498a1d51a63dad3ba_Listen%20logo.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 79,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "Listen",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/699d8dd819b1b50d87a87a7e_logo_gitlab.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 79,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "ABRIDGE",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a91f25cfdec13d1945372e7_rillet-white.png",
+      "host": "cdn.prod.website-files.com",
+      "width": 69,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "Rillet",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/69a03aa35f131c951040c55f_workday.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 59,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "workday",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/698af6ae78d3de70d5c3fd10_logo_Rakuten.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 50,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "CISCO",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/699d8e487c686f8fc51fd9b0_nu.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 42,
+      "height": 40,
+      "top": 801,
+      "role": "icon",
+      "alt": "NU",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/698b2b2641d117b53e025af6_Frame%202147255016.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 40,
+      "height": 40,
+      "top": 3830,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/698b2b26acc19233c104b1cd_logo.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 40,
+      "height": 40,
+      "top": 3830,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6989c024c2d98286a8fb058f_Frame%202147255166-1.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 40,
+      "height": 40,
+      "top": 3830,
+      "role": "icon",
+      "alt": "",
+      "decorative": true,
+      "section": 2,
+      "background": false
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/698af61c4871f1baed6eb36d_logo_klarna-3.svg",
+      "host": "cdn.prod.website-files.com",
+      "width": 39,
+      "height": 40,
+      "top": 713,
+      "role": "icon",
+      "alt": "lyft",
+      "decorative": false,
+      "section": 0,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "Meet LangSmith Engine",
+    "Interrupt is coming to London on October 13!",
+    "We catch your drift",
+    "Case study ↗"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 5,
+    "animations": 0,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      11,
+      13,
+      14,
+      16,
+      18,
+      22,
+      24,
+      32,
+      48,
+      56,
+      64,
+      80
+    ],
+    "fontWeights": [
+      300,
+      400
+    ],
+    "radii": [
+      "16px",
+      "6px"
+    ],
+    "shadows": [],
+    "spacingOnScalePct": 74.1,
+    "bodyLineLengthCh": null,
+    "bodyFontSizePx": null
+  },
+  "visual": {
+    "colourfulness": 23,
+    "edgeDensity": 0.049,
+    "symmetry": 0.961,
+    "width": 1440,
+    "height": 6000,
+    "sampled": 960000
+  }
+}

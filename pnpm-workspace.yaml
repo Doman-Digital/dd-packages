@@ -1,2 +1,22 @@
 packages:
   - "packages/*"
+
+# dd doctor SEC-002: a release must be a day old before pnpm installs it. The
+# 2025 npm worms spread through releases installed minutes after publishing.
+minimumReleaseAge: 1440
+# Our own packages skip the wait, as in the shared Renovate preset: it guards against someone else's
+# compromised release, and without this a craft or create-site release could not be installed for a day.
+minimumReleaseAgeExclude:
+  - "@domandigital/*"
+  # Renovate security update: vitest@4.1.11
+  - vitest@4.1.11
+
+# Security overrides (DOM-437).
+# vite: vitest 4 needs vite 6 or later, but the lockfile kept vite 5.4.21,
+# which is open to GHSA-fx2h-pf6j-xcff, GHSA-v6wh-96g9-6wx3 and
+# GHSA-4w7w-66w2-5vf9 with no 5.x fix. 7.3.6 carries every fix.
+# esbuild: tsup asks for 0.27, which is open to GHSA-g7r4-m6w7-qqqr. 0.28.1
+# fixes it, and the build and tarball checks pass with it.
+overrides:
+  esbuild: ^0.28.1
+  vite: ^7.3.6

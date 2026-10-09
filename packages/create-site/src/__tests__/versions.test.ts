@@ -6,7 +6,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, test } from "vitest";
-import { HOUSE_DEPENDENCIES, HOUSE_DEV_DEPENDENCIES } from "../versions";
+import { ACTIONS, HOUSE_DEPENDENCIES, HOUSE_DEV_DEPENDENCIES } from "../versions";
 import { PACKAGE_ROOT } from "./fixtures";
 
 const REPO = join(PACKAGE_ROOT, "..", "..");
@@ -47,6 +47,15 @@ describe("house package ranges", () => {
   for (const [name, range] of house) {
     test(`${name}@${range} is satisfied by what will be published`, () => {
       expect(satisfiesCaret(range, publishedVersion(name))).toBe(true);
+    });
+  }
+});
+
+describe("the actions the generated workflow uses", () => {
+  // dd doctor's SEC-001: a third-party action on a tag can be moved to other code.
+  for (const [key, ref] of Object.entries(ACTIONS)) {
+    test(`${key} is pinned to a full commit SHA, with its version as a comment`, () => {
+      expect(ref).toMatch(/^[\w.-]+\/[\w.-]+@[0-9a-f]{40} # v\d+\.\d+\.\d+$/);
     });
   }
 });

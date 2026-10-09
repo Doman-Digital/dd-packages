@@ -77,7 +77,7 @@ for (const kind of ["next-root", "next-src", "astro"] as const) {
       );
 
       const onDisk = routesOnDisk(root);
-      expect(onDisk).toEqual(["/", "/press", "/resources", "/services/rewiring"]);
+      expect(onDisk).toEqual(["/", "/accessibility", "/cookies", "/press", "/privacy", "/resources", "/services/rewiring", "/terms"]);
       expect(dynamicRoutesOnDisk(root)).toEqual(["/blog/[slug]"]);
       expect(
         validateCoverage({

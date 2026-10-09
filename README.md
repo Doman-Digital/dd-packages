@@ -8,17 +8,22 @@ Doman Digital's public npm packages, in one repo.
 | Package | | |
 |---|---|---|
 | [`@domandigital/create-site`](packages/create-site) | The first thing that runs on a new client site | [npm](https://www.npmjs.com/package/@domandigital/create-site) |
+| [`@domandigital/briefing`](packages/briefing) | The editorial rules for a client briefing: what it says, in what order, and the copy gate | [npm](https://www.npmjs.com/package/@domandigital/briefing) |
 | [`@domandigital/craft`](packages/craft) | The house design and copy standards, and the checks that enforce them | [npm](https://www.npmjs.com/package/@domandigital/craft) |
 | [`@domandigital/graph`](packages/graph) | Schema.org entity-graph builders | [npm](https://www.npmjs.com/package/@domandigital/graph) |
 | [`@domandigital/gbp`](packages/gbp) | Google Business Profile OAuth + reviews client | [npm](https://www.npmjs.com/package/@domandigital/gbp) |
 | [`@domandigital/sanity-copy`](packages/sanity-copy) | craft's copy rules as Sanity Studio field warnings | [npm](https://www.npmjs.com/package/@domandigital/sanity-copy) |
 | [`@domandigital/seo`](packages/seo) | Route policy, link graph, coverage and redirect validators | [npm](https://www.npmjs.com/package/@domandigital/seo) |
+| [`@domandigital/sentry`](packages/sentry) | One Sentry setup for browser, Worker and Next.js sites, and the release and source-map step | [npm](https://www.npmjs.com/package/@domandigital/sentry) |
+| [`@domandigital/synthetic`](packages/synthetic) | Signed synthetic-submission protocol for client forms | [npm](https://www.npmjs.com/package/@domandigital/synthetic) |
 
 Each package versions and publishes independently (see `.changeset/config.json`),
 so nothing is released that did not change.
 
 No package has a third-party runtime dependency. `sanity-copy` depends on
-`craft`, a sibling here; everything else depends on nothing at runtime.
+`craft` and `sentry` on `synthetic`, siblings here; everything else depends on
+nothing at runtime. `sentry`'s optional peers (`@sentry/nextjs`, the `sentry`
+CLI) are the site's own installs.
 
 Previously separate repos (`dd-graph`, `dd-gbp`, `dd-seo`), each with its
 own CI and release workflow to maintain. Consolidated 2026-08-16, with full
@@ -33,6 +38,14 @@ pnpm create @domandigital/site
 ```
 
 See [`packages/create-site`](packages/create-site) for what it writes and why.
+For an organisation repo, `dd new` in Doman-Digital/dd-ci-standards runs both
+steps, adopts the rulebook and registers the repo.
+
+`.github/workflows/starters.yml` makes the Next.js and Astro starters from
+scratch every night at 03:43 UTC, exactly as `dd new` does, builds them and runs
+`dd doctor` on them. A red starter posts to the ops Slack channel
+(`scripts/slack-post.mjs`, the same call as dd-repo-registry's estate sweep). It
+needs the `SLACK_BOT_TOKEN` and `SLACK_OPS_CHANNEL` Actions secrets on this repo.
 
 ## Development
 

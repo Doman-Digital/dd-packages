@@ -39,9 +39,10 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
+    "@types/node": "^20.19.43",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.9"
+    "vitest": "^4.0.0"
   },
   "engines": {
     "node": ">=22.12"

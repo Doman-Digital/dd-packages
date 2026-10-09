@@ -61,6 +61,35 @@ remove such markup and "You won't get a manual action just for this"
 Showing the reviews on the page is unaffected. Just do not sell or expect the
 stars. `@domandigital/graph`'s `findGraphIssues` can flag the pattern.
 
+## Reading the published file (no Google token on the site)
+
+Client sites should read reviews from the file Doman Digital publishes rather
+than from Google. One collector holds the only Google credential, the portal
+stores what it reads, and each night it writes
+`https://files.domandigital.co.uk/reviews/<client-slug>.json`:
+
+```ts
+import { getPublishedReviews } from "@domandigital/gbp";
+
+// Throws when the file is missing or malformed: keep the copy you already have.
+const { averageRating, totalReviewCount, reviews, syncedAt } = await getPublishedReviews({
+  client: "chair-and-blade",
+});
+```
+
+The result has the same shape as `getBusinessReviews`, plus `syncedAt`. The
+file already holds only what a site shows (four and five stars, with words,
+and owner replies Google shows); `filterMinStars` can only raise that floor.
+
+It throws `GbpPublishedError` instead of returning an empty result. Catch it
+where the site has an older copy to fall back to (a Next.js fetch keeps its
+last good response; a static build should refuse to publish and leave the
+last deploy live), and render no rating, count or review section when there
+is no copy at all. Never fall back to a hardcoded number.
+
+A site that reads this file needs none of the `GBP_*` or `GOOGLE_BUSINESS_*`
+variables below.
+
 ## Why Business Profile API, not Places API
 
 Places API's `Review` object has no field for the business's reply, full
@@ -198,7 +227,45 @@ Options:
 Never throws on missing configuration -- `isBusinessProfileConfigured()` gates
 internally and returns an empty result, so UI can render unconditionally.
 Does throw on a real failure, so a calling route should catch and degrade
-explicitly if it wants zero-downtime behaviour on a Google outage.
+explicitly if it wants zero-downtime behaviour on a Google outage, or use
+`getBusinessReviewsSafe`, which does that for it.
+
+### `getBusinessReviewsSafe(options?)` and `getPublishedReviewsSafe(options)`: reviews that never throw
+
+Use these in a page render. They take the same options as `getBusinessReviews`
+and `getPublishedReviews`, catch every failure, and serve in order: the last
+good result this process fetched for the same options (up to `maxStaleMs`,
+default 30 days), then your `fallback`, then an empty result, which has a
+`null` rating and count and an empty `reviews` list. `source` says which:
+`"live"`, `"cache"`, `"fallback"` or `"empty"`, and `error` holds the failure
+when there was one.
+
+```ts
+import * as Sentry from "@sentry/nextjs";
+import { getBusinessReviewsSafe } from "@domandigital/gbp";
+
+const { averageRating, totalReviewCount, reviews, source } = await getBusinessReviewsSafe({
+  filterMinStars: 4,
+  next: { revalidate: 86400, tags: ["google-reviews"] },
+  // A snapshot, or a loader for one (a KV read). Served as given.
+  fallback: () => kv.get(LAST_KNOWN_GOOD_KEY),
+  report: (error, { fingerprint, context, transient }) =>
+    Sentry.captureException(error, { fingerprint, extra: context, level: transient ? "warning" : "error" }),
+});
+if (source === "live") await kv.set(LAST_KNOWN_GOOD_KEY, { averageRating, totalReviewCount, reviews });
+```
+
+- `report` runs at most once per kind of failure per `reportIntervalMs`
+  (default one hour) in each process, not on every request. It is told how
+  many it held back since the last report (`suppressed`). Without `report`, one
+  `console.warn` per window.
+- After `invalid_grant` or `invalid_client` the live call is skipped for
+  `authRetryMs` (default five minutes), because retrying cannot fix it.
+- A `fallback` is served as given: `limit` and `filterMinStars` are not
+  applied to it. A loader that throws counts as no fallback.
+
+A static build that should refuse to publish rather than ship stale or empty
+reviews should keep using the throwing functions.
 
 ### Failures, and what each one means
 
@@ -208,7 +275,13 @@ a few times with backoff; Google documents the 429 for quota
 A 401 means the cached access token is no longer good: it is dropped,
 refreshed once, and the page is asked for again; a second 401 throws.
 
-All errors extend `GbpError`, and none carries a credential:
+All errors extend `GbpError`, and none carries a credential. Each message is
+short and stable (`GBP token refresh failed: invalid_grant`, `GBP reviews.list
+failed: 5xx`), so an error tracker files every occurrence under one issue.
+What varies, such as the status, Google's description or a body excerpt, is in
+`error.context`. `error.code` names the failure, `error.fingerprint` is
+`["gbp", code]` to pass to Sentry, and `error.transient` says whether it may
+clear without anyone acting. Every 5xx shares the code `api_5xx`.
 
 | Error | When | What to do |
 |---|---|---|

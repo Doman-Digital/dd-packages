@@ -43,6 +43,40 @@ export type Profile = {
   status: "to-claim" | "claimed" | "live";
 };
 
+/** A company the site sends personal data to, as the privacy and cookie pages list it. */
+export type Processor = {
+  name: string;
+  /** What it does for the site, e.g. "hosting", "enquiry email". */
+  purpose: string;
+  /** Sets cookies in the visitor's browser. Measurement ones load only after consent. */
+  setsCookies: boolean;
+};
+
+/**
+ * What the privacy, cookie, terms and accessibility pages need. Unknown is
+ * null; a page leaves out what is null rather than print a placeholder, and
+ * launch:check fails until the ones every site needs are filled in.
+ */
+export type LegalFacts = {
+  /** Companies House number. null for a sole trader or a partnership. */
+  companyNumber: string | null;
+  /** Registered office on one line, as Companies House shows it. */
+  registeredOffice: string | null;
+  /** ICO data protection fee registration number. */
+  icoNumber: string | null;
+  /** Where privacy requests go, if not the main email. */
+  privacyEmail: string | null;
+  /** How long enquiries and customer records are kept, in a sentence. */
+  retention: string | null;
+  processors: Processor[];
+  /** The law the website terms are under, e.g. "England and Wales" or "Scotland". */
+  governingLaw: string | null;
+  /** Accessibility problems someone found and has not fixed yet. */
+  accessibilityIssues: string[];
+  /** ISO date someone last read the legal pages against what the site does. */
+  reviewedOn: string | null;
+};
+
 export type SiteFacts = {
   /** The canonical origin, https, no trailing slash. */
   url: string;
@@ -68,6 +102,8 @@ export type SiteFacts = {
   profiles: Profile[];
   /** Hostnames of previous sites that now redirect here, for the redirect check. */
   previousHosts: string[];
+  /** Optional so a facts file written before the legal pages still compiles. */
+  legal?: LegalFacts;
 };
 
 const DAY_NAMES: Record<Day, string> = {

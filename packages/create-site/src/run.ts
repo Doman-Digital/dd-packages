@@ -8,7 +8,7 @@ import { applyPlan } from "./apply.js";
 import type { Exec } from "./apply.js";
 import { USAGE, parseOptions } from "./args.js";
 import { detectProject } from "./detect.js";
-import { formatPlan, hasWork, planScaffold } from "./plan.js";
+import { formatPlan, hasWork, pendingWork, planScaffold } from "./plan.js";
 import { TEMPLATE_ROOT } from "./templates.js";
 
 export type Io = {
@@ -54,7 +54,7 @@ export async function run(argv: string[], io: Io): Promise<number> {
     },
     file: options.answers,
     cwd: io.cwd,
-    ask: options.yes ? undefined : io.ask,
+    ask: options.yes || options.check ? undefined : io.ask,
   });
   if (typeof answers === "string") {
     io.err(`create-site: ${answers}`);
@@ -62,8 +62,17 @@ export async function run(argv: string[], io: Io): Promise<number> {
   }
 
   const today = io.now().toISOString().slice(0, 10);
-  const plan = planScaffold(project, answers, { force: options.force, skipInstall: options.skipInstall, today });
+  const plan = planScaffold(project, answers, { force: options.force, skipInstall: options.skipInstall, today, visibility: options.visibility });
   io.out(formatPlan(plan, answers.tradingName));
+  if (options.check) {
+    const work = pendingWork(plan);
+    if (work.length === 0) {
+      io.out("create-site --check: up to date.");
+      return 0;
+    }
+    io.err(`create-site --check: ${work.length} thing(s) to do.\n${work.map((w) => `  ${w}`).join("\n")}`);
+    return 3;
+  }
   if (options.dryRun || !hasWork(plan)) return 0;
 
   const pending = applyPlan(plan, answers.tradingName, io.exec);
@@ -73,7 +82,9 @@ export async function run(argv: string[], io: Io): Promise<number> {
       "",
       "Next:",
       "  1. Fill in site.facts.ts: contact details, hours, accreditations, profiles. Unknown stays null.",
-      "  2. Put <DesignerCredit /> in the footer, and <JsonLd graph={buildPageGraph(...)} /> on every page.",
+      "  2. Put <DesignerCredit /> and links to /privacy, /cookies, /terms and /accessibility in the footer,",
+      "     <CookieBanner /> once in the root layout, and <JsonLd graph={buildPageGraph(...)} /> on every page.",
+      "     Fill in legal in site.facts.ts and have the client confirm the legal pages match what the business does.",
       "  3. Work through docs/seo-launch-checklist.md.",
       `  4. ${pm} seo:check now, and ${pm} launch:check before go-live.`,
       ...pending.map((p) => `  Still to run: ${p}`),

@@ -1,0 +1,413 @@
+{
+  "version": 2,
+  "url": "https://droplette.app",
+  "capturedAt": "2026-09-30T14:54:43.831Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "pageHeight": 5077,
+  "ground": "rgb(14, 14, 14)",
+  "colours": {
+    "backgrounds": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 860795,
+        "chars": 0
+      },
+      {
+        "value": "rgb(14, 14, 14)",
+        "area": 855138,
+        "chars": 0
+      },
+      {
+        "value": "rgb(44, 44, 44)",
+        "area": 153600,
+        "chars": 0
+      },
+      {
+        "value": "rgb(122, 58, 37)",
+        "area": 48617,
+        "chars": 0
+      },
+      {
+        "value": "rgb(122, 97, 37)",
+        "area": 48617,
+        "chars": 0
+      },
+      {
+        "value": "rgb(37, 100, 108)",
+        "area": 33865,
+        "chars": 0
+      },
+      {
+        "value": "rgb(64, 102, 119)",
+        "area": 33865,
+        "chars": 0
+      },
+      {
+        "value": "rgb(95, 115, 37)",
+        "area": 33783,
+        "chars": 0
+      },
+      {
+        "value": "rgb(48, 87, 118)",
+        "area": 33783,
+        "chars": 0
+      },
+      {
+        "value": "rgb(122, 108, 64)",
+        "area": 33634,
+        "chars": 0
+      },
+      {
+        "value": "rgb(108, 37, 120)",
+        "area": 33634,
+        "chars": 0
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.9)",
+        "area": 13514,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 61, 0)",
+        "area": 11206,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 213, 79)",
+        "area": 11206,
+        "chars": 0
+      },
+      {
+        "value": "rgb(0, 188, 212)",
+        "area": 11206,
+        "chars": 0
+      },
+      {
+        "value": "rgb(255, 179, 0)",
+        "area": 11205,
+        "chars": 0
+      },
+      {
+        "value": "rgb(174, 234, 0)",
+        "area": 11205,
+        "chars": 0
+      },
+      {
+        "value": "rgb(33, 150, 243)",
+        "area": 11205,
+        "chars": 0
+      },
+      {
+        "value": "rgb(213, 0, 249)",
+        "area": 11205,
+        "chars": 0
+      }
+    ],
+    "text": [
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "area": 0,
+        "chars": 669
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "area": 0,
+        "chars": 249
+      },
+      {
+        "value": "rgb(68, 68, 68)",
+        "area": 0,
+        "chars": 224
+      },
+      {
+        "value": "rgb(14, 14, 14)",
+        "area": 0,
+        "chars": 35
+      },
+      {
+        "value": "rgb(44, 44, 44)",
+        "area": 0,
+        "chars": 24
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "family": "ui-sans-serif",
+      "chars": 1095,
+      "displayChars": 0,
+      "italicChars": 0,
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Ein",
+      "chars": 106,
+      "displayChars": 106,
+      "italicChars": 0,
+      "weights": [
+        400
+      ]
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "family": "Ein",
+      "sizePx": 69,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "An AI tool made to enhance designers.",
+      "top": 160
+    },
+    {
+      "level": 1,
+      "family": "Ein",
+      "sizePx": 69,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Simple to setup.",
+      "top": 1325
+    },
+    {
+      "level": 2,
+      "family": "Ein",
+      "sizePx": 69,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "Frequently asked questions.",
+      "top": 3250
+    },
+    {
+      "level": 2,
+      "family": "Ein",
+      "sizePx": 69,
+      "weight": 400,
+      "italic": false,
+      "italicPart": false,
+      "text": "One price. No subscription.",
+      "top": 4272
+    }
+  ],
+  "controls": [
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 40,
+      "background": "rgba(255, 255, 255, 0.9)",
+      "text": "Try in Figma"
+    },
+    {
+      "kind": "link",
+      "radiusPx": 30,
+      "heightPx": 40,
+      "background": "rgba(255, 255, 255, 0.9)",
+      "text": "Try in Figma"
+    }
+  ],
+  "sections": [
+    {
+      "top": 0,
+      "height": 5077,
+      "kind": "marquee",
+      "label": "An AI tool made to enhance designers.",
+      "cards": 0,
+      "iconCards": 0,
+      "hiddenAtLoad": false,
+      "role": "marquee",
+      "geometry": {
+        "centredShare": 0.594,
+        "mirrorSymmetry": 0.994,
+        "whitespaceRatio": 0.745,
+        "contentWidthRatio": 0.813,
+        "background": "rgb(14, 14, 14)",
+        "controls": 2
+      },
+      "badges": [],
+      "avatars": 0,
+      "carousel": false,
+      "figures": 0,
+      "text": [
+        "An AI tool made to enhance designers.",
+        "Create palettes in Figma & FigJam based on your color styles easily with Droplette, AI that works for you.",
+        "Simple to setup.",
+        "Select the colors you want to work with, or hook up your styles and go.",
+        "Select from your frames",
+        "Grab some frames and Droplette will extract colors. The AI will use use these a basis for creating your unique palettes.",
+        "Sync with your styles",
+        "Sync your color styles with Droplette to inform the AI what colors it can work with, helping you keep on brand and on track.",
+        "Adjust as you go",
+        "Like your palette but want to tweak it? No problem. Adjust your generated palette to suit your needs with ease.",
+        "Redo with AI",
+        "Iterate on your palette as much as you like. Suggest colors to take forward or start again from scratch.",
+        "Frequently asked questions.",
+        "One price. No subscription.",
+        "Bring your own API key for OpenAI. Droplette is a single payment. Special launch price of $9.",
+        "A summer rainbow"
+      ]
+    }
+  ],
+  "rhythmVariance": null,
+  "effects": {
+    "glass": 0,
+    "gradientText": 0,
+    "gradients": [
+      {
+        "stops": [
+          "rgb(225, 100, 239)",
+          "rgb(31, 200, 255)",
+          "rgb(182, 255, 149)",
+          "rgb(253, 241, 134)",
+          "rgb(244, 187, 64)",
+          "rgb(225, 100, 239)"
+        ],
+        "area": 787200,
+        "radial": false
+      }
+    ],
+    "glows": 1,
+    "gridBackgrounds": 0,
+    "marquees": 2,
+    "hairlineShadowCards": 0,
+    "eyebrowChip": false
+  },
+  "images": [
+    {
+      "src": "https://www.droplette.app/plugin/select-mode.png",
+      "host": "www.droplette.app",
+      "width": 320,
+      "height": 480,
+      "top": 1727,
+      "role": "photo",
+      "alt": "Select mode",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 4214
+      }
+    },
+    {
+      "src": "https://www.droplette.app/plugin/library-mode.png",
+      "host": "www.droplette.app",
+      "width": 320,
+      "height": 480,
+      "top": 1728,
+      "role": "photo",
+      "alt": "Select mode",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 5450
+      }
+    },
+    {
+      "src": "https://www.droplette.app/plugin/adjust.png",
+      "host": "www.droplette.app",
+      "width": 320,
+      "height": 480,
+      "top": 2505,
+      "role": "photo",
+      "alt": "Adjust your palette",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 3271
+      }
+    },
+    {
+      "src": "https://www.droplette.app/plugin/redo.png",
+      "host": "www.droplette.app",
+      "width": 320,
+      "height": 480,
+      "top": 2504,
+      "role": "photo",
+      "alt": "Redo your palette",
+      "decorative": false,
+      "section": 0,
+      "background": false,
+      "provenance": {
+        "digitalSourceType": null,
+        "source": null,
+        "c2pa": false,
+        "bytes": 2370
+      }
+    },
+    {
+      "src": "https://www.droplette.app/logo.svg",
+      "host": "www.droplette.app",
+      "width": 20,
+      "height": 20,
+      "top": 540,
+      "role": "logo",
+      "alt": "",
+      "decorative": true,
+      "section": 0,
+      "background": false
+    }
+  ],
+  "firstScreenText": [
+    "An AI tool made to enhance designers.",
+    "Create palettes in Figma & FigJam based on your color styles easily with Droplette, AI that works for you.",
+    "A summer rainbow"
+  ],
+  "motion": {
+    "hiddenSections": 0,
+    "sections": 1,
+    "animations": 978,
+    "introOverlay": false
+  },
+  "metrics": {
+    "fontSizes": [
+      12,
+      16,
+      20,
+      69
+    ],
+    "fontWeights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "radii": [
+      "30px",
+      "50%"
+    ],
+    "shadows": [
+      "rgb(68, 68, 68) 0px 0px 0px 1px inset"
+    ],
+    "spacingOnScalePct": 68.2,
+    "bodyLineLengthCh": 39,
+    "bodyFontSizePx": 16
+  },
+  "visual": {
+    "colourfulness": 27.6,
+    "edgeDensity": 0.042,
+    "symmetry": 0.787,
+    "width": 1440,
+    "height": 5077,
+    "sampled": 812640
+  }
+}

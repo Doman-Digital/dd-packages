@@ -1,6 +1,6 @@
 {
   "name": "@domandigital/gbp",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "private": false,
   "description": "Zero-dependency Google Business Profile client: OAuth refresh-token auth and a reviews (with owner replies) fetch, shared across Doman Digital / IDS client sites.",
   "license": "Apache-2.0",
@@ -38,7 +38,7 @@
     "@types/node": "^20",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.9"
+    "vitest": "^4.0.0"
   },
   "engines": {
     "node": ">=22.12"

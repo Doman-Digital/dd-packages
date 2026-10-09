@@ -184,7 +184,7 @@ describe("getBusinessReviews", () => {
     fetchSpy.mockResolvedValueOnce(mockTokenExchange() as Response);
     for (let i = 0; i < 3; i++) fetchSpy.mockResolvedValueOnce({ ok: false, status: 500, text: async () => "boom" } as Response);
 
-    await expect(getBusinessReviews({ request: { baseDelayMs: 0 } })).rejects.toThrow(/Business Profile reviews failed: 500/);
+    await expect(getBusinessReviews({ request: { baseDelayMs: 0 } })).rejects.toThrow("GBP reviews.list failed: 5xx");
     // token + three attempts at the page
     expect(fetchSpy).toHaveBeenCalledTimes(4);
   });
