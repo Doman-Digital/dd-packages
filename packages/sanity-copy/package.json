@@ -32,7 +32,7 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "node ../../scripts/refuse-npm-publish.mjs && pnpm run build"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
