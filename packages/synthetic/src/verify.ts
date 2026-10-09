@@ -15,6 +15,9 @@ import {
 /** ±120 seconds, as the plan specifies. */
 export const DEFAULT_WINDOW_SECONDS = 120;
 
+/** Largest body `verify` will hash. A signed check is a small form post; anything bigger is not one. */
+export const DEFAULT_MAX_BODY_BYTES = 1_048_576;
+
 /**
  * Why a request that claimed to be synthetic was not accepted. Every one of
  * these is a `synthetic_rejected` beacon with the reason attached.
@@ -82,6 +85,8 @@ export interface VerifyConfig {
   /** Unix seconds. Defaults to the current time. */
   now?: number;
   windowSeconds?: number;
+  /** Largest body to hash, in bytes. Defaults to 1 MiB; a larger body is a `shape` rejection, unread. */
+  maxBodyBytes?: number;
 }
 
 export interface VerifyInput {
@@ -157,6 +162,11 @@ async function verifyInner(input: VerifyInput, config: VerifyConfig): Promise<Ve
     return reject("shape", h);
   }
 
+  const maxBody = config.maxBodyBytes ?? DEFAULT_MAX_BODY_BYTES;
+  if ((typeof input.body === "string" ? utf8(input.body).length : input.body.length) > maxBody) {
+    return reject("shape", h);
+  }
+
   const kid = h.get(HEADER.kid);
   const tsText = h.get(HEADER.ts);
   const runId = h.get(HEADER.run);
@@ -226,13 +236,43 @@ async function verifyInner(input: VerifyInput, config: VerifyConfig): Promise<Ve
 /** Verifies a `Request`. Reads a clone, so the handler can still read the body. */
 export async function verifyRequest(request: Request, config: VerifyConfig): Promise<VerifyResult> {
   if (request.headers.get(HEADER.version) === null) return ordinary("not_synthetic");
+  const maxBody = config.maxBodyBytes ?? DEFAULT_MAX_BODY_BYTES;
+  const declared = Number(request.headers.get("content-length"));
+  if (Number.isFinite(declared) && declared > maxBody) return reject("shape", request.headers);
   let body: Uint8Array;
   try {
-    body = new Uint8Array(await request.clone().arrayBuffer());
+    const read = await readCapped(request.clone(), maxBody);
+    if (read === null) return reject("shape", request.headers);
+    body = read;
   } catch {
     return reject("malformed", request.headers);
   }
   return verify({ method: request.method, url: request.url, headers: request.headers, body }, config);
+}
+
+/** Reads a body up to `max` bytes; null when it is larger. Never buffers more than `max` plus one chunk. */
+async function readCapped(request: Request, max: number): Promise<Uint8Array | null> {
+  if (!request.body) return new Uint8Array(0);
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.length;
+    if (total > max) {
+      void reader.cancel().catch(() => undefined);
+      return null;
+    }
+    chunks.push(value);
+  }
+  const out = new Uint8Array(total);
+  let at = 0;
+  for (const c of chunks) {
+    out.set(c, at);
+    at += c.length;
+  }
+  return out;
 }
 
 export type StageStatus = "pass" | "fail" | "skipped";
@@ -269,6 +309,8 @@ export interface UpstashReplayOptions {
   /** Defaults to 300 seconds, well past the ±120 s window. */
   ttlSeconds?: number;
   fetch?: typeof fetch;
+  /** Defaults to 2000 ms. A slow guard fails closed rather than holding the form open. */
+  timeoutMs?: number;
 }
 
 /** `SET synth:<runId> 1 NX EX 300` over Upstash's REST API. A failed call throws, which `verify` treats as a rejection. */
@@ -278,6 +320,7 @@ export function upstashReplayGuard(options: UpstashReplayOptions): ReplayGuard {
     const res = await doFetch(options.url.replace(/\/+$/, ""), {
       method: "POST",
       headers: { Authorization: `Bearer ${options.token}`, "Content-Type": "application/json" },
+      signal: AbortSignal.timeout(options.timeoutMs ?? 2000),
       body: JSON.stringify(["SET", `synth:${runId}`, "1", "NX", "EX", String(options.ttlSeconds ?? 300)]),
     });
     if (!res.ok) throw new Error(`upstash ${res.status}`);
