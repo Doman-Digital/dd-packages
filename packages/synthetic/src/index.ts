@@ -46,7 +46,7 @@ export {
 } from "./turnstile";
 export type { TurnstileOutcome, TurnstileCheckResult, TurnstileCheckOptions } from "./turnstile";
 
-export { DEFAULT_ENDPOINT, BEACON_PATH, RECEIPT_PATH, BEACON_CODES, sendBeacon, sendPurgeReceipt } from "./beacon";
+export { DEFAULT_ENDPOINT, BEACON_PATH, RECEIPT_PATH, BEACON_CODES, resetRejectBeaconThrottle, sendBeacon, sendPurgeReceipt } from "./beacon";
 export type { BeaconCode, BeaconEvent, PurgeReceipt, ReporterOptions } from "./beacon";
 
 export { REDACTED, scrubHeaders, scrubText, scrubSentryEvent } from "./scrub";
