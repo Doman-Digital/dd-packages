@@ -1,5 +1,11 @@
 # @domandigital/create-site
 
+## 0.5.1
+
+### Patch Changes
+
+- 09b49ac: New sites install `@domandigital/craft` `^0.19.0`, the release whose estate comparison measures ground temperature and section structure.
+
 ## 0.5.0
 
 ### Minor Changes
