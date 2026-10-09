@@ -156,6 +156,8 @@ export interface SnapshotImage {
   width: number;
   height: number;
   top: number;
+  /** Version 2, craft 0.19 and later: distance from the viewport's left edge, so a hero can say which side its picture sits. */
+  left?: number;
   role: ImageRole;
   alt: string | null;
   /** Empty alt, `aria-hidden` or `role="presentation"`. */

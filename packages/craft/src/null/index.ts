@@ -19,7 +19,7 @@ import { isAiViolet, isCream } from "../character/color.js";
 import { REFLEX_FONTS_1, REFLEX_FONTS_2 } from "../character/tells/source.js";
 import { deltaEOk, formatHex, oklchToRgb, type Oklch } from "../color/oklch.js";
 import type { Fingerprint } from "../fingerprint/index.js";
-import { fingerprintDistance } from "../fingerprint/index.js";
+import { fingerprintDistance, temperatureName } from "../fingerprint/index.js";
 
 export const NULL_VERSION = 1;
 
@@ -161,11 +161,28 @@ export function hueName(o: Oklch | null): string {
   return HUES.find(([, lo, hi]) => o.h >= lo && o.h < hi)?.[0] ?? "red";
 }
 
+/**
+ * The coarse name the null's choice counts use ("white", "cream"), kept
+ * stable so a harvest compares with earlier runs. `groundLabel` is the one a
+ * person reads.
+ */
 export function groundName(o: Oklch): string {
   if (o.l < 0.3) return "dark";
   if (isCream(o)) return "cream";
   if (o.l >= 0.97 && o.c < 0.012) return "white";
   return o.c < 0.02 ? "grey" : "tinted";
+}
+
+/**
+ * The ground as a person would name it, with its temperature: "cream",
+ * "cool grey", "warm white", "cool dark". Every light neutral page used to be
+ * "grey", which put RMP's cream and Bellerose's porcelain under one word.
+ */
+export function groundLabel(o: Oklch): string {
+  const name = groundName(o);
+  if (name === "cream" || name === "tinted") return name;
+  const temperature = temperatureName(o);
+  return temperature === "neutral" ? name : `${temperature} ${name}`;
 }
 
 export function shapeName(roundness: number | null): string {
@@ -349,9 +366,11 @@ export function harvest(models: Pick<NullModel, "brief" | "runs">[], options: Ha
   for (const t of tally.values()) {
     if (t.runs.size / of < minShare) continue;
     if (t.kind === "accent" && (t.value === "none" || t.value === "neutral")) continue;
+    // copy-ok: the choice names `choicesOf` writes
     if (t.kind === "shape" && t.value === "no buttons") continue;
     // A white or grey page is the web's default, not a model's.
     if (t.kind === "ground" && (t.value === "white" || t.value === "grey")) continue;
+    // copy-ok: as above
     if (t.kind === "motion" && t.value === "no scroll reveals") continue;
     out.push({ kind: t.kind, value: t.value, runs: t.runs.size, of, briefs: t.briefs.size, known: knownFor(t.kind, t.value, sample) });
   }

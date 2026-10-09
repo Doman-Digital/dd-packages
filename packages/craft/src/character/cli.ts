@@ -165,6 +165,8 @@ export interface Flags {
   visual: boolean;
   builder?: string;
   fresh: boolean;
+  /** `craft snapshot --scheme light|dark`: the colour scheme the page is asked for. */
+  scheme?: string;
 }
 
 const VALUE_FLAGS = {
@@ -192,6 +194,7 @@ const VALUE_FLAGS = {
   "--competitor": "competitor",
   "--page": "page",
   "--builder": "builder",
+  "--scheme": "scheme",
 } as const;
 
 export function parseFlags(args: string[]): Flags | string {
