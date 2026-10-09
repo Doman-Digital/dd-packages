@@ -140,6 +140,33 @@ export const LICENCES: readonly LicenceEntry[] = [
     source: "https://iconscout.com/licenses",
     note: "Each licence covers a single end product. Never in a tool, template or shared kit (create-site, craft, a house component library), even modified. Record the assets each site uses. Assets come from different contributors, so take one site's set from one contributor.",
   },
+  {
+    name: "Saira Semi Condensed",
+    subject: "face",
+    licence: "OFL-1.1",
+    multiClient: "yes",
+    checked: "2026-10-09",
+    source: "https://github.com/google/fonts/blob/main/ofl/sairasemicondensed/OFL.txt",
+    note: "Copyright 2016 The Saira Project Authors (omnibus.type@gmail.com), reserved font name Saira. Keep the OFL notice with the font files; a modified build may not be called Saira. Chosen for Doman Digital's own site (DOM-397, 9 October 2026).",
+  },
+  {
+    name: "Public Sans",
+    subject: "face",
+    licence: "OFL-1.1",
+    multiClient: "yes",
+    checked: "2026-10-09",
+    source: "https://github.com/google/fonts/blob/main/ofl/publicsans/OFL.txt",
+    note: "Copyright 2015 The Public Sans Project Authors (https://github.com/uswds/public-sans). Keep the OFL notice with the font files. Chosen for Doman Digital's own site (DOM-397, 9 October 2026).",
+  },
+  {
+    name: "Martian Mono",
+    subject: "face",
+    licence: "OFL-1.1",
+    multiClient: "yes",
+    checked: "2026-10-09",
+    source: "https://github.com/google/fonts/blob/main/ofl/martianmono/OFL.txt",
+    note: "Copyright 2021 The Martian Mono Project Authors (https://github.com/evilmartians/mono). Keep the OFL notice with the font files. Chosen for Doman Digital's own site (DOM-397, 9 October 2026).",
+  },
 ];
 
 /** The register entry for a face, by the family name CSS sets. */
