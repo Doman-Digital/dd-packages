@@ -1,5 +1,11 @@
 # @domandigital/craft
 
+## 0.19.0
+
+### Minor Changes
+
+- 09b49ac: Fingerprint version 3: the estate comparison now measures ground temperature and section structure (DOM-637). A warm cream and a cool porcelain page used to score as the same "grey ground" because hue barely counts at a ground's chroma; `groundDistance` adds a temperature gap (warm, neutral, cool from hue, scaled by chroma) on top of ΔE, and shared grounds are named with it ("cream ground", "cool grey ground", "warm dark ground"). Two new distance parts, `rhythm` (the page's bands of light and dark in running order, the opening counted twice) and `hero` (text placement and width, headline class and size, which side the picture sits), give structure a quarter of the weight; `DISTANCE_WEIGHTS` is now accent 0.2, type 0.2, ground 0.1, shape 0.1, motion 0.05, effects 0.1, layout 0.1, rhythm 0.1, hero 0.05, and a part only one side measures is left out rather than counted as different, so version 1 and 2 fingerprints in a register or null model compare without being re-snapshotted. Shared traits name the structure too: "light hero then dark band", "left-aligned serif hero, photo right", "same running order". `craft snapshot` and `craft audit` take `--scheme light|dark` to ask the page for one colour scheme, and a snapshot's images record `left`. New exports: `groundDistance`, `groundTemperature`, `temperatureName`, `groundLabel`, `rhythmOf`, `rhythmDistance`, `heroDistance`, `bandOf`, `TEMPERATURE_FULL`, `TEMPERATURE_NAMED`, `TEMPERATURE_WEIGHT`, `OPENING_BANDS` and the `FingerprintHero`, `HeroImage`, `LightnessBand` and `Temperature` types. Calibrated on RMP Electrical against Bellerose Plumbing's stone and porcelain light modes (`calibration/estate/2026-10-09-temperature/`); the existing register's pair ordering keeps a Kendall tau of 0.83 and no pair crosses the sibling line.
+
 ## 0.18.2
 
 ### Patch Changes
