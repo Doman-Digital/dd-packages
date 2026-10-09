@@ -1,5 +1,12 @@
 # @domandigital/sentry
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [7c2f815]
+  - @domandigital/synthetic@0.2.0
+
 ## 0.1.1
 
 ### Patch Changes
