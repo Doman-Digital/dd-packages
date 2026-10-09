@@ -1,6 +1,6 @@
 {
   "name": "@domandigital/sentry",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "One Sentry setup for every Doman Digital site: init options for the browser, Cloudflare Workers and Next.js (environment, release, PII scrubber, noise filters, sample rates), and a release and source-map CLI for Worker and Astro builds.",
   "license": "Apache-2.0",
