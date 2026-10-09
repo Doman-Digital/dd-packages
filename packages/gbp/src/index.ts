@@ -27,6 +27,17 @@ export {
 export type { GetPublishedReviewsOptions, PublishedReviewsResult } from "./published";
 
 export {
+  getPublishedFacebookRecommendations,
+  parsePublishedFacebook,
+  publishedFacebookUrl,
+} from "./facebook-published";
+export type {
+  FacebookRecommendation,
+  GetPublishedFacebookOptions,
+  PublishedFacebookResult,
+} from "./facebook-published";
+
+export {
   getBusinessReviewsSafe,
   getPublishedReviewsSafe,
   DEFAULT_REPORT_INTERVAL_MS,
