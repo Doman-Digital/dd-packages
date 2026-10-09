@@ -1,0 +1,112 @@
+{
+  "name": "@domandigital/sentry",
+  "version": "0.1.1",
+  "private": false,
+  "description": "One Sentry setup for every Doman Digital site: init options for the browser, Cloudflare Workers and Next.js (environment, release, PII scrubber, noise filters, sample rates), and a release and source-map CLI for Worker and Astro builds.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "bin": {
+    "dd-sentry-release": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./browser": {
+      "import": {
+        "types": "./dist/browser.d.ts",
+        "default": "./dist/browser.js"
+      },
+      "require": {
+        "types": "./dist/browser.d.cts",
+        "default": "./dist/browser.cjs"
+      }
+    },
+    "./cloudflare": {
+      "import": {
+        "types": "./dist/cloudflare.d.ts",
+        "default": "./dist/cloudflare.js"
+      },
+      "require": {
+        "types": "./dist/cloudflare.d.cts",
+        "default": "./dist/cloudflare.cjs"
+      }
+    },
+    "./next": {
+      "import": {
+        "types": "./dist/next.d.ts",
+        "default": "./dist/next.js"
+      },
+      "require": {
+        "types": "./dist/next.d.cts",
+        "default": "./dist/next.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "node ../../scripts/refuse-npm-publish.mjs && pnpm run build"
+  },
+  "dependencies": {
+    "@domandigital/synthetic": "workspace:^"
+  },
+  "peerDependencies": {
+    "@sentry/nextjs": ">=10",
+    "sentry": ">=0.47"
+  },
+  "peerDependenciesMeta": {
+    "@sentry/nextjs": {
+      "optional": true
+    },
+    "sentry": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@sentry/browser": "^11.5.0",
+    "@sentry/browser-v10": "npm:@sentry/browser@^10.76.1",
+    "@sentry/cloudflare": "^11.5.0",
+    "@sentry/core": "^11.5.0",
+    "@sentry/core-v10": "npm:@sentry/core@^10.76.1",
+    "@types/node": "^20.19.43",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doman-Digital/dd-packages.git",
+    "directory": "packages/sentry"
+  },
+  "homepage": "https://github.com/Doman-Digital/dd-packages/tree/main/packages/sentry#readme",
+  "bugs": {
+    "url": "https://github.com/Doman-Digital/dd-packages/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

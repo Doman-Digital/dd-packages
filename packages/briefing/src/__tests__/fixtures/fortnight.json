@@ -1,0 +1,442 @@
+{
+ "about": "A real client fortnight (27 September to 10 October 2026, send Sunday 11 October), redacted: the client's repository is private, so names, product and domain are replaced and everything else is kept as it was: every entry's title, line, merge time and order, the did-log notes, the uptime incident record, five distinct PageSpeed mobile runs, the search and visits figures, and the hand-written config. The ## Briefing blocks on #42, #56, #63 and #66 are the ones an author would add; the PRs carry none.",
+ "input": {
+  "period": {
+   "start": "2026-09-27",
+   "end": "2026-10-10",
+   "sendAt": "2026-10-11T08:00:00Z"
+  },
+  "asOf": "2026-10-07T23:00:00Z",
+  "entries": [
+   {
+    "repo": "example-client/site",
+    "number": 42,
+    "title": "perf: planner intro desktop-only beside the hero, CSS accent on phones",
+    "mergedAt": "2026-10-03T15:11:47Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/42",
+    "body": "## Summary\n\n(PR body)\n\n## Briefing\nkind: visible\ntitle: Your home page opens faster on phones\noutcome: Phones and tablets skip the intro video and go straight to your planner. Desktops show a short animation beside the main card in place of the full-screen cover.\n"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 43,
+    "title": "fix: point sentry source maps at the doman-digital org",
+    "mergedAt": "2026-10-03T18:13:47Z",
+    "forClient": "We updated your site's error monitoring settings after moving it to our own account.",
+    "url": "https://example.invalid/pull/43"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 45,
+    "title": "Launch worker: move the sales floor to 18 November 2026",
+    "mergedAt": "2026-10-04T09:37:51Z",
+    "forClient": "The date the planner can go on sale has moved to Wednesday 18 November. Nothing changes on the website yet, and sales stay closed until you confirm the date.",
+    "url": "https://example.invalid/pull/45"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 47,
+    "title": "chore(guards): take the contrast maths from @domandigital/craft 0.18.1",
+    "mergedAt": "2026-10-04T10:43:13Z",
+    "forClient": "none",
+    "url": "https://example.invalid/pull/47"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 48,
+    "title": "chore: adopt the DD Framework rulebook",
+    "mergedAt": "2026-10-04T10:46:42Z",
+    "forClient": "none",
+    "url": "https://example.invalid/pull/48"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 46,
+    "title": "Add the six-page free sample PDF",
+    "mergedAt": "2026-10-05T07:19:03Z",
+    "forClient": "Six pages from the planner are ready to send to anyone who joins your list, so they can read a little before deciding. Please check you are happy with these six pages being shared; nothing goes out until you say so.",
+    "url": "https://example.invalid/pull/46"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 50,
+    "title": "Move email from Loops to Resend, with designed emails",
+    "mergedAt": "2026-10-05T07:19:14Z",
+    "forClient": "Your emails move from Loops to Resend and now carry the Willow & Wren look: cream background, the wren mark, your colours, signed \"Sam W\". Nothing is sent until you have read and approved each one.",
+    "url": "https://example.invalid/pull/50"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 49,
+    "title": "Ignore env and token files",
+    "mergedAt": "2026-10-05T07:19:21Z",
+    "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+    "url": "https://example.invalid/pull/49"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 54,
+    "title": "Move the launch to Wednesday 13 January 2027",
+    "mergedAt": "2026-10-05T07:46:42Z",
+    "forClient": "The planner's on-sale date moves from 18 November to Wednesday 13 January 2027. Your launch emails now carry the new date, and the Christmas ordering line is gone from the gifting email.",
+    "url": "https://example.invalid/pull/54"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 55,
+    "title": "chore(sentry): use the new org name for source-map uploads",
+    "mergedAt": "2026-10-05T13:28:08Z",
+    "forClient": "none",
+    "url": "https://example.invalid/pull/55"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 51,
+    "title": "Daily reminder for printer orders waiting to be paid",
+    "mergedAt": "2026-10-05T13:56:52Z",
+    "forClient": "Each morning you'll get one email listing any orders that are waiting to be paid at the printer, with a button to open the printer and pay them. On a day when every order is paid, no email is sent.",
+    "url": "https://example.invalid/pull/51"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 53,
+    "title": "feat(astro): email through Resend on the Worker",
+    "mergedAt": "2026-10-05T20:46:11Z",
+    "forClient": "The new, faster version of your site will send its emails through Resend too, in the same Willow & Wren design, and will send the morning reminder of orders waiting to be paid at the printer. Nothing changes on the live site yet.",
+    "url": "https://example.invalid/pull/53"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 44,
+    "title": "Astro port on Cloudflare Workers (draft, not deployed)",
+    "mergedAt": "2026-10-05T21:13:14Z",
+    "forClient": "Your website now has a faster version that looks and works the same: pages load with almost no waiting on phones. It is not live yet. We will test payments and switch over only when you're happy, and we can switch back within minutes.",
+    "url": "https://example.invalid/pull/44"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 57,
+    "title": "ci: activate the Deploy Astro workflow (cutover step 2)",
+    "mergedAt": "2026-10-05T21:16:44Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/57"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 56,
+    "title": "fix(deps): update next to 15.5.27 and drop unused decompress",
+    "mergedAt": "2026-10-05T21:47:21Z",
+    "forClient": "This is a security update to the framework the site runs on. The site should look and work the same.",
+    "url": "https://example.invalid/pull/56",
+    "body": "## Summary\n\n(PR body)\n\n## Briefing\nkind: security\ntitle: A security update, tested first\noutcome: We applied a security patch to the software your site runs on and tested it before it went live.\n"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 59,
+    "title": "ci(astro): Cloudflare Workers Builds + staging Worker (replaces the Deploy Astro workflow)",
+    "mergedAt": "2026-10-06T09:41:24Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/59"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 58,
+    "title": "fix(astro): refresh the prerendered OG image after the Next 15.5.27 upgrade",
+    "mergedAt": "2026-10-06T09:41:31Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/58"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 52,
+    "title": "feat(studio): standalone Studio for Sanity hosting (cutover step 1)",
+    "mergedAt": "2026-10-06T09:41:36Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/52"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 60,
+    "title": "docs(astro): Workers Builds in the cutover doc, clean staging parity",
+    "mergedAt": "2026-10-06T09:55:29Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/60"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 61,
+    "title": "chore(deps): pnpm 10.34.5 (security), root and astro/",
+    "mergedAt": "2026-10-06T10:06:29Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/61"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 62,
+    "title": "docs(astro): record the 7 October staging checks",
+    "mergedAt": "2026-10-07T09:32:17Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/62"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 63,
+    "title": "chore(astro): serve production from www.client.example",
+    "mergedAt": "2026-10-07T19:07:10Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/63",
+    "body": "## Summary\n\n(PR body)\n\n## Briefing\nkind: visible\nsupersedes: #44\ntitle: Your site now runs on a faster setup\noutcome: Since Wednesday 7 October, pages open quickly on phones. It looks and works the same, and we can switch back within minutes if anything goes wrong.\n"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 64,
+    "title": "docs(astro): record the production switch and the staging payment test",
+    "mergedAt": "2026-10-07T19:14:47Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/64"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 65,
+    "title": "fix(preorder): reviewer links work for names longer than 19 characters",
+    "mergedAt": "2026-10-07T23:06:34Z",
+    "forClient": "none",
+    "url": "https://example.invalid/pull/65"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 67,
+    "title": "docs: cutover progress note and processor register after the switch",
+    "mergedAt": "2026-10-08T00:20:19Z",
+    "forClient": null,
+    "url": "https://example.invalid/pull/67"
+   },
+   {
+    "repo": "example-client/site",
+    "number": 66,
+    "title": "Cloudflare Web Analytics behind the existing analytics consent",
+    "mergedAt": "2026-10-08T00:31:24Z",
+    "forClient": "If a visitor accepts analytics, your site now also measures page views and how quickly pages load, without cookies, and the privacy and cookie pages say so.",
+    "url": "https://example.invalid/pull/66",
+    "body": "## Summary\n\n(PR body)\n\n## Briefing\nkind: privacy\ntitle: Visitor measurement that respects privacy\noutcome: When a visitor accepts analytics, your site now records page views and loading speed without cookies. Your privacy and cookie pages explain this.\n"
+   }
+  ],
+  "notes": {
+   "example-client/site#42": "Phones and tablets now load your home page much faster by skipping the intro video, and desktops show a quick animation beside your hero card instead of a full screen cover.",
+   "example-client/site#58": "none",
+   "example-client/site#52": "none"
+  },
+  "uptime": {
+   "monitorId": 800000001,
+   "intervalSeconds": 300,
+   "incidents": [
+    {
+     "startedAt": "2026-08-18T02:16:53.718Z",
+     "resolvedAt": "2026-08-20T12:34:14.718Z",
+     "reason": "Connection Timeout"
+    }
+   ]
+  },
+  "speed": {
+   "runs": [
+    {
+     "score": 100,
+     "fetchTime": "2026-10-08T20:01:29.904Z",
+     "url": "https://www.client.example/",
+     "strategy": "mobile"
+    },
+    {
+     "score": 100,
+     "fetchTime": "2026-10-08T20:02:57.468Z",
+     "url": "https://www.client.example/",
+     "strategy": "mobile"
+    },
+    {
+     "score": 100,
+     "fetchTime": "2026-10-08T20:04:20.678Z",
+     "url": "https://www.client.example/",
+     "strategy": "mobile"
+    },
+    {
+     "score": 100,
+     "fetchTime": "2026-10-08T20:05:50.015Z",
+     "url": "https://www.client.example/",
+     "strategy": "mobile"
+    },
+    {
+     "score": 100,
+     "fetchTime": "2026-10-08T20:07:15.316Z",
+     "url": "https://www.client.example/",
+     "strategy": "mobile"
+    }
+   ],
+   "history": []
+  },
+  "search": {
+   "clicks": 1,
+   "impressions": 25,
+   "queries": [
+    {
+     "query": "domandigital.co.uk"
+    },
+    {
+     "query": "willow and wren"
+    }
+   ]
+  },
+  "analytics": {
+   "sessions": 0
+  }
+ },
+ "config": {
+  "slug": "willow-and-wren",
+  "name": "Willow & Wren",
+  "contactFirstName": "Sam",
+  "signoffName": "Dmitri",
+  "headline": "Your faster site is live. Three quick decisions keep the January launch on track.",
+  "subhead": "Since Wednesday 7 October your site has run on a faster setup, and every check passed from 27 September.",
+  "note": "January gives the launch room to breathe, and your emails are ready the moment you are. Your faster site has been live since Wednesday 7 October, and a test payment passed on it before the switch. Once you've signed off the three items above, I'll show you the final checks before anything opens for sale.",
+  "approvals": [
+   {
+    "id": "launch-date",
+    "title": "Confirm Wednesday 13 January as your on-sale date",
+    "why": "Your launch emails already carry this date. Sales open only once you confirm.",
+    "content": "On-sale date: Wednesday 13 January 2027",
+    "review": {
+     "label": "Confirm the date",
+     "url": "https://review.example/launch-date"
+    },
+    "secondary": {
+     "label": "Let's talk",
+     "url": "https://review.example/talk"
+    },
+    "sources": [
+     "#45",
+     "#54"
+    ]
+   },
+   {
+    "id": "sample-pages",
+    "title": "Approve the six sample pages",
+    "why": "New sign-ups receive these so they can read a little of the planner before they buy. The welcome email in the folder links to them. They go out only after you approve.",
+    "content": "Six-page free sample PDF, as merged in #46",
+    "review": {
+     "label": "Open the review folder",
+     "url": "https://review.example/sample-pages"
+    },
+    "sources": [
+     "#46"
+    ]
+   },
+   {
+    "id": "launch-emails",
+    "title": "Read your launch emails",
+    "why": "All eight, in the Willow & Wren look: cream background, the wren mark, your colours, signed \"Sam W\". Each one goes out only after you approve it. A reply saying you are happy is enough.",
+    "content": "Launch emails, as merged in #50 and #54",
+    "review": {
+     "label": "Read the emails (PDF)",
+     "url": "https://review.example/launch-emails"
+    },
+    "sources": [
+     "#50"
+    ]
+   }
+  ],
+  "launch": {
+   "date": "2027-01-13",
+   "state": "proposed",
+   "milestones": [
+    {
+     "label": "Launch emails designed",
+     "status": "ready"
+    },
+    {
+     "label": "Faster site switched on, 7 October",
+     "status": "ready"
+    },
+    {
+     "label": "Test payment on the new site",
+     "status": "ready"
+    },
+    {
+     "label": "Your three approvals",
+     "status": "waiting"
+    },
+    {
+     "label": "Sales open on your confirmed date",
+     "status": "planned"
+    }
+   ]
+  },
+  "urls": {
+   "log": "https://review.example/log",
+   "webView": "https://review.example/view"
+  }
+ },
+ "expected": {
+  "source": "Hand-built first briefing (DOM-562), saved 8 October 2026 20:03 UTC",
+  "statusLabel": "3 things need you",
+  "sections": [
+   "status",
+   "needs-you",
+   "launch",
+   "changes",
+   "health",
+   "note"
+  ],
+  "approvals": [
+   "Confirm Wednesday 13 January as your on-sale date",
+   "Approve the six sample pages",
+   "Read your launch emails"
+  ],
+  "launch": {
+   "state": "proposed",
+   "dateLong": "Wednesday 13 January",
+   "pill": "Awaiting your confirmation",
+   "line": "The countdown starts once you confirm.",
+   "milestones": [
+    [
+     "Launch emails designed",
+     "ready"
+    ],
+    [
+     "Faster site switched on, 7 October",
+     "ready"
+    ],
+    [
+     "Test payment on the new site",
+     "ready"
+    ],
+    [
+     "Your three approvals",
+     "waiting"
+    ],
+    [
+     "Sales open on your confirmed date",
+     "planned"
+    ]
+   ]
+  },
+  "changes": [
+   "Your site now runs on a faster setup",
+   "Your home page opens faster on phones",
+   "A security update, tested first"
+  ],
+  "featureImage": null,
+  "uptime": {
+   "passed": 3168,
+   "total": 3168,
+   "summary": "Every check passed"
+  },
+  "speed": {
+   "median": 100,
+   "bandLine": "Fast. 90 and above is the top band."
+  },
+  "search": {
+   "state": "low-data",
+   "sentence": "Search numbers stay small before a launch, so we'll start reporting trends once there's enough to go on."
+  },
+  "visits": null,
+  "behindTheScenes": "Plus 19 smaller changes behind the scenes, including visitor measurement without cookies and a daily email about the printer orders waiting to be paid."
+ }
+}

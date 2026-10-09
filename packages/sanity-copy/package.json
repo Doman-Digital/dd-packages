@@ -32,9 +32,10 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "node ../../scripts/refuse-npm-publish.mjs && pnpm run build"
   },
   "devDependencies": {
+    "@types/node": "^20.19.43",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "vitest": "^4.0.0"
