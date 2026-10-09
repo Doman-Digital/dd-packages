@@ -1,5 +1,11 @@
 # @domandigital/sentry
 
+## 0.1.1
+
+### Patch Changes
+
+- 2f756fc: Installable: 0.1.0 was published with its `@domandigital/synthetic` dependency as `workspace:^`, which no package manager outside this repo can resolve. 0.1.1 depends on `^0.1.0`. Use 0.1.1; 0.1.0 is deprecated.
+
 ## 0.1.0
 
 ### Minor Changes
