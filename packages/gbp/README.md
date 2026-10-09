@@ -90,6 +90,25 @@ is no copy at all. Never fall back to a hardcoded number.
 A site that reads this file needs none of the `GBP_*` or `GOOGLE_BUSINESS_*`
 variables below.
 
+### Facebook recommendations
+
+The portal also publishes each client's Facebook Page recommendations beside
+the Google file, at `<client-slug>.facebook.json`:
+
+```ts
+import { getPublishedFacebookRecommendations } from "@domandigital/gbp";
+
+const { rating, count, recommends, reviews } = await getPublishedFacebookRecommendations({
+  client: "rmp-electrical",
+});
+```
+
+Facebook has recommendations, not star reviews. `count` is every
+recommendation on the Page, `recommends` the positive ones, and `rating` is
+Meta's own overall figure (null when Meta gives none). `reviews` holds the
+positive recommendations that have words. There is no author, because Meta
+does not return one. It throws on failure like `getPublishedReviews`.
+
 ## Why Business Profile API, not Places API
 
 Places API's `Review` object has no field for the business's reply, full
