@@ -1,0 +1,24 @@
+{
+  "note": "Blind test 2026-09-30. Humans were chosen before anyone votes, from calibration/copy-shape/wayback-domains.json (DMOZ, frozen 2017) where a trade matched, so each was listed by a directory editor before 2018. Design date is checked by prepare.mjs --verify (assets shared with a capture from 2022 or earlier). chair, rmp and sensphere have none or too few human matches in that list: they need sites nominated by a person.",
+  "seed": "dd-blind-2026-09-30",
+  "ours": {
+    "dd": { "url": "https://www.domandigital.co.uk/", "trade": "web studio" },
+    "mmm": { "url": "https://www.mmm-beauty.co.uk/", "trade": "beauty salon" },
+    "sensphere": { "url": "https://sensphere.co.uk/", "trade": "therapy practice" },
+    "hj": { "url": "https://www.harrisonjamesltd.co.uk/", "trade": "accountants" },
+    "hjbeauty": { "url": "https://www.harrisonsbeauty.com/", "trade": "online shop" },
+    "chair": { "url": "https://www.chairandblade.co.uk/", "trade": "barber" },
+    "rmp": { "url": "https://www.rmp-electrical.co.uk/", "trade": "electricians" }
+  },
+  "humans": {
+    "dd": ["olivecreative.com", "webcambs.co.uk", "lisltd.co.uk"],
+    "hj": ["bennettjonesandco.co.uk", "hodgsons.uk.com", "lamontpridmore.co.uk", "saint.co.uk"],
+    "hjbeauty": ["pine-oak.co.uk", "vicarsgame.co.uk", "alldersopticians.com"],
+    "mmm": ["bodyimage.uk", "thesunstudio.co.uk", "crew-uk.com"],
+    "rmp": ["mwrightelectrical-scunthorpe.co.uk"],
+    "chair": [],
+    "sensphere": []
+  },
+  "controls": { "dd": 3, "hj": 3, "hjbeauty": 2, "mmm": 2 },
+  "sessions": 2
+}
