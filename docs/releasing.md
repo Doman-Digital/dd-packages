@@ -50,17 +50,29 @@ Requirements, from docs.npmjs.com/trusted-publishers (last edited 2026-09-03):
 
 ### Adding a new package
 
-Every package needs its own trusted publisher on npmjs.com before its first
-release can publish:
+A trusted publisher can only be attached to a package that already exists, so
+a new package's first version is published by hand and every later one by
+`release.yml`. After the "Version Packages" pull request for it merges (the
+release run fails with `E404 PUT .../@domandigital%2f<pkg>`), from a machine
+where `npm whoami` prints `doman-digital` (2FA is asked for at each step):
 
-1. On npmjs.com, open the package's settings (for a brand-new package, create
-   the publisher from the organisation's pending packages first).
-2. Add a GitHub Actions trusted publisher: owner `Doman-Digital`, repository
-   `dd-packages`, workflow `release.yml` (with the extension).
-3. **Allowed actions: tick `npm publish`.** Only `npm stage publish` is always
-   allowed; `changeset publish` calls `npm publish`, so without the tick the
-   release fails with `ENEEDAUTH`.
-4. Every field is case-sensitive and must match exactly.
+```sh
+cd ~/repos/dd-packages && git checkout main && git pull --ff-only && pnpm install --frozen-lockfile
+cd packages/<pkg> && pnpm publish --access public --no-git-checks --provenance false
+npm trust github @domandigital/<pkg> --file release.yml --repo Doman-Digital/dd-packages --allow-publish
+npm trust list @domandigital/<pkg> && cd ~/repos/dd-packages && git tag @domandigital/<pkg>@<version> && git push origin @domandigital/<pkg>@<version>
+```
+
+- **`pnpm publish`, never `npm publish`.** npm sends `workspace:` ranges as
+  written, and the package cannot be installed (`@domandigital/sentry` 0.1.0,
+  2026-10-09). `scripts/refuse-npm-publish.mjs` stops it in `prepublishOnly`
+  for every package with a `workspace:` dependency.
+- `--provenance false` because provenance can only be minted inside GitHub
+  Actions; every later release has it.
+- `--allow-publish` is the "Allowed actions: npm publish" tick. Without it the
+  release fails with `ENEEDAUTH`.
+- `E404` on the publish together with `E401` from `npm trust` means the npm
+  login has expired, not that anything is missing: `npm login` and rerun.
 
 `package.json` must carry `"publishConfig": { "access": "public",
 "provenance": true }` and a `repository.url` of
