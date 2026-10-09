@@ -11,7 +11,7 @@ import { auditSnapshot, scanSource } from "../character/check.js";
 import { finish, loadConfig, loadExceptions, parseFlags, prepareReport, readPaths, SOURCE_FILE, type Flags, type Io } from "../character/cli.js";
 import { toJson } from "../character/json.js";
 import type { CheckReport } from "../character/types.js";
-import { fingerprint, type Fingerprint } from "../fingerprint/index.js";
+import { fingerprint, rhythmOf, type Fingerprint } from "../fingerprint/index.js";
 import type { Snapshot } from "../snapshot/types.js";
 import { readSnapshot } from "../snapshot/migrate.js";
 import { describeTypicality, loadNull } from "../null/cli.js";
@@ -44,7 +44,17 @@ export function describeFingerprint(fp: Fingerprint): string {
     `  motion     ${Math.round(fp.motion * 100)}% of sections below the fold reveal on scroll`,
     `  effects    ${fp.effects.join(", ") || "none"}`,
     `  layout     ${fp.layout.join(" > ") || "none"}`,
+    `  rhythm     ${rhythmOf(fp)?.join(" > ") ?? "not measured: sections carry no backgrounds before snapshot version 2"}`,
+    `  hero       ${describeHero(fp)}`,
   ].join("\n");
+}
+
+function describeHero(fp: Fingerprint): string {
+  if (!fp.hero) return "none";
+  const section = fp.sections?.find((s) => s.role === "hero");
+  // copy-ok: the fingerprint's own vocabulary ("no accent", "no buttons"), which the tests match
+  const parts = [section ? (section.centred >= 0.5 ? "centred" : "left-aligned") : null, fp.hero.headline ? `${fp.hero.headline.class} headline at ${Math.round(fp.hero.headline.sizePx)}px` : "no headline", fp.hero.image ? (fp.hero.image === "none" ? "no picture" : fp.hero.image === "full" ? "full-width picture" : `picture ${fp.hero.image}`) : null];
+  return parts.filter((p): p is string => p !== null).join(", ");
 }
 
 /** Two reports as one: the source scan and the rendered page. */
@@ -120,6 +130,8 @@ export async function runAudit(command: "snapshot" | "audit", args: string[], io
     if (flags.pages && target) throw new Error("give a page or --pages, not both");
     if (!target && !flags.pages) throw new Error(`usage: craft ${command} <url${command === "audit" ? " | snapshot.json> | --pages <sitemap.xml | urls.txt>" : ">"}`);
     const viewports = viewportsOf(flags);
+    if (flags.scheme && flags.scheme !== "light" && flags.scheme !== "dark") throw new Error("--scheme takes light or dark");
+    const colorScheme = flags.scheme as "light" | "dark" | undefined;
 
     const audited: Audited[] = [];
     const failed: Failed[] = [];
@@ -127,13 +139,14 @@ export async function runAudit(command: "snapshot" | "audit", args: string[], io
     if (target && command === "audit" && /\.json$/i.test(target) && existsSync(local)) {
       audited.push({ url: target, viewport: null, snapshot: readSnapshotFile(local) });
     } else if (target && viewports.length === 1) {
-      const snapshot = await snapshotUrl(target, { viewport: viewports[0] });
+      const snapshot = await snapshotUrl(target, { viewport: viewports[0], colorScheme });
       audited.push({ url: target, viewport: viewports[0] ?? null, snapshot });
     } else {
       const urls = flags.pages ? await resolvePages(flags.pages, io.cwd) : [target!];
       for (const viewport of viewports) {
-        for (const r of await snapshotUrls(urls, { viewport })) {
+        for (const r of await snapshotUrls(urls, { viewport, colorScheme })) {
           if (r.snapshot) audited.push({ url: r.url, viewport: viewport ?? null, snapshot: r.snapshot });
+          // copy-ok: an error label
           else failed.push({ url: r.url, viewport: viewport ?? null, error: r.error ?? "no snapshot" });
         }
       }
