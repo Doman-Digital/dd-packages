@@ -91,6 +91,27 @@ function fireAndForget(options: ReporterOptions, run: () => Promise<void>): Prom
 }
 
 /**
+ * A forged request must not become a beacon flood: `synthetic_rejected` goes
+ * out at most once per client, form and reason in each window, per isolate.
+ */
+const REJECT_BEACON_WINDOW_SECONDS = 60;
+const recentRejects = new Map<string, number>();
+
+function rejectBeaconDue(client: string, event: BeaconEvent, nowSeconds: number): boolean {
+  const key = `${client}|${event.form}|${event.reason}`;
+  const last = recentRejects.get(key);
+  if (last !== undefined && nowSeconds - last < REJECT_BEACON_WINDOW_SECONDS) return false;
+  if (recentRejects.size >= 256) recentRejects.clear();
+  recentRejects.set(key, nowSeconds);
+  return true;
+}
+
+/** Test hook: forget the throttle. */
+export function resetRejectBeaconThrottle(): void {
+  recentRejects.clear();
+}
+
+/**
  * Sends a signed beacon to dd-checks. Fire-and-forget: never throws, never
  * rejects, and a bad argument is dropped rather than raised, because the
  * caller is a form handler in the middle of a visitor's request.
@@ -108,6 +129,7 @@ export function sendBeacon(options: ReporterOptions, event: BeaconEvent): Promis
     if (event.code === "synthetic_rejected") {
       if (!event.reason || !REJECT_REASONS.includes(event.reason)) return;
       payload.reason = event.reason;
+      if (!rejectBeaconDue(options.client, event, payload.ts)) return;
     }
     await post(options, BEACON_PATH, "beacon", event.form, payload);
   });

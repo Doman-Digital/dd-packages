@@ -222,3 +222,28 @@ describe("upstashReplayGuard", () => {
     await expect(upstashReplayGuard({ url: "https://x", token: "t", fetch: respond({}, false) as unknown as typeof fetch })("abcdefghijklmnop")).rejects.toThrow();
   });
 });
+
+describe("body size cap", () => {
+  it("rejects an oversized body as shape without hashing it", async () => {
+    const { input } = await signed();
+    const result = await verify({ ...input, body: "x".repeat(2000) }, config({ maxBodyBytes: 1000 }));
+    expect(result).toMatchObject({ ok: false, reason: "shape" });
+  });
+
+  it("verifyRequest stops reading a streamed body past the cap, and trusts no Content-Length", async () => {
+    const big = "x".repeat(5000);
+    const request = new Request(URL_OK, { method: "POST", headers: { "content-type": "application/json", "x-dd-synth": "v1" }, body: big });
+    expect(await verifyRequest(request, config({ maxBodyBytes: 1000 }))).toMatchObject({ ok: false, reason: "shape" });
+  });
+});
+
+describe("upstashReplayGuard timeout", () => {
+  it("passes an abort signal so a slow guard fails closed", async () => {
+    const fetchMock = vi.fn(async (_u: string, init: RequestInit) => {
+      expect(init.signal).toBeInstanceOf(AbortSignal);
+      return new Response(JSON.stringify({ result: "OK" }));
+    });
+    const guard = upstashReplayGuard({ url: "https://u.example", token: "t", fetch: fetchMock as unknown as typeof fetch });
+    expect(await guard("abcdefghijklmnop")).toBe(true);
+  });
+});

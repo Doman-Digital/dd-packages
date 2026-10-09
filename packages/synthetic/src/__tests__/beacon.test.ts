@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from "vitest";
-import { sendBeacon, sendPurgeReceipt, verify, memoryReplayGuard, type ReporterOptions } from "../index";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { resetRejectBeaconThrottle, sendBeacon, sendPurgeReceipt, verify, memoryReplayGuard, type ReporterOptions } from "../index";
 import { KEY_A, NOW } from "./helpers";
 
 function reporter(overrides: Partial<ReporterOptions> = {}) {
@@ -11,6 +11,20 @@ function reporter(overrides: Partial<ReporterOptions> = {}) {
   const options: ReporterOptions = { key: KEY_A, client: "example", fetch: fetchMock as unknown as typeof fetch, now: NOW, ...overrides };
   return { options, calls, fetchMock };
 }
+
+beforeEach(() => resetRejectBeaconThrottle());
+
+describe("synthetic_rejected throttle", () => {
+  it("sends one beacon per client, form and reason a minute, so forged traffic cannot flood", async () => {
+    const { options, calls } = reporter();
+    for (let i = 0; i < 20; i++) await sendBeacon(options, { form: "enquiry", code: "synthetic_rejected", reason: "bad_signature" });
+    expect(calls).toHaveLength(1);
+    await sendBeacon(options, { form: "enquiry", code: "synthetic_rejected", reason: "replay" });
+    expect(calls).toHaveLength(2);
+    await sendBeacon({ ...options, now: NOW + 61 }, { form: "enquiry", code: "synthetic_rejected", reason: "bad_signature" });
+    expect(calls).toHaveLength(3);
+  });
+});
 
 describe("sendBeacon", () => {
   it("posts a signed, codes-only payload that dd-checks can verify", async () => {
