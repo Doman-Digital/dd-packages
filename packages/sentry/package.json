@@ -65,7 +65,7 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "node ../../scripts/refuse-npm-publish.mjs && pnpm run build"
   },
   "dependencies": {
     "@domandigital/synthetic": "workspace:^"
