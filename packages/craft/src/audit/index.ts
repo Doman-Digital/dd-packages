@@ -30,6 +30,12 @@ export interface SnapshotOptions {
   visual?: boolean;
   /** Read the first bytes of the page's larger images for AI provenance markers. Default true. */
   provenance?: boolean;
+  /**
+   * The colour scheme the page is asked for (`prefers-color-scheme`). A site
+   * with a light and a dark mode is two pages to the visitor; snapshot each.
+   * Default: the browser's own, which is light in headless Chromium.
+   */
+  colorScheme?: "light" | "dark";
 }
 
 interface MinimalPage {
@@ -77,7 +83,7 @@ async function readProvenance(page: MinimalPage, images: NonNullable<Snapshot["i
 export const VISUAL_MAX_HEIGHT = 6000;
 
 interface MinimalBrowser {
-  newPage(options?: { viewport?: { width: number; height: number } }): Promise<MinimalPage>;
+  newPage(options?: { viewport?: { width: number; height: number }; colorScheme?: "light" | "dark" }): Promise<MinimalPage>;
   close(): Promise<void>;
 }
 
@@ -171,7 +177,7 @@ export async function snapshotUrls(urls: string[], options: SnapshotOptions = {}
   const out: SnapshotResult[] = [];
   try {
     for (const url of urls) {
-      const page = await browser.newPage({ viewport: options.viewport ?? { width: 1440, height: 900 } });
+      const page = await browser.newPage({ viewport: options.viewport ?? { width: 1440, height: 900 }, ...(options.colorScheme ? { colorScheme: options.colorScheme } : {}) });
       try {
         const response = (await page.goto(url, { waitUntil: "domcontentloaded", timeout: options.timeoutMs ?? 45000 })) as { status?(): number } | null;
         // An error page is not the page. Measuring it would report a 404 as a

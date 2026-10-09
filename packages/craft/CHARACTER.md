@@ -327,6 +327,7 @@ craft copy app content     # the prose a visitor reads
 craft tells list           # the catalogue this build judges against
 craft audit https://example.co.uk --repo .   # the rendered page and its source, one report
 craft snapshot https://example.co.uk --out home.json
+craft snapshot https://example.co.uk --scheme dark --out home-dark.json   # a site's dark mode
 ```
 
 `--json` gives the full report. Exit code is 0 on warnings, 1 on a block (or
@@ -369,10 +370,58 @@ anywhere with `craft audit home.json`. `HTTPS_PROXY` is honoured, and a
 `localhost` or `NO_PROXY` host is reached directly.
 
 Every audit also prints a **fingerprint**: accent and ground in OKLCh, the
-display and body faces, button roundness, reveal density, the effects and the
-running order. `fingerprintDistance` compares two of them, 0 to 1, weighted
-towards accent and type. Signals 2 and 3 are both this distance, measured
+display and body faces, button roundness, reveal density, the effects, the
+running order, the rhythm of light and dark bands, and the hero's
+composition. `fingerprintDistance` compares two of them, 0 to 1, as a
+weighted mean of nine parts. Signals 2 and 3 are both this distance, measured
 against different sets.
+
+| Part | Weight | What it measures |
+|---|---|---|
+| accent | 0.20 | ΔE_OK between the accents over 0.3; 1 when only one site has one |
+| type | 0.20 | display face (0.6) and body face (0.4): 0 same family, 0.5 same class, 1 |
+| ground | 0.10 | ΔE_OK over 0.15, plus 0.6 of the temperature gap (below) |
+| shape | 0.10 | button roundness, 0 square to 0.5 pill |
+| motion | 0.05 | share of below-the-fold sections that reveal on scroll |
+| effects | 0.10 | 1 minus the Jaccard overlap of the second-look effects |
+| layout | 0.10 | edit distance over section roles and geometry (kinds before snapshot v2) |
+| rhythm | 0.10 | edit distance over the bands of light, mid and dark, opening counted twice |
+| hero | 0.05 | text centred or left, its width, headline class and size, picture side |
+
+Accent and type carry the most because that is where a model's defaults show
+first and where a real business has something of its own. Structure (layout,
+rhythm and hero) carries a quarter between its three parts, because two sites
+that open the same way read as the same site before any colour is compared;
+before 0.19 structure was `layout` alone at a tenth and barely moved a score.
+A part only one side measures (rhythm and hero on a version 1 fingerprint,
+the picture side on a snapshot without image positions) is left out and the
+rest are weighed over what remains, so older registers and null models
+compare without being re-snapshotted.
+
+**Ground temperature.** ΔE alone files every light neutral page as one
+paper: RMP's cream (`oklch(0.96 0.010 82)`) and Bellerose's porcelain
+(`#F1F3F4`, `oklch(0.96 0.003 229)`) are ΔE 0.013 apart, a tenth of the
+ground scale, and nobody takes them for the same page. A page ground is the
+largest area on the page and the eye adapts to it, so a tint far below what
+separates two buttons still reads as warm or cool paper. `groundTemperature`
+is the chroma over 0.006 (where a tint is unmistakable: cream sits at 0.010,
+stone at 0.007), signed by hue: red through yellow is warm, teal through
+violet is cool, the greens and magentas between are neither. Warm against
+cool adds 0.6 to the ground part, warm against a neutral white 0.3, two warm
+papers nothing. Shared grounds are named with it: "cream ground", "cool grey
+ground", "warm dark ground", or "warm ground" when one is cream and the other
+a warm grey.
+
+**Rhythm** is the page's sequence of light (L 0.75 and over), mid and dark
+(under 0.4) bands, each run of same-lightness sections merged: a cream hero,
+a white logo strip and a near-black band are light then dark, which is what
+a visitor sees. The first three bands are scored once on their own and once
+as part of the whole, so the opening counts double. **Hero** compares the
+hero section's centring and width, the h1's class and size (an octave, 48px
+against 96px, is the whole size distance) and which side of the centre line
+its largest picture sits, when the snapshot records image positions (craft
+0.19 and later). Shared, they are named "light hero then dark band" and
+"left-aligned serif hero, photo right".
 
 Known limit: a computed font family is the family the stylesheet asked for.
 A face that failed to load is still reported under its name.
@@ -539,9 +588,15 @@ the same brief usually are: the median of that distance over the null models,
 0.31 on 2026-09-23 (`--null` measures it again from any null models given).
 If a barber and an electrician look more alike than two drafts of one barber,
 neither look was chosen. The report says what the pair shares in plain words
-("Fraunces headline", "no accent", "pill buttons"), which is where to start
-pulling them apart. A sibling is a warning; `--strict` exits 1 on one, for a
-pipeline that has decided to hold the line.
+("Fraunces headline", "no accent", "pill buttons", "cream ground", "light hero
+then dark band", "left-aligned serif hero, photo right"), which is where to
+start pulling them apart. A sibling is a warning; `--strict` exits 1 on one,
+for a pipeline that has decided to hold the line.
+
+A site with a light and a dark mode is two pages to a visitor. `craft
+snapshot <url> --scheme light|dark` asks the browser for one scheme
+(`prefers-color-scheme`); a site that stores a choice in `localStorage` or on
+`<html data-theme>` needs that set instead. Compare each.
 
 `craft direction propose --estate estate.json` reads the register too, so a
 proposed accent steers away from one a sibling already uses.
@@ -927,6 +982,22 @@ Rules for a direction board, recorded so the next one starts here:
 - **A generated concept image is a composition study.** It can show a layout worth adopting. It is never evidence, never ships, and its headline is checked like any other: the one produced in this review had the null set's own shape.
 
 The board in question is the DD redesign's Stage 05 artefact (DOM-397, CRO-21); v1.1 applied all five.
+
+### Ground temperature and structure, 2026-10-09
+
+Bellerose Plumbing's light mode looked, to the founder, too much like RMP Electrical, and craft gave the pair 0.59 sharing only "grey ground". Bellerose then moved its light page from warm stone (`#EEEDE8`) to cool porcelain (`#F1F3F4`, bellerose-plumbing#32), and craft scored the two Bellerose pages 0.01 apart. Two things were missing: hue barely counts at a ground's chroma, and structure moved the score by a tenth at most. Fingerprint version 3 (DOM-637) adds ground temperature to the ground part, a rhythm part and a hero part, with the weights in *The rendered page* above. Measured on RMP live (2026-10-09) and Bellerose built locally at `c62590c` (stone, before #32) and `47f9d79` (porcelain), each snapshotted with `--scheme light` and `--scheme dark`; snapshots, a copy of the redesign workstream's register and the full tables are in `calibration/estate/2026-10-09-temperature/`. "Before" is craft 0.18.1's distance on the same snapshots.
+
+| Pair | Before | After | Shares after |
+|---|---|---|---|
+| RMP + Bellerose light on stone | 0.59 (cream ground) | **0.54** | warm ground, left-aligned serif hero, photo right, light hero then dark band |
+| RMP + Bellerose light on porcelain | 0.59 (cream ground) | 0.58 | left-aligned serif hero, photo right, light hero then dark band |
+| RMP + Bellerose dark (either) | 0.77 | 0.72 | left-aligned serif hero, photo right |
+| Bellerose stone light + porcelain light | 0.01 | 0.06 | everything but the ground |
+| RMP + RMP | 0.00 | 0.00 | |
+
+Against the register as it stands (stored version 2 fingerprints, not re-added), the stone page's nearest site is RMP (0.54) and the porcelain page's is Harrison James (0.52) with RMP second (0.58): the move away from RMP that the founder made by eye now shows in the numbers, and both Bellerose light pages still share the opening with RMP, which is the next thing to pull apart. Neither pair is a sibling; the faces, the accent and the button shape are their own.
+
+The seven register pairs reshuffle little: Kendall tau 0.83 between the before and after orderings over 21 pairs, the closest pair is still DD + RMP (0.48 to 0.52, now "warm ground" rather than "grey ground"), and no pair crosses the sibling line. Pairs that shared "white ground" and little else move apart by 0.02 to 0.06 as the temperature counts (MMM + Sensphere keep "cool white ground"); Chair and Blade + HJ Beauty move closer (0.74 to 0.66) because both open dark then light. The sibling line measured again on the seven v2 null models is 0.337 with the old distance and 0.339 with the new, so the weights do not move it; `SIBLING_AT` stays at the 0.31 measured on the v1 models in September, and moving it to the v2 line is a separate decision.
 
 ## The catalogue
 

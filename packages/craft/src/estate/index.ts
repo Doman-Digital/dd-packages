@@ -17,9 +17,9 @@
  * Pure. The CLI reads and writes the register file.
  */
 
-import type { Fingerprint, FingerprintDistance } from "../fingerprint/index.js";
-import { fingerprintDistance, SHARED_PART } from "../fingerprint/index.js";
-import { groundName, hueName, shapeName } from "../null/index.js";
+import type { LightnessBand, Fingerprint, FingerprintDistance } from "../fingerprint/index.js";
+import { fingerprintDistance, rhythmOf, SHARED_PART, temperatureName } from "../fingerprint/index.js";
+import { groundLabel, hueName, shapeName } from "../null/index.js";
 import type { DirectionSummary } from "./direction.js";
 
 export const ESTATE_VERSION = 1;
@@ -63,23 +63,62 @@ export function addSite(register: EstateRegister, site: EstateSite): EstateRegis
 }
 
 /**
+ * Two grounds that count as shared, named once: "cream ground" when both
+ * are, "warm ground" when one is cream and the other a warm grey, "light
+ * ground" when only their lightness agrees.
+ */
+function sharedGround(a: Fingerprint, b: Fingerprint): string {
+  const [x, y] = [groundLabel(a.ground), groundLabel(b.ground)];
+  if (x === y) return `${x} ground`;
+  const temperature = temperatureName(a.ground);
+  if (temperature !== "neutral" && temperature === temperatureName(b.ground)) return `${temperature} ground`;
+  return `${a.ground.l < 0.3 ? "dark" : "light"} ground`;
+}
+
+/** The rhythm the two pages share, from the opening bands: "light hero then dark band". */
+function sharedRhythm(a: Fingerprint, b: Fingerprint): string {
+  const bands = rhythmOf(a) ?? [];
+  const word = (band: LightnessBand): string => band;
+  if (bands.length <= 1) return `${bands[0] ? word(bands[0]) : "light"} page throughout`;
+  const second = bands[1] === "mid" ? "mid-tone band" : `${word(bands[1])} band`;
+  return `${word(bands[0])} hero then ${second}`;
+}
+
+/** The hero composition the two pages share: "left-aligned serif hero, photo right". */
+function sharedHero(a: Fingerprint, b: Fingerprint): string {
+  const hero = a.sections?.find((s) => s.role === "hero");
+  const placement = hero && hero.centred >= 0.5 ? "centred" : "left-aligned";
+  const headline = a.hero?.headline && b.hero?.headline && a.hero.headline.class === b.hero.headline.class ? `${a.hero.headline.class} ` : "";
+  const image = a.hero?.image && a.hero.image === b.hero?.image && a.hero.image !== "none" ? `, ${a.hero.image === "full" ? "full-width picture" : `photo ${a.hero.image}`}` : "";
+  return `${placement} ${headline}hero${image}`;
+}
+
+/**
  * What two fingerprints effectively share, named the way a person would see
- * it: "Fraunces headline", "no accent", "pill buttons". A part counts when its
- * distance is `SHARED_PART` or less.
+ * it: "Fraunces headline", "no accent", "pill buttons", "cream ground",
+ * "light hero then dark band". A part counts when its distance is
+ * `SHARED_PART` or less; a part neither side measures never counts.
  */
 export function sharedParts(a: Fingerprint, b: Fingerprint, d: FingerprintDistance = fingerprintDistance(a, b)): string[] {
   const out: string[] = [];
-  const close = (k: keyof FingerprintDistance["parts"]) => d.parts[k] <= SHARED_PART;
+  const close = (k: keyof FingerprintDistance["parts"]) => {
+    const p = d.parts[k];
+    return p !== null && p <= SHARED_PART;
+  };
+  // copy-ok: the trait names the tests and the character report match ("no accent", "no reveals")
   if (close("accent")) out.push(a.accent || b.accent ? `${hueName(a.accent)} accent` : "no accent");
   if (close("type")) {
     if (a.display.family === b.display.family) out.push(`${a.display.family} headline`);
     if (a.body.family === b.body.family) out.push(`${a.body.family} body`);
   }
-  if (close("ground")) out.push(`${groundName(a.ground)} ground`);
+  if (close("ground")) out.push(sharedGround(a, b));
   if (close("shape")) out.push(`${shapeName(a.roundness)} buttons`);
+  // copy-ok: as above
   if (close("motion")) out.push(a.motion > 0 || b.motion > 0 ? "scroll reveals" : "no reveals");
   if (close("effects") && a.effects.length) out.push(a.effects.filter((e) => b.effects.includes(e)).join(", "));
-  if (close("layout")) out.push("running order");
+  if (close("hero")) out.push(sharedHero(a, b));
+  if (close("rhythm")) out.push(sharedRhythm(a, b));
+  if (close("layout")) out.push("same running order");
   return out;
 }
 

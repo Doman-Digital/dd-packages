@@ -598,6 +598,7 @@ export function collectInPage(): InPageSnapshot {
       width: Math.round(b.width),
       height: Math.round(b.height),
       top: Math.round(b.top),
+      left: Math.round(b.left),
       role: roleOfImage(el, src, b.width, b.height, alt),
       alt,
       decorative,
