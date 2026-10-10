@@ -7,6 +7,7 @@ export type Options = {
   siteUrl: string | undefined;
   sector: string | undefined;
   description: string | undefined;
+  programme: string | undefined;
   answers: string | undefined;
   dryRun: boolean;
   check: boolean;
@@ -27,10 +28,12 @@ Run it inside a fresh Next.js (App Router) or Astro TypeScript project:
 Usage
   create-site [dir] [--client <legal name>] [--trading-name <name>]
               [--site-url <https://...>] [--sector trades|beauty|clinics|professional]
-              [--description "<one or two sentences>"] [--answers <file.json>]
-              [--visibility private|public] [--dry-run] [--check] [--force]
-              [--skip-install] [--yes] [--help] [--version]
+              [--description "<one or two sentences>"] [--programme DOM-123]
+              [--answers <file.json>] [--visibility private|public]
+              [--dry-run] [--check] [--force] [--skip-install] [--yes] [--help] [--version]
 
+--programme     The site's programme issue in Linear, opened from the Site programme
+                template. The build refuses to run until site.programme.json names it.
 --dry-run       Print the plan and stop. Writes nothing, runs nothing.
 --check         Like --dry-run, never prompts, and exits 3 when there is work to do,
                 a house file that differs from its template included. For CI.
@@ -56,6 +59,7 @@ export function parseOptions(argv: string[]): Options | string {
         "site-url": { type: "string" },
         sector: { type: "string" },
         description: { type: "string" },
+        programme: { type: "string" },
         answers: { type: "string" },
         "dry-run": { type: "boolean", default: false },
         check: { type: "boolean", default: false },
@@ -76,6 +80,7 @@ export function parseOptions(argv: string[]): Options | string {
       siteUrl: values["site-url"],
       sector: values.sector,
       description: values.description,
+      programme: values.programme,
       answers: values.answers,
       dryRun: values["dry-run"] ?? false,
       check: values.check ?? false,
