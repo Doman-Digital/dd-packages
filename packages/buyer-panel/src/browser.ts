@@ -170,6 +170,9 @@ export class BrowserSession {
     } catch (e) {
       return `Could not click "${text}": ${(e as Error).message.split("\n")[0]}`;
     }
+    // A link's navigation can start after the click resolves: wait for the URL to move before reading the screen,
+    // or the buyer is shown the old page and concludes the link is broken.
+    await this.page.waitForURL((u) => u.toString() !== before, { timeout: 2500, waitUntil: "commit" }).catch(() => undefined);
     const opened = await popup;
     if (opened) {
       await opened.waitForLoadState("domcontentloaded").catch(() => undefined);
