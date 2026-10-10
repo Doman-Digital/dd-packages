@@ -135,15 +135,19 @@ export class BrowserSession {
   /** Finds what a buyer means by a piece of visible text: an exact link or button first, then looser matches. */
   async resolve(text: string, prefer: "action" | "any" = "action"): Promise<Locator | undefined> {
     const p = this.page;
-    const t = text.trim().replace(/^\[[^\]]+\]\s*/, "").replace(/^["“]|["”]$/g, "");
+    // The screen text lists a card link with its arrow and full text; its accessible name often has neither.
+    const t = text.trim().replace(/^\[[^\]]+\]\s*/, "").replace(/^["“]|["”]$/g, "").replace(/\s*[→›»>]+\s*$/, "").trim();
     if (!t) return undefined;
+    const words = t.split(/\s+/);
+    const heads = [...new Set([t.length > 40 ? t.slice(0, 40) : "", words.length > 5 ? words.slice(0, 4).join(" ") : ""].filter(Boolean))];
     const action = [
       p.getByRole("link", { name: t, exact: true }),
       p.getByRole("button", { name: t, exact: true }),
       p.getByRole("tab", { name: t, exact: true }),
     ];
     const loose = [p.getByRole("link", { name: t }), p.getByRole("button", { name: t }), p.getByLabel(t)];
-    const anyText = [p.getByText(t, { exact: true }), p.getByText(t)];
+    for (const h of heads) loose.push(p.getByRole("link", { name: h }), p.getByRole("button", { name: h }));
+    const anyText = [p.getByText(t, { exact: true }), p.getByText(t), ...heads.map((h) => p.getByText(h))];
     const order = prefer === "action" ? [...action, ...loose, ...anyText] : [...anyText, ...action, ...loose];
     const vh = p.viewportSize()?.height ?? 900;
     let fallback: Locator | undefined;
