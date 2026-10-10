@@ -9,7 +9,7 @@ import { layoutFor } from "./adapters.js";
 import { MANUAL_INSTRUCTIONS, patchConfig } from "./config-patch.js";
 import type { Project } from "./detect.js";
 import { hasDependency, patchPackageJson } from "./package-json.js";
-import { renderFacts, renderLinks, renderRedirects, renderRoutes } from "./render/data.js";
+import { renderFacts, renderLinks, renderProgramme, renderRedirects, renderRoutes, renderSheets } from "./render/data.js";
 import { renderBaseline, renderChecklist, renderDirection, renderHouseMd, renderWorkflow } from "./render/docs.js";
 import type { Visibility } from "./render/docs.js";
 import { patchPnpmWorkspace } from "./pnpm-workspace.js";
@@ -64,6 +64,16 @@ function hasWorkflows(root: string): boolean {
   return existsSync(dir) && readdirSync(dir).some((f) => /\.ya?ml$/.test(f));
 }
 
+/** The programme issue an existing site.programme.json already names, if any. */
+function programmeIssueIn(root: string): string | null {
+  try {
+    const issue = (JSON.parse(readFileSync(join(root, "site.programme.json"), "utf8")) as { issue?: unknown }).issue;
+    return typeof issue === "string" && issue ? issue : null;
+  } catch {
+    return null;
+  }
+}
+
 function actionFor(root: string, path: string, contents: string, data: boolean, force: boolean): FileAction {
   const abs = join(root, path);
   if (!existsSync(abs)) return "create";
@@ -103,7 +113,12 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
     { path: "docs/seo-launch-checklist.md", contents: renderChecklist(answers), data: true },
     { path: "docs/seo-baseline.md", contents: renderBaseline(answers, options.today), data: true },
     { path: "docs/client-facts.entry.json", contents: renderStackEntry(answers, project.framework, options.today), data: true },
+    { path: "site.programme.json", contents: renderProgramme(answers, project), data: true },
+    { path: "art-direction.sheets.json", contents: renderSheets(), data: true },
   );
+  if (!answers.programme && !programmeIssueIn(root)) {
+    notes.push("site.programme.json names no programme issue, so the build refuses to run. Open the programme from the Site programme template in Linear and put its id in issue.");
+  }
 
   const workflowPath = ".github/workflows/seo-check.yml";
   const workflow = renderWorkflow(project, options.visibility ?? "private");
@@ -123,7 +138,15 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
   const pkg = patchPackageJson(
     project.packageJson,
     {
-      scripts: { "seo:check": "vitest run tests/seo tests/house.test.ts", "launch:check": "vitest run tests --mode launch" },
+      scripts: {
+        "seo:check": "vitest run tests/seo tests/house.test.ts",
+        "launch:check": "vitest run tests --mode launch",
+        prebuild: "node scripts/gates/prebuild.mjs",
+        tokens: "node scripts/gates/tokens.mjs && node scripts/gates/night-contrast.mjs",
+        deck: "node scripts/gates/copy-deck.mjs",
+        measure: "node scripts/gates/measure.mjs --serve",
+        "deploy:preview": "node scripts/gates/deploy-preview.mjs",
+      },
       scriptsIfMissing: { test: "vitest run" },
       dependencies: options.skipInstall ? { ...HOUSE_DEPENDENCIES } : {},
       devDependencies: options.skipInstall ? { ...HOUSE_DEV_DEPENDENCIES } : {},

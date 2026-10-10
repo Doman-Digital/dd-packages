@@ -17,6 +17,20 @@ export type Layout = {
   siteKeys: Record<string, string>;
 };
 
+/** The site programme's gates (docs/site-programme.md), identical on every site. */
+export const GATES = [
+  "programme.mjs",
+  "prebuild.mjs",
+  "check-direction.mjs",
+  "tokens.mjs",
+  "night-contrast.mjs",
+  "facts.mjs",
+  "copy-deck.mjs",
+  "null-check.mjs",
+  "measure.mjs",
+  "deploy-preview.mjs",
+] as const;
+
 export function layoutFor(project: Project): Layout {
   const base = project.srcBase;
   const shared: TemplateFile[] = [
@@ -28,6 +42,8 @@ export function layoutFor(project: Project): Layout {
     { template: "shared/tests/house.test.ts", dest: "tests/house.test.ts" },
     { template: "shared/lib/consent.ts", dest: `${base}lib/consent.ts` },
     { template: "shared/lib/legal.ts", dest: `${base}lib/legal.ts` },
+    { template: "shared/docs/site-programme.md", dest: "docs/site-programme.md" },
+    ...GATES.map((g) => ({ template: `shared/scripts/gates/${g}`, dest: `scripts/gates/${g}` })),
   ];
   const siteKeys: Record<string, string> = {
     facts: "site.facts.ts",
