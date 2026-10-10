@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import type { Device, Panel } from "./config.js";
 import { accessCookie } from "./browser.js";
@@ -17,6 +17,8 @@ export interface RunOptions {
   variants?: string[];
   concurrency?: number;
   evaluate?: boolean;
+  /** An existing run directory to finish instead of starting a new run. */
+  into?: string;
   log?: (line: string) => void;
 }
 
@@ -61,35 +63,49 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
   }
   if (!/^[0-9a-f]{8}/i.test(o.version)) throw new Error("--version must be the Worker version id (at least its first 8 hex characters), or auto");
   const at = new Date();
-  const runId = runIdFor(o.version, at);
-  const runDir = join(panelRoot(panel), "runs", runId);
-  mkdirSync(join(runDir, "sessions"), { recursive: true });
   const profiles = panel.profiles.filter((p) => !o.only?.length || o.only.includes(p.id));
   const devices = panel.devices.filter((d) => !o.devices?.length || o.devices.includes(d));
   const variants = panel.variants.filter((v) => !o.variants?.length || o.variants.includes(v.id));
-  const plan = profiles.flatMap((profile) => devices.flatMap((device) => variants.map((variant) => ({ profile, device, variant }))));
+  let plan = profiles.flatMap((profile) => devices.flatMap((device) => variants.map((variant) => ({ profile, device, variant }))));
   if (!plan.length) throw new Error("nothing to run: check --only, --device and --variant");
 
-  const meta: RunMeta = {
-    runId,
-    panel: panel.name,
-    client: panel.client,
-    target: new URL(panel.target.start, panel.target.origin).toString(),
-    version: o.version,
-    label: o.label ?? "",
-    ranAt: at.toISOString(),
-    stepBudget: panel.stepBudget,
-    variants,
-    evaluator: panel.evaluator,
-    usage: { buyers: emptyUsage(), evaluator: emptyUsage() },
-  };
-  writeFileSync(join(runDir, "run.json"), JSON.stringify({ ...meta, plan: plan.map((x) => sessionId(x.profile.id, x.device, x.variant.id)) }, null, 1));
-  log(`run ${runId}: ${plan.length} sessions into ${runDir}`);
+  let runDir: string;
+  let meta: RunMeta;
+  if (o.into) {
+    // Finish an earlier run: same version only, and only the sessions that are missing or ended in an error.
+    runDir = o.into;
+    meta = JSON.parse(readFileSync(join(runDir, "run.json"), "utf8")) as RunMeta;
+    if (!meta.version.startsWith(o.version.slice(0, 8))) throw new Error(`run ${meta.runId} is keyed to ${meta.version}; the site now serves ${o.version}. Start a new run.`);
+    const done = new Set(readSessions(runDir).filter((r) => r.endReason !== "error").map((r) => r.id));
+    plan = plan.filter((x) => !done.has(sessionId(x.profile.id, x.device, x.variant.id)));
+    log(`run ${meta.runId}: ${plan.length} sessions to finish in ${runDir}`);
+  } else {
+    const runId = runIdFor(o.version, at);
+    runDir = join(panelRoot(panel), "runs", runId);
+    mkdirSync(join(runDir, "sessions"), { recursive: true });
+    meta = {
+      runId,
+      panel: panel.name,
+      client: panel.client,
+      target: new URL(panel.target.start, panel.target.origin).toString(),
+      version: o.version,
+      label: o.label ?? "",
+      ranAt: at.toISOString(),
+      stepBudget: panel.stepBudget,
+      variants,
+      evaluator: panel.evaluator,
+      usage: { buyers: emptyUsage(), evaluator: emptyUsage() },
+    };
+    writeFileSync(join(runDir, "run.json"), JSON.stringify({ ...meta, plan: plan.map((x) => sessionId(x.profile.id, x.device, x.variant.id)) }, null, 1));
+    log(`run ${runId}: ${plan.length} sessions into ${runDir}`);
+  }
 
   const cookie = await accessCookie(panel);
   await pool(plan, o.concurrency ?? 3, async ({ profile, device, variant }) => {
     const id = sessionId(profile.id, device, variant.id);
-    const rec = await runSession({ panel, profile, device, variant, dir: join(runDir, "sessions", id), cookie, log });
+    const dir = join(runDir, "sessions", id);
+    rmSync(dir, { recursive: true, force: true }); // a failed attempt's screenshots must not outlive it
+    const rec = await runSession({ panel, profile, device, variant, dir, cookie, log });
     log(`${id}: ${rec.endReason} after ${rec.steps.length} steps, ${rec.problems.length} problems`);
     return rec;
   });

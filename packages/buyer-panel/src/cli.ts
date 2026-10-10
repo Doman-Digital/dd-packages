@@ -21,6 +21,7 @@ Run options
   --variant <id>      Variant id (repeatable)
   --concurrency <n>   Sessions in parallel (default 3)
   --no-evaluate       Run the sessions only
+  --into <run-id>     Finish an earlier run of the same version: run only its missing or failed sessions
 
 Credentials come from the environment, never from flags:
   model    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BEDROCK_REGION (provider bedrock) or ANTHROPIC_API_KEY
@@ -41,6 +42,7 @@ async function main(argv: string[]): Promise<number> {
       variant: { type: "string", multiple: true },
       concurrency: { type: "string" },
       "no-evaluate": { type: "boolean" },
+      into: { type: "string" },
       help: { type: "boolean", short: "h" },
     },
   });
@@ -69,6 +71,7 @@ async function main(argv: string[]): Promise<number> {
       variants: values.variant,
       concurrency: values.concurrency ? Number(values.concurrency) : undefined,
       evaluate: !values["no-evaluate"],
+      into: values.into ? runDir(values.into) : undefined,
     });
     return 0;
   }

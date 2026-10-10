@@ -9,6 +9,30 @@ export interface ModelClient {
 
 const clients = new Map<Provider, ModelClient>();
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Bedrock's per-account quota throttles a panel running several sessions at once, past what the SDK's own short
+ * retries absorb. A throttled call waits longer and tries again, so one busy minute does not end a session.
+ */
+function patient(inner: ModelClient): ModelClient {
+  return {
+    messages: {
+      async create(body) {
+        for (let attempt = 0; ; attempt++) {
+          try {
+            return await inner.messages.create(body);
+          } catch (e) {
+            const status = (e as { status?: number }).status;
+            if ((status !== 429 && status !== 503 && status !== 529) || attempt >= 8) throw e;
+            await sleep(Math.min(120_000, 15_000 * 2 ** Math.min(attempt, 3)) + Math.random() * 5000);
+          }
+        }
+      },
+    },
+  };
+}
+
 /**
  * A plain API client: never a Claude Code session, so the buyer sees nothing but its system prompt
  * (the persona) and what the browser shows it.
@@ -20,10 +44,11 @@ export function clientFor(choice: ModelChoice): ModelClient {
   const provider = choice.provider ?? "bedrock";
   let c = clients.get(provider);
   if (!c) {
-    c =
+    c = patient(
       provider === "bedrock"
-        ? (new AnthropicBedrock({ awsRegion: process.env.AWS_BEDROCK_REGION || "eu-west-2", maxRetries: 6 }) as unknown as ModelClient)
-        : (new Anthropic({ maxRetries: 6 }) as unknown as ModelClient);
+        ? (new AnthropicBedrock({ awsRegion: process.env.AWS_BEDROCK_REGION || "eu-west-2", maxRetries: 4 }) as unknown as ModelClient)
+        : (new Anthropic({ maxRetries: 4 }) as unknown as ModelClient),
+    );
     clients.set(provider, c);
   }
   return c;
