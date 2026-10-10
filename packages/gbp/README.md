@@ -109,6 +109,33 @@ Meta's own overall figure (null when Meta gives none). `reviews` holds the
 positive recommendations that have words. There is no author, because Meta
 does not return one. It throws on failure like `getPublishedReviews`.
 
+### Checkatrade and MyBuilder reviews
+
+For trades on Checkatrade or MyBuilder, the portal publishes the reviews on
+the client's public profile beside the Google file, at
+`<client-slug>.checkatrade.json` and `<client-slug>.mybuilder.json`:
+
+```ts
+import { getPublishedExternalReviews } from "@domandigital/gbp";
+
+const { score, scale, count, profileUrl, reviews } = await getPublishedExternalReviews({
+  client: "bellerose-plumbing",
+  source: "checkatrade",
+});
+```
+
+Each platform keeps its own scale, and `scale` says which: Checkatrade
+scores out of 10 (`out_of_10`), MyBuilder gives a percentage of positive
+feedback (`percent_positive`). `score` and `count` are the platform's own
+figures for the whole profile, null when it shows none. `reviews` holds every
+review with words, word for word, newest first, with `author` as first name
+and initial ("Karen P."), the review's own `rating` out of 10 (Checkatrade)
+or `sentiment` (MyBuilder), the `job` and the trader's `reply` when there is
+one. Show the words as they are: never shorten or reword a review. Do not
+put these figures into an `aggregateRating`: they are another site's
+ratings, and Google treats review markup a business puts about itself on its
+own site as self-serving and shows no stars for it. It throws on failure like `getPublishedReviews`.
+
 ## Why Business Profile API, not Places API
 
 Places API's `Review` object has no field for the business's reply, full

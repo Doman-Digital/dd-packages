@@ -37,6 +37,16 @@ export type {
   PublishedFacebookResult,
 } from "./facebook-published";
 
+export { getPublishedExternalReviews, parsePublishedExternal, publishedExternalUrl } from "./external-published";
+export type {
+  ExternalReview,
+  ExternalReviewSource,
+  ExternalScale,
+  ExternalSentiment,
+  GetPublishedExternalOptions,
+  PublishedExternalResult,
+} from "./external-published";
+
 export {
   getBusinessReviewsSafe,
   getPublishedReviewsSafe,
