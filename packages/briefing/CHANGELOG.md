@@ -1,5 +1,13 @@
 # @domandigital/briefing
 
+## 0.2.0
+
+### Minor Changes
+
+- 6fac93b: Accept typed sparse inputs for clients without uptime or search data. Omit
+  unavailable health metrics and empty health sections, use a neutral status
+  label without uptime data, and retain the complete-input result contract.
+
 ## 0.1.1
 
 ### Patch Changes
