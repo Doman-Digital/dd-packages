@@ -59,7 +59,7 @@ Rules:
 - Every finding cites evidence: a screen reference and the element it refers to. The reference is S<n> for the screen after step n (S0 is the start screen) or P<n> for the buyer's n-th noted problem. The element is the exact text of a heading, link, button, price or sentence copied from that screen's text (for a P reference, the element the buyer quoted). If something is missing, cite the text of the place where it should have been. A finding you cannot tie to a screen and an element on it is not a finding: leave it out.
 - Read every screen, not only the buyer's noted problems. A buyer often misses what a real owner would trip on: compare what each screen offers with the journey map's expected answer for this buyer's door at that step (the proof they need, price one click away, what happens next), and file what is missing, unclear or contradictory even when the buyer did not notice.
 - Check the buyer's first impression against what the fold should convey, and whether the buyer can tell the one-off build apart from the managed monthly plan.
-- Check what the buyer concluded about prices, payment, terms and services against the brand facts. A price, term or promise the buyer states that the facts do not support is an invented assumption. Record it under pricing.invented, and file a finding only if something on the site caused it.
+- Check what the buyer concluded about prices, payment, terms and services against the brand facts. A price, term or promise the buyer states that the facts do not support is an invented assumption. Record it under pricing.invented. Where the site's wording or layout plausibly caused it, also file a pricing finding citing the screen the buyer was reading and the element the misreading came from: a misunderstanding a model buyer makes from the page is the panel's most useful signal. The buyer's finish (what it will cost, what happens next, whether to trust them) is where misunderstandings show; read it against the facts line by line.
 - The known preview-only states listed below are expected on this preview. A finding that is only one of them gets the verdict expected_preview_state, never defect.
 - The buyer is a model and may misbehave: click at random, misread a screenshot, invent things. Where the buyer rather than the site caused a problem, the verdict is not_a_defect.
 - Judge the site as a real owner of this kind of business would meet it, not as a designer. Plain words; no marketing language.
@@ -75,7 +75,7 @@ ${ctx.brandFacts}
 ${ctx.knownStates.map((s) => `- ${s}`).join("\n")}
 ${ctx.notes.length ? `\n## Notes\n${ctx.notes.map((s) => `- ${s}`).join("\n")}` : ""}`;
 
-const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n)}…` : s);
+const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n)} [cut by the panel, not by the site]` : s);
 
 const image = (buf: Buffer): Anthropic.ImageBlockParam => ({ type: "image", source: { type: "base64", media_type: "image/jpeg", data: buf.toString("base64") } });
 
@@ -160,26 +160,45 @@ const GRADE_TOOL: Anthropic.Tool = {
 
 const norm = (s: string) => s.toLowerCase().replace(/[“”"'‘’]/g, "").replace(/\s+/g, " ").trim();
 
+/** "S3", "S3-S5", "S3, S4, S6" or "P2" as a list of single references, at most 30. */
+export function expandRefs(ref: string): string[] {
+  const out: string[] = [];
+  for (const part of ref.toUpperCase().split(/[,;/]|\band\b/)) {
+    const range = /^\s*([SP])(\d+)\s*[-–]\s*[SP]?(\d+)\s*$/.exec(part);
+    const single = /^\s*([SP])(\d+)\s*$/.exec(part);
+    if (range) for (let n = Number(range[2]); n <= Number(range[3]) && out.length < 30; n++) out.push(`${range[1]}${n}`);
+    else if (single) out.push(`${single[1]}${Number(single[2])}`);
+    else return [];
+  }
+  return out.slice(0, 30);
+}
+
 /**
  * The evidence rule: a finding stands only with a screenshot and the element it names on that screen. For S<n>
- * the element's text must be on that screen; for P<n> the buyer's element must have been found on the page.
+ * the element's text must be on that screen; for P<n> the buyer's element must have been found on the page. A
+ * range or list of screens is accepted when the element is on one of them, and that screen becomes the evidence.
  */
-export function checkEvidence(rec: SessionRecord, ref: string, element: string): { ok: true; url: string; screenshot: string } | { ok: false; reason: string } {
-  const m = /^([SP])(\d+)$/.exec(ref.trim().toUpperCase());
-  if (!m) return { ok: false, reason: `reference "${ref}" is not S<n> or P<n>` };
-  const n = Number(m[2]);
+export function checkEvidence(rec: SessionRecord, ref: string, element: string): { ok: true; ref: string; url: string; screenshot: string } | { ok: false; reason: string } {
+  const refs = expandRefs(ref);
+  if (!refs.length) return { ok: false, reason: `reference "${ref}" is not S<n> or P<n>` };
   const el = norm(element);
   if (el.length < 3) return { ok: false, reason: "the finding names no element" };
-  if (m[1] === "P") {
-    const p = rec.problems.find((x) => x.n === n);
-    if (!p) return { ok: false, reason: `no problem P${n}` };
-    if (!p.resolved) return { ok: false, reason: `P${n}'s element was not found on the page` };
-    return { ok: true, url: p.url, screenshot: p.screenshot };
+  let reason = "";
+  for (const r of refs) {
+    const n = Number(r.slice(1));
+    if (r[0] === "P") {
+      const p = rec.problems.find((x) => x.n === n);
+      if (!p) reason = `no problem P${n}`;
+      else if (!p.resolved) reason = `P${n}'s element was not found on the page`;
+      else return { ok: true, ref: r, url: p.url, screenshot: p.screenshot };
+      continue;
+    }
+    const screen = n === 0 ? { visible: rec.start.visible, url: rec.start.url, screenshot: rec.start.screenshot } : rec.steps.find((s) => s.n === n);
+    if (!screen) reason = `no screen S${n}`;
+    else if (!norm(screen.visible).includes(el.slice(0, 120))) reason = `"${clip(element, 60)}" is not on screen ${refs.length > 1 ? `any of ${ref}` : `S${n}`}`;
+    else return { ok: true, ref: r, url: screen.url, screenshot: screen.screenshot };
   }
-  const screen = n === 0 ? { visible: rec.start.visible, url: rec.start.url, screenshot: rec.start.screenshot } : rec.steps.find((s) => s.n === n);
-  if (!screen) return { ok: false, reason: `no screen S${n}` };
-  if (!norm(screen.visible).includes(el.slice(0, 120))) return { ok: false, reason: `"${clip(element, 60)}" is not on screen S${n}` };
-  return { ok: true, url: screen.url, screenshot: screen.screenshot };
+  return { ok: false, reason };
 }
 
 function validateGrade(input: unknown): { measures: Measures; findings: Omit<GradedFinding, "id" | "session" | "url" | "screenshot">[] } {
@@ -218,7 +237,7 @@ export async function gradeSession(panel: Panel, ctx: GradingContext, rec: Sessi
       dropped.push({ session: rec.id, title: f.title, ref: f.ref, element: f.element, reason: ev.reason });
       return;
     }
-    findings.push({ ...f, id: `${rec.id}#${findings.length + 1}`, session: rec.id, url: ev.url, screenshot: ev.screenshot });
+    findings.push({ ...f, ref: ev.ref, id: `${rec.id}#${findings.length + 1}`, session: rec.id, url: ev.url, screenshot: ev.screenshot });
   });
   return { session: rec.id, measures: graded.measures, findings, dropped };
 }
@@ -292,7 +311,7 @@ export async function clusterFindings(panel: Panel, findings: GradedFinding[], s
     { temperature: 0, ...panel.evaluator },
     {
       max_tokens: 8000,
-      system: "You merge findings from several sessions of a synthetic buyer panel. Two findings belong to one cluster only when they describe the same underlying defect on the same part of the site, so that one fix would remove both. Different symptoms on different pages are different clusters. Every finding id appears in exactly one cluster.",
+      system: "You merge findings from several sessions of a synthetic buyer panel. Two findings belong to one cluster when they describe the same underlying defect, so that one fix would remove both: the same misunderstanding caused by the same wording or layout is one cluster even when the buyers quoted it from different screens. Different defects on the same page are different clusters. Every finding id appears in exactly one cluster.",
       messages: [{ role: "user", content: `Findings (id | category | severity | title | evidence | rationale):\n${list}\n\nCall submit_clusters.` }],
     },
     CLUSTER_TOOL,

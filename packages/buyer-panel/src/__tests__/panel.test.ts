@@ -47,7 +47,7 @@ const record = (): SessionRecord => ({
 
 describe("checkEvidence", () => {
   it("keeps a finding whose element is on the cited screen, with that screen's screenshot", () => {
-    expect(checkEvidence(record(), "S1", "“Two ways to pay”")).toEqual({ ok: true, url: "https://x.test/pricing", screenshot: "step-01.jpg" });
+    expect(checkEvidence(record(), "S1", "“Two ways to pay”")).toEqual({ ok: true, ref: "S1", url: "https://x.test/pricing", screenshot: "step-01.jpg" });
     expect(checkEvidence(record(), "s0", "Websites we build")).toMatchObject({ ok: true, screenshot: "step-00.jpg" });
   });
   it("drops a finding whose element is not on the cited screen", () => {
@@ -56,6 +56,11 @@ describe("checkEvidence", () => {
   it("keeps a buyer problem only when its element was found on the page", () => {
     expect(checkEvidence(record(), "P1", "Two ways to pay")).toMatchObject({ ok: true, screenshot: "problem-01.jpg" });
     expect(checkEvidence(record(), "P2", "monthly price")).toMatchObject({ ok: false });
+  });
+  it("accepts a range or list of screens when the element is on one of them, and cites that one", () => {
+    expect(checkEvidence(record(), "S0-S1", "From £1,500 one-off")).toMatchObject({ ok: true, ref: "S1" });
+    expect(checkEvidence(record(), "S0, S1", "Websites we build")).toMatchObject({ ok: true, ref: "S0" });
+    expect(checkEvidence(record(), "S0-S1", "Monthly from £99")).toMatchObject({ ok: false });
   });
   it("drops a finding without a usable reference or element", () => {
     expect(checkEvidence(record(), "step 1", "Pricing")).toMatchObject({ ok: false });

@@ -59,7 +59,7 @@ const VISIBLE_SCRIPT = `(() => {
       text = (el.getAttribute('aria-label') || el.innerText || '').replace(/\\s+/g, ' ').trim();
     }
     if (!text) continue;
-    if (text.length > 400) text = text.slice(0, 400) + '…';
+    if (text.length > 1200) text = text.slice(0, 1200) + ' [the panel cut this text here; the page shows it in full]';
     const key = kind + '|' + text;
     if (seen.has(key)) continue;
     seen.add(key);
@@ -125,7 +125,7 @@ export class BrowserSession {
     return {
       url: this.page.url(),
       title: await this.page.title(),
-      visible: v.lines.join("\n").slice(0, 6000),
+      visible: v.lines.join("\n").slice(0, 9000),
       scrolledPct: v.scrolledPct,
       atBottom: v.atBottom,
       screenshot: await this.shot(),
