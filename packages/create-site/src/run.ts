@@ -51,6 +51,7 @@ export async function run(argv: string[], io: Io): Promise<number> {
       siteUrl: options.siteUrl,
       sector: options.sector,
       description: options.description,
+      programme: options.programme,
     },
     file: options.answers,
     cwd: io.cwd,
@@ -87,6 +88,9 @@ export async function run(argv: string[], io: Io): Promise<number> {
       "     Fill in legal in site.facts.ts and have the client confirm the legal pages match what the business does.",
       "  3. Work through docs/seo-launch-checklist.md.",
       `  4. ${pm} seo:check now, and ${pm} launch:check before go-live.`,
+      "  5. The build runs the site programme's gates (docs/site-programme.md) and refuses until the",
+      "     programme issue, the Stage 05 direction and both sides of the sheet, and the Stage 06 copy deck exist.",
+      `     Preview deploys go through ${pm} deploy:preview only; it measures at 1440 and 390 first.`,
       ...pending.map((p) => `  Still to run: ${p}`),
     ].join("\n"),
   );
