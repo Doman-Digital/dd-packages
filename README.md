@@ -16,11 +16,12 @@ Doman Digital's public npm packages, in one repo.
 | [`@domandigital/seo`](packages/seo) | Route policy, link graph, coverage and redirect validators | [npm](https://www.npmjs.com/package/@domandigital/seo) |
 | [`@domandigital/sentry`](packages/sentry) | One Sentry setup for browser, Worker and Next.js sites, and the release and source-map step | [npm](https://www.npmjs.com/package/@domandigital/sentry) |
 | [`@domandigital/synthetic`](packages/synthetic) | Signed synthetic-submission protocol for client forms | [npm](https://www.npmjs.com/package/@domandigital/synthetic) |
+| [`@domandigital/buyer-panel`](packages/buyer-panel) | Synthetic buyer panel: AI buyers browse a site, a separate model grades the traces (private, run from the box) | not published |
 
 Each package versions and publishes independently (see `.changeset/config.json`),
 so nothing is released that did not change.
 
-No package has a third-party runtime dependency. `sanity-copy` depends on
+No published package has a third-party runtime dependency. `buyer-panel` is private and is the exception: it drives Playwright and calls Claude. `sanity-copy` depends on
 `craft` and `sentry` on `synthetic`, siblings here; everything else depends on
 nothing at runtime. `sentry`'s optional peers (`@sentry/nextjs`, the `sentry`
 CLI) are the site's own installs.
