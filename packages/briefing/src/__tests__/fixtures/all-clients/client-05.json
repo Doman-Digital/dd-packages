@@ -1,0 +1,397 @@
+{
+  "input": {
+    "period": {
+      "start": "2026-09-27",
+      "end": "2026-10-10",
+      "sendAt": "2026-10-11T09:00:00+01:00"
+    },
+    "asOf": "2026-10-10T07:11:40Z",
+    "uptime": {
+      "intervalSeconds": 300,
+      "incidents": []
+    },
+    "search": {
+      "clicks": 8,
+      "impressions": 1361,
+      "queries": [
+        {
+          "query": "search term 1",
+          "clicks": 0,
+          "impressions": 57
+        },
+        {
+          "query": "search term 2",
+          "clicks": 0,
+          "impressions": 47
+        },
+        {
+          "query": "search term 3",
+          "clicks": 0,
+          "impressions": 34
+        },
+        {
+          "query": "search term 4",
+          "clicks": 0,
+          "impressions": 30
+        },
+        {
+          "query": "search term 5",
+          "clicks": 0,
+          "impressions": 30
+        },
+        {
+          "query": "search term 6",
+          "clicks": 0,
+          "impressions": 30
+        },
+        {
+          "query": "search term 7",
+          "clicks": 0,
+          "impressions": 27
+        },
+        {
+          "query": "search term 8",
+          "clicks": 0,
+          "impressions": 27
+        },
+        {
+          "query": "search term 9",
+          "clicks": 0,
+          "impressions": 26
+        },
+        {
+          "query": "search term 10",
+          "clicks": 0,
+          "impressions": 25
+        },
+        {
+          "query": "search term 11",
+          "clicks": 0,
+          "impressions": 24
+        },
+        {
+          "query": "search term 12",
+          "clicks": 0,
+          "impressions": 24
+        },
+        {
+          "query": "search term 13",
+          "clicks": 0,
+          "impressions": 24
+        },
+        {
+          "query": "search term 14",
+          "clicks": 0,
+          "impressions": 22
+        },
+        {
+          "query": "search term 15",
+          "clicks": 0,
+          "impressions": 19
+        },
+        {
+          "query": "search term 16",
+          "clicks": 0,
+          "impressions": 19
+        },
+        {
+          "query": "search term 17",
+          "clicks": 0,
+          "impressions": 18
+        },
+        {
+          "query": "search term 18",
+          "clicks": 0,
+          "impressions": 18
+        },
+        {
+          "query": "search term 19",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "search term 20",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
+          "query": "search term 21",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "search term 22",
+          "clicks": 0,
+          "impressions": 10
+        },
+        {
+          "query": "search term 23",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "search term 24",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 25",
+          "clicks": 0,
+          "impressions": 8
+        }
+      ]
+    },
+    "speed": {
+      "runs": [
+        {
+          "score": 98,
+          "fetchTime": "2026-10-10T07:01:25.181Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 99,
+          "fetchTime": "2026-10-10T07:02:34.061Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 98,
+          "fetchTime": "2026-10-10T07:03:43.318Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 98,
+          "fetchTime": "2026-10-10T07:04:53.737Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 98,
+          "fetchTime": "2026-10-10T07:06:04.858Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        }
+      ],
+      "history": [
+        98
+      ],
+      "spread": 2
+    },
+    "analytics": {
+      "sessions": 45
+    },
+    "entries": [
+      {
+        "number": 63,
+        "title": "Cloudflare production Worker (live on example.invalid)",
+        "mergedAt": "2026-10-02T04:21:15Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 64,
+        "title": "Example on Astro: near-zero client JS (not live)",
+        "mergedAt": "2026-10-02T11:45:00Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 65,
+        "title": "Astro production config (cutover): merge before the daily cron",
+        "mergedAt": "2026-10-02T12:17:54Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 66,
+        "title": "Rebuild trigger via a dedicated GitHub App",
+        "mergedAt": "2026-10-02T12:47:56Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 67,
+        "title": "ci: keep Upstash secrets out of the unit-test step (fixes rebuilds)",
+        "mergedAt": "2026-10-02T14:08:18Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 68,
+        "title": "docs: privacy notice for Cloudflare hosting and Sanity; remove dead OpenNext files",
+        "mergedAt": "2026-10-02T18:52:53Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 70,
+        "title": "perf: defer GTM/Sentry to first interaction, add Cloudflare Web Analytics beacon + CSP",
+        "mergedAt": "2026-10-03T00:34:13Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 69,
+        "title": "astro: fix the photo blip (soft placeholder instead of dark blocks) and fade-in mobile menu",
+        "mergedAt": "2026-10-03T00:34:16Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 71,
+        "title": "perf: LCP under 2.5 s (same-origin hero, Fraunces subset), tracking on interaction only",
+        "mergedAt": "2026-10-03T07:00:17Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 72,
+        "title": "perf: calm, non-blocking desktop intro; CSS-only accent on phones and tablets",
+        "mergedAt": "2026-10-03T15:11:36Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 73,
+        "title": "fix: tag sentry releases and stop sending visitor ip data",
+        "mergedAt": "2026-10-03T18:13:56Z",
+        "forClient": "Your website's error reports now say which update they came from, and they no longer include visitors' IP addresses.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 74,
+        "title": "Ignore env and token files",
+        "mergedAt": "2026-10-05T07:44:26Z",
+        "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 76,
+        "title": "Security: Next.js 16.3.8 (critical advisories)",
+        "mergedAt": "2026-10-05T08:15:57Z",
+        "forClient": "This is a security update to the framework your website runs on. Nothing changes in how the site looks or works.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 77,
+        "title": "chore(sentry): upload Worker source maps on deploy",
+        "mergedAt": "2026-10-05T15:19:44Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 78,
+        "title": "fix(deploy): keep the Worker source maps in place for wrangler",
+        "mergedAt": "2026-10-05T15:33:58Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 79,
+        "title": "chore(deps): clear high npm advisories",
+        "mergedAt": "2026-10-06T01:58:55Z",
+        "forClient": "Routine security updates to the website's building blocks; nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 75,
+        "title": "chore: adopt the DD Framework",
+        "mergedAt": "2026-10-06T02:50:24Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 81,
+        "title": "fix(contact): route sink failures, symbolicate browser frames, stop test deploys hitting production",
+        "mergedAt": "2026-10-09T00:01:32Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 82,
+        "title": "feat(contact): email-only leads through Resend; drop Twilio, Loops and Brevo",
+        "mergedAt": "2026-10-09T00:17:19Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 83,
+        "title": "chore(privacy): record the email-only privacy notice edit",
+        "mergedAt": "2026-10-09T00:46:20Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 84,
+        "title": "Read Google reviews from Doman Digital's published file, no Google token",
+        "mergedAt": "2026-10-09T00:51:04Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 80,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-09T03:53:04Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 85,
+        "title": "feat(reviews): show Facebook recommendations under the Google reviews",
+        "mergedAt": "2026-10-09T05:51:29Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 86,
+        "title": "ci: run DD Checks after the production deploy (DOM-531)",
+        "mergedAt": "2026-10-09T20:57:42Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      }
+    ],
+    "notes": {
+      "example/site-1#63": "Moved your website to faster, more reliable hosting that works better for your customers.",
+      "example/site-1#70": "Your pages now load much faster on phones, especially on the first visit, and you'll see more accurate visitor counts without slowing anyone down.",
+      "example/site-1#69": "Your photo tiles no longer show dark blocks while images load on phones, and your mobile menu now fades in smoothly instead of popping open.",
+      "example/site-1#71": "Your pages now load much faster on phones, especially the hero image and tracking code.",
+      "example/site-1#72": "Your pages now load faster on desktop, with a calm intro card that doesn't block clicks, and phones and tablets get a subtle animated accent on your logo instead.",
+      "example/site-1#82": "Your contact form now sends enquiries to Example by email instead of text, and people who fill it in get an email confirmation with your phone number.",
+      "example/site-1#85": "Your site now shows Facebook recommendations alongside your Google reviews, so visitors see more social proof of your work."
+    }
+  },
+  "config": {
+    "slug": "example-05",
+    "name": "Example 05",
+    "contactFirstName": "Sam",
+    "signoffName": "D'mitri",
+    "headline": "Your site moved to faster hosting on 2 October.",
+    "subhead": "It looks and works the same, and your photo tiles no longer show dark blocks while they load on phones.",
+    "note": "Here is your update for 11 October.",
+    "approvals": [],
+    "urls": {
+      "log": "https://example.invalid/log",
+      "webView": "https://example.invalid/view"
+    }
+  },
+  "expectedHash": "8d6b0ab4d56c0aaeefb56f0c51e2f6e51df083ef6d6ccb32e25f531a134d40bd",
+  "expected": {
+    "status": "ok",
+    "sections": [
+      "status",
+      "changes",
+      "health",
+      "note"
+    ],
+    "searchState": "low-data",
+    "failedChecks": 0,
+    "flags": [
+      "unreviewed-line",
+      "unreviewed-line",
+      "unreviewed-line",
+      "missing-client-line"
+    ]
+  }
+}

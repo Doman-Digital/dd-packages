@@ -39,6 +39,33 @@ The build throws `BriefingBuildError` when the headline or the note is empty
 (they are written by a person, never generated) and `BriefingLintError` when
 any client-readable string breaks the copy rules.
 
+## Clients with missing sources
+
+`RawInput` and `BuildResult` retain the complete-input contract. For a client
+without an uptime monitor or Search Console, use `SparseRawInput` with those
+fields omitted. `buildBriefing` then returns `SparseBuildResult`: each missing
+metric stays absent from `briefing.health`, and `sections` omits health when
+there are no usable metrics. An absent uptime source uses the neutral status
+label "Your update" when there are no approvals, rather than "All good".
+
+```ts
+import { buildBriefing, type SparseRawInput } from "@domandigital/briefing";
+
+const input: SparseRawInput = { period, entries };
+const { briefing } = buildBriefing(input, config);
+if (briefing.health.uptime) {
+  renderUptime(briefing.health.uptime);
+}
+```
+
+Renderers must check each optional health field before reading it. The sparse
+result cannot be assigned to the legacy `Briefing` type. In particular,
+dd-relay's complete-input adapter must gain those checks before accepting
+sparse payloads. Keep its current package pin until that adapter is ready.
+The hand-written headline, subhead and note must reflect the data available
+for that client. Social data is outside this package's current model; it
+creates no social block when no account data is supplied.
+
 ## The rules
 
 **Classify.** Each merged PR becomes *needs you*, *live*, *ready* or
@@ -91,7 +118,9 @@ real Google clicks holds the visits tile back and raises a tracking check.
 **Track record.** Off unless `trackRecordEnabled` is set, and then only with
 `trackRecordMinMonths` full months of joined-up data (default 1). Measured
 outcomes only: uptime checks, a speed band change, verified orders once sales
-are live. Never a count of changes.
+are live. Never a count of changes. The founder's ruling of 9 October 2026
+allows one full month of a client's own measured data in a private report to
+that client. Public or marketing claims still need a year of data.
 
 **Copy gate.** Every client-readable string is checked for negative
 reassurance ("no downtime", "nothing changes"), the banned list in
@@ -114,3 +143,11 @@ off this public repository. To run the fixture tests on it as well:
 ```sh
 BRIEFING_PRIVATE_FIXTURE=/path/to/fixture.json pnpm vitest run
 ```
+
+`fixtures/all-clients/` covers all seven payloads from the 11 October 2026
+cycle, retaining their metric values and entry counts. Identities, URLs,
+queries, personal notes and approval content are redacted. Each expected hash
+was built from that redacted fixture using the unchanged complete-input
+builder. Tests also remove individual sources and all sources from each
+fixture to verify section omission. Those variants describe unavailable
+sources for testing; they do not claim that a source is missing in this cycle.

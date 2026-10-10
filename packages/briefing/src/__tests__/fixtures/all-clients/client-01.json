@@ -1,0 +1,274 @@
+{
+  "input": {
+    "period": {
+      "start": "2026-09-27",
+      "end": "2026-10-10",
+      "sendAt": "2026-10-11T09:00:00+01:00"
+    },
+    "asOf": "2026-10-10T07:11:40Z",
+    "uptime": {
+      "intervalSeconds": 300,
+      "incidents": []
+    },
+    "search": {
+      "clicks": 91,
+      "impressions": 492,
+      "queries": [
+        {
+          "query": "search term 1",
+          "clicks": 22,
+          "impressions": 50
+        },
+        {
+          "query": "search term 2",
+          "clicks": 22,
+          "impressions": 29
+        },
+        {
+          "query": "search term 3",
+          "clicks": 10,
+          "impressions": 25
+        },
+        {
+          "query": "search term 4",
+          "clicks": 1,
+          "impressions": 14
+        },
+        {
+          "query": "search term 5",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "search term 6",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "search term 7",
+          "clicks": 7,
+          "impressions": 8
+        },
+        {
+          "query": "search term 8",
+          "clicks": 2,
+          "impressions": 6
+        },
+        {
+          "query": "search term 9",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "search term 10",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "search term 11",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "search term 12",
+          "clicks": 1,
+          "impressions": 4
+        },
+        {
+          "query": "search term 13",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "domandigital",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "search term 15",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "search term 16",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "search term 17",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "search term 18",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 19",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 20",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 21",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 22",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 23",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 24",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 25",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    "speed": {
+      "runs": [
+        {
+          "score": 95,
+          "fetchTime": "2026-10-10T07:01:26.288Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 95,
+          "fetchTime": "2026-10-10T07:02:47.056Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 97,
+          "fetchTime": "2026-10-10T07:04:03.760Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 96,
+          "fetchTime": "2026-10-10T07:05:15.898Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 95,
+          "fetchTime": "2026-10-10T07:06:28.916Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        }
+      ],
+      "history": [
+        95
+      ],
+      "spread": 2
+    },
+    "analytics": {
+      "sessions": 338
+    },
+    "entries": [
+      {
+        "number": 40,
+        "title": "ci: adopt the DD Framework rulebook",
+        "mergedAt": "2026-10-03T08:14:34Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 42,
+        "title": "fix: send source maps to the doman-digital sentry org",
+        "mergedAt": "2026-10-03T18:13:44Z",
+        "forClient": "We tidied your site's error monitoring so problems reach us with clearer detail.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 43,
+        "title": "Astro port on Cloudflare Workers (not deployed)",
+        "mergedAt": "2026-10-03T20:11:35Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 45,
+        "title": "Ignore env and token files",
+        "mergedAt": "2026-10-05T07:42:56Z",
+        "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 46,
+        "title": "chore(sentry): use the new org name for source-map uploads",
+        "mergedAt": "2026-10-05T13:28:04Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 44,
+        "title": "Astro go-live: deploy workflow, relay rebuilds, hosted Studio",
+        "mergedAt": "2026-10-05T18:52:27Z",
+        "forClient": "Behind-the-scenes setup so the new, faster site rebuilds itself when you edit content.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 47,
+        "title": "Cloudflare Web Analytics, and the privacy notice says so",
+        "mergedAt": "2026-10-08T00:31:16Z",
+        "forClient": "Your site now measures how many people visit and how fast pages load for them, without cookies, and the privacy page says so.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 48,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-09T02:45:33Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      }
+    ]
+  },
+  "config": {
+    "slug": "example-01",
+    "name": "Example 01",
+    "contactFirstName": "Sam",
+    "signoffName": "D'mitri",
+    "headline": "Your site moved to faster hosting at the start of October.",
+    "subhead": "It looks and works the same, and your content edits now go live by themselves.",
+    "note": "Here is your update for 11 October.",
+    "approvals": [],
+    "urls": {
+      "log": "https://example.invalid/log",
+      "webView": "https://example.invalid/view"
+    }
+  },
+  "expectedHash": "3af388e4a38fcfb847395f564616dab7261a6b3e011608e40a2fabc60c9ac3c5",
+  "expected": {
+    "status": "ok",
+    "sections": [
+      "status",
+      "changes",
+      "health",
+      "note"
+    ],
+    "searchState": "numbers",
+    "failedChecks": 0,
+    "flags": [
+      "missing-client-line",
+      "excluded-query"
+    ]
+  }
+}
