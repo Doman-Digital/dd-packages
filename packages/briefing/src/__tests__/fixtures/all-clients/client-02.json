@@ -1,0 +1,328 @@
+{
+  "input": {
+    "period": {
+      "start": "2026-09-27",
+      "end": "2026-10-10",
+      "sendAt": "2026-10-11T09:00:00+01:00"
+    },
+    "asOf": "2026-10-10T07:12:05Z",
+    "uptime": {
+      "intervalSeconds": 300,
+      "incidents": []
+    },
+    "search": {
+      "clicks": 1,
+      "impressions": 83,
+      "queries": [
+        {
+          "query": "search term 1",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "domandigital",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "search term 3",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "search term 4",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "search term 5",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "search term 6",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 7",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 8",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 9",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 10",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    "speed": {
+      "runs": [
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:01:25.372Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:02:33.353Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:03:42.569Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:04:49.883Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:05:58.068Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        }
+      ],
+      "history": [
+        100
+      ],
+      "spread": 0
+    },
+    "entries": [
+      {
+        "number": 23,
+        "title": "chore(ci): audit + green-light pass — action bumps & cleanup",
+        "mergedAt": "2026-09-29T08:37:13Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 36,
+        "title": "fix(contact): accept Vercel KV Redis env var names as a fallback",
+        "mergedAt": "2026-09-29T08:38:08Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 44,
+        "title": "fix: load browser sentry under turbopack and target doman-digital",
+        "mergedAt": "2026-10-03T18:13:53Z",
+        "forClient": "We set up error monitoring for your website, so we can spot and fix problems sooner.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 46,
+        "title": "Ignore env and token files",
+        "mergedAt": "2026-10-05T07:42:10Z",
+        "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 48,
+        "title": "Security: Next.js 16.3.8 (three critical advisories)",
+        "mergedAt": "2026-10-05T07:49:26Z",
+        "forClient": "A security update to the framework the website runs on, closing three serious vulnerabilities. Nothing changes in how the site looks or works.",
+        "body": "## Briefing\ntitle: A security update\noutcome: We updated the software your website runs on, closing three serious security vulnerabilities.\n",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 50,
+        "title": "chore(sentry): use the new org name for source-map uploads",
+        "mergedAt": "2026-10-05T13:28:17Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 52,
+        "title": "chore(deps): update @sentry/nextjs to 10.76 so source maps carry match IDs",
+        "mergedAt": "2026-10-05T14:59:09Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 53,
+        "title": "chore(deps): clear high npm advisories",
+        "mergedAt": "2026-10-06T01:58:50Z",
+        "forClient": "Routine security updates to the website's building blocks; nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 47,
+        "title": "chore: adopt the DD Framework",
+        "mergedAt": "2026-10-06T09:45:56Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 57,
+        "title": "chore(env): rename SendGrid variables to the Resend names in .env.example",
+        "mergedAt": "2026-10-07T09:40:37Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 51,
+        "title": "fix(contact): send through Resend; SendGrid was never set up",
+        "mergedAt": "2026-10-07T09:40:45Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 45,
+        "title": "Astro port on Cloudflare Workers (astro/), not deployed",
+        "mergedAt": "2026-10-07T09:40:54Z",
+        "forClient": "Your website has been rebuilt to load about twice as fast on phones, with the same look, words and prices; nothing changes for you until Doman Digital switches it over, and it can be switched back within minutes.",
+        "body": "## Briefing\nkind: visible\ntitle: Your site now runs on faster hosting\noutcome: This week your website moved to faster hosting. It looks and works the same, with the same words and prices.\n",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 58,
+        "title": "ci: add the Deploy Astro workflow",
+        "mergedAt": "2026-10-07T17:22:59Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 59,
+        "title": "fix(studio): pin the recreated Sanity Studio application id",
+        "mergedAt": "2026-10-07T17:28:31Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 60,
+        "title": "ci(astro): build on Cloudflare Workers Builds, allow test hosts",
+        "mergedAt": "2026-10-07T22:51:25Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 61,
+        "title": "feat(astro): production routes for the cutover",
+        "mergedAt": "2026-10-07T23:19:16Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 62,
+        "title": "copy(astro): replace Vercel with Cloudflare in privacy notice and cookie banner",
+        "mergedAt": "2026-10-07T23:25:50Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 63,
+        "title": "Cloudflare Web Analytics once a visitor accepts analytics",
+        "mergedAt": "2026-10-08T00:31:32Z",
+        "forClient": "If a visitor accepts analytics, your site now counts page views and how quickly pages load, without cookies, and the privacy page names it.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 55,
+        "title": "chore(deps): clear the remaining high prod advisories so the audit job goes green",
+        "mergedAt": "2026-10-08T00:32:30Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 64,
+        "title": "chore(astro): drop Vercel leftovers (origin allowance, CSP hosts)",
+        "mergedAt": "2026-10-08T00:37:38Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 65,
+        "title": "fix: CSP allows only our Web Analytics beacon, so nothing runs before consent",
+        "mergedAt": "2026-10-08T00:39:35Z",
+        "forClient": "None",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 66,
+        "title": "chore(astro): drop the staging domain and test origin hosts",
+        "mergedAt": "2026-10-08T11:57:19Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 67,
+        "title": "chore: retire the Next.js app; the repo root is now the Sanity Studio (DOM-558)",
+        "mergedAt": "2026-10-08T12:10:06Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 75,
+        "title": "chore(astro): rebuild only through the Workers Builds deploy hook (DOM-558)",
+        "mergedAt": "2026-10-08T12:22:51Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 76,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-08T23:07:28Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 56,
+        "title": "chore(deps): upgrade sanity to 6.17.0 and @sanity/vision to 6.18.0",
+        "mergedAt": "2026-10-09T12:57:10Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      }
+    ],
+    "notes": {
+      "example/site-1#51": "Your contact form now works again so people can send you enquiries.",
+      "example/site-1#62": "Updated your privacy notice and cookie choices to show you now use Cloudflare to host the site instead of Vercel."
+    }
+  },
+  "config": {
+    "slug": "example-02",
+    "name": "Example 02",
+    "contactFirstName": "Sam",
+    "signoffName": "D'mitri",
+    "headline": "Your website moved to faster hosting this week.",
+    "subhead": "It looks and works the same, with the same words and prices.",
+    "note": "Here is your update for 11 October.",
+    "approvals": [],
+    "urls": {
+      "log": "https://example.invalid/log",
+      "webView": "https://example.invalid/view"
+    }
+  },
+  "expectedHash": "6627d250c7351173c2b0f589708e66808108192cb1e69dc362279d9b2d1b6c53",
+  "expected": {
+    "status": "ok",
+    "sections": [
+      "status",
+      "changes",
+      "health",
+      "note"
+    ],
+    "searchState": "low-data",
+    "failedChecks": 0,
+    "flags": [
+      "missing-client-line",
+      "excluded-query"
+    ]
+  }
+}

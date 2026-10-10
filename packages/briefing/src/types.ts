@@ -251,12 +251,19 @@ export type ClientConfig = {
   allowedTerms?: string[];
   /** Search queries left out of top searches and logged. Default: `["domandigital"]`. */
   searchExclude?: string[];
-  /** Off by default: the track record line is held back until a ruling on the gate. */
+  /** Off by default. Enable only with measured outcomes for this client. */
   trackRecordEnabled?: boolean;
-  /** One month in the brief, a year in DIRECTION.md section 4. Default 1, unresolved. */
+  /** Default 1 for private client reports. Public or marketing claims still need a year. */
   trackRecordMinMonths?: number;
   /** Orders count only once sales are live. */
   salesLive?: boolean;
 };
 
 export type BuildResult = { briefing: Briefing; flags: Flag[]; log: BriefingLog };
+
+/** A client without a monitor or Search Console omits that source, rather than sending zeroes. */
+export type SparseRawInput = Omit<RawInput, "uptime" | "search"> & Partial<Pick<RawInput, "uptime" | "search">>;
+
+/** Missing sources stay absent. Existing complete-input callers retain the Briefing contract. */
+export type SparseBriefing = Omit<Briefing, "health"> & { health: Partial<Briefing["health"]> };
+export type SparseBuildResult = Omit<BuildResult, "briefing"> & { briefing: SparseBriefing };

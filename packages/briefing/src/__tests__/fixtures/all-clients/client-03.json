@@ -1,0 +1,454 @@
+{
+  "input": {
+    "period": {
+      "start": "2026-09-27",
+      "end": "2026-10-10",
+      "sendAt": "2026-10-11T09:00:00+01:00"
+    },
+    "asOf": "2026-10-10T07:11:48Z",
+    "uptime": {
+      "intervalSeconds": 300,
+      "incidents": [
+        {
+          "startedAt": "2026-10-05T20:30:45.093Z",
+          "resolvedAt": "2026-10-05T22:17:26.093Z",
+          "reason": "402 Payment Required"
+        }
+      ]
+    },
+    "search": {
+      "clicks": 571,
+      "impressions": 86974,
+      "queries": [
+        {
+          "query": "search term 1",
+          "clicks": 2,
+          "impressions": 1228
+        },
+        {
+          "query": "search term 2",
+          "clicks": 0,
+          "impressions": 1088
+        },
+        {
+          "query": "search term 3",
+          "clicks": 11,
+          "impressions": 1050
+        },
+        {
+          "query": "search term 4",
+          "clicks": 7,
+          "impressions": 716
+        },
+        {
+          "query": "search term 5",
+          "clicks": 4,
+          "impressions": 694
+        },
+        {
+          "query": "search term 6",
+          "clicks": 1,
+          "impressions": 543
+        },
+        {
+          "query": "search term 7",
+          "clicks": 1,
+          "impressions": 490
+        },
+        {
+          "query": "search term 8",
+          "clicks": 2,
+          "impressions": 476
+        },
+        {
+          "query": "search term 9",
+          "clicks": 1,
+          "impressions": 446
+        },
+        {
+          "query": "search term 10",
+          "clicks": 6,
+          "impressions": 440
+        },
+        {
+          "query": "search term 11",
+          "clicks": 0,
+          "impressions": 328
+        },
+        {
+          "query": "search term 12",
+          "clicks": 1,
+          "impressions": 306
+        },
+        {
+          "query": "search term 13",
+          "clicks": 4,
+          "impressions": 283
+        },
+        {
+          "query": "search term 14",
+          "clicks": 4,
+          "impressions": 279
+        },
+        {
+          "query": "search term 15",
+          "clicks": 0,
+          "impressions": 260
+        },
+        {
+          "query": "search term 16",
+          "clicks": 3,
+          "impressions": 252
+        },
+        {
+          "query": "search term 17",
+          "clicks": 0,
+          "impressions": 252
+        },
+        {
+          "query": "search term 18",
+          "clicks": 0,
+          "impressions": 242
+        },
+        {
+          "query": "search term 19",
+          "clicks": 3,
+          "impressions": 237
+        },
+        {
+          "query": "search term 20",
+          "clicks": 0,
+          "impressions": 232
+        },
+        {
+          "query": "search term 21",
+          "clicks": 3,
+          "impressions": 226
+        },
+        {
+          "query": "search term 22",
+          "clicks": 0,
+          "impressions": 220
+        },
+        {
+          "query": "search term 23",
+          "clicks": 4,
+          "impressions": 206
+        },
+        {
+          "query": "search term 24",
+          "clicks": 0,
+          "impressions": 206
+        },
+        {
+          "query": "search term 25",
+          "clicks": 0,
+          "impressions": 203
+        }
+      ]
+    },
+    "speed": {
+      "runs": [
+        {
+          "score": 95,
+          "fetchTime": "2026-10-10T07:06:06.269Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 93,
+          "fetchTime": "2026-10-10T07:07:19.733Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 95,
+          "fetchTime": "2026-10-10T07:08:40.368Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 95,
+          "fetchTime": "2026-10-10T07:09:58.856Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 95,
+          "fetchTime": "2026-10-10T07:11:13.082Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        }
+      ],
+      "history": [
+        95
+      ],
+      "spread": 6
+    },
+    "analytics": {
+      "sessions": 103
+    },
+    "entries": [
+      {
+        "number": 655,
+        "title": "Measure booking clicks, fix the GA4 measurement id, and repair the copy gate",
+        "mergedAt": "2026-09-29T08:38:23Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 662,
+        "title": "perf(web): make the opening cinematic Lighthouse-friendly on every viewport",
+        "mergedAt": "2026-10-03T15:11:52Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 27,
+        "title": "fix: sample 20% of sentry traces in release builds",
+        "mergedAt": "2026-10-03T18:14:02Z",
+        "forClient": "We tuned the app's performance monitoring so it records a sample of sessions rather than every one.",
+        "repo": "example/site-2"
+      },
+      {
+        "number": 663,
+        "title": "perf(web): phone-first Lighthouse remediation",
+        "mergedAt": "2026-10-03T20:52:48Z",
+        "forClient": "Your site now loads about 40 percent less code on phones and no longer downloads the background video on phones and tablets (they see the still photo instead), so pages show up faster; nothing else you see should change.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 664,
+        "title": "Ignore env and token files",
+        "mergedAt": "2026-10-05T07:19:17Z",
+        "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 28,
+        "title": "Ignore env and token files",
+        "mergedAt": "2026-10-05T07:19:33Z",
+        "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+        "repo": "example/site-2"
+      },
+      {
+        "number": 666,
+        "title": "Security: Next.js 16.3.8 (critical advisories), and unblock CI",
+        "mergedAt": "2026-10-05T08:28:01Z",
+        "forClient": "This is a security update to the framework your website and booking portal run on. Nothing changes in how they look or work.",
+        "body": "## Briefing\ntitle: A security update\noutcome: We updated the software your website and booking portal run on.\n",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 667,
+        "title": "chore(sentry): use the new org name for source-map uploads",
+        "mergedAt": "2026-10-05T13:14:10Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 30,
+        "title": "chore(sentry): use the new org name for source-map uploads",
+        "mergedAt": "2026-10-05T15:19:48Z",
+        "forClient": "none",
+        "repo": "example/site-2"
+      },
+      {
+        "number": 668,
+        "title": "Move the marketing site and portal to Cloudflare Workers (OpenNext)",
+        "mergedAt": "2026-10-06T01:58:48Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 669,
+        "title": "Server-side Sentry for the portal on Cloudflare Workers",
+        "mergedAt": "2026-10-06T02:13:50Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 665,
+        "title": "chore: adopt the DD Framework",
+        "mergedAt": "2026-10-06T09:45:47Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 671,
+        "title": "Post-deploy health gates, fetch-based Blob client on Workers, rollout plan status",
+        "mergedAt": "2026-10-06T09:58:17Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 673,
+        "title": "Client-form PDF parsing on Cloudflare Workers (unpdf), verified on the real corpus",
+        "mergedAt": "2026-10-06T10:48:45Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 674,
+        "title": "CLAUDE.md for the Cloudflare setup; deflake DateSelection",
+        "mergedAt": "2026-10-06T13:38:45Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 675,
+        "title": "feat(portal): file storage and page caches on R2",
+        "mergedAt": "2026-10-07T16:41:53Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 676,
+        "title": "perf(web): /treatments back under its image budget",
+        "mergedAt": "2026-10-07T16:43:08Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 677,
+        "title": "feat(portal): split the portal into a main and an admin Worker",
+        "mergedAt": "2026-10-07T16:43:23Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 670,
+        "title": "fix(web): load Google Tag Manager once, allow Cloudflare Web Analytics in the CSP",
+        "mergedAt": "2026-10-07T19:52:11Z",
+        "forClient": "Your site was loading Google's analytics twice on every visit. It now loads once, and Cloudflare's own visitor count starts working.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 678,
+        "title": "chore(web): pin the hosted Studio's appId; document the deploy token",
+        "mergedAt": "2026-10-07T22:31:38Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 679,
+        "title": "fix(web): accept Sanity's real webhook signatures so publishing refreshes the site",
+        "mergedAt": "2026-10-07T23:08:23Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 680,
+        "title": "perf(portal): run both Workers next to the database; time health and webhooks",
+        "mergedAt": "2026-10-08T01:00:32Z",
+        "forClient": null,
+        "body": "## Briefing\ntitle: Payment messages from Square reach your booking portal faster\noutcome: Your booking portal now runs next to its database in London. Before the move, two payment messages from Square on 6 October took 13 and 15 seconds to process.\n",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 672,
+        "title": "Astro port: route inventory and scaffold (phases 1 and 2)",
+        "mergedAt": "2026-10-08T20:27:49Z",
+        "forClient": "The first step of rebuilding the website so it loads much faster on phones. Nothing on the live site changes yet.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 681,
+        "title": "feat(astro): serve example.invalid from the Astro Worker (cutover)",
+        "mergedAt": "2026-10-08T20:40:47Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 682,
+        "title": "chore(astro): turn off the workers.dev test address after the cutover",
+        "mergedAt": "2026-10-08T20:46:27Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 684,
+        "title": "fix(portal): Sentry audit fixes: FreeAgent UA, stale Square snapshots, Bedrock, source maps",
+        "mergedAt": "2026-10-09T00:19:36Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 31,
+        "title": "feat(sentry): environment from build variant + scrubber beforeSend",
+        "mergedAt": "2026-10-09T01:03:53Z",
+        "forClient": null,
+        "repo": "example/site-2"
+      },
+      {
+        "number": 32,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-09T02:37:58Z",
+        "forClient": null,
+        "repo": "example/site-2"
+      },
+      {
+        "number": 683,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-09T06:16:50Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 685,
+        "title": "fix(reviews): every reviewer name on the site shows the surname's initial only",
+        "mergedAt": "2026-10-09T11:47:58Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 686,
+        "title": "feat(finance-digest): rebuild the morning email as a ranked briefing",
+        "mergedAt": "2026-10-10T02:52:12Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      }
+    ],
+    "notes": {
+      "example/site-1#655": "Fixed how your site tracks when people click to book, so you can now see which pages send the most bookings to Square, and sped up analytics tracking on your journal articles so Google counts those visits properly.",
+      "example/site-1#662": "Your opening animation now loads faster on all devices, especially phones and tablets, so visitors see your hero right away instead of waiting for a curtain to fade.",
+      "example/site-1#668": "Your website and booking portal are back online and working after the hosting issue took them down.",
+      "example/site-1#673": "Your client form uploads now work properly again without needing manual review.",
+      "example/site-1#676": "Made your treatments page load faster on phones by removing an image that wasn't being shown there.",
+      "example/site-1#679": "When you publish changes in Sanity, your website now picks them up straight away instead of waiting up to 24 hours.",
+      "example/site-1#680": "Moved your website and checkout to run next to your database in London, so Square's payment notifications now complete in under 3 seconds instead of 13 or 15 seconds.",
+      "example/site-1#686": "Rebuilt your morning finance email to show only the top three things that need your attention, with everything else listed briefly below, so you can scan it in seconds instead of scrolling through dozens of headings and old receipts."
+    }
+  },
+  "config": {
+    "slug": "example-03",
+    "name": "Example 03",
+    "contactFirstName": "Sam",
+    "signoffName": "D'mitri",
+    "headline": "Your site and booking portal were down on Monday 5 October. Both are back, on new hosting.",
+    "subhead": "Both moved to Cloudflare hosting on 5 and 6 October, and they look and work the same.",
+    "note": "Here is your update for 11 October.",
+    "approvals": [],
+    "urls": {
+      "log": "https://example.invalid/log",
+      "webView": "https://example.invalid/view"
+    }
+  },
+  "expectedHash": "1348d0e2f98fa1006d43ffa9cd1bf48e14f71f5cb0ce069ed863488c9ea29933",
+  "expected": {
+    "status": "issue",
+    "sections": [
+      "status",
+      "changes",
+      "health",
+      "note"
+    ],
+    "searchState": "numbers",
+    "failedChecks": 22,
+    "flags": [
+      "unreviewed-line",
+      "missing-client-line",
+      "failed-checks"
+    ]
+  }
+}

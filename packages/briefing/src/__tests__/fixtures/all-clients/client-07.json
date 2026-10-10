@@ -1,0 +1,281 @@
+{
+  "input": {
+    "period": {
+      "start": "2026-09-27",
+      "end": "2026-10-10",
+      "sendAt": "2026-10-11T09:00:00+01:00"
+    },
+    "asOf": "2026-10-10T07:12:05Z",
+    "uptime": {
+      "intervalSeconds": 300,
+      "incidents": []
+    },
+    "search": {
+      "clicks": 1,
+      "impressions": 114,
+      "queries": [
+        {
+          "query": "search term 1",
+          "clicks": 0,
+          "impressions": 59
+        },
+        {
+          "query": "domandigital",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "search term 3",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 4",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 5",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 6",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 7",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 8",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 9",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "search term 10",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    "speed": {
+      "runs": [
+        {
+          "score": 97,
+          "fetchTime": "2026-10-10T07:06:41.374Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 97,
+          "fetchTime": "2026-10-10T07:07:54.461Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 98,
+          "fetchTime": "2026-10-10T07:09:06.160Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 97,
+          "fetchTime": "2026-10-10T07:10:15.366Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 97,
+          "fetchTime": "2026-10-10T07:11:26.434Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        }
+      ],
+      "history": [
+        73
+      ],
+      "spread": 12
+    },
+    "analytics": {
+      "sessions": 21
+    },
+    "entries": [
+      {
+        "number": 87,
+        "title": "perf: make the homepage opening animation Lighthouse-friendly on every viewport",
+        "mergedAt": "2026-10-03T15:11:42Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 88,
+        "title": "perf: compress hero video (6.8 MB to 1.1 MB)",
+        "mergedAt": "2026-10-03T16:21:38Z",
+        "forClient": "The video on your homepage is now about six times smaller, so it loads faster on desktop, and it looks the same.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 89,
+        "title": "fix: report browser errors and send source maps to doman-digital",
+        "mergedAt": "2026-10-03T18:13:50Z",
+        "forClient": "Errors that happen in visitors' browsers on your site will now reach us, so we can fix them sooner.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 90,
+        "title": "Security: remove the committed env file and ignore every env and token file",
+        "mergedAt": "2026-10-05T07:19:26Z",
+        "forClient": "We removed a settings file that should never have been stored with the website's code, and we're replacing the passwords it contained. Nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 92,
+        "title": "Security: Next.js 16.3.8 (critical advisories)",
+        "mergedAt": "2026-10-05T08:16:02Z",
+        "forClient": "This is a security update to the framework your website runs on. Nothing changes in how the site looks or works.",
+        "body": "## Briefing\ntitle: A security update\noutcome: We updated the software your website runs on.\n",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 94,
+        "title": "chore(deps): update dependency vitest to v4.1.11 [security]",
+        "mergedAt": "2026-10-05T11:28:06Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 93,
+        "title": "chore(sentry): use the new org name for source-map uploads",
+        "mergedAt": "2026-10-05T13:28:13Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 98,
+        "title": "fix(deps): match the pnpm lockfile to package.json for vitest",
+        "mergedAt": "2026-10-05T14:48:37Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 99,
+        "title": "chore(deps): update @sentry/nextjs to 10.76 so browser source maps upload",
+        "mergedAt": "2026-10-05T15:11:46Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 100,
+        "title": "chore(deps): clear high npm advisories",
+        "mergedAt": "2026-10-06T01:59:00Z",
+        "forClient": "Routine security updates to the website's building blocks; nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 91,
+        "title": "chore: adopt the DD Framework",
+        "mergedAt": "2026-10-06T09:45:41Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 101,
+        "title": "Read the Google rating from Doman Digital's published file, no Google token",
+        "mergedAt": "2026-10-09T00:50:59Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 103,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-09T02:36:05Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 102,
+        "title": "chore(sentry): adopt @domandigital/sentry, gbp 0.6.0 safe reviews, /monitoring tunnel",
+        "mergedAt": "2026-10-09T13:01:21Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 104,
+        "title": "Astro port of the marketing site on a Cloudflare Worker: phases 1-2 (DOM-634)",
+        "mergedAt": "2026-10-09T15:26:22Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 105,
+        "title": "Next side of the marketing-site move: /api/contact, client IP, portal host (DOM-634)",
+        "mergedAt": "2026-10-09T20:33:24Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 106,
+        "title": "Production Worker config, rebuild cron and cutover runbook (DOM-634)",
+        "mergedAt": "2026-10-09T22:08:26Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 107,
+        "title": "Production on zone routes and the cutover run log (DOM-634)",
+        "mergedAt": "2026-10-10T01:09:16Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 108,
+        "title": "Email back to Resend, and log failed sends and Turnstile refusals (DOM-635)",
+        "mergedAt": "2026-10-10T02:51:54Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      }
+    ],
+    "notes": {
+      "example/site-1#87": "Your pages now load much faster on phones and tablets, and visitors aren't held up by opening animations anymore."
+    }
+  },
+  "config": {
+    "slug": "example-07",
+    "name": "Example 07",
+    "contactFirstName": "Sam",
+    "signoffName": "D'mitri",
+    "headline": "Your homepage video is six times smaller, so your site loads faster on desktop.",
+    "subhead": "It went from 6.8 MB to 1.1 MB and looks the same.",
+    "note": "Here is your update for 11 October.",
+    "approvals": [],
+    "urls": {
+      "log": "https://example.invalid/log",
+      "webView": "https://example.invalid/view"
+    }
+  },
+  "expectedHash": "03f694c738d14029dfc8acf1dc4ff17ff404833410c546370a0deede4a042891",
+  "expected": {
+    "status": "ok",
+    "sections": [
+      "status",
+      "changes",
+      "health",
+      "note"
+    ],
+    "searchState": "low-data",
+    "failedChecks": 0,
+    "flags": [
+      "unreviewed-line",
+      "missing-client-line",
+      "excluded-query"
+    ]
+  }
+}

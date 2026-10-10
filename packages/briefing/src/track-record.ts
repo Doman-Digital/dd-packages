@@ -2,14 +2,13 @@
  * The track record: measured outcomes since a client started, never a count
  * of changes, improvements or tasks.
  *
- * Two gates, both closed by default:
- *  - `trackRecordEnabled` on the client config, false until the founder rules;
+ * Two gates:
+ *  - `trackRecordEnabled` on the client config, false by default;
  *  - the data gate: comparable data covering `trackRecordMinMonths` full months.
  *
- * The brief (8 October 2026, Step 4) says one month. DIRECTION.md section 4
- * says "Track record claims need a year of data". That conflict is recorded in
- * Doman-Digital `docs/trackers/decisions.md` and is unresolved, so the line
- * stays off and the minimum is a setting rather than a constant.
+ * The founder's ruling of 9 October 2026 permits one full month of the client's
+ * own measured data in a private report to that client. The year rule in
+ * DIRECTION.md section 4 still applies to public or marketing claims.
  */
 
 import { addMonths, formatShort, nextDay } from "./dates";

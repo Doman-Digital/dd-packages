@@ -1,0 +1,551 @@
+{
+  "input": {
+    "period": {
+      "start": "2026-09-27",
+      "end": "2026-10-10",
+      "sendAt": "2026-10-11T09:00:00+01:00"
+    },
+    "asOf": "2026-10-10T07:11:58Z",
+    "uptime": {
+      "intervalSeconds": 300,
+      "incidents": []
+    },
+    "search": {
+      "clicks": 99,
+      "impressions": 6831,
+      "queries": [
+        {
+          "query": "search term 1",
+          "clicks": 1,
+          "impressions": 70
+        },
+        {
+          "query": "search term 2",
+          "clicks": 0,
+          "impressions": 37
+        },
+        {
+          "query": "search term 3",
+          "clicks": 0,
+          "impressions": 27
+        },
+        {
+          "query": "search term 4",
+          "clicks": 0,
+          "impressions": 19
+        },
+        {
+          "query": "search term 5",
+          "clicks": 0,
+          "impressions": 15
+        },
+        {
+          "query": "search term 6",
+          "clicks": 1,
+          "impressions": 13
+        },
+        {
+          "query": "search term 7",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "search term 8",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "search term 9",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "search term 10",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "search term 11",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "search term 12",
+          "clicks": 0,
+          "impressions": 10
+        },
+        {
+          "query": "search term 13",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 14",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 15",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 16",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 17",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 18",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 19",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "search term 20",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "search term 21",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "search term 22",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "search term 23",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "search term 24",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "search term 25",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    "speed": {
+      "runs": [
+        {
+          "score": 91,
+          "fetchTime": "2026-10-10T07:01:25.606Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 94,
+          "fetchTime": "2026-10-10T07:02:38.248Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 89,
+          "fetchTime": "2026-10-10T07:03:48.331Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 97,
+          "fetchTime": "2026-10-10T07:05:00.549Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 70,
+          "fetchTime": "2026-10-10T07:06:12.497Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        }
+      ],
+      "history": [
+        93
+      ],
+      "spread": 27
+    },
+    "analytics": {
+      "sessions": 84
+    },
+    "entries": [
+      {
+        "number": 194,
+        "title": "fix(ci): restore the CMS copy sweep toolkit",
+        "mergedAt": "2026-09-28T12:47:29Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 196,
+        "title": "fix(deps): repair pnpm install broken by the adm-zip security bump",
+        "mergedAt": "2026-09-30T23:31:39Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 195,
+        "title": "fix(portal): unblock document uploads and show real failure reasons",
+        "mergedAt": "2026-09-30T23:34:28Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 197,
+        "title": "feat(portal): remove portal preview, readable audit labels, scoped activity feed",
+        "mergedAt": "2026-09-30T23:47:37Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 198,
+        "title": "feat(portal): record the child's first name and date of birth",
+        "mergedAt": "2026-10-01T00:39:09Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 200,
+        "title": "fix(portal): include the client profile in the subject access export",
+        "mergedAt": "2026-10-01T00:39:45Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 201,
+        "title": "feat(portal): mobile-first shell, stacked tables, card lists, slimmer dashboard",
+        "mergedAt": "2026-10-01T01:39:02Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 202,
+        "title": "feat(portal): erasure scoping, entry point and tests",
+        "mergedAt": "2026-10-01T01:39:12Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 203,
+        "title": "fix(portal): show role changes under the High risk audit filter",
+        "mergedAt": "2026-10-01T01:54:27Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 204,
+        "title": "feat(portal): subject access export v2 and draft retention schedule for account records",
+        "mergedAt": "2026-10-01T02:46:07Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 205,
+        "title": "feat(portal): full account erasure for client accounts",
+        "mergedAt": "2026-10-01T14:57:49Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 206,
+        "title": "fix: keep email addresses out of sentry user context",
+        "mergedAt": "2026-10-03T18:13:58Z",
+        "forClient": "Error reports from the portal no longer include anyone's email address, so less personal information leaves your systems.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 207,
+        "title": "fix(deps): upgrade next to 16.3.6 for security fixes",
+        "mergedAt": "2026-10-04T03:06:56Z",
+        "forClient": "We installed a security update for the software your website runs on.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 209,
+        "title": "fix(deps): match eslint-config-next to next 16.3.6",
+        "mergedAt": "2026-10-04T09:13:08Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 213,
+        "title": "chore: adopt the DD Framework",
+        "mergedAt": "2026-10-05T01:14:00Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 212,
+        "title": "chore(guards): contrast guard uses @domandigital/craft 0.18.1",
+        "mergedAt": "2026-10-05T01:32:51Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 210,
+        "title": "fix(security): clear Dependabot backlog",
+        "mergedAt": "2026-10-05T07:42:01Z",
+        "forClient": "This is routine maintenance: it updates background software components to versions with known security fixes. Nothing on the website or the portal changes for visitors or staff.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 211,
+        "title": "Ignore env and token files",
+        "mergedAt": "2026-10-05T07:42:06Z",
+        "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 214,
+        "title": "Portal: account erasure tests no longer write to the real database",
+        "mergedAt": "2026-10-05T08:36:12Z",
+        "forClient": "A fix to an internal test that was stopping new versions of the portal from going live. Nothing changes in how the portal looks or works.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 215,
+        "title": "chore(deps): update @sentry/nextjs to 10.75.3 so browser source maps upload",
+        "mergedAt": "2026-10-05T15:19:27Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 208,
+        "title": "Astro port of the marketing site (Cloudflare Workers), on staging",
+        "mergedAt": "2026-10-06T09:45:37Z",
+        "forClient": "Your website will look and work the same in all seven languages, but pages will open about twice as fast on phones. A test copy is running at example.invalid (hidden from search engines). Nothing on the live site or the client portal has changed yet.",
+        "body": "## Briefing\nkind: visible\ntitle: Your website now runs on faster hosting\noutcome: This week your website moved to faster hosting, in all seven languages. It looks and works the same.\n",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 217,
+        "title": "docs(astro): record the first Workers Build",
+        "mergedAt": "2026-10-07T16:51:36Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 219,
+        "title": "fix(ci): pass the lint and audit jobs",
+        "mergedAt": "2026-10-07T18:27:03Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 222,
+        "title": "docs(privacy): name Cloudflare as the website host (cutover 5.7)",
+        "mergedAt": "2026-10-07T22:28:25Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 223,
+        "title": "fix(webhook): accept Sanity's base64url signature",
+        "mergedAt": "2026-10-07T22:59:11Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 221,
+        "title": "fix(deps): clear the high advisories in the Astro site and Studio",
+        "mergedAt": "2026-10-07T23:03:34Z",
+        "forClient": "none: security updates to the website's build tools; nothing on the site changes.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 226,
+        "title": "feat(astro): production routes in wrangler.jsonc (cutover 5.4)",
+        "mergedAt": "2026-10-07T23:25:40Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 227,
+        "title": "feat(astro): Sanity webhook POSTs the deploy hook directly; drop the Worker route",
+        "mergedAt": "2026-10-08T00:21:56Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 228,
+        "title": "docs(astro): webhook secret deleted; Actions billing-blocked again",
+        "mergedAt": "2026-10-08T00:26:41Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 224,
+        "title": "fix(deps): update Next to 16.3.8 in the website and portal",
+        "mergedAt": "2026-10-08T00:33:07Z",
+        "forClient": "Security update to the software behind the website and the client portal. Nothing you see changes.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 229,
+        "title": "docs(astro): webhook delivery confirmed, DeepL privacy lines, Web Analytics",
+        "mergedAt": "2026-10-08T00:35:40Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 230,
+        "title": "docs: live form tests passed, CLAUDE.md Astro note",
+        "mergedAt": "2026-10-08T01:06:13Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 231,
+        "title": "chore(astro): drop the staging domain, record the Vercel retirement",
+        "mergedAt": "2026-10-08T01:10:40Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 232,
+        "title": "feat: synthetic record origin, hiding and 7-day purge (DD Checks C16)",
+        "mergedAt": "2026-10-08T11:44:32Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 233,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-08T19:41:58Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 241,
+        "title": "Sentry: adopt @domandigital/sentry on the Astro site, the Worker and both Next apps",
+        "mergedAt": "2026-10-09T02:30:20Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 238,
+        "title": "feat(portal): child details on conversion and a missing-details count",
+        "mergedAt": "2026-10-09T08:29:12Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 240,
+        "title": "Read the Google rating from Doman Digital's published file, no Google token",
+        "mergedAt": "2026-10-09T10:14:16Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 239,
+        "title": "test(portal): make booking-lifecycle pass, and give it a production-build mode",
+        "mergedAt": "2026-10-09T10:18:27Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 235,
+        "title": "test(portal): verify account erasure on Postgres and the real Clerk and Resend APIs",
+        "mergedAt": "2026-10-09T11:08:30Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 236,
+        "title": "fix(portal): keep raw email addresses out of audit metadata",
+        "mergedAt": "2026-10-09T11:09:07Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 242,
+        "title": "ci: remove the reviewer job",
+        "mergedAt": "2026-10-09T13:31:48Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 243,
+        "title": "DD Checks C15: Astro synthetic contact path",
+        "mergedAt": "2026-10-09T17:07:42Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 244,
+        "title": "ci: e2e job stops duplicating the axe matrix (DOM-466)",
+        "mergedAt": "2026-10-09T17:32:02Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 247,
+        "title": "synthetic: body cap, 0.2.0, header-scrub proof (DOM-499)",
+        "mergedAt": "2026-10-09T18:55:52Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 246,
+        "title": "DD Checks C33: tag synthetic-run Sentry events (DOM-519)",
+        "mergedAt": "2026-10-09T23:31:51Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      }
+    ],
+    "notes": {
+      "example/site-1#195": "Your visitors can now upload PDFs that work, and see what went wrong if an upload fails instead of a blank error message.",
+      "example/site-1#197": "Cleaned up your customer pages by removing an old preview feature, making activity labels clearer in plain English, and fixing a bug where older customer activity would disappear from view.",
+      "example/site-1#198": "Your staff can now record a child's first name and date of birth when they set up a customer, so you have the information you need in one place.",
+      "example/site-1#200": "Your data exports now include your birth date, when you signed up, and your notification choices.",
+      "example/site-1#201": "Your portal now works like an app on phones, with tabs at the bottom, stacked cards instead of tables, and a cleaner dashboard that fits smaller screens.",
+      "example/site-1#205": "Visitors can no longer see accounts that have been fully erased, and their personal data is removed from connected services like payment and email providers, though invoices and clinical records are kept for legal reasons.",
+      "example/site-1#238": "Referral and enquiry forms now collect the child's name and birthdate when parents sign up, and your staff can see how many customer profiles are missing these details."
+    }
+  },
+  "config": {
+    "slug": "example-06",
+    "name": "Example 06",
+    "contactFirstName": "Sam",
+    "signoffName": "D'mitri",
+    "headline": "Your website moved to faster hosting this week.",
+    "subhead": "It looks and works the same in all seven languages, and your portal now works like an app on phones.",
+    "note": "Here is your update for 11 October.",
+    "approvals": [],
+    "urls": {
+      "log": "https://example.invalid/log",
+      "webView": "https://example.invalid/view"
+    }
+  },
+  "expectedHash": "4715bd5834aa2d2a007ead8db6149949f24389a26e787e3ad272844602a11831",
+  "expected": {
+    "status": "ok",
+    "sections": [
+      "status",
+      "changes",
+      "health",
+      "note"
+    ],
+    "searchState": "numbers",
+    "failedChecks": 0,
+    "flags": [
+      "unreviewed-line",
+      "unreviewed-line",
+      "missing-client-line"
+    ]
+  }
+}
