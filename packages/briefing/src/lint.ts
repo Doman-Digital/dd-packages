@@ -6,7 +6,7 @@
 
 import { findDates, mentionOf, sameDate, type DateMention } from "./dates";
 import { headlineReferencesApprovals, MILESTONE_LABELS, NOTHING_NEEDED } from "./status";
-import type { Briefing } from "./types";
+import type { SparseBriefing } from "./types";
 
 export type LintRule =
   | "negative-reassurance"
@@ -98,7 +98,7 @@ function sentences(text: string): string[] {
 }
 
 /** Every client-readable string in a briefing, by field. */
-export function readableFields(b: Briefing): [string, string][] {
+export function readableFields(b: SparseBriefing): [string, string][] {
   const f: [string, string][] = [
     ["statusLabel", b.statusLabel],
     ["preheader", b.preheader],
@@ -123,9 +123,9 @@ export function readableFields(b: Briefing): [string, string][] {
   });
   if (b.featureImage) f.push(["featureImage.alt", b.featureImage.alt]);
   const h = b.health;
-  f.push(["health.uptime.summary", h.uptime.summary], ["health.uptime.smallPrint", h.uptime.smallPrint]);
+  if (h.uptime) f.push(["health.uptime.summary", h.uptime.summary], ["health.uptime.smallPrint", h.uptime.smallPrint]);
   if (h.speed) f.push(["health.speed.bandLine", h.speed.bandLine], ["health.speed.smallPrint", h.speed.smallPrint]);
-  if (h.search.state === "low-data") f.push(["health.search.title", h.search.title], ["health.search.sentence", h.search.sentence]);
+  if (h.search?.state === "low-data") f.push(["health.search.title", h.search.title], ["health.search.sentence", h.search.sentence]);
   if (b.trackRecord) f.push(["trackRecord.line", b.trackRecord.line]);
   return f.filter(([, v]) => v !== "");
 }
@@ -174,7 +174,7 @@ export function headlineIsSpecific(headline: string, named: string[]): boolean {
   return named.some((n) => (n.toLowerCase().match(/[a-z]{5,}/g) ?? []).some((w) => !generic.has(w) && words.has(w)));
 }
 
-export function lintBriefing(b: Briefing, options: { allowedTerms?: string[] } = {}): LintFinding[] {
+export function lintBriefing(b: SparseBriefing, options: { allowedTerms?: string[] } = {}): LintFinding[] {
   const fields = readableFields(b);
   const out: LintFinding[] = [];
   if (!b.headline.trim()) out.push({ rule: "empty", field: "headline", match: "", message: "The headline is hand-written and cannot be empty." });
@@ -219,7 +219,7 @@ export class BriefingLintError extends Error {
   }
 }
 
-export function assertLintClean(b: Briefing, options: { allowedTerms?: string[] } = {}): void {
+export function assertLintClean(b: SparseBriefing, options: { allowedTerms?: string[] } = {}): void {
   const findings = lintBriefing(b, options);
   if (findings.length) throw new BriefingLintError(findings);
 }

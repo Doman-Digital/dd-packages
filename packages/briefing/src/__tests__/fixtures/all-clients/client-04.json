@@ -1,0 +1,375 @@
+{
+  "input": {
+    "period": {
+      "start": "2026-09-27",
+      "end": "2026-10-10",
+      "sendAt": "2026-10-11T09:00:00+01:00"
+    },
+    "asOf": "2026-10-10T07:12:08Z",
+    "uptime": {
+      "intervalSeconds": 300,
+      "incidents": []
+    },
+    "search": {
+      "clicks": 1,
+      "impressions": 11,
+      "queries": [
+        {
+          "query": "domandigital",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "search term 2",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    "speed": {
+      "runs": [
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:06:15.863Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:07:25.663Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:08:35.380Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:09:49.113Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        },
+        {
+          "score": 100,
+          "fetchTime": "2026-10-10T07:10:57.421Z",
+          "url": "https://example.invalid/",
+          "strategy": "mobile"
+        }
+      ],
+      "history": [
+        100
+      ],
+      "spread": 0
+    },
+    "analytics": {
+      "sessions": 0
+    },
+    "entries": [
+      {
+        "number": 42,
+        "title": "perf: journal intro desktop-only beside the hero, CSS accent on phones",
+        "mergedAt": "2026-10-03T15:11:47Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 43,
+        "title": "fix: point sentry source maps at the doman-digital org",
+        "mergedAt": "2026-10-03T18:13:47Z",
+        "forClient": "We updated your site's error monitoring settings after moving it to our own account.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 45,
+        "title": "Launch worker: move the sales floor to 18 November 2026",
+        "mergedAt": "2026-10-04T09:37:51Z",
+        "forClient": "The date the journal can go on sale has moved to Wednesday 18 November. Nothing changes on the website yet, and sales stay closed until you confirm the date.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 47,
+        "title": "chore(guards): take the contrast maths from @domandigital/craft 0.18.1",
+        "mergedAt": "2026-10-04T10:43:13Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 48,
+        "title": "chore: adopt the DD Framework rulebook",
+        "mergedAt": "2026-10-04T10:46:42Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 46,
+        "title": "Add the six-page free sample PDF",
+        "mergedAt": "2026-10-05T07:19:03Z",
+        "forClient": "Six pages from the journal are ready to send to anyone who joins your list, so they can read a little before deciding. Please check you are happy with these six pages being shared; nothing goes out until you say so.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 50,
+        "title": "Move email from Loops to Resend, with designed emails",
+        "mergedAt": "2026-10-05T07:19:14Z",
+        "forClient": "Your emails move from Loops to Resend and now carry the Example look: cream background, the lotus mark, your colours, signed \"Example K\". Nothing is sent until you have read and approved each one.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 49,
+        "title": "Ignore env and token files",
+        "mergedAt": "2026-10-05T07:19:21Z",
+        "forClient": "A small housekeeping change that stops password files from ever being saved alongside the website code. Nothing changes on the site.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 54,
+        "title": "Move the launch to Wednesday 13 January 2027",
+        "mergedAt": "2026-10-05T07:46:42Z",
+        "forClient": "The journal's on-sale date moves from 18 November to Wednesday 13 January 2027. Your launch emails now carry the new date, and the Christmas ordering line is gone from the gifting email.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 55,
+        "title": "chore(sentry): use the new org name for source-map uploads",
+        "mergedAt": "2026-10-05T13:28:08Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 51,
+        "title": "Daily reminder for Lulu orders waiting to be paid",
+        "mergedAt": "2026-10-05T13:56:52Z",
+        "forClient": "Each morning you'll get one email listing any orders that are waiting to be paid at Lulu, with a button to open Lulu and pay them. On a day when every order is paid, no email is sent.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 53,
+        "title": "feat(astro): email through Resend on the Worker",
+        "mergedAt": "2026-10-05T20:46:11Z",
+        "forClient": "The new, faster version of your site will send its emails through Resend too, in the same Example design, and will send the morning reminder of orders waiting to be paid at Lulu. Nothing changes on the live site yet.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 44,
+        "title": "Astro port on Cloudflare Workers (draft, not deployed)",
+        "mergedAt": "2026-10-05T21:13:14Z",
+        "forClient": "Your website now has a faster version that looks and works the same: pages load with almost no waiting on phones. It is not live yet. We will test payments and switch over only when you're happy, and we can switch back within minutes.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 57,
+        "title": "ci: activate the Deploy Astro workflow (cutover step 2)",
+        "mergedAt": "2026-10-05T21:16:44Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 56,
+        "title": "fix(deps): update next to 15.5.27 and drop unused decompress",
+        "mergedAt": "2026-10-05T21:47:21Z",
+        "forClient": "This is a security update to the framework the site runs on. The site should look and work the same.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 59,
+        "title": "ci(astro): Cloudflare Workers Builds + staging Worker (replaces the Deploy Astro workflow)",
+        "mergedAt": "2026-10-06T09:41:24Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 58,
+        "title": "fix(astro): refresh the prerendered OG image after the Next 15.5.27 upgrade",
+        "mergedAt": "2026-10-06T09:41:31Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 52,
+        "title": "feat(studio): standalone Studio for Sanity hosting (cutover step 1)",
+        "mergedAt": "2026-10-06T09:41:36Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 60,
+        "title": "docs(astro): Workers Builds in the cutover doc, clean staging parity",
+        "mergedAt": "2026-10-06T09:55:29Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 61,
+        "title": "chore(deps): pnpm 10.34.5 (security), root and astro/",
+        "mergedAt": "2026-10-06T10:06:29Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 62,
+        "title": "docs(astro): record the 7 October staging checks",
+        "mergedAt": "2026-10-07T09:32:17Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 63,
+        "title": "chore(astro): serve production from example.invalid",
+        "mergedAt": "2026-10-07T19:07:10Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 64,
+        "title": "docs(astro): record the production switch and the staging payment test",
+        "mergedAt": "2026-10-07T19:14:47Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 65,
+        "title": "fix(preorder): reviewer links work for names longer than 19 characters",
+        "mergedAt": "2026-10-07T23:06:34Z",
+        "forClient": "none",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 67,
+        "title": "docs: cutover progress note and processor register after the switch",
+        "mergedAt": "2026-10-08T00:20:19Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 66,
+        "title": "Cloudflare Web Analytics behind the existing analytics consent",
+        "mergedAt": "2026-10-08T00:31:24Z",
+        "forClient": "If a visitor accepts analytics, your site now also measures page views and how quickly pages load, without cookies, and the privacy and cookie pages say so.",
+        "repo": "example/site-1"
+      },
+      {
+        "number": 70,
+        "title": "Sentry on the Astro site: preset, environment, release, inline-script maps, new DSN host",
+        "mergedAt": "2026-10-09T01:44:48Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      },
+      {
+        "number": 69,
+        "title": "ci: run jobs on the dd-client ephemeral runners",
+        "mergedAt": "2026-10-09T02:57:51Z",
+        "forClient": null,
+        "repo": "example/site-1"
+      }
+    ],
+    "notes": {
+      "example/site-1#42": "Phones and tablets now load your home page much faster by skipping the intro video, and desktops show a quick animation beside your hero card instead of a full screen cover.",
+      "example/site-1#70": "Improved error reporting on your site so we can spot and fix problems visitors run into, and made pages load their error tracking code more efficiently."
+    }
+  },
+  "config": {
+    "slug": "example-04",
+    "name": "Example 04",
+    "contactFirstName": "Sam",
+    "signoffName": "D'mitri",
+    "headline": "Your faster site is live. Three quick decisions keep the January launch on track.",
+    "subhead": "Since Wednesday 7 October your site has run on a faster setup.",
+    "note": "Here is your update for 11 October.",
+    "approvals": [
+      {
+        "id": "approval-1",
+        "title": "Confirm Wednesday 13 January as your on-sale date",
+        "why": "Your launch emails already carry this date. Sales open only once you confirm. To confirm, reply to this email with \"Yes, 13 January\". If you would like a different date, reply with that instead.",
+        "content": "Redacted approval content 1",
+        "review": {
+          "label": "Reply to confirm",
+          "url": "https://example.invalid/review/1"
+        },
+        "sources": [
+          "#45",
+          "#54"
+        ]
+      },
+      {
+        "id": "approval-2",
+        "title": "Approve the six sample pages",
+        "why": "New sign-ups receive these so they can read a little of the journal before they buy. The welcome email in the folder links to them. They go out only after you approve.",
+        "content": "Redacted approval content 2",
+        "review": {
+          "label": "Open the review folder",
+          "url": "https://example.invalid/review/2"
+        },
+        "sources": [
+          "#46"
+        ]
+      },
+      {
+        "id": "approval-3",
+        "title": "Read your launch emails",
+        "why": "All eight, in the Example look: cream background, the lotus mark, your colours, signed \"Example K\". Each one goes out only after you approve it. A reply saying you are happy is enough.",
+        "content": "Redacted approval content 3",
+        "review": {
+          "label": "Read the emails (PDF)",
+          "url": "https://example.invalid/review/3"
+        },
+        "sources": [
+          "#50"
+        ]
+      }
+    ],
+    "urls": {
+      "log": "https://example.invalid/log",
+      "webView": "https://example.invalid/view"
+    },
+    "launch": {
+      "date": "2027-01-13",
+      "state": "proposed",
+      "milestones": [
+        {
+          "label": "Launch emails designed",
+          "status": "ready"
+        },
+        {
+          "label": "Faster site switched on, 7 October",
+          "status": "ready"
+        },
+        {
+          "label": "Test payment on the new site",
+          "status": "ready"
+        },
+        {
+          "label": "Your three approvals",
+          "status": "waiting"
+        },
+        {
+          "label": "Sales open on your confirmed date",
+          "status": "planned"
+        }
+      ]
+    }
+  },
+  "expectedHash": "f9cd31e1f2b7701987cbec54ea49953309a5931b7f76b1b03288ea9305c3a029",
+  "expected": {
+    "status": "attention",
+    "sections": [
+      "status",
+      "needs-you",
+      "launch",
+      "changes",
+      "health",
+      "note"
+    ],
+    "searchState": "low-data",
+    "failedChecks": 0,
+    "flags": [
+      "unreviewed-line",
+      "missing-client-line",
+      "excluded-query",
+      "tracking-check",
+      "launch-proposed"
+    ]
+  }
+}
