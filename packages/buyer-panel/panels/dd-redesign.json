@@ -1,0 +1,72 @@
+{
+  "name": "dd-redesign",
+  "client": "dd-site-preview",
+  "target": {
+    "origin": "https://dd-site-preview.domandigital.workers.dev",
+    "start": "/",
+    "access": { "idEnv": "DD_SITE_PREVIEW_ACCESS_CLIENT_ID", "secretEnv": "DD_SITE_PREVIEW_ACCESS_CLIENT_SECRET" },
+    "worker": { "name": "dd-site-preview", "accountId": "30515e0503d5fe494460233cc3535d74" }
+  },
+  "archive": "~/dd-client-capsule",
+  "stepBudget": 25,
+  "devices": ["desktop", "phone"],
+  "variants": [
+    { "id": "a", "provider": "bedrock", "model": "eu.anthropic.claude-haiku-4-5-20251001-v1:0", "temperature": 0.3 },
+    { "id": "b", "provider": "bedrock", "model": "eu.anthropic.claude-haiku-4-5-20251001-v1:0", "temperature": 1.0 }
+  ],
+  "evaluator": { "provider": "bedrock", "model": "eu.anthropic.claude-haiku-4-5-20251001-v1:0", "temperature": 0 },
+  "firstImpressionQuestion": "In your own words, what does this company do?",
+  "profiles": [
+    {
+      "id": "electrician",
+      "label": "Six-person electrical business, site brings few enquiries",
+      "persona": "You are Gary, 47, and you run an electrical contracting business in Stockport with six people: you, four electricians and an apprentice. Domestic rewires, consumer units, EV chargers and some small commercial work. You have a website a mate's son built five years ago; it gets almost no enquiries and most work still comes from word of mouth and Checkatrade. You are practical, short on time, and wary of being sold something. You read on your phone between jobs and on the laptop in the evening. You do not know web jargon and do not want to learn it.",
+      "task": "A supplier mentioned this company when you moaned about your website. Find out whether they could get you more enquiries, roughly what it would cost you, and how you would get started. If it looks worth it, get to the point where you would contact them."
+    },
+    {
+      "id": "clinic",
+      "label": "Clinic owner with several clinicians",
+      "persona": "You are Priya, 41, a physiotherapist who owns a clinic in Altrincham with five clinicians, a sports massage therapist and a part-time receptionist. Referrals come from GPs, insurers and patients, and they get lost between people. Bookings are a mix of phone, email and an old online system. You worry about patient data: who holds it, what you are responsible for, and whether a supplier understands health data at all. You are careful, detailed, and will not hand patient information to anyone you are unsure about.",
+      "task": "You are looking for someone to sort out your clinic's website and the way referrals and bookings come in. Find out whether this company works with clinics like yours, how they handle patient data and who is responsible for what, and what the first step would be. If you are satisfied, get to the point where you would contact them."
+    },
+    {
+      "id": "accountant",
+      "label": "Small accountancy firm, price-aware",
+      "persona": "You are David, 55, a partner in a three-partner accountancy practice in Bolton with nine staff. Your website is dated and says nothing about the services you actually want more of: small business accounts, payroll and advisory. You are numerate and price-conscious, you compare quotes, and you dislike vague pricing and long contracts. You want to know exactly what you pay, when, and what you own at the end.",
+      "task": "You want a new website for the practice. Work out what it would cost, how payment works, how long you would be tied in, and what happens after the site is live. Check whether they have done work for firms like yours. If the numbers make sense, get to the point where you would contact them."
+    },
+    {
+      "id": "salon",
+      "label": "Salon owner booking by DM, not sure what needs changing",
+      "persona": "You are Shanice, 33, and you own a nail and beauty salon in Salford with three technicians. Almost all bookings come through Instagram DMs and WhatsApp, which you answer at night after closing. People ask the same questions about prices and availability, deposits get missed, and no-shows cost you. You have an Instagram page but no proper website. You are busy, mostly on your phone, and you are not sure whether you need a website, a booking app, or something else entirely.",
+      "task": "You are not sure what needs changing, only that answering DMs all evening is wearing you out. See whether this company can help you work out what you actually need, and whether you can talk to them without already knowing what to ask for. If they seem right, get to the point where you would contact them."
+    },
+    {
+      "id": "sceptic",
+      "label": "Burned before by an agency",
+      "persona": "You are Mark, 52, and you run a family-owned kitchen fitting company in Warrington with eleven staff. Two years ago you paid an agency £4,000 for a website and 'SEO'; you got a template site, monthly reports you did not understand, and no extra work, and it took months to get your domain back. You are sceptical of every claim, you look for proof with names and dates, you want to know who actually does the work, and you check the small print about contracts and who owns what.",
+      "task": "Decide whether this company is any different from the agency that let you down. Look for real proof, who you would deal with, what you would be tied into, and who owns the website and domain. Only if they earn it, get to the point where you would contact them."
+    }
+  ],
+  "grading": {
+    "journeyMap": "~/dd-ops/dd-redesign/dd-journey-map-v1.html",
+    "brandFacts": {
+      "path": "~/repos/Doman-Digital/docs/brand-facts.json",
+      "include": ["entity", "domanDigital", "managedPlans", "salesModel", "offCatalogue", "boltOnPricesVerified", "clientTypes", "routingRubric", "founderDecisions2026_09_05", "founderDecisions2026_09_09"]
+    },
+    "knownStates": [
+      "The enquiry form sends nothing on the preview: submitting it shows the failure state with preview wording. The contact handler is wired in Stage 08.",
+      "The booking calendar is not set on the preview: /book shows the unavailable state and falls back to the enquiry form.",
+      "Preview notes on the contact page, the book page and the footer say the preview does not send or book.",
+      "The client portal links go to the live portal, which asks for a sign-in; the portal shown in screenshots runs on test data. There is no /support route yet, so Support goes through the portal home.",
+      "Legal pages, guides, the website check and location pages link out to the current live site (www.domandigital.co.uk), which has the old design.",
+      "The home page has a reserved video quote slot (a dashed box with a short key) that stays empty until the client's video exists.",
+      "The preview is noindex and sits behind a Cloudflare Access sign-in; no analytics or consent banner loads.",
+      "Harrison James is deliberately absent from the case studies."
+    ],
+    "notes": [
+      "The site has two ways to pay: a one-off build (Build) or a managed monthly plan that includes the site and keeps it running (Run). Service comprehension is accurate only if the buyer can tell these apart.",
+      "The right enquiry flow for every profile is the contact form (or the booking page with the form as fallback), with the context of their situation; the 'not sure' route is a first-class answer on the form."
+    ]
+  }
+}

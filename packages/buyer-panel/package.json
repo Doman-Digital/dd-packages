@@ -1,0 +1,41 @@
+{
+  "name": "@domandigital/buyer-panel",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Synthetic buyer panel: AI buyers with a persona and a task browse a site in Playwright on desktop and phone, a separate evaluating model grades the traces against the journey map and the facts, and findings that reproduce across runs are reported. A defect-finding layer, never validation.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "buyer-panel": "dist/cli.js"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist",
+    "panels"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/bedrock-sdk": "^0.34.2",
+    "@anthropic-ai/sdk": "^0.132.1",
+    "playwright": "^1.63.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doman-Digital/dd-packages.git",
+    "directory": "packages/buyer-panel"
+  }
+}
