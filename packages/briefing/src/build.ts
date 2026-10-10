@@ -16,7 +16,7 @@ import { searchSummary, speedFromRuns, uptimeFromIncidents, visitsSummary } from
 import { maintenanceLine, rankChanges } from "./rank";
 import { computeStatus, launchView, preheader, statusLabel } from "./status";
 import { buildTrackRecord } from "./track-record";
-import type { Approval, Briefing, BriefingLog, BuildResult, ClientConfig, Flag, LogEntry, RawInput, Section } from "./types";
+import type { Approval, Briefing, BriefingLog, BuildResult, ClientConfig, Flag, LogEntry, RawInput, Section, SparseBriefing, SparseBuildResult, SparseRawInput } from "./types";
 
 export const MAX_APPROVALS = 3;
 
@@ -28,18 +28,21 @@ export class BriefingBuildError extends Error {
 }
 
 /** Needs you comes straight after the headline whenever there is anything in it. */
-export function sectionOrder(b: Pick<Briefing, "approvals" | "launch" | "changes" | "maintenanceCount" | "moreChangesCount" | "trackRecord">): Section[] {
+export function sectionOrder(b: Pick<Briefing, "approvals" | "launch" | "changes" | "maintenanceCount" | "moreChangesCount" | "trackRecord"> & { health?: SparseBriefing["health"] }): Section[] {
   const s: Section[] = ["status"];
   if (b.approvals.length) s.push("needs-you");
   if (b.launch) s.push("launch");
   if (b.changes.length || b.maintenanceCount || b.moreChangesCount) s.push("changes");
-  s.push("health");
+  // Older callers only pass the section decisions and have no health field.
+  if (!b.health || Object.values(b.health).some((value) => value !== undefined)) s.push("health");
   if (b.trackRecord) s.push("track-record");
   s.push("note");
   return s;
 }
 
-export function buildBriefing(input: RawInput, config: ClientConfig): BuildResult {
+export function buildBriefing(input: RawInput, config: ClientConfig): BuildResult;
+export function buildBriefing(input: SparseRawInput, config: ClientConfig): SparseBuildResult;
+export function buildBriefing(input: SparseRawInput, config: ClientConfig): SparseBuildResult {
   if (!config.headline?.trim()) throw new BriefingBuildError(`No headline for ${config.name}. The headline is hand-written on the client config; it is never generated.`);
   if (!config.note?.trim()) throw new BriefingBuildError(`No personal note for ${config.name}. The note is hand-written on the client config; it is never generated.`);
 
@@ -91,15 +94,15 @@ export function buildBriefing(input: RawInput, config: ClientConfig): BuildResul
   }
 
   // ---- metrics
-  const uptime = uptimeFromIncidents(input.period, input.uptime.intervalSeconds, input.uptime.incidents, input.asOf);
-  if (uptime.failed > 0) {
+  const uptime = input.uptime ? uptimeFromIncidents(input.period, input.uptime.intervalSeconds, input.uptime.incidents, input.asOf) : undefined;
+  if (uptime && uptime.failed > 0) {
     flags.push({ code: "failed-checks", message: `${uptime.failed} uptime ${uptime.failed === 1 ? "check" : "checks"} failed: ${uptime.failures.map((f) => `${f.startedAt} for ${f.minutes} minutes`).join("; ")}.` });
   }
   const speedResult = input.speed ? speedFromRuns(input.speed.runs, input.speed.history, input.speed.spread) : { flags: [] };
   flags.push(...speedResult.flags);
-  const searchResult = searchSummary(input.search, { exclude: config.searchExclude, preLaunch: !!config.launch, clientName: config.name });
+  const searchResult = input.search ? searchSummary(input.search, { exclude: config.searchExclude, preLaunch: !!config.launch, clientName: config.name }) : { excluded: [], flags: [] };
   flags.push(...searchResult.flags);
-  const visitsResult = visitsSummary(input.analytics?.sessions, input.search.clicks);
+  const visitsResult = visitsSummary(input.analytics?.sessions, input.search?.clicks);
   flags.push(...visitsResult.flags);
 
   // ---- launch
@@ -118,13 +121,13 @@ export function buildBriefing(input: RawInput, config: ClientConfig): BuildResul
   }
 
   const trackRecord = buildTrackRecord(input.ledger, config).trackRecord;
-  const status = computeStatus(approvals, uptime);
+  const status = uptime ? computeStatus(approvals, uptime) : approvals.length ? "attention" : "ok";
 
-  const briefing: Briefing = {
+  const briefing: SparseBriefing = {
     client: { name: config.name, contactFirstName: config.contactFirstName, signoffName: config.signoffName },
     period: input.period,
     status,
-    statusLabel: statusLabel(status, approvals.length),
+    statusLabel: !uptime && status === "ok" ? "Your update" : statusLabel(status, approvals.length),
     preheader: preheader(config.headline.trim(), approvals, status),
     headline: config.headline.trim(),
     subhead: config.subhead.trim(),
@@ -136,9 +139,9 @@ export function buildBriefing(input: RawInput, config: ClientConfig): BuildResul
     moreChangesCount: ranked.overflow.length,
     maintenanceLine: maintenanceLine(maintenanceCount, ranked.overflow.length),
     health: {
-      uptime,
+      ...(uptime ? { uptime } : {}),
       ...(speedResult.speed ? { speed: speedResult.speed } : {}),
-      search: searchResult.search,
+      ...("search" in searchResult ? { search: searchResult.search } : {}),
       ...(visitsResult.visits ? { visits: visitsResult.visits } : {}),
     },
     ...(trackRecord ? { trackRecord } : {}),
@@ -186,7 +189,7 @@ export function buildBriefing(input: RawInput, config: ClientConfig): BuildResul
     supersessions,
     excludedQueries: searchResult.excluded,
     derivations: [
-      `Uptime: ${uptime.passed} of ${uptime.total} checks, counted from the ${uptime.intervalMinutes}-minute check interval and ${input.uptime.incidents.length} recorded incident(s)${input.asOf ? `, to ${input.asOf}` : ""}.`,
+      ...(uptime && input.uptime ? [`Uptime: ${uptime.passed} of ${uptime.total} checks, counted from the ${uptime.intervalMinutes}-minute check interval and ${input.uptime.incidents.length} recorded incident(s)${input.asOf ? `, to ${input.asOf}` : ""}.`] : []),
       ...(speedResult.speed ? [`Speed: median ${speedResult.speed.median} of ${speedResult.speed.runs} distinct mobile runs, spread ${speedResult.speed.spread}.`] : []),
     ],
   };

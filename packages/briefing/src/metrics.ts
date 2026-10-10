@@ -148,9 +148,9 @@ export function searchSummary(
 export type VisitsResult = { visits?: Visits; flags: Flag[] };
 
 /** Zero sessions beside real Google clicks means tracking is broken: no number goes to the client. */
-export function visitsSummary(sessions: number | null | undefined, clicks: number): VisitsResult {
+export function visitsSummary(sessions: number | null | undefined, clicks: number | undefined): VisitsResult {
   if (sessions === null || sessions === undefined) return { flags: [] };
-  if (sessions === 0 && clicks > 0) {
+  if (sessions === 0 && clicks !== undefined && clicks > 0) {
     return { flags: [{ code: "tracking-check", message: `Tracking check needed: Google Analytics reports 0 visits while Search Console reports ${clicks} ${clicks === 1 ? "click" : "clicks"}. Visits tile held back.` }] };
   }
   return { visits: { sessions }, flags: [] };
