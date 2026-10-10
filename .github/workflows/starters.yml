@@ -4,7 +4,9 @@ name: starters
 # starter from scratch exactly as `dd new` does: create-next-app (or
 # create-astro), this commit's @domandigital/create-site, dd adopt, and
 # dd doctor, which must be clean (nothing failing, warning or exempt). Then it
-# builds the site and runs the checks the site ships with. A red starter posts
+# proves the build refuses the starter until its programme stages are done,
+# stands in for them with fixtures, builds the site, measures it and runs the
+# checks the site ships with. A red starter posts
 # to the ops Slack channel, the same way dd-repo-registry's estate sweep does
 # (scripts/slack-post.mjs).
 #
@@ -86,9 +88,46 @@ jobs:
             --answers "$RUNNER_TEMP/answers.json" \
             --create-site packages/create-site/dist/cli.js
 
+      # The site programme's gates (docs/site-programme.md, DOM-647). A new
+      # site must not build until its programme issue, its Stage 05 direction
+      # and its Stage 06 copy deck exist, so the first build has to fail, and
+      # fail at the right gate, before the fixtures stand in for the stages.
+      - name: The build refuses a starter whose programme stages are not done
+        working-directory: ${{ runner.temp }}/starter
+        run: |
+          refused() {
+            if pnpm run build > "$RUNNER_TEMP/refused.log" 2>&1; then
+              cat "$RUNNER_TEMP/refused.log"
+              echo "::error::The starter built without $1. The prebuild gates are not wired."
+              exit 1
+            fi
+            grep -F "$2" "$RUNNER_TEMP/refused.log" || { cat "$RUNNER_TEMP/refused.log"; echo "::error::The build failed, but not at $2."; exit 1; }
+          }
+          refused "a programme issue" "programme (Stage 01)"
+          jq '.issue = "DOM-647"' site.programme.json > "$RUNNER_TEMP/p.json" && mv "$RUNNER_TEMP/p.json" site.programme.json
+          refused "a decided direction" "check-direction (Stage 05)"
+
+      - name: Stand in for Stages 05 and 06 with the fixtures
+        working-directory: ${{ runner.temp }}/starter
+        env:
+          FIXTURES: ${{ github.workspace }}/packages/create-site/starter-fixture
+        run: |
+          cp "$GITHUB_WORKSPACE/packages/craft/src/__tests__/fixtures/direction-v2.json" art-direction.json
+          cp "$FIXTURES/art-direction.sheets.json" art-direction.sheets.json
+          deck="$(jq -r .paths.deck site.programme.json)"
+          mkdir -p "$(dirname "$deck")"
+          cp "$FIXTURES/deck.ts" "$deck"
+          pnpm run deck
+
       - name: Build the starter
         working-directory: ${{ runner.temp }}/starter
         run: pnpm run build
+
+      - name: Measure the build at 1440 and 390
+        working-directory: ${{ runner.temp }}/starter
+        run: |
+          pnpm exec playwright install --with-deps chromium
+          pnpm run measure
 
       - name: The starter's own checks
         working-directory: ${{ runner.temp }}/starter

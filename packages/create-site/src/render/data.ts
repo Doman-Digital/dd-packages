@@ -2,6 +2,7 @@
 // person edits after the scaffold runs, so none of them is ever overwritten.
 
 import type { Answers } from "../answers.js";
+import type { Project } from "../detect.js";
 import { policyPatternsFor } from "../patterns.js";
 import { SECTORS } from "../sectors.js";
 
@@ -147,4 +148,51 @@ export function renderLinks(): string {
 
 export function renderRedirects(): string {
   return `${JSON.stringify({ $schema: "./node_modules/@domandigital/seo/redirects.schema.json", redirects: [] }, null, 2)}\n`;
+}
+
+/**
+ * The site's answers to its gates (scripts/gates/, docs/site-programme.md):
+ * the programme issue, where the gates read and write, what is measured and
+ * how a preview is deployed. The gate scripts are identical on every site;
+ * everything that differs between sites is here.
+ */
+export function renderProgramme(a: Answers, project: Pick<Project, "srcBase">): string {
+  const base = project.srcBase;
+  const source = base ? [base.replace(/\/$/, "")] : ["app", "components", "lib", "content"];
+  const host = a.stack.host === "cloudflare" || a.stack.host === "vercel" ? a.stack.host : null;
+  const programme = {
+    $comment:
+      "Read by scripts/gates/ before every build and preview deploy. docs/site-programme.md says what each key is for. Written by @domandigital/create-site; yours to edit, never overwritten.",
+    issue: a.programme,
+    registeredDirection: null,
+    paths: {
+      tokens: `${base}styles/tokens.css`,
+      deck: `${base}content/deck.ts`,
+      deckMarkdown: "docs/copy-deck.md",
+      nullCheck: "docs/null-check.md",
+      source,
+    },
+    measure: { pages: ["/"], minFontPx: 12, labels: null, port: 4410 },
+    nullCheck: { harvest: null, justified: {} },
+    facts: { importer: null },
+    preview: { host },
+  };
+  return `${JSON.stringify(programme, null, 2)}\n`;
+}
+
+/**
+ * Both sides of the sheet beyond the direction's own ground and accent: the
+ * inks, the rule and the soft accent by day, and every value by night. Null
+ * until decided in Stage 05; scripts/gates/tokens.mjs stops the build on a null.
+ */
+export function renderSheets(): string {
+  const inks = { ink: null, "ink-2": null, "ink-3": null, rule: null, "accent-soft": null };
+  const sheets = {
+    $comment:
+      "The day side's ground and accent are art-direction.json's choices. Every other colour, and the whole night side, is decided here in Stage 05 with a reason in because, and measured by scripts/gates/night-contrast.mjs before every build.",
+    light: inks,
+    night: { ground: null, accent: null, ...inks },
+    because: null,
+  };
+  return `${JSON.stringify(sheets, null, 2)}\n`;
 }

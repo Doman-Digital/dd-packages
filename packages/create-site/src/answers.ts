@@ -25,10 +25,12 @@ export type Answers = {
   previousHosts: string[];
   /** What the builder says the site uses. Declared, not observed: see stack.ts. */
   stack: StackAnswers;
+  /** The site's programme issue in Linear (DOM-123), opened from the Site programme template. */
+  programme: string | null;
 };
 
 export type AnswerSources = {
-  flags: Partial<Record<"legalName" | "tradingName" | "siteUrl" | "sector" | "description", string>>;
+  flags: Partial<Record<"legalName" | "tradingName" | "siteUrl" | "sector" | "description" | "programme", string>>;
   file: string | undefined;
   cwd: string;
   /** undefined when prompting is not allowed (no terminal, or --yes). */
@@ -140,6 +142,9 @@ export async function collectAnswers(sources: AnswerSources): Promise<Answers | 
   const stack = await collectStack(optional);
   if (typeof stack === "string") return stack;
 
+  const programme = pick("programme") ?? text(await optional("programme", "Programme issue in Linear, e.g. DOM-123"));
+  if (programme !== null && !/^[A-Z]+-\d+$/.test(programme)) return `--programme takes a Linear issue id such as DOM-123, not "${programme}"`;
+
   return {
     legalName: values.legalName!,
     tradingName,
@@ -154,5 +159,6 @@ export async function collectAnswers(sources: AnswerSources): Promise<Answers | 
     registers,
     previousHosts,
     stack,
+    programme,
   };
 }
