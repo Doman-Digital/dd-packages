@@ -5,6 +5,8 @@ export default defineConfig([
   { entry: ["src/index.ts"], format: ["cjs", "esm"], dts: true, clean: true },
   // The browser half: the only entry that may import Playwright, and only lazily.
   { entry: { audit: "src/audit/index.ts" }, format: ["cjs", "esm"], dts: true, clean: false, external: ["playwright", "playwright-core"] },
+  // The phone-first gate's browser half: takes the caller's page, imports no browser itself.
+  { entry: { phone: "src/phone/index.ts" }, format: ["cjs", "esm"], dts: true, clean: false, external: ["playwright", "playwright-core"] },
   // The CLI: ESM only, never imported, so no types.
   { entry: { cli: "src/cli.ts", generate: "src/null/generate.ts" }, format: ["esm"], dts: false, clean: false, external: ["playwright", "playwright-core"] },
 ]);
