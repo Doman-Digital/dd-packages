@@ -39,7 +39,12 @@ export function measurePhoneInPage(floors: PhoneFloors): RawPhoneFinding[] {
     const s = getComputedStyle(e);
     return s.display !== "none" && s.visibility !== "hidden" && e.getClientRects().length > 0;
   };
-  const quiet = (e: Element): boolean => !!e.closest("[aria-hidden='true'], .sr-only, .visually-hidden, [hidden]");
+  // Visually hidden, or parked off the page until it is needed (a skip link before focus, a closed drawer): not on screen, so not measured.
+  const offPage = (e: Element): boolean => {
+    const r = e.getBoundingClientRect();
+    return r.right <= 0 || r.bottom + window.scrollY <= 0 || r.left >= vw;
+  };
+  const quiet = (e: Element): boolean => !!e.closest("[aria-hidden='true'], .sr-only, .visually-hidden, [hidden]") || offPage(e);
   const describe = (e: Element): string => {
     const text = (e.textContent ?? "").replace(/\s+/g, " ").trim() || e.getAttribute("aria-label") || e.getAttribute("name") || e.getAttribute("placeholder") || "";
     return `<${e.tagName.toLowerCase()}>${text ? ` "${text.slice(0, 40)}"` : ""}`;
