@@ -199,6 +199,8 @@ describe.skipIf(!chromium)("craft phone-first in a real browser", () => {
 <a class="ok" href="/a">Pay</a> <a href="/b" style="font-size:16px">Invoice 1042</a>
 <label for="q" style="display:block;min-height:44px">Search</label><input id="q" style="min-height:44px">
 <small style="font-size:10px">VAT included</small><span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;font-size:8px">skip</span>
+<a href="#main" style="position:absolute;top:-60px;left:0;font-size:10px">Skip to main content</a>
+<nav style="position:fixed;top:0;left:0;transform:translateX(-100%);font-size:10px"><a href="/x">Drawer link</a></nav>
 <div class="wide">table</div></main>`;
 
   it("measures scroll, targets, fields, text and a cut-off title, and writes the route", async () => {
@@ -218,6 +220,8 @@ describe.skipIf(!chromium)("craft phone-first in a real browser", () => {
       expect(got.some((g) => g.startsWith("title <h1>"))).toBe(true);
       // The sentence link, the 44px link, the labelled field's target and the visually hidden text all pass.
       expect(got.filter((g) => g.includes(`"terms"`) || g.includes(`"Pay"`) || g.includes("skip"))).toEqual([]);
+      // Parked off the page until needed: a skip link before focus, a closed drawer.
+      expect(got.filter((g) => g.includes("Skip to main content") || g.includes("Drawer link"))).toEqual([]);
       expect(got.filter((g) => g.startsWith("target <input>"))).toEqual([]);
       expect(result.viewport).toEqual({ width: 375, height: 812 });
       expect(JSON.parse(readFileSync(join(outDir, "fixture.json"), "utf8")).route).toBe("/fixture");
