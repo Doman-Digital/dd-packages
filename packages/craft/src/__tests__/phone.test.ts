@@ -89,6 +89,8 @@ describe("the baseline", () => {
 
   it("keys measured breaches on route, check and element, with digits folded", () => {
     expect(normaliseElement(`<a> "Invoice 1042, £1,200.00"`)).toBe(`<a> "Invoice #, £#,#.#"`);
+    expect(normaliseElement(`<h1> "Step 2 of 3"`)).toBe(`<h1> "Step # of #"`);
+    expect(normaliseElement("<h2>")).toBe("<h2>");
     const baseline = writeBaseline([], routes);
     expect(baseline.measured).toEqual([
       { route: "/portal", check: "scroll", element: "<html>", count: 1 },
@@ -100,7 +102,7 @@ describe("the baseline", () => {
   it("fails a new measured breach and an extra one of a known kind", () => {
     const baseline: Baseline = { static: [], measured: [{ route: "/portal", check: "target", element: `<a> "Invoice #"`, count: 1 }] };
     const { fresh, known } = judgeMeasured(routes, baseline);
-    expect(fresh).toEqual([`/portal: small target <a> "Invoice 1042": 80x20px, under 44x44 (the baseline allows 1)`, "/portal: scrolls sideways <html>: the page is 412px wide at 375px"]);
+    expect(fresh).toEqual([`/portal: small target <a> "Invoice 1042": 80x20px, under 44x44 (2 found, the baseline allows 1)`, "/portal: scrolls sideways <html>: the page is 412px wide at 375px"]);
     expect(known).toBe(1);
   });
 
