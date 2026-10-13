@@ -27,6 +27,7 @@ export const GATES = [
   "facts.mjs",
   "copy-deck.mjs",
   "null-check.mjs",
+  "mobile-first.mjs",
   "measure.mjs",
   "deploy-preview.mjs",
 ] as const;

@@ -45,23 +45,31 @@ describe("STANDARD.md is bound to the code", () => {
 });
 
 describe("STANDARD.md structure", () => {
-  it("has all eleven sections", () => {
+  it("has all twelve sections", () => {
     const headings = [...STANDARD.matchAll(/^## (\d+)\./gm)].map((m) => Number(m[1]));
-    expect(headings).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+    expect(headings).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   });
 
   it("cites a source for every rule section", () => {
-    // Sections 1-9 are rules and must each carry a source line; 10 and 11 are
-    // the non-rules and the data block.
+    // Sections 1-10 are rules and must each carry a source line; 11 and 12
+    // are the non-rules and the data block.
     const sections = STANDARD.split(/^## /m).slice(1);
     for (const section of sections) {
       const number = Number(section.match(/^(\d+)\./)![1]);
-      if (number >= 10) continue;
+      if (number >= 11) continue;
       expect(section, `section ${number} has no source`).toMatch(/\*Source:/);
     }
   });
 
+  it("puts the phone first, as a rule about order and floor", () => {
+    const section10 = STANDARD.split(/^## /m).find((s) => s.startsWith("10."))!;
+    expect(section10).toMatch(/^10\. The phone is the base layout/);
+    for (const rule of ["`min-width`", "375", "44 × 44", "16px", "mobile Lighthouse"]) expect(section10).toContain(rule);
+    const section11 = STANDARD.split(/^## /m).find((s) => s.startsWith("11."))!;
+    expect(section11, "the not-a-rule section must say layout stays free under section 10").toMatch(/Section\s+10 fixes the order/);
+  });
+
   it("says what is deliberately not a rule", () => {
-    expect(STANDARD).toMatch(/## 10\. What is deliberately not a rule/);
+    expect(STANDARD).toMatch(/## 11\. What is deliberately not a rule/);
   });
 });
