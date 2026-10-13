@@ -17,6 +17,10 @@
  * Comments are never copy. A code comment in this estate is often long,
  * careful prose full of em dashes, and an apostrophe in one ("it's") would
  * otherwise open a phantom string literal that swallows the next line.
+ *
+ * Front matter is metadata, except `title` and `description`. Those scalars
+ * are the line a reader, or a skill picker, sees, so they stay where they
+ * were written.
  */
 
 import { fileKind, stringLiterals } from "./parse.js";
@@ -177,11 +181,133 @@ function textNodeIsProse(body: string): boolean {
   return (/[a-zA-Z]{2,}/.test(body) && /\s/.test(body.trim())) || /[a-zA-Z]{4,}[.!?]/.test(body);
 }
 
+/**
+ * Keys whose scalar value is prose. `name`, `tools`, `model` and
+ * `allowed-tools` name a thing; they are not a sentence a reader sees.
+ */
+const FRONT_MATTER_PROSE = new Set(["title", "description"]);
+
+const KEY_LINE = /^(\s*)(?:-\s+)?([A-Za-z][\w-]*)[ \t]*:[ \t]*/;
+const BLOCK_SCALAR = /^(?:[|>][+-]?\d*|[|>]\d+[+-]?)$/;
+
+interface FrontKey {
+  indent: number;
+  name: string;
+  /** Index of the first value character on this line. */
+  valueAt: number;
+  value: string;
+}
+
+function readFrontKey(line: string): FrontKey | null {
+  const m = KEY_LINE.exec(line);
+  if (!m) return null;
+  return { indent: m[1].length, name: m[2], valueAt: m[0].length, value: line.slice(m[0].length) };
+}
+
+function indentOf(line: string): number {
+  let i = 0;
+  while (i < line.length && (line[i] === " " || line[i] === "\t")) i += 1;
+  return i;
+}
+
+/** Index of a trailing YAML comment, or -1. A `#` inside a word is not one. */
+function commentAt(value: string): number {
+  if (value.startsWith("#")) return 0;
+  const found = /[ \t]+#/.exec(value);
+  return found ? found.index : -1;
+}
+
+/** Keep one span of a line and blank the rest, so the line stays the same length. */
+function keepSpan(line: string, from: number, to: number): string {
+  const start = Math.max(0, Math.min(from, line.length));
+  const end = Math.max(start, Math.min(to, line.length));
+  return " ".repeat(start) + line.slice(start, end) + " ".repeat(line.length - end);
+}
+
+/** Closing quote index, reading escapes, or -1 when the scalar runs on. */
+function quoteEnd(line: string, from: number, quote: '"' | "'"): number {
+  for (let i = from; i < line.length; i += 1) {
+    if (quote === '"' && line[i] === "\\") {
+      i += 1;
+      continue;
+    }
+    if (quote === "'" && line[i] === "'" && line[i + 1] === "'") {
+      i += 1;
+      continue;
+    }
+    if (line[i] === quote) return i;
+  }
+  return -1;
+}
+
+/**
+ * Blank a front matter block except `title` and `description` scalars.
+ * Characters stay where they are, so a hit and a `copy-ok` on the line above
+ * still refer to the file's own lines. A length mismatch blanks the block:
+ * a shifted offset would report every later line wrong.
+ */
+function maskFrontMatter(block: string): string {
+  const lines = block.split("\n");
+  const out = lines.map((line) => blank(line));
+  for (let i = 1; i < lines.length; ) {
+    const line = lines[i];
+    if (line === "---" || line === "...") break;
+    const key = readFrontKey(line);
+    if (!key || !FRONT_MATTER_PROSE.has(key.name.toLowerCase())) {
+      i += 1;
+      continue;
+    }
+    const quote = key.value.startsWith('"') ? '"' : key.value.startsWith("'") ? "'" : "";
+    if (quote) {
+      let cursor = key.valueAt + 1;
+      while (i < lines.length && lines[i] !== "---" && lines[i] !== "...") {
+        const current = lines[i];
+        const end = quoteEnd(current, cursor, quote);
+        out[i] = keepSpan(current, cursor, end === -1 ? current.length : end);
+        i += 1;
+        cursor = 0;
+        if (end !== -1) break;
+      }
+      continue;
+    }
+    const hash = commentAt(key.value);
+    const body = (hash === -1 ? key.value : key.value.slice(0, hash)).trim();
+    if (BLOCK_SCALAR.test(body)) {
+      i += 1;
+      while (i < lines.length && lines[i] !== "---" && lines[i] !== "...") {
+        const current = lines[i];
+        if (current.trim() !== "" && indentOf(current) <= key.indent) break;
+        if (current.trim()) out[i] = current;
+        i += 1;
+      }
+      continue;
+    }
+    // An empty value, a null, or a flow collection is not a prose scalar.
+    if (body === "" || body === "~" || /^null$/i.test(body) || body.startsWith("[") || body.startsWith("{")) {
+      i += 1;
+      continue;
+    }
+    out[i] = keepSpan(line, key.valueAt, hash === -1 ? line.length : key.valueAt + hash);
+    i += 1;
+    while (i < lines.length && lines[i] !== "---" && lines[i] !== "...") {
+      const current = lines[i];
+      if (current.trim() === "" || indentOf(current) <= key.indent) break;
+      if (!/^\s*#/.test(current)) {
+        const cut = commentAt(current);
+        out[i] = cut === -1 ? current : keepSpan(current, 0, cut);
+      }
+      i += 1;
+    }
+  }
+  const masked = out.join("\n");
+  return masked.length === block.length ? masked : blank(block);
+}
+
 function proseBlocks(file: SourceFile): CopyBlock[] {
   const masked = file.text
     .replace(/^(```|~~~)[\s\S]*?^\1/gm, blank)
     .replace(/`[^`\n]*`/g, (m) => " ".repeat(m.length))
-    .replace(/^---\n[\s\S]*?\n---\n/, blank)
+    .replace(/^---\n[\s\S]*?\n---\n/, (block) => maskFrontMatter(block))
     .replace(/<!--[\s\S]*?-->/g, blank);
   return [{ path: file.path, text: masked, offset: 0 }];
 }

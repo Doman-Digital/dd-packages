@@ -15,10 +15,87 @@ describe("extracting prose", () => {
     expect(text).toEqual(["Nails — done properly", "Unlock your best nails today."]);
   });
 
-  it("skips Markdown code and front matter", () => {
-    const md = "---\ntitle: Seamless\n---\nPlain words.\n\n```\nelevate()\n```\n";
-    const blocks = extractCopy({ path: "a.md", text: md });
-    expect(blocks.map((b) => b.text).join("")).not.toMatch(/Seamless|elevate/);
+  it("reads title and description in front matter, and still skips code and other keys", () => {
+    const md = [
+      "---",
+      "name: elevate",
+      "title: Seamless nails",
+      "description: A test — with an em dash",
+      "tools: Read",
+      "model: sonnet",
+      "allowed-tools: Bash",
+      "---",
+      "Plain words.",
+      "",
+      "```",
+      "elevate()",
+      "```",
+      "",
+      "Call `elevate()` from the body.",
+    ].join("\n");
+    const [block] = extractCopy({ path: "skills/zz/SKILL.md", text: md });
+    expect(block.offset).toBe(0);
+    expect(block.text.length).toBe(md.length);
+    const dash = md.indexOf("—");
+    expect(block.text[dash]).toBe("—");
+    expect(block.text).toContain("Seamless nails");
+    expect(block.text).toContain("A test — with an em dash");
+    expect(block.text).toContain("Plain words.");
+    expect(block.text).not.toMatch(/elevate|sonnet|\bRead\b|\bBash\b/);
+    expect(extractStrings({ path: "skills/zz/SKILL.md", text: md }).map((b) => b.text.trim())).toContain("Seamless nails");
+  });
+
+  it("places a front matter finding on its line, and copy-ok above it still holds", () => {
+    const md = "---\nname: zz\ndescription: A test — with an em dash\n---\n\nClean body.\n";
+    expect(checkCopy([{ path: "fm.md", text: md }]).findings.map((f) => [f.tell, f.line, f.excerpt])).toEqual([
+      ["em-dash", 3, "description: A test — with an em dash"],
+    ]);
+
+    const marked = [
+      "---",
+      "# copy-ok: the published blurb",
+      "description: A test — with an em dash",
+      "title: Walk-ins welcome — ring first",
+      "---",
+      "",
+      "Body copy — still flagged.",
+    ].join("\n");
+    const report = checkCopy([{ path: "fm.md", text: marked }]);
+    expect(report.findings.filter((f) => f.tell === "em-dash").map((f) => f.line)).toEqual([4, 7]);
+    expect(report.suppressed.filter((s) => s.tell === "em-dash").map((s) => s.line)).toEqual([3]);
+
+    const sameLine = "---\ndescription: A test — with an em dash # copy-ok: the published blurb\n---\n\nClean body.\n";
+    const quiet = checkCopy([{ path: "fm.md", text: sameLine }]);
+    expect(quiet.findings.filter((f) => f.tell === "em-dash")).toEqual([]);
+    expect(quiet.suppressed.filter((s) => s.tell === "em-dash").map((s) => s.line)).toEqual([2]);
+  });
+
+  it("reads quoted, folded and nested front matter scalars, not comments or other keys", () => {
+    const quoted = '---\ndescription: "Say \\"hello — there\\""\n---\n\nClean body.\n';
+    expect(checkCopy([{ path: "fm.md", text: quoted }]).findings.map((f) => [f.tell, f.line])).toEqual([["em-dash", 2]]);
+    const single = "---\ndescription: 'A test — with an em dash'\n---\n\nClean body.\n";
+    expect(checkCopy([{ path: "fm.md", text: single }]).findings.map((f) => [f.tell, f.line])).toEqual([["em-dash", 2]]);
+
+    const folded = ["---", "description: >-", "  First line is clean.", "  Second line has a dash — in it.", "---", "", "Clean body."].join("\n");
+    expect(checkCopy([{ path: "fm.md", text: folded }]).findings.map((f) => [f.tell, f.line])).toEqual([["em-dash", 4]]);
+
+    const continued = ["---", "description: A line that starts clean", "  and then turns — mid thought.", "---", "", "Clean body."].join("\n");
+    expect(checkCopy([{ path: "fm.md", text: continued }]).findings.map((f) => [f.tell, f.line])).toEqual([["em-dash", 3]]);
+
+    const multiline = ["---", 'description: "starts clean', '  and ends — here"', "---", "", "Clean body."].join("\n");
+    expect(checkCopy([{ path: "fm.md", text: multiline }]).findings.map((f) => [f.tell, f.line])).toEqual([["em-dash", 3]]);
+
+    const nested = ["---", "seo:", "  title: Nested title — here", "  - description: Slide one — here", "---", "", "Clean body."].join("\n");
+    expect(checkCopy([{ path: "fm.md", text: nested }]).findings.map((f) => [f.tell, f.line])).toEqual([
+      ["em-dash", 3],
+      ["em-dash", 4],
+    ]);
+
+    const skipped = ["---", "name: Agent — name", "tools: Read — files", "description: Clean words # note — internal", 'model: "claude — sonnet"', "allowed-tools: Bash — tool", "---", "", "Clean body."].join("\n");
+    expect(checkCopy([{ path: "fm.md", text: skipped }]).findings).toEqual([]);
+
+    const later = "Plain words — here.\n\n---\n\nMore words.\n";
+    expect(checkCopy([{ path: "a.md", text: later }]).findings.filter((f) => f.tell === "em-dash").map((f) => f.line)).toEqual([1]);
   });
 
   it("never reads a comment as copy, and an apostrophe in one does not swallow the next line", () => {
