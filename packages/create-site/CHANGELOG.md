@@ -1,5 +1,11 @@
 # @domandigital/create-site
 
+## 0.7.0
+
+### Minor Changes
+
+- 5056c6a: Mobile first, gated (DOM-774, part of DOM-772). A new Stage 06 gate, `scripts/gates/mobile-first.mjs`, runs from `prebuild` and fails the build on a `max-width` media query (including the `width <` and `width <=` range syntax) or a Tailwind `max-*:` variant in the site's source, unless the exception is recorded with a reason: `mobile-first-ok: <reason>` on the line or the line above, or the file in `site.programme.json` `mobileFirst.exceptions` as `{ "file", "reason" }`. An exception with no reason fails. `measure.mjs` now measures phone first, at 375 x 812, then 390 x 844, then 1440 x 900, and at the two phone widths also fails a link, button, field or summary under 44 x 44 CSS px (a link inside a sentence is exempt, and a field's label counts as its target) and a text field set under 16px, which Safari on iOS zooms on. `docs/site-programme.md` says phone first at Stages 03 and 06 and lists the new gate; new sites get `mobileFirst: { "exceptions": [] }` in `site.programme.json`, and an existing one without the key is read as having no exceptions.
+
 ## 0.6.0
 
 ### Minor Changes
