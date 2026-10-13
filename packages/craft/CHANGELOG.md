@@ -1,5 +1,12 @@
 # @domandigital/craft
 
+## 0.19.1
+
+### Patch Changes
+
+- 5056c6a: STANDARD.md: a new section 10, "The phone is the base layout" (DOM-774): base styles are the phone and wider layouts use `min-width` only, 375px is the floor every surface is designed and measured at, touch targets are at least 44 x 44 CSS px, form fields at least 16px, reviews start from the phone capture, and performance is judged on the mobile Lighthouse profile. What is not a rule is now section 11 and says layout stays free at every width; the numbers are section 12. The older sections lose their em dashes to the house copy check, with the wording unchanged. Docs only.
+- 00d79a0: `craft copy` reads `title` and `description` in Markdown front matter. A dash or a stock phrase in an agent description or a page title is reported on that line, and `copy-ok` on the line or the line above still suppresses it. Other front matter keys stay unread, and fenced code stays unread.
+
 ## 0.19.0
 
 ### Minor Changes
