@@ -1,13 +1,19 @@
-// Stage 06 gate: measures the rendered pages at 1440 x 900 and 390 x 844,
-// the two widths the design is accepted at, rather than trusting the
-// stylesheet. On every page named in site.programme.json measure.pages, at
-// both widths: the page answers, nothing scrolls sideways, no visible text is
-// smaller than measure.minFontPx, and, when measure.labels names them, every
-// label sits inside its container, over no other label and no copy. With
-// --preview, every page must also carry a noindex robots meta, so a preview
-// cannot be indexed. Writes measure/measure.json, with the hash of the
-// direction it measured, and a full-page capture per page and width under
-// measure/out. Exits 1 on any failure.
+// Stage 06 gate: measures the rendered pages rather than trusting the
+// stylesheet, phone first (STANDARD.md section 10 in @domandigital/craft):
+// 375 x 812, the floor every surface is designed at, then 390 x 844, the
+// width the design is accepted at, then 1440 x 900. On every page named in
+// site.programme.json measure.pages, at every width: the page answers,
+// nothing scrolls sideways, no visible text is smaller than
+// measure.minFontPx, and, when measure.labels names them, every label sits
+// inside its container, over no other label and no copy. At the two phone
+// widths, also: every link, button, field and summary a thumb has to hit is
+// at least 44 x 44 CSS px (a link inside a sentence is exempt, as in WCAG
+// 2.5.5; a field's label counts as its target), and every text field is set
+// at 16px or more, so Safari on iOS does not zoom on focus. With --preview,
+// every page must also carry a noindex robots meta, so a preview cannot be
+// indexed. Writes measure/measure.json, with the hash of the direction it
+// measured, and a full-page capture per page and width under measure/out,
+// phone captures first. Exits 1 on any failure.
 //
 // --serve serves the last build itself and measures that: static output in
 // dist/ is served from here the way the host serves it (no trailing slash,
@@ -33,6 +39,9 @@ const port = measure.port ?? 4410;
 const base = (values.base ?? `http://127.0.0.1:${port}`).replace(/\/$/, "");
 const pages = measure.pages?.length ? measure.pages : ["/"];
 const minFontPx = measure.minFontPx ?? 12;
+// The house floors at phone width: STANDARD.md section 10. Not per-site settings.
+const MIN_TARGET_PX = 44;
+const MIN_FIELD_FONT_PX = 16;
 const labels = measure.labels ?? null;
 const outDir = join(root, "measure", "out");
 mkdirSync(outDir, { recursive: true });
@@ -49,17 +58,18 @@ const close = values.serve ? await serveBuild() : () => {};
 const hash = (p) => (existsSync(p) ? createHash("sha256").update(readFileSync(p)).digest("hex").slice(0, 16) : null);
 const slug = (route) => (route === "/" ? "home" : route.replace(/^\//, "").replace(/\//g, "-"));
 const VIEWPORTS = [
-  { name: "1440x900", viewport: { width: 1440, height: 900 } },
-  { name: "390x844", viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true },
+  { name: "375x812", phone: true, viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
+  { name: "390x844", phone: true, viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
+  { name: "1440x900", phone: false, viewport: { width: 1440, height: 900 } },
 ];
 
 const browser = await chromium.launch();
 const failures = [];
-const res = { base, measuredAt: new Date().toISOString(), preview: values.preview, direction: hash(join(root, "art-direction.json")), tokens: hash(sitePath(paths.tokens)), minFontPx, pages: {} };
+const res = { base, measuredAt: new Date().toISOString(), preview: values.preview, direction: hash(join(root, "art-direction.json")), tokens: hash(sitePath(paths.tokens)), minFontPx, minTargetPx: MIN_TARGET_PX, minFieldFontPx: MIN_FIELD_FONT_PX, pages: {} };
 
 for (const route of pages) {
   res.pages[route] = {};
-  for (const { name, ...options } of VIEWPORTS) {
+  for (const { name, phone, ...options } of VIEWPORTS) {
     const context = await browser.newContext(options);
     const page = await context.newPage();
     const resp = await page.goto(base + route).catch((error) => ({ ok: () => false, status: () => error.message }));
@@ -72,7 +82,7 @@ for (const route of pages) {
     await page.evaluate(() => document.fonts.ready);
     await settle(page);
     const m = await page.evaluate(
-      ({ labels, minFontPx }) => {
+      ({ labels, minFontPx, phone, minTargetPx, minFieldFontPx }) => {
         const R = (e) => {
           const r = e.getBoundingClientRect();
           return { l: r.left, t: r.top, r: r.right, b: r.bottom };
@@ -95,7 +105,36 @@ for (const route of pages) {
           smallText: small.slice(0, 10),
           noindex: /noindex/i.test(document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? ""),
           labels: [],
+          smallTargets: [],
+          smallFields: [],
         };
+        if (phone) {
+          const name = (e) => ({ tag: e.tagName.toLowerCase(), cls: String(e.className || ""), text: (e.textContent.trim() || e.getAttribute("aria-label") || e.getAttribute("name") || "").slice(0, 40) });
+          // Visually hidden (an sr-only skip link) or parked off the page: not a target until it is shown.
+          const hidden = (e, r) => e.closest("[aria-hidden='true'], .sr-only, .visually-hidden") || r.width <= 1 || r.height <= 1 || r.right <= 0 || r.bottom <= -window.scrollY;
+          // WCAG 2.5.5's inline exception: a link in a sentence is sized by the line it sits in.
+          const inline = (e) => {
+            if (e.tagName !== "A" || getComputedStyle(e).display !== "inline") return false;
+            const block = e.parentElement?.closest("p, li, dd, td, th, blockquote, figcaption, address");
+            return !!block && block.textContent.trim().length > e.textContent.trim().length;
+          };
+          const targets = [...document.querySelectorAll("a[href], button, input:not([type='hidden']), select, textarea, [role='button'], summary")].filter(shown);
+          for (const e of targets) {
+            const r = e.getBoundingClientRect();
+            if (hidden(e, r) || inline(e)) continue;
+            // A field's label is a hit target too: a 20px checkbox in a 44px label passes.
+            const boxes = [r, ...[...(e.labels ?? [])].filter(shown).map((l) => l.getBoundingClientRect())];
+            const w = Math.max(...boxes.map((b) => b.width));
+            const h = Math.max(...boxes.map((b) => b.height));
+            if (Math.round(w) < minTargetPx || Math.round(h) < minTargetPx) out.smallTargets.push({ ...name(e), w: Math.round(w), h: Math.round(h) });
+          }
+          const NOT_TEXT = new Set(["checkbox", "radio", "range", "color", "file", "submit", "reset", "button", "image"]);
+          for (const e of document.querySelectorAll("input:not([type='hidden']), select, textarea")) {
+            if (!shown(e) || (e.tagName === "INPUT" && NOT_TEXT.has(e.type))) continue;
+            const px = parseFloat(getComputedStyle(e).fontSize);
+            if (px < minFieldFontPx) out.smallFields.push({ ...name(e), px: Math.round(px * 10) / 10 });
+          }
+        }
         if (labels?.selector) {
           const all = [...document.querySelectorAll(labels.selector)].filter(shown);
           const copy = [...document.querySelectorAll("main h1, main h2, main h3, main p, main li")].filter(shown);
@@ -114,11 +153,15 @@ for (const route of pages) {
         }
         return out;
       },
-      { labels, minFontPx },
+      { labels, minFontPx, phone, minTargetPx: MIN_TARGET_PX, minFieldFontPx: MIN_FIELD_FONT_PX },
     );
     const at = `${route} at ${name}`;
     if (m.horizontalScroll) failures.push(`${at}: the page scrolls sideways`);
     for (const t of m.smallText) failures.push(`${at}: ${t.px}px text under ${minFontPx}px (<${t.tag}${t.cls ? ` class="${t.cls}"` : ""}> "${t.text}")`);
+    const tag = (t) => `<${t.tag}${t.cls ? ` class="${t.cls}"` : ""}>${t.text ? ` "${t.text}"` : ""}`;
+    for (const t of m.smallTargets.slice(0, 10)) failures.push(`${at}: a ${t.w}x${t.h}px target under ${MIN_TARGET_PX}x${MIN_TARGET_PX} (${tag(t)})`);
+    if (m.smallTargets.length > 10) failures.push(`${at}: ${m.smallTargets.length - 10} more targets under ${MIN_TARGET_PX}x${MIN_TARGET_PX}; measure/measure.json lists them`);
+    for (const t of m.smallFields) failures.push(`${at}: a field set at ${t.px}px, under ${MIN_FIELD_FONT_PX}px, so Safari on iOS zooms on focus (${tag(t)})`);
     for (const l of m.labels) {
       if (l.inside === false) failures.push(`${at}: label "${l.text}" leaves its ${labels.within}`);
       if (l.overLabels) failures.push(`${at}: label "${l.text}" sits over another label`);
@@ -135,7 +178,7 @@ close();
 
 res.failures = failures;
 writeFileSync(join(root, "measure", "measure.json"), `${JSON.stringify(res, null, 1)}\n`);
-console.log(`${GATE}: ${pages.length} page(s) at 1440 and 390 against ${base}; captures in measure/out, report in measure/measure.json`);
+console.log(`${GATE}: ${pages.length} page(s) at 375, 390 and 1440, phone first, against ${base}; captures in measure/out, report in measure/measure.json`);
 if (failures.length) stop(GATE, "06", `${failures.length} failure(s):\n${failures.map((f) => `  ${f}`).join("\n")}`);
 
 /** Serves the last build on measure.port and returns how to stop it. */

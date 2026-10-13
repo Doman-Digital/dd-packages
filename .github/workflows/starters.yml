@@ -123,7 +123,7 @@ jobs:
         working-directory: ${{ runner.temp }}/starter
         run: pnpm run build
 
-      - name: Measure the build at 1440 and 390
+      - name: Measure the build phone first, at 375, 390 and 1440
         working-directory: ${{ runner.temp }}/starter
         run: |
           pnpm exec playwright install --with-deps chromium

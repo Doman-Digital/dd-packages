@@ -26,8 +26,8 @@ describe("CHARACTER.md is bound to the catalogue", () => {
 });
 
 describe("STANDARD.md hands layout defaults to CHARACTER.md", () => {
-  it("says so in section 10", () => {
-    const section10 = STANDARD.split(/^## /m).find((s) => s.startsWith("10."))!;
-    expect(section10).toMatch(/CHARACTER\.md/);
+  it("says so in section 11", () => {
+    const section11 = STANDARD.split(/^## /m).find((s) => s.startsWith("11."))!;
+    expect(section11).toMatch(/CHARACTER\.md/);
   });
 });

@@ -3,8 +3,9 @@
 // first one to fail stops the build and names its stage. The order matters:
 // the direction is decided before tokens are written from it, the tokens are
 // written before they are measured, and the deck is current before the null
-// set reads it. The measurement at 1440 and 390 needs a running build, so
-// deploy-preview.mjs runs it before every preview deploy instead.
+// set reads it. The measurement at 375, 390 and 1440 (phone first) needs a
+// running build, so deploy-preview.mjs runs it before every preview deploy
+// instead.
 
 import { spawnSync } from "node:child_process";
 import { join } from "node:path";
@@ -17,6 +18,7 @@ const GATES = [
   ["facts.mjs"],
   ["copy-deck.mjs", "--check"],
   ["null-check.mjs"],
+  ["mobile-first.mjs"],
 ];
 
 // Stage 01: the site has a programme in Linear before anything is built.
