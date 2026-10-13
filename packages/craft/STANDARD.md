@@ -1,17 +1,18 @@
 # The Doman Digital craft standard
 
-Eleven sections. Every numeric rule is cited, and section 10 says what is
+Twelve sections. Every numeric rule is cited, and section 11 says what is
 deliberately *not* a rule.
 
 This document and the package are bound together by a test: the machine-readable
-block in section 11 is compared against `HOUSE_BUDGET`, `EASE` and
+block in section 12 is compared against `HOUSE_BUDGET`, `EASE` and
 `DURATION_MS` on every run, so the standard cannot drift from what ships.
 
 ---
 
+<!-- copy-ok: the standard names the practice each rule replaces -->
 ## 1. Colour is derived, not picked
 
-Anchors — colours a surface already ships — are sacred and come back byte-identical.
+Anchors, the colours a surface already ships, are sacred and come back byte-identical.
 Everything else is generated in OKLCh from those anchors.
 
 - Ramps have **11 steps** (50–950).
@@ -19,7 +20,7 @@ Everything else is generated in OKLCh from those anchors.
   (CSS Color 4 §13.2). RGB clipping is rejected: it walks a saturated violet
   toward magenta.
 - Derived values standing in for a hand-picked one must be within
-  **ΔE_OK ≤ 0.02** — the just-noticeable difference — or be declared an
+  **ΔE_OK ≤ 0.02** (the just-noticeable difference) or be declared an
   intentional change.
 
 *Source: Ottosson, "A perceptual color space for image processing" (2020); CSS Color 4 §13.2.*
@@ -40,9 +41,9 @@ Everything else is generated in OKLCh from those anchors.
 ## 3. Type is fluid, and always has a rem term
 
 - Steps **−2 to 5**, `clamp()` interpolated between a small and a large viewport.
-- The interpolation term is **`rem + vw`, never bare `vw`** — a bare-`vw` size
+- The interpolation term is **`rem + vw`, never bare `vw`**. A bare-`vw` size
   ignores the browser text-size setting and fails WCAG 1.4.4 at 200% zoom.
-- Existing sizes are **pinned**, not regenerated, so adopting the scale moves
+- Existing sizes are **pinned**, not regenerated, so adopting the scale moves <!-- copy-ok -->
   nothing.
 
 *Source: Utopia (utopia.fyi); WCAG 2.2 SC 1.4.4.*
@@ -58,7 +59,7 @@ Everything else is generated in OKLCh from those anchors.
 - Clipped display text gets a **descender mask** (`padding-bottom: .16em;
   margin-bottom: -.16em`), or it loses the tails of g, j, p, q, y.
 
-*Source: house habit — the −0.01em display tracking and the ch measure were arrived at independently in two client repos.*
+*Source: house habit. The −0.01em display tracking and the ch measure were arrived at independently in two client repos.*
 
 ## 5. Space is fluid and proportional to type
 
@@ -66,7 +67,7 @@ Everything else is generated in OKLCh from those anchors.
 - Section rhythm has **three** sizes, not five. Five shipped with zero consumers,
   which is the signature of a scale invented ahead of a need.
 
-*Source: Utopia; measured — `--space-section-xs..xl` had no consumers in the monorepo.*
+*Source: Utopia; measured: `--space-section-xs..xl` had no consumers in the monorepo.*
 
 ## 6. Density is a property of the surface
 
@@ -89,7 +90,7 @@ needs. Set once on a shell via `[data-density]`, inherited below.
   meaning it covers more ground per unit time arriving than it averaged.
 - **UI durations ≤ 300ms.** Drawers and one gated reveal may exceed it.
 - **Don't animate what fires 100×/day**, and never animate a keyboard-triggered
-  interaction — the user is moving faster than the animation.
+  interaction: the user is moving faster than the animation.
 - **One signature moment per page**, gated, never the LCP element.
 
 *Source: Emil Kowalski, "Animations on the Web"; Core Web Vitals (LCP).*
@@ -101,12 +102,12 @@ needs. Set once on a shell via `[data-density]`, inherited below.
 
 **Never `animation: none` inside the block.** That drops the `forwards` fill along with the
 animation, so a forwards-filled entrance never applies its end state and the
-element keeps `opacity: 0` from its base rule — permanently invisible, for
+element keeps `opacity: 0` from its base rule, permanently invisible, for
 exactly the users who asked for less motion. This shipped.
 
 Images: AVIF and WebP, in that order.
 
-*Source: WCAG 2.2 SC 2.3.3; measured — a live site was stranded at opacity 0 by this exact defect.*
+*Source: WCAG 2.2 SC 2.3.3; measured: a live site was stranded at opacity 0 by this exact defect.*
 
 ## 9. Restraint is the budget
 
@@ -118,11 +119,11 @@ step: `code { font-size: 0.875em }` states one relationship and applies it
 wherever code appears, rather than adding a rung to the ladder. Counting it
 against the scale is the same category error as counting the framework's theme.
 It is still counted, because eight competing ratios is as unreadable as eight
-competing steps — split, not dropped. A value that stops being reported is a
+competing steps: split, not dropped. A value that stops being reported is a
 value that grows.
 
 Differentiation guards pass anything that differs from its siblings, however
-ugly. What they cannot see is accumulation — eighteen font sizes, six shadows,
+ugly. What they cannot see is accumulation: eighteen font sizes, six shadows,
 four competing accents, each added reasonably, together reading as noise.
 
 The budget counts the vocabulary a surface **chose**, and the whole difficulty
@@ -141,7 +142,7 @@ second reports a pass.
 
 The line is **used versus unused**, which is not a property of the layer:
 
-- References are **resolved**, not skipped — through the token chain, to the
+- References are **resolved**, not skipped: through the token chain, to the <!-- copy-ok -->
   value that renders.
 - A definition is only ever reached from a declaration in a kept layer, so a
   framework default nothing uses still counts for nothing.
@@ -154,7 +155,34 @@ The line is **used versus unused**, which is not a property of the layer:
 
 *Source: measured against the estate. The budget is the observed ceiling of the surfaces that read as designed; the resolution rule is what it took to measure them at all.*
 
-## 10. What is deliberately not a rule
+## 10. The phone is the base layout
+
+Mobile first is a rule about **order and floor**, not about a layout. The phone
+is designed, built and measured first, and every wider layout is derived from
+it. A desktop layout squeezed onto a phone keeps the desktop's priorities and
+drops whatever did not fit; a phone layout widened keeps what matters and adds.
+
+- **The phone is the base.** Base styles are the phone layout. Wider layouts
+  are added with `min-width` queries only (Tailwind: unprefixed is the phone,
+  `sm:` `md:` `lg:` add). A `max-width` query, a `width <` range or a Tailwind
+  `max-*:` variant needs a recorded exception with its reason.
+- **375px is the floor.** Every surface is designed and measured at **375 CSS
+  px** first, the narrowest iPhone width in common use (SE, mini, X to 11 Pro).
+  Nothing scrolls sideways at 375. 390 is still measured: it is the width the
+  design is accepted at.
+- **Touch targets at least 44 × 44 CSS px.** A link inside a sentence is exempt,
+  as in WCAG's own inline exception. 24px (SC 2.5.8, AA) is what an audit asks
+  for; 44 is the house bar.
+- **Form inputs at least 16px.** Safari on iOS zooms the page when a field set
+  smaller gets focus, and the visitor has to pinch back out. Fix the size, never
+  the viewport: `maximum-scale=1` takes zoom away from people who need it.
+- **Reviews look at the phone capture first**, then the desktop one.
+- **Performance is judged on the mobile Lighthouse profile.** A desktop score
+  is not evidence: the phone is the slower device and the one Google indexes.
+
+*Source: WCAG 2.2 SC 2.5.5 (Target Size, Enhanced), SC 2.5.8 and SC 1.4.4; Apple Human Interface Guidelines, "Accessibility" (44 × 44 pt hit targets); WebKit's focus zoom on fields under 16px; Lighthouse's default mobile emulation; Google Search Central, "Mobile-first indexing"; Luke Wroblewski, "Mobile First" (2011).*
+
+## 11. What is deliberately not a rule
 
 The package emits **plain CSS custom properties** precisely so these stay free:
 
@@ -162,9 +190,11 @@ The package emits **plain CSS custom properties** precisely so these stay free:
   two; the third needs nothing.
 - **The motion library.** `EASE_TUPLE` carries the same control points as `EASE`,
   so Framer Motion, GSAP and CSS agree without the package choosing one.
-- **Where tokens live.** A `:root` block, a generated file, a Tailwind theme —
+- **Where tokens live.** A `:root` block, a generated file, a Tailwind theme:
   the package does not care.
-- **Layout, grid and component structure.** Not a rule. Layout *defaults*
+- **Layout, grid and component structure.** Not a rule, at any width. Section
+  10 fixes the order the widths are designed in and the floor they are
+  measured at; what the phone layout looks like stays free. Layout *defaults*
   (hero straight into a trust strip, three icon cards, a reveal on every
   section) are measured as character in [CHARACTER.md](./CHARACTER.md), as
   warnings with a declared-exception path, never as rules here.
@@ -172,7 +202,7 @@ The package emits **plain CSS custom properties** precisely so these stay free:
 
 A rule here has to be one that is wrong to break. Everything else is a default.
 
-## 11. The numbers
+## 12. The numbers
 
 <!-- craft:canonical -->
 ```json

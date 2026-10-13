@@ -67,7 +67,7 @@ module.exports = { presets: [tailwindV3Preset()] };
 
 ## The standard itself
 
-[STANDARD.md](./STANDARD.md) is the eleven-section house standard, every numeric
+[STANDARD.md](./STANDARD.md) is the twelve-section house standard, every numeric
 rule cited, including a section on what is deliberately *not* a rule. Its
 canonical numbers are compared against the code on every test run, so the
 document cannot drift from what ships.
