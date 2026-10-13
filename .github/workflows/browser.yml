@@ -69,3 +69,8 @@ jobs:
             exit 1
           fi
           echo "$ran browser tests passed"
+          phone=$(sed 's/\x1b\[[0-9;]*m//g' vitest.log | grep -c "✓ .*craft phone-first in a real browser" || true)
+          if [ "$phone" -eq 0 ]; then
+            echo "The phone-first browser test did not run." >&2
+            exit 1
+          fi

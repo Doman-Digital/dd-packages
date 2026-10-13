@@ -61,6 +61,7 @@ Usage
   craft register list [--json]
   craft register brief <plain|persuasive|warm|literary> [--json]
   craft register check <file> --as <register> [--json]
+  craft phone-first [--config phone-first.json] [--measured <dir>] [--update-baseline] [--json]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
@@ -115,6 +116,14 @@ register  Writing in a chosen register (REGISTERS.md). brief prints what to
           do before drafting; check places a draft of five or more
           paragraphs against the human baselines for that register. Never
           fails: exit 0, or 2 on bad usage.
+phone-first  The phone-first gate for a portal or app (STANDARD.md section
+          10). Reads phone-first.json; fails on a max-width media query or a
+          Tailwind max-* variant in its source folders and, with --measured,
+          on what @domandigital/craft/phone measured at 375px (sideways
+          scroll, targets under 44px, fields under 16px, text under 12px, a
+          cut-off title), unless phone-first.baseline.json already lists it.
+          A baseline that claims more than is there fails too: it only
+          shrinks. Exit 1 on a breach, 2 on bad usage.
 
 ci options (scan, copy, audit)
   --baseline <file>     Report only findings the baseline does not already
@@ -417,6 +426,9 @@ export function run(argv: string[], io: Io): number | Promise<number> {
         io.err(`craft: ${error.message}`);
         return 2;
       });
+  }
+  if (command === "phone-first") {
+    return import("../phone/cli.js").then((m) => m.runPhoneFirst(rest, io));
   }
   if (command === "snapshot" || command === "audit") {
     // Loaded only here: the browser half never touches a scan or a copy check.

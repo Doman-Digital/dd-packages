@@ -222,6 +222,50 @@ restraint rule) and art direction (`craft direction`, `craft estate`).
   under a passing average, and a truncated report fails rather than reading as
   "no report".
 
+## The phone-first gate for portals
+
+STANDARD.md section 10 as a gate for an app behind a sign-in, such as a client
+portal (portal standard rule 10, DOM-775). create-site's `measure.mjs` and
+`mobile-first.mjs` do the same job for a site; a portal's pages need a
+signed-in user and fixture data, which only the portal's own Playwright suite
+can set up, so the gate comes in two halves.
+
+The portal's suite opens each key route at `PHONE` (375 x 812, touch) and
+measures it:
+
+```ts
+import { test } from "@playwright/test";
+import { PHONE, measurePhone } from "@domandigital/craft/phone";
+
+test.use(PHONE);
+for (const route of ["/portal", "/portal/invoices"]) {
+  test(`phone first: ${route}`, async ({ page }) => {
+    await page.goto(route);
+    await measurePhone(page, { route }); // writes phone-first/measured/portal-invoices.json
+  });
+}
+```
+
+Then `craft phone-first --measured phone-first/measured` judges every route,
+and the source folders `phone-first.json` names, against the repo's baseline:
+
+- **Static:** a `max-width` media query (any spelling, range syntax too) or a
+  Tailwind `max-*:` variant fails. A genuine exception takes
+  `mobile-first-ok: <reason>` on its line or the line above, or the whole file
+  in `phone-first.json` `exceptions` as `{ "file", "reason" }`.
+- **Measured at 375px:** the page scrolls sideways (against the layout
+  viewport: under mobile emulation `innerWidth` grows with the page, so it
+  never shows the scroll), a page with no `width=device-width` viewport meta,
+  a target under 44 x 44 (a link inside a sentence is exempt; a field's label
+  counts), a text field under 16px, text under 12px, a cut-off `h1`.
+
+`phone-first.baseline.json` lists what a repo already breaks, counted per file
+and per route (digits folded, so fixture dates do not split one button into
+many). The gate fails on anything the baseline does not list, and on a
+baseline that claims more than is there, so it only shrinks: fix a breach and
+lower its count in the same PR. `--update-baseline` writes the baseline that
+makes the current run pass; run it once when the gate goes in.
+
 ## API
 
 | Area | Exports |
