@@ -1,5 +1,12 @@
 # @domandigital/craft
 
+## 0.19.2
+
+### Patch Changes
+
+- 4ebd2d5: The phone-first gate for portals (DOM-775). `@domandigital/craft/phone` measures a route at 375px from inside a portal's own signed-in Playwright suite (sideways scroll against the layout viewport, a missing device-width viewport meta, targets under 44px, fields under 16px, text under 12px, a cut-off title), and `craft phone-first` judges those routes and the source's max-width queries and Tailwind `max-*` variants against a baseline that only shrinks.
+- 51cded2: `measurePhone` leaves out what is parked off the page until it is needed, such as a skip link before focus or a closed drawer, as create-site's measure.mjs does (DOM-775).
+
 ## 0.19.1
 
 ### Patch Changes
