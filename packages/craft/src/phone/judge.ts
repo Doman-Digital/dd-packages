@@ -111,7 +111,7 @@ export function checkExceptions(exceptions: unknown[], exists: (file: string) =>
  * Digits become `#`, so a date or an amount in fixture data does not make the
  * same button a different one.
  */
-export const normaliseElement = (element: string): string => element.replace(/\d+/g, "#");
+export const normaliseElement = (element: string): string => element.replace(/("[^]*)$/, (text) => text.replace(/\d+/g, "#"));
 
 const tally = <T>(items: T[], key: (t: T) => string): Map<string, { item: T; count: number }> => {
   const m = new Map<string, { item: T; count: number }>();
@@ -171,7 +171,7 @@ export function judgeMeasured(routes: MeasuredRoute[], baseline: Baseline): Judg
       const allow = allowed.get(key) ?? 0;
       known += Math.min(count, allow);
       if (count > allow) {
-        const times = count - allow > 1 ? ` (${count - allow} more than the baseline's ${allow})` : allow ? ` (the baseline allows ${allow})` : "";
+        const times = allow ? ` (${count} found, the baseline allows ${allow})` : count > 1 ? ` (${count} of them)` : "";
         fresh.push(`${route}: ${LABEL[item.check]} ${item.element}: ${item.detail}${times}`);
       }
     }
