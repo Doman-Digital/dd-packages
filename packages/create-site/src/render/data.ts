@@ -175,6 +175,7 @@ export function renderProgramme(a: Answers, project: Pick<Project, "srcBase">): 
     measure: { pages: ["/"], minFontPx: 12, labels: null, port: 4410 },
     nullCheck: { harvest: null, justified: {} },
     facts: { importer: null },
+    mobileFirst: { exceptions: [] },
     preview: { host },
   };
   return `${JSON.stringify(programme, null, 2)}\n`;

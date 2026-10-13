@@ -80,9 +80,10 @@ async function decided(): Promise<string> {
 describe("the scaffold writes the programme", () => {
   test("the gates, the process document and the two data files, with prebuild wired", async () => {
     const root = await generate();
-    for (const f of ["scripts/gates/prebuild.mjs", "scripts/gates/measure.mjs", "scripts/gates/deploy-preview.mjs", "docs/site-programme.md"]) expect(existsSync(join(root, f)), f).toBe(true);
+    for (const f of ["scripts/gates/prebuild.mjs", "scripts/gates/mobile-first.mjs", "scripts/gates/measure.mjs", "scripts/gates/deploy-preview.mjs", "docs/site-programme.md"]) expect(existsSync(join(root, f)), f).toBe(true);
     expect(json(root, "package.json").scripts.prebuild).toBe("node scripts/gates/prebuild.mjs");
     expect(json(root, "site.programme.json").paths).toMatchObject({ tokens: "src/styles/tokens.css", deck: "src/content/deck.ts", source: ["src"] });
+    expect(json(root, "site.programme.json").mobileFirst).toEqual({ exceptions: [] });
     expect(json(root, "art-direction.sheets.json").night.ground).toBeNull();
   });
 
@@ -213,6 +214,63 @@ describe("null-check", () => {
     edit(root, "site.programme.json", (p) => (p.nullCheck.justified = { "what you need": "The contact lead the hierarchy names." }));
     expect(gate(root, "null-check.mjs").status).toBe(0);
     expect(readFileSync(join(root, "docs/null-check.md"), "utf8")).toContain("The contact lead the hierarchy names.");
+  });
+});
+
+describe("mobile-first", () => {
+  test("passes a site built with min-width only, and runs from prebuild", async () => {
+    const root = await generate({ programme: "DOM-999" });
+    write(root, "src/styles/site.css", ".nav { display: none; }\n@media (min-width: 48rem) { .nav { display: flex; } }\n.copy { max-width: 65ch; }\n@media (width >= 64rem) { .grid { columns: 2; } }\n");
+    write(root, "src/components/Card.astro", '<div class="grid gap-4 md:grid-cols-2 max-w-prose">Card</div>\n');
+    const r = gate(root, "mobile-first.mjs");
+    expect(r.out).toContain("build the phone first");
+    expect(r.status).toBe(0);
+    expect(readFileSync(join(root, "scripts/gates/prebuild.mjs"), "utf8")).toContain('["mobile-first.mjs"]');
+  });
+
+  test("fails a max-width media query, in either syntax, and names the line", async () => {
+    const root = await generate({ programme: "DOM-999" });
+    write(root, "src/styles/site.css", ".nav { display: flex; }\n@media (max-width: 47.99rem) { .nav { display: none; } }\n");
+    const r = gate(root, "mobile-first.mjs");
+    expect(r.status).toBe(1);
+    expect(r.out).toContain("mobile-first (Stage 06)");
+    expect(r.out).toContain("src/styles/site.css:2: a max-width media query");
+    write(root, "src/styles/site.css", "@media screen and\n  (width < 48rem) {\n  .nav { display: none; }\n}\n");
+    expect(gate(root, "mobile-first.mjs").out).toContain("src/styles/site.css:1: a max-width media query");
+  });
+
+  test("fails a Tailwind max-* variant", async () => {
+    const root = await generate({ programme: "DOM-999" });
+    write(root, "src/components/Nav.tsx", 'export const Nav = () => <nav className="flex max-md:hidden">Menu</nav>;\n');
+    write(root, "src/components/Hero.astro", '<h1 class="text-5xl max-[600px]:text-3xl">Hello</h1>\n');
+    const r = gate(root, "mobile-first.mjs");
+    expect(r.status).toBe(1);
+    expect(r.out).toContain("src/components/Nav.tsx:1: a Tailwind max-* variant (max-md:)");
+    expect(r.out).toContain("src/components/Hero.astro:1: a Tailwind max-* variant (max-[600px]:)");
+  });
+
+  test("passes an exception with a reason, on the line or in site.programme.json", async () => {
+    const root = await generate({ programme: "DOM-999" });
+    write(root, "src/styles/print.css", "@media (max-width: 30rem) { table { font-size: 0.875rem; } }\n");
+    write(root, "src/components/Nav.tsx", '// mobile-first-ok: the menu button only exists below md, by design\nexport const Nav = () => <button className="max-md:block">Menu</button>;\n');
+    expect(gate(root, "mobile-first.mjs").status).toBe(1);
+    edit(root, "site.programme.json", (p) => (p.mobileFirst.exceptions = [{ file: "src/styles/print.css", reason: "A wide table that reflows to cards, from the client's own report template." }]));
+    const r = gate(root, "mobile-first.mjs");
+    expect(r.status).toBe(0);
+    expect(r.out).toContain("(2 recorded exceptions)");
+  });
+
+  test("fails an exception with no reason", async () => {
+    const root = await generate({ programme: "DOM-999" });
+    write(root, "src/styles/site.css", "@media (max-width: 30rem) { .a { order: 2; } } /* mobile-first-ok */\n");
+    const inline = gate(root, "mobile-first.mjs");
+    expect(inline.status).toBe(1);
+    expect(inline.out).toContain("src/styles/site.css:1: mobile-first-ok with no reason");
+    write(root, "src/styles/site.css", "@media (max-width: 30rem) { .a { order: 2; } }\n");
+    edit(root, "site.programme.json", (p) => (p.mobileFirst.exceptions = [{ file: "src/styles/site.css", reason: " " }]));
+    const listed = gate(root, "mobile-first.mjs");
+    expect(listed.status).toBe(1);
+    expect(listed.out).toContain("mobileFirst.exceptions[0] (src/styles/site.css): no reason");
   });
 });
 

@@ -68,9 +68,12 @@ the build:
 | `facts.mjs` | 06 | a price, term or response target is typed instead of imported from the facts |
 | `copy-deck.mjs --check` | 06 | the copy deck is missing, empty or not rendered |
 | `null-check.mjs` | 06 | the deck carries a phrase the null builds kept writing, without a reason |
+| `mobile-first.mjs` | 06 | the source has a `max-width` media query or a Tailwind `max-*:` variant with no recorded exception: the phone is the base layout |
 
-`pnpm measure` serves the last build and measures it at 1440 and 390: it fails
-on sideways scroll, on text under 12px, and on a label outside its container.
+`pnpm measure` serves the last build and measures it phone first, at 375, 390
+and 1440: it fails on sideways scroll, on text under 12px, and on a label
+outside its container, and at the two phone widths on a target under 44px and
+a form field set under 16px.
 `pnpm deploy:preview` is the only deploy: it sets `PUBLIC_PREVIEW` itself,
 builds, measures with noindex required, and deploys a preview to Cloudflare
 or Vercel; it refuses a route, a custom domain or `--prod`. So a site made
