@@ -44,8 +44,8 @@ export type { InPageGroup, ViewportArg } from "./measure-viewport-in-page.js";
 export { DEFAULT_MEASURED_DIR, PHONE, PHONE_FLOORS, routeFile } from "./constants.js";
 export * from "./judge.js";
 export * from "./viewports.js";
-export { measureSite, measureViewports } from "./run.js";
-export type { MeasureSiteOptions, MeasureViewportsOptions, SiteBrowser, SitePage, SiteResult, ViewportPage, ViewportsResult } from "./run.js";
+export { DESKTOP, measureRoute, measureSite, measureViewports } from "./run.js";
+export type { MeasureSiteOptions, MeasureViewportsOptions, OpenedPage, SiteBrowser, SitePage, SiteResult, ViewportPage, ViewportsResult } from "./run.js";
 
 interface MinimalPage {
   evaluate<R, A>(fn: (arg: A) => R, arg: A): Promise<R>;
