@@ -4,7 +4,8 @@ import type Anthropic from "@anthropic-ai/sdk";
 import { chromium } from "playwright";
 import { BrowserSession, DEVICE_OPTIONS, type Observation } from "./browser.js";
 import type { Device, Panel, Profile, Variant } from "./config.js";
-import { addUsage, clientFor, emptyUsage, textOf, type Usage } from "./model.js";
+import { addUsage, cachesPrompts, clientFor, emptyUsage, textOf, withCaching, type Usage } from "./model.js";
+import type { SpendMeter } from "./pricing.js";
 
 export interface Step {
   n: number;
@@ -52,7 +53,8 @@ export interface SessionRecord {
   steps: Step[];
   problems: Problem[];
   finish?: Finish;
-  endReason: "finished" | "budget" | "turns" | "error";
+  /** "capped": the run reached its --max-usd and this session was ended cleanly. */
+  endReason: "finished" | "budget" | "turns" | "capped" | "error";
   error?: string;
   usage: Usage;
 }
@@ -132,17 +134,24 @@ const describe = (o: Observation, result?: string): string =>
     .filter(Boolean)
     .join("\n");
 
+const hasShot = (m: Anthropic.MessageParam): boolean =>
+  m.role === "user" && Array.isArray(m.content) && m.content.some((b) => b.type === "image" || (b.type === "tool_result" && Array.isArray(b.content) && b.content.some((c) => c.type === "image")));
+
 /**
  * Keeps the conversation affordable: only the latest two screenshots and screen texts stay in full. The buyer's own
  * words stay, so it remembers what it saw the way a person does, by what it thought at the time.
+ *
+ * Rewriting an old turn changes everything after it, which a prompt cache cannot reuse. With `slack` above 0 the
+ * history is pruned in strides instead of every step: up to `keep + slack` screens stay in full, and once there are
+ * more the oldest are pruned down to `keep`, so the cache holds for `slack` steps between rewrites.
  */
-export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2): void {
+export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2, slack = 0): void {
+  if (messages.filter(hasShot).length <= keep + slack) return;
   let seen = 0;
   for (let i = messages.length - 1; i >= 0; i--) {
     const m = messages[i]!;
     if (m.role !== "user" || !Array.isArray(m.content)) continue;
-    const hasShot = m.content.some((b) => b.type === "image" || (b.type === "tool_result" && Array.isArray(b.content) && b.content.some((c) => c.type === "image")));
-    if (!hasShot) continue;
+    if (!hasShot(m)) continue;
     seen++;
     if (seen <= keep) continue;
     m.content = m.content.map((b): Content => {
@@ -182,8 +191,13 @@ export interface RunSessionOptions {
   variant: Variant;
   dir: string;
   cookie: string | undefined;
+  /** The run's spend meter: the session ends cleanly, as "capped", once it has passed its cap. */
+  meter?: SpendMeter;
   log?: (line: string) => void;
 }
+
+/** Screens the buyer keeps in full beyond the latest two, so a Claude prompt cache survives between prunes. */
+export const PRUNE_SLACK = 3;
 
 export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
   const { panel, profile, device, variant, dir } = o;
@@ -209,15 +223,16 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
   const save = () => writeFileSync(join(dir, "session.json"), JSON.stringify(rec, null, 1));
   const client = clientFor(variant);
   const call = async (messages: Anthropic.MessageParam[], tools?: Anthropic.Tool[]): Promise<Anthropic.Message> => {
-    const res = await client.messages.create({
+    const body = {
       model: variant.model,
       max_tokens: 1500,
       ...(variant.temperature === undefined ? {} : { temperature: variant.temperature }),
       system: SYSTEM(profile.persona, device),
       messages,
       ...(tools ? { tools, tool_choice: { type: "auto" as const, disable_parallel_tool_use: true } } : {}),
-    });
-    addUsage(usage, res);
+    };
+    const res = await client.messages.create(cachesPrompts(variant) ? withCaching(body) : body);
+    addUsage(usage, res, variant.model, o.meter);
     return res;
   };
 
@@ -259,7 +274,13 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
     let lastObs = startObs;
     const maxTurns = panel.stepBudget * 2 + 6;
     for (let turn = 0; turn < maxTurns; turn++) {
-      pruneHistory(messages);
+      if (o.meter?.exceeded) {
+        rec.endReason = "capped";
+        o.meter.cut.push(id);
+        log(`${id}: spend cap ${o.meter.maxUsd} USD reached, session ended after ${steps} steps`);
+        break;
+      }
+      pruneHistory(messages, 2, cachesPrompts(variant) ? PRUNE_SLACK : 0);
       const res = await call(messages, BUYER_TOOLS);
       messages.push({ role: "assistant", content: res.content });
       const thought = textOf(res);

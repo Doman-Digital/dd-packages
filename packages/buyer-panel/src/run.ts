@@ -7,6 +7,7 @@ import { runSession, sessionId, type SessionRecord } from "./buyer.js";
 import { clusterFindings, gradeSession, type SessionGrade, type SessionRef } from "./evaluate.js";
 import { loadGradingContext } from "./grading-context.js";
 import { emptyUsage, mergeUsage, type Usage } from "./model.js";
+import { costOf, SpendMeter } from "./pricing.js";
 import { renderReport, type RunMeta, type RunReport } from "./report.js";
 
 export interface RunOptions {
@@ -17,10 +18,14 @@ export interface RunOptions {
   variants?: string[];
   concurrency?: number;
   evaluate?: boolean;
+  /** Stop starting sessions, and end running ones, once the run's estimated spend passes this. Default 3. */
+  maxUsd?: number;
   /** An existing run directory to finish instead of starting a new run. */
   into?: string;
   log?: (line: string) => void;
 }
+
+export const DEFAULT_MAX_USD = 3;
 
 export const runIdFor = (version: string, at: Date): string => `${version.slice(0, 8)}-${at.toISOString().slice(0, 16).replace(/:/g, "")}`;
 
@@ -100,15 +105,28 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
     log(`run ${runId}: ${plan.length} sessions into ${runDir}`);
   }
 
+  const meter = new SpendMeter(o.maxUsd ?? DEFAULT_MAX_USD);
+  if (o.into) for (const r of readSessions(runDir)) if (r.endReason !== "error") meter.add(usageWithCost(r).usd ?? 0); // the cap is for the whole run, not for each attempt at it
   const cookie = await accessCookie(panel);
   await pool(plan, o.concurrency ?? 3, async ({ profile, device, variant }) => {
     const id = sessionId(profile.id, device, variant.id);
+    if (meter.exceeded) {
+      meter.notStarted.push(id);
+      log(`${id}: not started, the run passed its ${meter.maxUsd} USD cap`);
+      return undefined;
+    }
     const dir = join(runDir, "sessions", id);
     rmSync(dir, { recursive: true, force: true }); // a failed attempt's screenshots must not outlive it
-    const rec = await runSession({ panel, profile, device, variant, dir, cookie, log });
-    log(`${id}: ${rec.endReason} after ${rec.steps.length} steps, ${rec.problems.length} problems`);
+    const rec = await runSession({ panel, profile, device, variant, dir, cookie, meter, log });
+    log(`${id}: ${rec.endReason} after ${rec.steps.length} steps, ${rec.problems.length} problems, about ${rec.usage.usd?.toFixed(3)} USD (${meter.spent.toFixed(2)} of ${meter.maxUsd} for the run)`);
     return rec;
   });
+  meter.cut.sort();
+  meter.notStarted.sort();
+  meta.usage.buyers = emptyUsage();
+  for (const r of readSessions(runDir)) mergeUsage(meta.usage.buyers, usageWithCost(r)); // so a --no-evaluate run still records its cost
+  meta.cap = { maxUsd: meter.maxUsd, hit: meter.hit, spentUsd: meter.spent, cut: meter.cut, notStarted: meter.notStarted, notGraded: [] };
+  writeFileSync(join(runDir, "run.json"), JSON.stringify(meta, null, 1));
 
   // A deploy during the run would mix two versions in one report: check, and say so in the run record.
   const after = panel.target.worker ? deployedVersion(panel) : undefined;
@@ -118,9 +136,12 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
     log(`warning: the Worker moved to ${after} during the run; the report says so`);
   }
 
-  if (o.evaluate !== false) await evaluateRun(panel, runDir, log);
+  if (o.evaluate !== false) await evaluateRun(panel, runDir, log, meter);
   return runDir;
 }
+
+/** A session's usage with its cost filled in from the price table, for records written before the cost was kept. */
+export const usageWithCost = (r: SessionRecord): Usage => ({ ...r.usage, usd: r.usage.usd ?? costOf(r.variant.model, r.usage) });
 
 export function readSessions(runDir: string): SessionRecord[] {
   const dir = join(runDir, "sessions");
@@ -144,19 +165,24 @@ export function recordEvaluator(meta: RunMeta, panel: Panel, at: Date): RunMeta 
 }
 
 /** Grades every session, clusters the findings, applies the reproduction rule, writes the report and the archive index. */
-export async function evaluateRun(panel: Panel, runDir: string, log: (line: string) => void = console.log): Promise<RunReport> {
+export async function evaluateRun(panel: Panel, runDir: string, log: (line: string) => void = console.log, meter: SpendMeter = new SpendMeter(DEFAULT_MAX_USD)): Promise<RunReport> {
   const meta = recordEvaluator(JSON.parse(readFileSync(join(runDir, "run.json"), "utf8")) as RunMeta, panel, new Date());
   const records = readSessions(runDir);
   const ctx = loadGradingContext(panel);
   meta.brandFactsVersion = ctx.brandFactsVersion;
   meta.usage.buyers = emptyUsage();
-  for (const r of records) mergeUsage(meta.usage.buyers, r.usage);
+  for (const r of records) mergeUsage(meta.usage.buyers, usageWithCost(r));
   const evalUsage: Usage = emptyUsage();
   const graded = records.filter((r) => r.endReason !== "error" || r.steps.length > 0);
   const grades = (
     await pool(graded, 3, async (rec) => {
+      if (meter.exceeded) {
+        meter.notGraded.push(rec.id);
+        log(`${rec.id}: not graded, the run passed its ${meter.maxUsd} USD cap`);
+        return undefined;
+      }
       try {
-        const g = await gradeSession(panel, ctx, rec, join(runDir, "sessions", rec.id), evalUsage);
+        const g = await gradeSession(panel, ctx, rec, join(runDir, "sessions", rec.id), evalUsage, meter);
         writeFileSync(join(runDir, "sessions", rec.id, "grade.json"), JSON.stringify(g, null, 1));
         log(`${rec.id}: graded, ${g.findings.length} findings kept, ${g.dropped.length} dropped`);
         return g;
@@ -168,8 +194,19 @@ export async function evaluateRun(panel: Panel, runDir: string, log: (line: stri
   ).filter((g): g is SessionGrade => Boolean(g));
   const findings = grades.flatMap((g) => g.findings);
   const refs: SessionRef[] = records.map((r) => ({ id: r.id, profile: r.profile, device: r.device, variant: r.variant.id }));
-  const clusters = await clusterFindings(panel, findings, refs, evalUsage);
+  const clusters = await clusterFindings(panel, findings, refs, evalUsage, meter); // the last call: small, and the report is useless without it
   meta.usage.evaluator = evalUsage;
+  const before = meta.cap;
+  const cut = [...new Set([...(before?.cut ?? []), ...meter.cut])].sort();
+  const notStarted = [...new Set([...(before?.notStarted ?? []), ...meter.notStarted])].sort();
+  meta.cap = {
+    maxUsd: before?.maxUsd ?? meter.maxUsd,
+    hit: Boolean(cut.length || notStarted.length || meter.notGraded.length),
+    spentUsd: (meta.usage.buyers.usd ?? 0) + (evalUsage.usd ?? 0),
+    cut,
+    notStarted,
+    notGraded: meter.notGraded.sort(),
+  };
   const report: RunReport = {
     meta,
     sessions: records.map((r) => ({ id: r.id, profile: r.profile, device: r.device, variant: r.variant.id, endReason: r.endReason, steps: r.steps.length, problems: r.problems.length, ...(r.error ? { error: r.error } : {}) })),
