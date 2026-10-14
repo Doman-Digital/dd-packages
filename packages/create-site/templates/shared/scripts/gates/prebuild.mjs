@@ -3,7 +3,7 @@
 // first one to fail stops the build and names its stage. The order matters:
 // the direction is decided before tokens are written from it, the tokens are
 // written before they are measured, and the deck is current before the null
-// set reads it. The measurement at 375, 390 and 1440 (phone first) needs a
+// set reads it. The measurement at every viewport (phone first) needs a
 // running build, so deploy-preview.mjs runs it before every preview deploy
 // instead.
 

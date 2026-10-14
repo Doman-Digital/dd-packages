@@ -161,6 +161,8 @@ Mobile first is a rule about **order and floor**, not about a layout. The phone
 is designed, built and measured first, and every wider layout is derived from
 it. A desktop layout squeezed onto a phone keeps the desktop's priorities and
 drops whatever did not fit; a phone layout widened keeps what matters and adds.
+Fitting on a phone is the floor. The bar is a page optimised for the phone and
+intended at every width, and the two sub-sections below set it.
 
 - **The phone is the base.** Base styles are the phone layout. Wider layouts
   are added with `min-width` queries only (Tailwind: unprefixed is the phone,
@@ -169,7 +171,7 @@ drops whatever did not fit; a phone layout widened keeps what matters and adds.
 - **375px is the floor.** Every surface is designed and measured at **375 CSS
   px** first, the narrowest iPhone width in common use (SE, mini, X to 11 Pro).
   Nothing scrolls sideways at 375. 390 is still measured: it is the width the
-  design is accepted at.
+  design is accepted at. 320 still works (see "Every viewport is intended").
 - **Touch targets at least 44 × 44 CSS px.** A link inside a sentence is exempt,
   as in WCAG's own inline exception. 24px (SC 2.5.8, AA) is what an audit asks
   for; 44 is the house bar.
@@ -182,6 +184,86 @@ drops whatever did not fit; a phone layout widened keeps what matters and adds.
 
 *Source: WCAG 2.2 SC 2.5.5 (Target Size, Enhanced), SC 2.5.8 and SC 1.4.4; Apple Human Interface Guidelines, "Accessibility" (44 × 44 pt hit targets); WebKit's focus zoom on fields under 16px; Lighthouse's default mobile emulation; Google Search Central, "Mobile-first indexing"; Luke Wroblewski, "Mobile First" (2011).*
 
+### Optimised for the phone
+
+A visitor on a phone has a small screen, one thumb, a slow connection and a
+task. The page is built for that and measured on a **short phone, 375 × 667**
+(an iPhone SE), the least height a visitor has.
+
+- **The first screen says what this is and offers the main action.** At
+  375 × 667, with no scroll, the visitor can read what the page is and who it
+  is for, and can reach the main action: call, book, buy or enquire. On a long
+  page the main action stays in thumb reach, pinned to the bottom edge or
+  repeated, because the lower half is the half a thumb reaches.
+- **Thumb reach.** Most people tap with one thumb. Frequent actions sit in the
+  lower two thirds of the screen; a control that only the top corner holds is
+  for rare use.
+- **Use what a phone can do.** A telephone number is a `tel:` link, a text
+  message address an `sms:` link and a street address a map link, so one tap
+  calls, messages or navigates. Each field asks for the keyboard that fits:
+  `type="tel"`, `type="email"`, `inputmode="numeric"` or `"decimal"`. A field
+  that asks for personal data carries `autocomplete` (`name`, `email`, `tel`,
+  `street-address`, `postal-code`), so the phone fills it. Nothing needs hover:
+  what hover reveals is also there on tap and on focus. Anything pinned to an
+  edge keeps clear of the safe area (`env(safe-area-inset-*)`, with
+  `viewport-fit=cover`), so the notch, the home indicator and rounded corners
+  never cover it.
+- **Overlays take at most a quarter of a short screen.** The header, a cookie
+  bar, a chat button and every other fixed or sticky layer together cover at
+  most 25% of 375 × 667. A dialog the visitor opens is theirs and is not
+  counted; a layer that is there on arrival is.
+- **Images are sized for the phone.** `srcset` and `sizes` give a 2x screen a
+  file about twice its displayed width. A file more than about 2.5 times its
+  displayed width is oversized: the phone downloads pixels it throws away. A
+  file narrower than its displayed width is upscaled and soft.
+- **It is fast on a throttled phone.** On the mobile Lighthouse profile
+  (simulated slow 4G, 4x CPU slowdown): Largest Contentful Paint 2.5 s or
+  less, Interaction to Next Paint 200 ms or less, Cumulative Layout Shift 0.1
+  or less.
+- **Landscape is usable.** A phone is held either way up. At 844 × 390 nothing
+  needed is hidden behind a fixed layer, the header and fixed layers leave at
+  least half the height, and no content is cut off.
+
+*Source: Steven Hoober, "How Do Users Really Hold Mobile Devices?" (UXmatters, 2013) and "Design for Fingers, Touch, and People" (UXmatters, 2017); Josh Clark, "Designing for Touch" (A Book Apart, 2015); RFC 3966 (`tel:`), RFC 5724 (`sms:`) and RFC 5870 (`geo:`); WHATWG HTML Standard, `inputmode` and the autofill field names; WCAG 2.2 SC 1.3.5 (Identify Input Purpose) and SC 1.3.4 (Orientation); W3C Media Queries Level 4, the `hover` and `pointer` features; CSS Environment Variables Module Level 1 (`env(safe-area-inset-*)`) and WebKit, "Designing Websites for iPhone X" (2017); Google Search Central, "Helping users easily access content on mobile" (intrusive interstitials); web.dev, "Web Vitals" (the good thresholds for LCP, INP and CLS) and "Serve responsive images".*
+
+### Every viewport is intended
+
+A page is seen at every width from a 320px phone to a 1920px screen, and each
+width gets a layout someone meant. Five bands each look designed:
+
+| Band | Width in CSS px |
+| --- | --- |
+| Phone | 320 to 479 |
+| Large phone | 480 to 767 |
+| Tablet | 768 to 1023 |
+| Laptop | 1024 to 1439 |
+| Wide | 1440 and up |
+
+- **A tablet is a layout of its own.** At 768 to 1023 the page is neither the
+  phone stretched across the width nor the laptop squeezed to fit. The tablet
+  band is designed and captured like the others.
+- **320 works.** Content reflows at 320 CSS px with no sideways scroll and no
+  loss of information or function (WCAG SC 1.4.10, the same as 400% zoom on a
+  1280px screen).
+- **Lines are 45 to 80 characters.** Body text keeps a readable measure at
+  every width. On a wide screen it is capped (`max-width` in `ch`), and the
+  layout holds to a sensible width instead of stretching with the window.
+  Images are never shown larger than their file.
+- **The sweep catches what the breakpoints miss.** The ladder (320, 375, 390,
+  430, 844 × 390 landscape, 768, 1024, 1280, 1440, 1920) is captured, and one
+  page load is resized from 320 to 1920 in steps of 16 to 32px. At any width
+  nothing scrolls sideways, no visible text sits on other visible text and no
+  page title is cut off. The report names the exact widths that fail, phone
+  first.
+
+The measure is `@domandigital/craft/phone` (`measureViewports`,
+`measureSite`, `craft viewports`): one measure that create-site's
+`measure.mjs` and every portal gate use. Each check can be baselined: a
+repo's existing failures are listed in the open, a new failure fails, and the
+baseline only shrinks.
+
+*Source: WCAG 2.2 SC 1.4.10 (Reflow) and SC 1.4.8 (Visual Presentation: no more than 80 characters a line); Robert Bringhurst, "The Elements of Typographic Style", chapter 2, "Rhythm and Proportion" (45 to 75 characters a line); Ethan Marcotte, "Responsive Web Design" (A List Apart, 2010); web.dev, "Responsive web design basics".*
+
 ## 11. What is deliberately not a rule
 
 The package emits **plain CSS custom properties** precisely so these stay free:
@@ -193,8 +275,9 @@ The package emits **plain CSS custom properties** precisely so these stay free:
 - **Where tokens live.** A `:root` block, a generated file, a Tailwind theme:
   the package does not care.
 - **Layout, grid and component structure.** Not a rule, at any width. Section
-  10 fixes the order the widths are designed in and the floor they are
-  measured at; what the phone layout looks like stays free. Layout *defaults*
+  10 fixes the order the widths are designed in, the floor they are measured
+  at and the five bands each is designed for; what each layout looks like
+  stays free. Layout *defaults*
   (hero straight into a trust strip, three icon cards, a reveal on every
   section) are measured as character in [CHARACTER.md](./CHARACTER.md), as
   warnings with a declared-exception path, never as rules here.

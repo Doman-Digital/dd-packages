@@ -266,6 +266,57 @@ baseline that claims more than is there, so it only shrinks: fix a breach and
 lower its count in the same PR. `--update-baseline` writes the baseline that
 makes the current run pass; run it once when the gate goes in.
 
+## Every viewport
+
+Fitting at 375 is the floor (STANDARD.md section 10, DOM-787). The
+every-viewport measure takes a page through the ladder (320, 375, 390, 430,
+landscape 844 x 390, 768, 1024, 1280, 1440, 1920, phone first in order and in
+every report) and a width sweep from 320 to 1920 in 16 to 32px steps, resizing
+the one loaded page in place:
+
+- **At any width:** sideways scroll, visible text over other visible text, a
+  cut-off page title (`h1`), and text under 12px. A failure names the exact
+  widths: `(at 320-352, 400)`.
+- **On a short phone (375 x 667):** the main action (`mainAction`, a selector,
+  global or per route) is on the first screen or pinned; fixed and sticky
+  layers together cover at most 25% of the screen; an image is not more than
+  2.5 times wider than shown (`oversized`) nor narrower than shown
+  (`upscaled`); a field that looks like a phone, email or number uses
+  `type="tel"`, `type="email"` or an `inputmode`; a name, email, phone or
+  address field carries `autocomplete`; a UK phone number in the text is a
+  `tel:` link.
+- **On a landscape phone (844 x 390):** header and fixed layers leave at least
+  half the height.
+- **At 1440 and 1920:** body lines are at most 80 characters (width over the
+  `ch` of the element's own font) and no image is stretched past its file.
+
+Each threshold has a house default (`DEFAULT_THRESHOLDS`) and can be
+overridden per site or portal.
+
+```ts
+import { PHONE, measureViewports } from "@domandigital/craft/phone";
+
+test.use(PHONE);
+test(`every viewport: ${route}`, async ({ page }) => {
+  await page.goto(route);
+  // Resizes this page in place; writes phone-first/measured/<route>.json.
+  await measureViewports(page, { route, mainAction: ".hero a" });
+});
+```
+
+`measureViewports` works on the page the suite opened and signed in, so a
+portal keeps its fixtures. `measureSite(browser, { base, routes })` opens each
+route itself, the phone half in a phone context and the wide half in a desktop
+one, for a page anyone can open: create-site's `measure.mjs` uses it.
+`craft viewports --url <base> --route /` is the same for the command line: it
+measures, writes the measured routes, and judges them against the same
+`phone-first.baseline.json`. The new checks are baselined like the 375px ones:
+existing failures are listed (one line per element and check, with the widths
+left out so a failure at one more width is not a new failure), a new failure
+fails, and a baseline that claims more than is there fails too.
+`craft phone-first --measured` judges the same files, and keeps working on
+routes measured only at 375 with `measurePhone`.
+
 ## API
 
 | Area | Exports |

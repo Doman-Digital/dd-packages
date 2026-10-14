@@ -276,53 +276,96 @@ describe("mobile-first", () => {
 });
 
 /**
- * measure.mjs in a real Chromium, at the phone widths. Skipped, visibly, where
- * no browser is installed. playwright comes from craft's dev dependency and is
- * linked into the generated site, which is where the gate resolves it from.
+ * measure.mjs in a real Chromium, at every viewport. Skipped, visibly, where
+ * no browser is installed or craft has not been built (the measure is craft's
+ * `@domandigital/craft/phone`; the nightly starters job runs the released one).
+ * playwright comes from craft's dev dependency and craft from the workspace;
+ * both are linked into the generated site, which is where the gate resolves
+ * them from.
  */
-const playwrightDir = join(import.meta.dirname, "../../../craft/node_modules/playwright");
+const craftDir = join(import.meta.dirname, "../../../craft");
+const playwrightDir = join(craftDir, "node_modules/playwright");
 const hasBrowser = (() => {
   try {
-    return existsSync(createRequire(join(playwrightDir, "package.json"))("./index.js").chromium.executablePath());
+    return existsSync(createRequire(join(playwrightDir, "package.json"))("./index.js").chromium.executablePath()) && existsSync(join(craftDir, "dist/phone.js"));
   } catch {
     return false;
   }
 })();
 
-describe.skipIf(!hasBrowser)("measure at phone widths, in a real browser", () => {
+describe.skipIf(!hasBrowser)("measure at every viewport, in a real browser", () => {
   const VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">';
   const page = (head: string, body: string) =>
     `<!doctype html><html lang="en"><meta charset="utf-8">${head}<title>Fixture</title><style>body{margin:0;font:16px/1.5 sans-serif}.wide{width:500px;height:20px;background:#ccc}</style><body><main><h1>Fixture</h1><p>${body}</p></main></body></html>`;
 
-  async function measured(html: string, port: number) {
+  async function measured(html: string, port: number, programme: Record<string, unknown> = {}, ...args: string[]) {
     const root = await generate({ programme: "DOM-999" });
-    mkdirSync(join(root, "node_modules"), { recursive: true });
+    mkdirSync(join(root, "node_modules", "@domandigital"), { recursive: true });
     symlinkSync(playwrightDir, join(root, "node_modules", "playwright"), "dir");
-    edit(root, "site.programme.json", (p) => (p.measure = { ...p.measure, port, pages: ["/"] }));
+    symlinkSync(craftDir, join(root, "node_modules", "@domandigital", "craft"), "dir");
+    // A coarse sweep keeps the run short; the ladder itself is whole.
+    edit(root, "site.programme.json", (p) => (p.measure = { ...p.measure, port, pages: ["/"], sweep: { step: 64, wideStep: 128 }, ...programme }));
     write(root, "dist/index.html", html);
-    return { root, ...gate(root, "measure.mjs", "--serve") };
+    return { root, ...gate(root, "measure.mjs", "--serve", ...args) };
   }
 
-  test("fails a 500px-wide page at 375 and 390, which innerWidth cannot see", async () => {
+  test("fails a 500px-wide page below 500, on every phone width, which innerWidth cannot see", async () => {
     const r = await measured(page(VIEWPORT, '<span class="wide" style="display:block"></span>Text'), 4471);
     expect(r.status).toBe(1);
-    expect(r.out).toContain("/ at 375x812: the page scrolls sideways");
-    expect(r.out).toContain("/ at 390x844: the page scrolls sideways");
-    expect(r.out).not.toContain("1440x900");
-  }, 60_000);
+    expect(r.out).toMatch(/\/: scrolls sideways <html>: the page is 500px wide at \d+px.*\(at 320-\d+/);
+    expect(r.out).toContain("375");
+    // 1440 and 1920 are wide enough: only the narrow widths are named.
+    expect(r.out).not.toMatch(/scrolls sideways[^\n]*(1440|1920)/);
+  }, 120_000);
 
   test("fails a page with no width=device-width viewport meta", async () => {
     const r = await measured(page("", "Text"), 4472);
     expect(r.status).toBe(1);
-    expect(r.out).toContain("/ at 375x812: the page lays out wider than the screen: no width=device-width viewport meta");
-  }, 60_000);
+    expect(r.out).toContain("no width=device-width viewport meta");
+  }, 120_000);
 
-  test("passes a page that fits the phone", async () => {
+  test("passes a page that fits the phone and the wide screen, and writes the report, phone first", async () => {
     const r = await measured(page(VIEWPORT, "Text"), 4473);
     expect(r.out).not.toContain("scrolls sideways");
     expect(r.out).not.toContain("viewport meta");
     expect(r.status).toBe(0);
-  }, 60_000);
+    expect(r.out).toContain("320, 375, 390, 430, 844x390, 768, 1024, 1280, 1440, 1920");
+    const report = json(r.root, "measure/measure.json");
+    expect(report.pages["/"].viewports.slice(0, 6)).toEqual(["320", "375", "390", "430", "375x667", "844x390"]);
+    expect(report.failures).toEqual([]);
+    expect(existsSync(join(r.root, "measure/out/home-320.png"))).toBe(true);
+    expect(existsSync(join(r.root, "measure/out/home-1920.png"))).toBe(true);
+  }, 120_000);
+
+  test("fails the phone optimisation: a main action below the first screen, a text phone field, a number that does not dial", async () => {
+    const body = '<div style="height:900px"></div><a class="cta" href="/book" style="display:inline-block;min-height:44px;min-width:44px">Book</a><p>Call 020 7946 0958.</p><label for="p" style="display:block;min-height:44px">Phone</label><input id="p" name="phone" type="text" autocomplete="tel" style="font-size:16px;min-height:44px">';
+    const r = await measured(page(VIEWPORT, body), 4474, { mainAction: ".cta" });
+    expect(r.status).toBe(1);
+    expect(r.out).toContain("main action out of reach <a> \"Book\"");
+    expect(r.out).toContain("wrong keyboard <input>");
+    expect(r.out).toContain("phone number is not a link");
+    expect(r.out).toContain("(at 375x667)");
+  }, 120_000);
+
+  test("lists known failures from the baseline, fails a new one, and asks for the baseline to shrink", async () => {
+    const html = page(VIEWPORT, 'Call 020 7946 0958.<span class="tail"></span>');
+    const first = await measured(html, 4475, { baseline: "measure.baseline.json" }, "--update-baseline");
+    expect(first.status).toBe(0);
+    expect(json(first.root, "measure.baseline.json").measured).toEqual([expect.objectContaining({ route: "/", check: "tel", count: 1 })]);
+    const again = gate(first.root, "measure.mjs", "--serve");
+    expect(again.status).toBe(0);
+    expect(again.out).toContain("1 known breach in measure.baseline.json");
+    // A second number is new.
+    write(first.root, "dist/index.html", page(VIEWPORT, "Call 020 7946 0958 or 0161 496 0123."));
+    const worse = gate(first.root, "measure.mjs", "--serve");
+    expect(worse.status).toBe(1);
+    expect(worse.out).toContain("(2 found, the baseline allows 1)");
+    // Fixed: the baseline claims more than is there.
+    write(first.root, "dist/index.html", page(VIEWPORT, 'Call <a href="tel:+442079460958" style="display:inline-block;min-height:44px;line-height:44px">020 7946 0958</a>.'));
+    const fixed = gate(first.root, "measure.mjs", "--serve");
+    expect(fixed.status).toBe(1);
+    expect(fixed.out).toContain("Lower it to 0");
+  }, 240_000);
 });
 
 describe("deploy-preview", () => {
