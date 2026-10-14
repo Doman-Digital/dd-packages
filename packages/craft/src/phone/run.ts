@@ -174,6 +174,45 @@ export async function measureViewports(page: ViewportPage, options: MeasureViewp
   return finish(options.route, await collect(page, options), options.out);
 }
 
+/** The desktop context the wide half is measured in, beside `PHONE` for the phone half. Spread into `browser.newContext`. */
+export const DESKTOP = { viewport: { width: 1024, height: 768 }, deviceScaleFactor: 1 } as const;
+
+/** A page opened at the route, and how to close it when its half is measured. */
+export interface OpenedPage {
+  page: ViewportPage;
+  close?: () => Promise<void>;
+}
+
+/**
+ * Every viewport for a route only the caller can open, such as a portal screen
+ * behind a sign-in (DOM-835). As `measureSite` does for a public page, the
+ * phone half is measured in a phone context and the wide half in a desktop
+ * one; `open(scope)` returns a page already at the route, signed in with the
+ * suite's fixtures, in `PHONE` for "phone" and `DESKTOP` for "wide". The two
+ * halves are merged and written once, for `craft phone-first --measured`.
+ *
+ *     await measureRoute(async (scope) => {
+ *       const context = await browser.newContext({ ...(scope === "phone" ? PHONE : DESKTOP), extraHTTPHeaders: auth });
+ *       const page = await context.newPage();
+ *       await page.goto(base + route);
+ *       return { page, close: () => context.close() };
+ *     }, { route, mainAction: 'a[href="/portal/requests/new"]' });
+ */
+export async function measureRoute(open: (scope: "phone" | "wide") => Promise<OpenedPage>, options: Omit<MeasureViewportsOptions, "scope">): Promise<ViewportsResult> {
+  if (!options.route.startsWith("/")) throw new Error(`measureRoute: route "${options.route}" should start with /`);
+  const collected: Collected[] = [];
+  for (const scope of ["phone", "wide"] as const) {
+    const { page, close } = await open(scope);
+    try {
+      await page.evaluate(() => document.fonts?.ready.then(() => undefined), undefined);
+      collected.push(await collect(page, { ...options, scope }));
+    } finally {
+      await close?.();
+    }
+  }
+  return finish(options.route, { perViewport: collected.flatMap((c) => c.perViewport), tested: collected.flatMap((c) => c.tested) }, options.out);
+}
+
 export interface SitePage extends ViewportPage {
   goto(url: string): Promise<{ ok(): boolean; status(): number | string } | null>;
 }
@@ -205,7 +244,7 @@ export async function measureSite(browser: SiteBrowser, options: MeasureSiteOpti
     let failed: string | null = null;
     for (const [scope, context] of [
       ["phone", PHONE],
-      ["wide", { viewport: { width: 1024, height: 768 }, deviceScaleFactor: 1 }],
+      ["wide", DESKTOP],
     ] as const) {
       const ctx = await browser.newContext({ ...context });
       try {
