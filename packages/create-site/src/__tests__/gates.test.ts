@@ -4,7 +4,8 @@
 // prints a canned report; the nightly starter job runs the real one.
 
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, symlinkSync, writeFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { afterAll, describe, expect, test } from "vitest";
 import { run } from "../run";
@@ -272,6 +273,56 @@ describe("mobile-first", () => {
     expect(listed.status).toBe(1);
     expect(listed.out).toContain("mobileFirst.exceptions[0] (src/styles/site.css): no reason");
   });
+});
+
+/**
+ * measure.mjs in a real Chromium, at the phone widths. Skipped, visibly, where
+ * no browser is installed. playwright comes from craft's dev dependency and is
+ * linked into the generated site, which is where the gate resolves it from.
+ */
+const playwrightDir = join(import.meta.dirname, "../../../craft/node_modules/playwright");
+const hasBrowser = (() => {
+  try {
+    return existsSync(createRequire(join(playwrightDir, "package.json"))("./index.js").chromium.executablePath());
+  } catch {
+    return false;
+  }
+})();
+
+describe.skipIf(!hasBrowser)("measure at phone widths, in a real browser", () => {
+  const VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">';
+  const page = (head: string, body: string) =>
+    `<!doctype html><html lang="en"><meta charset="utf-8">${head}<title>Fixture</title><style>body{margin:0;font:16px/1.5 sans-serif}.wide{width:500px;height:20px;background:#ccc}</style><body><main><h1>Fixture</h1><p>${body}</p></main></body></html>`;
+
+  async function measured(html: string, port: number) {
+    const root = await generate({ programme: "DOM-999" });
+    mkdirSync(join(root, "node_modules"), { recursive: true });
+    symlinkSync(playwrightDir, join(root, "node_modules", "playwright"), "dir");
+    edit(root, "site.programme.json", (p) => (p.measure = { ...p.measure, port, pages: ["/"] }));
+    write(root, "dist/index.html", html);
+    return { root, ...gate(root, "measure.mjs", "--serve") };
+  }
+
+  test("fails a 500px-wide page at 375 and 390, which innerWidth cannot see", async () => {
+    const r = await measured(page(VIEWPORT, '<span class="wide" style="display:block"></span>Text'), 4471);
+    expect(r.status).toBe(1);
+    expect(r.out).toContain("/ at 375x812: the page scrolls sideways");
+    expect(r.out).toContain("/ at 390x844: the page scrolls sideways");
+    expect(r.out).not.toContain("1440x900");
+  }, 60_000);
+
+  test("fails a page with no width=device-width viewport meta", async () => {
+    const r = await measured(page("", "Text"), 4472);
+    expect(r.status).toBe(1);
+    expect(r.out).toContain("/ at 375x812: the page lays out wider than the screen: no width=device-width viewport meta");
+  }, 60_000);
+
+  test("passes a page that fits the phone", async () => {
+    const r = await measured(page(VIEWPORT, "Text"), 4473);
+    expect(r.out).not.toContain("scrolls sideways");
+    expect(r.out).not.toContain("viewport meta");
+    expect(r.status).toBe(0);
+  }, 60_000);
 });
 
 describe("deploy-preview", () => {
