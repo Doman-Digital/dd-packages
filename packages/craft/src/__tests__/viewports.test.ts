@@ -13,6 +13,8 @@ import {
   LADDER,
   mainActionFor,
   mergeViewportFindings,
+  DESKTOP,
+  measureRoute,
   measureSite,
   measureViewports,
   PHONE,
@@ -315,6 +317,35 @@ describe.skipIf(!chromium)("craft viewports in a real browser", () => {
         expect(result.routes[0].viewports).toContain("1920");
         expect(captured.slice(0, 3)).toEqual(["/ 320", "/ 375", "/ 390"]);
         expect(captured).toContain("/ 1920");
+      });
+    }, 180_000);
+
+    it("measureRoute measures a page the caller opened, phone half in PHONE and wide half in DESKTOP, merged and written once", async () => {
+      await withBrowser(async (browser) => {
+        const dir = mkdtempSync(join(tmpdir(), "craft-measure-route-"));
+        const opened: string[] = [];
+        try {
+          const b = browser as unknown as { newContext(o: Record<string, unknown>): Promise<{ newPage(): Promise<{ goto(u: string): Promise<unknown> }>; close(): Promise<void> }> };
+          const result = await measureRoute(
+            async (scope) => {
+              const context = await b.newContext({ ...(scope === "phone" ? PHONE : DESKTOP) });
+              const page = await context.newPage();
+              await page.goto(`${base}/bad`);
+              opened.push(scope);
+              return { page: page as never, close: () => context.close() };
+            },
+            { route: "/bad", out: dir, mainAction: ".cta", sweep: FAST },
+          );
+          expect(opened).toEqual(["phone", "wide"]);
+          expect(result.viewports.slice(0, 6)).toEqual(["320", "375", "390", "430", "375x667", "844x390"]);
+          expect(result.viewports).toContain("1920");
+          expect(result.findings.some((x) => x.check === "tel")).toBe(true);
+          const written = JSON.parse(readFileSync(join(dir, "bad.json"), "utf8"));
+          expect(written.route).toBe("/bad");
+          expect(written.findings).toEqual(result.findings);
+        } finally {
+          rmSync(dir, { recursive: true, force: true });
+        }
       });
     }, 180_000);
 
