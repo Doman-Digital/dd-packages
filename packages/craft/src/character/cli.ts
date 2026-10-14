@@ -62,6 +62,7 @@ Usage
   craft register brief <plain|persuasive|warm|literary> [--json]
   craft register check <file> --as <register> [--json]
   craft phone-first [--config phone-first.json] [--measured <dir>] [--update-baseline] [--json]
+  craft viewports [--url <base>] [--route <path>]... [--config viewports.json] [--out <dir>] [--captures <dir>] [--baseline <file>] [--update-baseline] [--no-sweep] [--json]
 
 scan      Markup, component code and stylesheets (source and compiled CSS).
           --staged reads the git index, for a pre-commit hook.
@@ -124,6 +125,15 @@ phone-first  The phone-first gate for a portal or app (STANDARD.md section
           cut-off title), unless phone-first.baseline.json already lists it.
           A baseline that claims more than is there fails too: it only
           shrinks. Exit 1 on a breach, 2 on bad usage.
+viewports Every viewport, for a running site (STANDARD.md section 10). Opens
+          each route at the ladder (320, 375, 390, 430, 844 x 390 landscape,
+          768, 1024, 1280, 1440, 1920) and sweeps 320 to 1920: sideways
+          scroll, text over text and a cut-off title at any width; on a
+          375 x 667 phone the main action, fixed layers, image sizes, field
+          keyboards, autocomplete and tap-to-call; landscape; line length and
+          stretched images at 1440 and 1920. Writes the measured routes for
+          craft phone-first --measured and judges them against the same
+          baseline. Needs playwright. Exit 1 on a breach, 2 on bad usage.
 
 ci options (scan, copy, audit)
   --baseline <file>     Report only findings the baseline does not already
@@ -429,6 +439,9 @@ export function run(argv: string[], io: Io): number | Promise<number> {
   }
   if (command === "phone-first") {
     return import("../phone/cli.js").then((m) => m.runPhoneFirst(rest, io));
+  }
+  if (command === "viewports") {
+    return import("../phone/viewports-cli.js").then((m) => m.runViewports(rest, io));
   }
   if (command === "snapshot" || command === "audit") {
     // Loaded only here: the browser half never touches a scan or a copy check.

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fixture</title>
+<style>
+  body{margin:0;font:16px/1.5 sans-serif}
+  header{position:sticky;top:0;height:56px;background:#123;color:#fff;display:flex;align-items:center;padding:0 16px}
+  main{padding:16px;max-width:70ch;margin:0 auto}
+  .cta{display:inline-block;min-height:44px;min-width:44px;padding:10px 16px;background:#06c;color:#fff}
+  img{display:block;max-width:100%;height:auto}
+  input,textarea{font-size:16px;min-height:44px;box-sizing:border-box;width:100%}
+  label{display:block;min-height:44px}
+</style>
+<header>Acme Plumbing</header>
+<p style="position:absolute;top:calc(100vh - 40px);left:16px;margin:0">Under the bar</p>
+<div style="position:fixed;bottom:0;left:0;right:0;height:56px;background:#fff;color:#123;padding:16px;box-sizing:border-box">We use cookies to run this site.</div>
+<main>
+  <h1>Plumbers you can call on a Sunday</h1>
+  <p>We fix leaks, boilers and bathrooms across the county. Call <a href="tel:+442079460958" style="display:inline-block;min-height:44px;line-height:44px">020 7946 0958</a> or book online.</p>
+  <a class="cta" href="/book">Book now</a>
+  <img id="van" alt="Van" width="600" height="300">
+  <form>
+    <label for="p">Phone</label><input id="p" name="phone" type="tel" autocomplete="tel">
+    <label for="e">Email address</label><input id="e" name="email" type="email" autocomplete="email">
+    <label for="q">Quantity</label><input id="q" name="qty" inputmode="numeric" autocomplete="off">
+    <label for="g">How can we help?</label><textarea id="g"></textarea>
+  </form>
+  <p>Plumbing is the work of keeping water where it belongs, and the people who do it for a living know that a small drip is rarely small for long, so they look for the cause and not only the symptom.</p>
+</main>
+<script>
+  const c = document.createElement("canvas"); c.width = 720; c.height = 360; const x = c.getContext("2d"); x.fillStyle = "#4a7"; x.fillRect(0, 0, 720, 360);
+  document.getElementById("van").src = c.toDataURL("image/png");
+</script>

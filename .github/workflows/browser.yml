@@ -74,3 +74,8 @@ jobs:
             echo "The phone-first browser test did not run." >&2
             exit 1
           fi
+          viewports=$(sed 's/\x1b\[[0-9;]*m//g' vitest.log | grep -c "✓ .*craft viewports in a real browser" || true)
+          if [ "$viewports" -eq 0 ]; then
+            echo "The every-viewport browser test did not run." >&2
+            exit 1
+          fi

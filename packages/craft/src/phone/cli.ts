@@ -112,10 +112,12 @@ export function runPhoneFirst(args: string[], io: Io): number {
       io.out(toJson({ pass: !failed, files: files.length, excused, routes: routes?.map((r) => r.route) ?? null, exceptionProblems, static: s, measured: m }));
       return failed ? 1 : 0;
     }
+    // Routes measured by the every-viewport measure say so; a 375px-only run keeps its old wording.
+    const wide = routes?.some((r) => r.viewports) ?? false;
     const section = (title: string, lines: string[]): string => (lines.length ? `\n${title}\n${lines.map((l) => `  ${l}`).join("\n")}` : "");
     const known = s.known + m.known;
     const summary = [
-      `${files.length} files${routes ? ` and ${routes.length} route${routes.length === 1 ? "" : "s"} at 375px` : ""}`,
+      `${files.length} files${routes ? ` and ${routes.length} route${routes.length === 1 ? "" : "s"} at ${wide ? "every viewport" : "375px"}` : ""}`,
       excused ? `${excused} recorded exception${excused === 1 ? "" : "s"}` : null,
       known ? `${known} known breach${known === 1 ? "" : "es"} in ${config.baseline}` : null,
     ]
@@ -130,7 +132,7 @@ export function runPhoneFirst(args: string[], io: Io): number {
         `craft phone-first: fail. ${summary}.`,
         section("The exceptions:", exceptionProblems),
         section("Built desktop first (write the phone as the base styles and widen with min-width; a genuine exception takes `mobile-first-ok: <reason>` on its line):", s.fresh),
-        section("Measured at 375px:", m.fresh),
+        section(wide ? "Measured across the viewports, phone first:" : "Measured at 375px:", m.fresh),
         section("The baseline claims more than is there (good: lower it, so the fix stays fixed):", [...s.stale, ...m.stale]),
       ].join(""),
     );

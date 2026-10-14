@@ -21,34 +21,31 @@
  *       });
  *     }
  *
+ * `measureViewports` (DOM-787) is the same for every viewport: it resizes the
+ * page the suite opened through the ladder and the width sweep, and adds the
+ * phone-optimisation and wide-screen checks. `measureSite` opens a running
+ * site's routes itself, and `craft viewports` is that on the command line.
+ * Both write the same measured files, so `craft phone-first --measured` judges
+ * them against the same baseline.
+ *
  * Nothing here imports Playwright: the page is whatever the caller drives.
  */
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { measurePhoneInPage, type PhoneFloors, type RawPhoneFinding } from "./measure-in-page.js";
+import { DEFAULT_MEASURED_DIR, PHONE_FLOORS, routeFile } from "./constants.js";
+import { measurePhoneInPage, type RawPhoneFinding } from "./measure-in-page.js";
 import type { MeasuredRoute } from "./judge.js";
 
 export { measurePhoneInPage } from "./measure-in-page.js";
 export type { PhoneCheck, PhoneFloors, RawPhoneFinding } from "./measure-in-page.js";
+export { measureViewportInPage } from "./measure-viewport-in-page.js";
+export type { InPageGroup, ViewportArg } from "./measure-viewport-in-page.js";
+export { DEFAULT_MEASURED_DIR, PHONE, PHONE_FLOORS, routeFile } from "./constants.js";
 export * from "./judge.js";
-
-/**
- * The phone every surface is designed at (STANDARD.md section 10): 375 x 812,
- * touch, at 2x. Spread into Playwright's `test.use` or `browser.newContext`.
- */
-export const PHONE = {
-  viewport: { width: 375, height: 812 },
-  deviceScaleFactor: 2,
-  isMobile: true,
-  hasTouch: true,
-} as const;
-
-/** The house floors at phone width. Not per-repo settings. */
-export const PHONE_FLOORS: PhoneFloors = { targetPx: 44, fieldFontPx: 16, textPx: 12 };
-
-/** Where `measurePhone` writes and `craft phone-first --measured` reads, unless told otherwise. */
-export const DEFAULT_MEASURED_DIR = "phone-first/measured";
+export * from "./viewports.js";
+export { measureSite, measureViewports } from "./run.js";
+export type { MeasureSiteOptions, MeasureViewportsOptions, SiteBrowser, SitePage, SiteResult, ViewportPage, ViewportsResult } from "./run.js";
 
 interface MinimalPage {
   evaluate<R, A>(fn: (arg: A) => R, arg: A): Promise<R>;
@@ -62,8 +59,6 @@ export interface MeasurePhoneOptions {
   out?: string;
 }
 
-/** A route as a file name: `/portal/invoices` is `portal-invoices.json`, `/` is `home.json`. */
-export const routeFile = (route: string): string => `${route === "/" ? "home" : route.replace(/^\/+|\/+$/g, "").replace(/[^\w.-]+/g, "-")}.json`;
 
 /**
  * Measure the page as it is now and write the result for `craft phone-first`.
