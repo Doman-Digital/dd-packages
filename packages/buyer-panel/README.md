@@ -38,24 +38,41 @@ session in a repo, which would load the project's own documentation before readi
 On dd-work-01, from this folder after `pnpm install && pnpm run build`:
 
 ```sh
-doppler run -p dd-work-box -c prd -- node dist/cli.js run panels/dd-redesign.json --version auto
+doppler run -p dd-work-box -c prd_buyer_panel -- node dist/cli.js run panels/dd-redesign.json --version auto
 ```
 
 `--version auto` reads the version the Worker serves (`target.worker` in the panel) and checks it again at the
-end; a deploy during the run is recorded in the report. Narrow a run with `--only clinic,salon`, `--device phone`,
-`--variant a`. Re-grade an existing run with `evaluate`, and compare two runs with `diff`:
+end; a deploy during the run is recorded in the report. Otherwise `--version` takes the Worker version id, or any
+value that starts with at least 8 hex characters: for a target that is not a Worker (a live site on another host),
+a date such as `20261014` works and keys the run as `20261014-<minute>`. Narrow a run with `--only clinic,salon`,
+`--device phone`, `--variant a`. Re-grade an existing run with `evaluate`, and compare two runs with `diff`:
 
 ```sh
-doppler run -p dd-work-box -c prd -- node dist/cli.js evaluate panels/dd-redesign.json <run-id>
-doppler run -p dd-work-box -c prd -- node dist/cli.js diff panels/dd-redesign.json <earlier-run-id> <later-run-id>
+doppler run -p dd-work-box -c prd_buyer_panel -- node dist/cli.js evaluate panels/dd-redesign.json <run-id>
+doppler run -p dd-work-box -c prd_buyer_panel -- node dist/cli.js diff panels/dd-redesign.json <earlier-run-id> <later-run-id>
 ```
+
+`evaluate` grades with the panel's current evaluator, so changing the evaluator and re-running `evaluate` re-grades
+a run without browsing again. The report says which model graded it: `meta.evaluator` is the one used, and
+`meta.firstEvaluator` (with `gradedAt`) records the one that graded first when they differ.
+
+`diff` asks the evaluator to pair clusters of the two runs and accepts a pair only when it is one to one and the
+model gave it high or medium confidence, with a one-line reason. A key paired twice keeps its most confident pair;
+a tie keeps neither. Pairs it did not accept are listed under "Matches not accepted" with why, and their clusters
+count as gone and new. Clusters are keyed per run, so a diff between runs graded by different evaluators matches
+two different sets of wording; re-grade both with the same evaluator first.
 
 ### Credentials
 
-- **Model:** Claude on Amazon Bedrock with `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_BEDROCK_REGION`
-  (dd-work-box/prd). A variant or the evaluator can set `"provider": "anthropic"` to use `ANTHROPIC_API_KEY`.
+- **Model:** Claude on Amazon Bedrock with `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_BEDROCK_REGION`.
+  Use Doppler config `dd-work-box/prd_buyer_panel`: it inherits `prd` and swaps in the key of IAM user
+  `dd-buyer-panel`, which may call the EU inference profiles of Haiku 4.5, Sonnet 4.6 and Opus 4.6 and nothing else.
+  Plain `prd` holds the check-in user, which may call Haiku 4.5 only, so a Sonnet evaluator gets AccessDenied there.
+  The organisation allows Claude 4.6 on Bedrock, not 5.x. The DD redesign panel's buyers are Haiku 4.5 (variants a
+  and b) and its evaluator is `eu.anthropic.claude-sonnet-4-6` at temperature 0. A variant or the evaluator can set
+  `"provider": "anthropic"` to use `ANTHROPIC_API_KEY`.
 - **Cloudflare Access:** the preview sits behind Access. A service token (application `0a9340f0`, policy
-  "dd-buyer-panel service token (DOM-642)", non-identity) lives in dd-work-box/prd as
+  "dd-buyer-panel service token (DOM-642)", non-identity) lives in dd-work-box/prd (and so prd_buyer_panel) as
   `DD_SITE_PREVIEW_ACCESS_CLIENT_ID` and `DD_SITE_PREVIEW_ACCESS_CLIENT_SECRET`. The runner trades it for Access's
   24-hour session cookie with one request outside the browser, so the token itself never reaches a page, a
   screenshot or a Playwright trace. The token expires on 10 October 2027.

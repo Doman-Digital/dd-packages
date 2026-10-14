@@ -13,7 +13,12 @@ export interface RunMeta {
   ranAt: string;
   stepBudget: number;
   variants: Panel["variants"];
+  /** The evaluator that graded this report: the panel's at the last `evaluate`, not necessarily the one the run started with. */
   evaluator: Panel["evaluator"];
+  /** Set when a re-grade used a different evaluator: the one that graded the run first. */
+  firstEvaluator?: Panel["evaluator"];
+  /** When the current grading was made. */
+  gradedAt?: string;
   brandFactsVersion?: string;
   /** Set when the Worker served a different version at the end of the run than at the start. */
   versionChangedTo?: string;
@@ -27,6 +32,12 @@ export interface RunReport {
   clusters: Cluster[];
   findings: GradedFinding[];
   dropped: DroppedFinding[];
+}
+
+/** "model at temperature 0", plus the first evaluator when this is a re-grade by a different one. */
+export function evaluatorLine(m: Pick<RunMeta, "evaluator" | "firstEvaluator" | "gradedAt">): string {
+  const one = (e: RunMeta["evaluator"]) => `${e.model} at temperature ${e.temperature ?? "default"}`;
+  return m.firstEvaluator ? `${one(m.evaluator)} (re-graded${m.gradedAt ? ` ${m.gradedAt.slice(0, 10)}` : ""}; first graded by ${one(m.firstEvaluator)})` : one(m.evaluator);
 }
 
 const esc = (s: string) => s.replace(/\|/g, "\\|").replace(/\n+/g, " ");
@@ -44,7 +55,7 @@ export function renderReport(r: RunReport, records: SessionRecord[]): string {
     "",
     `**Target** ${m.target} · **version** \`${m.version}\` · **ran** ${m.ranAt} · **panel** ${m.panel}${m.label ? ` · ${m.label}` : ""}`,
     "",
-    `**Buyers** ${m.variants.map((v) => `run ${v.id}: ${v.model} at temperature ${v.temperature ?? "default"}`).join("; ")} · **evaluator** ${m.evaluator.model} · **step budget** ${m.stepBudget} · **brand facts** v${m.brandFactsVersion ?? "?"}`,
+    `**Buyers** ${m.variants.map((v) => `run ${v.id}: ${v.model} at temperature ${v.temperature ?? "default"}`).join("; ")} · **evaluator** ${evaluatorLine(m)} · **step budget** ${m.stepBudget} · **brand facts** v${m.brandFactsVersion ?? "?"}`,
     "",
     ...(m.versionChangedTo ? [`> **Warning:** the site moved to version \`${m.versionChangedTo}\` during this run, so some sessions may have seen the later version.`, ""] : []),
     "> A defect-finding layer, never validation. The panel can show where a site is hard to understand, navigate or trust; it cannot show that real owners trust it or would pay for it. A finding that does not appear here was not found, which is not the same as not present.",
