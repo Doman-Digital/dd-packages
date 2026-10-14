@@ -35,6 +35,8 @@ export interface FileException {
 export interface MeasuredRoute {
   route: string;
   viewport?: { width: number; height: number };
+  /** Set by the every-viewport measure: the viewports and widths the findings were gathered across, phone first. */
+  viewports?: string[];
   findings: RawPhoneFinding[];
 }
 
@@ -196,6 +198,15 @@ const LABEL: Record<PhoneCheck, string> = {
   field: "small field",
   text: "small text",
   title: "title cut off",
+  overlap: "text overlaps text",
+  action: "main action out of reach",
+  layers: "fixed layers cover too much",
+  landscape: "landscape screen eaten by fixed layers",
+  image: "image not sized for its place",
+  input: "wrong keyboard",
+  autocomplete: "field the phone cannot fill in",
+  tel: "phone number is not a link",
+  linelength: "line too long",
 };
 
 /** The baseline that makes this run pass: what is there now, counted. */

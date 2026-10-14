@@ -70,10 +70,19 @@ the build:
 | `null-check.mjs` | 06 | the deck carries a phrase the null builds kept writing, without a reason |
 | `mobile-first.mjs` | 06 | the source has a `max-width` media query or a Tailwind `max-*:` variant with no recorded exception: the phone is the base layout |
 
-`pnpm measure` serves the last build and measures it phone first, at 375, 390
-and 1440: it fails on sideways scroll, on text under 12px, and on a label
-outside its container, and at the two phone widths on a target under 44px and
-a form field set under 16px.
+`pnpm measure` serves the last build and measures it at every viewport, phone
+first, with craft's measure (`@domandigital/craft/phone`, the one the portal
+gates use): the ladder 320, 375, 390, 430, landscape 844 x 390, 768, 1024,
+1280, 1440 and 1920, and a sweep from 320 to 1920 in 16 to 32px steps. At any
+width it fails on sideways scroll, on text over other text, on a cut-off page
+title, on text under 12px and on a label outside its container; on a phone, on
+a target under 44px and a form field set under 16px; on a short phone (375 x
+667), on a main action below the first screen (`measure.mainAction`), fixed
+layers over a quarter of the screen, images far larger than they are shown or
+stretched, a phone, email or number field with the wrong keyboard or no
+autocomplete, and a phone number that is not a `tel:` link; in landscape, on
+fixed layers over half the height; at 1440 and 1920, on body lines over 80
+characters. `measure.baseline` lists known failures so they stay visible.
 `pnpm deploy:preview` is the only deploy: it sets `PUBLIC_PREVIEW` itself,
 builds, measures with noindex required, and deploys a preview to Cloudflare
 or Vercel; it refuses a route, a custom domain or `--prod`. So a site made

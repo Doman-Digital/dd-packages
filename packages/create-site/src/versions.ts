@@ -10,11 +10,11 @@ export const HOUSE_DEPENDENCIES = {
 // @types/node: the generated tests and route enumerator import node:fs, and
 // the Astro starter templates do not ship Node types. Added only if missing.
 export const HOUSE_DEV_DEPENDENCIES = {
-  "@domandigital/craft": "^0.19.0",
+  "@domandigital/craft": "^0.20.0",
   "@types/node": "^22.0.0",
   vitest: "^4.1.11",
-  // scripts/gates/measure.mjs renders the pages at 375, 390 and 1440 before every
-  // preview deploy; tsx loads the copy deck on Node older than 22.18.
+  // scripts/gates/measure.mjs renders the pages at every viewport, phone first,
+  // before every preview deploy, with craft's measure; tsx loads the copy deck on Node older than 22.18.
   playwright: "^1.62.0",
   tsx: "^4.20.0",
 } as const;
