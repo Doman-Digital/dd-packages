@@ -50,6 +50,9 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "chatbot-residue": { tier: "block", label: "chatbot residue. A chat reply was pasted in: remove it, and source or cut the claim it backed" },
 
   "review-phrase": { tier: "review", label: "review tier" },
+  // New 2026-10-14 (founder): review first, like every new tell, until estate hits are read.
+  "sales-tagline": { tier: "review", label: "sales tagline, say what you will actually do" },
+  "outcome-promise": { tier: "review", label: "outcome promise, promise the work, not the result" },
   "ai-vocabulary": { tier: "review", label: "AI vocabulary" },
   "stock-phrase": { tier: "review", label: "stock phrase" },
   "hollow-imperative": { tier: "review", label: "hollow imperative" },
