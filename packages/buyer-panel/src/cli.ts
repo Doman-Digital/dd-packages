@@ -4,13 +4,14 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { expandPath, loadPanel, type Device } from "./config.js";
 import { diffRuns } from "./diff.js";
-import { evaluateRun, runPanel } from "./run.js";
+import { SpendMeter } from "./pricing.js";
+import { DEFAULT_MAX_USD, evaluateRun, runPanel } from "./run.js";
 
 const HELP = `buyer-panel: AI buyers browse a site, a separate model grades the traces, reproducing findings are reported.
 
 Usage
   buyer-panel run <panel.json> --version <worker-version-id> [options]
-  buyer-panel evaluate <panel.json> <run-dir>
+  buyer-panel evaluate <panel.json> <run-dir> [--max-usd <n>]
   buyer-panel diff <panel.json> <earlier-run-dir> <later-run-dir>
 
 Run options
@@ -22,10 +23,13 @@ Run options
   --variant <id>      Variant id (repeatable)
   --concurrency <n>   Sessions in parallel (default 3)
   --no-evaluate       Run the sessions only
+  --max-usd <n>       Spend cap for the run, estimated live from token usage (default 3). Past it no new session starts,
+                      running ones end cleanly, and the report says what was cut. Also on evaluate (grading only)
   --into <run-id>     Finish an earlier run of the same version: run only its missing or failed sessions
 
 Credentials come from the environment, never from flags:
-  model    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BEDROCK_REGION (provider bedrock) or ANTHROPIC_API_KEY
+  model    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BEDROCK_REGION (providers bedrock and bedrock-converse),
+           ANTHROPIC_API_KEY (anthropic) or CLOUDFLARE_AI_TOKEN and CLOUDFLARE_ACCOUNT_ID (workers-ai)
   access   the env var names in the panel's target.access
 On dd-work-01:  doppler run -p dd-work-box -c prd_buyer_panel -- buyer-panel run panels/dd-redesign.json --version auto
 
@@ -43,6 +47,7 @@ async function main(argv: string[]): Promise<number> {
       variant: { type: "string", multiple: true },
       concurrency: { type: "string" },
       "no-evaluate": { type: "boolean" },
+      "max-usd": { type: "string" },
       into: { type: "string" },
       help: { type: "boolean", short: "h" },
     },
@@ -60,6 +65,8 @@ async function main(argv: string[]): Promise<number> {
     if (!existsSync(join(d, "run.json"))) throw new Error(`${p}: not a run directory`);
     return d;
   };
+  const maxUsd = values["max-usd"] === undefined ? undefined : Number(values["max-usd"]);
+  if (maxUsd !== undefined && !(maxUsd > 0)) throw new Error("--max-usd must be a number above 0");
   if (cmd === "run") {
     if (!values.version) throw new Error("run: --version is required");
     const devices = (values.device ?? []) as Device[];
@@ -72,12 +79,13 @@ async function main(argv: string[]): Promise<number> {
       variants: values.variant,
       concurrency: values.concurrency ? Number(values.concurrency) : undefined,
       evaluate: !values["no-evaluate"],
+      maxUsd,
       into: values.into ? runDir(values.into) : undefined,
     });
     return 0;
   }
   if (cmd === "evaluate") {
-    await evaluateRun(panel, runDir(rest[0]));
+    await evaluateRun(panel, runDir(rest[0]), console.log, new SpendMeter(maxUsd ?? DEFAULT_MAX_USD));
     return 0;
   }
   if (cmd === "diff") {

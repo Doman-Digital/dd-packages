@@ -5,6 +5,7 @@ import type { ModelChoice, Panel } from "./config.js";
 import type { SessionRecord } from "./buyer.js";
 import type { GradingContext } from "./grading-context.js";
 import { callForTool, type Usage } from "./model.js";
+import type { SpendMeter } from "./pricing.js";
 
 export const CATEGORIES = ["comprehension", "navigation", "pricing", "trust", "conversion", "mobile", "copy", "accessibility", "other"] as const;
 export type Category = (typeof CATEGORIES)[number];
@@ -216,7 +217,7 @@ function validateGrade(input: unknown): { measures: Measures; findings: Omit<Gra
   return { measures: g.measures, findings };
 }
 
-export async function gradeSession(panel: Panel, ctx: GradingContext, rec: SessionRecord, dir: string, usage: Usage): Promise<SessionGrade> {
+export async function gradeSession(panel: Panel, ctx: GradingContext, rec: SessionRecord, dir: string, usage: Usage, meter?: SpendMeter): Promise<SessionGrade> {
   const evaluator: ModelChoice = { temperature: 0, ...panel.evaluator };
   const graded = await callForTool(
     evaluator,
@@ -228,6 +229,7 @@ export async function gradeSession(panel: Panel, ctx: GradingContext, rec: Sessi
     GRADE_TOOL,
     usage,
     validateGrade,
+    meter,
   );
   const findings: GradedFinding[] = [];
   const dropped: DroppedFinding[] = [];
@@ -302,7 +304,7 @@ const CLUSTER_TOOL: Anthropic.Tool = {
   },
 };
 
-export async function clusterFindings(panel: Panel, findings: GradedFinding[], sessions: SessionRef[], usage: Usage): Promise<Cluster[]> {
+export async function clusterFindings(panel: Panel, findings: GradedFinding[], sessions: SessionRef[], usage: Usage, meter?: SpendMeter): Promise<Cluster[]> {
   const defects = findings.filter((f) => f.verdict === "defect");
   if (!defects.length) return [];
   const ids = new Set(defects.map((f) => f.id));
@@ -330,6 +332,7 @@ export async function clusterFindings(panel: Panel, findings: GradedFinding[], s
       }
       return c;
     },
+    meter,
   );
   const covered = new Set(clusters.flatMap((c) => c.members));
   for (const f of defects) {

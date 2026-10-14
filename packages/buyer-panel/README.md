@@ -62,6 +62,47 @@ a tie keeps neither. Pairs it did not accept are listed under "Matches not accep
 count as gone and new. Clusters are keyed per run, so a diff between runs graded by different evaluators matches
 two different sets of wording; re-grade both with the same evaluator first.
 
+### What a run costs
+
+Every model call is priced from the table in `src/pricing.ts` (USD per million tokens, input, output, cache read,
+cache write, with the date the prices were checked at the top). Update the table there when a price changes; a model
+with no entry is refused when the panel file is loaded, so the cap below never runs blind. The report's cost record
+shows each side's calls, tokens (billed input, cache reads, cache writes, output), estimated dollars, and for Workers
+AI its neurons.
+
+- **Prompt caching (Claude).** Buyer calls carry cache checkpoints on the system prompt, on the end of the
+  conversation and just before the oldest screenshot still in full, so each step re-reads its history from cache at a
+  tenth of the input price. Haiku 4.5 caches only from 4,096 tokens, so the first steps run uncached. The buyer prunes
+  old screenshots in strides (up to five screens in full, then back to two) so the cache holds between prunes. On
+  the same four MMM sessions this cut input cost by about 40%. The evaluator's long system prompt (journey map and
+  brand facts) is cached too, shared by every session graded in the run.
+- **`--max-usd <n>` (default 3).** Spend is estimated live from token usage. Past the cap no new session starts,
+  running sessions end cleanly (`endReason: capped`), grading stops starting new sessions, and the report names the
+  sessions it cut, did not start, or left ungraded. On `evaluate` the cap covers the grading only.
+- **Kill switch.** The AWS budget action `dd-panel-stop-20usd` denies Bedrock to the panel's IAM user when account
+  spend passes $20 in the month. If Bedrock calls suddenly return AccessDenied, it has fired: stop and ask, do not
+  work around it.
+
+### Providers
+
+Each variant and the evaluator takes a `provider`:
+
+| provider | models | credentials |
+| --- | --- | --- |
+| `bedrock` (default) | Claude, through Bedrock's Anthropic SDK | `AWS_*`, `AWS_BEDROCK_REGION` |
+| `anthropic` | Claude, first-party API | `ANTHROPIC_API_KEY` |
+| `bedrock-converse` | any other Bedrock model, through the Converse API (tested: Qwen3-VL 235B, Kimi K2.5) | `AWS_*` |
+| `workers-ai` | Cloudflare Workers AI (tested: Llama 4 Scout, Mistral Small 3.1) | `CLOUDFLARE_AI_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` |
+
+The panel works in Anthropic's message shape everywhere. `src/providers/` translates a request out and the reply back
+for the two non-Claude providers (images, tool calls and results, usage), so `buyer.ts` and `evaluate.ts` are the same
+whichever model runs. Notes from the adapters: screenshots are moved out of tool results into the same turn (not every
+vision model accepts them inside one); a model's second parallel tool call is dropped (the buyer answers one);
+Workers AI is always asked for `tool_choice: required`, because Llama 4 Scout otherwise writes a call as prose, which
+leaves its one-line thought before an action empty; Mistral Small 3.1 needs a one-line assistant turn between a tool
+result and the next user turn. Neither non-Claude provider caches prompts. Cheaper models are not a free swap: see the
+bake-off report before changing a panel's models.
+
 ### Credentials
 
 - **Model:** Claude on Amazon Bedrock with `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_BEDROCK_REGION`.
@@ -70,7 +111,9 @@ two different sets of wording; re-grade both with the same evaluator first.
   Plain `prd` holds the check-in user, which may call Haiku 4.5 only, so a Sonnet evaluator gets AccessDenied there.
   The organisation allows Claude 4.6 on Bedrock, not 5.x. The DD redesign panel's buyers are Haiku 4.5 (variants a
   and b) and its evaluator is `eu.anthropic.claude-sonnet-4-6` at temperature 0. A variant or the evaluator can set
-  `"provider": "anthropic"` to use `ANTHROPIC_API_KEY`.
+  `"provider": "anthropic"` to use `ANTHROPIC_API_KEY`. The same config holds `CLOUDFLARE_AI_TOKEN` (an
+  account-owned token with Workers AI Read and Write only) and `CLOUDFLARE_ACCOUNT_ID` for the `workers-ai`
+  provider, and the panel user may also call Qwen3-VL 235B and Kimi K2.5 on demand in eu-west-2.
 - **Cloudflare Access:** the preview sits behind Access. A service token (application `0a9340f0`, policy
   "dd-buyer-panel service token (DOM-642)", non-identity) lives in dd-work-box/prd (and so prd_buyer_panel) as
   `DD_SITE_PREVIEW_ACCESS_CLIENT_ID` and `DD_SITE_PREVIEW_ACCESS_CLIENT_SECRET`. The runner trades it for Access's
