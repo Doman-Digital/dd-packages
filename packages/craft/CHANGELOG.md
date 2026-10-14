@@ -1,5 +1,11 @@
 # @domandigital/craft
 
+## 0.20.2
+
+### Patch Changes
+
+- 5199c0e: `measureRoute(open, options)` measures every viewport for a page only the caller can open, such as a portal screen behind a sign-in: the phone half in a page the caller opens in `PHONE`, the wide half in one it opens in `DESKTOP` (now exported), merged and written once for `craft phone-first --measured`, as `measureSite` does for a public page (DOM-835).
+
 ## 0.20.1
 
 ### Patch Changes
