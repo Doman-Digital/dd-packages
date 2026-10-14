@@ -16,7 +16,9 @@ For each profile × device × variant (5 × 2 × 2 = 20 sessions in the DD redes
    before any scrolling or task, and answers "In your own words, what does this company do?".
 2. **The task.** The buyer gets its task and browses in Playwright (1440 desktop or a 390 iPhone) with five tools:
    click by visible text, scroll, back, type, and `note_problem`. Each action returns a screenshot and the text on
-   screen. The step budget (25) caps it, because simulated users underestimate effort and frustration; a person
+   screen: headings, links, buttons, fields and every other visible line, including text in plain divs and spans (the
+   price and duration beside a treatment link). Div and span lines are not de-duplicated, so two rows with one price stay two rows.
+   The step budget (25) caps it, because simulated users underestimate effort and frustration; a person
    gives up sooner than a model does.
 3. **Evidence.** `note_problem` outlines the element the buyer names and screenshots it. A problem whose element
    cannot be found on the page carries no evidence.

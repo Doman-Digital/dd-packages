@@ -29,11 +29,23 @@ export async function accessCookie(panel: Panel): Promise<string | undefined> {
   return cookie.split(";")[0]!.slice("CF_Authorization=".length);
 }
 
-/** The text a person can see on screen right now, in reading order, one element a line. Runs in the page. */
-const VISIBLE_SCRIPT = `(() => {
-  const vh = innerHeight, vw = innerWidth, out = [], seen = new Set();
+/**
+ * The text a person can see on screen right now, in reading order, one element a line. Runs in the page.
+ *
+ * Text that sits in a plain div or span (a price and duration beside a treatment link, a tag, a card's blurb) belongs to
+ * none of the semantic elements, so a second kind of line, "text", picks it up: any div, span, section, article or small
+ * with text of its own that no already-listed element contains. Without it the evaluator was told a prices page had no
+ * prices. Those lines are not de-duplicated: two rows with the same price are two rows.
+ */
+export const VISIBLE_SCRIPT = `(() => {
+  const vh = innerHeight, vw = innerWidth, out = [], seen = new Set(), listed = new Set();
   const containers = 'p,li,h1,h2,h3,h4,h5,h6,td,dd,blockquote,figcaption';
-  const sel = 'h1,h2,h3,h4,h5,h6,p,li,a,button,summary,label,input,select,textarea,td,th,dt,dd,figcaption,blockquote,[role=button],[role=link],[role=tab],[role=status],[role=alert],img[alt]';
+  const blocks = containers + ',div,section,article,aside,ul,ol,table,form,header,footer,nav,main';
+  const semantic = 'h1,h2,h3,h4,h5,h6,p,li,a,button,summary,label,input,select,textarea,td,th,dt,dd,figcaption,blockquote,[role=button],[role=link],[role=tab],[role=status],[role=alert],img[alt]';
+  const plain = 'div,span,section,article,aside,small,strong,em,b,i,time,address';
+  const sel = semantic + ',' + plain;
+  const hasOwnText = (el) => { for (const n of el.childNodes) if (n.nodeType === 3 && n.nodeValue.trim()) return true; return false; };
+  const ownText = (el) => { let t = ''; for (const n of el.childNodes) if (n.nodeType === 3) t += n.nodeValue + ' '; return t; };
   for (const el of document.querySelectorAll(sel)) {
     const r = el.getBoundingClientRect();
     if (r.width < 2 || r.height < 2 || r.bottom <= 0 || r.top >= vh || r.right <= 0 || r.left >= vw) continue;
@@ -43,6 +55,20 @@ const VISIBLE_SCRIPT = `(() => {
     const role = el.getAttribute('role');
     let kind = 'text';
     let text = '';
+    if (el.matches(plain) && !el.matches(semantic)) {
+      if (!hasOwnText(el)) continue;
+      let covered = false;
+      for (let up = el.parentElement; up && !covered; up = up.parentElement) covered = listed.has(up);
+      if (covered) continue;
+      // A box that holds other blocks lists only its own words; the blocks inside list theirs.
+      const whole = !el.querySelector(blocks);
+      text = (whole ? el.innerText : ownText(el)).replace(/\\s+/g, ' ').trim();
+      if (!text) continue;
+      if (text.length > 1200) text = text.slice(0, 1200) + ' [the panel cut this text here; the page shows it in full]';
+      if (whole) listed.add(el);
+      out.push('[text] ' + text);
+      continue;
+    }
     if (/^h[1-6]$/.test(tag)) kind = 'heading ' + tag[1];
     else if (tag === 'a' || role === 'link') kind = 'link';
     else if (tag === 'button' || tag === 'summary' || role === 'button' || role === 'tab') kind = 'button';
@@ -63,6 +89,7 @@ const VISIBLE_SCRIPT = `(() => {
     const key = kind + '|' + text;
     if (seen.has(key)) continue;
     seen.add(key);
+    listed.add(el);
     out.push('[' + kind + '] ' + text);
   }
   const max = Math.max(1, document.documentElement.scrollHeight - vh);
