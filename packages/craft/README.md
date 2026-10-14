@@ -305,7 +305,10 @@ test(`every viewport: ${route}`, async ({ page }) => {
 ```
 
 `measureViewports` works on the page the suite opened and signed in, so a
-portal keeps its fixtures. `measureSite(browser, { base, routes })` opens each
+portal keeps its fixtures. `measureRoute(open, { route, mainAction })` does
+both halves for such a page: `open("phone")` and `open("wide")` return the
+route opened and signed in, in a `PHONE` and a `DESKTOP` context, and the two
+halves are merged and written once (DOM-835). `measureSite(browser, { base, routes })` opens each
 route itself, the phone half in a phone context and the wide half in a desktop
 one, for a page anyone can open: create-site's `measure.mjs` uses it.
 `craft viewports --url <base> --route /` is the same for the command line: it
