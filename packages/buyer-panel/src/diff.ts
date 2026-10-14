@@ -49,7 +49,7 @@ const MATCH_TOOL: Anthropic.Tool = {
             confidence: {
               type: "string",
               enum: ["high", "medium", "low"],
-              description: "high: the same defect at the same place, one fix removes both. medium: the same defect, worded differently or found on a neighbouring page. low: only the topic or the page is shared.",
+              description: "high: the same defect at the same place, one fix removes both. medium: the same defect, worded differently or found on a neighbouring page. low: only the topic, the page or the area is shared, or the reason has to describe a different problem in each run.",
             },
           },
           required: ["before", "after", "reason", "confidence"],
@@ -61,7 +61,7 @@ const MATCH_TOOL: Anthropic.Tool = {
 };
 
 const MATCH_SYSTEM =
-  "You match defects found on a website in two runs of a buyer panel, against two versions of the site. Pair a cluster from the earlier run with one from the later run only when they are the same defect: the same thing wrong, for the same reason, on the same part of the site, so that one fix would have removed both. A shared topic is not enough: two different problems with gift cards, or with the prices page, are two defects. Each cluster is in at most one pair; when several later clusters resemble one earlier cluster, pair only the closest. Leave unmatched whatever has no clear counterpart: an unmatched defect is reported honestly as gone or new, while a wrong pair hides both. For every pair give a one-sentence reason naming the shared defect, and a confidence.";
+  "You match defects found on a website in two runs of a buyer panel, against two versions of the site. Pair a cluster from the earlier run with one from the later run only when they are the same defect: the same thing wrong, for the same reason, on the same part of the site, so that one fix would have removed both. A shared topic is not enough: two different problems with gift cards, or with the prices page, are two defects. Each cluster is in at most one pair; when several later clusters resemble one earlier cluster, pair only the closest. Leave unmatched whatever has no clear counterpart: an unmatched defect is reported honestly as gone or new, while a wrong pair hides both. For every pair give a one-sentence reason naming the one defect both describe, and a confidence. If the reason can only say \"X in the earlier run, Y in the later run\", they are two defects: leave them unmatched.";
 
 /** The tool input as proposed matches: every pair needs both keys, a reason and a confidence. */
 export function parseMatches(input: unknown): ProposedMatch[] {
