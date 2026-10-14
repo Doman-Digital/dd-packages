@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fixture</title>
+<style>
+  body{margin:0;font:16px/1.5 sans-serif}
+  header{position:fixed;top:0;left:0;right:0;height:220px;background:#123;color:#fff}
+  main{padding-top:230px}
+  .block{height:900px}
+  .cta{display:inline-block;min-height:44px;min-width:44px;padding:10px}
+  .wide-block{width:600px;height:20px;background:#ccc}
+  .a,.b{position:absolute;top:1400px;margin:0}
+  .a{left:0}
+  .b{left:calc(100vw - 280px)}
+</style>
+<header>Acme Plumbing</header>
+<main>
+  <h1>Plumbers you can call on a Sunday</h1>
+  <p class="intro">We fix leaks, boilers and bathrooms across the county.</p>
+  <div class="block"></div>
+  <a class="cta" href="/book">Book now</a>
+  <div class="wide-block"></div>
+  <p class="a">Opening times today</p>
+  <p class="b">Call back request</p>
+  <p>Call us on 020 7946 0958 or <a href="tel:+442079460958" style="display:inline-block;min-height:44px;line-height:44px">020 7946 0958</a>. Reference 0123456789.</p>
+  <img id="big" alt="Shopfront" width="100" style="display:block;width:100px">
+  <img id="tiny" alt="Van" style="display:block;width:min(800px,100%)">
+  <form>
+    <label for="p" style="display:block;min-height:44px">Phone</label><input id="p" name="phone" type="text" style="font-size:16px;min-height:44px">
+    <label for="e" style="display:block;min-height:44px">Email address</label><input id="e" name="contact" type="text" autocomplete="email" style="font-size:16px;min-height:44px">
+    <label for="q" style="display:block;min-height:44px">Quantity</label><input id="q" name="qty" type="text" autocomplete="off" style="font-size:16px;min-height:44px">
+    <label for="f" style="display:block;min-height:44px">First name</label><input id="f" name="first_name" type="text" style="font-size:16px;min-height:44px">
+    <label for="g" style="display:block;min-height:44px">How can we help?</label><textarea id="g" style="font-size:16px;min-height:88px"></textarea>
+    <input type="search" aria-label="Search" style="font-size:16px;min-height:44px">
+    <label for="h" style="display:block;min-height:44px">Mobile</label><input id="h" name="mobile" type="tel" autocomplete="tel" style="font-size:16px;min-height:44px">
+  </form>
+  <p class="long" style="width:1400px;max-width:100%">Plumbing is the work of keeping water where it belongs, and the people who do it for a living know that a small drip is rarely small for long, so they look for the cause and not only the symptom. We turn up when we say we will, we say what the job costs before we start, and we leave the place as clean as we found it, which is more than most people expect.</p>
+  <p style="max-width:60ch">A short measure keeps the eye on the line it is reading, and the next one is never far to find.</p>
+</main>
+<script>
+  const png = (w, h) => { const c = document.createElement("canvas"); c.width = w; c.height = h; const x = c.getContext("2d"); x.fillStyle = "#4a7"; x.fillRect(0, 0, w, h); return c.toDataURL("image/png"); };
+  document.getElementById("big").src = png(1200, 120);
+  document.getElementById("tiny").src = png(60, 40);
+</script>

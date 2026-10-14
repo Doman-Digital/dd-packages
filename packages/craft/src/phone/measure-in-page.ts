@@ -21,7 +21,25 @@ export interface PhoneFloors {
   textPx: number;
 }
 
-export type PhoneCheck = "scroll" | "target" | "field" | "text" | "title";
+/**
+ * What a measure can find. The first five are the 375px floors (DOM-775); the
+ * rest are the every-viewport and phone-optimisation checks (DOM-787).
+ */
+export type PhoneCheck =
+  | "scroll"
+  | "target"
+  | "field"
+  | "text"
+  | "title"
+  | "overlap"
+  | "action"
+  | "layers"
+  | "landscape"
+  | "image"
+  | "input"
+  | "autocomplete"
+  | "tel"
+  | "linelength";
 
 export interface RawPhoneFinding {
   check: PhoneCheck;
@@ -30,8 +48,15 @@ export interface RawPhoneFinding {
   detail: string;
 }
 
-export function measurePhoneInPage(floors: PhoneFloors): RawPhoneFinding[] {
+/**
+ * `floors.only` narrows the measure to some checks, for the viewports where
+ * only some apply (text at every width, targets and fields at phone widths).
+ * Left out, all five run, as they always did.
+ */
+export function measurePhoneInPage(floors: PhoneFloors & { only?: PhoneCheck[] }): RawPhoneFinding[] {
   const out: RawPhoneFinding[] = [];
+  const only = floors.only;
+  const on = (c: PhoneCheck): boolean => !only || only.includes(c);
   // The layout viewport. Under mobile emulation innerWidth grows with the page
   // (the phone zooms out to fit it), so it can never show sideways scroll.
   const vw = document.documentElement.clientWidth;
@@ -51,7 +76,9 @@ export function measurePhoneInPage(floors: PhoneFloors): RawPhoneFinding[] {
   };
 
   // No width=device-width viewport meta: the phone lays the page out at 980px and shrinks it.
-  if (vw > window.screen.width + 1) {
+  if (!on("scroll")) {
+    // The sideways-scroll check was not asked for.
+  } else if (vw > window.screen.width + 1) {
     out.push({ check: "scroll", element: "<meta name=viewport>", detail: `the page lays out at ${vw}px on a ${window.screen.width}px phone: no width=device-width viewport meta` });
   }
   // Sideways scroll: the page is wider than the phone. Name what pokes out, so the fix has a place to start.
@@ -71,7 +98,7 @@ export function measurePhoneInPage(floors: PhoneFloors): RawPhoneFinding[] {
     const block = e.parentElement?.closest("p, li, dd, td, th, blockquote, figcaption, address");
     return !!block && (block.textContent ?? "").trim().length > (e.textContent ?? "").trim().length;
   };
-  const targets = Array.from(document.querySelectorAll("a[href], button, input:not([type='hidden']), select, textarea, [role='button'], [role='tab'], [role='menuitem'], summary")).filter(shown);
+  const targets = (!on("target") ? [] : Array.from(document.querySelectorAll("a[href], button, input:not([type='hidden']), select, textarea, [role='button'], [role='tab'], [role='menuitem'], summary"))).filter(shown);
   for (const e of targets) {
     const r = e.getBoundingClientRect();
     if (quiet(e) || inline(e) || r.width <= 1 || r.height <= 1) continue;
@@ -84,14 +111,14 @@ export function measurePhoneInPage(floors: PhoneFloors): RawPhoneFinding[] {
 
   // Fields under 16px: Safari on iOS zooms the page on focus.
   const NOT_TEXT = new Set(["checkbox", "radio", "range", "color", "file", "submit", "reset", "button", "image"]);
-  for (const e of Array.from(document.querySelectorAll("input:not([type='hidden']), select, textarea"))) {
+  for (const e of on("field") ? Array.from(document.querySelectorAll("input:not([type='hidden']), select, textarea")) : []) {
     if (!shown(e) || quiet(e) || (e.tagName === "INPUT" && NOT_TEXT.has((e as HTMLInputElement).type))) continue;
     const px = parseFloat(getComputedStyle(e).fontSize);
     if (px < floors.fieldFontPx) out.push({ check: "field", element: describe(e), detail: `set at ${px}px, under ${floors.fieldFontPx}px, so Safari on iOS zooms on focus` });
   }
 
   // Text an element shows itself, not text it inherits from a child.
-  for (const e of Array.from(document.body.querySelectorAll("*"))) {
+  for (const e of on("text") ? Array.from(document.body.querySelectorAll("*")) : []) {
     if (!shown(e) || quiet(e) || ["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE"].includes(e.tagName)) continue;
     const own = Array.from(e.childNodes).filter((n) => n.nodeType === 3).map((n) => n.textContent ?? "").join(" ").replace(/\s+/g, " ").trim();
     if (!own) continue;
@@ -100,7 +127,7 @@ export function measurePhoneInPage(floors: PhoneFloors): RawPhoneFinding[] {
   }
 
   // A page title cut off: wider than its box (clipped or ellipsed), or clamped to fewer lines than it needs.
-  for (const e of Array.from(document.querySelectorAll("h1"))) {
+  for (const e of on("title") ? Array.from(document.querySelectorAll("h1")) : []) {
     if (!shown(e) || quiet(e)) continue;
     const s = getComputedStyle(e);
     const clipsX = e.scrollWidth > e.clientWidth + 1 && s.overflowX !== "visible";
