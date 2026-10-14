@@ -2,6 +2,7 @@ import type { Panel } from "./config.js";
 import type { SessionRecord } from "./buyer.js";
 import type { Cluster, DroppedFinding, GradedFinding, SessionGrade } from "./evaluate.js";
 import type { Usage } from "./model.js";
+import { PRICES_CHECKED, usd } from "./pricing.js";
 
 export interface RunMeta {
   runId: string;
@@ -23,6 +24,8 @@ export interface RunMeta {
   /** Set when the Worker served a different version at the end of the run than at the start. */
   versionChangedTo?: string;
   usage: { buyers: Usage; evaluator: Usage };
+  /** The run's spend cap (--max-usd) and what it cut. Absent in runs from before the cap existed. */
+  cap?: { maxUsd: number; hit: boolean; spentUsd: number; cut: string[]; notStarted: string[]; notGraded: string[] };
 }
 
 export interface RunReport {
@@ -58,9 +61,10 @@ export function renderReport(r: RunReport, records: SessionRecord[]): string {
     `**Buyers** ${m.variants.map((v) => `run ${v.id}: ${v.model} at temperature ${v.temperature ?? "default"}`).join("; ")} · **evaluator** ${evaluatorLine(m)} · **step budget** ${m.stepBudget} · **brand facts** v${m.brandFactsVersion ?? "?"}`,
     "",
     ...(m.versionChangedTo ? [`> **Warning:** the site moved to version \`${m.versionChangedTo}\` during this run, so some sessions may have seen the later version.`, ""] : []),
+    ...(m.cap?.hit ? [`> **Spend cap reached:** this run passed its ${usd(m.cap.maxUsd)} cap (--max-usd) at ${usd(m.cap.spentUsd)}. Cut while running: ${m.cap.cut.join(", ") || "none"}. Not started: ${m.cap.notStarted.join(", ") || "none"}. Browsed but not graded: ${m.cap.notGraded.join(", ") || "none"}. Findings cover the rest only.`, ""] : []),
     "> A defect-finding layer, never validation. The panel can show where a site is hard to understand, navigate or trust; it cannot show that real owners trust it or would pay for it. A finding that does not appear here was not found, which is not the same as not present.",
     "",
-    `Sessions: ${r.sessions.length} (${r.sessions.filter((s) => s.endReason === "finished").length} finished, ${r.sessions.filter((s) => s.endReason === "budget").length} out of steps, ${r.sessions.filter((s) => s.endReason === "error").length} errors). Findings: ${r.clusters.length} distinct defects, **${reproducing.length} reproducing**, ${once.length} seen once; ${expected.length} expected preview states; ${notDefects.length} judged the buyer's own error; ${r.dropped.length} dropped for want of evidence.`,
+    `Sessions: ${r.sessions.length} (${r.sessions.filter((s) => s.endReason === "finished").length} finished, ${r.sessions.filter((s) => s.endReason === "budget").length} out of steps, ${r.sessions.filter((s) => s.endReason === "capped").length} cut by the spend cap, ${r.sessions.filter((s) => s.endReason === "error").length} errors). Findings: ${r.clusters.length} distinct defects, **${reproducing.length} reproducing**, ${once.length} seen once; ${expected.length} expected preview states; ${notDefects.length} judged the buyer's own error; ${r.dropped.length} dropped for want of evidence.`,
     "",
     `## Reproducing findings (${reproducing.length})`,
     "",
@@ -99,11 +103,17 @@ export function renderReport(r: RunReport, records: SessionRecord[]): string {
   out.push("", `## Dropped for want of evidence (${r.dropped.length})`, "");
   for (const d of r.dropped) out.push(`- ${d.session}: ${d.title} (${d.ref}, ${d.reason})`);
   const u = m.usage;
+  const tok = (x: Usage) => `${x.calls} calls; ${x.input} input, ${x.cacheRead} cache-read, ${x.cacheWrite} cache-write and ${x.output} output tokens${x.usd === undefined ? "" : `; about ${usd(x.usd)}`}${x.neurons === undefined ? "" : `; ${Math.round(x.neurons)} Workers AI neurons`}`;
+  const total = (u.buyers.usd ?? 0) + (u.evaluator.usd ?? 0);
   out.push(
     "",
     "## Cost record",
     "",
-    `Buyers: ${u.buyers.calls} calls, ${u.buyers.input} input and ${u.buyers.output} output tokens. Evaluator: ${u.evaluator.calls} calls, ${u.evaluator.input} input (${u.evaluator.cacheRead} read from cache) and ${u.evaluator.output} output tokens.`,
+    `Buyers: ${tok(u.buyers)}.`,
+    "",
+    `Evaluator: ${tok(u.evaluator)}.`,
+    "",
+    `Estimated total ${usd(total)}${m.cap ? ` against a cap of ${usd(m.cap.maxUsd)}` : ""}, from list prices checked ${PRICES_CHECKED} (src/pricing.ts). Input is what was billed at the full input price; cache reads cost a tenth of it and cache writes 1.25 times.`,
     "",
     "Each session folder holds session.json (every step, thought, screen text and problem), the screenshots, grade.json and trace.zip (Playwright trace: `npx playwright show-trace trace.zip`).",
     "",

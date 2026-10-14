@@ -1,9 +1,15 @@
 import { readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, isAbsolute, resolve } from "node:path";
+import { priceFor } from "./pricing.js";
 
 export type Device = "desktop" | "phone";
-export type Provider = "bedrock" | "anthropic";
+/**
+ * bedrock: Claude through Bedrock's Anthropic SDK. anthropic: Claude through the first-party API.
+ * bedrock-converse: any other model on Bedrock, through the Converse API. workers-ai: a Cloudflare Workers AI model.
+ */
+export type Provider = "bedrock" | "anthropic" | "bedrock-converse" | "workers-ai";
+export const PROVIDERS: Provider[] = ["bedrock", "anthropic", "bedrock-converse", "workers-ai"];
 
 export interface ModelChoice {
   provider?: Provider;
@@ -81,6 +87,14 @@ export function validatePanel(p: Panel, base = process.cwd()): Panel {
   if ((p.variants?.length ?? 0) < 2) fail("at least two variants are needed for a finding to reproduce within a profile");
   if (new Set(p.variants.map((v) => v.id)).size !== p.variants.length) fail("variant ids must be unique");
   if (!p.evaluator?.model) fail("evaluator.model is required");
+  for (const c of [p.evaluator, ...p.variants]) {
+    if (c.provider && !PROVIDERS.includes(c.provider)) fail(`provider "${c.provider}" is not one of ${PROVIDERS.join(", ")}`);
+    try {
+      priceFor(c.model);
+    } catch (e) {
+      fail((e as Error).message);
+    }
+  }
   if (!p.profiles?.length) fail("profiles are required");
   for (const pr of p.profiles) {
     if (!/^[a-z0-9-]+$/.test(pr.id)) fail(`profile id "${pr.id}" must be kebab-case`);
