@@ -86,7 +86,7 @@ person reading decides which instance earns its place.
 
 | Tell | What it catches |
 | --- | --- |
-| `review-phrase` | truly, genuinely, deeply, ultimately, great question, absolutely, one-size-fits-all, and superlative over-claiming: "the single most", "by far the most", "hands down the", "arguably the best", "bar none" |
+| `review-phrase` | truly, genuinely, deeply, ultimately, clear and clearly ("a clear next step", "clear pricing": say what the reader actually gets), great question, absolutely, one-size-fits-all, and superlative over-claiming: "the single most", "by far the most", "hands down the", "arguably the best", "bar none" |
 | `ai-vocabulary` | tapestry, testament, realm, elevate, nestled, meticulous, unparalleled, moreover; and underscore, showcasing, pivotal, measured 10 to 14 times over-used in post-2022 text |
 | `stock-phrase` | to the next level, one-stop shop, we pride ourselves, passionate about, peace of mind, "so here's", a journey used as a metaphor |
 | `hollow-imperative` | Discover, Experience, Transform, Elevate as the opening verb of a heading or button |
