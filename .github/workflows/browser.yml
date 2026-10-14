@@ -1,6 +1,6 @@
 name: Browser
 
-# craft's rendered-page tests need a real Chromium. The main CI job has none,
+# craft's and buyer-panel's rendered-page tests need a real Chromium. The main CI job has none,
 # so those tests skip there, visibly. This job runs them, and only when the
 # code they cover changes.
 #
@@ -18,6 +18,7 @@ on:
     paths:
       - 'packages/craft/**'
       - 'packages/sanity-copy/**'
+      - 'packages/buyer-panel/**'
       - '.github/workflows/browser.yml'
 
 permissions:
@@ -79,3 +80,21 @@ jobs:
             echo "The every-viewport browser test did not run." >&2
             exit 1
           fi
+
+      # buyer-panel reads the screen text in a real page. Same rule as above: the job requires the tests to have
+      # passed by name, because a skipped file prints no test lines.
+      - name: buyer-panel screen text in a real browser
+        working-directory: packages/buyer-panel
+        shell: bash
+        env:
+          NO_COLOR: '1'
+          FORCE_COLOR: '0'
+        run: |
+          set -o pipefail
+          pnpm exec vitest run --reporter=verbose 2>&1 | tee vitest.log
+          ran=$(sed 's/\x1b\[[0-9;]*m//g' vitest.log | grep -c "✓ .*screen text in a real browser" || true)
+          if [ "$ran" -eq 0 ]; then
+            echo "No buyer-panel browser test ran." >&2
+            exit 1
+          fi
+          echo "$ran buyer-panel browser tests passed"
