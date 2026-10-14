@@ -99,8 +99,12 @@ for (const route of pages) {
         const small = texty
           .map((e) => ({ tag: e.tagName.toLowerCase(), cls: String(e.className || ""), px: parseFloat(getComputedStyle(e).fontSize), text: e.textContent.trim().slice(0, 40) }))
           .filter((t) => t.px < minFontPx);
+        // The layout viewport. Under mobile emulation innerWidth grows with the page (the phone zooms out to fit it), so it can never show sideways scroll.
+        const vw = document.documentElement.clientWidth;
         const out = {
-          horizontalScroll: document.documentElement.scrollWidth > window.innerWidth,
+          // No width=device-width viewport meta: the phone lays the page out at 980px and shrinks it. Otherwise, the page is wider than the phone.
+          noViewportMeta: vw > window.screen.width + 1,
+          horizontalScroll: vw <= window.screen.width + 1 && document.documentElement.scrollWidth > vw + 1,
           fontSizesUsed: [...new Set(texty.map((e) => getComputedStyle(e).fontSize))].sort((a, b) => parseFloat(a) - parseFloat(b)),
           smallText: small.slice(0, 10),
           noindex: /noindex/i.test(document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? ""),
@@ -111,7 +115,7 @@ for (const route of pages) {
         if (phone) {
           const name = (e) => ({ tag: e.tagName.toLowerCase(), cls: String(e.className || ""), text: (e.textContent.trim() || e.getAttribute("aria-label") || e.getAttribute("name") || "").slice(0, 40) });
           // Visually hidden (an sr-only skip link) or parked off the page: not a target until it is shown.
-          const hidden = (e, r) => e.closest("[aria-hidden='true'], .sr-only, .visually-hidden") || r.width <= 1 || r.height <= 1 || r.right <= 0 || r.bottom <= -window.scrollY;
+          const hidden = (e, r) => e.closest("[aria-hidden='true'], .sr-only, .visually-hidden") || r.width <= 1 || r.height <= 1 || r.right <= 0 || r.bottom <= -window.scrollY || r.left >= vw;
           // WCAG 2.5.5's inline exception: a link in a sentence is sized by the line it sits in.
           const inline = (e) => {
             if (e.tagName !== "A" || getComputedStyle(e).display !== "inline") return false;
@@ -156,6 +160,7 @@ for (const route of pages) {
       { labels, minFontPx, phone, minTargetPx: MIN_TARGET_PX, minFieldFontPx: MIN_FIELD_FONT_PX },
     );
     const at = `${route} at ${name}`;
+    if (m.noViewportMeta) failures.push(`${at}: the page lays out wider than the screen: no width=device-width viewport meta`);
     if (m.horizontalScroll) failures.push(`${at}: the page scrolls sideways`);
     for (const t of m.smallText) failures.push(`${at}: ${t.px}px text under ${minFontPx}px (<${t.tag}${t.cls ? ` class="${t.cls}"` : ""}> "${t.text}")`);
     const tag = (t) => `<${t.tag}${t.cls ? ` class="${t.cls}"` : ""}>${t.text ? ` "${t.text}"` : ""}`;
