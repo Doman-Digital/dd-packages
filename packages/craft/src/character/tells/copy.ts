@@ -175,6 +175,43 @@ export const REVIEW_PHRASES = [
   "the single most", "by far the most", "hands down the", "arguably the best", "bar none",
 ] as const;
 
+/**
+ * Sales taglines: lines that sound like an advert instead of saying what
+ * happens. Older than any model, and the line a client reads as a pitch.
+ */
+const SALES_TAGLINES: RegExp[] = [
+  /\bwhere it (?:really |truly )?(?:counts|matters)(?: most)?\b/i,
+  /\breal,? (?:measurable |tangible )?results\b/i,
+  /\bresults that (?:matter|count|speak|last)\b/i,
+  /\bresults you can (?:see|trust|measure)\b/i,
+  /\bwork(?:s|ing)? harder for you\b/i,
+  /\bmake (?:every|your) (?:penny|pound) count\b/i,
+  /\bevery (?:penny|pound) (?:counts|works)\b/i,
+  /\bbang for your buck\b/i,
+  /\bstand out from the (?:crowd|competition)\b/i,
+  /\b(?:pages?|websites?|sites?|copy|content|ads?) that (?:actually |really )?(?:converts?|sells?)\b/i,
+];
+
+/**
+ * Outcome promises: a result the work hopes for, written as if it were
+ * delivered. Rankings, enquiries and wins depend on things nobody controls.
+ */
+const SALES_RESULTS = "(?:enquiries|leads|customers|clients|sales|jobs|bookings|revenue|calls|traffic|profit)";
+const OUTCOME_PROMISES: RegExp[] = [
+  // "We'll turn more of that into rewiring enquiries"
+  new RegExp(`\\bturn(?:s|ing)?\\b[^.!?\\n]{0,50}?\\binto\\s+(?:more\\s+|real\\s+|paying\\s+)?(?:[\\w-]+\\s+)?${SALES_RESULTS}\\b`, "i"),
+  // "once the first areas are working"
+  /\bonce\b[^.!?\n]{0,40}?\b(?:is|are|starts?|begins?)\s+(?:working|paying off|performing|ranking|delivering|bringing in)\b/i,
+  // "competitors you can outdo"
+  /\b(?:competitors?|competition|rivals?)\b[^.!?\n]{0,25}?\b(?:you|we)\s*(?:can|will|could|['’]ll)\s+(?:easily\s+)?(?:outdo|beat|outrank|overtake|outperform|outshine)\b/i,
+  /\b(?:outdo|outrank|overtake|outperform|outshine|beat)\s+(?:your|the|local|bigger)\s+(?:[\w-]+\s+)?(?:competitors|competition|rivals)\b/i,
+  // "exactly what convinces someone spending £8k"
+  /\bexactly what\b[^.!?\n]{0,15}?\b(?:convinces|persuades|wins|sells)\b/i,
+  new RegExp(`\\bguarantee[sd]?\\b[^.!?\\n]{0,25}?\\b(?:results|rankings?|first page|page one|top spot|${SALES_RESULTS.slice(3, -1)})\\b`, "i"),
+  /\byou(?:['’]ll| will)\s+(?:get|see|win|receive|start getting)\s+more\b/i,
+  new RegExp(`\\b(?:will|we['’]ll)\\s+(?:(?:bring|drive|generate|get)\\s+you|bring|drive|generate)\\s+more\\s+(?:[\\w-]+\\s+)?${SALES_RESULTS}\\b`, "i"),
+];
+
 // ------------------------------------------------------------ patterns
 
 /**
@@ -402,6 +439,49 @@ export const COPY_TELLS: CopyTell[] = [
     fixtures: {
       flag: [f("content/home.md", "We are truly proud of it."), f("content/home.md", "You leave with a clear next step.")],
       pass: [f("content/home.md", "We have fitted 400 boilers since 2009."), f("content/home.md", "Keep a safe clearance around the meter.")],
+    },
+  },
+  {
+    id: "sales-tagline",
+    name: "Sales tagline",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'So your budget goes where it counts', 'Real results', 'pages that convert': advert lines that sound like a pitch and say nothing a reader can check.",
+    fix: "Say what you will actually do and why. 'So your budget goes where it counts' becomes 'Oxford first, because that is where you want the work'.",
+    detect: phrases(SALES_TAGLINES, quoted),
+    fixtures: {
+      flag: [
+        f("content/home.md", "Strongest opportunities first, so your budget goes where it counts."),
+        f("content/home.md", "A clearer online presence. More enquiries. Real results."),
+      ],
+      pass: [
+        f("content/home.md", "We start with Oxford, then expand based on search demand and results."),
+        f("content/home.md", "We report the results every month."),
+      ],
+    },
+  },
+  {
+    id: "outcome-promise",
+    name: "Outcome promise",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'We'll turn that into enquiries', 'once the first areas are working', 'competitors you can outdo': a hoped-for result written as if it were delivered. Rankings and enquiries depend on things nobody controls.",
+    fix: "Promise the work, not the outcome. 'We'll turn that into enquiries' becomes 'We'll rewrite the page around the questions homeowners ask'. Results are measured and reported, never promised.",
+    detect: phrases(OUTCOME_PROMISES, quoted),
+    fixtures: {
+      flag: [
+        f("content/home.md", "We'll turn more of that into rewiring enquiries."),
+        f("content/home.md", "We add new towns once the first areas are working."),
+        f("content/home.md", "We target the competitors you can outdo."),
+        f("content/home.md", "We write exactly what convinces someone spending £8k."),
+      ],
+      pass: [
+        f("content/home.md", "We'll rewrite your rewiring page around homeowners' questions."),
+        f("content/home.md", "We record every rewiring enquiry, quotation and won job."),
+        f("content/home.md", "Once the fuse board is fitted, we test every circuit."),
+      ],
     },
   },
   {
