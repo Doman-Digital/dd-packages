@@ -14,7 +14,8 @@ Usage
   buyer-panel diff <panel.json> <earlier-run-dir> <later-run-dir>
 
 Run options
-  --version <id>      The deployed version the run is keyed by, or auto (read with wrangler from target.worker)
+  --version <id>      The version the run is keyed by: 8+ hex characters. The Worker version id, auto (read with
+                      wrangler from target.worker), or for a target that is not a Worker a date such as 20261014
   --label <text>      A note stored with the run
   --only <ids>        Comma-separated profile ids
   --device <d>        desktop or phone (repeatable)
@@ -26,7 +27,7 @@ Run options
 Credentials come from the environment, never from flags:
   model    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BEDROCK_REGION (provider bedrock) or ANTHROPIC_API_KEY
   access   the env var names in the panel's target.access
-On dd-work-01:  doppler run -p dd-work-box -c prd -- buyer-panel run panels/dd-redesign.json --version auto
+On dd-work-01:  doppler run -p dd-work-box -c prd_buyer_panel -- buyer-panel run panels/dd-redesign.json --version auto
 
 A defect-finding layer, never validation: no finding means nothing was found.`;
 

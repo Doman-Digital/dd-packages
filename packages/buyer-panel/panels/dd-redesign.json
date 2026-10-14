@@ -14,7 +14,7 @@
     { "id": "a", "provider": "bedrock", "model": "eu.anthropic.claude-haiku-4-5-20251001-v1:0", "temperature": 0.3 },
     { "id": "b", "provider": "bedrock", "model": "eu.anthropic.claude-haiku-4-5-20251001-v1:0", "temperature": 1.0 }
   ],
-  "evaluator": { "provider": "bedrock", "model": "eu.anthropic.claude-haiku-4-5-20251001-v1:0", "temperature": 0 },
+  "evaluator": { "provider": "bedrock", "model": "eu.anthropic.claude-sonnet-4-6", "temperature": 0 },
   "firstImpressionQuestion": "In your own words, what does this company do?",
   "profiles": [
     {

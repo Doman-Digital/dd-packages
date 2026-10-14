@@ -6,7 +6,8 @@ import { pruneHistory, type SessionRecord } from "../buyer.js";
 import { validatePanel, type Panel } from "../config.js";
 import { checkEvidence, reproduction, type SessionRef } from "../evaluate.js";
 import { htmlToText } from "../grading-context.js";
-import { pool, runIdFor } from "../run.js";
+import { renderReport, type RunMeta } from "../report.js";
+import { pool, recordEvaluator, runIdFor } from "../run.js";
 
 const ref = (profile: string, device: string, variant: string): SessionRef => ({ id: `${profile}-${device}-${variant}`, profile, device, variant });
 
@@ -122,3 +123,35 @@ describe("helpers", () => {
     expect(peak).toBe(2);
   });
 });
+
+describe("recordEvaluator", () => {
+  const haiku = { provider: "bedrock" as const, model: "eu.anthropic.claude-haiku-4-5-20251001-v1:0", temperature: 0 };
+  const sonnet = { provider: "bedrock" as const, model: "eu.anthropic.claude-sonnet-4-6", temperature: 0 };
+  const meta = { runId: "r", panel: "p", client: "c", target: "https://x.test/", version: "20261014", label: "", ranAt: "2026-10-14T08:08:00Z", stepBudget: 25, variants: [], evaluator: haiku, usage: { buyers: emptyU(), evaluator: emptyU() } } as RunMeta;
+  const at = new Date("2026-10-14T12:00:00Z");
+
+  it("names the evaluator that re-graded the run and keeps the first one", () => {
+    const m = recordEvaluator(meta, { evaluator: sonnet } as Panel, at);
+    expect(m.evaluator.model).toBe(sonnet.model);
+    expect(m.firstEvaluator?.model).toBe(haiku.model);
+    expect(m.gradedAt).toBe(at.toISOString());
+    const md = renderReport({ meta: m, sessions: [], grades: [], clusters: [], findings: [], dropped: [] }, []);
+    expect(md).toContain("**evaluator** eu.anthropic.claude-sonnet-4-6 at temperature 0 (re-graded 2026-10-14; first graded by eu.anthropic.claude-haiku-4-5-20251001-v1:0 at temperature 0)");
+  });
+  it("keeps the first evaluator through a second re-grade, and drops it when grading goes back to it", () => {
+    const twice = recordEvaluator(recordEvaluator(meta, { evaluator: sonnet } as Panel, at), { evaluator: { ...sonnet, model: "eu.anthropic.claude-opus-4-6-v1" } } as Panel, at);
+    expect(twice.firstEvaluator?.model).toBe(haiku.model);
+    const back = recordEvaluator(recordEvaluator(meta, { evaluator: sonnet } as Panel, at), { evaluator: haiku } as Panel, at);
+    expect(back.evaluator.model).toBe(haiku.model);
+    expect(back.firstEvaluator).toBeUndefined();
+  });
+  it("records no first evaluator when the same one grades again", () => {
+    const m = recordEvaluator(meta, { evaluator: { model: haiku.model } } as Panel, at);
+    expect(m.firstEvaluator).toBeUndefined();
+    expect(m.evaluator).toEqual({ temperature: 0, model: haiku.model });
+  });
+});
+
+function emptyU() {
+  return { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, calls: 0 };
+}

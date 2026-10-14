@@ -19,7 +19,7 @@ export async function accessCookie(panel: Panel): Promise<string | undefined> {
   if (!a) return undefined;
   const id = process.env[a.idEnv];
   const secret = process.env[a.secretEnv];
-  if (!id || !secret) throw new Error(`Access token missing: set ${a.idEnv} and ${a.secretEnv} (doppler run -p dd-work-box -c prd -- ...)`);
+  if (!id || !secret) throw new Error(`Access token missing: set ${a.idEnv} and ${a.secretEnv} (doppler run -p dd-work-box -c prd_buyer_panel -- ...)`);
   const res = await fetch(new URL(panel.target.start, panel.target.origin), {
     redirect: "manual",
     headers: { "CF-Access-Client-Id": id, "CF-Access-Client-Secret": secret },
