@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import type { Device, Panel } from "./config.js";
+import type { Device, ModelChoice, Panel } from "./config.js";
 import { accessCookie } from "./browser.js";
 import { runSession, sessionId, type SessionRecord } from "./buyer.js";
 import { clusterFindings, gradeSession, type SessionGrade, type SessionRef } from "./evaluate.js";
@@ -61,7 +61,7 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
     if (!v) throw new Error("--version auto needs target.worker in the panel and one version at 100%");
     o = { ...o, version: v };
   }
-  if (!/^[0-9a-f]{8}/i.test(o.version)) throw new Error("--version must be the Worker version id (at least its first 8 hex characters), or auto");
+  if (!/^[0-9a-f]{8}/i.test(o.version)) throw new Error("--version must start with 8 hex characters: the Worker version id, auto, or for a target that is not a Worker a date such as 20261014");
   const at = new Date();
   const profiles = panel.profiles.filter((p) => !o.only?.length || o.only.includes(p.id));
   const devices = panel.devices.filter((d) => !o.devices?.length || o.devices.includes(d));
@@ -93,7 +93,7 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
       ranAt: at.toISOString(),
       stepBudget: panel.stepBudget,
       variants,
-      evaluator: panel.evaluator,
+      evaluator: { temperature: 0, ...panel.evaluator },
       usage: { buyers: emptyUsage(), evaluator: emptyUsage() },
     };
     writeFileSync(join(runDir, "run.json"), JSON.stringify({ ...meta, plan: plan.map((x) => sessionId(x.profile.id, x.device, x.variant.id)) }, null, 1));
@@ -130,9 +130,22 @@ export function readSessions(runDir: string): SessionRecord[] {
     .map((d) => JSON.parse(readFileSync(join(dir, d, "session.json"), "utf8")) as SessionRecord);
 }
 
+const sameModel = (a: ModelChoice, b: ModelChoice) => a.model === b.model && (a.provider ?? "bedrock") === (b.provider ?? "bedrock") && (a.temperature ?? 0) === (b.temperature ?? 0);
+
+/**
+ * A re-grade names the evaluator that did it. run.json holds the evaluator from when the run started; grading
+ * replaces it with the panel's current one and keeps the one that graded first under firstEvaluator.
+ */
+export function recordEvaluator(meta: RunMeta, panel: Panel, at: Date): RunMeta {
+  const evaluator: ModelChoice = { temperature: 0, ...panel.evaluator };
+  const first = meta.firstEvaluator ?? meta.evaluator;
+  const { firstEvaluator: _drop, ...rest } = meta;
+  return { ...rest, evaluator, ...(first && !sameModel(first, evaluator) ? { firstEvaluator: first } : {}), gradedAt: at.toISOString() };
+}
+
 /** Grades every session, clusters the findings, applies the reproduction rule, writes the report and the archive index. */
 export async function evaluateRun(panel: Panel, runDir: string, log: (line: string) => void = console.log): Promise<RunReport> {
-  const meta = JSON.parse(readFileSync(join(runDir, "run.json"), "utf8")) as RunMeta;
+  const meta = recordEvaluator(JSON.parse(readFileSync(join(runDir, "run.json"), "utf8")) as RunMeta, panel, new Date());
   const records = readSessions(runDir);
   const ctx = loadGradingContext(panel);
   meta.brandFactsVersion = ctx.brandFactsVersion;
@@ -185,6 +198,7 @@ export function updateIndex(panel: Panel, report: RunReport): void {
     version: report.meta.version,
     label: report.meta.label,
     ranAt: report.meta.ranAt,
+    evaluator: report.meta.evaluator.model,
     sessions: report.sessions.length,
     reproducing: report.clusters.filter((c) => c.reproduces).length,
     seenOnce: report.clusters.filter((c) => !c.reproduces).length,

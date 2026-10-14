@@ -37,7 +37,7 @@ function patient(inner: ModelClient): ModelClient {
  * A plain API client: never a Claude Code session, so the buyer sees nothing but its system prompt
  * (the persona) and what the browser shows it.
  *
- * bedrock: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_BEDROCK_REGION (the box's Doppler config on the box).
+ * bedrock: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_BEDROCK_REGION (the panel's Doppler config on the box).
  * anthropic: ANTHROPIC_API_KEY.
  */
 export function clientFor(choice: ModelChoice): ModelClient {
