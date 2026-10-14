@@ -170,7 +170,7 @@ export const VAGUE_WORDS = ["innovative", "scalable", "end-to-end", "streamline"
 
 /** The review tier of copy-rules.md: normal English once, a tell when stacked. */
 export const REVIEW_PHRASES = [
-  "great question", "of course!", "absolutely!", "absolutely,", "truly", "genuinely", "deeply",
+  "great question", "of course!", "absolutely!", "absolutely,", "truly", "genuinely", "deeply", "clear", "clearly",
   "ultimately", "one-size-fits-all", "one size fits all", "let me know if you'd",
   "the single most", "by far the most", "hands down the", "arguably the best", "bar none",
 ] as const;
@@ -396,12 +396,12 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 1,
     severity: "warn",
     surface: "copy",
-    why: "Truly, genuinely, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking.",
+    why: "Truly, genuinely, clear, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking.",
     fix: "Keep the one that lands hardest and cut the rest. 'What is genuinely excellent' reads better as 'what is excellent'.",
-    detect: phrases([new RegExp(`(?:^|\\b)(?:${[...REVIEW_PHRASES].sort((a, b) => b.length - a.length).map((p) => escape(p).replace(/^(\w)/, "\\b$1")).join("|")})`, "i")], quoted),
+    detect: phrases([new RegExp(`(?:^|\\b)(?:${[...REVIEW_PHRASES].sort((a, b) => b.length - a.length).map((p) => escape(p).replace(/^(\w)/, "\\b$1").replace(/(\w)$/, "$1\\b")).join("|")})`, "i")], quoted),
     fixtures: {
-      flag: [f("content/home.md", "We are truly proud of it.")],
-      pass: [f("content/home.md", "We have fitted 400 boilers since 2009.")],
+      flag: [f("content/home.md", "We are truly proud of it."), f("content/home.md", "You leave with a clear next step.")],
+      pass: [f("content/home.md", "We have fitted 400 boilers since 2009."), f("content/home.md", "Keep a safe clearance around the meter.")],
     },
   },
   {

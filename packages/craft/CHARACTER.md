@@ -1005,7 +1005,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.09.12`, 68 tells.
+Catalogue version `2026.10.1`, 68 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -1039,7 +1039,7 @@ Catalogue version `2026.09.12`, 68 tells.
 | `buzzword` | 1 | copy | warn | Buzzword | Cutting-edge, world-class, reach out, turnkey: corporate filler older than any model, and still the first thing a model writes about a business it knows nothing about. |
 | `negative-reassurance` | 1 | copy | warn | Negative reassurance | 'No hidden fees', 'no surprises', 'never locked in' reassure by naming the fear, and plant it in a reader who did not have it. |
 | `vague-word` | 1 | copy | warn | Vague word | Innovative, scalable, end-to-end, solutions: each can be true, and each is used where the writer had nothing specific to say. |
-| `review-phrase` | 1 | copy | warn | Review-tier phrase | Truly, genuinely, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking. |
+| `review-phrase` | 1 | copy | warn | Review-tier phrase | Truly, genuinely, clear, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking. |
 | `hollow-imperative` | 1 | copy | warn | Hollow imperative | 'Discover', 'Experience', 'Transform your' as the opening verb of a heading or button is a call to action with nothing in it. |
 | `rhetorical-opener` | 1 | copy | warn | Rhetorical question opener | 'Looking for...?', 'Tired of...?', 'Ready to...?' opens with the model guessing at the reader instead of telling them something. |
 | `em-dash` | 2 | copy | warn | Em dash | Generated copy leans on the em dash to join clauses. House copy does not use it. |
