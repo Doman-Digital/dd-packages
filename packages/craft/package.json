@@ -48,11 +48,13 @@
     "./package.json": "./package.json",
     "./craft.css": "./css/craft.css",
     "./craft.tailwind.css": "./css/craft.tailwind.css",
-    "./art-direction.schema.json": "./art-direction.schema.json"
+    "./art-direction.schema.json": "./art-direction.schema.json",
+    "./design-review.schema.json": "./design-review.schema.json"
   },
   "files": [
     "CHANGELOG.md",
     "art-direction.schema.json",
+    "design-review.schema.json",
     "CHARACTER.md",
     "COPY.md",
     "LICENSE",

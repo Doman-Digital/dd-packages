@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unpkg.com/@domandigital/craft/design-review.schema.json",
+  "title": "design-review.json",
+  "description": "A review of a page, kept apart from the art direction: what was said, how well the visitor's problem is known, what was proposed, and the smallest change that answers it. The reasoning rules (observed needs something inspected, structural change needs reasons, nothing duplicated, unexamined widths stay unknown) are enforced by `craft direction review`; this schema only checks the shape.",
+  "type": "object",
+  "required": [
+    "version",
+    "subject",
+    "notes"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "const": 1
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/note"
+      }
+    }
+  },
+  "$defs": {
+    "proposal": {
+      "type": "object",
+      "required": [
+        "change",
+        "step"
+      ],
+      "properties": {
+        "change": {
+          "type": "string",
+          "minLength": 1
+        },
+        "step": {
+          "enum": [
+            "copy",
+            "relocate",
+            "group",
+            "imagery",
+            "trust-placement",
+            "adjust-component",
+            "remove-redundancy",
+            "restructure",
+            "new-component"
+          ],
+          "description": "Smallest first. restructure and new-component are structural."
+        },
+        "adds": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "carousel",
+              "javascript",
+              "dependency",
+              "animation",
+              "testimonial",
+              "cta",
+              "duplicate-content"
+            ]
+          },
+          "description": "Things that cost something. Each needs a reason."
+        },
+        "touches": {
+          "enum": [
+            "hero",
+            "logos",
+            "stats",
+            "cards",
+            "marquee",
+            "text",
+            "other",
+            "cta-band",
+            "footer-cta",
+            "pricing",
+            "testimonials",
+            "faq",
+            "process",
+            "features",
+            "team",
+            "contact"
+          ],
+          "description": "The section role it moves, removes or replaces."
+        }
+      }
+    },
+    "note": {
+      "type": "object",
+      "required": [
+        "id",
+        "lens",
+        "observation",
+        "raisedBy",
+        "basis",
+        "evidence",
+        "recommend"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "page": {
+          "enum": [
+            "home",
+            "service",
+            "about",
+            "pricing",
+            "booking",
+            "contact",
+            "article",
+            "landing"
+          ]
+        },
+        "lens": {
+          "enum": [
+            "relevance",
+            "hierarchy",
+            "evidence",
+            "identity",
+            "action",
+            "disclosure",
+            "personality",
+            "differentiation",
+            "mobile"
+          ]
+        },
+        "observation": {
+          "type": "string",
+          "description": "What was said or seen, as it was said."
+        },
+        "raisedBy": {
+          "type": "string",
+          "description": "Who said it, or what found it."
+        },
+        "problem": {
+          "type": "string",
+          "description": "The visitor's problem underneath it, in the visitor's terms."
+        },
+        "basis": {
+          "enum": [
+            "observed",
+            "inferred",
+            "preference",
+            "unknown"
+          ],
+          "description": "observed needs something inspected; reported evidence alone makes it inferred."
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "kind",
+              "ref"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "screenshot",
+                  "rendered",
+                  "source",
+                  "measurement",
+                  "content",
+                  "audit",
+                  "stakeholder",
+                  "customer"
+                ]
+              },
+              "ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "viewport": {
+                "enum": [
+                  "mobile",
+                  "tablet",
+                  "desktop"
+                ]
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "impact": {
+          "type": "string",
+          "description": "What the problem costs this visitor, about this client's job."
+        },
+        "appliesTo": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "mobile",
+              "tablet",
+              "desktop"
+            ]
+          }
+        },
+        "suggested": {
+          "$ref": "#/$defs/proposal",
+          "description": "What the person proposed, judged apart from the problem."
+        },
+        "existing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "What the page already has that bears on this."
+        },
+        "recommend": {
+          "type": "object",
+          "required": [
+            "class"
+          ],
+          "properties": {
+            "change": {
+              "type": "string",
+              "minLength": 1
+            },
+            "step": {
+              "enum": [
+                "copy",
+                "relocate",
+                "group",
+                "imagery",
+                "trust-placement",
+                "adjust-component",
+                "remove-redundancy",
+                "restructure",
+                "new-component"
+              ],
+              "description": "Smallest first. restructure and new-component are structural."
+            },
+            "adds": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "carousel",
+                  "javascript",
+                  "dependency",
+                  "animation",
+                  "testimonial",
+                  "cta",
+                  "duplicate-content"
+                ]
+              },
+              "description": "Things that cost something. Each needs a reason."
+            },
+            "touches": {
+              "enum": [
+                "hero",
+                "logos",
+                "stats",
+                "cards",
+                "marquee",
+                "text",
+                "other",
+                "cta-band",
+                "footer-cta",
+                "pricing",
+                "testimonials",
+                "faq",
+                "process",
+                "features",
+                "team",
+                "contact"
+              ],
+              "description": "The section role it moves, removes or replaces."
+            },
+            "class": {
+              "enum": [
+                "confirmed-correction",
+                "design-hypothesis",
+                "optional-refinement",
+                "no-change"
+              ],
+              "description": "no-change is a result, not a failure to answer."
+            },
+            "because": {
+              "type": "string"
+            },
+            "whyEnough": {
+              "type": "string"
+            },
+            "smaller": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "step",
+                  "whyNot"
+                ],
+                "properties": {
+                  "step": {
+                    "enum": [
+                      "copy",
+                      "relocate",
+                      "group",
+                      "imagery",
+                      "trust-placement",
+                      "adjust-component",
+                      "remove-redundancy",
+                      "restructure",
+                      "new-component"
+                    ]
+                  },
+                  "whyNot": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "validation": {
+              "type": "string"
+            },
+            "requires": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "what"
+                ],
+                "properties": {
+                  "what": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

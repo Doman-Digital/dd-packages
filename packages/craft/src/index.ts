@@ -317,6 +317,26 @@ export {
   type ActionPosition,
   type ArtDirection,
   type ChoiceKey,
+  ADDITIONS,
+  CHANGE_CLASSES,
+  CHANGE_STEPS,
+  EVIDENCE_KINDS,
+  INSPECTED_KINDS,
+  REPORTED_KINDS,
+  REVIEW_BASES,
+  type Addition,
+  type ChangeClass,
+  type ChangeStep,
+  type DesignReview,
+  type EvidenceKind,
+  type ReviewBasis,
+  type ReviewEvidence,
+  type ReviewNote,
+  type ReviewOutcome,
+  type ReviewProposal,
+  type ReviewReport,
+  type ReviewResult,
+  type SuggestionStanding,
   type ConfidenceBasis,
   type ConfidenceFinding,
   type ConfidenceLens,
@@ -339,6 +359,7 @@ export {
 } from "./direction/types.js";
 export { checkReason, contentWords, CONVENTION, jobWords, MOOD, PREFERENCE, type ReasonInput } from "./direction/reason.js";
 export { isCategoryLabel, validateJob, type JobContext } from "./direction/job.js";
+export { assessReview, isStructural } from "./direction/review.js";
 export { assessConfidence, validateConfidence, viewportOf, type ConfidenceContext } from "./direction/confidence.js";
 export { checkOrder, renderedOrder, SECTION_ROLES, validateHierarchy, type PageResult } from "./direction/hierarchy.js";
 export { researchPrompt, tradeOf, type ResearchInput } from "./direction/research.js";

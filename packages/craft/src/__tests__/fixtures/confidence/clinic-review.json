@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "subject": "Marlow Physiotherapy home page, phone and desktop (fictional)",
+  "notes": [
+    {
+      "id": "registration-apart",
+      "lens": "evidence",
+      "observation": "Each practitioner's register entry is on a separate page from their profile.",
+      "raisedBy": "Page review, source and rendered page",
+      "problem": "A patient checking whether the physiotherapist is properly registered has to leave the profile to find the entry.",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "source",
+          "ref": "pages/team.html and pages/registration.html"
+        },
+        {
+          "kind": "rendered",
+          "ref": "captures/team-375.png",
+          "viewport": "mobile"
+        },
+        {
+          "kind": "rendered",
+          "ref": "captures/team-1440.png",
+          "viewport": "desktop"
+        }
+      ],
+      "impact": "A patient who wants to check the physiotherapist is properly registered cannot do it from the profile, and may stop before giving their details.",
+      "recommend": {
+        "class": "confirmed-correction",
+        "change": "show each practitioner's register entry beside their name, linked to the public register",
+        "step": "group",
+        "because": "A patient checking registration should find it where they read about the physiotherapist, so the entry joins the profile.",
+        "whyEnough": "Joining two existing pieces of information answers the check, and no new section or page is needed.",
+        "requires": [
+          {
+            "what": "each practitioner's register number as published on the public register"
+          }
+        ]
+      }
+    },
+    {
+      "id": "warmer-hero",
+      "lens": "personality",
+      "observation": "The hero could be warmer, with portraits of the practitioners.",
+      "raisedBy": "Review discussion",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "review discussion"
+        }
+      ],
+      "suggested": {
+        "change": "add portraits and an animated welcome to the hero",
+        "step": "new-component",
+        "adds": [
+          "animation"
+        ]
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "This patient is checking registration and cost before writing, and the practice's plain signage already gives the page its own character."
+      }
+    }
+  ]
+}
