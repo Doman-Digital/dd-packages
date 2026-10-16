@@ -159,7 +159,7 @@ export function renderRedirects(): string {
 export function renderProgramme(a: Answers, project: Pick<Project, "srcBase">): string {
   const base = project.srcBase;
   const source = base ? [base.replace(/\/$/, "")] : ["app", "components", "lib", "content"];
-  const host = a.stack.host === "cloudflare" || a.stack.host === "vercel" ? a.stack.host : null;
+  const host = a.stack.host === "cloudflare" ? a.stack.host : null;
   const programme = {
     $comment:
       "Read by scripts/gates/ before every build and preview deploy. docs/site-programme.md says what each key is for. Written by @domandigital/create-site; yours to edit, never overwritten.",

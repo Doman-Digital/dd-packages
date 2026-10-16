@@ -79,7 +79,7 @@ async function collectStack(optional: Optional): Promise<StackAnswers | string> 
   ];
 
   const stack: StackAnswers = {
-    host: await single("host", "Hosting, e.g. vercel"),
+    host: await single("host", "Hosting, e.g. cloudflare"),
     dns: await single("dns", "DNS host, e.g. cloudflare"),
     cms: await single("cms", "CMS, e.g. sanity"),
     analytics: await many("analytics", "Analytics and tags, comma separated, e.g. ga4, gtm, posthog"),

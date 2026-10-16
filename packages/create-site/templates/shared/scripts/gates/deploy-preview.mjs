@@ -4,12 +4,11 @@
 // runs every build gate; serves the build locally and measures it at 1440 and
 // 390 with --preview (noindex required); and only then deploys, preview only:
 //
-//   cloudflare  wrangler deploy, refused while the wrangler config carries a
-//               route, a custom domain or workers_dev: false
-//   vercel      vercel deploy, never --prod
+// Cloudflare: wrangler deploy, refused while the wrangler config carries a
+// route, a custom domain or workers_dev: false.
 //
 // The host is preview.host in site.programme.json, or found from the
-// wrangler config or .vercel/project.json. Going live is a separate,
+// wrangler config. Going live is a separate,
 // recorded decision in Stage 09; nothing here can do it. --dry-run does
 // everything but the deploy.
 //
@@ -29,8 +28,8 @@ const env = { ...process.env, PUBLIC_PREVIEW: "1", NEXT_PUBLIC_PREVIEW: "1" };
 const bin = (name) => join(root, "node_modules", ".bin", name);
 
 const wranglerFile = ["wrangler.jsonc", "wrangler.json", "wrangler.toml"].find((f) => existsSync(join(root, f)));
-const host = preview.host ?? (wranglerFile ? "cloudflare" : existsSync(join(root, ".vercel", "project.json")) ? "vercel" : null);
-if (!host) stop(GATE, "06", "no preview host. Set preview.host in site.programme.json to cloudflare or vercel.");
+const host = preview.host ?? (wranglerFile ? "cloudflare" : null);
+if (!host) stop(GATE, "06", "no preview host. Set preview.host in site.programme.json to cloudflare.");
 
 if (host === "cloudflare") {
   if (!wranglerFile) stop(GATE, "06", "preview.host is cloudflare but there is no wrangler config.");
@@ -39,8 +38,8 @@ if (host === "cloudflare") {
   if (/["']?\broutes?\b["']?\s*[:=]/.test(text)) stop(GATE, "06", `${wranglerFile} carries a route. A preview has none: the live domain is attached only by the Stage 09 release.`);
   if (/custom_domain/.test(text)) stop(GATE, "06", `${wranglerFile} carries a custom domain. A preview has none.`);
   if (/workers_dev["']?\s*[:=]\s*false/.test(text)) stop(GATE, "06", `${wranglerFile} sets workers_dev to false, so a preview would have no address.`);
-} else if (host !== "vercel") {
-  stop(GATE, "06", `preview.host is ${host}; this script knows cloudflare and vercel.`);
+} else {
+  stop(GATE, "06", `preview.host is ${host}; this script knows cloudflare.`);
 }
 
 // The package manager that ran this script, so the build is the one `build` names.
@@ -55,9 +54,6 @@ if (dryRun) {
   console.log(`${GATE}: built and measured; --dry-run, so nothing was deployed.`);
   process.exit(0);
 }
-const deploy =
-  host === "cloudflare"
-    ? spawnSync(existsSync(bin("wrangler")) ? bin("wrangler") : "npx", existsSync(bin("wrangler")) ? ["deploy"] : ["wrangler", "deploy"], { cwd: root, env, stdio: "inherit" })
-    : spawnSync("npx", ["vercel", "deploy", "--build-env", "PUBLIC_PREVIEW=1", "--build-env", "NEXT_PUBLIC_PREVIEW=1", "--env", "PUBLIC_PREVIEW=1", "--env", "NEXT_PUBLIC_PREVIEW=1"], { cwd: root, env, stdio: "inherit" });
+const deploy = spawnSync(existsSync(bin("wrangler")) ? bin("wrangler") : "npx", existsSync(bin("wrangler")) ? ["deploy"] : ["wrangler", "deploy"], { cwd: root, env, stdio: "inherit" });
 if (deploy.status !== 0) stop(GATE, "06", `the ${host} deploy failed.`);
 console.log(`${GATE}: measured and deployed to a ${host} preview. The live site is untouched.`);
