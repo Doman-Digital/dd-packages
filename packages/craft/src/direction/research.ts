@@ -52,7 +52,9 @@ export function researchPrompt(input: ResearchInput): string {
     "4. **Their words.** The phrases they actually use for the problem and for what they want. Quote them exactly.",
     "5. **Who else is involved.** Who do they have to explain or justify the choice to (a partner, a landlord, a tenant, a manager), and what would make them look good or bad to that person?",
     "6. **Consideration.** Do they decide in minutes, days or months? What do they compare before deciding?",
-    "7. **Where they look.** What do they search for, and where do they ask?",
+    "7. **Where they look.** What do they search for, and where do they ask? On a phone or a computer, and at what moment: standing in a kitchen, on a commute, at a desk?",
+    "8. **What would settle it.** Before they would get in touch, what do they check or want to see: work that was actually done, who they would deal with, a registration they can look up, what other customers said, how long the person has done this? Say which of these the people you found actually mention, and do not assume all of them matter.",
+    "9. **The next step.** How do they usually take it: ring, book, send an enquiry, ask for a quotation, look further first? What stops them taking it, and what do they want to know before they do?",
     "",
     "## Do not",
     "",
@@ -60,6 +62,7 @@ export function researchPrompt(input: ResearchInput): string {
     "- Do not suggest colours, fonts, layouts, sections or visual \"inspiration\" from this category.",
     "- Do not summarise competitors' marketing. Their claims are the category average; the customer's words are the point.",
     "- Do not invent quotes. If you cannot find a source for something, say so.",
+    "- Do not assume the next step is a phone call, or that a business needs a founder's photograph, reviews, credentials or a gallery. Report what these customers say they need, including that they need none of it.",
   ];
   if (input.visual) {
     lines.push(

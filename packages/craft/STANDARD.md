@@ -162,7 +162,11 @@ is designed, built and measured first, and every wider layout is derived from
 it. A desktop layout squeezed onto a phone keeps the desktop's priorities and
 drops whatever did not fit; a phone layout widened keeps what matters and adds.
 Fitting on a phone is the floor. The bar is a page optimised for the phone and
-intended at every width, and the two sub-sections below set it.
+intended at every width, and the two sub-sections below set it. What the phone
+visitor needs in order to trust the business and take the next step is a
+judgement about the page, not a measurement; it is recorded and reported as
+[decision confidence](./CHARACTER.md#decision-confidence), and a finding made on
+the phone is not carried to another width without looking there.
 
 - **The phone is the base.** Base styles are the phone layout. Wider layouts
   are added with `min-width` queries only (Tailwind: unprefixed is the phone,

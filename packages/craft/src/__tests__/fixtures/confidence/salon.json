@@ -1,0 +1,199 @@
+{
+  "version": 2,
+  "client": "Hollis & Reed Hair (fictional)",
+  "brief": "An appointment-based hair salon in Bristol with five stylists, cutting and colouring for regular clients who book weeks ahead.",
+  "sources": [
+    {
+      "id": "client",
+      "kind": "review",
+      "note": "I want a colourist who can fix my box dye without taking too much off. I want to see their colour work before I book. I book on my phone in the evening and I need to see which Saturday slots are free. I am nervous about turning up to someone I have not met."
+    },
+    {
+      "id": "shopfront",
+      "kind": "livery",
+      "note": "The shopfront has deep plum fascia with brass lettering in a high-contrast serif, and a pale blush interior visible through the window.",
+      "colours": [
+        "#4a1f3d",
+        "#f6e9e6"
+      ],
+      "lettering": "Brass high-contrast serif lettering on a plum fascia."
+    },
+    {
+      "id": "colour-work",
+      "kind": "photo",
+      "note": "Photographs of finished colour work by each stylist, taken in the salon with the stylist's first name written in the file."
+    }
+  ],
+  "job": {
+    "statement": {
+      "verb": "choose",
+      "object": "a colourist who can correct box dye",
+      "context": "and book a Saturday slot without having met them"
+    },
+    "functional": {
+      "value": "They want a colourist who can fix their box dye without taking too much off and a free Saturday slot.",
+      "evidence": [
+        "client"
+      ]
+    },
+    "emotional": {
+      "value": "They are nervous about turning up to a stylist they have not met.",
+      "evidence": [
+        "client"
+      ]
+    },
+    "social": {
+      "value": "They want to see colour work they could show a friend before they book.",
+      "evidence": [
+        "client"
+      ]
+    },
+    "consideration": {
+      "value": "considered",
+      "because": "The visitor compares colour work and checks Saturday slots in the evening before booking weeks ahead.",
+      "evidence": [
+        "client"
+      ]
+    },
+    "objections": [
+      "not seeing the colourist's work before booking",
+      "not knowing which Saturday slots are free",
+      "turning up to someone they have not met"
+    ],
+    "language": [
+      "I want to see their colour work before I book",
+      "I need to see which Saturday slots are free"
+    ],
+    "evidence": [
+      "client"
+    ]
+  },
+  "hierarchy": {
+    "home": {
+      "primaryAction": {
+        "value": "Book an appointment",
+        "positions": [
+          "header",
+          "cards",
+          "footer-cta"
+        ],
+        "because": "The medium consideration job is booking a Saturday slot on a phone in the evening, so booking is offered beside each stylist's colour work as well as in the header and at the end."
+      },
+      "order": [
+        {
+          "role": "hero",
+          "because": "A client with box dye needs to see colour work before anything else, so the first screen shows finished colour."
+        },
+        {
+          "role": "cards",
+          "because": "They want to see which colourist suits them and which Saturday slots are free, so each stylist is a card with booking beside their work."
+        },
+        {
+          "role": "other",
+          "because": "They want to see colour work before they book, so a fuller gallery sits for those who want to look further."
+        },
+        {
+          "role": "footer-cta",
+          "because": "A client who has seen the work and the slots can book without scrolling back to the header."
+        }
+      ],
+      "lead": {
+        "value": "Colour correction by named colourists",
+        "subordinate": [
+          "cuts",
+          "styling"
+        ],
+        "because": "The visitor needs a colourist who can correct box dye, so correction leads ahead of the cuts and styling the salon also does."
+      },
+      "journey": [
+        {
+          "stage": "recognise",
+          "because": "A visitor with box dye first needs to see finished colour work before booking."
+        },
+        {
+          "stage": "compare",
+          "because": "They compare each colourist's work and the free Saturday slots before they choose."
+        },
+        {
+          "stage": "act",
+          "because": "Once they have seen the colour work and a free slot, booking takes seconds on a phone."
+        }
+      ],
+      "confidence": {
+        "examined": [
+          "mobile"
+        ],
+        "proof": [
+          {
+            "kind": "work",
+            "what": "one finished box dye correction photographed in the salon",
+            "position": "hero",
+            "depth": "first-look",
+            "because": "The visitor wants to see colour work before they book, so one finished correction is the first thing met.",
+            "evidence": [
+              "colour-work"
+            ]
+          },
+          {
+            "kind": "people",
+            "what": "each stylist's first name beside their own colour work",
+            "position": "cards",
+            "depth": "first-look",
+            "because": "A client nervous about turning up to someone they have not met can see the name and the work of the stylist they would book.",
+            "evidence": [
+              "colour-work"
+            ]
+          },
+          {
+            "kind": "work",
+            "what": "the full gallery of colour work by every stylist",
+            "position": "other",
+            "depth": "on-request",
+            "because": "A visitor who wants to see more colour work before they book can open the gallery, while the first screen stays short.",
+            "evidence": [
+              "colour-work"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "choices": {
+    "accent": {
+      "value": "#4a1f3d",
+      "because": "The shopfront has a deep plum fascia, so the same plum colour marks the booking button.",
+      "evidence": [
+        "shopfront"
+      ]
+    },
+    "ground": {
+      "value": "#fbf3f1",
+      "because": "The shopfront shows a pale blush interior through the window, so the page ground follows that blush.",
+      "evidence": [
+        "shopfront"
+      ]
+    },
+    "display": {
+      "value": "Libre Caslon Text",
+      "because": "The brass high-contrast serif lettering on the shopfront gives headlines a high-contrast serif.",
+      "evidence": [
+        "shopfront"
+      ]
+    },
+    "body": {
+      "value": "Source Sans 3",
+      "because": "The brass lettering on the shopfront is paired with plain supporting text that stays easy to read.",
+      "evidence": [
+        "shopfront"
+      ]
+    },
+    "shape": {
+      "value": "square corners",
+      "because": "The fascia on the shopfront has crisp square corners, so the buttons keep them.",
+      "evidence": [
+        "shopfront"
+      ]
+    }
+  },
+  "exceptions": []
+}

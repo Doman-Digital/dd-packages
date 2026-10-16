@@ -107,6 +107,12 @@ npx craft estate compare --estate estate.json --directions
 npx craft direction validate --snapshot http://localhost:3000 --page home --strict
 ```
 
+A page may also record `confidence`: the widths its decisions were examined at
+and the evidence it offers, each with a reason. `craft direction validate`
+reports what is observed, inferred or unknown about it, with why it matters and
+no score. Nothing in it is required: no evidence kind, portrait, slideshow,
+phone button or section order. See [Decision confidence](./CHARACTER.md#decision-confidence).
+
 `--snapshot` accepts saved files and preview or production URLs. Drift fails
 with `--strict`; declared estate comparisons stay advisory. Version 1 files
 still validate with a warning. See [CHARACTER.md](./CHARACTER.md) for the full

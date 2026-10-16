@@ -1,0 +1,210 @@
+{
+  "version": 2,
+  "client": "Marlow Physiotherapy (fictional)",
+  "brief": "A private physiotherapy practice in Leeds with four practitioners, treating people with long-running back and knee pain after referral or self-referral.",
+  "sources": [
+    {
+      "id": "enquiry",
+      "kind": "review",
+      "note": "I have had back pain for months and I do not know whether physiotherapy will help. I want to check the physiotherapist is properly registered before I give my details. I would rather write than phone because I am at work. I need to know what the first appointment involves and what it costs before I commit."
+    },
+    {
+      "id": "signage",
+      "kind": "livery",
+      "note": "The practice window carries slate blue lettering on pale grey glass, with rounded corners on the door plate and a plain humanist typeface.",
+      "colours": [
+        "#2f4b63",
+        "#f2f4f6"
+      ],
+      "lettering": "Plain humanist lettering with rounded corners on the door plate."
+    },
+    {
+      "id": "register",
+      "kind": "founder",
+      "note": "All four practitioners appear on the Health and Care Professions Council register under their own names, and the practice is registered with the major insurers."
+    }
+  ],
+  "job": {
+    "statement": {
+      "verb": "decide",
+      "object": "whether a private physiotherapy practice can help long-running back pain",
+      "context": "before giving their details and paying for a first appointment"
+    },
+    "functional": {
+      "value": "They have had back pain for months and need to know whether physiotherapy will help and what the first appointment involves.",
+      "evidence": [
+        "enquiry"
+      ]
+    },
+    "emotional": {
+      "value": "They worry about giving their details to a practice that may not be properly registered.",
+      "evidence": [
+        "enquiry"
+      ]
+    },
+    "social": {
+      "value": "They are at work and cannot phone, so they need a way to ask in writing.",
+      "evidence": [
+        "enquiry"
+      ]
+    },
+    "consideration": {
+      "value": "considered",
+      "because": "The pain has lasted months and they want to check registration, the first appointment and the cost before they commit.",
+      "evidence": [
+        "enquiry"
+      ]
+    },
+    "objections": [
+      "not knowing whether physiotherapy will help",
+      "whether the physiotherapist is properly registered",
+      "what the first appointment costs"
+    ],
+    "language": [
+      "I want to check the physiotherapist is properly registered",
+      "I would rather write than phone because I am at work"
+    ],
+    "evidence": [
+      "enquiry"
+    ]
+  },
+  "hierarchy": {
+    "home": {
+      "primaryAction": {
+        "value": "Send an enquiry",
+        "positions": [
+          "header",
+          "footer-cta"
+        ],
+        "because": "The considered job is a patient at work who would rather write than phone, so an enquiry is offered in the header and again once they have checked whether the physiotherapist is properly registered."
+      },
+      "order": [
+        {
+          "role": "hero",
+          "because": "A patient with months of back pain first needs to see that the practice treats back pain and what the first appointment involves."
+        },
+        {
+          "role": "cards",
+          "because": "They do not know whether physiotherapy will help, so the conditions treated come before who treats them."
+        },
+        {
+          "role": "team",
+          "because": "They want to check the physiotherapist is properly registered, so the practitioners come with their register details."
+        },
+        {
+          "role": "pricing",
+          "because": "They need to know what the first appointment costs before they commit, so the fee sits before the ask."
+        },
+        {
+          "role": "footer-cta",
+          "because": "Once registration and cost are clear, a patient at work can write to the practice."
+        }
+      ],
+      "lead": {
+        "value": "Help with long-running back and knee pain",
+        "subordinate": [
+          "sports injuries",
+          "post-operative rehabilitation"
+        ],
+        "because": "Months of back pain is the reason a visitor is here, so it leads ahead of the other conditions the practice treats."
+      },
+      "journey": [
+        {
+          "stage": "recognise",
+          "because": "A visitor with months of back pain first needs to see the practice treats it."
+        },
+        {
+          "stage": "reassure",
+          "because": "Before giving their details, they want to check the physiotherapist is properly registered."
+        },
+        {
+          "stage": "act",
+          "because": "Once registration and the first appointment cost are clear, they can write because they cannot phone from work."
+        }
+      ],
+      "confidence": {
+        "examined": [
+          "mobile",
+          "desktop"
+        ],
+        "proof": [
+          {
+            "kind": "credentials",
+            "what": "each practitioner's name and Health and Care Professions Council register entry",
+            "position": "team",
+            "depth": "first-look",
+            "because": "The visitor wants to check the physiotherapist is properly registered, so the register entry is shown as plain text with a link to the public register.",
+            "evidence": [
+              "register"
+            ]
+          },
+          {
+            "kind": "credentials",
+            "what": "a short line in the hero saying all practitioners are registered",
+            "position": "hero",
+            "depth": "first-look",
+            "because": "A visitor worried about registration meets the answer on the first screen and can read the detail in the team section.",
+            "evidence": [
+              "register"
+            ]
+          },
+          {
+            "kind": "people",
+            "what": "practitioner names, specialisms and years in practice, with no portraits",
+            "position": "team",
+            "depth": "on-request",
+            "because": "A patient choosing who to see wants names and specialisms for their back pain, which a written profile gives without a portrait.",
+            "evidence": [
+              "register"
+            ]
+          },
+          {
+            "kind": "outcomes",
+            "what": "a summary of patient-reported progress after treatment for back pain",
+            "position": "cards",
+            "depth": "first-look",
+            "because": "A visitor who does not know whether physiotherapy will help would be reassured by seeing how patients with back pain progressed, if the practice can show it."
+          }
+        ]
+      }
+    }
+  },
+  "choices": {
+    "accent": {
+      "value": "#2f4b63",
+      "because": "The practice window carries slate blue lettering, so the same slate blue colour marks the enquiry button.",
+      "evidence": [
+        "signage"
+      ]
+    },
+    "ground": {
+      "value": "#f2f4f6",
+      "because": "The practice window has pale grey glass behind its lettering, so the page ground follows that glass.",
+      "evidence": [
+        "signage"
+      ]
+    },
+    "display": {
+      "value": "Source Sans 3",
+      "because": "The plain humanist lettering on the practice window gives headlines the same open forms.",
+      "evidence": [
+        "signage"
+      ]
+    },
+    "body": {
+      "value": "Source Sans 3",
+      "because": "The plain humanist lettering on the practice window keeps supporting text open and easy to read.",
+      "evidence": [
+        "signage"
+      ]
+    },
+    "shape": {
+      "value": "rounded corners",
+      "because": "The door plate on the practice window has rounded corners, so the buttons keep them.",
+      "evidence": [
+        "signage"
+      ]
+    }
+  },
+  "exceptions": []
+}

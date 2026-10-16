@@ -303,6 +303,7 @@ export {
 } from "./character/tells/copy.js";
 export {
   CHOICE_KEYS,
+  CONFIDENCE_LENSES,
   DIRECTION_VERSION,
   SOURCE_KINDS,
   CUSTOMER_KINDS,
@@ -310,9 +311,15 @@ export {
   DIRECTION_VERSIONS,
   HIERARCHY_FIELDS,
   PAGE_TYPES,
+  PROOF_DEPTHS,
+  PROOF_KINDS,
+  VIEWPORTS,
   type ActionPosition,
   type ArtDirection,
   type ChoiceKey,
+  type ConfidenceBasis,
+  type ConfidenceFinding,
+  type ConfidenceLens,
   type Consideration,
   type CustomerKind,
   type DirectionChoice,
@@ -321,12 +328,18 @@ export {
   type DirectionSource,
   type JobMap,
   type JobPart,
+  type PageConfidence,
   type PageHierarchy,
   type PageType,
+  type ProofDepth,
+  type ProofItem,
+  type ProofKind,
   type SourceKind,
+  type Viewport,
 } from "./direction/types.js";
 export { checkReason, contentWords, CONVENTION, jobWords, MOOD, PREFERENCE, type ReasonInput } from "./direction/reason.js";
 export { isCategoryLabel, validateJob, type JobContext } from "./direction/job.js";
+export { assessConfidence, validateConfidence, viewportOf, type ConfidenceContext } from "./direction/confidence.js";
 export { checkOrder, renderedOrder, SECTION_ROLES, validateHierarchy, type PageResult } from "./direction/hierarchy.js";
 export { researchPrompt, tradeOf, type ResearchInput } from "./direction/research.js";
 export {
