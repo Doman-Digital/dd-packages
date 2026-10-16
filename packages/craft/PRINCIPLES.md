@@ -120,3 +120,12 @@ it records is what was observed, what is inferred, and what is unknown and needs
 the client or a test, and at which widths each was looked at. The phone is
 where this is examined first; a finding made there is not assumed to hold on a
 desktop. See [CHARACTER.md](./CHARACTER.md#decision-confidence).
+
+The principle is Eunice Ordor's, from a review of a phone layout on 15 October 2026,
+and its question is: what does this visitor need to see, understand and believe
+before they are comfortable taking the next appropriate action? It adds to the
+standards above and replaces none of them. It also sets how a change is chosen:
+a stakeholder's observation, the visitor problem under it, the proposed fix and
+the evidence are judged apart, and the smallest change that answers the problem
+wins. "The existing design is already appropriate" is a result. See
+[Reviewing a proposed change](./CHARACTER.md#reviewing-a-proposed-change).

@@ -113,6 +113,14 @@ reports what is observed, inferred or unknown about it, with why it matters and
 no score. Nothing in it is required: no evidence kind, portrait, slideshow,
 phone button or section order. See [Decision confidence](./CHARACTER.md#decision-confidence).
 
+Feedback on a page is weighed against the visitor. `craft direction review --notes
+design-review.json` keeps what was said, the visitor problem under it, what was
+proposed, the evidence and the smallest defensible change apart, says how well
+each is known (observed, inferred, preference or unknown), and can conclude that
+no change is needed. Evidence only reported by an audit or a stakeholder cannot
+make a problem observed, and a width nobody looked at stays unknown. See
+[Reviewing a proposed change](./CHARACTER.md#reviewing-a-proposed-change).
+
 `--snapshot` accepts saved files and preview or production URLs. Drift fails
 with `--strict`; declared estate comparisons stay advisory. Version 1 files
 still validate with a warning. See [CHARACTER.md](./CHARACTER.md) for the full

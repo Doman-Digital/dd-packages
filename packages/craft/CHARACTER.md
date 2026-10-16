@@ -302,6 +302,16 @@ A file from phase A that holds only exceptions stays valid.
 
 ### Decision confidence
 
+Attributed to Eunice Ordor, Client Relations & Operations at Doman Digital
+("Eunice's Lens"). The question it asks of every page:
+
+> What does this visitor need to see, understand and believe before they are
+> comfortable taking the next appropriate action?
+
+It sits beside usability, accessibility, visual quality, performance, brand
+character and the business's own aims, and replaces none of them. It exists to
+improve design judgement, not to make sites alike.
+
 A page should give a visitor what they need to understand the business, trust
 it and take the next appropriate step, in an order that follows how they
 decide rather than a sequence of stock sections. Craft already records most of
@@ -310,7 +320,9 @@ the hierarchy says what leads, what order, and where the ask sits. Decision
 confidence is the reading of those decisions against the visitor, with three
 additions to the hierarchy layer and no new layer.
 
-The eight questions, with where Craft already answers each:
+The questions, with where Craft already answers each. They are lenses to look
+through, not a checklist or a score, and `evidence` and `identity` below are
+the two that cover decision confidence and human accountability:
 
 | | Question | Where it is decided or read |
 | --- | --- | --- |
@@ -322,6 +334,7 @@ The eight questions, with where Craft already answers each:
 | F | Progressive disclosure: essential early, detail when sought, and a signal that the detail exists? | `confidence.proof[].depth`: `first-look` or `on-request` |
 | G | Brand personality and contextual fit: does the character come from this business? | The token layer and its evidence, unchanged |
 | H | Mobile experience: was it looked at on a phone, and what was not examined? | `confidence.examined` and STANDARD.md section 10 |
+| I | Contextual differentiation: does it differ where that helps recognition, clarity, confidence or brand, and only there? | The token layer and `craft estate compare`. Similarity between conventional patterns is not a defect |
 
 `confidence` is optional on each page and records two things the hierarchy did
 not: which widths the decisions were looked at (`examined`), and the evidence
@@ -394,19 +407,169 @@ appointment-based salon (book beside each stylist's own colour work, a full
 gallery on request). They are invented, as the electrician is. None has a
 slideshow; two have no phone action; none has a founder portrait; all validate.
 
-Where this came from: a review of a plumbing site's phone layout, which
-suggested the owner's introduction came too late, that work, reviews and
-personal detail felt fragmented, that a slideshow and a fuller portfolio might
-help, and that contact should be reachable without much scrolling. Those were
-hypotheses about that site on that width. Craft records the questions they
-raised, not the answers.
+#### Where it came from
 
-For future work: the research prompt (`craft direction research`) asks where
-the visitor looks, what would settle it for them, and what the next step is
-without assuming a phone, a portrait or any one of them. Write the hierarchy
-from those answers, add `confidence` where the page makes decisions about
-evidence, and run `craft direction validate`. The findings are the list of
-what to confirm with the client or look at before launch.
+On 15 October 2026 Eunice reviewed the phone layout of a UK plumbing
+business's homepage. She did not review the desktop. Four things came out of
+it, and they are kept apart on purpose:
+
+1. **Her observations.** The owner was introduced late. Information about the
+   work, services, reviews and the owner felt fragmented. Visitors should be
+   able to feel confident without searching. The site could show more
+   personality. Trust signals should read as a set.
+2. **Her proposed solutions.** A hero slideshow. Removing some project
+   captions.
+3. **An independent audit's conclusions.** It agreed with the underlying
+   concerns, that the owner should be met earlier and credibility shown sooner.
+   It did not accept two of the solutions. The site already had a swipeable
+   project gallery, so a slideshow would repeat it. The captions were short and
+   helped people move through the work. Services were early for a reason: a
+   visitor first needs to know the business does their job. Moving the whole
+   biography under the hero could make the page worse. It preferred targeted
+   changes to a redesign. These were the audit's findings, reported to Craft,
+   not measurements Craft took.
+4. **This principle.** A stakeholder can be right about the problem and wrong
+   about the fix, and the two are judged separately. Nothing from that one
+   site is a design law: it is the case Craft's reasoning is tested against.
+
+Craft has no rule for that plumber or any other client. The same reasoning is
+tested on a sole trader, a clinic and a salon, and gives a different answer
+for each.
+
+### Reviewing a proposed change
+
+`craft direction validate` reads a page's declared decisions. A review is
+different: somebody has said something about a page, and Craft has to decide
+what follows. `craft direction review --notes design-review.json` weighs the
+notes against the visitor's job in `art-direction.json`. For each note it keeps
+five things apart:
+
+| | What it is | Held in |
+| --- | --- | --- |
+| 1 | The observation: what was said or seen, and by whom | `observation`, `raisedBy` |
+| 2 | The underlying visitor problem, if there is one | `problem`, `impact` |
+| 3 | The proposed solution, from whoever proposed it | `suggested` |
+| 4 | The evidence, and what kind it is | `evidence`, `basis` |
+| 5 | The smallest defensible improvement | `recommend` |
+
+**How well the problem is known** (`basis`):
+
+- **observed**: something was inspected. A screenshot, rendered behaviour,
+  source, a measurement, or what the page says. Evidence that was only
+  reported, by an audit, a stakeholder or a customer, can support
+  **inferred** at most, however confident it sounds.
+- **inferred**: plausible, supported by something reported but not looked at.
+- **preference**: taste, or a stakeholder's wish, with no stated cost to the
+  visitor. A fact with no visitor impact is also read this way when it is
+  inferred, and as polish at most when it is observed.
+- **unknown**: cannot be established from what is available. Nothing is
+  recommended until it is.
+
+Craft reads the declared basis against the evidence and says when it changed
+it, in the note. A claim made at a width nobody looked at stays unknown there:
+a review of the phone says nothing about the desktop.
+
+**What the recommendation is worth** (`recommend.class`):
+
+- **confirmed-correction**: fixes an observed defect that costs the visitor
+  something. Needs observed evidence and a stated impact.
+- **design-hypothesis**: could help, and needs judgement or a check to know.
+  Names how it would be checked (`validation`).
+- **optional-refinement**: polish. No important visitor problem is addressed.
+- **no-change**: the design already does the job. This is a successful result,
+  and a review can end on it: "The existing design is already appropriate for
+  what was reviewed. No change is recommended." Craft never invents an issue to
+  have something to say.
+
+**Minimum effective change.** `recommend.step` is on a ladder, smallest first:
+`copy`, `relocate`, `group`, `imagery`, `trust-placement`, `adjust-component`,
+`remove-redundancy`, then the structural `restructure` and `new-component`. A
+change takes the smallest step that answers the problem. A structural step, or
+any addition that costs something (`carousel`, `javascript`, `dependency`,
+`animation`, `testimonial`, `cta`, `duplicate-content`), must say which smaller
+steps were considered and why none was enough (`smaller`). A small step says why
+nothing larger is needed (`whyEnough`).
+
+The rules a review is held to, all checked without a model:
+
+- A suggestion and a recommendation are each held to the same tests, so a
+  right observation can come with a suggestion that is not supported. Craft
+  then reports it as `not-supported`, `narrower-change-preferred` (the
+  recommended step is smaller) or `not-needed`.
+- A second carousel is not supported when the page already has a gallery,
+  slideshow or swipeable set, in the note's `existing` list or the page's own
+  evidence.
+- Removing information needs an observation that it is redundant and a stated
+  cost to the visitor. Short useful captions are not redundancy.
+- A structural change or an addition needs a problem that is observed, or
+  inferred with a stated impact. A preference does not justify it.
+- A section the declared order already places with a reason is not moved on a
+  preference. Only something observed overrides it.
+- Repetition, a long page, a conventional order and a likeness to other sites
+  are not defects. They become findings only through a stated cost to this
+  visitor.
+- A change that depends on a fact or asset nobody has supplied (a register
+  number, the owner's own words) is held, and the note says what is
+  outstanding. Craft does not write it in, and does not infer a registration,
+  a qualification or a regulatory status from its absence or presence.
+
+Impact is a reason like any other: eight words, about this client's job, and
+neither a preference ("the client wants it") nor the category's default.
+
+A note in a review:
+
+```json
+{
+  "id": "owner-late",
+  "lens": "identity",
+  "observation": "The owner is introduced too far down the page.",
+  "raisedBy": "Eunice Ordor (stakeholder), agreed by the independent audit",
+  "problem": "A homeowner letting a stranger into the house cannot tell who is coming until well down the page.",
+  "basis": "observed",
+  "evidence": [
+    { "kind": "screenshot", "ref": "captures/home-375.png", "viewport": "mobile" },
+    { "kind": "audit", "ref": "independent audit of the phone layout", "viewport": "mobile" }
+  ],
+  "impact": "A homeowner with a stopped boiler cannot see who is coming into the house, so they may ring someone else or ask before reaching the introduction.",
+  "appliesTo": ["mobile"],
+  "suggested": { "change": "move the full biography directly below the hero", "step": "restructure" },
+  "recommend": {
+    "class": "confirmed-correction",
+    "change": "show the owner's name and one line about working alone beside the first call button",
+    "step": "trust-placement",
+    "because": "The visitor's worry is who is coming into the house, so a name and one line answer it where the call is first offered.",
+    "whyEnough": "The full biography already serves visitors who want it further down, so only a name and a line need to meet the homeowner early.",
+    "requires": [{ "what": "the owner's name and that he works alone and answers the phone", "source": "tom" }]
+  }
+}
+```
+
+The shape is `design-review.schema.json`. The calibration review in
+`src/__tests__/fixtures/confidence/calibration-review.json` carries the case
+above as a set of notes, against an invented plumber, with the answer Craft
+gives to each: the owner met earlier by a name and a line, and not by moving the
+biography; credibility earlier as a hypothesis with a check; no second carousel;
+the captions left alone; the services left early; no decoration added for
+personality; the owner's own words held until he supplies them; the desktop left
+unknown. The clinic and salon reviews next to it reach different outcomes for
+different reasons: a registration check joined to the profile but held for the
+register numbers; a founder biography declined because booking comes first.
+
+#### Using it
+
+Generating a page: run `craft direction research`, which asks where the
+visitor looks, what would settle it for them and what the next step is, without
+assuming a phone, a portrait or any one of them. Write the hierarchy from those
+answers, add `confidence` where the page makes decisions about evidence, and run
+`craft direction validate`. The findings are the list of what to confirm with
+the client or look at before launch.
+
+Reviewing a page or acting on feedback: write each remark as a note (what was
+said, what the visitor loses, what was proposed, what was inspected), then run
+`craft direction review --notes design-review.json`. Do the changes that come
+back as `change`, ask for what is `hold`, find out what is `gather-evidence`,
+and leave what is `no-change`. When a note names something that was not
+inspected, look before you act on it.
 
 ## Declaring an exception
 

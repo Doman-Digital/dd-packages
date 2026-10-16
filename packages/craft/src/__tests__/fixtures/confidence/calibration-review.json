@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "subject": "Aldous Plumbing home page, phone layout (fictional calibration, shaped after a real 15 October 2026 review)",
+  "notes": [
+    {
+      "id": "owner-late",
+      "lens": "identity",
+      "observation": "The owner is introduced too far down the page.",
+      "raisedBy": "Eunice Ordor (stakeholder), agreed by the independent audit",
+      "problem": "A homeowner letting a stranger into the house cannot tell who is coming until well down the page.",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "ref": "captures/home-375.png",
+          "viewport": "mobile",
+          "note": "the first person is met in the fifth section"
+        },
+        {
+          "kind": "stakeholder",
+          "ref": "Eunice Ordor, client relations review of the phone layout, 15 October 2026",
+          "viewport": "mobile"
+        },
+        {
+          "kind": "audit",
+          "ref": "independent audit of the phone layout, reported not re-measured",
+          "viewport": "mobile"
+        }
+      ],
+      "impact": "A homeowner with a stopped boiler cannot see who is coming into the house, so they may ring someone else or ask before reaching the introduction.",
+      "appliesTo": [
+        "mobile"
+      ],
+      "suggested": {
+        "change": "move the full biography directly below the hero",
+        "step": "restructure"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "change": "show the owner's name and one line about working alone beside the first call button",
+        "step": "trust-placement",
+        "because": "The visitor's worry is who is coming into the house, so a name and one line answer it where the call is first offered.",
+        "whyEnough": "The full biography already serves visitors who want it further down, so only a name and a line need to meet the homeowner early.",
+        "requires": [
+          {
+            "what": "the owner's name and that he works alone and answers the phone",
+            "source": "tom"
+          }
+        ]
+      }
+    },
+    {
+      "id": "credibility-late",
+      "lens": "evidence",
+      "observation": "Third-party credibility appears just below the first phone screen.",
+      "raisedBy": "Independent audit",
+      "problem": "A homeowner worried about being overcharged by someone they have never met meets the independent reviews only after the first screen.",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "audit",
+          "ref": "independent audit of the phone layout, reported not re-measured",
+          "viewport": "mobile"
+        }
+      ],
+      "impact": "A homeowner worried about being overcharged by a stranger has only the van and one photograph to go on until they scroll to the customer reviews.",
+      "appliesTo": [
+        "mobile"
+      ],
+      "recommend": {
+        "class": "design-hypothesis",
+        "change": "bring one verified customer line and its source into the first screen",
+        "step": "trust-placement",
+        "because": "A homeowner worried about being overcharged by a stranger is answered by someone who trusted him in their house.",
+        "whyEnough": "One line with its source is enough to meet the worry on the first screen, and the full customer quotes can stay where they are.",
+        "validation": "Look at the first screen at 375 wide and check the line and its source are readable without scrolling, then ask three recent customers what they looked for first.",
+        "requires": [
+          {
+            "what": "a customer review that can be checked",
+            "source": "review"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hero-slideshow",
+      "lens": "disclosure",
+      "observation": "The hero image could be a slideshow.",
+      "raisedBy": "Eunice Ordor (stakeholder)",
+      "problem": "The visitor wants to see more of the work before deciding.",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "Eunice Ordor, client relations review of the phone layout, 15 October 2026",
+          "viewport": "mobile"
+        }
+      ],
+      "existing": [
+        "swipeable gallery of finished jobs directly after the services"
+      ],
+      "suggested": {
+        "change": "turn the hero image into a slideshow",
+        "step": "new-component",
+        "adds": [
+          "carousel"
+        ]
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "The page already lets the visitor swipe through finished jobs, so a second carousel adds a script and shows the same work again."
+      }
+    },
+    {
+      "id": "captions",
+      "lens": "disclosure",
+      "observation": "Some project captions could be removed.",
+      "raisedBy": "Eunice Ordor (stakeholder)",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "Eunice Ordor, client relations review of the phone layout, 15 October 2026",
+          "viewport": "mobile"
+        },
+        {
+          "kind": "content",
+          "ref": "gallery captions",
+          "note": "one short line each, saying what was fixed"
+        },
+        {
+          "kind": "audit",
+          "ref": "independent audit of the phone layout, reported not re-measured",
+          "viewport": "mobile",
+          "note": "found the captions concise and useful for navigation"
+        }
+      ],
+      "suggested": {
+        "change": "remove some project captions",
+        "step": "remove-redundancy"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "Each caption is one short line saying what was fixed, so removing them takes useful detail from a visitor judging the work."
+      }
+    },
+    {
+      "id": "services-order",
+      "lens": "relevance",
+      "observation": "The owner and reviews could come before the services list.",
+      "raisedBy": "Review discussion",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "Eunice Ordor, client relations review of the phone layout, 15 October 2026",
+          "viewport": "mobile"
+        }
+      ],
+      "suggested": {
+        "change": "move the services list below the reviews",
+        "step": "relocate",
+        "touches": "cards"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "A visitor with a failed boiler first needs to see this plumber does that work, so the services list is rightly early."
+      }
+    },
+    {
+      "id": "personality",
+      "lens": "personality",
+      "observation": "The page could communicate more personality.",
+      "raisedBy": "Eunice Ordor (stakeholder)",
+      "problem": "The page does not yet sound like the man who answers the phone.",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "Eunice Ordor, client relations review of the phone layout, 15 October 2026",
+          "viewport": "mobile"
+        }
+      ],
+      "impact": "A homeowner letting a stranger into the house learns little about the plumber's own way of working from the generic introduction.",
+      "suggested": {
+        "change": "add a hover animation to the service cards",
+        "step": "adjust-component",
+        "adds": [
+          "animation"
+        ]
+      },
+      "recommend": {
+        "class": "design-hypothesis",
+        "change": "write the introduction in the owner's own account of how he works",
+        "step": "copy",
+        "because": "Personality that comes from the plumber's own words tells a homeowner who is coming, which an animation cannot.",
+        "whyEnough": "The owner's own account replaces the generic lines, and no new component, script or image is needed for it.",
+        "validation": "Read the introduction aloud to the owner and check it sounds like him, then ask three customers whether it matches the man who came.",
+        "requires": [
+          {
+            "what": "the owner's own account of how he works, in his words"
+          }
+        ]
+      }
+    },
+    {
+      "id": "desktop-claim",
+      "lens": "mobile",
+      "observation": "The owner appears too late on the page.",
+      "raisedBy": "Eunice Ordor (stakeholder)",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "ref": "captures/home-375.png",
+          "viewport": "mobile"
+        }
+      ],
+      "impact": "A homeowner with a stopped boiler cannot see who is coming into the house until well down the page.",
+      "appliesTo": [
+        "mobile",
+        "desktop"
+      ],
+      "recommend": {
+        "class": "confirmed-correction",
+        "change": "show the owner's name beside the first call button",
+        "step": "trust-placement",
+        "because": "The visitor's worry is who is coming into the house, so a name answers it where the call is first offered.",
+        "whyEnough": "A name beside the call is enough on the phone, and the desktop layout has not been looked at.",
+        "requires": [
+          {
+            "what": "the owner's name",
+            "source": "tom"
+          }
+        ]
+      }
+    }
+  ]
+}
