@@ -5,8 +5,8 @@ Checks (`dd-checks`) submits a real enquiry through a client's real form
 handler on a schedule; Turnstile blocks synthetic browsers, so the handler
 accepts a signed request that skips **only the Turnstile token**.
 
-Web Crypto only, no dependencies: it runs in Cloudflare Workers, Node 22+,
-Vercel and the browser-side signing helpers in dd-checks. Tests run in both
+Web Crypto only, no dependencies: it runs in Cloudflare Workers, Node 22+
+and the browser-side signing helpers in dd-checks. Tests run in both
 Node and workerd.
 
 The protocol is specified in the "DD Checks: plan" document on DOM-487,
