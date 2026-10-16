@@ -91,7 +91,7 @@ export function contentWords(text: string): Set<string> {
 /** Crude stemming: enough that "calls" meets "call" and "booking" meets "book". */
 const stem = (w: string): string => w.replace(/(?:ing|ers|er|ed|es|s)$/, "");
 
-function shares(a: Set<string>, b: Set<string>): string[] {
+export function shares(a: Set<string>, b: Set<string>): string[] {
   const bs = new Set([...b].map(stem));
   return [...a].filter((w) => bs.has(stem(w)));
 }

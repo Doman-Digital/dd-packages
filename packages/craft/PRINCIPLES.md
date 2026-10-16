@@ -15,10 +15,10 @@ curves depending on which repo you were standing in.
 
 **`--ease-emphasized` was byte-identical to `--ease-standard`.** Both
 `cubic-bezier(0.2, 0, 0, 1)`. Every component reaching for emphasis got the
-standard curve and no emphasis. This is invisible on inspection — the names
+standard curve and no emphasis. This is invisible on inspection: the names
 differ, the values are 26 characters apart, and nothing fails.
 
-**`--ease-exit` was `cubic-bezier(0.4, 0, 1, 1)` — an ease-*in* curve.** It
+**`--ease-exit` was `cubic-bezier(0.4, 0, 1, 1)`, an ease-*in* curve.** It
 starts slow and accelerates out of view. It is the one curve never to use for
 UI: a dismissal on an ease-in reads as the interface dragging the thing away from
 you rather than getting out of your way.
@@ -34,7 +34,7 @@ the end state applies, and nothing moves.
 **141 classes painting nothing.** `bg-bg3` (48 uses) and `border-border` (93) in
 the portal reference Tailwind theme keys that do not exist under v4. They resolve
 to nothing and fall through to whatever the base rule said. Adding the missing
-keys would not be a fix — it would suddenly paint 48 surfaces nobody designed.
+keys would not be a fix. It would suddenly paint 48 surfaces nobody designed.
 
 **Two guesses at one accessible accent.** Two client repos each hand-picked a
 "legible variant" of the brand accent and wrote the contrast ratio into a
@@ -59,7 +59,7 @@ silence.
 
 **Both contrast models, because they disagree and the disagreement matters.**
 The portal's shipped `--violet-400` (`#a78bfa`) scores 7.21:1 against the
-marketing canvas — comfortably AA — and Lc −49.1, which is under the house bar
+marketing canvas, comfortably AA, and Lc −49.1, which is under the house bar
 for body text. WCAG 2.x is what an audit asks for; APCA is what tracks
 readability on dark backgrounds. The house bar is the pair.
 
@@ -71,7 +71,7 @@ passes: maximum brand, minimum sufficient contrast.
 **Motion is a decision before it is a curve.** The commonest motion defect is
 not a wrong easing, it is animating something that should have been instant.
 `shouldAnimate` refuses keyboard-triggered motion outright, refuses anything a
-user hits a hundred times a day, and always gives a reason — so a "no" is
+user hits a hundred times a day, and always gives a reason, so a "no" is
 arguable rather than mysterious.
 
 **Plain custom properties, nothing else.** The consumers do not agree on a
@@ -84,7 +84,7 @@ decide: the styling engine, the motion library, or where the tokens live.
 An anchor's real lightness and the ramp's lightness curve contradict each other.
 `#7050f5` sits at OKLCh L=0.564; `LIGHTNESS_CURVE[500]` is 0.658. Pin the anchor
 at 500, generate 600 from the raw curve at 0.586, and step 600 comes out
-*lighter* than step 500 — a ramp that reverses direction halfway down.
+*lighter* than step 500, a ramp that reverses direction halfway down.
 
 Both properties are required, so neither can be dropped. The curve is warped
 instead: a piecewise-linear map pinned at 0 and 1 that passes through
@@ -105,3 +105,18 @@ never the page grammar, because a page that looks typical for its category is
 the one visitors trust first. And it never asks for novelty. It asks for a
 reason: every expressive choice records where it came from in the client's own
 world, and a choice with no reason is the one flagged.
+
+## Decision confidence
+
+The same restraint applies to trust. A page is judged against what this
+visitor needs in order to understand the business, believe it and take the
+next step: who they are, what worries them, which evidence would settle it, and
+what the sensible next action is. That differs between a plumber with a
+stopped boiler, a clinic whose patients want to check a register and a salon
+whose clients want to see colour work before they book. So Craft asks for the
+reasoning, never for a pattern: no required hero, portrait, slideshow, section
+order or phone button, and no finding that a design is "less confident". What
+it records is what was observed, what is inferred, and what is unknown and needs
+the client or a test, and at which widths each was looked at. The phone is
+where this is examined first; a finding made there is not assumed to hold on a
+desktop. See [CHARACTER.md](./CHARACTER.md#decision-confidence).
