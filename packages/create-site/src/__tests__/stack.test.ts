@@ -15,7 +15,7 @@ const project = (...args: Parameters<typeof makeProject>) => {
 afterEach(() => roots.splice(0).forEach(cleanup));
 
 const STACK = {
-  host: "Vercel",
+  host: "Cloudflare",
   dns: "cloudflare",
   cms: "sanity",
   analytics: ["Google Analytics", "gtm", "Meta Pixel", "posthog"],
@@ -73,7 +73,7 @@ describe("buildStackEntry", () => {
   });
 
   test("a skipped answer produces no entry at all, never a placeholder", () => {
-    const list = tools(buildStackEntry(answers({ host: "vercel" }), "astro", "2026-10-01"));
+    const list = tools(buildStackEntry(answers({ host: "cloudflare" }), "astro", "2026-10-01"));
     expect(list.map((t) => t.category)).toEqual(["framework", "host"]);
     expect(list[0]!.tool).toBe("astro");
   });
@@ -107,7 +107,7 @@ describe("the scaffold", () => {
     const list = entry["acme-electrical"].stack.tools as { category: string; tool: string }[];
     expect(list.map((t) => `${t.category}:${t.tool}`)).toEqual([
       "framework:next-app-router",
-      "host:vercel",
+      "host:cloudflare",
       "dns:cloudflare",
       "cms:sanity",
       "analytics:ga4",

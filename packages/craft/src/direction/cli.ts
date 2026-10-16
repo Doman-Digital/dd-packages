@@ -18,7 +18,7 @@ import { toJson } from "../character/json.js";
 
 const readJson = <T>(path: string): T => JSON.parse(readFileSync(path, "utf8")) as T;
 
-/** A saved snapshot, or a URL (a Vercel preview, a local dev server, production) taken now. */
+/** A saved snapshot, or a URL (a preview deployment, a local dev server, production) taken now. */
 async function snapshotFrom(target: string | undefined, cwd: string): Promise<Snapshot | undefined> {
   if (!target) return undefined;
   if (/^https?:\/\//.test(target)) {
