@@ -76,6 +76,15 @@ export function validateConfidence(page: PageType, confidence: unknown, job: Job
   return problems;
 }
 
+/** Worries about who the visitor would deal with: a stranger in the home, someone not met, who is coming. Wording only. */
+const IDENTITY_WORRY = /\b(?:strangers?|who(?:'s| is| would| will) (?:coming|doing|treating|seeing|dealing|there)|(?:someone|somebody) (?:i|they|we) (?:have not|haven't|do not|don't) (?:met|know)|have not met|haven't met|not met|in (?:my|their|the) (?:home|house)|into (?:my|their|the) (?:home|house)|accountab\w+)\b/i;
+
+/** A person met after this many other sections is met late, for a job that worries about who it is. */
+const LATE_SECTION = 3;
+
+const identityText = (job: JobMap): string =>
+  [job.emotional?.value, job.social?.value, ...(Array.isArray(job.objections) ? job.objections : []), ...(Array.isArray(job.language) ? job.language : [])].filter((x): x is string => typeof x === "string").join(" ");
+
 const lensOf = (kind: unknown) => (kind === "people" ? ("identity" as const) : ("evidence" as const));
 
 /** Every sentence a page's decisions use, to see whether a worry is named anywhere. */
@@ -118,6 +127,8 @@ export function assessConfidence(hierarchy: unknown, job: JobMap | undefined, ct
     const c = h.confidence as PageConfidence;
     const proof = (Array.isArray(c.proof) ? c.proof : []).filter(isObject) as unknown as NonNullable<PageConfidence["proof"]>;
     const order = new Set((Array.isArray(h.order) ? h.order : []).map((o) => o?.role));
+    const bands = new Set<Viewport>((Array.isArray(c.examined) ? c.examined : []).filter((v): v is Viewport => (VIEWPORTS as readonly unknown[]).includes(v)));
+    if (ctx.snapshot && (ctx.snapshotPage ?? "home") === page) bands.add(viewportOf(ctx.snapshot.viewport.width));
 
     // Action clarity: the ask has to sit somewhere the page has.
     for (const pos of Array.isArray(h.primaryAction?.positions) ? h.primaryAction!.positions : []) {
@@ -170,6 +181,25 @@ export function assessConfidence(hierarchy: unknown, job: JobMap | undefined, ct
       }
     });
 
+    // Human accountability: when the job worries about who the visitor would deal with, a person met only after
+    // several sections is a hypothesis worth checking. Never fires for a job with no such worry, and never asks for a portrait.
+    if (job && IDENTITY_WORRY.test(identityText(job))) {
+      const sections = Array.isArray(h.order) ? h.order.map((o) => o?.role) : [];
+      /** How many sections come before it. The header and a pinned bar come before all of them. */
+      const before = (pos: string) => (pos === "header" || pos === "sticky" ? 0 : sections.indexOf(pos as never));
+      const met = proof.filter((p) => p.kind === "people" && before(p.position) >= 0).map((p) => ({ position: p.position, before: before(p.position) }));
+      const earliest = met.length > 0 ? met.reduce((a, b) => (b.before < a.before ? b : a)) : undefined;
+      if (earliest && earliest.before >= LATE_SECTION) {
+        add({
+          lens: "identity",
+          basis: "inferred",
+          at: at(".proof"),
+          message: `the job worries about who the visitor would deal with, and the first person is met in "${earliest.position}", after ${earliest.before} other sections`,
+          why: `A visitor who wants to know who is coming may leave or ask before getting there. The smallest change is a name and a line where the ask is first made, not the whole biography moved up: it can stay where it is. This is a hypothesis about the order as declared; check it on the width where it matters.${bands.has("mobile") ? "" : " It has not been examined on a phone."}`,
+        });
+      }
+    }
+
     // Relevance: the worries the job names, and whether any decision on this page names them.
     if (job && Array.isArray(job.objections)) {
       const said = contentWords(decisionText(h as PageHierarchy));
@@ -188,8 +218,6 @@ export function assessConfidence(hierarchy: unknown, job: JobMap | undefined, ct
     }
 
     // Mobile: which widths this was looked at, and the ones it was not.
-    const bands = new Set<Viewport>((Array.isArray(c.examined) ? c.examined : []).filter((v): v is Viewport => (VIEWPORTS as readonly unknown[]).includes(v)));
-    if (ctx.snapshot && (ctx.snapshotPage ?? "home") === page) bands.add(viewportOf(ctx.snapshot.viewport.width));
     if (bands.size === 0) {
       add({
         lens: "mobile",

@@ -158,8 +158,13 @@ export interface PageHierarchy {
 }
 export const HIERARCHY_FIELDS = ["primaryAction", "order", "lead", "journey"] as const;
 
-/** The eight lenses of decision confidence. */
-export const CONFIDENCE_LENSES = ["relevance", "hierarchy", "evidence", "identity", "action", "disclosure", "personality", "mobile"] as const;
+/**
+ * The lenses of decision confidence. `evidence` covers both decision
+ * confidence and the supporting evidence; `identity` is human accountability.
+ * `personality` and `differentiation` are decided in the token layer and are
+ * not raised by the file assessment, but a review note can be about either.
+ */
+export const CONFIDENCE_LENSES = ["relevance", "hierarchy", "evidence", "identity", "action", "disclosure", "personality", "differentiation", "mobile"] as const;
 export type ConfidenceLens = (typeof CONFIDENCE_LENSES)[number];
 
 /**
@@ -221,4 +226,129 @@ export interface DirectionReport {
     /** Job decided, at least a home page hierarchy with every field decided, and five of seven tokens. */
     complete: boolean;
   };
+}
+
+// ---------------------------------------------------------------------------
+// Reviewing a proposed change (CHARACTER.md, "Reviewing a proposed change")
+// ---------------------------------------------------------------------------
+
+/**
+ * How well the underlying problem is known.
+ *   observed    directly supported by something inspected: a screenshot, rendered behaviour, source, a measurement, the page's content
+ *   inferred    plausible, supported by something reported (an audit, a stakeholder, a customer) but not inspected
+ *   preference  taste or a stakeholder's wish with no stated visitor impact
+ *   unknown     cannot be established from what is available
+ */
+export const REVIEW_BASES = ["observed", "inferred", "preference", "unknown"] as const;
+export type ReviewBasis = (typeof REVIEW_BASES)[number];
+
+/** Evidence craft's reviewer looked at, as against evidence somebody reported. Only the first group can make a problem observed. */
+export const INSPECTED_KINDS = ["screenshot", "rendered", "source", "measurement", "content"] as const;
+export const REPORTED_KINDS = ["audit", "stakeholder", "customer"] as const;
+export const EVIDENCE_KINDS = [...INSPECTED_KINDS, ...REPORTED_KINDS] as const;
+export type EvidenceKind = (typeof EVIDENCE_KINDS)[number];
+
+/**
+ * What a recommendation is worth.
+ *   confirmed-correction  fixes a defect someone observed, with a stated visitor impact
+ *   design-hypothesis     could improve the visitor's decision, and needs judgement or a check to know
+ *   optional-refinement   polish; no important visitor problem is addressed
+ *   no-change             the existing design already does the job
+ */
+export const CHANGE_CLASSES = ["confirmed-correction", "design-hypothesis", "optional-refinement", "no-change"] as const;
+export type ChangeClass = (typeof CHANGE_CLASSES)[number];
+
+/**
+ * The ladder of minimum effective change, smallest first. The last two are
+ * structural and have to say why every smaller step was not enough.
+ */
+export const CHANGE_STEPS = ["copy", "relocate", "group", "imagery", "trust-placement", "adjust-component", "remove-redundancy", "restructure", "new-component"] as const;
+export type ChangeStep = (typeof CHANGE_STEPS)[number];
+
+/** Things a change can add that cost something: each needs a reason, whatever step it comes with. */
+export const ADDITIONS = ["carousel", "javascript", "dependency", "animation", "testimonial", "cta", "duplicate-content"] as const;
+export type Addition = (typeof ADDITIONS)[number];
+
+export interface ReviewEvidence {
+  kind: EvidenceKind;
+  /** Where it can be found: a screenshot path, a selector, a quotation, a report. */
+  ref: string;
+  /** Required for what was rendered or seen: screenshot, rendered, measurement. */
+  viewport?: Viewport;
+  note?: string;
+}
+
+export interface ReviewProposal {
+  change: string;
+  step: ChangeStep;
+  adds?: Addition[];
+  /** The section role it moves, removes or replaces. */
+  touches?: SectionRole;
+}
+
+export interface ReviewNote {
+  id: string;
+  page?: PageType;
+  lens: ConfidenceLens;
+  /** What was said or seen, as it was said. */
+  observation: string;
+  raisedBy: string;
+  /** The visitor's problem underneath it, in the visitor's terms. Left out when there is not one. */
+  problem?: string;
+  basis: ReviewBasis;
+  evidence: ReviewEvidence[];
+  /** What the problem costs this visitor. A reason, about this client's job. */
+  impact?: string;
+  /** The widths the note claims to be true of. Default: the widths it was seen at. */
+  appliesTo?: Viewport[];
+  /** What the person proposed. Judged apart from the problem. */
+  suggested?: ReviewProposal;
+  /** What the page already has that bears on this: "swipeable project gallery". */
+  existing?: string[];
+  recommend: ReviewProposal & {
+    class: ChangeClass;
+    because: string;
+    /** Why this step is enough and nothing larger is needed. For a small step with no additions. */
+    whyEnough?: string;
+    /** For a structural step or any addition: each smaller step and why it would not do. */
+    smaller?: { step: ChangeStep; whyNot: string }[];
+    /** How a design hypothesis would be checked. */
+    validation?: string;
+    /** Facts or assets the change depends on. With no source, nobody has supplied them. */
+    requires?: { what: string; source?: string }[];
+  };
+}
+
+export interface DesignReview {
+  $schema?: string;
+  version: 1;
+  /** Who or what was reviewed, and at which width. */
+  subject: string;
+  notes: ReviewNote[];
+}
+
+export type ReviewOutcome = "change" | "hold" | "no-change" | "gather-evidence";
+export type SuggestionStanding = "supported" | "narrower-change-preferred" | "not-supported" | "not-needed";
+
+export interface ReviewResult {
+  id: string;
+  page: PageType;
+  lens: ConfidenceLens;
+  basis: { declared: ReviewBasis; effective: ReviewBasis };
+  suggested?: { standing: SuggestionStanding; reasons: string[] };
+  recommend: { declared: ChangeClass; effective: ChangeClass; step?: ChangeStep; withdrawn?: string[] };
+  outcome: ReviewOutcome;
+  /** Widths the evidence was looked at, the widths the note says anything about, and the ones it says nothing about. */
+  widths: { examined: Viewport[]; claimed: Viewport[]; unknown: Viewport[] };
+  /** What craft changed about the note's own claims, and why. */
+  adjustments: string[];
+  /** Facts or assets the change needs and nobody has supplied. */
+  outstanding: string[];
+}
+
+export interface ReviewReport {
+  valid: boolean;
+  problems: DirectionProblem[];
+  results: ReviewResult[];
+  summary: { change: number; hold: number; noChange: number; gatherEvidence: number; verdict: string };
 }

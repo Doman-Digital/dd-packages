@@ -1,4 +1,4 @@
-/** `craft direction init | validate | propose | research`. All file I/O for art-direction.json lives here. */
+/** `craft direction init | validate | propose | research | review`. All file I/O for art-direction.json lives here. */
 
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -10,7 +10,8 @@ import { initDirection } from "./init.js";
 import { decodePng } from "./png.js";
 import { paletteFromPixels, propose } from "./propose.js";
 import { researchPrompt } from "./research.js";
-import { PAGE_TYPES, type ArtDirection, type DirectionReport, type DirectionSource, type PageType } from "./types.js";
+import { assessReview } from "./review.js";
+import { PAGE_TYPES, type ArtDirection, type DesignReview, type DirectionReport, type DirectionSource, type PageType, type ReviewReport } from "./types.js";
 import { validateDirection } from "./validate.js";
 import type { DirectionSummary } from "../estate/direction.js";
 import { toJson } from "../character/json.js";
@@ -69,6 +70,16 @@ export async function runDirection(args: string[], io: Io): Promise<number> {
       if (!brief || brief.trim().split(/\s+/).length < 5) throw new Error('usage: craft direction research --brief "<who, where, what they do>" [--visual], or run it next to an art-direction.json with a brief');
       io.out(researchPrompt({ brief, client: flags.client ?? base.client, visual: flags.visual }));
       return 0;
+    }
+
+    if (sub === "review") {
+      if (!flags.notes) throw new Error("usage: craft direction review --notes <design-review.json> [--direction <file>] [--json]");
+      const notesFile = resolve(io.cwd, flags.notes);
+      if (!existsSync(notesFile)) throw new Error(`no such file: ${flags.notes}`);
+      const review = readJson<DesignReview>(notesFile);
+      const report = assessReview(review, existsSync(file) ? readJson<Partial<ArtDirection>>(file) : {});
+      io.out(flags.json ? toJson(report) : renderReview(review, report));
+      return report.valid ? 0 : 1;
     }
 
     const page = (flags.page ?? "home") as PageType;
@@ -152,7 +163,7 @@ export async function runDirection(args: string[], io: Io): Promise<number> {
       return 0;
     }
 
-    throw new Error("usage: craft direction init | validate | propose | research");
+    throw new Error("usage: craft direction init | validate | propose | research | review");
   } catch (error) {
     io.err(`craft: ${(error as Error).message}`);
     return 2;
@@ -165,4 +176,32 @@ const confidenceCounts = (findings: NonNullable<DirectionReport["confidence"]>):
 /** Choices a person has already reasoned keep priority over a proposal. */
 function stripUndecided(choices: ArtDirection["choices"] = {}): ArtDirection["choices"] {
   return Object.fromEntries(Object.entries(choices).filter(([, c]) => c && c.because && c.because.trim().length > 0));
+}
+
+/** The review as a reader would want it: what was said, how well it is known, what to do, and why that much. */
+function renderReview(review: DesignReview, report: ReviewReport): string {
+  const lines: string[] = [`craft direction review: ${review.subject ?? "untitled"}`];
+  for (const p of report.problems) lines.push(`  ${p.severity} ${p.at}: ${p.message}`);
+  for (const r of report.results) {
+    const note = review.notes.find((n) => n.id === r.id);
+    if (!note) continue;
+    const basis = r.basis.declared === r.basis.effective ? r.basis.effective : `${r.basis.effective} (declared ${r.basis.declared})`;
+    lines.push("", `  ${r.id} [${r.page}, ${r.lens}] ${basis}: ${r.outcome}${r.outcome === "change" ? `, ${r.recommend.effective.replace("-", " ")}` : ""}`);
+    lines.push(`    observation: ${note.observation} (${note.raisedBy})`);
+    if (note.problem) lines.push(`    visitor problem: ${note.problem}`);
+    if (note.evidence.length > 0) lines.push(`    evidence: ${note.evidence.map((e) => `${e.kind}${e.viewport ? ` at ${e.viewport}` : ""}`).join(", ")}`);
+    if (note.impact) lines.push(`    visitor impact: ${note.impact}`);
+    lines.push(`    seen at: ${r.widths.examined.join(", ") || "no width recorded"}${r.widths.unknown.length ? `; unknown at ${r.widths.unknown.join(", ")}` : ""}`);
+    if (r.suggested && note.suggested) lines.push(`    suggested: ${note.suggested.change} -> ${r.suggested.standing.replace(/-/g, " ")}: ${r.suggested.reasons.join(" ")}`);
+    if (r.outcome === "change" || r.outcome === "hold") {
+      lines.push(`    recommended (${r.recommend.step}): ${note.recommend.change}`);
+      lines.push(`      why: ${note.recommend.because}`);
+      if (note.recommend.whyEnough) lines.push(`      why not more: ${note.recommend.whyEnough}`);
+      for (const s of note.recommend.smaller ?? []) lines.push(`      not ${s.step}: ${s.whyNot}`);
+      if (note.recommend.validation) lines.push(`      check: ${note.recommend.validation}`);
+    } else if (note.recommend.because) lines.push(`    no change: ${note.recommend.because}`);
+    for (const a of r.adjustments) lines.push(`    note: ${a}`);
+  }
+  lines.push("", report.summary.verdict);
+  return lines.join("\n");
 }

@@ -49,6 +49,7 @@ Usage
   craft direction init [--snapshot <file | url>] [--client <name>] [--brief "<text>"] [--out <file>]
   craft direction validate [--snapshot <file | url>] [--page home] [--estate <estate.json>] [--direction <file>] [--strict] [--json]
   craft direction research [--brief "<who, where, what>"] [--visual]
+  craft direction review --notes <design-review.json> [--direction <file>] [--json]
   craft direction propose [--snapshot <file>] [--estate <estate.json | dir>] [--out <file>]
   craft null build --brief "<text>" --out <dir> [--runs 20] [--parallel 4] [--model <name>]
   craft null import <dir> --builder <name> --brief "<text>" [--out <dir>] [--model <name>]
@@ -178,6 +179,8 @@ export interface Flags {
   id?: string;
   competitor?: string;
   page?: string;
+  /** `craft direction review`: the design-review.json to weigh. */
+  notes?: string;
   /** `craft estate compare --directions`: declared directions instead of rendered pages. */
   directions: boolean;
   /** `craft direction research --visual`: add references from outside the category. */
@@ -212,6 +215,7 @@ const VALUE_FLAGS = {
   "--component": "component",
   "--competitor": "competitor",
   "--page": "page",
+  "--notes": "notes",
   "--builder": "builder",
   "--scheme": "scheme",
 } as const;
