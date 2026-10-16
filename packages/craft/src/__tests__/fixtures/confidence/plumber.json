@@ -1,0 +1,218 @@
+{
+  "version": 2,
+  "client": "Aldous Plumbing (fictional)",
+  "brief": "A sole-trader plumber in Stockport fixing failed boilers, leaks and bathrooms for homeowners and landlords across the borough.",
+  "sources": [
+    {
+      "id": "review",
+      "kind": "review",
+      "note": "My boiler stopped working on a Sunday and I needed someone I could trust in my house quickly. He gave a fixed price on the phone and sent a photo of the finished pipework. I want to know who is coming to my house and see the actual work. I am a landlord and my tenant had no heating."
+    },
+    {
+      "id": "van",
+      "kind": "livery",
+      "note": "The van is bottle green with white hand-painted capitals and a plain outline border.",
+      "colours": [
+        "#1f4d3a",
+        "#ffffff"
+      ],
+      "lettering": "Hand-painted capitals with a plain outline border."
+    },
+    {
+      "id": "jobs",
+      "kind": "photo",
+      "note": "Photographs taken on a phone of finished boiler and pipework jobs, each with the street and date written on a card in the shot."
+    },
+    {
+      "id": "tom",
+      "kind": "founder",
+      "note": "Tom Aldous works alone, answers his own phone and is on the Gas Safe register under his own name."
+    }
+  ],
+  "job": {
+    "statement": {
+      "verb": "find",
+      "object": "a plumber they can trust in their house to fix a failed boiler",
+      "context": "quickly, without being overcharged by someone they have never met"
+    },
+    "functional": {
+      "value": "Their boiler stopped working and they need someone to fix it quickly.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "emotional": {
+      "value": "They worry about letting a stranger into their house and being overcharged.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "social": {
+      "value": "A landlord needs to show the tenant who had no heating that it was fixed properly.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "consideration": {
+      "value": "low",
+      "because": "The boiler stopped working on a Sunday, so the choice is made within minutes of searching.",
+      "evidence": [
+        "review"
+      ]
+    },
+    "objections": [
+      "letting a stranger into my house",
+      "being overcharged on the day",
+      "not knowing who is coming"
+    ],
+    "language": [
+      "I needed someone I could trust in my house quickly",
+      "I want to know who is coming to my house"
+    ],
+    "evidence": [
+      "review"
+    ]
+  },
+  "hierarchy": {
+    "home": {
+      "primaryAction": {
+        "value": "Call Tom",
+        "positions": [
+          "hero",
+          "sticky"
+        ],
+        "because": "The low consideration job is a stopped boiler, so a visitor wants to ring at once, and the call stays pinned while they check who is coming."
+      },
+      "order": [
+        {
+          "role": "hero",
+          "because": "A stopped boiler needs someone quickly, so Tom's name, the van and one finished boiler job come first."
+        },
+        {
+          "role": "other",
+          "because": "The visitor wants to see the actual work before letting a stranger into the house, so the work follows."
+        },
+        {
+          "role": "testimonials",
+          "because": "Landlords and homeowners say they trusted him in their house, so their words come after the work."
+        },
+        {
+          "role": "cards",
+          "because": "The failed boiler is the urgent job, so the services list comes once trust is established."
+        },
+        {
+          "role": "footer-cta",
+          "because": "A visitor who has seen who is coming and the work can ring without scrolling back up."
+        }
+      ],
+      "lead": {
+        "value": "Failed boilers fixed by Tom himself",
+        "subordinate": [
+          "bathrooms",
+          "landlord certificates"
+        ],
+        "because": "A stopped boiler is the urgent job, and the visitor wants the same man who answers the phone to be the one who comes."
+      },
+      "journey": [
+        {
+          "stage": "recognise",
+          "because": "A visitor with a stopped boiler first needs to see this is a plumber who covers their street."
+        },
+        {
+          "stage": "trust",
+          "because": "Before letting a stranger into the house, the visitor wants to know who is coming and see the work."
+        },
+        {
+          "stage": "act",
+          "because": "Once they know who is coming, a quick call gets the boiler fixed without being overcharged on the day."
+        }
+      ],
+      "confidence": {
+        "examined": [
+          "mobile"
+        ],
+        "proof": [
+          {
+            "kind": "work",
+            "what": "one photograph of a finished boiler job with the street and date on a card in the shot",
+            "position": "hero",
+            "depth": "first-look",
+            "because": "The visitor wants to see the actual work before letting a stranger into the house, so one finished job is met on the first screen.",
+            "evidence": [
+              "jobs"
+            ]
+          },
+          {
+            "kind": "people",
+            "what": "Tom's name, the van and a line saying he answers the phone himself",
+            "position": "hero",
+            "depth": "first-look",
+            "because": "The visitor asks who is coming to the house, and the name and the van answer it on the first screen without a portrait.",
+            "evidence": [
+              "tom",
+              "van"
+            ]
+          },
+          {
+            "kind": "work",
+            "what": "every job photograph with a caption saying what was fixed",
+            "position": "other",
+            "depth": "on-request",
+            "because": "Captions about each boiler job are detail for a visitor who wants more, so they sit in the work section and not in the way.",
+            "evidence": [
+              "jobs"
+            ]
+          },
+          {
+            "kind": "reviews",
+            "what": "three customer quotes about trusting him in the house",
+            "position": "testimonials",
+            "depth": "first-look",
+            "because": "Customers describing trusting a stranger in their house answers the visitor's own worry in the words of someone who did.",
+            "evidence": [
+              "review"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "choices": {
+    "accent": {
+      "value": "#1f4d3a",
+      "because": "The hand-painted capitals on the van set its colour, so the same colour marks the call button.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "ground": {
+      "value": "#ffffff",
+      "because": "The van's white panels sit behind its green lettering, so the page ground follows them.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "display": {
+      "value": "Roboto Slab",
+      "because": "The hand-painted capitals on the van are sturdy and squared, which a slab headline echoes.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "body": {
+      "value": "Source Sans 3",
+      "because": "The plain outline lettering on the van keeps supporting text simple and easy to read.",
+      "evidence": [
+        "van"
+      ]
+    },
+    "shape": {
+      "value": "square corners",
+      "because": "The plain outline border on the van has square corners, so the buttons keep them.",
+      "evidence": [
+        "van"
+      ]
+    }
+  },
+  "exceptions": []
+}

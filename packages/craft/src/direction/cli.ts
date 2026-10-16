@@ -10,7 +10,7 @@ import { initDirection } from "./init.js";
 import { decodePng } from "./png.js";
 import { paletteFromPixels, propose } from "./propose.js";
 import { researchPrompt } from "./research.js";
-import { PAGE_TYPES, type ArtDirection, type DirectionSource, type PageType } from "./types.js";
+import { PAGE_TYPES, type ArtDirection, type DirectionReport, type DirectionSource, type PageType } from "./types.js";
 import { validateDirection } from "./validate.js";
 import type { DirectionSummary } from "../estate/direction.js";
 import { toJson } from "../character/json.js";
@@ -112,10 +112,14 @@ export async function runDirection(args: string[], io: Io): Promise<number> {
       if (flags.json) io.out(toJson(report));
       else {
         for (const p of report.problems) io.out(`  ${p.severity === "error" ? "error" : "warn "}  ${p.at || "(file)"}  ${p.message}`);
+        for (const f of report.confidence ?? []) {
+          io.out(`  ${f.basis.padEnd(8)}  ${f.lens}  ${f.at}  ${f.message}`);
+          io.out(`            why it matters: ${f.why}`);
+        }
         const l = report.layers;
         const pages = l.hierarchy.map((h) => `${h.page} ${h.decided} of ${h.total}`).join(", ");
         io.out(
-          `craft direction: ${report.valid ? "valid" : "not valid"}. Job ${l.job ? "decided" : "not decided"}; hierarchy ${pages || "not decided"}; tokens ${l.tokens.decided} of ${l.tokens.total}.${l.complete ? " Every layer decided." : ""}`,
+          `craft direction: ${report.valid ? "valid" : "not valid"}. Job ${l.job ? "decided" : "not decided"}; hierarchy ${pages || "not decided"}; tokens ${l.tokens.decided} of ${l.tokens.total}.${l.complete ? " Every layer decided." : ""}${report.confidence ? ` Decision confidence: ${confidenceCounts(report.confidence)}, none of them a score.` : ""}`,
         );
       }
       return report.valid ? 0 : 1;
@@ -154,6 +158,9 @@ export async function runDirection(args: string[], io: Io): Promise<number> {
     return 2;
   }
 }
+
+const confidenceCounts = (findings: NonNullable<DirectionReport["confidence"]>): string =>
+  (["observed", "inferred", "unknown"] as const).map((b) => `${findings.filter((f) => f.basis === b).length} ${b}`).join(", ");
 
 /** Choices a person has already reasoned keep priority over a proposal. */
 function stripUndecided(choices: ArtDirection["choices"] = {}): ArtDirection["choices"] {

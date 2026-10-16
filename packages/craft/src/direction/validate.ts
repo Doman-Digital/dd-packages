@@ -12,6 +12,7 @@ import type { Fingerprint } from "../fingerprint/index.js";
 import { normaliseFamily } from "../snapshot/fonts.js";
 import type { Snapshot } from "../snapshot/types.js";
 import { compareToDeclared, summariseDirection, type DirectionSummary } from "../estate/direction.js";
+import { assessConfidence, validateConfidence } from "./confidence.js";
 import { checkOrder, validateHierarchy } from "./hierarchy.js";
 import { validateJob } from "./job.js";
 import { faceLicence } from "./licences.js";
@@ -20,9 +21,11 @@ import { categoryMatchesBrief } from "./research.js";
 import {
   CHOICE_KEYS,
   DIRECTION_VERSIONS,
+  PAGE_TYPES,
   SOURCE_KINDS,
   type ArtDirection,
   type ChoiceKey,
+  type ConfidenceFinding,
   type DirectionProblem,
   type DirectionReport,
   type DirectionSource,
@@ -141,7 +144,7 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
     }
     let ok = true;
     if (typeof c.value !== "string" || !c.value.trim()) {
-      err(`${at}.value`, "no value");
+      err(`${at}.value`, "no value"); // copy-ok: validator message, not page copy
       ok = false;
     } else if ((key === "accent" || key === "ground") && !parseColour(c.value)) {
       err(`${at}.value`, `"${c.value}" is not a colour`);
@@ -196,6 +199,7 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
   // Version 2: the job, then the structure decided from it.
   let job = false;
   let hierarchy: DirectionReport["layers"]["hierarchy"] = [];
+  let confidence: ConfidenceFinding[] | undefined;
   if (d.version === 2) {
     const j = validateJob(d.job, sources, { brief: typeof d.brief === "string" ? d.brief : "", readSource: ctx.readSource });
     problems.push(...j.problems);
@@ -203,6 +207,11 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
     const h = validateHierarchy(d.hierarchy, d.job, sources);
     problems.push(...h.problems);
     hierarchy = h.pages;
+    // Decision confidence is optional per page. Its shape errors count; its findings never do.
+    const pages = d.hierarchy && typeof d.hierarchy === "object" && !Array.isArray(d.hierarchy) ? d.hierarchy : {};
+    const recorded = Object.entries(pages).filter(([k, p]) => (PAGE_TYPES as readonly string[]).includes(k) && p && typeof p === "object" && (p as { confidence?: unknown }).confidence !== undefined);
+    for (const [page, p] of recorded) problems.push(...validateConfidence(page as PageType, (p as { confidence?: unknown }).confidence, d.job, sources));
+    if (recorded.length) confidence = assessConfidence(d.hierarchy, d.job, { snapshot: ctx.snapshot, snapshotPage: ctx.page });
     if (ctx.snapshot) problems.push(...checkOrder(d.hierarchy?.[ctx.page ?? "home"], ctx.page ?? "home", ctx.snapshot, ctx.strict));
   }
 
@@ -221,6 +230,7 @@ export function validateDirection(input: unknown, ctx: ValidateContext = {}): Di
     valid: problems.every((p) => p.severity !== "error"),
     problems,
     decided,
+    ...(confidence ? { confidence } : {}),
     layers: { job, hierarchy, tokens: { decided, total: CHOICE_KEYS.length }, complete: complete && problems.every((p) => p.severity !== "error") },
   };
 }
