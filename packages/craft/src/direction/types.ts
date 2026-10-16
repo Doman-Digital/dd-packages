@@ -110,13 +110,77 @@ export type PageType = (typeof PAGE_TYPES)[number];
 /** Where a call to action can sit: a section role, or the header, or pinned while scrolling. */
 export type ActionPosition = SectionRole | "header" | "sticky";
 
+/**
+ * What a visitor can be shown to establish confidence. A menu, not a checklist:
+ * the job decides which kinds matter for this business, and none is required.
+ */
+export const PROOF_KINDS = ["work", "people", "credentials", "reviews", "experience", "outcomes"] as const;
+export type ProofKind = (typeof PROOF_KINDS)[number];
+
+/** `first-look` is met without being sought; `on-request` is detail a visitor opens, expands or follows a link to. */
+export const PROOF_DEPTHS = ["first-look", "on-request"] as const;
+export type ProofDepth = (typeof PROOF_DEPTHS)[number];
+
+/** Coarse bands of STANDARD.md section 10: `mobile` covers the two phone bands. */
+export const VIEWPORTS = ["mobile", "tablet", "desktop"] as const;
+export type Viewport = (typeof VIEWPORTS)[number];
+
+/** One piece of evidence the page offers, where it sits, and why this visitor needs it there. */
+export interface ProofItem {
+  kind: ProofKind;
+  /** What it is: "photographs of three finished bathrooms", "the GDC register number". */
+  what: string;
+  /** The section it sits in, or the header or a pinned bar. Must be in the page's order. */
+  position: ActionPosition;
+  depth: ProofDepth;
+  because: string;
+  /** Source ids that show this exists. With none, it is a claim the client has yet to confirm. */
+  evidence?: string[];
+}
+
+/**
+ * Decision confidence for one page (CHARACTER.md). Optional: a file without
+ * it validates and reports exactly as before.
+ */
+export interface PageConfidence {
+  /** The widths the evidence behind these decisions was looked at. Findings from one band are not carried to another. */
+  examined?: Viewport[];
+  proof?: ProofItem[];
+}
+
 export interface PageHierarchy {
   primaryAction: { value: string; positions: ActionPosition[]; because: string; evidence?: string[] };
   order: { role: SectionRole; because: string }[];
   lead: { value: string; subordinate?: string[]; because: string };
   journey: { stage: string; because: string }[];
+  /** Optional. Where the page's evidence sits and what is held back; the assessment reads it. */
+  confidence?: PageConfidence;
 }
 export const HIERARCHY_FIELDS = ["primaryAction", "order", "lead", "journey"] as const;
+
+/** The eight lenses of decision confidence. */
+export const CONFIDENCE_LENSES = ["relevance", "hierarchy", "evidence", "identity", "action", "disclosure", "personality", "mobile"] as const;
+export type ConfidenceLens = (typeof CONFIDENCE_LENSES)[number];
+
+/**
+ * How well a finding is known.
+ *   observed  the file or the snapshot says so directly. A contradiction.
+ *   inferred  a reasonable reading, not checked. A hypothesis.
+ *   unknown   needs the client, or a test with visitors. A question.
+ * A finding craft raises is never a preference.
+ */
+export type ConfidenceBasis = "observed" | "inferred" | "unknown";
+
+export interface ConfidenceFinding {
+  lens: ConfidenceLens;
+  page: PageType;
+  basis: ConfidenceBasis;
+  /** Where in the file: "hierarchy.home.confidence.proof[1]". */
+  at: string;
+  message: string;
+  /** Why it matters for this visitor. Never a conversion claim. */
+  why: string;
+}
 
 export interface ArtDirection {
   $schema?: string;
@@ -147,6 +211,8 @@ export interface DirectionReport {
   problems: DirectionProblem[];
   /** How many of the seven choices carry an accepted reason. */
   decided: number;
+  /** Decision confidence findings, from every page that records a `confidence` block. Absent when none does. Never affects `valid` or `complete`. */
+  confidence?: ConfidenceFinding[];
   /** Each layer on its own. A site is only decided when all three are. */
   layers: {
     job: boolean;

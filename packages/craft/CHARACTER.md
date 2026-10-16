@@ -19,6 +19,10 @@ the floor in STANDARD.md and the page audit.
 Character also comes from the display face, accent, shape, motif and one
 signature moment, with evidence from the client's world.
 
+Whether the order gives this visitor what they need to trust the business and
+take the next step is the question [Decision confidence](#decision-confidence)
+asks. It reads the same hierarchy layer; it is not a second standard.
+
 ## Three signals, and a reason behind every choice
 
 Any fixed list of tells goes stale. Ban Inter and a model moves to Space
@@ -295,6 +299,114 @@ words.
 
 The editor schema ships as `@domandigital/craft/art-direction.schema.json`.
 A file from phase A that holds only exceptions stays valid.
+
+### Decision confidence
+
+A page should give a visitor what they need to understand the business, trust
+it and take the next appropriate step, in an order that follows how they
+decide rather than a sequence of stock sections. Craft already records most of
+that: the job says who is visiting, what worries them and how long they take;
+the hierarchy says what leads, what order, and where the ask sits. Decision
+confidence is the reading of those decisions against the visitor, with three
+additions to the hierarchy layer and no new layer.
+
+The eight questions, with where Craft already answers each:
+
+| | Question | Where it is decided or read |
+| --- | --- | --- |
+| A | Visitor relevance: does the page meet who this is and what worries them? | `job`, `hierarchy.*.lead`, and the finding that names a worry no decision answers |
+| B | Information hierarchy: is related information together, and nothing needed early buried? | `hierarchy.*.order` and `journey` reasons; evidence placed in a section the order lacks |
+| C | Evidence and credibility: is what is offered relevant, and does anything show it exists? | `confidence.proof` (kind: work, people, credentials, reviews, experience, outcomes) |
+| D | Human identity and accountability, where relevant: can the visitor tell who they would deal with? | `confidence.proof` of kind `people`, in whatever form fits: a name, a register entry, a portrait |
+| E | Action clarity: is the next step the one this visitor takes, and does the page offer it? | `hierarchy.*.primaryAction`: call, book, enquire, quote, explore, buy |
+| F | Progressive disclosure: essential early, detail when sought, and a signal that the detail exists? | `confidence.proof[].depth`: `first-look` or `on-request` |
+| G | Brand personality and contextual fit: does the character come from this business? | The token layer and its evidence, unchanged |
+| H | Mobile experience: was it looked at on a phone, and what was not examined? | `confidence.examined` and STANDARD.md section 10 |
+
+`confidence` is optional on each page and records two things the hierarchy did
+not: which widths the decisions were looked at (`examined`), and the evidence
+the page offers (`proof`). Each item says what it is, which section it sits in,
+whether a visitor meets it without looking (`first-look`) or opens it
+(`on-request`), and why this visitor needs it. The reason goes through the same
+rule as every other reason: eight words, tied to this client's job, and a
+default such as "social proof builds trust" fails. Cite a source when one shows
+the evidence exists.
+
+```json
+"confidence": {
+  "examined": ["mobile"],
+  "proof": [
+    {
+      "kind": "work",
+      "what": "one photograph of a finished boiler job with the street and date on a card in the shot",
+      "position": "hero",
+      "depth": "first-look",
+      "because": "The visitor wants to see the actual work before letting a stranger into the house, so one finished job is met on the first screen.",
+      "evidence": ["jobs"]
+    }
+  ]
+}
+```
+
+`craft direction validate` reads it and prints findings after the problems.
+Each names the lens, where in the file, what was found, and why it matters to
+this visitor, and carries one of three bases:
+
+- **observed**: directly supported by the file or the snapshot. Evidence placed
+  in a section the declared order does not have; an ask positioned in a section
+  the order lacks.
+- **inferred**: a reasonable reading that nobody has checked. Detail held back
+  for those who seek it, with nothing of its kind met first, so it may never be
+  found. This is a hypothesis, not a rule.
+- **unknown**: needs the client or a test. Evidence no source shows exists (a
+  planned testimonial, a claimed credential, an outcome nobody has compiled);
+  a worry from the job no decision names; a width nobody examined.
+
+Nothing here is a score, a count to push towards zero or a prediction. A
+finding says what Craft could and could not establish. A page with no findings
+is not "confident", and one with several is not wrong: unknown means ask.
+
+What it deliberately does not do:
+
+- Require any evidence kind. A sole trader, a clinic and a salon rely on
+  different evidence, and a page with none recorded validates.
+- Require a slideshow, a founder portrait, testimonials above the fold, a
+  telephone number, an enquiry form, or any section order. The job decides
+  whether the ask is to call, book, enquire, request a quote, explore or
+  buy; a clinic whose patients are at work and would rather write is not
+  failed for lacking a phone button.
+- Treat a conventional page as weaker. Conventional order is allowed with a
+  reason, as above.
+- Carry a finding between widths. A review of a phone layout is evidence about
+  the phone. The desktop and tablet are reported as not examined until
+  someone examines them, and the findings are then made there.
+- Treat an example claim as a fact. Example copy, a hypothetical years in
+  practice or a quote nobody collected is not a source; leave `evidence` empty
+  and it is reported as unknown.
+
+Three executable fixtures show one principle giving three answers, in
+`src/__tests__/fixtures/confidence/`: a sole-trader plumber (call at once,
+the work and the man's name and van on the first screen, no portrait), a
+private physiotherapy practice (write rather than ring, registration shown as
+text, practitioners by name and specialism with no portraits, an outcomes
+summary reported as unknown because nobody has compiled one), and an
+appointment-based salon (book beside each stylist's own colour work, a full
+gallery on request). They are invented, as the electrician is. None has a
+slideshow; two have no phone action; none has a founder portrait; all validate.
+
+Where this came from: a review of a plumbing site's phone layout, which
+suggested the owner's introduction came too late, that work, reviews and
+personal detail felt fragmented, that a slideshow and a fuller portfolio might
+help, and that contact should be reachable without much scrolling. Those were
+hypotheses about that site on that width. Craft records the questions they
+raised, not the answers.
+
+For future work: the research prompt (`craft direction research`) asks where
+the visitor looks, what would settle it for them, and what the next step is
+without assuming a phone, a portrait or any one of them. Write the hierarchy
+from those answers, add `confidence` where the page makes decisions about
+evidence, and run `craft direction validate`. The findings are the list of
+what to confirm with the client or look at before launch.
 
 ## Declaring an exception
 

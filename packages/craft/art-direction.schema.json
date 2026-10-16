@@ -434,6 +434,88 @@
             "additionalProperties": false
           },
           "minItems": 2
+        },
+        "confidence": {
+          "type": "object",
+          "description": "Optional. Decision confidence for this page: the widths its decisions were examined at, and the evidence it offers, where it sits and how much is met first. Nothing in it is required: the job decides which kinds of evidence matter. Findings craft reads from it are never a score.",
+          "properties": {
+            "examined": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "mobile",
+                  "tablet",
+                  "desktop"
+                ]
+              },
+              "description": "The widths the evidence behind these decisions was looked at. A finding from one width is not carried to another."
+            },
+            "proof": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/proofItem"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "proofItem": {
+      "type": "object",
+      "required": [
+        "kind",
+        "what",
+        "position",
+        "depth",
+        "because"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "work",
+            "people",
+            "credentials",
+            "reviews",
+            "experience",
+            "outcomes"
+          ]
+        },
+        "what": {
+          "type": "string",
+          "description": "What it is, in a few words: photographs of three finished bathrooms, the register number."
+        },
+        "position": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/role"
+            },
+            {
+              "enum": [
+                "header",
+                "sticky"
+              ]
+            }
+          ],
+          "description": "Where it sits. A section role must be in the page's order."
+        },
+        "depth": {
+          "enum": [
+            "first-look",
+            "on-request"
+          ],
+          "description": "first-look is met without being sought; on-request is detail a visitor opens or follows."
+        },
+        "because": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Source ids that show this exists. With none it is a claim the client has yet to confirm."
         }
       },
       "additionalProperties": false

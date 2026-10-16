@@ -34,7 +34,8 @@ export const SECTION_ROLES: readonly SectionRole[] = [
   "team",
   "contact",
 ];
-const POSITIONS = new Set<string>([...SECTION_ROLES, "header", "sticky"]);
+/** Where a call to action or a piece of evidence can sit. */
+export const POSITIONS = new Set<string>([...SECTION_ROLES, "header", "sticky"]);
 
 export interface PageResult {
   page: PageType;
