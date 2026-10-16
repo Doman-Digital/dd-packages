@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "subject": "Hollis & Reed Hair home page, phone layout (fictional)",
+  "notes": [
+    {
+      "id": "founder-first",
+      "lens": "identity",
+      "observation": "The founder's biography could sit directly below the hero.",
+      "raisedBy": "Review discussion",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "review discussion",
+          "viewport": "mobile"
+        }
+      ],
+      "existing": [
+        "each stylist's first name beside their own colour work"
+      ],
+      "suggested": {
+        "change": "move the founder's biography directly below the hero",
+        "step": "restructure"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "A booking visitor wants to see colour work and free slots before booking, and each stylist's name already sits beside their work."
+      }
+    }
+  ]
+}
