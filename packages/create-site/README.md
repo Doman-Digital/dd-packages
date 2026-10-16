@@ -84,8 +84,8 @@ autocomplete, and a phone number that is not a `tel:` link; in landscape, on
 fixed layers over half the height; at 1440 and 1920, on body lines over 80
 characters. `measure.baseline` lists known failures so they stay visible.
 `pnpm deploy:preview` is the only deploy: it sets `PUBLIC_PREVIEW` itself,
-builds, measures with noindex required, and deploys a preview to Cloudflare
-or Vercel; it refuses a route, a custom domain or `--prod`. So a site made
+builds, measures with noindex required, and deploys a preview to Cloudflare;
+it refuses a route, a custom domain or `--prod`. So a site made
 with create-site cannot build until its programme exists and Stages 05 and 06
 are done, and cannot reach a URL unmeasured.
 
@@ -131,7 +131,7 @@ same answers the site was made with (`--answers`).
 `siteUrl`, `sector`, `description`, `phone`, `email`, `locality`,
 `postalCode`, `serviceAreas`, `registers` (ids from `src/sectors.ts`) and
 `previousHosts`, `programme` (the Linear issue, like `--programme`), and the
-declared technology: `host` (`cloudflare` or `vercel` also becomes the preview
+declared technology: `host` (`cloudflare` also becomes the preview
 host in `site.programme.json`), `dns`, `cms`,
 `analytics` (a list, e.g. `["ga4", "gtm", "posthog"]`), `errorMonitoring` and
 `emailSending` (a list). Each can be skipped, and a skipped one is left out of
