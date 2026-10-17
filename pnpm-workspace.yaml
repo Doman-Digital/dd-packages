@@ -17,6 +17,9 @@ minimumReleaseAgeExclude:
 # GHSA-4w7w-66w2-5vf9 with no 5.x fix. 7.3.6 carries every fix.
 # esbuild: tsup asks for 0.27, which is open to GHSA-g7r4-m6w7-qqqr. 0.28.1
 # fixes it, and the build and tarball checks pass with it.
+# sharp: Next and Miniflare resolve an affected librsvg through 0.35.4.
+# 0.35.5 includes the fix for GHSA-wq5f-xc86-pv6w across both paths.
 overrides:
   esbuild: ^0.28.1
+  sharp: ^0.35.5
   vite: ^7.3.6
