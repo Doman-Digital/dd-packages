@@ -76,8 +76,8 @@ describe("the calibration case from a real plumbing review, as a pattern and not
   it("the suggested solution is judged apart from the problem: right problem, larger solution than needed", () => {
     const owner = find(calibration(), "owner-late");
     expect(owner.basis.effective).toBe("observed");
-    expect(owner.suggested!.standing).toBe("narrower-change-preferred");
-    expect(owner.suggested!.reasons.join(" ")).toMatch(/smaller step/);
+    expect(owner.suggested!.standing).toBe("comparison-needed");
+    expect(owner.suggested!.reasons.join(" ")).toMatch(/smaller implementation is not evidence/);
   });
 
   it("3. does not recommend a second carousel when the page already has a gallery", () => {
@@ -117,7 +117,7 @@ describe("the calibration case from a real plumbing review, as a pattern and not
 
   it("does not add decoration to manufacture personality, and does not write the owner's voice for him", () => {
     const personality = find(calibration(), "personality");
-    expect(personality.suggested!.standing).toBe("narrower-change-preferred");
+    expect(personality.suggested!.standing).toBe("comparison-needed");
     expect(personality.recommend.step).toBe("copy");
     expect(personality.outcome).toBe("hold");
     expect(personality.outstanding).toEqual(["the owner's own account of how he works, in his words"]);
@@ -410,7 +410,7 @@ describe("craft direction review", () => {
     expect(out).toMatch(/owner-late \[home, identity\] observed: change, confirmed correction/);
     expect(out).toMatch(/observation: The owner is introduced too far down the page\./);
     expect(out).toMatch(/visitor impact:/);
-    expect(out).toMatch(/suggested: move the full biography directly below the hero -> narrower change preferred/);
+    expect(out).toMatch(/suggested: move the full biography directly below the hero -> comparison needed/);
     expect(out).toMatch(/recommended \(trust-placement\)/);
     expect(out).toMatch(/why not more:/);
     expect(out).toMatch(/check: Look at the first screen/);
@@ -432,5 +432,70 @@ describe("craft direction review", () => {
     expect((await exec(dir, ["--notes", "bad.json"])).code).toBe(1);
     expect((await exec(dir, ["--notes", "missing.json"])).code).toBe(2);
     expect((await exec(dir, [])).code).toBe(2);
+  });
+});
+
+
+describe("contextual comparisons and protected staging", () => {
+  const gallery = "swipeable gallery of finished jobs";
+  const carousel = (samePurpose: boolean): ReviewNote => note({
+    existing: [gallery],
+    recommend: {
+      class: "design-hypothesis", change: "introduce the work before the owner", step: "new-component", adds: ["carousel"],
+      because: "The homeowner can inspect the finished work before deciding who to invite into the house.",
+      smaller: [{ step: "copy", whyNot: "A sentence cannot show the workmanship the homeowner wants to inspect before calling." }],
+      validation: "Compare phone screenshots and ask the homeowner what each gallery helps them decide.",
+      comparisons: [gallery, "a swipeable gallery of finished jobs with a one-line caption saying what was fixed"].map(existing => ({
+        existing, samePurpose,
+        because: samePurpose ? "Both display the same job photographs at the same point without adding information for the homeowner." : "The opening shows bathroom, radiator and kitchen work briefly; the later gallery supplies captions and service links for closer inspection.",
+      })),
+    },
+  });
+  it("permits distinct purposes and still catches documented duplication", () => {
+    expect(only(carousel(false)).outcome).toBe("change");
+    expect(only(carousel(true)).outcome).toBe("no-change");
+    expect(only(carousel(true)).adjustments.join(" ")).toMatch(/same purpose/);
+  });
+  it("requires a comparison without pretending a keyword proves duplication", () => {
+    const n = carousel(false); delete n.recommend.comparisons;
+    expect(only(n).adjustments.join(" ")).toMatch(/duplication is not established by its name/);
+  });
+  it("allows work imagery and customer reviews to serve different questions", () => {
+    const n = carousel(false);
+    n.recommend.change = "group complete customer reviews in a carousel";
+    n.recommend.comparisons!.forEach(c => c.because = "The photographs show workmanship; the review carousel answers whether the homeowner can rely on the person entering their house.");
+    expect(only(n).outcome).toBe("change");
+  });
+  it("rejects ambiguous or malformed comparisons instead of trusting an exemption flag", () => {
+    const n = carousel(false); n.recommend.comparisons![0].because = "different";
+    expect(assess(n).valid).toBe(false);
+    const duplicate = carousel(false); duplicate.recommend.comparisons!.push(duplicate.recommend.comparisons![0]);
+    expect(only(duplicate).outcome).toBe("no-change");
+  });
+  it("does not rank a justified rearrangement below a small edit automatically", () => {
+    const n = note({ suggested: { change: "reorder work owner and trust into one opening", step: "restructure" } });
+    expect(only(n).suggested!.standing).toBe("comparison-needed");
+    expect(only(n).suggested!.reasons.join(" ")).toMatch(/compare their adequacy/);
+  });
+  const portrait = () => note({ recommend: {
+    ...note().recommend,
+    requires: [{ what: "the actual owner portrait", kind: "asset", phase: "publication", placeholder: "Marked owner portrait placeholder in the intended final position" }],
+  } });
+  it("permits an explicit staging placeholder while keeping publication outstanding", () => {
+    const result = assessReview({ ...review(portrait()), context: "protected-staging" }, direction("calibration-direction")).results[0];
+    expect(result.outcome).toBe("change");
+    expect(result.publicationReady).toBe(false);
+    expect(result.outstanding).toEqual(["the actual owner portrait"]);
+  });
+  it("does not exempt public work, missing facts, or unmarked placeholders", () => {
+    expect(only(portrait()).outcome).toBe("hold");
+    const n = portrait(); delete n.recommend.requires![0].placeholder;
+    expect(assessReview({ ...review(n), context: "protected-staging" }, direction("calibration-direction")).results[0].outcome).toBe("hold");
+    const fact = portrait(); fact.recommend.requires![0].kind = "fact";
+    expect(assessReview({ ...review(fact), context: "protected-staging" }, direction("calibration-direction")).results[0].outcome).toBe("hold");
+    n.recommend.requires![0].phase = "implementation";
+    n.recommend.requires![0].placeholder = "A marked staging placeholder";
+    expect(assessReview({ ...review(n), context: "protected-staging" }, direction("calibration-direction")).results[0].outcome).toBe("hold");
+    expect(assessReview({ ...review(n), context: "stagin" }, direction("calibration-direction")).valid).toBe(false);
   });
 });
