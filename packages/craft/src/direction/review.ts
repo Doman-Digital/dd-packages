@@ -62,7 +62,7 @@ const RENDERED_KINDS = ["screenshot", "rendered", "measurement"];
 /** Structural steps: the ones that rearrange a page or build something new. */
 export const isStructural = (step: unknown): boolean => step === "restructure" || step === "new-component";
 
-/** Words for the same thing: a second one of these is a duplicate however it is named. */
+/** Possible comparable components. Their names alone do not establish duplication. */
 const GALLERY = /\b(?:gallery|galleries|carousel|slideshow|slider|swipe(?:able)?|rotating)\b/i;
 
 /** A reason in a review's own words: a sentence, and not a preference or the category's default. */
@@ -87,6 +87,14 @@ function checkProposalShape(at: string, p: unknown, required: boolean): Directio
   if (!includes(CHANGE_STEPS, p.step)) err(".step", `one of ${CHANGE_STEPS.join(", ")}: the smallest step that does it`);
   if (p.adds !== undefined) {
     if (!Array.isArray(p.adds) || p.adds.some((a) => !includes(ADDITIONS, a))) err(".adds", `a list drawn from ${ADDITIONS.join(", ")}`);
+  }
+  if (p.comparisons !== undefined) {
+    if (!Array.isArray(p.comparisons)) err(".comparisons", "a list comparing each relevant existing component");
+    else p.comparisons.forEach((c, i) => {
+      if (!isObject(c) || typeof c.existing !== "string" || !c.existing.trim() || typeof c.samePurpose !== "boolean") {
+        err(`.comparisons[${i}]`, "existing, samePurpose and because are required");
+      } else problems.push(...plain(`${at}.comparisons[${i}].because`, c.because));
+    });
   }
   if (p.touches !== undefined && !includes(SECTION_ROLES, p.touches)) err(".touches", `a section role: ${SECTION_ROLES.join(", ")}`);
   return problems;
@@ -173,8 +181,11 @@ function whyNot(p: ReviewProposal, ctx: Context): string[] {
   const reasons: string[] = [];
   const adds = Array.isArray(p.adds) ? p.adds : [];
   if (adds.includes("carousel")) {
-    const have = ctx.existing.find((e) => GALLERY.test(e));
-    if (have) reasons.push(`it adds a carousel, and the page already has "${have}". A second one duplicates it.`);
+    for (const have of new Set(ctx.existing.filter((e) => GALLERY.test(e)))) {
+      const compared = p.comparisons?.filter((c) => c.existing === have) ?? [];
+      if (compared.length !== 1) reasons.push(`the page already has "${have}". Compare its purpose, content and placement before adding another carousel; duplication is not established by its name.`);
+      else if (compared[0].samePurpose) reasons.push(`the comparison identifies the same purpose as "${have}": ${compared[0].because}. Reuse or adjust that component.`);
+    }
   }
   const defensible = (ctx.basis === "observed" || ctx.basis === "inferred") && ctx.impact;
   if ((isStructural(p.step) || adds.length > 0) && !defensible) {
@@ -223,6 +234,7 @@ export function assessReview(input: unknown, direction: Partial<ArtDirection>): 
     fail("", "a review is an object: version, subject and notes");
     return report();
   }
+  if (input.context !== undefined && !["publication", "protected-staging"].includes(input.context as string)) fail("context", "publication or protected-staging");
   if (input.version !== 1) fail("version", "version is 1");
   if (typeof input.subject !== "string" || !input.subject.trim()) fail("subject", "who or what was reviewed");
   if (!Array.isArray(input.notes)) {
@@ -314,16 +326,19 @@ export function assessReview(input: unknown, direction: Partial<ArtDirection>): 
       adjustments.push("the recommended change is withdrawn: " + recReasons.join(" "));
     }
 
-    const outstanding = (rec.requires ?? []).filter((q) => !q.source || !sources.some((s) => s.id === q.source)).map((q) => q.what);
+    const missing = (rec.requires ?? []).filter((q) => !q.source || !sources.some((s) => s.id === q.source));
+    const outstanding = missing.map((q) => q.what);
+    const blocking = missing.filter((q) => !(input.context === "protected-staging" && q.kind === "asset" && q.phase === "publication" && q.placeholder));
+    if (missing.length > blocking.length) adjustments.push("Protected staging may reserve the explicitly marked placeholder. Required assets remain outstanding for publication; no fact or photograph has been supplied by this review.");
     let outcome: ReviewOutcome;
     if (basis === "unknown") {
       outcome = "gather-evidence";
       effective = "no-change";
       if (wantsChange) adjustments.push(`nothing is recommended until the problem is established${rec.validation ? `: ${rec.validation}` : ". Ask the client, or look, first."}`);
     } else if (effective === "no-change") outcome = "no-change";
-    else if (outstanding.length > 0) outcome = "hold";
+    else if (blocking.length > 0) outcome = "hold";
     else outcome = "change";
-    if (outcome === "hold") adjustments.push(`held: it depends on ${outstanding.map((o) => `"${o}"`).join(", ")}, and no source supplies it. Do not write it in. Ask the client.`);
+    if (outcome === "hold") adjustments.push(`held: it depends on ${blocking.map((o) => `"${o.what}"`).join(", ")}, and no source supplies it. Do not write it in. Ask the client.`);
 
     let suggested: ReviewResult["suggested"];
     if (note.suggested) {
@@ -337,8 +352,8 @@ export function assessReview(input: unknown, direction: Partial<ArtDirection>): 
         standing = "not-needed";
         reasons.push("the existing design already answers the problem, or nothing is yet established to answer.");
       } else if (sugRank > recRank || (sugAdds > 0 && (rec.adds ?? []).length === 0)) {
-        standing = "narrower-change-preferred";
-        reasons.push("the recommended change reaches the problem with a smaller step.");
+        standing = "comparison-needed";
+        reasons.push("Compare the proposals before selecting one. A smaller implementation is not evidence of a better visitor experience; compare their adequacy against the stated problem and rendered result.");
       } else standing = "supported";
       suggested = { standing, reasons };
     }
@@ -354,6 +369,7 @@ export function assessReview(input: unknown, direction: Partial<ArtDirection>): 
       widths: { examined, claimed, unknown },
       adjustments,
       outstanding,
+      publicationReady: outstanding.length === 0,
     });
   });
   return report();

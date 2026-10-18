@@ -25,6 +25,14 @@
       "items": {
         "$ref": "#/$defs/note"
       }
+    },
+    "context": {
+      "enum": [
+        "publication",
+        "protected-staging"
+      ],
+      "default": "publication",
+      "description": "Protected staging may reserve marked placeholders; outstanding requirements still block publication."
     }
   },
   "$defs": {
@@ -88,6 +96,30 @@
             "contact"
           ],
           "description": "The section role it moves, removes or replaces."
+        },
+        "comparisons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "existing",
+              "samePurpose",
+              "because"
+            ],
+            "properties": {
+              "existing": {
+                "type": "string",
+                "minLength": 1
+              },
+              "samePurpose": {
+                "type": "boolean"
+              },
+              "because": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
         }
       }
     },
@@ -335,6 +367,48 @@
                   },
                   "source": {
                     "type": "string"
+                  },
+                  "phase": {
+                    "enum": [
+                      "implementation",
+                      "publication"
+                    ],
+                    "default": "implementation"
+                  },
+                  "placeholder": {
+                    "type": "string",
+                    "description": "Describe the explicitly marked placeholder used only in protected staging."
+                  },
+                  "kind": {
+                    "enum": [
+                      "asset",
+                      "fact"
+                    ],
+                    "default": "fact"
+                  }
+                }
+              }
+            },
+            "comparisons": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "existing",
+                  "samePurpose",
+                  "because"
+                ],
+                "properties": {
+                  "existing": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "samePurpose": {
+                    "type": "boolean"
+                  },
+                  "because": {
+                    "type": "string",
+                    "minLength": 1
                   }
                 }
               }
