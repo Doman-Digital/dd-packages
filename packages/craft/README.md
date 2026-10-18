@@ -364,3 +364,5 @@ widget name no longer proves duplication. A smaller implementation does not
 select a better design automatically. Protected staging reviews may reserve
 explicitly marked publication assets while reporting `publicationReady: false`.
 See CHARACTER.md, “Context and learning from a later result”.
+
+Opening photographs are selected as a rendered sequence: compare their quality and crop before filling a slide count or covering every service. See [Select photographs for their position in the sequence](./CHARACTER.md#select-photographs-for-their-position-in-the-sequence) for the Bellerose follow-up and its limits.
