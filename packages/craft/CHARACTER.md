@@ -589,6 +589,33 @@ before reading stakeholder recommendations when possible; if feedback is already
 known, record that limitation. A preferred example is useful calibration, not a
 universal order, a conversion claim or an exemption from future scrutiny.
 
+#### Select photographs for their position in the sequence
+
+Review every proposed opening photograph at the intended size and crop, in order.
+Service coverage alone does not make a photograph suitable for the opening.
+Compare clarity, framing, visible completion, distracting surroundings and the
+visual standard set by the lead image. A technically sound carousel can still
+weaken the page when its later slides are noticeably poorer.
+
+On 18 October 2026, after approving Bellerose's mobile flow, Dmitri pointed out
+that the radiator and kitchen-tap slides did not compare with the first bathroom
+photograph. The initial selection had favoured showing different services. A
+review of the available photographs found that the radiator's unfinished edge
+and dust sheet, and the tap's busy surroundings, weakened the opening sequence.
+The approved revision kept the bath-and-shower photograph and used the twin-basins
+photograph second. The lower captioned project gallery retained its service
+coverage. The two bathroom views are not evidence of two separate jobs.
+
+The reusable lesson is to choose the strongest coherent sequence the available
+assets support, then let that determine the count. Two strong images can serve
+an opening better than three padded for variety; this is not a rule to always
+use two images, bathrooms or a carousel. Useful job-record photographs can still
+belong beside a service or further down the page. Do not fabricate or retouch
+work into completion to fill a slot. Record rejected candidates, the intended
+crop, the reason for the choice and the stakeholder response with the rendered
+comparison. Here the evidence is visual judgement and an approved preference;
+customer behaviour and enquiry effects remain unmeasured.
+
 #### Using it
 
 Generating a page: run `craft direction research`, which asks where the
