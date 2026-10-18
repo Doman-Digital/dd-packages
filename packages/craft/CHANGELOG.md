@@ -1,5 +1,11 @@
 # @domandigital/craft
 
+## 0.20.4
+
+### Patch Changes
+
+- cc6c0b4: Document opening-photo selection using the Bellerose follow-up: compare photographic strength, crop and sequence before service variety or slide count, with stakeholder preference kept separate from unmeasured customer outcomes.
+
 ## 0.20.3
 
 ### Patch Changes
