@@ -357,3 +357,10 @@ routes measured only at 375 with `measurePhone`.
 ## Licence
 
 Apache-2.0
+
+
+Design reviews compare proposed carousel purposes through `comparisons`; a shared
+widget name no longer proves duplication. A smaller implementation does not
+select a better design automatically. Protected staging reviews may reserve
+explicitly marked publication assets while reporting `publicationReady: false`.
+See CHARACTER.md, “Context and learning from a later result”.
