@@ -279,6 +279,8 @@ export interface ReviewEvidence {
 }
 
 export interface ReviewProposal {
+  /** Compare purpose, content and placement; naming a widget is not proof of duplication. */
+  comparisons?: { existing: string; samePurpose: boolean; because: string }[];
   change: string;
   step: ChangeStep;
   adds?: Addition[];
@@ -315,11 +317,13 @@ export interface ReviewNote {
     /** How a design hypothesis would be checked. */
     validation?: string;
     /** Facts or assets the change depends on. With no source, nobody has supplied them. */
-    requires?: { what: string; source?: string }[];
+    requires?: { what: string; source?: string; kind?: "asset" | "fact"; phase?: "implementation" | "publication"; placeholder?: string }[];
   };
 }
 
 export interface DesignReview {
+  /** Publication is the default. Protected previews may reserve explicitly marked assets. */
+  context?: "publication" | "protected-staging";
   $schema?: string;
   version: 1;
   /** Who or what was reviewed, and at which width. */
@@ -328,9 +332,11 @@ export interface DesignReview {
 }
 
 export type ReviewOutcome = "change" | "hold" | "no-change" | "gather-evidence";
-export type SuggestionStanding = "supported" | "narrower-change-preferred" | "not-supported" | "not-needed";
+export type SuggestionStanding = "comparison-needed" | "supported" | "narrower-change-preferred" | "not-supported" | "not-needed";
 
 export interface ReviewResult {
+  /** False while any required fact or asset remains unsupplied, even if staging work can proceed. */
+  publicationReady: boolean;
   id: string;
   page: PageType;
   lens: ConfidenceLens;

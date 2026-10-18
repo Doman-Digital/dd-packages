@@ -200,6 +200,7 @@ function renderReview(review: DesignReview, report: ReviewReport): string {
       for (const s of note.recommend.smaller ?? []) lines.push(`      not ${s.step}: ${s.whyNot}`);
       if (note.recommend.validation) lines.push(`      check: ${note.recommend.validation}`);
     } else if (note.recommend.because) lines.push(`    no change: ${note.recommend.because}`);
+    if (!r.publicationReady) lines.push(`    outstanding for publication: ${r.outstanding.join("; ")}`);
     for (const a of r.adjustments) lines.push(`    note: ${a}`);
   }
   lines.push("", report.summary.verdict);

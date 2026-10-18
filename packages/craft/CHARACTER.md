@@ -494,11 +494,14 @@ The rules a review is held to, all checked without a model:
 
 - A suggestion and a recommendation are each held to the same tests, so a
   right observation can come with a suggestion that is not supported. Craft
-  then reports it as `not-supported`, `narrower-change-preferred` (the
-  recommended step is smaller) or `not-needed`.
-- A second carousel is not supported when the page already has a gallery,
-  slideshow or swipeable set, in the note's `existing` list or the page's own
-  evidence.
+  then reports it as `supported`, `comparison-needed`, `not-supported` or `not-needed`. The legacy
+  `narrower-change-preferred` value remains readable, but a step rank alone no
+  longer selects a winner. Compare whether each proposal answers the problem.
+- An existing gallery, slideshow or swipeable set prompts a comparison of
+  purpose, content and placement. `comparisons` records the exact `existing`
+  description, `samePurpose` and `because` on each proposal. A documented
+  duplicate should be reused; distinct roles can justify separate components.
+  A keyword alone does not establish duplication.
 - Removing information needs an observation that it is redundant and a stated
   cost to the visitor. Short useful captions are not redundancy.
 - A structural change or an addition needs a problem that is observed, or
@@ -554,6 +557,37 @@ personality; the owner's own words held until he supplies them; the desktop left
 unknown. The clinic and salon reviews next to it reach different outcomes for
 different reasons: a registration check joined to the profile but held for the
 register numbers; a founder biography declined because booking comes first.
+
+
+#### Context and learning from a later result
+
+The 15 October calibration records the earlier audit's recommendation, not a
+permanent verdict. The later Bellerose mobile comparison on 18 October preferred
+work photographs followed by a compact owner introduction, then trust and contact.
+The useful test is whether each alternative answers the visitor's question.
+Considering smaller edits remains required; fewer edits alone do not establish
+that the result is better. Keep human approval, observed layout changes and
+unmeasured commercial outcomes separate.
+
+For each carousel proposal, `comparisons` contains one entry per relevant existing
+component: `{ existing, samePurpose, because }`. Match the existing description
+exactly and explain the purpose, content and placement. This validates the
+recorded reasoning, not the truth of an aesthetic judgment. Same-purpose
+components prompt reuse; missing comparisons request an assessment without
+claiming duplication. Review and photo carousels may answer different questions.
+
+Reviews default to publication context. Explicit `context: "protected-staging"`
+can proceed when an unsupplied requirement declares `kind: "asset"`, `phase: "publication"` and a
+clearly marked `placeholder` description. Other requirements still hold the
+change. Every missing item remains in `outstanding`, and `publicationReady`
+remains false. This does not authorize publishing a placeholder or inventing a
+fact. Record actual asset delivery before assessing publication again.
+
+Save real before/after examples with capture dates, viewport, source commits,
+feedback attribution, decisions and validation. Assess the page independently
+before reading stakeholder recommendations when possible; if feedback is already
+known, record that limitation. A preferred example is useful calibration, not a
+universal order, a conversion claim or an exemption from future scrutiny.
 
 #### Using it
 
