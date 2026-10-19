@@ -266,19 +266,89 @@ and the source folders `phone-first.json` names, against the repo's baseline:
 - **Static:** a `max-width` media query (any spelling, range syntax too) or a
   Tailwind `max-*:` variant fails. A genuine exception takes
   `mobile-first-ok: <reason>` on its line or the line above, or the whole file
-  in `phone-first.json` `exceptions` as `{ "file", "reason" }`.
+  in `phone-first.json` `exceptions` as `{ "file", "reason" }`. On a Tailwind 3
+  app, `/NN` opacity on an arbitrary `var()` colour also fails (check 4 below).
 - **Measured at 375px:** the page scrolls sideways (against the layout
   viewport: under mobile emulation `innerWidth` grows with the page, so it
   never shows the scroll), a page with no `width=device-width` viewport meta,
   a target under 44 x 44 (a link inside a sentence is exempt; a field's label
-  counts), a text field under 16px, text under 12px, a cut-off `h1`.
+  counts), a text field under 16px or under 48px tall, text under 12px, a
+  cut-off `h1`.
 
 `phone-first.baseline.json` lists what a repo already breaks, counted per file
 and per route (digits folded, so fixture dates do not split one button into
 many). The gate fails on anything the baseline does not list, and on a
 baseline that claims more than is there, so it only shrinks: fix a breach and
 lower its count in the same PR. `--update-baseline` writes the baseline that
-makes the current run pass; run it once when the gate goes in.
+makes the current run pass; run it once when the gate goes in, and after that
+only to lower counts. It keeps every entry's `reason`.
+
+### Four checks that hold the portal standard's phone lessons
+
+The causes behind the October 2026 phone fixes are in the portal standard
+(`references/phone-faults.md`, DOM-1044). These four make the gate itself
+refuse them (DOM-1053).
+
+1. **The baseline only shrinks.** The run compares the baseline with the base
+   branch's copy and fails on an entry main does not have, or on a higher
+   count. Fix the breach where it is. The one way in is a named exception: an
+   entry with a non-empty `reason` (third-party UI that cannot be restyled, a
+   destructive-only form). Old baselines, with no `reason`, read as before.
+   A branch that left main before main shrank its baseline looks like it added
+   entries: merge main.
+
+   ```json
+   { "route": "/admin/content", "check": "text", "element": "<p> \"Sign in\"", "count": 14,
+     "reason": "Sanity Studio's sign-in dialog, third-party UI" }
+   ```
+
+   The base is `origin/main`, or the pull request's target branch when
+   `GITHUB_BASE_REF` is set, or `--base <ref>`. The runner has to be able to see
+   it: with `actions/checkout`, use `fetch-depth: 0` or run
+   `git fetch origin main` first. If the base cannot be seen the gate fails and
+   says so; it never skips. It passes without looking when every entry carries a
+   `reason`, when the base has no baseline yet (the pull request that brings the
+   gate in), and outside a git checkout (it prints a note).
+
+2. **Every route is measured.** With `--measured`, the measured routes are the
+   gate's route list. Every page route of the app must be in it. The pages come
+   from the Next app folders (`appDir`; left out, any `source` folder called
+   `app`) and from `routesManifest`, a built app's
+   `app-path-routes-manifest.json`. Route groups, parallel slots, private
+   folders and intercepting routes are not pages of their own. A measured route
+   covers the page it opens: `/portal/projects/p1?theme=dark` covers
+   `/portal/projects/[id]`, and so does the literal label
+   `/portal/projects/[id]`; a static sibling such as `/portal/projects/new`
+   does not. A page the gate cannot measure (one that only redirects) goes in
+   `excludeRoutes`, the only way out, with a reason; `"/admin/*"` takes a prefix
+   and everything under it. An entry with no reason, or naming no page, fails.
+   When no app folder with pages is found, the run prints that route coverage
+   was not checked.
+
+   ```json
+   { "source": ["app", "components"],
+     "excludeRoutes": [{ "route": "/portal/projects", "reason": "redirects to /portal; measured there" }] }
+   ```
+
+3. **Fields are 48px tall.** A text field, select or textarea under 48px fails
+   the `field` check ("44px tall, under 48px (use min-h-12)"), matching portal
+   standard rule 5. Until now the gate only failed fields under 44px, as
+   targets. Configurable: `fieldHeightPx` in `floors`, for `measurePhone`,
+   `measureViewports`, `measureSite` and `viewports.json`; the default is 48.
+
+   ```ts
+   await measureViewports(page, { route, floors: { fieldHeightPx: 44 } }); // the old gate
+   ```
+
+4. **Tailwind 3 `var()` opacity.** Tailwind 3 cannot apply `/NN` opacity to a
+   `var()` colour and emits no CSS, so `bg-[var(--bg-1)]/95` leaves a fixed bar
+   transparent. On a Tailwind 3 app the source scan fails on
+   `var\([^)]*\)\]/[0-9]+`. The version is read per `source` folder from the
+   installed `node_modules/tailwindcss`, else the declared range in the nearest
+   `package.json`; set `"tailwind": 3` or `4` in `phone-first.json` when that
+   cannot find it. Tailwind 4 supports the syntax and is not scanned. It is a
+   bug rather than a style, so a `mobile-first-ok` comment does not excuse it;
+   a file-level `exceptions` entry still does.
 
 ## Every viewport
 

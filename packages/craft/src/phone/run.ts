@@ -43,7 +43,7 @@ export interface MeasureViewportsOptions {
   scope?: "all" | "phone" | "wide";
   /** Override house thresholds. */
   thresholds?: Partial<Thresholds>;
-  /** Override the 12 / 16 / 44px floors. The defaults are the house standard; a site may set `textPx` higher. */
+  /** Override the 12 / 16 / 44px floors and the 48px field height (`fieldHeightPx`). The defaults are the house standard; a site may set `textPx` higher. */
   floors?: Partial<PhoneFloors>;
   /** The main action's selector: one for all routes, or per route with `*` as the fallback. Absent: not checked. */
   mainAction?: MainAction;

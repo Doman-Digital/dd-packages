@@ -34,7 +34,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { DEFAULT_MEASURED_DIR, PHONE_FLOORS, routeFile } from "./constants.js";
-import { measurePhoneInPage, type RawPhoneFinding } from "./measure-in-page.js";
+import { measurePhoneInPage, type PhoneFloors, type RawPhoneFinding } from "./measure-in-page.js";
 import type { MeasuredRoute } from "./judge.js";
 
 export { measurePhoneInPage } from "./measure-in-page.js";
@@ -57,6 +57,8 @@ export interface MeasurePhoneOptions {
   route: string;
   /** The folder to write `<route>.json` into. Default `phone-first/measured`, from the working directory. */
   out?: string;
+  /** Override the 12 / 16 / 44 / 48px floors (text, field text, target, field height). The defaults are the house standard. */
+  floors?: Partial<PhoneFloors>;
 }
 
 
@@ -68,7 +70,7 @@ export interface MeasurePhoneOptions {
 export async function measurePhone(page: MinimalPage, options: MeasurePhoneOptions): Promise<MeasuredRoute> {
   if (!options.route.startsWith("/")) throw new Error(`measurePhone: route "${options.route}" should start with /`);
   await page.evaluate(() => document.fonts?.ready.then(() => undefined), undefined);
-  const findings: RawPhoneFinding[] = await page.evaluate(measurePhoneInPage, PHONE_FLOORS);
+  const findings: RawPhoneFinding[] = await page.evaluate(measurePhoneInPage, { ...PHONE_FLOORS, ...(options.floors ?? {}) });
   const viewport = page.viewportSize?.() ?? undefined;
   const result: MeasuredRoute = { route: options.route, ...(viewport ? { viewport } : {}), findings };
   const dir = options.out ?? DEFAULT_MEASURED_DIR;
