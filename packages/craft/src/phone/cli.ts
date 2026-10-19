@@ -166,7 +166,7 @@ export function runPhoneFirst(args: string[], io: Io): number {
         section(wide ? "Measured across the viewports, phone first:" : "Measured at 375px:", m.fresh),
         section(`Page routes the gate never measures (add the route to the phone-first specs with seeded data; a page that only redirects goes in "excludeRoutes" with its reason):`, covered?.missing ?? []),
         section("excludeRoutes:", covered?.problems ?? []),
-        section(`The baseline holds entries that ${copy?.kind === "found" ? copy.ref : base} does not (the baseline only shrinks: fix the breach where it is, or, for third-party UI or a destructive-only form, add the entry with a "reason"):`, grown),
+        section(`The baseline holds entries that ${copy?.kind === "found" ? copy.ref : base} does not (the baseline only shrinks: fix the breach where it is, or, for third-party UI or a destructive-only form, add the entry with a "reason". If main shrank the baseline since this branch left it, merge main first):`, grown),
         section("The base branch:", baseProblems),
         section("The baseline claims more than is there (good: lower it, so the fix stays fixed):", [...s.stale, ...m.stale]),
       ].join(""),

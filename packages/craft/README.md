@@ -294,6 +294,8 @@ refuse them (DOM-1053).
    count. Fix the breach where it is. The one way in is a named exception: an
    entry with a non-empty `reason` (third-party UI that cannot be restyled, a
    destructive-only form). Old baselines, with no `reason`, read as before.
+   A branch that left main before main shrank its baseline looks like it added
+   entries: merge main.
 
    ```json
    { "route": "/admin/content", "check": "text", "element": "<p> \"Sign in\"", "count": 14,
