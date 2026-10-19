@@ -17,6 +17,7 @@
  *       "mainAction": ".cta",                 // or { "/": ".cta", "*": "a.book" }
  *       "thresholds": { "maxLineCh": 75 },
  *       "floors": { "textPx": 12 },
+ *       "screens": { "/": 6.5, "/services/*": 6 },  // phone screens to the footer; none set: only counted
  *       "sweep": { "step": 16 },              // or false
  *       "baseline": "phone-first.baseline.json",
  *       "out": "phone-first/measured"
@@ -32,7 +33,7 @@ import { DEFAULT_MEASURED_DIR, routeFile } from "./constants.js";
 import { EMPTY_BASELINE, judgeMeasured, parseBaseline, writeBaseline, type Baseline } from "./judge.js";
 import type { PhoneFloors } from "./measure-in-page.js";
 import { measureSite, type SiteBrowser, type SitePage } from "./run.js";
-import type { MainAction, Sweep, Thresholds } from "./viewports.js";
+import { checkScreenBudgets, formatScreens, type MainAction, type ScreenBudgets, type Sweep, type Thresholds } from "./viewports.js";
 
 export interface ViewportsConfig {
   url?: string;
@@ -40,6 +41,7 @@ export interface ViewportsConfig {
   mainAction?: MainAction;
   thresholds?: Partial<Thresholds>;
   floors?: Partial<PhoneFloors>;
+  screens?: ScreenBudgets;
   sweep?: Partial<Sweep> | false;
   baseline?: string;
   out?: string;
@@ -120,6 +122,7 @@ export async function runViewports(args: string[], io: Io): Promise<number> {
         ...(config.mainAction ? { mainAction: config.mainAction } : {}),
         ...(config.thresholds ? { thresholds: config.thresholds } : {}),
         ...(config.floors ? { floors: config.floors } : {}),
+        ...(config.screens ? { screens: checkScreenBudgets(config.screens, "viewports.json screens")! } : {}),
         sweep: flags.sweep ? config.sweep : false,
         ...(captures
           ? {
@@ -148,19 +151,21 @@ export async function runViewports(args: string[], io: Io): Promise<number> {
     const judged = judgeMeasured(site.routes, { ...baseline, measured: baseline.measured.filter((m) => measuredRoutes.has(m.route)) });
     const failed = site.errors.length + judged.fresh.length + judged.stale.length > 0;
     if (flags.json) {
-      io.out(toJson({ pass: !failed, routes: site.routes.map((r) => ({ route: r.route, viewports: r.viewports, findings: r.findings.length })), errors: site.errors, measured: judged }));
+      io.out(toJson({ pass: !failed, routes: site.routes.map((r) => ({ route: r.route, viewports: r.viewports, screens: r.screens ?? null, findings: r.findings.length })), errors: site.errors, measured: judged }));
       return failed ? 1 : 0;
     }
     const section = (title: string, lines: string[]): string => (lines.length ? `\n${title}\n${lines.map((l) => `  ${l}`).join("\n")}` : "");
     const viewports = site.routes[0]?.viewports ?? [];
     const summary = `${site.routes.length} route${site.routes.length === 1 ? "" : "s"} at ${viewports.length} viewports${judged.known ? `, ${judged.known} known breach${judged.known === 1 ? "" : "es"} in the baseline` : ""}`;
+    const screens = formatScreens(site.routes, config.screens);
+    const screensLine = screens ? `\n  phone screens to the footer: ${screens}` : "";
     if (!failed) {
-      io.out(`craft viewports: pass. ${summary}.`);
+      io.out(`craft viewports: pass. ${summary}.${screensLine}`);
       return 0;
     }
     io.err(
       [
-        `craft viewports: fail. ${summary}.`,
+        `craft viewports: fail. ${summary}.${screensLine}`,
         section("Did not answer (not measured, so not passed):", site.errors.map((e) => `${e.route}: ${e.error}`)),
         section("Measured across the viewports, phone first:", judged.fresh),
         section("The baseline claims more than is there (good: lower it, so the fix stays fixed):", judged.stale),

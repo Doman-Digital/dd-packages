@@ -19,6 +19,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { readPaths, SOURCE_FILE, type Io } from "../character/cli.js";
 import { toJson } from "../character/json.js";
+import { formatScreens } from "./viewports.js";
 import { defaultBase, discoverRoutes, readBaseCopy, tailwind3Files } from "./discover.js";
 import { checkExceptions, EMPTY_BASELINE, hasUnexcusedEntries, judgeGrowth, judgeMeasured, judgeRoutes, judgeStatic, parseBaseline, scanPhoneFirst, writeBaseline, type Baseline, type ExcludedRoute, type FileException, type MeasuredRoute } from "./judge.js";
 
@@ -155,7 +156,8 @@ export function runPhoneFirst(args: string[], io: Io): number {
       .filter(Boolean)
       .join(", ");
     if (!failed) {
-      io.out(`craft phone-first: pass. ${summary}.${[baseNote, routeNote].filter(Boolean).map((n) => `\n  note: ${n}`).join("")}`);
+      const screens = routes ? formatScreens(routes) : "";
+      io.out(`craft phone-first: pass. ${summary}.${screens ? `\n  phone screens to the footer: ${screens}` : ""}${[baseNote, routeNote].filter(Boolean).map((n) => `\n  note: ${n}`).join("")}`);
       return 0;
     }
     io.err(
