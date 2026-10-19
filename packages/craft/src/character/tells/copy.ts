@@ -729,7 +729,12 @@ const FALSE_RANGE = [
  */
 const RESIDUE = [
   /\bas an AI(?:\s+language)?\s+(?:model|assistant)\b/i,
-  /(?:^|\n|>)\s*(?:Certainly|Sure|Absolutely|Of course|Great question)[!,.]\s+(?:Here(?:['’]s| is| are)|Below)\b/i,
+  // At the start of a line, or after a sentence that ends in a full stop or
+  // an exclamation mark: "I hope this email finds you well! Certainly, here
+  // is the handover request." slipped through when only a line start counted
+  // (found live, 2026-10-19). Not after a question mark: an FAQ answer may
+  // honestly open "Do you work weekends? Absolutely, here are our hours."
+  /(?<=^|[\n>]|[.!]\s+)\s*(?:Certainly|Sure|Absolutely|Of course|Great question)[!,.]\s+(?:Here(?:['’]s| is| are)|Below)\b/i,
   /\bhere(?:['’]s| is)\s+(?:a|an|the|your)\s+(?:revised|rewritten|updated|polished|refined|improved|draft|more concise)\s+(?:version|draft|copy)\b/i,
   /\blet me know if you(?:['’]d| would) like me to\b/i,
   /\b(?:my|the) (?:knowledge|training) cut-?off\b|\bas of my last (?:update|training)\b/i,
@@ -744,6 +749,21 @@ const RESIDUE = [
   // marketplace"] shows on the page where the plain name "Bark" belongs.
   /[\uE200-\uE2FF]*entity[\uE200-\uE2FF]*\["[a-z_]+"\s*,\s*"[^"\n]{1,80}"(?:\s*,\s*"[^"\n]{0,160}")*\][\uE200-\uE2FF]*/,
   /【\d+(?:[:†][^】]{0,40})?】/,
+];
+
+/**
+ * The stock lines of a form email: the opener nobody means and the closer
+ * that offers nothing. A model drafting an email reaches for them every time,
+ * and so do people, which is why this is style and not residue. The bare "if
+ * you have any questions" is left alone: "If you have any questions, ring Jo
+ * on 01280 700123" says who to ask.
+ */
+const STOCK_EMAIL = [
+  /\bI (?:hope|trust) (?:this|my|the) (?:e-?mail|message|note|letter) finds you(?: all)? (?:well|in good health)\b/i,
+  /\bI hope you(?:['’]re| are)(?: all)? (?:doing |keeping )?well\b/i,
+  /\b(?:I )?hope you(?:['’]re| are) having an? (?:great|good|lovely|wonderful|fantastic) (?:day|week|weekend)\b/i,
+  /\blet (?:me|us) know if you have any (?:further |other |more )?questions\b/i,
+  /\b(?:do not|don['’]t) hesitate to (?:contact|reach out|get in touch|ask|call)\b/i,
 ];
 
 /** A link whose tracking says it was copied out of a chat assistant. */
@@ -856,11 +876,35 @@ export const RESEARCH_TELLS: CopyTell[] = [
         f("content/home.md", "Prices start at £40【4†source】 for a full set."),
         f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=chatgpt.com">Read the guide</a>;`),
         f("content/home.md", "Here's a more concise version for the hero."),
+        // The client handover email that a clean copy-check let through, 2026-10-19.
+        f("emails/handover.md", "Hi,\n\nI hope this email finds you well! Certainly, here is the handover request. Let me know if you have any questions."),
       ],
       pass: [
         f("content/home.md", "Certainly the busiest week of the year: book early."),
+        f("content/faq.md", "Do you work weekends? Absolutely, here are our hours."),
         f("content/home.md", "Here's the price list for 2026."),
         f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=newsletter">Read the guide</a>;`),
+      ],
+    },
+  },
+  {
+    id: "stock-email-line",
+    name: "Stock email line",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'I hope this email finds you well', 'let me know if you have any questions', 'don't hesitate to contact us': the opener and closer of a form email. A client reads past them, and a model drafting an email writes them every time.",
+    fix: "Cut the opener and start with the reason for writing. Replace the closer with the next step and who to ask: 'Ring me on 07700 900123 if the date does not work.'",
+    detect: phrases(STOCK_EMAIL, quoted),
+    fixtures: {
+      flag: [
+        f("emails/handover.md", "Hi,\n\nI hope this email finds you well! Certainly, here is the handover request. Let me know if you have any questions."),
+        f("emails/quote.md", "Hope you're having a great week. The quote is attached."),
+        f("content/contact.md", "Please don't hesitate to contact us about a rewire."),
+      ],
+      pass: [
+        f("emails/handover.md", "Hi Sam,\n\nThe handover pack is attached: certificates, the board schedule and the warranty. Ring me on 07700 900123 if anything is missing."),
+        f("content/contact.md", "If you have any questions, ring Jo on 01280 700123."),
       ],
     },
   },
