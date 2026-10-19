@@ -55,6 +55,8 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "outcome-promise": { tier: "review", label: "outcome promise, promise the work, not the result" },
   // New 2026-10-19: review first, like every new tell, until estate hits are read.
   "stock-email-line": { tier: "review", label: "stock email line, start with the reason for writing and end with the next step" },
+  // New 2026-10-19 (founder): review first, like every new tell, until estate hits are read.
+  "matey-register": { tier: "review", label: "matey register, write plain and complete British English" },
   "ai-vocabulary": { tier: "review", label: "AI vocabulary" },
   "stock-phrase": { tier: "review", label: "stock phrase" },
   "hollow-imperative": { tier: "review", label: "hollow imperative" },
