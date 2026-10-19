@@ -109,6 +109,27 @@ describe("craft copy", () => {
   });
 });
 
+describe("craft copy --gate on an email", () => {
+  it("fails the handover email a clean run once let through, and passes a plain one", () => {
+    // 2026-10-19: copy-check reported this clean, exit 0. "Certainly, here is"
+    // came mid-paragraph, after the opener, where the residue rule never looked.
+    write("emails/residue.md", "Hi,\n\nI hope this email finds you well! Certainly, here is the handover request. Let me know if you have any questions.\n");
+    write("emails/clean.md", "Hi Sam,\n\nThe handover pack is attached: certificates, the board schedule and the warranty. Ring me on 07700 900123 if anything is missing.\n");
+    expect(run(["copy", "emails/residue.md", "--gate"], io())).toBe(1);
+    expect(run(["copy", "emails/clean.md", "--gate"], io())).toBe(0);
+    out = [];
+    run(["copy", "emails/residue.md", "--gate", "--json"], io());
+    const report = JSON.parse(out.join(""));
+    expect(report.summary.blocking).toBe(1);
+    const tells = report.findings.map((f: { tell: string; house: string }) => [f.tell, f.house]);
+    expect(tells).toContainEqual(["chatbot-residue", "block"]);
+    expect(tells.filter(([t]: string[]) => t === "stock-email-line")).toEqual([
+      ["stock-email-line", "review"],
+      ["stock-email-line", "review"],
+    ]);
+  });
+});
+
 describe("craft copy compare", () => {
   it("exits 1 on a lost or invented fact and 0 when every fact is kept", () => {
     write("before.md", "Rewires from £1,250 since 2009. Call 01280 700123.");
