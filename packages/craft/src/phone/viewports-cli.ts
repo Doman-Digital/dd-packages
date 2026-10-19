@@ -29,7 +29,7 @@ import { loadPlaywright } from "../audit/index.js";
 import type { Io } from "../character/cli.js";
 import { toJson } from "../character/json.js";
 import { DEFAULT_MEASURED_DIR, routeFile } from "./constants.js";
-import { EMPTY_BASELINE, judgeMeasured, writeBaseline, type Baseline } from "./judge.js";
+import { EMPTY_BASELINE, judgeMeasured, parseBaseline, writeBaseline, type Baseline } from "./judge.js";
 import type { PhoneFloors } from "./measure-in-page.js";
 import { measureSite, type SiteBrowser, type SitePage } from "./run.js";
 import type { MainAction, Sweep, Thresholds } from "./viewports.js";
@@ -88,8 +88,7 @@ function loadConfig(path: string | undefined, cwd: string): ViewportsConfig {
 
 function loadBaseline(path: string): Baseline {
   if (!existsSync(path)) return EMPTY_BASELINE;
-  const b = JSON.parse(readFileSync(path, "utf8")) as Partial<Baseline>;
-  return { ...(b.note ? { note: b.note } : {}), static: b.static ?? [], measured: b.measured ?? [] };
+  return parseBaseline(JSON.parse(readFileSync(path, "utf8")), path);
 }
 
 export async function runViewports(args: string[], io: Io): Promise<number> {
@@ -137,7 +136,7 @@ export async function runViewports(args: string[], io: Io): Promise<number> {
     const baseline = loadBaseline(baselinePath);
     const measuredRoutes = new Set(site.routes.map((r) => r.route));
     if (flags.update) {
-      const next = writeBaseline([], site.routes, baseline.note);
+      const next = writeBaseline([], site.routes, baseline.note, baseline);
       // Routes this run did not measure keep their lines, and so does everything static.
       next.static = baseline.static;
       next.measured = [...baseline.measured.filter((m) => !measuredRoutes.has(m.route)), ...next.measured].sort((a, b) => a.route.localeCompare(b.route) || a.check.localeCompare(b.check) || a.element.localeCompare(b.element));
