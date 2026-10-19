@@ -5,6 +5,7 @@
  * text work, so it is tested without a browser.
  */
 
+import { cleanRoute, routeMatches } from "./judge.js";
 import type { RawPhoneFinding } from "./measure-in-page.js";
 
 export type Band = "phone" | "large-phone" | "tablet" | "laptop" | "wide";
@@ -109,6 +110,50 @@ export type MainAction = string | Record<string, string>;
 
 export const mainActionFor = (config: MainAction | undefined, route: string): string | undefined =>
   typeof config === "string" ? config : config ? (config[route] ?? config["*"]) : undefined;
+
+/**
+ * A length budget per page type, in phone screens to the footer (page height at
+ * 375 x 667 over 667). Keys are a route (`/`), a route pattern (`/services/[slug]`),
+ * a prefix (`/services/*`: the route and everything under it) or `*` for the
+ * rest; the most specific match wins. No match is no budget: the count is
+ * reported and never fails.
+ */
+export type ScreenBudgets = Record<string, number>;
+
+/** The budget for a route, or undefined when none of the keys covers it. */
+export function screenBudgetFor(budgets: ScreenBudgets | undefined, route: string): number | undefined {
+  if (!budgets) return undefined;
+  const path = cleanRoute(route);
+  let best: { key: string; score: number } | undefined;
+  for (const key of Object.keys(budgets)) {
+    const prefix = key.endsWith("/*") ? key.slice(0, -1) : null;
+    const hit = key === "*" ? 0 : prefix ? (path === key.slice(0, -2) || path.startsWith(prefix) ? 1 + prefix.length : -1) : routeMatches(key, path) ? (key === path ? 10_000 : 5_000 + key.length) : -1;
+    if (hit >= 0 && (!best || hit > best.score)) best = { key, score: hit };
+  }
+  return best ? budgets[best.key] : undefined;
+}
+
+/** `screens` as a person types it into config: every budget a positive number. */
+export function checkScreenBudgets(budgets: unknown, where = "screens"): ScreenBudgets | undefined {
+  if (budgets === undefined) return undefined;
+  if (!budgets || typeof budgets !== "object" || Array.isArray(budgets)) throw new Error(`${where} should map a route to its budget in phone screens, such as { "/": 6.5, "/services/*": 6 }`);
+  for (const [route, value] of Object.entries(budgets)) {
+    if (route !== "*" && !route.startsWith("/")) throw new Error(`${where}: "${route}" should start with / (or be *)`);
+    if (typeof value !== "number" || !(value > 0)) throw new Error(`${where}: "${route}" should be a number of phone screens above 0, not ${JSON.stringify(value)}`);
+  }
+  return budgets as ScreenBudgets;
+}
+
+/** `/ 12.7, /services 4.1`: the count per route, for the line a run prints whether or not a budget is set. */
+export function formatScreens(routes: { route: string; screens?: number }[], budgets?: ScreenBudgets): string {
+  return routes
+    .filter((r) => r.screens !== undefined)
+    .map((r) => {
+      const budget = screenBudgetFor(budgets, r.route);
+      return `${r.route} ${r.screens}${budget === undefined ? "" : ` of ${budget}`}`;
+    })
+    .join(", ");
+}
 
 /**
  * Widths as a person reads them: `320-352, 400, 1440`. A run is consecutive

@@ -42,6 +42,8 @@ export interface MeasuredRoute {
   viewport?: { width: number; height: number };
   /** Set by the every-viewport measure: the viewports and widths the findings were gathered across, phone first. */
   viewports?: string[];
+  /** Phone screens to the footer (page height at 375 x 667 over 667), from the every-viewport measure. Absent when the short phone was not measured. */
+  screens?: number;
   findings: RawPhoneFinding[];
 }
 
@@ -249,6 +251,7 @@ const LABEL: Record<PhoneCheck, string> = {
   autocomplete: "field the phone cannot fill in",
   tel: "phone number is not a link",
   linelength: "line too long",
+  screens: "page too long for a phone",
 };
 
 /** The baseline that makes this run pass: what is there now, counted. */
