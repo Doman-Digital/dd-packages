@@ -89,6 +89,7 @@ person reading decides which instance earns its place.
 | --- | --- |
 | `review-phrase` | truly, genuinely, deeply, ultimately, clear and clearly ("a clear next step", "clear pricing": say what the reader actually gets), great question, absolutely, one-size-fits-all, and superlative over-claiming: "the single most", "by far the most", "hands down the", "arguably the best", "bar none" |
 | `sales-tagline` | advert lines that say nothing a reader can check: "so your budget goes where it counts", "real results", "results that matter", "work harder for you", "pages that convert" |
+| `matey-register` | the put-on British voice: "Alright Dave,", "cheers mate", "no worries", "we'll get you sorted", "proper good", "give me a shout", "chuffed", "Right then,"; and clipped speech that drops the small words: "have look at", "give it go", "Quick one:", "built you a site". Write plain, complete British English |
 | `outcome-promise` | a hoped-for result written as delivered: "we'll turn that into enquiries", "once the first areas are working", "competitors you can outdo", "exactly what convinces", "guaranteed rankings", "you'll get more". Promise the work; measure and report the results |
 | `ai-vocabulary` | tapestry, testament, realm, elevate, nestled, meticulous, unparalleled, moreover; and underscore, showcasing, pivotal, measured 10 to 14 times over-used in post-2022 text |
 | `stock-email-line` | the form-email opener and closer: "I hope this email finds you well", "hope you're having a great week", "let me know if you have any questions", "don't hesitate to contact us". Start with the reason for writing; end with the next step and who to ask |
@@ -195,8 +196,11 @@ writer's head, and it comes out anyway. Check against the lists afterwards.
 The tool cannot grade register; a person does. British spelling and phrasing
 (colour, organise, licence as a noun, centre, towards, enquiries). Professional
 and confident, never matey: no over-familiar asides ("with me nowhere near
-it"), no American idiom ("shallow wins", "looks busy"), no "honestly" as an
-intensifier. Do not change a brand name, domain or legal entity wording.
+it"), no put-on British voice with the small words clipped out ("Alright
+Dave,", "no worries", "have look at"; `matey-register` reports the common
+forms for review), no American idiom ("shallow wins", "looks busy"), no
+"honestly" as an intensifier. Do not change a brand name, domain or legal
+entity wording.
 
 For a register other than the house one (plain, persuasive, warm, literary),
 see `REGISTERS.md`: a brief to read before drafting, and a check that places
