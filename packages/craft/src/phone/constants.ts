@@ -13,8 +13,13 @@ export const PHONE = {
   hasTouch: true,
 } as const;
 
-/** The house floors at phone width. Not per-repo settings. */
-export const PHONE_FLOORS: PhoneFloors = { targetPx: 44, fieldFontPx: 16, textPx: 12 };
+/**
+ * The house floors at phone width. A site may raise `textPx`, or lower
+ * `fieldHeightPx` with a reason; they are not per-repo taste. The field height
+ * is portal standard rule 5 (48px inputs); until DOM-1053 the gate held fields
+ * to the 44px target floor only.
+ */
+export const PHONE_FLOORS: Required<PhoneFloors> = { targetPx: 44, fieldFontPx: 16, textPx: 12, fieldHeightPx: 48 };
 
 /** Where `measurePhone` writes and `craft phone-first --measured` reads, unless told otherwise. */
 export const DEFAULT_MEASURED_DIR = "phone-first/measured";
