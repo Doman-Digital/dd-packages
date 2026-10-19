@@ -21,7 +21,7 @@ import { DEFAULT_MEASURED_DIR, PHONE, PHONE_FLOORS, routeFile } from "./constant
 import type { MeasuredRoute } from "./judge.js";
 import { measurePhoneInPage, type PhoneFloors, type RawPhoneFinding } from "./measure-in-page.js";
 import { measureViewportInPage, type InPageGroup } from "./measure-viewport-in-page.js";
-import { DEFAULT_SWEEP, DEFAULT_THRESHOLDS, LADDER, mainActionFor, mergeViewportFindings, SHORT_PHONE, sweepWidths, type MainAction, type Sweep, type Thresholds, type Viewport } from "./viewports.js";
+import { DEFAULT_SWEEP, DEFAULT_THRESHOLDS, LADDER, mainActionFor, mergeViewportFindings, screenBudgetFor, SHORT_PHONE, sweepWidths, type MainAction, type ScreenBudgets, type Sweep, type Thresholds, type Viewport } from "./viewports.js";
 
 export interface ViewportPage {
   evaluate<R, A>(fn: (arg: A) => R, arg: A): Promise<R>;
@@ -47,6 +47,13 @@ export interface MeasureViewportsOptions {
   floors?: Partial<PhoneFloors>;
   /** The main action's selector: one for all routes, or per route with `*` as the fallback. Absent: not checked. */
   mainAction?: MainAction;
+  /**
+   * A length budget per route, in phone screens to the footer (page height at
+   * 375 x 667 over 667): `{ "/": 6.5, "/services/*": 6 }`. A route over its
+   * budget fails the `screens` check. Without a budget the count is only
+   * reported, in `ViewportsResult.screens`.
+   */
+  screens?: ScreenBudgets;
   /** The width sweep, or `false` to measure the ladder only. */
   sweep?: Partial<Sweep> | false;
   /** Replace the ladder. */
@@ -126,6 +133,8 @@ async function loadEverything(page: ViewportPage): Promise<void> {
 interface Collected {
   perViewport: { viewport: string; findings: RawPhoneFinding[] }[];
   tested: string[];
+  /** Phone screens to the footer, from the short phone. */
+  screens?: number;
 }
 
 async function collect(page: ViewportPage, options: MeasureViewportsOptions): Promise<Collected> {
@@ -134,6 +143,7 @@ async function collect(page: ViewportPage, options: MeasureViewportsOptions): Pr
   const mainAction = mainActionFor(options.mainAction, options.route);
   const perViewport: Collected["perViewport"] = [];
   const tested: string[] = [];
+  let screens: number | undefined;
   for (const stop of plan(options)) {
     await page.setViewportSize({ width: stop.width, height: stop.height });
     await settle(page, stop.ladder ? 150 : 60);
@@ -143,14 +153,33 @@ async function collect(page: ViewportPage, options: MeasureViewportsOptions): Pr
     // The floors: text at every ladder stop, targets and fields where a thumb is.
     if (stop.ladder) findings.push(...(await page.evaluate(measurePhoneInPage, { ...floors, only: stop.touch ? ["target" as const, "field" as const, "text" as const] : ["text" as const] })));
     findings.push(...(await page.evaluate(measureViewportInPage, { groups: stop.groups, thresholds, mainAction, metaViewport: stop.width < 768 })));
+    // Length: the page, lazy images loaded, in screens of the short phone's height.
+    if (stop.name === SHORT_PHONE.name) {
+      const height = await page.evaluate(() => document.documentElement.scrollHeight, undefined);
+      screens = Math.round((height / stop.height) * 10) / 10;
+      const budget = screenBudgetFor(options.screens, options.route);
+      if (budget !== undefined && screens > budget) findings.push({ check: "screens", element: "<page>", detail: `${screens} phone screens to the footer at ${stop.width} x ${stop.height}, over the budget of ${budget} for ${options.route}` });
+    }
     perViewport.push({ viewport: stop.name, findings });
     tested.push(stop.name);
   }
-  return { perViewport, tested };
+  return { perViewport, tested, ...(screens !== undefined ? { screens } : {}) };
+}
+
+/** The phone half and the wide half as one: the screens come from the half that measured the short phone. */
+function mergeCollected(collected: Collected[]): Collected {
+  const screens = collected.find((c) => c.screens !== undefined)?.screens;
+  return { perViewport: collected.flatMap((c) => c.perViewport), tested: collected.flatMap((c) => c.tested), ...(screens !== undefined ? { screens } : {}) };
 }
 
 function finish(route: string, collected: Collected, out: string | false | undefined): ViewportsResult {
-  const result: ViewportsResult = { route, viewports: collected.tested, findings: mergeViewportFindings(collected.perViewport, collected.tested), perViewport: collected.perViewport };
+  const result: ViewportsResult = {
+    route,
+    viewports: collected.tested,
+    ...(collected.screens !== undefined ? { screens: collected.screens } : {}),
+    findings: mergeViewportFindings(collected.perViewport, collected.tested),
+    perViewport: collected.perViewport,
+  };
   if (out !== false) writeMeasured(result, out ?? DEFAULT_MEASURED_DIR);
   return result;
 }
@@ -158,8 +187,8 @@ function finish(route: string, collected: Collected, out: string | false | undef
 /** Writes `<route>.json` for `craft phone-first --measured`: the merged findings, not the per-viewport detail. */
 export function writeMeasured(result: MeasuredRoute, dir: string): void {
   mkdirSync(dir, { recursive: true });
-  const { route, viewport, viewports, findings } = result;
-  writeFileSync(join(dir, routeFile(route)), `${JSON.stringify({ route, ...(viewport ? { viewport } : {}), ...(viewports ? { viewports } : {}), findings }, null, 1)}\n`);
+  const { route, viewport, viewports, screens, findings } = result;
+  writeFileSync(join(dir, routeFile(route)), `${JSON.stringify({ route, ...(viewport ? { viewport } : {}), ...(viewports ? { viewports } : {}), ...(screens !== undefined ? { screens } : {}), findings }, null, 1)}\n`);
 }
 
 /**
@@ -210,7 +239,7 @@ export async function measureRoute(open: (scope: "phone" | "wide") => Promise<Op
       await close?.();
     }
   }
-  return finish(options.route, { perViewport: collected.flatMap((c) => c.perViewport), tested: collected.flatMap((c) => c.tested) }, options.out);
+  return finish(options.route, mergeCollected(collected), options.out);
 }
 
 export interface SitePage extends ViewportPage {
@@ -264,7 +293,7 @@ export async function measureSite(browser: SiteBrowser, options: MeasureSiteOpti
       result.errors.push({ route, error: failed });
       continue;
     }
-    result.routes.push(finish(route, { perViewport: collected.flatMap((c) => c.perViewport), tested: collected.flatMap((c) => c.tested) }, options.out));
+    result.routes.push(finish(route, mergeCollected(collected), options.out));
   }
   return result;
 }

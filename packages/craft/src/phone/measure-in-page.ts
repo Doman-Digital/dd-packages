@@ -45,7 +45,8 @@ export type PhoneCheck =
   | "input"
   | "autocomplete"
   | "tel"
-  | "linelength";
+  | "linelength"
+  | "screens";
 
 export interface RawPhoneFinding {
   check: PhoneCheck;

@@ -371,6 +371,13 @@ the one loaded page in place:
   `tel:` link.
 - **On a landscape phone (844 x 390):** header and fixed layers leave at least
   half the height.
+- **Page length (phone screens):** page height at 375 x 667 over 667, to the
+  footer (lazy images loaded). A phone page has a length budget (the Bellerose
+  home page ran 12.7 screens against a target of 6.5). Set one per route or
+  route pattern with `screens`; a route over its budget fails the `screens`
+  check, and with no budget the count is only reported. Keys are a route
+  (`/`), a pattern (`/areas/[town]`), a prefix (`/services/*`, the route and
+  everything under it) or `*`; the most specific wins.
 - **At 1440 and 1920:** body lines are at most 80 characters (width over the
   `ch` of the element's own font) and no image is stretched past its file.
 
@@ -384,9 +391,15 @@ test.use(PHONE);
 test(`every viewport: ${route}`, async ({ page }) => {
   await page.goto(route);
   // Resizes this page in place; writes phone-first/measured/<route>.json.
-  await measureViewports(page, { route, mainAction: ".hero a" });
+  await measureViewports(page, { route, mainAction: ".hero a", screens: { "/": 6.5, "/services/*": 6 } });
 });
 ```
+
+`result.screens` holds the count, and it is written to the measured file;
+`craft viewports` and `craft phone-first --measured` print it for every route
+(`phone screens to the footer: / 5.8 of 6.5`). In `viewports.json` the budget is
+`"screens": { "/": 6.5, "/services/*": 6 }`; in create-site's
+`site.programme.json` it is `measure.screens`.
 
 `measureViewports` works on the page the suite opened and signed in, so a
 portal keeps its fixtures. `measureRoute(open, { route, mainAction })` does
