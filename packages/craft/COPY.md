@@ -45,7 +45,8 @@ A single hit fails the check. These are not judgment calls.
   a signed-in route (`/admin/`, `/portal/`, `/dashboard/`).
 - **"No X, no Y" as a list**, anywhere in a sentence. "No obligation, no
   spam." Defining the business by what it is not, itemised.
-- **Chatbot residue.** "Certainly! Here's a revised version", "as an AI
+- **Chatbot residue.** "Certainly! Here's a revised version" (at the start of
+  any sentence, not only a line), "as an AI
   language model", "let me know if you'd like me to", ChatGPT citation tokens
   and entity markers, links tracked `utm_source=chatgpt.com`. This is not
   style: it is proof a chat reply was pasted in whole. Remove it, then source
@@ -90,6 +91,7 @@ person reading decides which instance earns its place.
 | `sales-tagline` | advert lines that say nothing a reader can check: "so your budget goes where it counts", "real results", "results that matter", "work harder for you", "pages that convert" |
 | `outcome-promise` | a hoped-for result written as delivered: "we'll turn that into enquiries", "once the first areas are working", "competitors you can outdo", "exactly what convinces", "guaranteed rankings", "you'll get more". Promise the work; measure and report the results |
 | `ai-vocabulary` | tapestry, testament, realm, elevate, nestled, meticulous, unparalleled, moreover; and underscore, showcasing, pivotal, measured 10 to 14 times over-used in post-2022 text |
+| `stock-email-line` | the form-email opener and closer: "I hope this email finds you well", "hope you're having a great week", "let me know if you have any questions", "don't hesitate to contact us". Start with the reason for writing; end with the next step and who to ask |
 | `stock-phrase` | to the next level, one-stop shop, we pride ourselves, passionate about, peace of mind, "so here's", a journey used as a metaphor |
 | `hollow-imperative` | Discover, Experience, Transform, Elevate as the opening verb of a heading or button |
 | `rhetorical-opener` | "Looking for...?", "Tired of...?", "Ready to...?" |
