@@ -24,6 +24,10 @@
 //     far larger than they are shown nor stretched; phone, email and number
 //     fields use the keyboard that fits and carry autocomplete; phone numbers
 //     in the text are tel: links;
+//   - the page's length: phone screens to the footer (page height at 375 x 667
+//     over 667), always printed per page; with measure.screens (a budget per
+//     page or page pattern, `{ "/": 6.5, "/services/*": 6 }`) a page over its
+//     budget fails;
 //   - on a landscape phone, header and fixed layers leave half the height;
 //   - at 1440 and 1920: body text lines stay under 80 characters and no image
 //     is stretched past its file.
@@ -78,6 +82,7 @@ try {
 } catch {
   stop(GATE, "06", "@domandigital/craft is not installed, or is older than the every-viewport measure (0.20). Install the site's dependencies.");
 }
+if (measure.screens && !craft.checkScreenBudgets) stop(GATE, "06", "measure.screens needs @domandigital/craft 0.22 or newer, which counts phone screens to the footer. Update it.");
 const { measureSite, judgeMeasured, writeBaseline, EMPTY_BASELINE, LADDER, PHONE_FLOORS, DEFAULT_THRESHOLDS } = craft;
 
 const close = values.serve ? await serveBuild() : () => {};
@@ -135,6 +140,7 @@ try {
     floors: { textPx: minFontPx },
     ...(measure.mainAction ? { mainAction: measure.mainAction } : {}),
     ...(measure.thresholds ? { thresholds: measure.thresholds } : {}),
+    ...(measure.screens ? { screens: craft.checkScreenBudgets(measure.screens, "site.programme.json measure.screens") } : {}),
     ...(measure.sweep !== undefined ? { sweep: measure.sweep } : {}),
     onViewport: atViewport,
   });
@@ -179,15 +185,18 @@ const res = {
   minFieldFontPx: PHONE_FLOORS.fieldFontPx,
   thresholds: { ...DEFAULT_THRESHOLDS, ...(measure.thresholds ?? {}) },
   mainAction: measure.mainAction ?? null,
+  screens: measure.screens ?? null,
   baseline: measure.baseline ?? null,
   knownBreaches: judged.known,
-  pages: Object.fromEntries(site.routes.map((r) => [r.route, { viewports: r.viewports, findings: r.findings, noindex: extras[r.route].noindex, labels: extras[r.route].labels }])),
+  pages: Object.fromEntries(site.routes.map((r) => [r.route, { viewports: r.viewports, screens: r.screens ?? null, findings: r.findings, noindex: extras[r.route].noindex, labels: extras[r.route].labels }])),
   errors: site.errors,
   failures,
 };
 writeFileSync(join(root, "measure", "measure.json"), `${JSON.stringify(res, null, 1)}\n`);
 const ladder = LADDER.map((v) => v.name).join(", ");
 console.log(`${GATE}: ${pages.length} page(s) at ${ladder} and the width sweep, phone first, against ${base}${judged.known ? `; ${judged.known} known breach${judged.known === 1 ? "" : "es"} in ${measure.baseline}` : ""}; captures in measure/out, report in measure/measure.json`);
+const lengths = craft.formatScreens?.(site.routes, measure.screens);
+if (lengths) console.log(`${GATE}: phone screens to the footer${measure.screens ? " (of budget)" : ""}: ${lengths}`);
 if (!updating && failures.length) stop(GATE, "06", `${failures.length} failure(s):\n${failures.map((f) => `  ${f}`).join("\n")}`);
 
 /** Serves the last build on measure.port and returns how to stop it. */

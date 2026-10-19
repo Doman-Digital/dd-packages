@@ -80,7 +80,9 @@ a target under 44px and a form field set under 16px; on a short phone (375 x
 667), on a main action below the first screen (`measure.mainAction`), fixed
 layers over a quarter of the screen, images far larger than they are shown or
 stretched, a phone, email or number field with the wrong keyboard or no
-autocomplete, and a phone number that is not a `tel:` link; in landscape, on
+autocomplete, a phone number that is not a `tel:` link, and a page longer than
+its `measure.screens` budget (phone screens to the footer, page height over 667;
+printed for every page even with no budget); in landscape, on
 fixed layers over half the height; at 1440 and 1920, on body lines over 80
 characters. `measure.baseline` lists known failures so they stay visible.
 `pnpm deploy:preview` is the only deploy: it sets `PUBLIC_PREVIEW` itself,

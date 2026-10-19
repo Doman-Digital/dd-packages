@@ -347,6 +347,20 @@ describe.skipIf(!hasBrowser)("measure at every viewport, in a real browser", () 
     expect(r.out).toContain("(at 375x667)");
   }, 120_000);
 
+  test("counts phone screens to the footer for every page, and fails a page over its measure.screens budget", async () => {
+    const tall = page(VIEWPORT, '<div style="height:1500px"></div>Text');
+    const counted = await measured(tall, 4481);
+    expect(counted.status).toBe(0);
+    expect(counted.out).toMatch(/phone screens to the footer: \/ 2\.\d\n/);
+    expect(json(counted.root, "measure/measure.json").pages["/"].screens).toBeGreaterThan(2);
+    const over = await measured(tall, 4482, { screens: { "/": 1.5 } });
+    expect(over.status).toBe(1);
+    expect(over.out).toMatch(/\/: page too long for a phone <page>: 2\.\d phone screens to the footer at 375 x 667, over the budget of 1\.5 for \//);
+    const within = await measured(tall, 4483, { screens: { "*": 3 } });
+    expect(within.status).toBe(0);
+    expect(within.out).toMatch(/phone screens to the footer \(of budget\): \/ 2\.\d of 3/);
+  }, 180_000);
+
   test("lists known failures from the baseline, fails a new one, and asks for the baseline to shrink", async () => {
     const html = page(VIEWPORT, 'Call 020 7946 0958.<span class="tail"></span>');
     const first = await measured(html, 4475, { baseline: "measure.baseline.json" }, "--update-baseline");

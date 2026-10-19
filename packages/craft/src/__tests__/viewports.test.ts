@@ -23,6 +23,7 @@ import {
   type SiteBrowser,
 } from "../phone/index.js";
 import { plan } from "../phone/run.js";
+import { checkScreenBudgets, formatScreens, screenBudgetFor } from "../phone/viewports.js";
 
 const fixture = (name: string): string => readFileSync(join(import.meta.dirname, "fixtures/viewports", name), "utf8");
 const f = (check: RawPhoneFinding["check"], element: string, detail = "d"): RawPhoneFinding => ({ check, element, detail });
@@ -117,6 +118,38 @@ describe("reading the widths", () => {
   });
 });
 
+describe("the phone-screen budget (DOM-1052)", () => {
+  const budgets = { "*": 9, "/": 6.5, "/services/*": 6, "/services/boilers": 4, "/areas/[town]": 5 };
+
+  it("finds the most specific budget for a route, query and all", () => {
+    expect(screenBudgetFor(budgets, "/")).toBe(6.5);
+    expect(screenBudgetFor(budgets, "/?theme=dark")).toBe(6.5);
+    expect(screenBudgetFor(budgets, "/services/drains")).toBe(6);
+    expect(screenBudgetFor(budgets, "/services/boilers")).toBe(4);
+    expect(screenBudgetFor(budgets, "/services")).toBe(6);
+    expect(screenBudgetFor(budgets, "/areas/leeds")).toBe(5);
+    expect(screenBudgetFor(budgets, "/reviews")).toBe(9);
+  });
+
+  it("has no budget where nothing covers the route, or nothing is set", () => {
+    expect(screenBudgetFor({ "/": 6.5 }, "/reviews")).toBeUndefined();
+    expect(screenBudgetFor({ "/services/*": 6 }, "/servicesx")).toBeUndefined();
+    expect(screenBudgetFor(undefined, "/")).toBeUndefined();
+  });
+
+  it("refuses a budget that is not a positive number, or a route with no slash", () => {
+    expect(checkScreenBudgets({ "/": 6.5, "*": 8 })).toEqual({ "/": 6.5, "*": 8 });
+    expect(() => checkScreenBudgets({ "/": "6" })).toThrow(/"\/" should be a number of phone screens above 0/);
+    expect(() => checkScreenBudgets({ "/": 0 })).toThrow(/above 0/);
+    expect(() => checkScreenBudgets({ home: 6 })).toThrow(/should start with \//);
+    expect(() => checkScreenBudgets([6])).toThrow(/should map a route/);
+  });
+
+  it("prints the count with its budget when there is one", () => {
+    expect(formatScreens([{ route: "/", screens: 12.7 }, { route: "/about", screens: 4.1 }, { route: "/x" }], { "/": 6.5 })).toBe("/ 12.7 of 6.5, /about 4.1");
+  });
+});
+
 describe("the new checks in the baseline", () => {
   const routes: MeasuredRoute[] = [
     {
@@ -170,6 +203,30 @@ describe.skipIf(!chromium)("craft viewports in a real browser", () => {
       await browser.close();
     }
   }
+
+  it("counts phone screens to the footer, and fails a page over its budget (DOM-1052)", async () => {
+    await withBrowser(async (browser) => {
+      const page = await (await browser.newContext(PHONE)).newPage();
+      await page.setContent(`<!doctype html><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0}</style><div style="height:2001px"></div>`);
+      const counted = await measureViewports(page, { route: "/long", out: false, sweep: false });
+      expect(counted.screens).toBe(3);
+      expect(counted.findings.filter((f) => f.check === "screens")).toEqual([]);
+      const over = await measureViewports(page, { route: "/long", out: false, sweep: false, screens: { "/long": 2.5 } });
+      expect(over.findings.filter((f) => f.check === "screens").map((f) => `${f.element}: ${f.detail}`)).toEqual([
+        "<page>: 3 phone screens to the footer at 375 x 667, over the budget of 2.5 for /long (at 375x667)",
+      ]);
+      const within = await measureViewports(page, { route: "/long", out: false, sweep: false, screens: { "*": 3 } });
+      expect(within.findings.filter((f) => f.check === "screens")).toEqual([]);
+      // The count reaches the measured file craft phone-first reads.
+      const dir = mkdtempSync(join(tmpdir(), "craft-screens-"));
+      try {
+        await measureViewports(page, { route: "/long", out: dir, sweep: false });
+        expect(JSON.parse(readFileSync(join(dir, "long.json"), "utf8")).screens).toBe(3);
+      } finally {
+        rmSync(dir, { recursive: true, force: true });
+      }
+    });
+  }, 60_000);
 
   it("finds every fault on a page built to have them, and says where", async () => {
     await withBrowser(async (browser) => {
