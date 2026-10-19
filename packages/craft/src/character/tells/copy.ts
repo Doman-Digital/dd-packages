@@ -212,6 +212,48 @@ const OUTCOME_PROMISES: RegExp[] = [
   new RegExp(`\\b(?:will|we['’]ll)\\s+(?:(?:bring|drive|generate|get)\\s+you|bring|drive|generate)\\s+more\\s+(?:[\\w-]+\\s+)?${SALES_RESULTS}\\b`, "i"),
 ];
 
+/**
+ * The matey register: a put-on, over-familiar British voice. A model asked to
+ * sound British reaches for "Alright Dave," and "no worries", and clips the
+ * small words out ("have look at", "Quick one:"). The UK is broad, and to a
+ * client it reads as cringe and a little rude. Each pattern is held to the
+ * matey use: "proper planning", "a sorted list", "a cut from a mate who knows"
+ * and "give us a ring" all pass.
+ */
+const SENTENCE_START = String.raw`(?<=^|[\n>"“]|[.!?]\s+)`;
+const MATEY: RegExp[] = [
+  // "Alright Carlo,", "Oi Dave", "Alright, mate"
+  /\b(?:Alright|Oi)(?:,\s*|\s+)(?:mate\b|[A-Z][a-z]+\b)/,
+  // "mate" as a form of address, not "a mate who knows"
+  /,\s*mate\b|\b(?:thanks|ta|cheers|alright|oi|fussed|sorry|worries|bother|hiya|hey)\s+mate\b/i,
+  /\b(?:innit|chuffed|lovely jubbly)\b|\bbish,?\s+bash,?\s+bosh\b|\bbob['’]?s\s+your\s+uncle\b/i,
+  /\bno\s+(?:worries|bother)\b|\bnot\s+fussed\b/i,
+  // "Right then," opening a sentence, not "the right then left turn"
+  new RegExp(`${SENTENCE_START}Right,?\\s+then\\b[,!.]`),
+  // "we'll get you sorted", "all sorted", "Sorted!", not "sorted by date"
+  /\b(?:all|get(?:ting)?\s+(?:it|that|this|you|them|everything)|got\s+(?:it|that|you)|you['’]re)\s+sorted\b(?!\s+(?:by|in|into|alphabetically)\b)/i,
+  new RegExp(`${SENTENCE_START}Sorted[.!]`),
+  // "proper" as an intensifier before an adjective, not "proper planning"
+  /\bproper\s+(?:good|nice|quick|tidy|lovely|decent|chuffed|busy|mint|smart|happy|gutted|brilliant|buzzing)\b/i,
+  /\bgive\s+(?:me|us)\s+a\s+(?:shout|bell|buzz|tinkle)\b/i,
+  /\bwhen\s+you\s+(?:get|have|['’]ve\s+got)\s+a\s+(?:sec|min|mo)\b/i,
+  /\bhave\s+a\s+(?:quick\s+)?(?:gander|squiz|nosey|nose(?:\s+(?:round|around))?)\b(?!\s+for\b)/i,
+  /\bcheck\s+out\s+(?:our|my|this|these)\b/i,
+];
+
+/**
+ * Clipped speech: the article, preposition or subject dropped to sound
+ * casual. "Take look on these", "give it go", "Quick one:", "built you a
+ * site". Nobody writing to a client they respect leaves the words out.
+ */
+const CLIPPED: RegExp[] = [
+  /\b(?:take|takes|took|taking|have|has|had|having)\s+(?:quick\s+)?look\s+(?:at|on|over|through|in)\b/i,
+  /\bgive\s+(?:it|this|that|them)\s+(?:go|try|look|read|whirl|bash)\b(?![-\w])/i,
+  new RegExp(`${SENTENCE_START}Quick\\s+one\\b(?=\\s*[:,.!?—–-]|\\s+(?:for you|before|on|about)\\b)`),
+  // "Alright Carlo, built you a proper site": the "I" left out
+  /(?<=^|[\n>"“]|[.!?—–-]\s*|,\s+)(?:[Bb]uilt|[Mm]ade|[Pp]ut together|[Kk]nocked up)\s+(?:you|your\s+\w+|the\s+\w+)\s+an?\b/,
+];
+
 // ------------------------------------------------------------ patterns
 
 /**
@@ -481,6 +523,40 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/home.md", "We'll rewrite your rewiring page around homeowners' questions."),
         f("content/home.md", "We record every rewiring enquiry, quotation and won job."),
         f("content/home.md", "Once the fuse board is fitted, we test every circuit."),
+      ],
+    },
+  },
+  {
+    id: "matey-register",
+    name: "Matey register",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'Alright Dave,', 'no worries, we'll get you sorted', 'Quick one:', 'have look at': a put-on, over-familiar British voice, with the small words clipped out. A model asked to sound British writes it; the UK is broad, and a client reads it as cringe and a little rude.",
+    fix: "Write plain, complete British English. 'Alright Dave, built you a site' becomes 'Hi Dave, I have built you a site'; 'No worries, we'll get you sorted' becomes 'We can fit you in on Thursday'.",
+    detect: phrases([...MATEY, ...CLIPPED], quoted),
+    fixtures: {
+      flag: [
+        // From the portal's seeded prospect follow-ups, 2026-10-19.
+        f("emails/followup.md", "Alright Dave, it's Dmitri. No pressure, have a look when you get a min."),
+        f("emails/followup.md", "All good if you're not fussed mate, I'll leave it there."),
+        f("emails/followup.md", "Carlo, built the shop a proper site."),
+        f("content/contact.md", "No worries, we'll get you sorted."),
+        f("emails/quote.md", "Take look on these photos and give it go."),
+        f("emails/quote.md", "Quick one: is Thursday still good?"),
+        f("emails/quote.md", "Right then, here is the plan."),
+        f("content/reviews.md", "The fitters did a proper good job and we were chuffed."),
+      ],
+      pass: [
+        f("content/home.md", "Proper planning saves a second visit."),
+        f("content/certificates.md", "Download a sorted list of certificates, sorted by date."),
+        f("content/directions.md", "At the junction, take the right then left turn."),
+        // Chair and Blade's own approved line, and "mate" as a noun.
+        f("content/home.md", "Every cut starts with a proper chat about what you actually want."),
+        f("content/home.md", "It feels like getting a cut from a mate who knows what he is doing."),
+        f("emails/quote.md", "Have a look at the quote and ring me if Thursday does not work."),
+        f("content/contact.md", "Give us a ring on 01280 700123. We take a look at the fault before quoting."),
+        f("content/home.md", "Built to last, and made for older houses."),
       ],
     },
   },

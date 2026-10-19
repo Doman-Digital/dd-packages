@@ -1341,7 +1341,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.10.3`, 71 tells.
+Catalogue version `2026.10.4`, 72 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -1378,6 +1378,7 @@ Catalogue version `2026.10.3`, 71 tells.
 | `review-phrase` | 1 | copy | warn | Review-tier phrase | Truly, genuinely, clear, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking. |
 | `sales-tagline` | 1 | copy | warn | Sales tagline | 'So your budget goes where it counts', 'Real results', 'pages that convert': advert lines that sound like a pitch and say nothing a reader can check. |
 | `outcome-promise` | 1 | copy | warn | Outcome promise | 'We'll turn that into enquiries', 'once the first areas are working', 'competitors you can outdo': a hoped-for result written as if it were delivered. Rankings and enquiries depend on things nobody controls. |
+| `matey-register` | 2 | copy | warn | Matey register | 'Alright Dave,', 'no worries, we'll get you sorted', 'Quick one:', 'have look at': a put-on, over-familiar British voice, with the small words clipped out. A model asked to sound British writes it; the UK is broad, and a client reads it as cringe and a little rude. |
 | `hollow-imperative` | 1 | copy | warn | Hollow imperative | 'Discover', 'Experience', 'Transform your' as the opening verb of a heading or button is a call to action with nothing in it. |
 | `rhetorical-opener` | 1 | copy | warn | Rhetorical question opener | 'Looking for...?', 'Tired of...?', 'Ready to...?' opens with the model guessing at the reader instead of telling them something. |
 | `em-dash` | 2 | copy | warn | Em dash | Generated copy leans on the em dash to join clauses. House copy does not use it. |
