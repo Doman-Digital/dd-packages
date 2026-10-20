@@ -116,6 +116,16 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   live DD article, 15 of 15 real, zero false alarms on the 160 generated
   pages and the human set. The article was fixed and every claim a token had
   backed was sourced, corrected or cut.
+<!-- copy-ok: this entry names the phrases plain-english blocks -->
+- **`plain-english` widened on 2026-10-20** (founder ban, DOM-1058) to the bare
+  adverb and "in plain terms", "in plain language", "in plain words". Its estate <!-- copy-ok -->
+  hits were read first, over `~/repos` outside craft's model drafts: 159 bare,
+  58 "in plain ...", 17 of the forms it already blocked. 55 sit in shipped copy <!-- copy-ok -->
+  in eight repos (DD social carousels 26, the DD site and marketing 10,
+  Sensphere 8), nearly all the stock "stated plainly" or "we'll tell you <!-- copy-ok -->
+  plainly"; the rest are Markdown notes. The one fixed legitimate form, licence <!-- copy-ok -->
+  text ("must be plainly marked"), is let through. The new `confession-line`
+  and `hero-cta-pair` start in review.
 
 ## Register module, 2026-09-30
 
@@ -146,7 +156,7 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
 
 - DD live Sanity content, 2026-09-23: `sanity-copy` over all 137 published
   documents of project `6xogwbpo`. Two house-rule findings (a "No proof" card
-  title on the homepage; "disciplined, not complicated" in an article) and 154
+  title on the homepage; "disciplined, not complicated" in an article) and 154 <!-- copy-ok: quoting a finding -->
   worth a look. **Ten `chatbot-residue` findings in one live article**,
   `website-builder-vs-freelancer-vs-agency`: ChatGPT citation tokens pasted in
   whole, rendering on domandigital.co.uk. The first live proof for that tell.

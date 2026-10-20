@@ -20,6 +20,67 @@
       "type": "string",
       "minLength": 1
     },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The person whose review this is, when the file is their record. Each note's raisedBy still says who raised it."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "The day the review was given."
+    },
+    "source": {
+      "type": "object",
+      "description": "Where the review came from, when it is a reviewer's own record (a reviewer corpus under reviews/).",
+      "required": [
+        "tool"
+      ],
+      "properties": {
+        "tool": {
+          "type": "string",
+          "minLength": 1,
+          "description": "pastel, a document, a call, an email."
+        },
+        "canvas": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "link": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      }
+    },
+    "rulings": {
+      "type": "object",
+      "description": "Who made the final calls recorded in each note's founderRuling, and when.",
+      "required": [
+        "by",
+        "date"
+      ],
+      "properties": {
+        "by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
     "notes": {
       "type": "array",
       "items": {
@@ -411,6 +472,101 @@
                     "minLength": 1
                   }
                 }
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "object",
+          "description": "Where the note was left: the tool, and the reference that finds it again.",
+          "required": [
+            "tool"
+          ],
+          "properties": {
+            "tool": {
+              "type": "string",
+              "minLength": 1
+            },
+            "canvas": {
+              "type": [
+                "integer",
+                "string"
+              ]
+            },
+            "comment": {
+              "type": [
+                "integer",
+                "string"
+              ],
+              "description": "The comment's number as the reviewer sees it."
+            },
+            "commentId": {
+              "type": [
+                "integer",
+                "string"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "The page the note was left on."
+            },
+            "at": {
+              "type": "string",
+              "description": "When it was left, ISO 8601."
+            }
+          }
+        },
+        "verdict": {
+          "enum": [
+            "praise",
+            "take",
+            "take-reworded",
+            "partly",
+            "decline",
+            "founder-decision",
+            "known"
+          ],
+          "description": "What was done with the note. take-reworded: the diagnosis is taken and the suggested wording rewritten (it is copy-checked like any other). partly: the aim is taken, by a smaller or different change. known: already tracked, no change here."
+        },
+        "founderRuling": {
+          "type": "object",
+          "required": [
+            "date",
+            "ruling"
+          ],
+          "properties": {
+            "date": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "ruling": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "description": "The founder's call where the note needed one, stated as the decision and nothing more."
+        },
+        "principle": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "The id of the principle the note teaches, as written up in CHARACTER.md."
+        },
+        "tells": {
+          "type": "array",
+          "description": "Craft tells the note informed. With text, the words that tell must fire on.",
+          "items": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
               }
             }
           }
