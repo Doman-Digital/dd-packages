@@ -9,3 +9,7 @@ packages/craft/CHARACTER.md
 packages/craft/COPY.md
 packages/craft/src/character/tells/copy.ts
 packages/craft/src/__tests__/*.test.ts
+# A reviewer corpus keeps each reviewer's words as written, including lines the
+# house rules block; her wording is checked when it is used on a site
+# (packages/craft/reviews/README.md, DOM-1058).
+packages/craft/reviews/*/*.json
