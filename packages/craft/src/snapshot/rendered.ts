@@ -161,6 +161,33 @@ export const RENDERED_PATHS: Record<string, RenderedPath> = {
     detect: (s) => (s.effects.eyebrowChip ? [hit(s, "a small bordered pill sits above the headline")] : []),
     fixtures: { flag: [makeSnapshot({ effects: { eyebrowChip: true } })], pass: [makeSnapshot()] },
   },
+  "hero-cta-pair": {
+    // Version 2 geometry counts buttons and button-styled links per section. A
+    // header painted inside the hero's box adds its own button, which the
+    // source path can tell apart and this one cannot; a ghost button with no
+    // fill or border is not counted, so this path under-reports.
+    detect: (s) => {
+      const first = s.sections[0];
+      const controls = first?.geometry?.controls ?? 0;
+      return first && (first.role ?? first.kind) === "hero" && controls >= 2 ? [hit(s, `${controls} buttons in the hero`, first.label)] : [];
+    },
+    fixtures: {
+      flag: [
+        {
+          ...makeSnapshot(),
+          sections: makeSnapshot().sections.map((x, i) => (i === 0 ? { ...x, role: "hero" as const, geometry: { centredShare: 0.2, mirrorSymmetry: 0.6, whitespaceRatio: 0.6, contentWidthRatio: 0.8, background: "rgb(255, 255, 255)", controls: 2 } } : x)),
+        },
+      ],
+      pass: [
+        makeSnapshot(),
+        // One button, with the second route as a text link: one control.
+        {
+          ...makeSnapshot(),
+          sections: makeSnapshot().sections.map((x, i) => (i === 0 ? { ...x, role: "hero" as const, geometry: { centredShare: 0.2, mirrorSymmetry: 0.6, whitespaceRatio: 0.6, contentWidthRatio: 0.8, background: "rgb(255, 255, 255)", controls: 1 } } : x)),
+        },
+      ],
+    },
+  },
   "icon-tile-grid": {
     detect: (s) =>
       s.sections.filter((x) => x.cards >= 3 && x.iconCards >= 3).map((x) => hit(s, `${x.iconCards} icon cards in a row`, x.label)),

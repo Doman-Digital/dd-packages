@@ -259,6 +259,15 @@ export const CHANGE_CLASSES = ["confirmed-correction", "design-hypothesis", "opt
 export type ChangeClass = (typeof CHANGE_CLASSES)[number];
 
 /**
+ * What was done with a note in a reviewer's own record (`reviews/`).
+ * take-reworded: the diagnosis is taken and the suggested wording rewritten,
+ * because a reviewer's lines are copy-checked like anyone's. partly: the aim
+ * is taken by a smaller or different change. known: already tracked.
+ */
+export const REVIEW_VERDICTS = ["praise", "take", "take-reworded", "partly", "decline", "founder-decision", "known"] as const;
+export type ReviewVerdict = (typeof REVIEW_VERDICTS)[number];
+
+/**
  * The ladder of minimum effective change, smallest first. The last two are
  * structural and have to say why every smaller step was not enough.
  */
@@ -319,6 +328,16 @@ export interface ReviewNote {
     /** Facts or assets the change depends on. With no source, nobody has supplied them. */
     requires?: { what: string; source?: string; kind?: "asset" | "fact"; phase?: "implementation" | "publication"; placeholder?: string }[];
   };
+  /** Where the note was left, so it can be found again: `{ tool: "pastel", canvas, comment, url }`. */
+  source?: { tool: string; canvas?: number | string; comment?: number | string; commentId?: number | string; url?: string; at?: string };
+  /** What was done with it, in a reviewer corpus. */
+  verdict?: ReviewVerdict;
+  /** The founder's call where the note needed one: the decision, stated and dated. */
+  founderRuling?: { date: string; ruling: string };
+  /** The principle it teaches, by its id in CHARACTER.md. */
+  principle?: string;
+  /** Tells it informed; with text, the words that tell must fire on. */
+  tells?: { id: string; text?: string }[];
 }
 
 export interface DesignReview {
@@ -328,6 +347,11 @@ export interface DesignReview {
   version: 1;
   /** Who or what was reviewed, and at which width. */
   subject: string;
+  /** In a reviewer corpus: whose review this is, the day, where it was given and who ruled on it. */
+  reviewer?: string;
+  date?: string;
+  source?: { tool: string; canvas?: number | string; link?: string; comments?: number; from?: string; to?: string };
+  rulings?: { by: string; date: string };
   notes: ReviewNote[];
 }
 
