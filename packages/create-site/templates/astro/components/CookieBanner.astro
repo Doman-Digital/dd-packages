@@ -1,12 +1,17 @@
 ---
-// The cookie banner. Written by @domandigital/create-site, from the dd-base
-// banner (Doman-Digital/dd-library). Unstyled: style it with the site's own
-// classes. Put <CookieBanner /> once in the base layout; launch:check fails
-// until it is placed.
+// The cookie banner and its settings. Written by @domandigital/create-site,
+// from the dd-base banner (Doman-Digital/dd-library). Unstyled: style it with
+// the site's own classes. Put <CookieBanner /> once in the base layout;
+// launch:check fails until it is placed.
 //
 // Hidden until the script finds no stored choice, so a returning visitor
-// never sees it flash. The two buttons carry equal weight: refusing must be
-// as easy as accepting. Any element with data-cookie-settings brings it back.
+// never sees it flash. Necessary only and Accept measurement carry equal
+// weight: refusing must be as easy as accepting. They answer the
+// consent-based tools only. Visit statistics (Cloudflare Web Analytics) is a
+// separate switch in Settings, on until the visitor switches it off, and
+// neither button changes it. Any element with data-cookie-settings, and the
+// #cookie-settings address, opens the settings. Rule: docs/web-analytics.md
+// in claude-kit.
 interface Props {
   class?: string;
 }
@@ -17,26 +22,69 @@ const { class: className } = Astro.props;
 <div class={className} role="region" aria-label="Cookie choices" data-cookie-banner hidden>
   <p>
     We use cookies the site needs to work. With your permission we also use measurement cookies to see how the site is
-    used. <a href="/cookies">Cookie policy</a>
+    used. Visit statistics run without cookies and you can switch them off in settings. <a href="/cookies">Cookie policy</a>
   </p>
+  <button type="button" data-cookie-choice="settings">Settings</button>
   <button type="button" data-cookie-choice="necessary">Necessary only</button>
   <button type="button" data-cookie-choice="measurement">Accept measurement</button>
 </div>
 
+<div class={className} role="region" aria-label="Cookie settings" data-cookie-panel hidden>
+  <h2>Cookie settings</h2>
+  <p>Strictly necessary cookies are always on. They keep the site working and remember these choices.</p>
+  <label>
+    <input type="checkbox" role="switch" data-cookie-switch="statistics" checked />
+    Visit statistics
+  </label>
+  <p>Counts visits without cookies, to show which pages people use and how fast they load. Used only to improve the site. On unless you switch it off.</p>
+  <label>
+    <input type="checkbox" role="switch" data-cookie-switch="measurement" />
+    Measurement cookies
+  </label>
+  <p>Optional cookies that show us in more detail how the site is used. Off unless you switch them on.</p>
+  <button type="button" data-cookie-panel-action="cancel">Cancel</button>
+  <button type="button" data-cookie-panel-action="save">Save choices</button>
+</div>
+
 <script>
-  import { SETTINGS_EVENT, getConsent, setConsent } from "~site/consent";
+  import { SETTINGS_EVENT, getConsent, getStatistics, setConsent } from "~site/consent";
 
   const banner = document.querySelector<HTMLElement>("[data-cookie-banner]");
-  if (banner) {
-    banner.hidden = getConsent() !== null;
+  const panel = document.querySelector<HTMLElement>("[data-cookie-panel]");
+  if (banner && panel) {
+    const statistics = panel.querySelector<HTMLInputElement>('[data-cookie-switch="statistics"]')!;
+    const measurement = panel.querySelector<HTMLInputElement>('[data-cookie-switch="measurement"]')!;
+
+    const showBannerIfUndecided = () => {
+      panel.hidden = true;
+      banner.hidden = getConsent() !== null;
+    };
+    const openSettings = () => {
+      statistics.checked = getStatistics();
+      measurement.checked = getConsent()?.measurement ?? false;
+      banner.hidden = true;
+      panel.hidden = false;
+    };
+
+    if (window.location.hash === "#cookie-settings") openSettings();
+    else showBannerIfUndecided();
+
     banner.querySelectorAll<HTMLButtonElement>("[data-cookie-choice]").forEach((button) => {
       button.addEventListener("click", () => {
-        setConsent(button.dataset.cookieChoice === "measurement");
+        const choice = button.dataset.cookieChoice;
+        if (choice === "settings") return openSettings();
+        setConsent(choice === "measurement");
         banner.hidden = true;
       });
     });
-    window.addEventListener(SETTINGS_EVENT, () => {
-      banner.hidden = false;
+    panel.querySelector('[data-cookie-panel-action="save"]')?.addEventListener("click", () => {
+      setConsent(measurement.checked, statistics.checked);
+      panel.hidden = true;
+    });
+    panel.querySelector('[data-cookie-panel-action="cancel"]')?.addEventListener("click", showBannerIfUndecided);
+    window.addEventListener(SETTINGS_EVENT, openSettings);
+    window.addEventListener("hashchange", () => {
+      if (window.location.hash === "#cookie-settings") openSettings();
     });
   }
 </script>

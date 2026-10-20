@@ -7,6 +7,7 @@
 
 import type { Metadata } from "next";
 import { isRouteIndexable } from "@domandigital/seo";
+import { CookieSettingsLink } from "~site/components/CookieBanner";
 import { JsonLd } from "~site/components/JsonLd";
 import { facts } from "~site/facts";
 import { ICO_COMPLAINTS, identity, legal, privacyEmail } from "~site/legal";
@@ -39,8 +40,9 @@ export default function PrivacyPage() {
         <h2>What we collect</h2>
         <p>
           When you contact us we keep what you send: your name, how to reach you and your message. When you use the site,
-          the server records technical details such as your IP address and browser to keep it running and secure. With
-          your permission, and only then, we also measure how the site is used.
+          the server records technical details such as your IP address and browser to keep it running and secure. We
+          count visits without cookies, as set out below. With your permission, and only then, we also use measurement
+          cookies to see in more detail how the site is used.
         </p>
       </section>
 
@@ -48,9 +50,24 @@ export default function PrivacyPage() {
         <h2>Why we are allowed to</h2>
         <ul>
           <li>Answering you and doing the work you ask for: taking steps towards a contract, or a contract, Article 6(1)(b).</li>
+          <li>Visit statistics: our legitimate interests, Article 6(1)(f). They are on until you switch them off.</li>
           <li>Measurement cookies: your consent, Article 6(1)(a). They are off until you accept them.</li>
           <li>Keeping the site running and secure: our legitimate interests, Article 6(1)(f).</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Analytics</h2>
+        <p>
+          <strong>Visit statistics (Cloudflare Web Analytics).</strong> We count visits to see which pages people use,
+          where they arrive from, and how quickly pages load, so we can improve the site. Cloudflare runs this for us as
+          our processor. It sets no cookies and stores nothing on your device. It uses the page address, the referring
+          page, your browser and device type, your country, and page timings, and it doesn&apos;t build a profile of you
+          or use the data for advertising. Cloudflare keeps these statistics for up to six months, and we keep daily
+          totals. The law allows this without asking first, as long as you can say no: switch off{" "}
+          <strong>Visit statistics</strong> in <CookieSettingsLink /> and we&apos;ll stop. Our lawful basis is our
+          legitimate interest in understanding and improving the site.
+        </p>
       </section>
 
       {legal.processors.length > 0 && (

@@ -282,11 +282,12 @@ describe("the legal pages and cookie banner from dd-base", () => {
   test("are written, and the facts file starts with every legal fact unknown", async () => {
     const root = project("next-root");
     await scaffold(root);
-    for (const file of ["app/privacy/page.tsx", "app/cookies/page.tsx", "app/terms/page.tsx", "app/accessibility/page.tsx", "components/CookieBanner.tsx", "lib/consent.ts", "lib/legal.ts"]) {
+    for (const file of ["app/privacy/page.tsx", "app/cookies/page.tsx", "app/terms/page.tsx", "app/accessibility/page.tsx", "components/CookieBanner.tsx", "components/WebAnalytics.tsx", "lib/consent.ts", "lib/web-analytics.ts", "lib/legal.ts"]) {
       expect(existsSync(join(root, file)), file).toBe(true);
     }
     const facts = readFileSync(join(root, "site.facts.ts"), "utf8");
     expect(facts).toMatch(/legal: \{\n\s+companyNumber: null,/);
+    expect(facts).toMatch(/webAnalytics: \{ token: null \}/);
     expect(facts).not.toMatch(/\{\{|TODO|TBC/);
   });
 });
