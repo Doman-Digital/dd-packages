@@ -1,0 +1,17 @@
+---
+// Cloudflare Web Analytics for every visitor, from the first page, unless they
+// have switched Visit statistics off in the cookie settings. Not behind the
+// banner's buttons. Put <WebAnalytics /> once in the base layout; launch:check
+// fails until it is placed and the site's token is in site.facts.ts. Written by
+// @domandigital/create-site. Rule: docs/web-analytics.md in claude-kit.
+//
+// A page per navigation, so the beacon needs no single-page option. A site that
+// adds Astro view transitions passes { spa: true } to startWebAnalytics below.
+---
+
+<script>
+  import { facts } from "~site/facts";
+  import { startWebAnalytics } from "~site/web-analytics";
+
+  startWebAnalytics(facts.webAnalytics?.token);
+</script>

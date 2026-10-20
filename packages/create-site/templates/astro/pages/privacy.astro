@@ -3,7 +3,8 @@
 // (Doman-Digital/dd-library), reading every fact from site.facts.ts. A fact
 // that is null is left out, never filled with a placeholder; launch:check
 // fails until the ones every site needs are set. A whole document, because a
-// fresh Astro site may have no layout yet: move it into yours.
+// fresh Astro site may have no layout yet: move it into yours. The settings
+// link opens the cookie banner's settings, so the layout needs <CookieBanner />.
 // Written by @domandigital/create-site.
 import { isRouteIndexable } from "@domandigital/seo";
 import JsonLd from "~site/components/JsonLd.astro";
@@ -41,8 +42,9 @@ const indexable = isRouteIndexable(policy, "/privacy");
         <h2>What we collect</h2>
         <p>
           When you contact us we keep what you send: your name, how to reach you and your message. When you use the site,
-          the server records technical details such as your IP address and browser to keep it running and secure. With
-          your permission, and only then, we also measure how the site is used.
+          the server records technical details such as your IP address and browser to keep it running and secure. We
+          count visits without cookies, as set out below. With your permission, and only then, we also use measurement
+          cookies to see in more detail how the site is used.
         </p>
       </section>
 
@@ -50,9 +52,24 @@ const indexable = isRouteIndexable(policy, "/privacy");
         <h2>Why we are allowed to</h2>
         <ul>
           <li>Answering you and doing the work you ask for: taking steps towards a contract, or a contract, Article 6(1)(b).</li>
+          <li>Visit statistics: our legitimate interests, Article 6(1)(f). They are on until you switch them off.</li>
           <li>Measurement cookies: your consent, Article 6(1)(a). They are off until you accept them.</li>
           <li>Keeping the site running and secure: our legitimate interests, Article 6(1)(f).</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Analytics</h2>
+        <p>
+          <strong>Visit statistics (Cloudflare Web Analytics).</strong> We count visits to see which pages people use,
+          where they arrive from, and how quickly pages load, so we can improve the site. Cloudflare runs this for us as
+          our processor. It sets no cookies and stores nothing on your device. It uses the page address, the referring
+          page, your browser and device type, your country, and page timings, and it doesn't build a profile of you
+          or use the data for advertising. Cloudflare keeps these statistics for up to six months, and we keep daily
+          totals. The law allows this without asking first, as long as you can say no: switch off
+          <strong>Visit statistics</strong> in <a href="#cookie-settings" data-cookie-settings>cookie settings</a> and we'll stop. Our lawful basis is our
+          legitimate interest in understanding and improving the site.
+        </p>
       </section>
 
       {legal.processors.length > 0 && (
@@ -86,5 +103,15 @@ const indexable = isRouteIndexable(policy, "/privacy");
         </p>
       </section>
     </main>
+    <script>
+      import { openCookieSettings } from "~site/consent";
+
+      document.querySelectorAll("[data-cookie-settings]").forEach((el) =>
+        el.addEventListener("click", (event) => {
+          event.preventDefault();
+          openCookieSettings();
+        }),
+      );
+    </script>
   </body>
 </html>
