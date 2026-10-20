@@ -129,3 +129,12 @@ a stakeholder's observation, the visitor problem under it, the proposed fix and
 the evidence are judged apart, and the smallest change that answers the problem
 wins. "The existing design is already appropriate" is a result. See
 [Reviewing a proposed change](./CHARACTER.md#reviewing-a-proposed-change).
+
+Her review of Doman Digital's own new site (18 and 19 October 2026, 73 notes)
+is kept whole in the reviewer corpus, with the founder's rulings of 20 October,
+and it adds eleven principles and two tells. The main ones: an open shop is honest
+by being precise, never by confessing what it has not done; a summary page
+carries the substance; a case line ends on its result; a hero has one button;
+and the first screen on a phone belongs to the business. Every later review of
+hers feeds craft the same way. See
+[Eunice's review of the DD site](./CHARACTER.md#eunices-review-of-the-dd-site-2026-10-19).

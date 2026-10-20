@@ -1,5 +1,23 @@
 # @domandigital/create-site
 
+## 0.10.0
+
+### Minor Changes
+
+- 3902169: `measure.mjs` counts phone screens to the footer for every page and prints it, and `site.programme.json` `measure.screens` sets a budget per page or page pattern (`{ "/": 6.5, "/services/*": 6 }`): a page over its budget fails the build (DOM-1052, part of DOM-772; the Bellerose home page ran 12.7 screens against a target of 6.5). New sites install `@domandigital/craft` ^0.22.0, which carries the count. `measure.screens` needs that craft or newer, and the gate says so when it is older.
+
+## 0.9.1
+
+### Patch Changes
+
+- bcbdbb8: New sites install `@domandigital/craft` ^0.21.0 (DOM-1053), so `measure.mjs` holds a text field, select or textarea to 48px tall (portal standard rule 5; the measure failed fields under 44px as targets before).
+
+## 0.9.0
+
+### Minor Changes
+
+- 0dba997: Sites made with create-site deploy their preview to Cloudflare only. `scripts/gates/deploy-preview.mjs` no longer has a Vercel branch or looks for `.vercel/project.json`, `preview.host` in `site.programme.json` is `cloudflare` or null, the `host` answer prompt suggests `cloudflare`, and `docs/site-programme.md` and the README say so. A site that still sets `preview.host` to `vercel` now stops at Stage 06 with a message naming the host; remove the key or set it to `cloudflare`. The synthetic README and a craft comment no longer name Vercel; no behaviour changes in those two.
+
 ## 0.8.0
 
 ### Minor Changes

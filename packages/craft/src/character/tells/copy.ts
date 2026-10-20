@@ -173,6 +173,9 @@ export const REVIEW_PHRASES = [
   "great question", "of course!", "absolutely!", "absolutely,", "truly", "genuinely", "deeply", "clear", "clearly",
   "ultimately", "one-size-fits-all", "one size fits all", "let me know if you'd",
   "the single most", "by far the most", "hands down the", "arguably the best", "bar none",
+  // "plain" as a self-description, the way "clear" is: say what the reader gets.
+  "plain answer", "plain answers", "plain recommendation", "plain explanation", "plain explanations",
+  "plain advice", "plain guidance", "plain-speaking", "plain speaking",
 ] as const;
 
 /**
@@ -210,6 +213,98 @@ const OUTCOME_PROMISES: RegExp[] = [
   new RegExp(`\\bguarantee[sd]?\\b[^.!?\\n]{0,25}?\\b(?:results|rankings?|first page|page one|top spot|${SALES_RESULTS.slice(3, -1)})\\b`, "i"),
   /\byou(?:['’]ll| will)\s+(?:get|see|win|receive|start getting)\s+more\b/i,
   new RegExp(`\\b(?:will|we['’]ll)\\s+(?:(?:bring|drive|generate|get)\\s+you|bring|drive|generate)\\s+more\\s+(?:[\\w-]+\\s+)?${SALES_RESULTS}\\b`, "i"),
+];
+
+/**
+ * The matey register: a put-on, over-familiar British voice. A model asked to
+ * sound British reaches for "Alright Dave," and "no worries", and clips the
+ * small words out ("have look at", "Quick one:"). The UK is broad, and to a
+ * client it reads as cringe and a little rude. Each pattern is held to the
+ * matey use: "proper planning", "a sorted list", "a cut from a mate who knows"
+ * and "give us a ring" all pass.
+ */
+const SENTENCE_START = String.raw`(?<=^|[\n>"“]|[.!?]\s+)`;
+const MATEY: RegExp[] = [
+  // "Alright Carlo,", "Oi Dave", "Alright, mate"
+  /\b(?:Alright|Oi)(?:,\s*|\s+)(?:mate\b|[A-Z][a-z]+\b)/,
+  // "mate" as a form of address, not "a mate who knows"
+  /,\s*mate\b|\b(?:thanks|ta|cheers|alright|oi|fussed|sorry|worries|bother|hiya|hey)\s+mate\b/i,
+  /\b(?:innit|chuffed|lovely jubbly)\b|\bbish,?\s+bash,?\s+bosh\b|\bbob['’]?s\s+your\s+uncle\b/i,
+  /\bno\s+(?:worries|bother)\b|\bnot\s+fussed\b/i,
+  // "Right then," opening a sentence, not "the right then left turn"
+  new RegExp(`${SENTENCE_START}Right,?\\s+then\\b[,!.]`),
+  // "we'll get you sorted", "all sorted", "Sorted!", not "sorted by date"
+  /\b(?:all|get(?:ting)?\s+(?:it|that|this|you|them|everything)|got\s+(?:it|that|you)|you['’]re)\s+sorted\b(?!\s+(?:by|in|into|alphabetically)\b)/i,
+  new RegExp(`${SENTENCE_START}Sorted[.!]`),
+  // "proper" as an intensifier before an adjective, not "proper planning"
+  /\bproper\s+(?:good|nice|quick|tidy|lovely|decent|chuffed|busy|mint|smart|happy|gutted|brilliant|buzzing)\b/i,
+  /\bgive\s+(?:me|us)\s+a\s+(?:shout|bell|buzz|tinkle)\b/i,
+  /\bwhen\s+you\s+(?:get|have|['’]ve\s+got)\s+a\s+(?:sec|min|mo)\b/i,
+  /\bhave\s+a\s+(?:quick\s+)?(?:gander|squiz|nosey|nose(?:\s+(?:round|around))?)\b(?!\s+for\b)/i,
+  /\bcheck\s+out\s+(?:our|my|this|these)\b/i,
+];
+
+/**
+ * Clipped speech: the article, preposition or subject dropped to sound
+ * casual. "Take look on these", "give it go", "Quick one:", "built you a
+ * site". Nobody writing to a client they respect leaves the words out.
+ */
+const CLIPPED: RegExp[] = [
+  /\b(?:take|takes|took|taking|have|has|had|having)\s+(?:quick\s+)?look\s+(?:at|on|over|through|in)\b/i,
+  /\bgive\s+(?:it|this|that|them)\s+(?:go|try|look|read|whirl|bash)\b(?![-\w])/i,
+  new RegExp(`${SENTENCE_START}Quick\\s+one\\b(?=\\s*[:,.!?—–-]|\\s+(?:for you|before|on|about)\\b)`),
+  // "Alright Carlo, built you a proper site": the "I" left out
+  /(?<=^|[\n>"“]|[.!?—–-]\s*|,\s+)(?:[Bb]uilt|[Mm]ade|[Pp]ut together|[Kk]nocked up)\s+(?:you|your\s+\w+|the\s+\w+)\s+an?\b/,
+];
+
+/**
+ * The plain-English family. "Plain English" was the first form; a model told
+ * to stop writing it says "explained plainly", "stated plainly", "in plain
+ * terms" instead. The founder banned the family on 20 October 2026. Read on
+ * the estate first (DOM-1058): 275 bare "plainly" outside craft's model
+ * drafts, almost all the stock "say so plainly" / "stated plainly"; the one
+ * fixed legitimate form is licence text ("must be plainly marked"), so it is
+ * let through. "Plain-language" as an adjective (a W3C term) is not matched.
+ */
+const PLAIN_FAMILY: RegExp[] = [
+  /\b(?:plain english|explained plainly|plainly explained)\b/i,
+  /\bplainly\b(?!\s+marked\b)/i,
+  /\bin\s+plain\s+(?:terms|language|words|speak)\b/i,
+];
+
+/**
+ * Confession lines: copy that scopes the business by what it has not done,
+ * will not do or is not. "What this is and is not", "We have not yet built",
+ * "Our clinic experience so far is one practice", "what we would and wouldn't
+ * take on". Eunice Ordor's review of the DD site (Pastel 986559, 18 to 19
+ * October 2026) found each one, and the founder ruled them out: "it's an open
+ * shop". Precision is the honest way to scope ("the portal we run for
+ * Sensphere"); a disclaimer turns away a buyer who would have fitted. Held
+ * to the confession shapes, so a contract's eligibility line, "what it does
+ * and does not cover" and a responsibility split all pass.
+ */
+const CONFESSION: RegExp[] = [
+  // "What this is and is not:", "what we are and aren't"
+  /\bwhat\s+(?:this|it|we|our\s+\w+)\s+(?:is|are)\s+and\s+(?:is\s+not|isn['’]t|are\s+not|aren['’]t)\b/i,
+  // "What we are not", a label on its own; not "what we are not responsible for"
+  /(?<!\band\s)\bwhat\s+we(?:\s+are|['’]re)\s+not\b(?!\s+(?:responsible|liable|able|allowed|sure)\b)/i,
+  /\bwhat\s+we\s+(?:don['’]t|do\s+not)\s+do\b/i,
+  // "We have not yet built and run", "we haven't yet worked with"
+  /\bwe(?:\s+have|['’]ve)\s+not\s+yet\s+(?:built|run|done|worked|delivered|shipped|launched)\b/i,
+  /\bwe\s+haven['’]t\s+(?:yet\s+)?(?:built|run|done|worked\s+with|delivered)\b/i,
+  /\bwhat\s+we\s+have\s+and\s+(?:haven['’]t|have\s+not)\s+(?:done|built|run)\b/i,
+  // "Our clinic experience so far is one practice"
+  /\bour\s+(?:[\w-]+\s+){0,3}experience\s+so\s+far\s+(?:is|has\s+been|covers)\b/i,
+  /\bso\s+far\s+(?:is|has\s+been)\s+(?:one|a\s+single|just\s+one)\b/i,
+  /\bwhere\s+our\s+experience\s+(?:applies|ends|stops|runs\s+out)\b/i,
+  /\bwhat\s+we\s+(?:would|['’]d|will|still)\s+need\s+to\s+learn\b/i,
+  // "what we would and wouldn't take on", "what we won't take on"
+  /\b(?:would|will)\s+and\s+(?:wouldn['’]t|would\s+not|won['’]t|will\s+not)\s+take\s+on\b/i,
+  /\bwhat\s+we\s+(?:won['’]t|wouldn['’]t|would\s+not|will\s+not)\s+take\s+on\b/i,
+  // "Who we don't work with", "who this is not for", "we're not for everyone"
+  /\bwho\s+we\s+(?:don['’]t|do\s+not|won['’]t|will\s+not)\s+(?:work\s+with|serve|help|take\s+on)\b/i,
+  /\bwho\s+(?:this|it|we)\s+(?:is|are|['’]re)\s+not\s+for\b|\bwho\s+(?:this|it)\s+isn['’]t\s+for\b/i,
+  /\b(?:we|this)\s+(?:are|is|['’]re|['’]s)\s+not\s+(?:for\s+everyone|the\s+right\s+fit\s+for)\b/i,
 ];
 
 // ------------------------------------------------------------ patterns
@@ -377,12 +472,25 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "Told to avoid jargon, a model announces that it is avoiding jargon. 'Explained plainly' swaps a synonym and keeps the tell.",
-    fix: "Use the house replacement, 'properly explained', or drop the claim and let the copy show it.",
-    detect: phrases([/\b(?:plain english|explained plainly|plainly explained)\b/i], quoted),
+    why: "Told to avoid jargon, a model announces that it is avoiding jargon: 'in plain English', 'stated plainly', 'we'll tell you plainly', 'in plain terms'. The founder bans the whole family (20 October 2026); a reader takes it as filler.",
+    fix: "Drop the adverb and say the thing: 'Our prices, stated plainly' becomes 'Our prices'. Where the claim matters, the house replacement for 'plain English' is 'properly explained'.",
+    detect: phrases(PLAIN_FAMILY, quoted),
     fixtures: {
-      flag: [f("content/home.md", "Your options, in plain English.")],
-      pass: [f("content/home.md", "Your options, properly explained.")],
+      flag: [
+        f("content/home.md", "Your options, in plain English."),
+        // Eunice Ordor's draft lines, Pastel 986559 #12 and #13 (her diagnosis taken, her wording not).
+        f("content/clinics.md", "Tell us what's happening and we'll say plainly what we would take on."),
+        f("content/pricing.md", "DD's payment terms, plainly stated."),
+        f("content/clinics.md", "We explain our findings in plain terms."),
+        f("content/clinics.md", "We share findings in plain language."),
+      ],
+      pass: [
+        f("content/home.md", "Your options, properly explained."),
+        f("content/pricing.md", "Our payment terms: 30% when you sign, the rest at launch."),
+        // The Apache and zlib licence wording, copied into a repo as it is.
+        f("LICENSE.txt", "Altered source versions must be plainly marked as such."),
+        f("content/menu.md", "Plain or seeded bagels, and plain-language allergen notes."),
+      ],
     },
   },
   {
@@ -433,11 +541,11 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 1,
     severity: "warn",
     surface: "copy",
-    why: "Truly, genuinely, clear, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking.",
+    why: "Truly, genuinely, clear, ultimately, 'a plain recommendation', 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking.",
     fix: "Keep the one that lands hardest and cut the rest. 'What is genuinely excellent' reads better as 'what is excellent'.",
     detect: phrases([new RegExp(`(?:^|\\b)(?:${[...REVIEW_PHRASES].sort((a, b) => b.length - a.length).map((p) => escape(p).replace(/^(\w)/, "\\b$1").replace(/(\w)$/, "$1\\b")).join("|")})`, "i")], quoted),
     fixtures: {
-      flag: [f("content/home.md", "We are truly proud of it."), f("content/home.md", "You leave with a clear next step.")],
+      flag: [f("content/home.md", "We are truly proud of it."), f("content/home.md", "You leave with a clear next step."), f("content/process.md", "You get a plain recommendation and someone who knows your systems.")],
       pass: [f("content/home.md", "We have fitted 400 boilers since 2009."), f("content/home.md", "Keep a safe clearance around the meter.")],
     },
   },
@@ -481,6 +589,74 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/home.md", "We'll rewrite your rewiring page around homeowners' questions."),
         f("content/home.md", "We record every rewiring enquiry, quotation and won job."),
         f("content/home.md", "Once the fuse board is fitted, we test every circuit."),
+      ],
+    },
+  },
+  {
+    id: "matey-register",
+    name: "Matey register",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'Alright Dave,', 'no worries, we'll get you sorted', 'Quick one:', 'have look at': a put-on, over-familiar British voice, with the small words clipped out. A model asked to sound British writes it; the UK is broad, and a client reads it as cringe and a little rude.",
+    fix: "Write plain, complete British English. 'Alright Dave, built you a site' becomes 'Hi Dave, I have built you a site'; 'No worries, we'll get you sorted' becomes 'We can fit you in on Thursday'.",
+    detect: phrases([...MATEY, ...CLIPPED], quoted),
+    fixtures: {
+      flag: [
+        // From the portal's seeded prospect follow-ups, 2026-10-19.
+        f("emails/followup.md", "Alright Dave, it's Dmitri. No pressure, have a look when you get a min."),
+        f("emails/followup.md", "All good if you're not fussed mate, I'll leave it there."),
+        f("emails/followup.md", "Carlo, built the shop a proper site."),
+        f("content/contact.md", "No worries, we'll get you sorted."),
+        f("emails/quote.md", "Take look on these photos and give it go."),
+        f("emails/quote.md", "Quick one: is Thursday still good?"),
+        f("emails/quote.md", "Right then, here is the plan."),
+        f("content/reviews.md", "The fitters did a proper good job and we were chuffed."),
+      ],
+      pass: [
+        f("content/home.md", "Proper planning saves a second visit."),
+        f("content/certificates.md", "Download a sorted list of certificates, sorted by date."),
+        f("content/directions.md", "At the junction, take the right then left turn."),
+        // Chair and Blade's own approved line, and "mate" as a noun.
+        f("content/home.md", "Every cut starts with a proper chat about what you actually want."),
+        f("content/home.md", "It feels like getting a cut from a mate who knows what he is doing."),
+        f("emails/quote.md", "Have a look at the quote and ring me if Thursday does not work."),
+        f("content/contact.md", "Give us a ring on 01280 700123. We take a look at the fault before quoting."),
+        f("content/home.md", "Built to last, and made for older houses."),
+      ],
+    },
+  },
+  {
+    id: "confession-line",
+    name: "Confession line",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'What this is and is not', 'we have not yet built', 'our experience so far is one practice', 'what we would and wouldn't take on': a model scopes a business by confessing its limits. It reads as small print, and it turns a buyer away before they make contact.",
+    fix: "Scope by being precise about what is true, and leave the door open: 'Built and run by us for Sensphere, a practice whose clinicians work across several sites.' Keep contractual facts (eligibility, who runs what) and say them as what the buyer gets.",
+    detect: phrases(CONFESSION, quoted),
+    fixtures: {
+      flag: [
+        // Each one from the DD site, as Eunice Ordor flagged it (Pastel 986559 #8, #12, #13).
+        f("content/clinics.md", "What this is and is not: a practice portal we built and run for one practice."),
+        f("content/clinics.md", "We have not yet built and run the digital systems of a practice with several clinicians."),
+        f("content/home.md", "Including the client portal we run for Sensphere. Our clinic experience so far is one practice."),
+        f("content/clinics.md", "Tell us what's happening and we'll say what we would and wouldn't take on."),
+        f("content/clinics.md", "We will say what carries over from this work and what we would need to learn first."),
+        f("content/clinics.md", "We will tell you where our experience applies directly and where it is close."),
+        f("content/about.md", "What we are not"),
+        f("content/about.md", "Who we don't work with: anyone who needs a site this week."),
+        f("content/mobile.md", "Mobile is our newest line, so we tell you what we have and haven't done."),
+      ],
+      pass: [
+        f("content/clinics.md", "Built and run by us for Sensphere, a growing practice whose clinicians work remotely."),
+        f("content/home.md", "The client portal we run for Sensphere."),
+        // Contractual facts, said as they are.
+        f("content/pricing.md", "Pay monthly is open to UK residents aged 18 and over, subject to status."),
+        f("content/pricing.md", "Your monthly payments do not buy the site; the buy-out price does."),
+        f("content/terms.md", "What we are responsible for, and what we are not responsible for, is in clause 4."),
+        f("content/insurance.md", "Ask what your policy does and does not cover."),
+        f("emails/deposit.md", "We have not yet received your deposit, so the date is still open."),
       ],
     },
   },
@@ -729,7 +905,12 @@ const FALSE_RANGE = [
  */
 const RESIDUE = [
   /\bas an AI(?:\s+language)?\s+(?:model|assistant)\b/i,
-  /(?:^|\n|>)\s*(?:Certainly|Sure|Absolutely|Of course|Great question)[!,.]\s+(?:Here(?:['’]s| is| are)|Below)\b/i,
+  // At the start of a line, or after a sentence that ends in a full stop or
+  // an exclamation mark: "I hope this email finds you well! Certainly, here
+  // is the handover request." slipped through when only a line start counted
+  // (found live, 2026-10-19). Not after a question mark: an FAQ answer may
+  // honestly open "Do you work weekends? Absolutely, here are our hours."
+  /(?<=^|[\n>]|[.!]\s+)\s*(?:Certainly|Sure|Absolutely|Of course|Great question)[!,.]\s+(?:Here(?:['’]s| is| are)|Below)\b/i,
   /\bhere(?:['’]s| is)\s+(?:a|an|the|your)\s+(?:revised|rewritten|updated|polished|refined|improved|draft|more concise)\s+(?:version|draft|copy)\b/i,
   /\blet me know if you(?:['’]d| would) like me to\b/i,
   /\b(?:my|the) (?:knowledge|training) cut-?off\b|\bas of my last (?:update|training)\b/i,
@@ -744,6 +925,21 @@ const RESIDUE = [
   // marketplace"] shows on the page where the plain name "Bark" belongs.
   /[\uE200-\uE2FF]*entity[\uE200-\uE2FF]*\["[a-z_]+"\s*,\s*"[^"\n]{1,80}"(?:\s*,\s*"[^"\n]{0,160}")*\][\uE200-\uE2FF]*/,
   /【\d+(?:[:†][^】]{0,40})?】/,
+];
+
+/**
+ * The stock lines of a form email: the opener nobody means and the closer
+ * that offers nothing. A model drafting an email reaches for them every time,
+ * and so do people, which is why this is style and not residue. The bare "if
+ * you have any questions" is left alone: "If you have any questions, ring Jo
+ * on 01280 700123" says who to ask.
+ */
+const STOCK_EMAIL = [
+  /\bI (?:hope|trust) (?:this|my|the) (?:e-?mail|message|note|letter) finds you(?: all)? (?:well|in good health)\b/i,
+  /\bI hope you(?:['’]re| are)(?: all)? (?:doing |keeping )?well\b/i,
+  /\b(?:I )?hope you(?:['’]re| are) having an? (?:great|good|lovely|wonderful|fantastic) (?:day|week|weekend)\b/i,
+  /\blet (?:me|us) know if you have any (?:further |other |more )?questions\b/i,
+  /\b(?:do not|don['’]t) hesitate to (?:contact|reach out|get in touch|ask|call)\b/i,
 ];
 
 /** A link whose tracking says it was copied out of a chat assistant. */
@@ -856,11 +1052,35 @@ export const RESEARCH_TELLS: CopyTell[] = [
         f("content/home.md", "Prices start at £40【4†source】 for a full set."),
         f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=chatgpt.com">Read the guide</a>;`),
         f("content/home.md", "Here's a more concise version for the hero."),
+        // The client handover email that a clean copy-check let through, 2026-10-19.
+        f("emails/handover.md", "Hi,\n\nI hope this email finds you well! Certainly, here is the handover request. Let me know if you have any questions."),
       ],
       pass: [
         f("content/home.md", "Certainly the busiest week of the year: book early."),
+        f("content/faq.md", "Do you work weekends? Absolutely, here are our hours."),
         f("content/home.md", "Here's the price list for 2026."),
         f("app/guide.tsx", `export const Guide = () => <a href="https://example.com/guide?utm_source=newsletter">Read the guide</a>;`),
+      ],
+    },
+  },
+  {
+    id: "stock-email-line",
+    name: "Stock email line",
+    generation: 1,
+    severity: "warn",
+    surface: "copy",
+    why: "'I hope this email finds you well', 'let me know if you have any questions', 'don't hesitate to contact us': the opener and closer of a form email. A client reads past them, and a model drafting an email writes them every time.",
+    fix: "Cut the opener and start with the reason for writing. Replace the closer with the next step and who to ask: 'Ring me on 07700 900123 if the date does not work.'",
+    detect: phrases(STOCK_EMAIL, quoted),
+    fixtures: {
+      flag: [
+        f("emails/handover.md", "Hi,\n\nI hope this email finds you well! Certainly, here is the handover request. Let me know if you have any questions."),
+        f("emails/quote.md", "Hope you're having a great week. The quote is attached."),
+        f("content/contact.md", "Please don't hesitate to contact us about a rewire."),
+      ],
+      pass: [
+        f("emails/handover.md", "Hi Sam,\n\nThe handover pack is attached: certificates, the board schedule and the warranty. Ring me on 07700 900123 if anything is missing."),
+        f("content/contact.md", "If you have any questions, ring Jo on 01280 700123."),
       ],
     },
   },

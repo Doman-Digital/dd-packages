@@ -494,11 +494,14 @@ The rules a review is held to, all checked without a model:
 
 - A suggestion and a recommendation are each held to the same tests, so a
   right observation can come with a suggestion that is not supported. Craft
-  then reports it as `not-supported`, `narrower-change-preferred` (the
-  recommended step is smaller) or `not-needed`.
-- A second carousel is not supported when the page already has a gallery,
-  slideshow or swipeable set, in the note's `existing` list or the page's own
-  evidence.
+  then reports it as `supported`, `comparison-needed`, `not-supported` or `not-needed`. The legacy
+  `narrower-change-preferred` value remains readable, but a step rank alone no
+  longer selects a winner. Compare whether each proposal answers the problem.
+- An existing gallery, slideshow or swipeable set prompts a comparison of
+  purpose, content and placement. `comparisons` records the exact `existing`
+  description, `samePurpose` and `because` on each proposal. A documented
+  duplicate should be reused; distinct roles can justify separate components.
+  A keyword alone does not establish duplication.
 - Removing information needs an observation that it is redundant and a stated
   cost to the visitor. Short useful captions are not redundancy.
 - A structural change or an addition needs a problem that is observed, or
@@ -555,6 +558,64 @@ unknown. The clinic and salon reviews next to it reach different outcomes for
 different reasons: a registration check joined to the profile but held for the
 register numbers; a founder biography declined because booking comes first.
 
+
+#### Context and learning from a later result
+
+The 15 October calibration records the earlier audit's recommendation, not a
+permanent verdict. The later Bellerose mobile comparison on 18 October preferred
+work photographs followed by a compact owner introduction, then trust and contact.
+The useful test is whether each alternative answers the visitor's question.
+Considering smaller edits remains required; fewer edits alone do not establish
+that the result is better. Keep human approval, observed layout changes and
+unmeasured commercial outcomes separate.
+
+For each carousel proposal, `comparisons` contains one entry per relevant existing
+component: `{ existing, samePurpose, because }`. Match the existing description
+exactly and explain the purpose, content and placement. This validates the
+recorded reasoning, not the truth of an aesthetic judgment. Same-purpose
+components prompt reuse; missing comparisons request an assessment without
+claiming duplication. Review and photo carousels may answer different questions.
+
+Reviews default to publication context. Explicit `context: "protected-staging"`
+can proceed when an unsupplied requirement declares `kind: "asset"`, `phase: "publication"` and a
+clearly marked `placeholder` description. Other requirements still hold the
+change. Every missing item remains in `outstanding`, and `publicationReady`
+remains false. This does not authorize publishing a placeholder or inventing a
+fact. Record actual asset delivery before assessing publication again.
+
+Save real before/after examples with capture dates, viewport, source commits,
+feedback attribution, decisions and validation. Assess the page independently
+before reading stakeholder recommendations when possible; if feedback is already
+known, record that limitation. A preferred example is useful calibration, not a
+universal order, a conversion claim or an exemption from future scrutiny.
+
+#### Select photographs for their position in the sequence
+
+Review every proposed opening photograph at the intended size and crop, in order.
+Service coverage alone does not make a photograph suitable for the opening.
+Compare clarity, framing, visible completion, distracting surroundings and the
+visual standard set by the lead image. A technically sound carousel can still
+weaken the page when its later slides are noticeably poorer.
+
+On 18 October 2026, after approving Bellerose's mobile flow, Dmitri pointed out
+that the radiator and kitchen-tap slides did not compare with the first bathroom
+photograph. The initial selection had favoured showing different services. A
+review of the available photographs found that the radiator's unfinished edge
+and dust sheet, and the tap's busy surroundings, weakened the opening sequence.
+The approved revision kept the bath-and-shower photograph and used the twin-basins
+photograph second. The lower captioned project gallery retained its service
+coverage. The two bathroom views are not evidence of two separate jobs.
+
+The reusable lesson is to choose the strongest coherent sequence the available
+assets support, then let that determine the count. Two strong images can serve
+an opening better than three padded for variety; this is not a rule to always
+use two images, bathrooms or a carousel. Useful job-record photographs can still
+belong beside a service or further down the page. Do not fabricate or retouch
+work into completion to fill a slot. Record rejected candidates, the intended
+crop, the reason for the choice and the stakeholder response with the rendered
+comparison. Here the evidence is visual judgement and an approved preference;
+customer behaviour and enquiry effects remain unmeasured.
+
 #### Using it
 
 Generating a page: run `craft direction research`, which asks where the
@@ -570,6 +631,135 @@ said, what the visitor loses, what was proposed, what was inspected), then run
 back as `change`, ask for what is `hold`, find out what is `gather-evidence`,
 and leave what is `no-change`. When a note names something that was not
 inspected, look before you act on it.
+
+### Eunice's review of the DD site, 2026-10-19
+
+Eunice Ordor reviewed the preview of Doman Digital's own new site on Pastel
+(canvas 986559) on 18 and 19 October 2026: 73 comments across the home,
+services, work, Sensphere case, clinics, who-we-help, process, pricing, plans
+and contact pages. The whole review is kept, note by note, in
+[`reviews/eunice-ordor/2026-10-19-dd-site.json`](https://github.com/Doman-Digital/dd-packages/blob/main/packages/craft/reviews/eunice-ordor/2026-10-19-dd-site.json)
+in the repository:
+her words as she wrote them, what she proposed, what was done with it, the
+founder's ruling where one was needed, and the principle each note teaches. The
+founder went through it on 20 October 2026. As in "Where it came from" above,
+four things are kept apart.
+
+#### What she saw
+
+Twelve notes are praise, and they are a record of what to keep: the structure
+and type, the four routes in, the who-we-help page ("a site that reads as a van
+roof"), the Chair and Blade case, the six-step process and the responsibility
+matrix. The rest name problems. These matter beyond this one site:
+
+- Two equal buttons in the hero (#5), and again on the process page (#36).
+- Confession lines: "What this is and is not", "We have not yet built and
+  run...", "Our clinic experience so far is one practice" (#8, #13), and a
+  defensive caveat under the clinic questions (#10).
+- Summary pages that send the reader elsewhere for the substance: services
+  cards that are a line of nouns and a link (#66 to #69), a homepage case card
+  with none of the case's proof (#19), a pricing page that charges £95 and £165
+  a month and never says what either buys (#40, #48), and a /work page where
+  nothing says we still run any of it (#57).
+- Every /work line states the problem and leaves the result on another page
+  (#56).
+- Tiers that make the same promise at two volumes, so the extra £1,000 reads as
+  better writing (#39).
+- A price that looks steep until the maths is shown: £165 a month is £95 of
+  care and £70 of website (#43).
+- Closed lists where the work is open: the hero sub-line and route 3 narrowed
+  to bookings and enquiries (#2, #6, #25).
+- A page that contradicts itself: the Sensphere form said both that enquiries
+  reach the inbox and that details stay out of one (#15), and a process step
+  said "paid" for a product that had been retired (#22).
+- On a phone, the hero image crops badly (#55).
+
+#### What she proposed
+
+Specific wording for most notes, and three larger changes: a hero slideshow of
+client systems (#3), a call to action after several sections (#50, #51, #70),
+and a social media card (#72). Her diagnoses were nearly all right. Her wording
+often used the patterns COPY.md blocks. Four of her comments blocked at
+<!-- copy-ok: quoting the reviewer's draft line -->
+catalogue 2026.10.4 ("No licence, no lock-in" in #42 is one), and eight do once
+the plain-English family is widened.
+
+#### The founder's rulings, 20 October 2026
+
+- One button in the hero and on each closing section.
+- On a phone the first screen is ours: the headline, the sub-line and one
+  button. Another client's brand never opens it. The slideshow is declined
+  (#3).
+- No confession lines, no "what we are not", and nobody declined in advance.
+  It is an open shop: be honest by being precise, keep it open-ended, and stop
+  being absolute.
+<!-- copy-ok: naming the banned adverb -->
+- The adverb "plainly" and its kin are banned, with "plain English".
+- Cut "Our clinic experience so far is one practice" (#8). On the clinics page
+  keep "Built and run by us", and describe what Sensphere is: a growing
+  practice whose clinicians work remotely (#13).
+- A testimonial (#9) is reworded only once its author approves the new words.
+- Held for their own decisions: e-commerce as a sector (#27), a clinic
+  subscription with its own price (#49), response times (#54) and social media
+  (#72). Verqan stays off /work (#59). Quarterly packs are declined for the
+  site (#53).
+
+#### The principles
+
+Each id is what a note's `principle` field names in the record.
+
+- `open-shop`: precise, never confessional or absolute. Scope is shown by
+  exact claims ("the portal we run for Sensphere"), and a contractual fact is
+  said as what the buyer gets. `confession-line` reports the shapes for
+  review.
+- `summary-pages-carry-substance`: a page that summarises carries a sentence
+  of what happens, so nobody has to click away to learn what we do.
+- `problem-then-result`: every case line ends on the result, from the proof
+  ledger, or on a description of what now happens.
+- `one-hero-cta`: one button in the hero and on each closing section, with the
+  second route as a text link. `hero-cta-pair` reports the pair.
+- `text-links-not-cta-bands`: where a section needs a next step, a text link
+  at its end answers "what next", and the page keeps one closing button.
+  `cta-band-stock` already reports the band.
+- `tiers-by-what-the-site-carries`: each tier names a different business need
+  (one service and a form; several services, comparison and booking), never a
+  bigger version of the same promise.
+- `show-the-price-maths`: where a price looks steep, show the split that makes
+  it fair (£95 of care plus £70 of website), and put the commercial model where
+  the buyer reads.
+- `lists-as-pattern-examples-invitation`: name the pattern, give examples, then
+  invite the case we have not met. A closed list of four reads as a menu.
+- `first-phone-screen-is-ours`: the first screen on a phone is the business's
+  own headline, line and button. A client's brand, however good the work, comes
+  after it and is framed as our work.
+- `no-self-contradiction`: read a page against itself before it ships. Two
+  lines that disagree cost more trust than either line earns.
+- `the-work-continues`: the site sells a relationship that carries on, so a
+  case, a step or a summary says what we still run.
+
+#### The counter-lesson
+
+Her diagnoses beat Claude's defaults. Claude's first pass on this review would
+have kept the "What this is and is not" sentence, the two hero buttons, the
+noun-list service cards and three proof numbers in a row. Each is a default
+craft names (`confession-line`, `hero-cta-pair`, the summary-card pattern,
+`stats-row`). Where the question is "does this read as decided and generous to
+the buyer", she was right. Where it is "is it true, and is it allowed", the
+proof ledger and the house rules held: she asked for promises that are not
+live yet (#53, #54, #72), and her replacement wording goes through copy-check
+like anyone's. A reviewer's diagnosis is taken on its merits; her
+words are copy, and copy is checked.
+
+#### Feeding later reviews in
+
+Every later review, hers or another reviewer's, goes through the
+`reviewer-intake` skill in claude-kit: pull the canvas, keep each note whole,
+classify it, check its facts against the proof ledger, brand facts and Linear,
+write the record under `reviews/<reviewer>/`, and propose tells or fixtures for
+what recurs. `src/__tests__/reviews.test.ts` holds each record to the schema
+and to this file, and fires every tell a note taught on the words it flagged.
+See [reviews/README.md](https://github.com/Doman-Digital/dd-packages/blob/main/packages/craft/reviews/README.md);
+the corpus stays in the repository and is left out of the npm package.
 
 ## Declaring an exception
 
@@ -1280,7 +1470,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.10.2`, 70 tells.
+Catalogue version `2026.10.5`, 74 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -1299,6 +1489,7 @@ Catalogue version `2026.10.2`, 70 tells.
 | `cream-palette` | 2 | source + rendered | warn | Cream ground | Once white-and-violet was named, models moved to a warm off-white: parchment, linen, oat. It reads as 'tasteful' in the same way everywhere. |
 | `italic-serif-display` | 2 | source + rendered | warn | Italic serif display | A serif heading with one italic word ('Beauty, reimagined') is the second wave's signature move. |
 | `hero-eyebrow-chip` | 2 | source + rendered | warn | Eyebrow chip above the hero | A small bordered pill ('New · Now booking') above the headline is in almost every generated hero. |
+| `hero-cta-pair` | 1 | source + rendered | warn | Two buttons in the hero | A filled button beside an outline or ghost one ('Get a free quote' / 'See our plans') is in 140 of 140 heroes Claude builds for a brief. Two equal asks make the visitor choose before they know anything, and say nobody decided what the page is for. |
 | `icon-tile-stack` | 2 | source | warn | Icon in a tinted tile | A library icon in a soft rounded square, stacked above a heading, is the stock card header. |
 | `bento-grid` | 2 | source | warn | Bento grid | Mixed-size tiles in a grid became the default 'features' layout of the second wave. |
 | `radial-spotlight-glow` | 2 | source + rendered | warn | Radial glow | A soft blurred blob or radial spotlight behind the hero is atmosphere without a subject. |
@@ -1310,13 +1501,15 @@ Catalogue version `2026.10.2`, 70 tells.
 | `stock-phrase` | 1 | copy | warn | Stock phrase | Phrases every generated services page uses. They fill space where a fact should be. |
 | `ai-phrase` | 1 | copy | warn | AI phrase | Let's dive in, here's the thing, at its core, seamless, rest assured: the phrase list of the house copy rules. A reader has seen each one in a thousand generated pages. |
 | `plainer-word` | 1 | copy | warn | A plainer word exists | Empower, leverage, harness, delve: each stands in for a plainer verb, and the swap is a reliable sign nobody chose the word. |
-| `plain-english` | 2 | copy | warn | 'Plain English' | Told to avoid jargon, a model announces that it is avoiding jargon. 'Explained plainly' swaps a synonym and keeps the tell. |
+| `plain-english` | 2 | copy | warn | 'Plain English' | Told to avoid jargon, a model announces that it is avoiding jargon: 'in plain English', 'stated plainly', 'we'll tell you plainly', 'in plain terms'. The founder bans the whole family (20 October 2026); a reader takes it as filler. |
 | `buzzword` | 1 | copy | warn | Buzzword | Cutting-edge, world-class, reach out, turnkey: corporate filler older than any model, and still the first thing a model writes about a business it knows nothing about. |
 | `negative-reassurance` | 1 | copy | warn | Negative reassurance | 'No hidden fees', 'no surprises', 'never locked in' reassure by naming the fear, and plant it in a reader who did not have it. |
 | `vague-word` | 1 | copy | warn | Vague word | Innovative, scalable, end-to-end, solutions: each can be true, and each is used where the writer had nothing specific to say. |
-| `review-phrase` | 1 | copy | warn | Review-tier phrase | Truly, genuinely, clear, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking. |
+| `review-phrase` | 1 | copy | warn | Review-tier phrase | Truly, genuinely, clear, ultimately, 'a plain recommendation', 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking. |
 | `sales-tagline` | 1 | copy | warn | Sales tagline | 'So your budget goes where it counts', 'Real results', 'pages that convert': advert lines that sound like a pitch and say nothing a reader can check. |
 | `outcome-promise` | 1 | copy | warn | Outcome promise | 'We'll turn that into enquiries', 'once the first areas are working', 'competitors you can outdo': a hoped-for result written as if it were delivered. Rankings and enquiries depend on things nobody controls. |
+| `matey-register` | 2 | copy | warn | Matey register | 'Alright Dave,', 'no worries, we'll get you sorted', 'Quick one:', 'have look at': a put-on, over-familiar British voice, with the small words clipped out. A model asked to sound British writes it; the UK is broad, and a client reads it as cringe and a little rude. |
+| `confession-line` | 2 | copy | warn | Confession line | 'What this is and is not', 'we have not yet built', 'our experience so far is one practice', 'what we would and wouldn't take on': a model scopes a business by confessing its limits. It reads as small print, and it turns a buyer away before they make contact. |
 | `hollow-imperative` | 1 | copy | warn | Hollow imperative | 'Discover', 'Experience', 'Transform your' as the opening verb of a heading or button is a call to action with nothing in it. |
 | `rhetorical-opener` | 1 | copy | warn | Rhetorical question opener | 'Looking for...?', 'Tired of...?', 'Ready to...?' opens with the model guessing at the reader instead of telling them something. |
 | `em-dash` | 2 | copy | warn | Em dash | Generated copy leans on the em dash to join clauses. House copy does not use it. |
@@ -1327,6 +1520,7 @@ Catalogue version `2026.10.2`, 70 tells.
 | `staccato-triplet` | 2 | copy | warn | Staccato triplet | Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm. |
 | `where-x-meets-y` | 2 | copy | warn | 'Where X meets Y' | 'Where luxury meets comfort' is a tagline shape that fits every business and so describes none. |
 | `chatbot-residue` | 1 | copy | warn | Chatbot residue | 'Certainly! Here's a revised version', 'as an AI language model', a citeturn0search0 token, a link tracked utm_source=chatgpt.com: text that exists only because a chat reply was pasted whole. This is evidence, not style. |
+| `stock-email-line` | 1 | copy | warn | Stock email line | 'I hope this email finds you well', 'let me know if you have any questions', 'don't hesitate to contact us': the opener and closer of a form email. A client reads past them, and a model drafting an email writes them every time. |
 | `prompt-context` | 1 | copy | warn | Prompt context | 'This article uses the attached Perplexity research file as the primary source', 'the attached research is right to say': the model talking about what it was given. A reader of a web page has no attachment. Found 38 times across five live DD articles in 2026-09, none caught by any other tell. |
 | `placeholder` | 1 | copy | warn | Unfilled placeholder | '[Insert testimonial]', '[Your Name]', lorem ipsum, TODO_PLACEHOLDER: scaffolding a reader must never see, and the clearest sign a page shipped before anyone read it. |
 | `question-reveal` | 2 | copy | warn | Staged reveal | 'The result? Faster growth.', 'What does this mean for you? It means...': the writer asks the reader's question for them and answers it. An infomercial hook, and a favourite of generated copy. |

@@ -1,5 +1,55 @@
 # @domandigital/craft
 
+## 0.22.1
+
+### Patch Changes
+
+- 68f65c3: <!-- copy-ok: names the phrases the release starts catching --> craft learns from Eunice Ordor's design and copy reviews (catalogue 2026.10.5). Her 73-note review of the new Doman Digital site is the first record in a reviewer corpus (`reviews/` in the repository; the schema test keeps each record to `design-review.schema.json`), and CHARACTER.md writes up the principles it teaches. `design-review.schema.json` gains optional fields for a reviewer's own record: `reviewer`, `date`, `source` and `rulings` on the review, and `source`, `verdict`, `founderRuling`, `principle` and `tells` on a note; `REVIEW_VERDICTS` is exported. Two new review-tier tells: `hero-cta-pair` (source and rendered) reports two buttons side by side in a hero, found in 140 of 140 null-build heroes, and `confession-line` reports copy that scopes a business by what it has not done or will not do ("What this is and is not", "we have not yet built", "our experience so far is one practice"). `plain-english`, already blocking, now covers the whole family the founder banned on 20 October 2026: bare "plainly" and "in plain terms/language/words", with licence text ("plainly marked") let through. `review-phrase` adds "plain" as a self-description ("a plain recommendation").
+
+## 0.22.0
+
+### Minor Changes
+
+- 3902169: The every-viewport measure counts phone screens to the footer (DOM-1052, part of DOM-772): page height at 375 x 667 over 667, with lazy images loaded. `screens` sets a length budget per route, route pattern or prefix (`{ "/": 6.5, "/services/*": 6, "/areas/[town]": 5, "*": 9 }`, the most specific wins), on `measureViewports`, `measureRoute`, `measureSite` and `viewports.json`. A route over its budget fails a new `screens` check ("page too long for a phone"), baselined like the others; with no budget the count is only reported. `ViewportsResult.screens` and the measured file carry the count, `craft viewports` and `craft phone-first --measured` print it for every route, and `screenBudgetFor`, `checkScreenBudgets` and `formatScreens` are exported. The Bellerose home page ran 12.7 phone screens against a target of 6.5.
+
+## 0.21.0
+
+### Minor Changes
+
+- bcbdbb8: `craft phone-first` now enforces the portal standard's phone lessons itself (DOM-1053, from DOM-1044's `phone-faults.md`). **This tightens the gate: a portal that upgrades can fail where it passed before.** Four checks:
+  
+  - **The baseline only shrinks.** The run compares `phone-first.baseline.json` with the base branch's copy (`origin/main`, the pull request's target branch, or `--base <ref>`) and fails on an entry main does not have, or a higher count. An entry with a non-empty `reason` is a named exception and may be added or raised; the new optional `reason` field is kept by `--update-baseline`, and old baselines read unchanged. The runner must see the base branch (`fetch-depth: 0`); if it cannot, the gate fails rather than skips.
+  - **Every route is measured.** With `--measured`, every Next `app/**/page.tsx` route (from `appDir`, or a `source` folder called `app`, or `routesManifest`) must be among the measured routes, or in `excludeRoutes` with a reason. Add the routes of a redirect-only page to `excludeRoutes`.
+  - **Field floor 48px** (tightening): a text field, select or textarea under 48px tall fails the `field` check, to match portal standard rule 5. The gate failed only under 44px before. Set `floors: { fieldHeightPx: 44 }` to keep the old floor; the default is 48. `measurePhone` now takes `floors` too.
+  - **Tailwind 3 `var()` opacity:** on an app whose `tailwindcss` is v3, `/NN` opacity on an arbitrary `var()` colour (`bg-[var(--bg-1)]/95`) fails the source scan, because Tailwind 3 emits no CSS for it. The `tailwind` key in `phone-first.json` overrides the detected version.
+  
+  A portal adopting this version fixes its new findings where they are (a field gets `min-h-12`), or records a named exception with a reason; it cannot grow the baseline to make the upgrade pass.
+
+### Patch Changes
+
+- 140142f: New review-tier copy tell `matey-register` (catalogue 2026.10.4) reports the put-on, over-familiar British voice that COPY.md's "Register: British and professional" section bans: "Alright Dave,", "Oi Carlo", "mate" as a form of address, "no worries", "not fussed", "we'll get you sorted", "proper" as an intensifier, "chuffed", "give me a shout", "when you get a sec", "Right then,"; and clipped speech that drops the small words: "take look on these", "give it go", "Quick one:", "built you a site". Ordinary uses pass: "proper planning", "a sorted list", "the right then left turn", "a mate who knows", "give us a ring". It prints for review and never blocks, following the house rule that a new tell starts in review.
+
+## 0.20.5
+
+### Patch Changes
+
+- 6047f0e: `chatbot-residue` now finds "Certainly, here is…" at the start of any sentence that follows a full stop or exclamation mark, not only at the start of a line. An email opening "I hope this email finds you well! Certainly, here is the handover request." passed `craft copy --gate` before this. A question mark still does not count, so an FAQ answer such as "Do you work weekends? Absolutely, here are our hours." passes. New review-tier tell `stock-email-line` (catalogue 2026.10.3) reports the stock lines of a form email: "I hope this email finds you well", "hope you're having a great week", "let me know if you have any questions", "don't hesitate to contact us". It prints for review and never blocks, following the house rule that a new tell starts in review.
+
+## 0.20.4
+
+### Patch Changes
+
+- cc6c0b4: Document opening-photo selection using the Bellerose follow-up: compare photographic strength, crop and sequence before service variety or slide count, with stakeholder preference kept separate from unmeasured customer outcomes.
+
+## 0.20.3
+
+### Patch Changes
+
+- 6800957: Compare carousel purposes before diagnosing duplication, avoid selecting a design by edit size alone, and allow explicit protected-staging placeholders while retaining outstanding publication requirements.
+- d0d9234: Decision confidence: reviewing a proposed change, with attribution to Eunice Ordor and the provenance of the principle (a phone-layout review on 15 October 2026) in CHARACTER.md and PRINCIPLES.md. New `craft direction review --notes design-review.json` weighs feedback against the visitor's job in `art-direction.json`. Each note keeps the observation, the visitor problem under it, the proposed solution, the evidence and the smallest defensible change apart, and judges the suggestion and the recommendation separately. The problem is observed, inferred, preference or unknown: only something inspected (a screenshot, rendered behaviour, source, a measurement, the page's content) makes it observed, a report from an audit, stakeholder or customer makes it inferred, and a claim at a width nobody looked at stays unknown. A recommendation is a confirmed correction, a design hypothesis, an optional refinement or no change, and a review can end on "no change is recommended". Changes climb a ladder from copy to restructure; a structural step or an addition (carousel, script, dependency, animation, testimonial, call to action, repeated content) has to say why every smaller step was not enough. A second carousel is not supported where a gallery exists, information is not removed without an observed cost, a reasoned section order is not overridden by a preference, repetition and similarity to other sites are not defects without a stated cost to the visitor, and a change that needs a fact nobody supplied is held rather than written in. `craft direction validate` also raises an inferred identity finding when a job that worries about who the visitor would deal with first meets a person after three or more sections, and asks for a name and a line, not a biography moved up or a portrait. New `differentiation` lens, `design-review.schema.json`, and exports `assessReview`, `isStructural` and the review types. Fixtures: a calibration review of a plumbing homepage plus clinic and salon reviews, which reach different outcomes for different reasons.
+- bb9b233: Decision confidence. A page in `art-direction.json` can now record `confidence`: the widths its decisions were examined at (`mobile`, `tablet`, `desktop`) and the evidence it offers (`proof`: work, people, credentials, reviews, experience or outcomes, each with a section, `first-look` or `on-request` depth, and a reason tied to the customer's job). `craft direction validate` reads it and prints findings tagged observed, inferred or unknown, each with the lens it belongs to (relevance, hierarchy, evidence, identity, action, disclosure, mobile) and why it matters to that visitor. There is no score and no conversion claim, and nothing is required: a file without `confidence` validates and reports exactly as before, and no evidence kind, founder portrait, slideshow, phone number or section order is ever demanded. A finding made on one width is never carried to another; widths nobody examined are reported as unknown. `craft direction research` asks where the visitor looks, what would settle it and what the next step is, without assuming a phone or a portrait. Exports `assessConfidence`, `validateConfidence`, `viewportOf` and the new types; the JSON Schema gains `confidence`. CHARACTER.md, PRINCIPLES.md, STANDARD.md section 10 and the README describe it, and three fixtures (sole-trader plumber, private physiotherapy practice, appointment-based salon) show one principle giving three different answers.
+- 0dba997: Sites made with create-site deploy their preview to Cloudflare only. `scripts/gates/deploy-preview.mjs` no longer has a Vercel branch or looks for `.vercel/project.json`, `preview.host` in `site.programme.json` is `cloudflare` or null, the `host` answer prompt suggests `cloudflare`, and `docs/site-programme.md` and the README say so. A site that still sets `preview.host` to `vercel` now stops at Stage 06 with a message naming the host; remove the key or set it to `cloudflare`. The synthetic README and a craft comment no longer name Vercel; no behaviour changes in those two.
+
 ## 0.20.2
 
 ### Patch Changes

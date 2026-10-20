@@ -19,6 +19,12 @@ export interface PhoneFloors {
   targetPx: number;
   fieldFontPx: number;
   textPx: number;
+  /**
+   * The height of a text field, select or textarea (portal standard rule 5:
+   * 48px inputs). Left out, 48. Below `targetPx` the field also fails the
+   * target check; this floor is what catches 44 to 47px.
+   */
+  fieldHeightPx?: number;
 }
 
 /**
@@ -39,7 +45,8 @@ export type PhoneCheck =
   | "input"
   | "autocomplete"
   | "tel"
-  | "linelength";
+  | "linelength"
+  | "screens";
 
 export interface RawPhoneFinding {
   check: PhoneCheck;
@@ -55,6 +62,8 @@ export interface RawPhoneFinding {
  */
 export function measurePhoneInPage(floors: PhoneFloors & { only?: PhoneCheck[] }): RawPhoneFinding[] {
   const out: RawPhoneFinding[] = [];
+  // A literal, not an import: this function is serialised into the page. PHONE_FLOORS carries the same 48.
+  const fieldHeightPx = floors.fieldHeightPx ?? 48;
   const only = floors.only;
   const on = (c: PhoneCheck): boolean => !only || only.includes(c);
   // The layout viewport. Under mobile emulation innerWidth grows with the page
@@ -109,12 +118,15 @@ export function measurePhoneInPage(floors: PhoneFloors & { only?: PhoneCheck[] }
     if (w < floors.targetPx || h < floors.targetPx) out.push({ check: "target", element: describe(e), detail: `${w}x${h}px, under ${floors.targetPx}x${floors.targetPx}` });
   }
 
-  // Fields under 16px: Safari on iOS zooms the page on focus.
+  // Fields under 16px (Safari on iOS zooms the page on focus) or under the field height floor.
   const NOT_TEXT = new Set(["checkbox", "radio", "range", "color", "file", "submit", "reset", "button", "image"]);
   for (const e of on("field") ? Array.from(document.querySelectorAll("input:not([type='hidden']), select, textarea")) : []) {
     if (!shown(e) || quiet(e) || (e.tagName === "INPUT" && NOT_TEXT.has((e as HTMLInputElement).type))) continue;
     const px = parseFloat(getComputedStyle(e).fontSize);
     if (px < floors.fieldFontPx) out.push({ check: "field", element: describe(e), detail: `set at ${px}px, under ${floors.fieldFontPx}px, so Safari on iOS zooms on focus` });
+    const box = e.getBoundingClientRect();
+    const height = Math.round(box.height);
+    if (box.width > 1 && height > 1 && height < fieldHeightPx) out.push({ check: "field", element: describe(e), detail: `${height}px tall, under ${fieldHeightPx}px (use min-h-12)` });
   }
 
   // Text an element shows itself, not text it inherits from a child.

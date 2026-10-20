@@ -259,6 +259,15 @@ export const CHANGE_CLASSES = ["confirmed-correction", "design-hypothesis", "opt
 export type ChangeClass = (typeof CHANGE_CLASSES)[number];
 
 /**
+ * What was done with a note in a reviewer's own record (`reviews/`).
+ * take-reworded: the diagnosis is taken and the suggested wording rewritten,
+ * because a reviewer's lines are copy-checked like anyone's. partly: the aim
+ * is taken by a smaller or different change. known: already tracked.
+ */
+export const REVIEW_VERDICTS = ["praise", "take", "take-reworded", "partly", "decline", "founder-decision", "known"] as const;
+export type ReviewVerdict = (typeof REVIEW_VERDICTS)[number];
+
+/**
  * The ladder of minimum effective change, smallest first. The last two are
  * structural and have to say why every smaller step was not enough.
  */
@@ -279,6 +288,8 @@ export interface ReviewEvidence {
 }
 
 export interface ReviewProposal {
+  /** Compare purpose, content and placement; naming a widget is not proof of duplication. */
+  comparisons?: { existing: string; samePurpose: boolean; because: string }[];
   change: string;
   step: ChangeStep;
   adds?: Addition[];
@@ -315,22 +326,41 @@ export interface ReviewNote {
     /** How a design hypothesis would be checked. */
     validation?: string;
     /** Facts or assets the change depends on. With no source, nobody has supplied them. */
-    requires?: { what: string; source?: string }[];
+    requires?: { what: string; source?: string; kind?: "asset" | "fact"; phase?: "implementation" | "publication"; placeholder?: string }[];
   };
+  /** Where the note was left, so it can be found again: `{ tool: "pastel", canvas, comment, url }`. */
+  source?: { tool: string; canvas?: number | string; comment?: number | string; commentId?: number | string; url?: string; at?: string };
+  /** What was done with it, in a reviewer corpus. */
+  verdict?: ReviewVerdict;
+  /** The founder's call where the note needed one: the decision, stated and dated. */
+  founderRuling?: { date: string; ruling: string };
+  /** The principle it teaches, by its id in CHARACTER.md. */
+  principle?: string;
+  /** Tells it informed; with text, the words that tell must fire on. */
+  tells?: { id: string; text?: string }[];
 }
 
 export interface DesignReview {
+  /** Publication is the default. Protected previews may reserve explicitly marked assets. */
+  context?: "publication" | "protected-staging";
   $schema?: string;
   version: 1;
   /** Who or what was reviewed, and at which width. */
   subject: string;
+  /** In a reviewer corpus: whose review this is, the day, where it was given and who ruled on it. */
+  reviewer?: string;
+  date?: string;
+  source?: { tool: string; canvas?: number | string; link?: string; comments?: number; from?: string; to?: string };
+  rulings?: { by: string; date: string };
   notes: ReviewNote[];
 }
 
 export type ReviewOutcome = "change" | "hold" | "no-change" | "gather-evidence";
-export type SuggestionStanding = "supported" | "narrower-change-preferred" | "not-supported" | "not-needed";
+export type SuggestionStanding = "comparison-needed" | "supported" | "narrower-change-preferred" | "not-supported" | "not-needed";
 
 export interface ReviewResult {
+  /** False while any required fact or asset remains unsupplied, even if staging work can proceed. */
+  publicationReady: boolean;
   id: string;
   page: PageType;
   lens: ConfidenceLens;
