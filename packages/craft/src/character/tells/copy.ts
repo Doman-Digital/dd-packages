@@ -173,6 +173,9 @@ export const REVIEW_PHRASES = [
   "great question", "of course!", "absolutely!", "absolutely,", "truly", "genuinely", "deeply", "clear", "clearly",
   "ultimately", "one-size-fits-all", "one size fits all", "let me know if you'd",
   "the single most", "by far the most", "hands down the", "arguably the best", "bar none",
+  // "plain" as a self-description, the way "clear" is: say what the reader gets.
+  "plain answer", "plain answers", "plain recommendation", "plain explanation", "plain explanations",
+  "plain advice", "plain guidance", "plain-speaking", "plain speaking",
 ] as const;
 
 /**
@@ -252,6 +255,56 @@ const CLIPPED: RegExp[] = [
   new RegExp(`${SENTENCE_START}Quick\\s+one\\b(?=\\s*[:,.!?—–-]|\\s+(?:for you|before|on|about)\\b)`),
   // "Alright Carlo, built you a proper site": the "I" left out
   /(?<=^|[\n>"“]|[.!?—–-]\s*|,\s+)(?:[Bb]uilt|[Mm]ade|[Pp]ut together|[Kk]nocked up)\s+(?:you|your\s+\w+|the\s+\w+)\s+an?\b/,
+];
+
+/**
+ * The plain-English family. "Plain English" was the first form; a model told
+ * to stop writing it says "explained plainly", "stated plainly", "in plain
+ * terms" instead. The founder banned the family on 20 October 2026. Read on
+ * the estate first (DOM-1058): 275 bare "plainly" outside craft's model
+ * drafts, almost all the stock "say so plainly" / "stated plainly"; the one
+ * fixed legitimate form is licence text ("must be plainly marked"), so it is
+ * let through. "Plain-language" as an adjective (a W3C term) is not matched.
+ */
+const PLAIN_FAMILY: RegExp[] = [
+  /\b(?:plain english|explained plainly|plainly explained)\b/i,
+  /\bplainly\b(?!\s+marked\b)/i,
+  /\bin\s+plain\s+(?:terms|language|words|speak)\b/i,
+];
+
+/**
+ * Confession lines: copy that scopes the business by what it has not done,
+ * will not do or is not. "What this is and is not", "We have not yet built",
+ * "Our clinic experience so far is one practice", "what we would and wouldn't
+ * take on". Eunice Ordor's review of the DD site (Pastel 986559, 18 to 19
+ * October 2026) found each one, and the founder ruled them out: "it's an open
+ * shop". Precision is the honest way to scope ("the portal we run for
+ * Sensphere"); a disclaimer turns away a buyer who would have fitted. Held
+ * to the confession shapes, so a contract's eligibility line, "what it does
+ * and does not cover" and a responsibility split all pass.
+ */
+const CONFESSION: RegExp[] = [
+  // "What this is and is not:", "what we are and aren't"
+  /\bwhat\s+(?:this|it|we|our\s+\w+)\s+(?:is|are)\s+and\s+(?:is\s+not|isn['’]t|are\s+not|aren['’]t)\b/i,
+  // "What we are not", a label on its own; not "what we are not responsible for"
+  /(?<!\band\s)\bwhat\s+we(?:\s+are|['’]re)\s+not\b(?!\s+(?:responsible|liable|able|allowed|sure)\b)/i,
+  /\bwhat\s+we\s+(?:don['’]t|do\s+not)\s+do\b/i,
+  // "We have not yet built and run", "we haven't yet worked with"
+  /\bwe(?:\s+have|['’]ve)\s+not\s+yet\s+(?:built|run|done|worked|delivered|shipped|launched)\b/i,
+  /\bwe\s+haven['’]t\s+(?:yet\s+)?(?:built|run|done|worked\s+with|delivered)\b/i,
+  /\bwhat\s+we\s+have\s+and\s+(?:haven['’]t|have\s+not)\s+(?:done|built|run)\b/i,
+  // "Our clinic experience so far is one practice"
+  /\bour\s+(?:[\w-]+\s+){0,3}experience\s+so\s+far\s+(?:is|has\s+been|covers)\b/i,
+  /\bso\s+far\s+(?:is|has\s+been)\s+(?:one|a\s+single|just\s+one)\b/i,
+  /\bwhere\s+our\s+experience\s+(?:applies|ends|stops|runs\s+out)\b/i,
+  /\bwhat\s+we\s+(?:would|['’]d|will|still)\s+need\s+to\s+learn\b/i,
+  // "what we would and wouldn't take on", "what we won't take on"
+  /\b(?:would|will)\s+and\s+(?:wouldn['’]t|would\s+not|won['’]t|will\s+not)\s+take\s+on\b/i,
+  /\bwhat\s+we\s+(?:won['’]t|wouldn['’]t|would\s+not|will\s+not)\s+take\s+on\b/i,
+  // "Who we don't work with", "who this is not for", "we're not for everyone"
+  /\bwho\s+we\s+(?:don['’]t|do\s+not|won['’]t|will\s+not)\s+(?:work\s+with|serve|help|take\s+on)\b/i,
+  /\bwho\s+(?:this|it|we)\s+(?:is|are|['’]re)\s+not\s+for\b|\bwho\s+(?:this|it)\s+isn['’]t\s+for\b/i,
+  /\b(?:we|this)\s+(?:are|is|['’]re|['’]s)\s+not\s+(?:for\s+everyone|the\s+right\s+fit\s+for)\b/i,
 ];
 
 // ------------------------------------------------------------ patterns
@@ -419,12 +472,25 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "Told to avoid jargon, a model announces that it is avoiding jargon. 'Explained plainly' swaps a synonym and keeps the tell.",
-    fix: "Use the house replacement, 'properly explained', or drop the claim and let the copy show it.",
-    detect: phrases([/\b(?:plain english|explained plainly|plainly explained)\b/i], quoted),
+    why: "Told to avoid jargon, a model announces that it is avoiding jargon: 'in plain English', 'stated plainly', 'we'll tell you plainly', 'in plain terms'. The founder bans the whole family (20 October 2026); a reader takes it as filler.",
+    fix: "Drop the adverb and say the thing: 'Our prices, stated plainly' becomes 'Our prices'. Where the claim matters, the house replacement for 'plain English' is 'properly explained'.",
+    detect: phrases(PLAIN_FAMILY, quoted),
     fixtures: {
-      flag: [f("content/home.md", "Your options, in plain English.")],
-      pass: [f("content/home.md", "Your options, properly explained.")],
+      flag: [
+        f("content/home.md", "Your options, in plain English."),
+        // Eunice Ordor's draft lines, Pastel 986559 #12 and #13 (her diagnosis taken, her wording not).
+        f("content/clinics.md", "Tell us what's happening and we'll say plainly what we would take on."),
+        f("content/pricing.md", "DD's payment terms, plainly stated."),
+        f("content/clinics.md", "We explain our findings in plain terms."),
+        f("content/clinics.md", "We share findings in plain language."),
+      ],
+      pass: [
+        f("content/home.md", "Your options, properly explained."),
+        f("content/pricing.md", "Our payment terms: 30% when you sign, the rest at launch."),
+        // The Apache and zlib licence wording, copied into a repo as it is.
+        f("LICENSE.txt", "Altered source versions must be plainly marked as such."),
+        f("content/menu.md", "Plain or seeded bagels, and plain-language allergen notes."),
+      ],
     },
   },
   {
@@ -475,11 +541,11 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 1,
     severity: "warn",
     surface: "copy",
-    why: "Truly, genuinely, clear, ultimately, 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking.",
+    why: "Truly, genuinely, clear, ultimately, 'a plain recommendation', 'the single most', 'bar none': normal English once, and a tell when they stack. The house rules keep them for review, never blocking.",
     fix: "Keep the one that lands hardest and cut the rest. 'What is genuinely excellent' reads better as 'what is excellent'.",
     detect: phrases([new RegExp(`(?:^|\\b)(?:${[...REVIEW_PHRASES].sort((a, b) => b.length - a.length).map((p) => escape(p).replace(/^(\w)/, "\\b$1").replace(/(\w)$/, "$1\\b")).join("|")})`, "i")], quoted),
     fixtures: {
-      flag: [f("content/home.md", "We are truly proud of it."), f("content/home.md", "You leave with a clear next step.")],
+      flag: [f("content/home.md", "We are truly proud of it."), f("content/home.md", "You leave with a clear next step."), f("content/process.md", "You get a plain recommendation and someone who knows your systems.")],
       pass: [f("content/home.md", "We have fitted 400 boilers since 2009."), f("content/home.md", "Keep a safe clearance around the meter.")],
     },
   },
@@ -557,6 +623,40 @@ export const COPY_TELLS: CopyTell[] = [
         f("emails/quote.md", "Have a look at the quote and ring me if Thursday does not work."),
         f("content/contact.md", "Give us a ring on 01280 700123. We take a look at the fault before quoting."),
         f("content/home.md", "Built to last, and made for older houses."),
+      ],
+    },
+  },
+  {
+    id: "confession-line",
+    name: "Confession line",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'What this is and is not', 'we have not yet built', 'our experience so far is one practice', 'what we would and wouldn't take on': a model scopes a business by confessing its limits. It reads as small print, and it turns a buyer away before they make contact.",
+    fix: "Scope by being precise about what is true, and leave the door open: 'Built and run by us for Sensphere, a practice whose clinicians work across several sites.' Keep contractual facts (eligibility, who runs what) and say them as what the buyer gets.",
+    detect: phrases(CONFESSION, quoted),
+    fixtures: {
+      flag: [
+        // Each one from the DD site, as Eunice Ordor flagged it (Pastel 986559 #8, #12, #13).
+        f("content/clinics.md", "What this is and is not: a practice portal we built and run for one practice."),
+        f("content/clinics.md", "We have not yet built and run the digital systems of a practice with several clinicians."),
+        f("content/home.md", "Including the client portal we run for Sensphere. Our clinic experience so far is one practice."),
+        f("content/clinics.md", "Tell us what's happening and we'll say what we would and wouldn't take on."),
+        f("content/clinics.md", "We will say what carries over from this work and what we would need to learn first."),
+        f("content/clinics.md", "We will tell you where our experience applies directly and where it is close."),
+        f("content/about.md", "What we are not"),
+        f("content/about.md", "Who we don't work with: anyone who needs a site this week."),
+        f("content/mobile.md", "Mobile is our newest line, so we tell you what we have and haven't done."),
+      ],
+      pass: [
+        f("content/clinics.md", "Built and run by us for Sensphere, a growing practice whose clinicians work remotely."),
+        f("content/home.md", "The client portal we run for Sensphere."),
+        // Contractual facts, said as they are.
+        f("content/pricing.md", "Pay monthly is open to UK residents aged 18 and over, subject to status."),
+        f("content/pricing.md", "Your monthly payments do not buy the site; the buy-out price does."),
+        f("content/terms.md", "What we are responsible for, and what we are not responsible for, is in clause 4."),
+        f("content/insurance.md", "Ask what your policy does and does not cover."),
+        f("emails/deposit.md", "We have not yet received your deposit, so the date is still open."),
       ],
     },
   },

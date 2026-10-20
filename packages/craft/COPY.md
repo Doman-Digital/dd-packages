@@ -57,7 +57,8 @@ A single hit fails the check. These are not judgment calls.
   `in today's rapidly evolving…`, `increasingly digital`,
   `whether you're a X or a Y`, `seamless(ly)`, `unlock your…`,
   `meaningful impact`, `foster collaboration`, `empower`, `leverage`,
-  `harness`, `delve`, `a comprehensive guide to`, `plain English`.
+  `harness`, `delve`, `a comprehensive guide to`, `plain English`,
+  `plainly`, `in plain terms`, `in plain language`.
 
 Also blocking: `in the event that`, `at no additional cost to you`, `rest
 assured`, `it is worth noting that`, `when it comes to`, `we've got you
@@ -78,7 +79,12 @@ exists. Name the mechanism: "Your team can publish without us", not "we
 empower your team".
 
 `plain English` has one house replacement: **"properly explained"**.
-"Explained plainly" swaps a synonym and keeps the tell.
+"Explained plainly" swaps a synonym and keeps the tell, and so do "stated
+plainly", "we'll tell you plainly" and "in plain terms": the whole family
+blocks (founder, 20 October 2026). Drop the adverb and say the thing. Licence
+text ("must be plainly marked") is let through. `plain` and `clear` describing
+the copy itself ("a plain recommendation", "clear pricing") are review tier,
+in `review-phrase`: say what the reader actually gets.
 
 ## Review tier
 
@@ -87,9 +93,10 @@ person reading decides which instance earns its place.
 
 | Tell | What it catches |
 | --- | --- |
-| `review-phrase` | truly, genuinely, deeply, ultimately, clear and clearly ("a clear next step", "clear pricing": say what the reader actually gets), great question, absolutely, one-size-fits-all, and superlative over-claiming: "the single most", "by far the most", "hands down the", "arguably the best", "bar none" |
+| `review-phrase` | truly, genuinely, deeply, ultimately, clear and clearly ("a clear next step", "clear pricing": say what the reader actually gets), plain as a self-description ("plain answers", "a plain recommendation"), great question, absolutely, one-size-fits-all, and superlative over-claiming: "the single most", "by far the most", "hands down the", "arguably the best", "bar none" |
 | `sales-tagline` | advert lines that say nothing a reader can check: "so your budget goes where it counts", "real results", "results that matter", "work harder for you", "pages that convert" |
 | `matey-register` | the put-on British voice: "Alright Dave,", "cheers mate", "no worries", "we'll get you sorted", "proper good", "give me a shout", "chuffed", "Right then,"; and clipped speech that drops the small words: "have look at", "give it go", "Quick one:", "built you a site". Write plain, complete British English |
+| `confession-line` | scoping the business by what it has not done, will not do or is not: "What this is and is not", "we have not yet built", "our clinic experience so far is one practice", "what we would and wouldn't take on", "who we don't work with". It's an open shop: be honest by being precise ("the portal we run for Sensphere") and keep the door open. Contractual facts (eligibility, who runs what) stay, said as what the buyer gets |
 | `outcome-promise` | a hoped-for result written as delivered: "we'll turn that into enquiries", "once the first areas are working", "competitors you can outdo", "exactly what convinces", "guaranteed rankings", "you'll get more". Promise the work; measure and report the results |
 | `ai-vocabulary` | tapestry, testament, realm, elevate, nestled, meticulous, unparalleled, moreover; and underscore, showcasing, pivotal, measured 10 to 14 times over-used in post-2022 text |
 | `stock-email-line` | the form-email opener and closer: "I hope this email finds you well", "hope you're having a great week", "let me know if you have any questions", "don't hesitate to contact us". Start with the reason for writing; end with the next step and who to ask |

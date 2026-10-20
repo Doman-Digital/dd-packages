@@ -1,0 +1,2665 @@
+{
+  "$schema": "../../design-review.schema.json",
+  "version": 1,
+  "subject": "dd-site-preview (Doman Digital's new site), branch plans-2026-10 at 9e5b1529, built 17 October 2026",
+  "reviewer": "Eunice Ordor",
+  "date": "2026-10-19",
+  "source": {
+    "tool": "pastel",
+    "canvas": 986559,
+    "link": "https://usepastel.com/link/oymg5jro/",
+    "comments": 73,
+    "from": "2026-10-18T20:18:26.205Z",
+    "to": "2026-10-19T16:19:47.014Z"
+  },
+  "rulings": {
+    "by": "founder",
+    "date": "2026-10-20"
+  },
+  "notes": [
+    {
+      "id": "pastel-1",
+      "page": "home",
+      "lens": "personality",
+      "observation": "First impression: love the structure and font and colour scheme. gives personality and confidence in our work :)",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 1",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "First impression of type, colour and structure. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 1,
+        "commentId": 12724422,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:18:26.205Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-2",
+      "page": "home",
+      "lens": "relevance",
+      "observation": "Sub-line narrows us to bookings and enquiries only. We also do commerce and other systems, and clinics and regulated practices need something broader. \n\nSuggestion: wording that doesn't name specific systems: \n\n\"The systems around your website, connected to the tools you already use.\"\n\n\"Everything your website depends on, connected to the tools you already use.\" \n\n\"Your website and the systems behind it, run and connected for you.\"\n\n“Connected to the tools you already use” works for clinics and regulated practices too, since it doesn’t promise a full clinical workflow.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 2",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "A sub-line that names no specific system, such as 'The systems around your website, connected to the tools you already use.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The sub-line named bookings and enquiries only, which narrows the offer below commerce, portals and clinics. Her lines fix the breadth but stay general, so the wording follows her own #25 pattern.",
+        "change": "Restate the hero sub-line as the pattern (we connect the site to what the business already runs on) with examples, in the #25 shape.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 2,
+        "commentId": 12724437,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:29:37.754Z"
+      },
+      "verdict": "take-reworded",
+      "principle": "lists-as-pattern-examples-invitation"
+    },
+    {
+      "id": "pastel-3",
+      "page": "home",
+      "lens": "hierarchy",
+      "observation": "Love the image and illustration. The \"we run it / connected, they run it\" labels show the system and where our responsibility sits, which is exactly what the page is about.\n\nSuggestion: turn it into a slideshow so visitors can see other systems we've built alongside the website. Chair and Blade first, then RMP Electrical, MMM Beauty, Harrison James. That shows the range (booking, enquiries, commerce) without the sub-line having to list it.\n\nSame label style on each slide so the boundary is clear every time. Labels should only describe what's live and in the proof ledger.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 3",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        },
+        {
+          "kind": "screenshot",
+          "ref": "phone hero capture: the first screen is Chair and Blade's branded page",
+          "viewport": "mobile"
+        }
+      ],
+      "suggested": {
+        "change": "Turn the annotated hero image into a slideshow: Chair and Blade, then RMP Electrical, MMM Beauty, Harrison James.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "Her goal (show range beyond bookings) is taken through the sub-line (#2, #25) and the /work order (#58). A hero carousel rarely gets past its first slide and costs height and motion on a phone."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 3,
+        "commentId": 12724444,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:35:05.228Z"
+      },
+      "verdict": "decline",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Slideshow declined. On a phone the hero must not open on another client's brand: the first screen is the headline, sub-line and one button, and the annotated Chair and Blade capture moves below it, framed as our work."
+      },
+      "principle": "first-phone-screen-is-ours"
+    },
+    {
+      "id": "pastel-4",
+      "page": "home",
+      "lens": "identity",
+      "observation": "\"Our Work\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 4",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "\"Our Work\"",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A small house-voice fix; the studio speaks as \"we\" everywhere else.",
+        "change": "Label the work link \"Our work\".",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 4,
+        "commentId": 12724449,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:35:57.231Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-5",
+      "page": "home",
+      "lens": "action",
+      "observation": "Suggestion: one button 'Get in touch with us' only instead of both",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 5",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "One button, 'Get in touch with us', in place of the pair.",
+        "step": "adjust-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "Two equal buttons make the visitor choose before they know anything. The null build puts a pair in 140 of 140 heroes, so the pair is the default, never a decision.",
+        "change": "One button in the hero; any second route becomes a text link in the copy.",
+        "step": "adjust-component"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 5,
+        "commentId": 12724451,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:37:09.022Z"
+      },
+      "verdict": "take",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "One CTA in the hero and on the closing sections. Two was a miss the founder had not noticed."
+      },
+      "principle": "one-hero-cta",
+      "tells": [
+        {
+          "id": "hero-cta-pair"
+        }
+      ]
+    },
+    {
+      "id": "pastel-6",
+      "page": "home",
+      "lens": "relevance",
+      "observation": "Same issue as the sub-line: this narrows the third route to enquiries and bookings. It's the route for people who need something connected or built (commerce, portals, access, payment & deposit, checkout), so the title and description should be broader. \n\nAlso framed as a problem the visitor has, which reads negative. Suggest something neutral that covers the wider set, e.g. \"I need my website to connect to other systems\" or \"I need something built or connected\", keeping \"connected so nothing is lost\" in the description.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 6",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "Retitle route 3 neutrally, such as 'I need something built or connected', keeping 'connected so nothing is lost' in the description.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The route narrowed to enquiries and bookings and was framed as the visitor's problem. Her diagnosis holds; the wording follows the #25 pattern.",
+        "change": "Retitle route 3 for anything built or connected, written as the pattern plus examples.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 6,
+        "commentId": 12724457,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:38:56.888Z"
+      },
+      "verdict": "take-reworded",
+      "principle": "lists-as-pattern-examples-invitation"
+    },
+    {
+      "id": "pastel-7",
+      "page": "home",
+      "lens": "action",
+      "observation": "Good route. It matches the blueprint's \"smallest justified intervention\" and lets people start without knowing what they need.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 7",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "The route that lets people start without knowing what they need matches the blueprint. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 7,
+        "commentId": 12724461,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:40:02.715Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-8",
+      "page": "home",
+      "lens": "disclosure",
+      "observation": "Suggestion: remove 'Our clinic experience so far is one practice.' it draws attention to a limitation instead of showcasing what we have done. \n\nIf it goes, change 'including the client portal we run for Sensphere to 'as in the client portal we run for Sensphere; so the section doesn't read as if Sensphere is one of several clinics.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 8",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        },
+        {
+          "kind": "content",
+          "ref": "Doman-Digital apps/site/src/content/deck.ts line 134"
+        }
+      ],
+      "suggested": {
+        "change": "Remove 'Our clinic experience so far is one practice.' and change 'including the client portal' to 'as in the client portal we run for Sensphere'.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The line draws attention to a limit; the exact claim already scopes the work.",
+        "change": "Cut the line; keep the exact claim 'the client portal we run for Sensphere'.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 8,
+        "commentId": 12724510,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T20:53:14.782Z"
+      },
+      "verdict": "founder-decision",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Cut 'Our clinic experience so far is one practice.'"
+      },
+      "principle": "open-shop",
+      "tells": [
+        {
+          "id": "confession-line",
+          "text": "Our clinic experience so far is one practice."
+        }
+      ]
+    },
+    {
+      "id": "pastel-9",
+      "page": "landing",
+      "lens": "evidence",
+      "observation": "Suggestion: change the wording slightly. \n\n\"easier for families and professionals to use... [Doman Digital] understood the sensitivity of our audience and handled it properly!\n\n[...]",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 9",
+          "note": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics"
+        }
+      ],
+      "suggested": {
+        "change": "Reword the testimonial slightly.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A review is quoted verbatim or not at all (proof ledger), so any new words must come from the person who wrote the review.",
+        "change": "Draft a reworded quote for its author to approve; the verbatim quote stays live until he does.",
+        "step": "copy",
+        "requires": [
+          {
+            "what": "Cherif's written approval of the reworded quote",
+            "phase": "publication"
+          }
+        ]
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 9,
+        "commentId": 12724523,
+        "url": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics",
+        "at": "2026-10-18T20:57:24.233Z"
+      },
+      "verdict": "founder-decision",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Reword the quote, live only once its author has approved the new words. Recorded in docs/DIRECTION.md section 10."
+      }
+    },
+    {
+      "id": "pastel-10",
+      "page": "landing",
+      "lens": "disclosure",
+      "observation": "Suggestion: reworking this section so it reads as open-ended rather than a list of three, and remove \"These are questions we examine, not products we assume you need\", which reads defensive.\n\nHeading: \"Where we'd start looking\" (alternative: \"Some questions we'd ask about your practice\"). It doesn't limit us to three topics.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 10",
+          "note": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics"
+        }
+      ],
+      "suggested": {
+        "change": "Heading 'Where we'd start looking'; remove 'These are questions we examine, not products we assume you need'.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A closed list of three with a defensive caveat reads as a limit; an open heading invites the conversation.",
+        "change": "Retitle the section so it is open-ended and cut the defensive line.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 10,
+        "commentId": 12724621,
+        "url": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics",
+        "at": "2026-10-18T21:30:47.858Z"
+      },
+      "verdict": "take",
+      "principle": "open-shop"
+    },
+    {
+      "id": "pastel-11",
+      "page": "landing",
+      "lens": "action",
+      "observation": "Cards, written as questions so they invite a conversation:\n- \"Who holds the referral?\" Who sees it, and what happens when someone is away.\n- \"Who can see what?\" Intake forms, documents and team access.\n- \"How does payment fit your diary?\" Deposits, reminders and payment on the day.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 11",
+          "note": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics"
+        }
+      ],
+      "suggested": {
+        "change": "Cards written as questions: 'Who holds the referral?', 'Who can see what?', 'How does payment fit your diary?'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "design-hypothesis",
+        "because": "Questions invite the visitor to answer them with us, which suits an open list.",
+        "change": "Write the clinic cards as the questions a practice asks.",
+        "step": "copy",
+        "validation": "Read the clinic enquiries after launch for answers to the card questions."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 11,
+        "commentId": 12724630,
+        "url": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics",
+        "at": "2026-10-18T21:33:08.788Z"
+      },
+      "verdict": "take",
+      "principle": "lists-as-pattern-examples-invitation"
+    },
+    {
+      "id": "pastel-12",
+      "page": "landing",
+      "lens": "action",
+      "observation": "Closing line and button: \"Tell us what's happening and we'll say plainly what we would and wouldn't take on.\" Then the button \"Tell us your situation\" (or keep \"Discuss your requirements\"), going to the same contact page.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 12",
+          "note": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics"
+        }
+      ],
+      "suggested": {
+        "change": "Closing line 'Tell us what's happening and we'll say plainly what we would and wouldn't take on.' then a 'Tell us your situation' button.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The close and the button are right. The draft line declines people in advance and uses the banned adverb, so it is rewritten.",
+        "change": "One closing line that invites the situation, and one button, with no promise to decline work.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 12,
+        "commentId": 12724633,
+        "url": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics",
+        "at": "2026-10-18T21:33:49.775Z"
+      },
+      "verdict": "take-reworded",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "No declining people in advance and no 'plainly': it's an open shop."
+      },
+      "principle": "open-shop",
+      "tells": [
+        {
+          "id": "confession-line",
+          "text": "Tell us what's happening and we'll say plainly what we would and wouldn't take on."
+        },
+        {
+          "id": "plain-english",
+          "text": "Tell us what's happening and we'll say plainly what we would and wouldn't take on."
+        }
+      ]
+    },
+    {
+      "id": "pastel-13",
+      "page": "landing",
+      "lens": "disclosure",
+      "observation": "This section has strong work in it, but the last paragraph undercuts it. \"What this is and is not... We have not yet built and run...\" reads like a disclaimer, and it sits in smaller grey text under the quote, so it feels like fine print. The section ends on what we haven't done instead of what we have.\n\nSuggest dropping the \"What this is and is not\" label and the \"have not yet\" sentence, and keeping the scope honest by looking forward. \n\nOptions:\n\n\"A practice portal we built and run for Sensphere. If you run a practice with several clinicians, we will tell you plainly where our experience applies directly and where it is close.\"\n\"Built and run by us for one practice. Running a larger clinic? We will say plainly what carries over from this work and what we would need to learn first.\"\n\nEither way, set it in the same size and colour as the paragraph above, so it reads as part of the story and not as small print.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 13",
+          "note": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics"
+        },
+        {
+          "kind": "content",
+          "ref": "Doman-Digital apps/site/src/content/deck.ts line 240"
+        }
+      ],
+      "suggested": {
+        "change": "Drop the 'What this is and is not' label and the 'have not yet' sentence; e.g. 'Built and run by us for one practice. Running a larger clinic? We will say plainly what carries over from this work and what we would need to learn first.' Same size and colour as the body.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The section ended on what we have not done, in small grey type, so it read as small print. Precision scopes the claim; a confession turns a buyer away.",
+        "change": "One line in body size and colour, starting 'Built and run by us for Sensphere', describing the practice.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 13,
+        "commentId": 12724656,
+        "url": "https://dd-site-preview.domandigital.workers.dev/websites-for-clinics",
+        "at": "2026-10-18T21:49:05.522Z"
+      },
+      "verdict": "take-reworded",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Keep 'Built and run by us'. Drop 'Running a larger clinic...' and 'one practice': describe what Sensphere is, a growing practice whose clinicians work remotely across locations."
+      },
+      "principle": "open-shop",
+      "tells": [
+        {
+          "id": "confession-line",
+          "text": "What this is and is not: a practice portal we built and run for one practice."
+        },
+        {
+          "id": "confession-line",
+          "text": "We have not yet built and run the digital systems of a practice with several clinicians."
+        },
+        {
+          "id": "confession-line",
+          "text": "We will say plainly what carries over from this work and what we would need to learn first."
+        }
+      ]
+    },
+    {
+      "id": "pastel-14",
+      "page": "article",
+      "lens": "disclosure",
+      "observation": "\"An enquiry form that tells families to leave out diagnoses and medication\" describes a restriction. Suggest leading with what it achieves: \"An enquiry form designed to keep clinical details out of email, with everything else handled in your Portal.\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 14",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work/sensphere"
+        }
+      ],
+      "suggested": {
+        "change": "'An enquiry form designed to keep clinical details out of email, with everything else handled in your Portal.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The line described a restriction; leading with the result says the same fact positively.",
+        "change": "Lead the form line with what it achieves.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 14,
+        "commentId": 12724660,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work/sensphere",
+        "at": "2026-10-18T21:53:17.445Z"
+      },
+      "verdict": "take",
+      "principle": "open-shop"
+    },
+    {
+      "id": "pastel-15",
+      "page": "article",
+      "lens": "evidence",
+      "observation": "Where does the Sensphere enquiry form deliver: the practice's email, the portal, or both? The page currently says the enquiry reaches the practice inbox, and the intro says sensitive details don't go through an inbox. We need both lines to match what happens.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 15",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work/sensphere"
+        },
+        {
+          "kind": "source",
+          "ref": "sen-sphere apps/web/src/app/[locale]/contact/action.ts"
+        }
+      ],
+      "suggested": {
+        "change": "Make the form line and the intro agree with what the form does.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The page said the enquiry reaches the inbox and also that details stay out of an inbox. The form saves to the portal first, then sends an alert without the details.",
+        "change": "Both lines: 'Enquiries land in the practice portal, and the practice gets an email alert. The details stay in the portal.'",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 15,
+        "commentId": 12724661,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work/sensphere",
+        "at": "2026-10-18T21:56:38.404Z"
+      },
+      "verdict": "take",
+      "principle": "no-self-contradiction"
+    },
+    {
+      "id": "pastel-16",
+      "page": "article",
+      "lens": "evidence",
+      "observation": "Suggestion: Making the \"We run\" box more descriptive, so it shows how much we take on. \n\nTwo options:\n\nOption 1: labelled lines\n\n- Hosting and security: The website and the client portal are hosted by us and kept up to date and secure.\n- Fixes: When something breaks, we find it and fix it.\n- Enquiries and login: We run the enquiry form and the client login, so families and referrers reach the right place.\n- Access: We set up and maintain the portal accounts, with the practice choosing who gets which role (clinician, admin, family or referrer).\n- Content: Changes to the website are made by us, through the editor we set up.\n\nOption 2: one paragraph\n\n\"We host and look after the website and the client portal: keeping them up to date and secure, and fixing faults when they happen. We run the enquiry form and the client login, set up and maintain the portal accounts for clinicians, admin staff, families and referrers, and make changes to the site's content.\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 16",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work/sensphere"
+        }
+      ],
+      "suggested": {
+        "change": "Option 1, labelled lines: hosting and security, fixes, enquiries and login, access, content.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The 'We run' box undersold what we take on; labelled lines show it, and each must be true.",
+        "change": "Her option 1, each line checked against responsibility-boundaries.md.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 16,
+        "commentId": 12724672,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work/sensphere",
+        "at": "2026-10-18T22:09:07.295Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-17",
+      "page": "article",
+      "lens": "identity",
+      "observation": "A Manchester based* studio",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 17",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work/sensphere"
+        }
+      ],
+      "suggested": {
+        "change": "'A Manchester-based studio'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A small correction.",
+        "change": "Hyphenate 'Manchester-based'.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 17,
+        "commentId": 12724676,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work/sensphere",
+        "at": "2026-10-18T22:11:49.354Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-18",
+      "page": "home",
+      "lens": "differentiation",
+      "observation": "\"One client's journey, from the beginning till now\" To come away from suggestion that we are 'finished' with this client as opposed to being a continuous part of our clients' teams",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 18",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "'One client's journey, from the beginning till now'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The proposition is the retained relationship, so a case should read as continuing.",
+        "change": "Frame the case as ongoing, not finished.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 18,
+        "commentId": 12724682,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T22:14:28.517Z"
+      },
+      "verdict": "take",
+      "principle": "the-work-continues"
+    },
+    {
+      "id": "pastel-19",
+      "page": "home",
+      "lens": "evidence",
+      "observation": "The full case page is excellent: real numbers, the before and after, and what we still run. The homepage card carries almost none of that, so there is little to make some want to click 'The Full Case'. \n\nSuggestion: bringing the strongest verified proof onto the card and describing our ongoing relationship. \n\nShow we're still there: Keep the story and add after a paragraph along the lines of:\"We built it in July 2026 and we still run it with him: hosting and keeping it up to date, asking for new reviews and drafting his replies, with a check-in every two weeks.\"\n\nBring more proof up from the full case:  Alongside \"0 → 90\", add \"695 taps on Book a cut in September\" and \"135 of 136 appointments booked online\". Add a small line: \"Figures to 9 October 2026.\"\n\nMake the link inviting: Replace \"The full case\" with a button: \"Read the full case: the build, the numbers and how we measured them\".",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 19",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        },
+        {
+          "kind": "content",
+          "ref": "Doman-Digital docs/proof-ledger.md CB-2, CB-3"
+        }
+      ],
+      "suggested": {
+        "change": "Bring '695 taps on Book a cut in September' and '135 of 136 appointments booked online' onto the homepage card, add a 'still run it' paragraph, and make the link a button.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The case page has the proof and the card carried almost none. A row of big numbers is the stats-row tell, and the cutoff date differs per figure, so each figure gets its own sentence and period.",
+        "change": "Add CB-2 and CB-3 as sentences, each with its own period, and the ongoing-work line; keep the link a text link.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 19,
+        "commentId": 12724722,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T22:44:10.021Z"
+      },
+      "verdict": "take-reworded",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-20",
+      "page": "home",
+      "lens": "action",
+      "observation": "\"We ask\" sounds passive, like a one-off request. Suggest wording that shows we are actively looking after his reviews.\n\nAdd the benefit to Emmanuel: more reviews, and replies done without him having to find the time. The result is already on the page (0 to 90 five-star reviews in eleven weeks), so the label can lean on it.\n\n\"REVIEWS · WE KEEP THEM COMING\" / \"We check in for new reviews and draft every reply, so his Google profile keeps growing and he never has to start from a blank page.\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 20",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "'REVIEWS · WE KEEP THEM COMING' / 'We check in for new reviews and draft every reply, so his Google profile keeps growing...'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "'We ask' sounds passive. Her draft says 'every reply' where the plan says up to 4 a month, and promises growth, so the wording follows the plan.",
+        "change": "Lead the reviews label with the benefit and describe the work as the plan defines it.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 20,
+        "commentId": 12724726,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T22:46:59.200Z"
+      },
+      "verdict": "take-reworded",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "'We ask, we draft' is out."
+      }
+    },
+    {
+      "id": "pastel-21",
+      "page": "about",
+      "lens": "personality",
+      "observation": "Reads a little bit as if we aim to do the minimum. What we mean is the opposite: we are particular about doing exactly what the situation needs, no more and no less. The wording should sound careful and considered, not economical.\n\n\"Exactly what your situation needs: what we will do, what you supply, and who runs what afterwards.\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 21",
+          "note": "https://dd-site-preview.domandigital.workers.dev/process"
+        }
+      ],
+      "suggested": {
+        "change": "'Exactly what your situation needs: what we will do, what you supply, and who runs what afterwards.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "'The smallest change' read as doing the minimum.",
+        "change": "Reword the scope line so it reads careful, not economical.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 21,
+        "commentId": 12724738,
+        "url": "https://dd-site-preview.domandigital.workers.dev/process",
+        "at": "2026-10-18T22:53:59.440Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-22",
+      "page": "about",
+      "lens": "disclosure",
+      "observation": "I checked Linear, and DOM-256 records that Phase F retired the audit product: the audit route was deleted and redirected to /review, and the AUDIT_OFFER and its facts were removed. \n\nBlueprint v0.1 does allow an optional paid investigation as an idea, but it says no discovery product, fee or timetable is approved, and the buyer path must not have a paid-discovery prerequisite. So \"paid\" should not be on the page as a stated step yet. Suggested wording, with no fee mentioned:\n\n\"If something is unclear, we look into that part first and agree it with you before anything is built.\"\n\nDmitri to decide whether a paid investigation is ever offered publicly.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 22",
+          "note": "https://dd-site-preview.domandigital.workers.dev/process"
+        },
+        {
+          "kind": "content",
+          "ref": "Linear DOM-256"
+        }
+      ],
+      "suggested": {
+        "change": "'If something is unclear, we look into that part first and agree it with you before anything is built.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "DOM-256 retired the audit product and no paid discovery is approved, so the page contradicted the offer.",
+        "change": "Remove 'paid' from the process step.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 22,
+        "commentId": 12724741,
+        "url": "https://dd-site-preview.domandigital.workers.dev/process",
+        "at": "2026-10-18T22:57:23.328Z"
+      },
+      "verdict": "take",
+      "principle": "no-self-contradiction"
+    },
+    {
+      "id": "pastel-23",
+      "page": "home",
+      "lens": "personality",
+      "observation": "keep!!!!!!",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 23",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 23,
+        "commentId": 12724771,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T23:23:28.024Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-24",
+      "page": "home",
+      "lens": "differentiation",
+      "observation": "the box covers hosting, a fault response and review requests. That is a fraction of what we actually run, so it reads as website support rather than the retained digital function in DOM-296. The hero sub-line narrows us the same way, to bookings and enquiries.\n\nWhat Linear supports that the box leaves out:\n\n-  Portals and custom software: we host them, update them and fix faults (Sensphere, Tardi). This is the systems point, and it is our strongest claim.\n- Social media management: DOM-940 confirms we do this for existing clients and the site never mentions it. We draft posts, clients approve in the portal, we publish to Instagram and Facebook (DOM-725, built).\n- Enquiries: we run the form and its spam protection up to the client's inbox or phone, with redundant delivery where it was built (RMP).\n- Being found: on-page search basics are ours at launch and on Improve.\n- Suppliers: when a booking tool, registrar or email provider fails, we tell the client, chase them and confirm when it is back.\n\nKeep off until live: monitoring (DOM-487), weekly client reports (DOM-736), out-of-hours cover (DOM-621).",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 24",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "List what we run beyond hosting: portals and custom software, social media, enquiries, being found, suppliers. Keep monitoring, weekly reports and out-of-hours cover off until live.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The box read as website support rather than the retained function. She keeps unshipped work off the page, the same rule the proof ledger applies.",
+        "change": "Widen the 'we run it' box, each line verified; social waits on the #72 ruling.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 24,
+        "commentId": 12724848,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-18T23:51:45.490Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-25",
+      "page": "home",
+      "lens": "relevance",
+      "observation": "Booking, checkout, Business Profile and enquiries reads as a closed list of four, and it's the simplest end of what we connect.\n\nThe box should lead with the pattern, that we connect the site to whatever a business already runs on, with the examples underneath rather than a closed list. e.g. bookings and appointments, deposits and payments, credentials and access, social accounts, email and domain, CRM.\n\nThen a CTA, something like:\n\n- \"Every business runs differently. Tell us how yours works and we'll map it out.\"\n- \"Show us how the work flows through your business, and we'll show you where it can connect.\"\n\nLeading to contact page.\n\nThe CTA does two jobs: it stops the list reading as a closed menu, and it starts a conversation about a tool we may not have met, which is how most of the interesting work comes in.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 25",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "suggested": {
+        "change": "Lead with the pattern (we connect the site to whatever a business runs on), examples underneath, then 'Every business runs differently. Tell us how yours works and we'll map it out.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A closed list of four reads as a menu. The pattern plus examples plus an invitation keeps the list open and starts the conversation about a tool we have not met.",
+        "change": "Pattern, examples, then an invitation as a text link to contact.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 25,
+        "commentId": 12725300,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-19T02:36:00.467Z"
+      },
+      "verdict": "take",
+      "principle": "lists-as-pattern-examples-invitation"
+    },
+    {
+      "id": "pastel-26",
+      "page": "landing",
+      "lens": "personality",
+      "observation": "LOVE",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 26",
+          "note": "https://dd-site-preview.domandigital.workers.dev/who-we-help"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 26,
+        "commentId": 12725305,
+        "url": "https://dd-site-preview.domandigital.workers.dev/who-we-help",
+        "at": "2026-10-19T02:38:00.065Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-27",
+      "page": "landing",
+      "lens": "relevance",
+      "observation": "i would add ecommerce, unless you're not really focussing on it too much",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 27",
+          "note": "https://dd-site-preview.domandigital.workers.dev/who-we-help"
+        }
+      ],
+      "suggested": {
+        "change": "Add e-commerce as a sector.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "A sector is shown once it has its own measured proof, and MMM's checkout is one feature of one site.",
+        "requires": [
+          {
+            "what": "Harrison James Shopify figures",
+            "phase": "publication"
+          },
+          {
+            "what": "MMM checkout live",
+            "phase": "publication"
+          }
+        ]
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 27,
+        "commentId": 12725308,
+        "url": "https://dd-site-preview.domandigital.workers.dev/who-we-help",
+        "at": "2026-10-19T02:38:30.110Z"
+      },
+      "verdict": "founder-decision",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Hold until there are Harrison James figures (Shopify analytics) and MMM's checkout is out."
+      }
+    },
+    {
+      "id": "pastel-28",
+      "page": "landing",
+      "lens": "action",
+      "observation": "Suggestion: \"Something else? Tell us where you're taking the business and we'll say what needs to be in place. Fit is about the work, not the label.\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 28",
+          "note": "https://dd-site-preview.domandigital.workers.dev/who-we-help"
+        }
+      ],
+      "suggested": {
+        "change": "'Something else? Tell us where you're taking the business and we'll say what needs to be in place. Fit is about the work, not the label.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The open invitation is right; the last sentence is contrastive negation, which blocks.",
+        "change": "Keep her first two sentences and cut the contrast.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 28,
+        "commentId": 12725329,
+        "url": "https://dd-site-preview.domandigital.workers.dev/who-we-help",
+        "at": "2026-10-19T02:44:55.671Z"
+      },
+      "verdict": "take-reworded",
+      "principle": "open-shop"
+    },
+    {
+      "id": "pastel-29",
+      "page": "landing",
+      "lens": "relevance",
+      "observation": "Suggestion: \"Enquiries, bookings, payments, referrals, client access. If any of that happens through your site every day, you're the kind of business we're built for.\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 29",
+          "note": "https://dd-site-preview.domandigital.workers.dev/who-we-help"
+        }
+      ],
+      "suggested": {
+        "change": "'Enquiries, bookings, payments, referrals, client access. If any of that happens through your site every day, you're the kind of business we're built for.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "It defines fit by what happens through the site, which keeps the shop open.",
+        "change": "Use her line, reworded where copy-check asks.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 29,
+        "commentId": 12725342,
+        "url": "https://dd-site-preview.domandigital.workers.dev/who-we-help",
+        "at": "2026-10-19T02:47:38.445Z"
+      },
+      "verdict": "take",
+      "principle": "lists-as-pattern-examples-invitation"
+    },
+    {
+      "id": "pastel-30",
+      "page": "home",
+      "lens": "hierarchy",
+      "observation": "Love the structure of the homepage, and the site overall. very clean. the four routes in, the sector cards, the responsibility boxes all build on each other instead of saying the same thing three times. Most of my notes are asking for more of this kind of flair",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 30",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "The four routes, sector cards and responsibility boxes build on each other. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 30,
+        "commentId": 12725399,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-19T03:08:06.193Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-31",
+      "page": "landing",
+      "lens": "personality",
+      "observation": "My favourite page. Clinics and regulated practices gets the room it deserves, the other main verticals sit underneath with nothing fighting each other. Every card talks about what actually happens in that business rather than selling a package - it's honestly fab fab fab 10/10. \"A site that reads as a van roof is my fav line, there's just a bit of personality here a bit of voom voom va",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 31",
+          "note": "https://dd-site-preview.domandigital.workers.dev/who-we-help"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "'A site that reads as a van roof' is her favourite line. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 31,
+        "commentId": 12725409,
+        "url": "https://dd-site-preview.domandigital.workers.dev/who-we-help",
+        "at": "2026-10-19T03:11:45.001Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-32",
+      "page": "home",
+      "lens": "evidence",
+      "observation": "you already know i love this site and everything youve built around it - but you've now made it into a complete story, paired with the case study. A real before and after, how we measured it rather than just making a claim. My notes are mostly about getting more of this onto the homepage, because right now the care there doesn't do it justice. i love everything about how this sits on the homepage.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 32",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "The Chair and Blade case as a measured before and after. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 32,
+        "commentId": 12725424,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-19T03:27:06.653Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-33",
+      "page": "about",
+      "lens": "hierarchy",
+      "observation": "i love love love the clarity of the journey here. six clear stages. Earning trust through a defined journey no matter the client. nice :)",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 33",
+          "note": "https://dd-site-preview.domandigital.workers.dev/process"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "Six clear stages. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 33,
+        "commentId": 12725427,
+        "url": "https://dd-site-preview.domandigital.workers.dev/process",
+        "at": "2026-10-19T03:28:24.322Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-34",
+      "page": "about",
+      "lens": "differentiation",
+      "observation": "Right now the last step closes the job. We look at what happened, we tell you whether more work is worth doing, and that's where the process ends. But the whole company is built on staying with people afterwards, and this is the one place on the page where we could say so. As written, 90 days reads like the end of the engagement rather than the first of many check-ins.\n\nSuggestion: reframing it as the point where the build becomes the relationship. An option:\n\n\"> Step 6: We keep going\n> At 90 days we look at what changed and what's worth doing next, and we keep checking in from there as the business grows.\n> You get: a plain recommendation, and someone who already knows how your systems work\"\n\nWarm and displays benefit: next time you need something doing, you're not explaining your set up to a stranger or someone who doesn't have a close eye on your area of focus within the business and the supporting site/systems",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 34",
+          "note": "https://dd-site-preview.domandigital.workers.dev/process"
+        }
+      ],
+      "suggested": {
+        "change": "'Step 6: We keep going. At 90 days we look at what changed and what's worth doing next, and we keep checking in from there as the business grows.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "As written the process ended at 90 days, against a company built on staying. 'A plain recommendation' in her draft is reworded.",
+        "change": "Step 6 becomes 'We keep going', with the check-ins continuing.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 34,
+        "commentId": 12725433,
+        "url": "https://dd-site-preview.domandigital.workers.dev/process",
+        "at": "2026-10-19T03:31:57.837Z"
+      },
+      "verdict": "take-reworded",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Approved: step 6 'We keep going'."
+      },
+      "principle": "the-work-continues",
+      "tells": [
+        {
+          "id": "review-phrase",
+          "text": "You get: a plain recommendation, and someone who already knows how your systems work"
+        }
+      ]
+    },
+    {
+      "id": "pastel-35",
+      "page": "about",
+      "lens": "action",
+      "observation": "This one puts the work on the reader, and it assumes they've already worked out the answer. Most people landing here know what's frustrating them, not what they need, so we're asking for something they haven't got yet. The sub-line adds to it in my opinion: \"a clear requirement, or a description of what is happening\" reads like a demand before we'll engage.\n\nIt's also the last thing they read, so it should feel like the start of something rather than a submission.\n\nSome headings that might work better:\n\n- Tell us where you're taking the business\n- Let's talk about what's next\n- Start the conversation\n\nAnd for the sub-line:\n\n- However much or little you've worked out, we'll help you make sense of it. We reply within one working day and agree the next step with you.\n- Whether you know exactly what you want or you're still working it out, tell us what's going on and we'll take it from there. We reply within one working day.\n\nI'd lean towards the first, since it reassures them they don't need a spec to get in touch, and that's the real barrier here.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 35",
+          "note": "https://dd-site-preview.domandigital.workers.dev/process"
+        }
+      ],
+      "suggested": {
+        "change": "Headings such as 'Tell us where you're taking the business'; sub-line 'However much or little you've worked out, we'll help you make sense of it. We reply within one working day and agree the next step with you.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "'Tell us what you need' puts the work on someone who does not know yet. Two of her three headings are stock agency lines, so the heading uses her phrase instead.",
+        "change": "Heading 'Tell us what's going on.' (her own phrase from #63) with her first sub-line.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 35,
+        "commentId": 12725441,
+        "url": "https://dd-site-preview.domandigital.workers.dev/process",
+        "at": "2026-10-19T03:37:20.725Z"
+      },
+      "verdict": "take-reworded",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Contact heading becomes 'Tell us what's going on'."
+      }
+    },
+    {
+      "id": "pastel-36",
+      "page": "about",
+      "lens": "action",
+      "observation": "not sure on two CTA buttons here either",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 36",
+          "note": "https://dd-site-preview.domandigital.workers.dev/process"
+        }
+      ],
+      "suggested": {
+        "change": "One button in place of two.",
+        "step": "adjust-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The same pair as the hero (#5).",
+        "change": "One closing button on the process page.",
+        "step": "adjust-component"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 36,
+        "commentId": 12725443,
+        "url": "https://dd-site-preview.domandigital.workers.dev/process",
+        "at": "2026-10-19T03:38:31.714Z"
+      },
+      "verdict": "take",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "One CTA in the hero and on the closing sections."
+      },
+      "principle": "one-hero-cta",
+      "tells": [
+        {
+          "id": "hero-cta-pair"
+        }
+      ]
+    },
+    {
+      "id": "pastel-37",
+      "page": "pricing",
+      "lens": "hierarchy",
+      "observation": "10/10 structure. clear pricing and timeline for website build. Headline does both jobs in one line, and the second half is clear and honest.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 37",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "Clear pricing and timeline for a website build. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 37,
+        "commentId": 12725466,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T03:48:31.631Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-38",
+      "page": "pricing",
+      "lens": "relevance",
+      "observation": "nice - starting from where the client already is, rather than what we'd prefer to sell. Someone with a site they're sick of and someone starting from scratch see themselves in the first few seconds of being on this page.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 38",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "Starting from where the client already is. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 38,
+        "commentId": 12725469,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T03:49:31.130Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-39",
+      "page": "pricing",
+      "lens": "differentiation",
+      "observation": "Premium earns the price tag with it's description, the other two don't in my opinion - \"Look credible and start getting enquiries, fast\" and \"bring in work, not just look good\" are the same promise at two volumes, so the extra £1,000 looks like better writing rather than different or more work. \n\nI think each tier should describe a different/additional kind of business need, the way Premium does, rather than a different level of ambition. A few ways in:\n\n\"By what the site has to carry.\"\n\n\"Essential: one service, enquiries by form or phone. Professional: several services, people comparing before they choose, and booking or payment in the middle of it. Premium: as it is now, or perhaps more specific",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 39",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        }
+      ],
+      "suggested": {
+        "change": "Describe each tier by what the site has to carry: Essential one service with enquiries by form or phone; Professional several services, comparison, booking or payment.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "Two tiers made the same promise at two volumes, so the extra £1,000 read as better writing rather than more work.",
+        "change": "Each tier names a different kind of business need.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 39,
+        "commentId": 12725477,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T03:54:29.560Z"
+      },
+      "verdict": "take",
+      "principle": "tiers-by-what-the-site-carries"
+    },
+    {
+      "id": "pastel-40",
+      "page": "pricing",
+      "lens": "evidence",
+      "observation": "Partner pro has no standalone description block - could sit above here and underneath website build pricing. The page charges £95 and £165 a month and never says what either buys",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 40",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        }
+      ],
+      "suggested": {
+        "change": "A Partner Pro description block under website build pricing.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The page charged monthly prices and never said what they buy.",
+        "change": "Say what the £95 and £165 plans buy, on the pricing page.",
+        "step": "group"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 40,
+        "commentId": 12725489,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T03:57:11.144Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-41",
+      "page": "pricing",
+      "lens": "evidence",
+      "observation": "All true, but someone reading it can't tell whether their situation adds £200 or £2,000, so it answers the question without actually answering it. Half a sentence each would fix it:\n\n- Integrations and data: Connecting your booking, payments or diary, and moving what you already hold out of an old system.\n- Risk and regulation: Patient or client information, consent, and who is allowed to see what.\n- What we look after moving forward: our connected tools, Partner Pro care, your site, your social media, your Google Business Profile\n\nThat also picks up some of the weight the connected tools card is carrying on its own further up.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 41",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        }
+      ],
+      "suggested": {
+        "change": "Half a sentence each for integrations and data, risk and regulation, and what we look after afterwards.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A reader could not tell whether their situation adds £200 or £2,000.",
+        "change": "Give each price factor its half sentence; social waits on the #72 ruling.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 41,
+        "commentId": 12729054,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T14:26:07.325Z"
+      },
+      "verdict": "take",
+      "principle": "show-the-price-maths"
+    },
+    {
+      "id": "pastel-42",
+      "page": "pricing",
+      "lens": "evidence",
+      "observation": "A website we build is four words next to a box three times the length. It's the simplest and best news on the page and it reads like we're hurrying past it. Something closer to:\n\nYours on final payment. No licence, no lock-in. We hand over the site, the accounts and everything we hold for you.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 42",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        }
+      ],
+      "suggested": {
+        "change": "'Yours on final payment. No licence, no lock-in. We hand over the site, the accounts and everything we hold for you.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The best news on the page read as hurried. Her middle sentence is a 'No X, no Y' list and negative reassurance, both blocking, so it is cut.",
+        "change": "'Yours on final payment. We hand over the site, the accounts and everything we hold for you.'",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 42,
+        "commentId": 12729075,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T14:27:46.838Z"
+      },
+      "verdict": "take-reworded",
+      "principle": "summary-pages-carry-substance",
+      "tells": [
+        {
+          "id": "no-x-no-y",
+          "text": "No licence, no lock-in."
+        }
+      ]
+    },
+    {
+      "id": "pastel-43",
+      "page": "pricing",
+      "lens": "evidence",
+      "observation": "A website subscription is right to say plainly, but as written the catch comes first and the reassurance last, so it's the one box that could read badly. Turning it round keeps the honesty and loses the sting.\n\nThe buy-out is tied to \"the standard Essential price, currently £1,450. Read strictly, someone on subscription with a Professional-sized site buys it out for the Essential price. Either that's deliberate and should be said, or the buy-out should track whatever tier was built.\n\nTwo options: Subscription can be any tier. Then the buy-out is the price of the tier you got, not Essential, and the monthly is probably not flat either.\n\nSubscription is Essential only, and anything bigger has to be bought. Also fine, and worth saying plainly so nobody expects otherwise.\n\nSeparately, a reader will do the maths and it currently looks worse than it is. Twelve months at £165 is £1,980, the payments don't count towards ownership, and the buy-out is another £1,450. That reads as £3,430 for a £1,450 site. It's actually defensible, because £95 of the £165 is Partner Pro care, so only £70 a month is the website, but the page never shows that split. Breaking it out would turn a figure that looks steep into one that looks fair.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 43",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        },
+        {
+          "kind": "content",
+          "ref": "Doman-Digital docs/brand-facts.json"
+        }
+      ],
+      "suggested": {
+        "change": "Put the reassurance before the catch, say whether the subscription is Essential only, and show that £95 of the £165 is Partner Pro care and £70 is the website.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "Twelve months at £165 plus the buy-out reads as £3,430 for a £1,450 site; the split shows why the figure is fair.",
+        "change": "Say Essential plus Handled, reassurance first, and show the £95 care plus £70 website split.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 43,
+        "commentId": 12729138,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T14:32:16.823Z"
+      },
+      "verdict": "take-reworded",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "A fair point the founder already knew about: fix the copy."
+      },
+      "principle": "show-the-price-maths",
+      "tells": [
+        {
+          "id": "plain-english",
+          "text": "A website subscription is right to say plainly."
+        }
+      ]
+    },
+    {
+      "id": "pastel-44",
+      "page": "pricing",
+      "lens": "disclosure",
+      "observation": "strongest box here - ' we hand over what we hold' is the only vague bit, and saying what that is makes it land a bit better: \n\nPartner Pro plans are rolling monthly with 30 days' notice. Your domain, content and data are always yours. When you go, we hand over your site files, your accounts and anything else we may hold for you. Ending a plan does not change a website payment schedule.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 44",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing"
+        }
+      ],
+      "suggested": {
+        "change": "'When you go, we hand over your site files, your accounts and anything else we may hold for you.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "'What we hold' was the only vague part of the strongest box.",
+        "change": "Name what we hand over.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 44,
+        "commentId": 12729160,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing",
+        "at": "2026-10-19T14:34:14.976Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-45",
+      "page": "pricing",
+      "lens": "personality",
+      "observation": "love",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 45",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 45,
+        "commentId": 12729176,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:35:58.924Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-46",
+      "page": "pricing",
+      "lens": "hierarchy",
+      "observation": "pink hover overlay does not appear here - is that intentional?",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 46",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Asks whether the missing pink hover overlay is intentional.",
+        "step": "adjust-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "One card lacked the overlay the others have.",
+        "change": "Hover parity across the cards, and nothing that depends on hover.",
+        "step": "adjust-component"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 46,
+        "commentId": 12729181,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:36:27.747Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-47",
+      "page": "pricing",
+      "lens": "identity",
+      "observation": "Our* plans",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 47",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "'Our plans'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A small house-voice fix.",
+        "change": "Label 'Our plans'.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 47,
+        "commentId": 12729182,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:36:34.946Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-48",
+      "page": "pricing",
+      "lens": "hierarchy",
+      "observation": "Correcting earlier comment: \n\nI said earlier there was no section explaining what Partner Pro actually does. There is, and it's one of the best pages on the site. Three named plans with prices, what each includes, response times per tier, the takeover process, the Wix and Squarespace move, and the £165 subscription explained properly. The problems that almost nobody will find it.\n\nThe only route in is clicking \"Look after my existing website\" from the four ways in. That's a door for someone who already knows what they want. Nav goes to Pricing, and Pricing shows Partner Pro as one line at £95 with no sign there's a whole page behind it. Anyone arriving to compare, or arriving for a build, never sees any of this. The thing we say we are, the retained relationship, is the hardest thing on the site to reach.\n\nWhat I'd pull onto the main pricing page:\n\nThe three plan names and prices, even as a strip, so £95 isn't a floating number with nothing attached.\n\nOne line on what a plan actually covers: hosting, updates, fixes, small edits, bigger work quoted first. That's already written at the top of the Partner Pro page and it's the clearest summary we have.\n\n\"Taking over your existing website is included in every plan.\" That's a strong line and it's invisible from the main page.\n\nA proper link through, not just the route card. Something like \"See what a plan covers, month by month.\"",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 48",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Pull the three plan names and prices, the one-line cover, 'Taking over your existing website is included in every plan' and a proper link onto the main pricing page.",
+        "step": "group"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The retained relationship, the thing we say we are, was the hardest page to reach: one route card led to it.",
+        "change": "Plan names and prices, what a plan covers and the takeover line on /pricing, with a text link to the plans page.",
+        "step": "group"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 48,
+        "commentId": 12729303,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:49:29.677Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-49",
+      "page": "pricing",
+      "lens": "disclosure",
+      "observation": "On the subscription, the Partner Pro page says £165 is an Essential website plus the Handled plan. That's clearer than the main page, but it doesn't close the question, it just shows the gap. The subscription is one fixed combination, so there's no stated route for anyone who needs a bigger build or a higher care tier. A clinic is the obvious case: the whole site points them at Assure for sensitive information, and Assure is £425 a month, so there's no subscription option for them at all. Either we offer other combinations and should say what they cost, or the subscription really is Essential and Handled only, and that should be said plainly so nobody assumes otherwise. The buy-out price follows from that, since it should track whatever was built.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 49",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Either offer other combinations and say what they cost, or say the subscription is Essential and Handled only; the buy-out tracks what was built.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "A second combination needs its own price, buy-out maths and contract wording before the page can name it.",
+        "requires": [
+          {
+            "what": "A clinic subscription price set by the founder",
+            "phase": "publication"
+          },
+          {
+            "what": "Contract generator and Schedule W wording for the new combination",
+            "phase": "publication"
+          }
+        ]
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 49,
+        "commentId": 12729306,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:49:50.016Z"
+      },
+      "verdict": "founder-decision",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Offer a subscription for clinics too. It needs a price, set as its own workstream."
+      },
+      "principle": "no-self-contradiction",
+      "tells": [
+        {
+          "id": "plain-english",
+          "text": "The subscription really is Essential and Handled only, and that should be said plainly."
+        }
+      ]
+    },
+    {
+      "id": "pastel-50",
+      "page": "pricing",
+      "lens": "action",
+      "observation": "add a cta here",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 50",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Add a CTA here.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A button after every section is the cta-band-stock default. One closing button per page.",
+        "change": "A text link at the end of the section where it answers 'what next', not a button or band.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 50,
+        "commentId": 12729310,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:50:09.762Z"
+      },
+      "verdict": "partly",
+      "principle": "text-links-not-cta-bands"
+    },
+    {
+      "id": "pastel-51",
+      "page": "pricing",
+      "lens": "action",
+      "observation": "add cta here to how we work or another relevant page so its not a block of text",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 51",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Add a CTA to How we work or another relevant page, so it is not a block of text.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "Her aim (a next step out of a block of text) is right; a band is the default.",
+        "change": "A text link to How we work at the end of the block.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 51,
+        "commentId": 12729318,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:50:48.082Z"
+      },
+      "verdict": "partly",
+      "principle": "text-links-not-cta-bands"
+    },
+    {
+      "id": "pastel-52",
+      "page": "pricing",
+      "lens": "hierarchy",
+      "observation": "i would put the small print at the bottom as its a heavy scroll",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 52",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Put the small print at the bottom; it is a heavy scroll.",
+        "step": "relocate"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The terms sat between the reader and the plans.",
+        "change": "Move the small print to the bottom of the plans page.",
+        "step": "relocate"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 52,
+        "commentId": 12729320,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:51:07.989Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-53",
+      "page": "pricing",
+      "lens": "disclosure",
+      "observation": "it won't just be 90 days these will be regular progress check ins with presentation packs presented to clients [...]",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 53",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Describe regular progress check-ins with presentation packs.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "Regular progress packs are not a live service yet (DOM-736), and she keeps unshipped work off the site herself (#24)."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 53,
+        "commentId": 12729325,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:51:59.946Z"
+      },
+      "verdict": "decline",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Declined for the site."
+      }
+    },
+    {
+      "id": "pastel-54",
+      "page": "pricing",
+      "lens": "disclosure",
+      "observation": "i wouldn't say within 4 business hours for urgent issues - if the site is down or something is actively stopping clients' from accessing site or systems in entirety we should be replying within the hour - or being proactive and letting the client know urgently that we are looking into it. should be a feed that comes into client relations via slack that notifies when this happens so relevant contact can get in touch with client immediately. wording looks like we will wait for the client to let us know when something is down",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 54",
+          "note": "https://dd-site-preview.domandigital.workers.dev/pricing/managed"
+        }
+      ],
+      "suggested": {
+        "change": "Reply within the hour for urgent outages, or tell the client first, from a Slack feed into client relations.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "A one-hour promise needs out-of-hours cover and client-facing alerts in place first (DOM-621, DOM-487), and the page promises only what is live.",
+        "requires": [
+          {
+            "what": "Monitoring alerts confirmed to reach a person",
+            "phase": "publication"
+          }
+        ]
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 54,
+        "commentId": 12729344,
+        "url": "https://dd-site-preview.domandigital.workers.dev/pricing/managed",
+        "at": "2026-10-19T14:53:56.931Z"
+      },
+      "verdict": "founder-decision",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Keep business hours. Confirm that monitoring alerts reach a person before the page says we tell the client first."
+      }
+    },
+    {
+      "id": "pastel-55",
+      "page": "home",
+      "lens": "mobile",
+      "observation": "image isnt sitting right for ios / android phone view in comparison to laptop view",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 55",
+          "note": "https://dd-site-preview.domandigital.workers.dev/"
+        },
+        {
+          "kind": "screenshot",
+          "ref": "trawl 2026-10-16, home at 375px",
+          "viewport": "mobile"
+        }
+      ],
+      "suggested": {
+        "change": "The image does not sit right on iOS and Android compared with a laptop.",
+        "step": "imagery"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The 16 October trawl shows the crop at phoneFrom 0.605 cutting the barber's face, with pin 2 covering Book a cut.",
+        "change": "Fix the phone crop.",
+        "step": "imagery"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 55,
+        "commentId": 12729369,
+        "url": "https://dd-site-preview.domandigital.workers.dev/",
+        "at": "2026-10-19T14:56:10.488Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-56",
+      "page": "landing",
+      "lens": "evidence",
+      "observation": "Organising by situation and vertical is bang on and is what the positioning asks for, but at the moment every single line is displaying the problem and not our solution. At present, user has to click away from this page to find out how we good we are.\n\nEach line is only half a story:\n\nBookings stuck in DMs. Now booked online, in the diary, in one tap.\n\nNeeded enquiries to reach a phone. Now delivered three ways, so none get lost.\n\nA studio that had outgrown a free Wix page. 0 to 90 five-star reviews in eleven weeks.\n\nA practice that needed a portal. One portal, four roles, each seeing only what's theirs.\n\nClients sending documents everywhere. One place, with a record of who sent what.\n\nSame structure, same honesty, but you finish reading knowing we delivered. The Chair and Blade numbers already exist on its own page and are measured, so they can come up here. The others need whatever is in the proof ledger, and where there's no measured figure, the second half can describe what it does now rather than claim a result.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 56",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work"
+        },
+        {
+          "kind": "content",
+          "ref": "Doman-Digital docs/proof-ledger.md"
+        }
+      ],
+      "suggested": {
+        "change": "Each /work line as problem then result, e.g. 'Bookings stuck in DMs. Now booked online, in the diary, in one tap.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "Every line stated the problem and left the result on another page. Her result lines are rewritten to ledger figures: MMM 81% online, Chair and Blade 0 to 90 reviews in eleven weeks, RMP described only.",
+        "change": "Problem then result on every /work line, results from the proof ledger or a description of what now happens.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 56,
+        "commentId": 12729501,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work",
+        "at": "2026-10-19T15:10:43.254Z"
+      },
+      "verdict": "take-reworded",
+      "principle": "problem-then-result"
+    },
+    {
+      "id": "pastel-57",
+      "page": "landing",
+      "lens": "differentiation",
+      "observation": "One thing that's missing entirely: nothing on this page summarises how we're still running any of it. That's the whole proposition, and the sub-line mentions it but no case line here does. You dont want each page to constantly be a landing page to click out from",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 57",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work"
+        }
+      ],
+      "suggested": {
+        "change": "Summarise on /work how we still run each one.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The whole proposition is that we keep running it, and no case line said so; a summary page should not send people elsewhere for the point.",
+        "change": "Each case line says what we still run.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 57,
+        "commentId": 12729511,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work",
+        "at": "2026-10-19T15:11:26.729Z"
+      },
+      "verdict": "take",
+      "principle": "the-work-continues"
+    },
+    {
+      "id": "pastel-58",
+      "page": "landing",
+      "lens": "hierarchy",
+      "observation": "in terms of user journey i'd put both mmm beauty and char and blade first as these provide the most substance and results on their relevant pages",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 58",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work"
+        }
+      ],
+      "suggested": {
+        "change": "Put MMM Beauty and Chair and Blade first, as they carry the most substance and results.",
+        "step": "relocate"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "Order by strength of proof.",
+        "change": "Lead /work with MMM Beauty and Chair and Blade.",
+        "step": "relocate"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 58,
+        "commentId": 12729521,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work",
+        "at": "2026-10-19T15:12:19.297Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-59",
+      "page": "landing",
+      "lens": "differentiation",
+      "observation": "Verqan is at the bottom in plain text with no link, no visual weight and nothing that says it's live. We built our own product and it reads like an afterthought. Either give it a card like the others, or say what it's used for and let people see it.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 59",
+          "note": "https://dd-site-preview.domandigital.workers.dev/work"
+        }
+      ],
+      "suggested": {
+        "change": "Give Verqan a card like the others, or say what it is used for and link it.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "The redesign brief counts Verqan as a DD platform, not client proof."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 59,
+        "commentId": 12729535,
+        "url": "https://dd-site-preview.domandigital.workers.dev/work",
+        "at": "2026-10-19T15:13:20.745Z"
+      },
+      "verdict": "founder-decision",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Keep Verqan off /work."
+      }
+    },
+    {
+      "id": "pastel-60",
+      "page": "contact",
+      "lens": "action",
+      "observation": "just a warning in case you're not already aware - clicking this takes you to old ui",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 60",
+          "note": "https://dd-site-preview.domandigital.workers.dev/contact"
+        }
+      ],
+      "suggested": {
+        "change": "Warns that the link opens the old UI.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "Client login opens the old portal until the portal rework (DOM-720) ships. Tracked there."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 60,
+        "commentId": 12729570,
+        "url": "https://dd-site-preview.domandigital.workers.dev/contact",
+        "at": "2026-10-19T15:15:06.854Z"
+      },
+      "verdict": "known"
+    },
+    {
+      "id": "pastel-61",
+      "page": "contact",
+      "lens": "action",
+      "observation": "this should be at the top heading - to champion the fact that your own clients have their dedicated space",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 61",
+          "note": "https://dd-site-preview.domandigital.workers.dev/contact"
+        }
+      ],
+      "suggested": {
+        "change": "Client login at the top, to champion the clients' own space.",
+        "step": "relocate"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "It was only in the footer; a client's own space is a selling point.",
+        "change": "Client login in the header and menu.",
+        "step": "relocate"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 61,
+        "commentId": 12729584,
+        "url": "https://dd-site-preview.domandigital.workers.dev/contact",
+        "at": "2026-10-19T15:15:55.322Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-62",
+      "page": "contact",
+      "lens": "action",
+      "observation": "just a warning in case you're not already aware - clicking this takes you to the old ui",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 62",
+          "note": "https://dd-site-preview.domandigital.workers.dev/contact"
+        }
+      ],
+      "suggested": {
+        "change": "Warns that the link opens the old UI.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "Support opens the old portal until DOM-720 ships. Tracked there."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 62,
+        "commentId": 12729591,
+        "url": "https://dd-site-preview.domandigital.workers.dev/contact",
+        "at": "2026-10-19T15:16:14.346Z"
+      },
+      "verdict": "known"
+    },
+    {
+      "id": "pastel-63",
+      "page": "contact",
+      "lens": "action",
+      "observation": "Same note as the 'How we work' page - it matters more here because this is the last thing anyone reads before deciding whether to type.\n\n\"Tell us what you need\" puts the work on the reader and assumes they've already worked out the answer. Most people landing here know what's frustrating them, not exacrly what they need. The subline adds to it, \"a clear requirement, or a description of what is happening\" reads like a demand before we'll engage, and \"we agree the appropriate next step\" is stiff next to the rest of the site.\n\nSome headings that might work better:\n\n- Tell us where you're taking the business\n- Let's talk about what's next\n- Start the conversation\n\nAnd for the sub-line:\n\n- However much or little you've worked out, we'll help you make sense of it. We reply within one working day and agree the next step with you.\n\n- Whether you know exactly what you want or you're still working it out, tell us what's going on and we'll take it from there. We reply within one working day.\n\nI'd lean towards the first bc it reassures them they don't need a spec to get in touch",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 63",
+          "note": "https://dd-site-preview.domandigital.workers.dev/contact"
+        }
+      ],
+      "suggested": {
+        "change": "Contact headings such as 'Tell us where you're taking the business', with the sub-line 'However much or little you've worked out, we'll help you make sense of it.'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The same note as #35, at the last thing anyone reads before typing.",
+        "change": "Heading 'Tell us what's going on.' with her first sub-line.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 63,
+        "commentId": 12729644,
+        "url": "https://dd-site-preview.domandigital.workers.dev/contact",
+        "at": "2026-10-19T15:20:26.450Z"
+      },
+      "verdict": "take-reworded",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Contact heading becomes 'Tell us what's going on'."
+      }
+    },
+    {
+      "id": "pastel-64",
+      "page": "service",
+      "lens": "identity",
+      "observation": "Our* Work",
+      "raisedBy": "Eunice Ordor",
+      "basis": "observed",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 64",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "'Our Work'",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A small house-voice fix.",
+        "change": "Label 'Our work'.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 64,
+        "commentId": 12729907,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T15:43:23.634Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-65",
+      "page": "service",
+      "lens": "hierarchy",
+      "observation": "Nice - as a set, this is where the structure finally clicks in terms of what we do. Best version of the responsibility matrix on the site.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "preference",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 65",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "recommend": {
+        "class": "no-change",
+        "because": "The best version of the responsibility matrix on the site. Praise is a record of what works: a later edit keeps it unless a reason is written down."
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 65,
+        "commentId": 12730046,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T15:53:29.023Z"
+      },
+      "verdict": "praise"
+    },
+    {
+      "id": "pastel-66",
+      "page": "service",
+      "lens": "evidence",
+      "observation": "Need to be more descriptive on this page however. Each card is one sentence of nouns and then a link somewhere else. On the page that's supposed to say what we do, we're asking the user to click four times to find out. These cards have room, and the content already exists on the pages they point to - pull from them.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 66",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "Make each services card descriptive, pulling from the pages they point to.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "On the page meant to say what we do, each card was a line of nouns and a link, so the reader had to click four times.",
+        "change": "Each services card gets one sentence on what happens.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 66,
+        "commentId": 12730096,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T15:57:26.930Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-67",
+      "page": "service",
+      "lens": "evidence",
+      "observation": "Being found and contacted. At the moment it's a list of four things. It could say what actually happens: your site built for the phone, your Google listing set up and verified, enquiries delivered to your phone rather than sitting in an inbox, and review requests going out with replies drafted for you to approve. One extra line on what we run afterwards, and someone has the whole picture without leaving.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 67",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "Say what happens: site built for the phone, Google listing set up and verified, enquiries to the phone, review requests with drafted replies; one line on what we run afterwards.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "A list of four nouns left the reader to guess.",
+        "change": "One sentence on what happens, checked against what is live.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 67,
+        "commentId": 12730102,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T15:57:50.612Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-68",
+      "page": "service",
+      "lens": "evidence",
+      "observation": "\"Booking tools connected to your diary, deposits, checkout in your own payment account, gift cards\" is the most commercially interesting card and the thinnest. It could name what that means in practice: customers booking in one tap from the site, the appointment landing straight in the diary, deposits taken up front so fewer no-shows, payments into the client's own account. Chair and Blade and MMM are both evidence for this, so it can be specific.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 68",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "Name what booking tools mean in practice: one-tap booking, the appointment in the diary, deposits up front, payments to the client's own account.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The most commercially interesting card was the thinnest.",
+        "change": "One sentence on what happens, with Chair and Blade and MMM as evidence; the ledger says 'taps', never 'bookings'.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 68,
+        "commentId": 12730105,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T15:58:08.636Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-69",
+      "page": "service",
+      "lens": "differentiation",
+      "observation": "This is a systems card, the thing that separates us, and it's five words: portals, intake, document access, handoffs, custom tools. Sensphere is the proof and it's right there. It could say what a portal actually does: different people seeing different things, files and forms in one place instead of email, and a record of who did what. \"Priced on a call\" is fine, but it's the only thing on the card with any detail, which is the wrong way round.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 69",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "Say what a portal does: different people seeing different things, files and forms in one place, a record of who did what.",
+        "step": "copy"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The systems card, the thing that separates us, was five nouns.",
+        "change": "One sentence on what a portal does, with Sensphere as the proof.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 69,
+        "commentId": 12730117,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T15:59:02.140Z"
+      },
+      "verdict": "take",
+      "principle": "summary-pages-carry-substance"
+    },
+    {
+      "id": "pastel-70",
+      "page": "service",
+      "lens": "action",
+      "observation": "add cta here - something like 'talk to us about connecting your tools' that leads to the get in touch page",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 70",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "Add a CTA, 'Talk to us about connecting your tools', leading to contact.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The words are right; a button after the section is the band default.",
+        "change": "Her wording as a text link at the end of the section.",
+        "step": "copy"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 70,
+        "commentId": 12730143,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T16:00:22.426Z"
+      },
+      "verdict": "partly",
+      "principle": "text-links-not-cta-bands"
+    },
+    {
+      "id": "pastel-71",
+      "page": "service",
+      "lens": "evidence",
+      "observation": "make this look less than a footnote and more as a proud point, as it's direct proof of what we do",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 71",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "Make it read less like a footnote and more like a proud point, as direct proof.",
+        "step": "adjust-component"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "Direct proof set as a footnote reads as an afterthought.",
+        "change": "Give the proof line body weight.",
+        "step": "adjust-component"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 71,
+        "commentId": 12730337,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T16:17:29.167Z"
+      },
+      "verdict": "take"
+    },
+    {
+      "id": "pastel-72",
+      "page": "service",
+      "lens": "relevance",
+      "observation": "One thing missing from the page as a whole. Social media. This is the page that lists what we do, DOM-940 confirms we do it for existing clients, and it isn't here. If it's real, it needs a card.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 72",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "A social media card, since DOM-940 confirms we do it for existing clients.",
+        "step": "new-component"
+      },
+      "recommend": {
+        "class": "no-change",
+        "because": "DOM-940 records social media as delivered to existing clients and leaves public positioning to the founder.",
+        "requires": [
+          {
+            "what": "The founder and Eunice agree whether social media is sold to new clients",
+            "phase": "publication"
+          }
+        ]
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 72,
+        "commentId": 12730353,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T16:18:48.254Z"
+      },
+      "verdict": "founder-decision",
+      "founderRuling": {
+        "date": "2026-10-20",
+        "ruling": "Hold until the founder and Eunice agree how social media is offered."
+      }
+    },
+    {
+      "id": "pastel-73",
+      "page": "service",
+      "lens": "evidence",
+      "observation": "This is the clearest explanation of the commercial model anywhere on the site: a fixed-price project, then a small monthly fee per connection, both quoted before we start. It deserves more than a paragraph after the cards.\n\nIt should also be on the pricing page, where all anyone gets is \"scoped and priced once we have seen the requirement\". Someone deciding whether they can afford us reads that page, not this one.",
+      "raisedBy": "Eunice Ordor",
+      "basis": "inferred",
+      "evidence": [
+        {
+          "kind": "stakeholder",
+          "ref": "https://usepastel.com/link/oymg5jro/ comment 73",
+          "note": "https://dd-site-preview.domandigital.workers.dev/services"
+        }
+      ],
+      "suggested": {
+        "change": "Give the commercial model (fixed-price project, then a small monthly fee per connection, both quoted first) more weight, and put it on the pricing page.",
+        "step": "relocate"
+      },
+      "recommend": {
+        "class": "confirmed-correction",
+        "because": "The clearest explanation of how we charge sat on the services page, and pricing said only 'scoped and priced once we have seen the requirement'.",
+        "change": "The commercial model on the pricing page, where someone deciding whether they can afford us reads.",
+        "step": "relocate"
+      },
+      "source": {
+        "tool": "pastel",
+        "canvas": 986559,
+        "comment": 73,
+        "commentId": 12730367,
+        "url": "https://dd-site-preview.domandigital.workers.dev/services",
+        "at": "2026-10-19T16:19:47.014Z"
+      },
+      "verdict": "take",
+      "principle": "show-the-price-maths"
+    }
+  ]
+}

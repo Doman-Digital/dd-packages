@@ -121,6 +121,12 @@ no change is needed. Evidence only reported by an audit or a stakeholder cannot
 make a problem observed, and a width nobody looked at stays unknown. See
 [Reviewing a proposed change](./CHARACTER.md#reviewing-a-proposed-change).
 
+A reviewer's own review is kept whole in the same shape, in the repository's
+reviewer corpus (`packages/craft/reviews/`, left out of the npm package), with
+what was done with each note and the principle it teaches. Eunice Ordor's
+review of the DD site is the first. See
+[Eunice's review of the DD site](./CHARACTER.md#eunices-review-of-the-dd-site-2026-10-19).
+
 `--snapshot` accepts saved files and preview or production URLs. Drift fails
 with `--strict`; declared estate comparisons stay advisory. Version 1 files
 still validate with a warning. See [CHARACTER.md](./CHARACTER.md) for the full

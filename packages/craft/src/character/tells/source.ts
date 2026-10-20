@@ -389,6 +389,85 @@ function eyebrowChipHits(ctx: ScanContext): Hit[] {
   return hits;
 }
 
+/**
+ * The hero of a markup file: every element whose class or id names a hero
+ * (`hero`, `home-hero`, `hero__inner`; not `heroicons`), closed at its own end
+ * tag. A file named for the hero (`Hero.astro`) is all hero. Failing both, the
+ * `<h1>` and what follows it up to the end of its section.
+ */
+const HERO_OPEN = /<(section|header|div|main|article|Section|Container)\b[^>]*?\b(?:class|className|id)\s*=\s*(?:"|'|\{\s*[`"']?)[^"'`>]*?(?<![a-z])hero(?![a-z])[^>]*>/gi;
+
+function closeOf(text: string, tag: string, from: number): number {
+  const re = new RegExp(`<(/?)${tag}\\b[^>]*?(/?)>`, "g");
+  re.lastIndex = from;
+  let depth = 0;
+  for (let m = re.exec(text); m; m = re.exec(text)) {
+    if (m[2] === "/") continue;
+    depth += m[1] === "/" ? -1 : 1;
+    if (depth === 0) return m.index + m[0].length;
+    if (m.index - from > 8000) break;
+  }
+  return Math.min(text.length, from + 4000);
+}
+
+function heroSpans(path: string, text: string): [number, number][] {
+  if (/(?:^|[\\/])[\w-]*hero[\w-]*\.(?:astro|tsx|jsx|vue|svelte)$/i.test(path)) return [[0, text.length]];
+  const spans: [number, number][] = [];
+  for (const m of text.matchAll(HERO_OPEN)) {
+    const at = m.index ?? 0;
+    if (spans.some(([a, b]) => at >= a && at < b)) continue;
+    spans.push([at, closeOf(text, m[1], at)]);
+  }
+  if (spans.length > 0) return spans;
+  const h1 = text.search(/<h1\b/);
+  if (h1 === -1) return [];
+  const rest = text.slice(h1);
+  const end = rest.search(/<\/(?:section|header)>|<section\b/);
+  return [[h1, h1 + Math.min(end === -1 ? rest.length : end, 1500)]];
+}
+
+/** A button, or a link dressed as one: a Button component, a btn/button/cta class, or Tailwind padding with a fill, border or radius. */
+const CONTROL = /<(a|button|Button|ButtonLink|LinkButton|Link|Cta|CTA|CallToAction)\b([^>]*)>([\s\S]{0,300}?)<\/\1>/g;
+const BUTTON_COMPONENT = /^(?:Button|ButtonLink|LinkButton|Cta|CTA|CallToAction)$/;
+const BUTTON_CLASS = /(?<![a-z])(?:btn|button|cta)(?![a-z])/i;
+const TOGGLE = /\baria-(?:expanded|controls|haspopup)\b|\btype\s*=\s*["']submit["']/;
+/** Two buttons are right on an error page ("Try again", "Go home") and in a signed-in tool. */
+const NOT_A_LANDING = /(?:^|[\\/])(?:error|global-error|not-found|404|500)\.\w+$|[\\/](?:admin|portal|dashboard|account|\(qa\)|\(app\)|qa)[\\/]/i;
+
+function buttonLabel(attrs: string, inner: string): string {
+  const text = inner.replace(/<[^>]*>/g, " ").replace(/\{[^}]*\}/g, " ").replace(/\s+/g, " ").trim();
+  if (text && !/[{}()=]/.test(text)) return text.slice(0, 40);
+  return attrs.match(/\bhref\s*=\s*["'{`$]*\{?([^"'}`\s]+)/)?.[1] ?? "a button";
+}
+
+function heroCtaPairHits(ctx: ScanContext): Hit[] {
+  const hits: Hit[] = [];
+  for (const file of ctx.files) {
+    if (file.kind !== "markup" || NOT_A_LANDING.test(file.path)) continue;
+    // Markup held in a JSON or JS string escapes its quotes; read it as written, offsets unchanged.
+    const text = file.text.replace(/\\"/g, ' "');
+    for (const [start, end] of heroSpans(file.path, text)) {
+      // Navigation and forms are not the hero's ask: blank them, keeping offsets.
+      const span = text.slice(start, end).replace(/<(nav|form)\b[\s\S]*?<\/\1>/gi, (s) => " ".repeat(s.length));
+      const buttons: { label: string; offset: number }[] = [];
+      for (const m of span.matchAll(CONTROL)) {
+        const [, tag, attrs, inner] = m;
+        if (TOGGLE.test(attrs)) continue;
+        const cls = attrs.match(/\b(?:class|className|variant)\s*=\s*(?:"([^"]*)"|'([^']*)'|\{([^}]*)\})/g)?.join(" ") ?? "";
+        const tw = /\bpx-\d/.test(cls) && /\bpy-\d/.test(cls) && /\b(?:bg-|border\b|border-|rounded)/.test(cls);
+        if (BUTTON_COMPONENT.test(tag) || BUTTON_CLASS.test(cls) || tw || /\brole\s*=\s*["']button["']/.test(attrs)) {
+          buttons.push({ label: buttonLabel(attrs, inner), offset: start + (m.index ?? 0) });
+        }
+      }
+      if (buttons.length >= 2) {
+        const names = buttons.slice(0, 3).map((b) => `"${b.label}"`).join(", ");
+        hits.push({ path: file.path, offset: buttons[1].offset, message: `${buttons.length} buttons side by side in the hero: ${names}` });
+      }
+    }
+  }
+  return hits;
+}
+
 function iconTiles(file: ParsedFile): ClassUnit[] {
   return file.classUnits.filter((unit) => {
     const sized =
@@ -822,6 +901,47 @@ export const SOURCE_TELLS: SourceTell[] = [
         f("components/Hero.tsx", `<span className={cn("rounded-full px-3 text-xs", "bg-rose-500/10")}>New</span>\n<h1>Nails</h1>`),
       ],
       pass: [f("components/Hero.tsx", `<h1>Nails in Brackley</h1>\n<span className="inline-flex rounded-full border px-3 py-1 text-xs">Tag</span>`)],
+    },
+  },
+  {
+    id: "hero-cta-pair",
+    name: "Two buttons in the hero",
+    generation: 1,
+    severity: "warn",
+    surface: "source",
+    why: "A filled button beside an outline or ghost one ('Get a free quote' / 'See our plans') is in 140 of 140 heroes Claude builds for a brief. Two equal asks make the visitor choose before they know anything, and say nobody decided what the page is for.",
+    fix: "Keep one button, the ask the page exists for. Put the second route in the copy as a text link ('or see the work first'), or lower down where it answers a question.",
+    detect: heroCtaPairHits,
+    fixtures: {
+      flag: [
+        // Eunice Ordor's #5 and #36 (Pastel 986559): the DD site's own hero and process close.
+        f(
+          "src/components/Hero.astro",
+          `<section class="hero">\n  <h1>We run the systems behind your website</h1>\n  <a href="/contact" class="btn btn-primary">Get in touch</a>\n  <a href="/work" class="btn btn-ghost">See our work</a>\n</section>`,
+        ),
+        // The null build's hero, verbatim in shape (calibration/null/rmp/pages/05.html).
+        f(
+          "index.html",
+          `<nav><a class="btn" href="#contact">Quote</a></nav>\n<section id="hero" class="hero">\n  <h1>Electricians in Uxbridge</h1>\n  <a href="#contact" class="btn btn-primary">Book a Free Quote</a>\n  <a href="tel:+441895555210" class="btn btn-outline">Call 01895 555 210</a>\n</section>`,
+        ),
+        f(
+          "app/page.tsx",
+          `<section className="relative py-24">\n  <h1 className="text-5xl">Nails in Brackley</h1>\n  <div className="flex gap-4">\n    <Button asChild><a href="/book">Book now</a></Button>\n    <Button variant="outline">View treatments</Button>\n  </div>\n</section>`,
+        ),
+      ],
+      pass: [
+        // One button, and the second route as a text link in the sentence.
+        f(
+          "src/components/Hero.astro",
+          `<section class="hero">\n  <h1>We run the systems behind your website</h1>\n  <p>Tell us what's going on, or <a href="/work">see the work first</a>.</p>\n  <a href="/contact" class="btn btn-primary">Get in touch</a>\n</section>`,
+        ),
+        // A button in the nav and a search form are not the hero's ask.
+        f(
+          "index.html",
+          `<header class="hero">\n  <nav><a class="btn" href="/book">Book</a></nav>\n  <h1>Barbers in Manchester</h1>\n  <a class="btn" href="/book">Book a cut</a>\n  <form><button class="btn" type="submit">Search</button></form>\n</header>`,
+        ),
+        f("app/page.tsx", `<section className="py-24">\n  <h1 className="text-5xl">Nails in Brackley</h1>\n  <a className="rounded bg-ink px-5 py-3" href="/book">Book now</a>\n</section>\n<section><a className="rounded bg-ink px-5 py-3" href="/prices">Prices</a></section>`),
+      ],
     },
   },
   {

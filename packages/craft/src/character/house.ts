@@ -42,7 +42,9 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "no-x-badge": { tier: "block", label: 'standalone "No X" badge. Reads as a slapped-on kicker, and worse when reused across pieces' },
   "ai-phrase": { tier: "block", label: "AI tell" },
   "plainer-word": { tier: "block", label: "a plainer word exists. Name the mechanism instead" },
-  "plain-english": { tier: "block", label: 'use "properly explained"' },
+  // Widened 2026-10-20 (founder) to bare "plainly" and "in plain terms/language/words";
+  // estate hits read first (DOM-1058), nearly all the stock "stated plainly".
+  "plain-english": { tier: "block", label: 'the plain-English family. Drop the adverb and say the thing, or use "properly explained"' },
   buzzword: { tier: "block", label: "forbidden phrase" },
   "negative-reassurance": { tier: "block", label: "negative reassurance, say what they get" },
   // Evidence of a pasted chat reply, not a matter of style. Moved from review
@@ -57,6 +59,8 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "stock-email-line": { tier: "review", label: "stock email line, start with the reason for writing and end with the next step" },
   // New 2026-10-19 (founder): review first, like every new tell, until estate hits are read.
   "matey-register": { tier: "review", label: "matey register, write plain and complete British English" },
+  // New 2026-10-20 (founder, from Eunice Ordor's review): review first, like every new tell.
+  "confession-line": { tier: "review", label: "confession line, scope the work by saying precisely what is true" },
   "ai-vocabulary": { tier: "review", label: "AI vocabulary" },
   "stock-phrase": { tier: "review", label: "stock phrase" },
   "hollow-imperative": { tier: "review", label: "hollow imperative" },
