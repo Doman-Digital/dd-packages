@@ -42,9 +42,25 @@ const thirdParties = legal.processors.filter((p) => p.setsCookies);
           choice. These do not need your consent.
         </p>
         <p>
-          <strong>Measurement.</strong> Off until you choose "Accept measurement". They count visits and where they come
-          from.
+          <strong>Visit statistics.</strong> On by default. We count visits with Cloudflare Web Analytics, which sets no
+          cookies and stores nothing on your device. You can switch it off in <a href="#cookie-settings" data-cookie-settings>cookie settings</a>.
         </p>
+        <p>
+          <strong>Measurement.</strong> Off until you choose "Accept measurement". They count visits and where
+          they come from.
+        </p>
+        <dl>
+          <dt>Name</dt>
+          <dd>Cloudflare Web Analytics</dd>
+          <dt>Purpose</dt>
+          <dd>Visit statistics</dd>
+          <dt>Storage</dt>
+          <dd>None (no cookie or local storage)</dd>
+          <dt>Default</dt>
+          <dd>
+            On. Switch off in <a href="#cookie-settings" data-cookie-settings>cookie settings</a>.
+          </dd>
+        </dl>
       </section>
 
       {thirdParties.length > 0 && (
@@ -66,7 +82,12 @@ const thirdParties = legal.processors.filter((p) => p.setsCookies);
     <script>
       import { openCookieSettings } from "~site/consent";
 
-      document.querySelectorAll("[data-cookie-settings]").forEach((el) => el.addEventListener("click", openCookieSettings));
+      document.querySelectorAll("[data-cookie-settings]").forEach((el) =>
+        el.addEventListener("click", (event) => {
+          event.preventDefault();
+          openCookieSettings();
+        }),
+      );
     </script>
   </body>
 </html>

@@ -59,6 +59,12 @@ describe.runIf(mode === "launch")("ready to launch", () => {
     expect(placed).toBe(true);
   });
 
+  test("Cloudflare Web Analytics is placed on the site and has its token", () => {
+    const placed = sourceFiles().some((file) => !/WebAnalytics\.(tsx|astro)$/.test(file) && readFileSync(file, "utf8").includes("<WebAnalytics"));
+    expect(placed).toBe(true);
+    expect(facts.webAnalytics?.token ?? null).not.toBeNull();
+  });
+
   test("the legal pages have what every site needs: retention, the processors, the governing law, a review date", () => {
     const missing = [
       legal.retention ? null : "legal.retention",

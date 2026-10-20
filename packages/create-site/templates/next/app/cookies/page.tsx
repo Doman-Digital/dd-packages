@@ -4,7 +4,7 @@
 
 import type { Metadata } from "next";
 import { isRouteIndexable } from "@domandigital/seo";
-import { CookieSettingsButton } from "~site/components/CookieBanner";
+import { CookieSettingsButton, CookieSettingsLink } from "~site/components/CookieBanner";
 import { JsonLd } from "~site/components/JsonLd";
 import { facts } from "~site/facts";
 import { legal, privacyEmail } from "~site/legal";
@@ -41,9 +41,25 @@ export default function CookiesPage() {
           choice. These do not need your consent.
         </p>
         <p>
+          <strong>Visit statistics.</strong> On by default. We count visits with Cloudflare Web Analytics, which sets no
+          cookies and stores nothing on your device. You can switch it off in <CookieSettingsLink />.
+        </p>
+        <p>
           <strong>Measurement.</strong> Off until you choose &quot;Accept measurement&quot;. They count visits and where
           they come from.
         </p>
+        <dl>
+          <dt>Name</dt>
+          <dd>Cloudflare Web Analytics</dd>
+          <dt>Purpose</dt>
+          <dd>Visit statistics</dd>
+          <dt>Storage</dt>
+          <dd>None (no cookie or local storage)</dd>
+          <dt>Default</dt>
+          <dd>
+            On. Switch off in <CookieSettingsLink />.
+          </dd>
+        </dl>
       </section>
 
       {thirdParties.length > 0 && (
