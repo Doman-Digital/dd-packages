@@ -65,6 +65,10 @@ export const facts: SiteFacts = {
     accessibilityIssues: [],
     reviewedOn: null,
   },
+  // The site's Cloudflare Web Analytics token (a public id). Add the site in
+  // Cloudflare's Web Analytics with the manual setup, never automatic setup.
+  // launch:check fails until it is set.
+  webAnalytics: { token: null },
 };
 `;
 }

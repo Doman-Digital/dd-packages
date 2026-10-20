@@ -104,6 +104,12 @@ export type SiteFacts = {
   previousHosts: string[];
   /** Optional so a facts file written before the legal pages still compiles. */
   legal?: LegalFacts;
+  /**
+   * Cloudflare Web Analytics. The token is the site's public id from Cloudflare's
+   * Web Analytics (manual setup, never automatic setup); null loads nothing and
+   * launch:check fails until it is set. Optional so older facts files compile.
+   */
+  webAnalytics?: { token: string | null };
 };
 
 const DAY_NAMES: Record<Day, string> = {
