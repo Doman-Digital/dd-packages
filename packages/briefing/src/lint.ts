@@ -55,8 +55,26 @@ export const DIRECTION_BANNED: Pattern[] = [
 /** Plain UK English: the client's words, not ours. A client config can allow a term they use themselves. */
 export const JARGON = [
   "framework", "frameworks", "dependency", "dependencies", "deploy", "deploys", "deployed", "deploying", "deployment",
-  "availability", "uptime", "impressions", "Resend", "Loops", "repo", "repository", "pull request", "Sentry", "Astro", "Next.js", "CDN", "DNS", "API",
+  "availability", "uptime", "impressions",
+  "vulnerability", "vulnerabilities", "analytics", "cookie", "cookies", "privacy page", "privacy pages", "page views", "page view",
+  "Resend", "Loops", "repo", "repository", "pull request", "Sentry", "Astro", "Next.js", "CDN", "DNS", "API",
 ];
+
+/** What to say instead, for the terms a client has asked about. The gate still fails; the hint saves a round trip. */
+export const JARGON_HINTS: Record<string, string> = {
+  availability: "say whether the site was working",
+  uptime: "say whether the site was working",
+  impressions: "say how many times the site showed up in Google",
+  vulnerability: "say what could have gone wrong, for example \"a weak spot someone could have used to break in\"",
+  vulnerabilities: "say what could have gone wrong, for example \"weak spots someone could have used to break in\"",
+  analytics: "say what is counted, for example \"how many people visit\"",
+  cookie: "say what it does, for example \"a small file that remembers a visitor\"",
+  cookies: "say what they do, for example \"small files that remember a visitor\"",
+  "privacy page": "say what is on it, for example \"the page that explains how we handle visitors' information\"",
+  "privacy pages": "say what is on them, for example \"the pages that explain how we handle visitors' information\"",
+  "page views": "say \"visits to your pages\"",
+  "page view": "say \"a visit to a page\"",
+};
 
 const FINISHED = /\b(?:done|fixed|complete|completed)\b/i;
 const HOURS_OR_RATES = /\b\d+(?:\.\d+)?\s*(?:hours?|hrs?)\b|\bper hour\b|\/hr\b|\bhourly\b|\bday rate\b|\bcapacity\b|£\s?\d/i;
@@ -79,7 +97,7 @@ export function lintText(text: string, field: string, options: { allowedTerms?: 
     const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     // Proper names match their case; common words match any case.
     const flags = /[A-Z]/.test(term) ? "" : "i";
-    hit("jargon", new RegExp(`(?<![\\w.])${escaped}(?![\\w])`, flags), `Jargon: "${term}". Say what it means for the client.`);
+    hit("jargon", new RegExp(`(?<![\\w.])${escaped}(?![\\w])`, flags), `Jargon: "${term}". ${JARGON_HINTS[term] ? `Try: ${JARGON_HINTS[term]}.` : "Say what it means for the client."}`);
   }
   hit("em-dash", EM_DASH, "No em dashes. Use a full stop, a colon or a comma.");
   hit("finished-word", FINISHED, 'Never "done", "fixed" or "complete". Use a status label: Live, Ready, Waiting for you, Next, Planned.');
