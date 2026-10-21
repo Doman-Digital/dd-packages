@@ -135,5 +135,4 @@ jobs:
         with:
           version-script: pnpm run version
           publish-script: pnpm run release
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
+          github-token: ${{ steps.app-token.outputs.token || secrets.GITHUB_TOKEN }}
