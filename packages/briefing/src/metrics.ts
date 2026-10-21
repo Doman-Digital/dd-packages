@@ -100,7 +100,7 @@ export function speedFromRuns(runs: PageSpeedRun[], history: number[] = [], reco
   const now = median(scores);
   const days = [...new Set(distinct.map((r) => londonDate(r.fetchTime)))].sort();
   const when = days.length === 1 ? `on ${formatShort(days[0]!)}` : `from ${formatShort(days[0]!)} to ${formatShort(days[days.length - 1]!)}`;
-  const speed: Speed = { median: now, runs: distinct.length, spread, ...speedBand(now), headline: speedWords(speedBand(now).band).headline, meaning: `${speedWords(speedBand(now).band).sentence} ${GLOSSARY.speed.meaning}`, smallPrint: `Median of ${distinct.length} phone tests ${when}.` };
+  const speed: Speed = { median: now, runs: distinct.length, spread, ...speedBand(now), headline: speedWords(speedBand(now).band).headline, meaning: `${speedWords(speedBand(now).band).sentence} ${GLOSSARY.speed.meaning}`, smallPrint: `Middle result of ${distinct.length} phone tests ${when}.` };
   if (history.length >= 2) {
     const baseline = history[history.length - 2]!;
     const previous = history[history.length - 1]!;

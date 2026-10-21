@@ -87,7 +87,7 @@ export type Speed = {
   headline: string;
   /** What the word means for a visitor, then what is being measured, from the glossary. */
   meaning: string;
-  /** "Median of 5 phone tests on 8 October." */
+  /** "Middle result of 5 phone tests on 8 October." */
   smallPrint: string;
   /** Present only when the move beats the site's spread and held for two sends. */
   change?: { from: number; to: number; direction: "up" | "down" };

@@ -43,7 +43,7 @@ describe("speed: a median of distinct runs", () => {
   it("takes the median of five runs and names the band", () => {
     const { speed, flags } = speedFromRuns(five([71, 95, 88, 92, 90]));
     expect(flags).toEqual([]);
-    expect(speed).toMatchObject({ median: 90, runs: 5, spread: 24, band: "fast", smallPrint: "Median of 5 phone tests on 8 October." });
+    expect(speed).toMatchObject({ median: 90, runs: 5, spread: 24, band: "fast", smallPrint: "Middle result of 5 phone tests on 8 October." });
     expect(median([1, 2, 3, 4])).toBe(3);
   });
 
