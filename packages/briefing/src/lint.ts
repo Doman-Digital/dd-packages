@@ -55,7 +55,7 @@ export const DIRECTION_BANNED: Pattern[] = [
 /** Plain UK English: the client's words, not ours. A client config can allow a term they use themselves. */
 export const JARGON = [
   "framework", "frameworks", "dependency", "dependencies", "deploy", "deploys", "deployed", "deploying", "deployment",
-  "Resend", "Loops", "repo", "repository", "pull request", "Sentry", "Astro", "Next.js", "CDN", "DNS", "API",
+  "availability", "uptime", "impressions", "Resend", "Loops", "repo", "repository", "pull request", "Sentry", "Astro", "Next.js", "CDN", "DNS", "API",
 ];
 
 const FINISHED = /\b(?:done|fixed|complete|completed)\b/i;
@@ -123,8 +123,9 @@ export function readableFields(b: SparseBriefing): [string, string][] {
   });
   if (b.featureImage) f.push(["featureImage.alt", b.featureImage.alt]);
   const h = b.health;
-  if (h.uptime) f.push(["health.uptime.summary", h.uptime.summary], ["health.uptime.smallPrint", h.uptime.smallPrint]);
-  if (h.speed) f.push(["health.speed.bandLine", h.speed.bandLine], ["health.speed.smallPrint", h.speed.smallPrint]);
+  if (h.uptime) f.push(["health.uptime.summary", h.uptime.summary], ["health.uptime.headline", h.uptime.headline], ["health.uptime.meaning", h.uptime.meaning], ["health.uptime.smallPrint", h.uptime.smallPrint]);
+  if (h.speed) f.push(["health.speed.bandLine", h.speed.bandLine], ["health.speed.headline", h.speed.headline], ["health.speed.meaning", h.speed.meaning], ["health.speed.smallPrint", h.speed.smallPrint]);
+  if (h.search?.state === "numbers") f.push(["health.search.line", h.search.line], ["health.search.meaning", h.search.meaning]);
   if (h.search?.state === "low-data") f.push(["health.search.title", h.search.title], ["health.search.sentence", h.search.sentence]);
   if (b.trackRecord) f.push(["trackRecord.line", b.trackRecord.line]);
   return f.filter(([, v]) => v !== "");

@@ -51,6 +51,9 @@ export {
 } from "./lint";
 export type { LintFinding, LintRule } from "./lint";
 
+export { GLOSSARY, speedWords, uptimeHeadline, searchSentence } from "./glossary";
+export type { GlossaryEntry, GlossaryKey } from "./glossary";
+
 export { buildTrackRecord, DEFAULT_MIN_MONTHS } from "./track-record";
 export type { TrackRecordResult } from "./track-record";
 
