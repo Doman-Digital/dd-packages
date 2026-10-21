@@ -216,9 +216,9 @@
     "number": 66,
     "title": "Cloudflare Web Analytics behind the existing analytics consent",
     "mergedAt": "2026-10-08T00:31:24Z",
-    "forClient": "If a visitor accepts analytics, your site now also measures page views and how quickly pages load, without cookies, and the privacy and cookie pages say so.",
+    "forClient": "If a visitor agrees, your site now also counts visits and how quickly pages load, without leaving small files on their device, and the pages about visitors' information say so.",
     "url": "https://example.invalid/pull/66",
-    "body": "## Summary\n\n(PR body)\n\n## Briefing\nkind: privacy\ntitle: Visitor measurement that respects privacy\noutcome: When a visitor accepts analytics, your site now records page views and loading speed without cookies. Your privacy and cookie pages explain this.\n"
+    "body": "## Summary\n\n(PR body)\n\n## Briefing\nkind: privacy\ntitle: Visitor measurement that respects privacy\noutcome: When a visitor agrees, your site now records visits and loading speed without leaving small files on their device. Your pages about visitors' information explain this.\n"
    }
   ],
   "notes": {
@@ -437,6 +437,6 @@
    "sentence": "Search numbers stay small before a launch, so we'll start reporting trends once there's enough to go on."
   },
   "visits": null,
-  "behindTheScenes": "Plus 19 smaller changes behind the scenes, including visitor measurement without cookies and a daily email about the printer orders waiting to be paid."
+  "behindTheScenes": "Plus 19 smaller changes behind the scenes, including visitor counting without small files on their device and a daily email about the printer orders waiting to be paid."
  }
 }
