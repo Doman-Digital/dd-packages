@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { GLOSSARY } from "../glossary";
 import { distinctRuns, median, MIN_SPEED_RUNS, searchSummary, speedBand, speedFromRuns, uptimeFromIncidents, visitsSummary } from "../metrics";
 import type { PageSpeedRun } from "../types";
 
@@ -42,7 +43,7 @@ describe("speed: a median of distinct runs", () => {
   it("takes the median of five runs and names the band", () => {
     const { speed, flags } = speedFromRuns(five([71, 95, 88, 92, 90]));
     expect(flags).toEqual([]);
-    expect(speed).toMatchObject({ median: 90, runs: 5, spread: 24, band: "fast", smallPrint: "Median of 5 phone tests on 8 October." });
+    expect(speed).toMatchObject({ median: 90, runs: 5, spread: 24, band: "fast", smallPrint: "Middle result of 5 phone tests on 8 October." });
     expect(median([1, 2, 3, 4])).toBe(3);
   });
 
@@ -103,7 +104,7 @@ describe("search: a sentence until there is data", () => {
 
   it("shows numbers above both floors", () => {
     const r = searchSummary({ clicks: 40, impressions: 900, queries: [{ query: "planner" }, { query: "wren planner" }] });
-    expect(r.search).toEqual({ state: "numbers", clicks: 40, impressions: 900, topQueries: ["planner", "wren planner"] });
+    expect(r.search).toEqual({ state: "numbers", clicks: 40, impressions: 900, line: "Your site showed up in Google 900 times, and people clicked through 40 times.", meaning: GLOSSARY.search.meaning, topQueries: ["planner", "wren planner"] });
   });
 
   it("our own name never reaches top searches, and is raised with the founder", () => {
