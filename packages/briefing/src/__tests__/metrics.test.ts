@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { GLOSSARY } from "../glossary";
 import { distinctRuns, median, MIN_SPEED_RUNS, searchSummary, speedBand, speedFromRuns, uptimeFromIncidents, visitsSummary } from "../metrics";
 import type { PageSpeedRun } from "../types";
 
@@ -103,7 +104,7 @@ describe("search: a sentence until there is data", () => {
 
   it("shows numbers above both floors", () => {
     const r = searchSummary({ clicks: 40, impressions: 900, queries: [{ query: "planner" }, { query: "wren planner" }] });
-    expect(r.search).toEqual({ state: "numbers", clicks: 40, impressions: 900, topQueries: ["planner", "wren planner"] });
+    expect(r.search).toEqual({ state: "numbers", clicks: 40, impressions: 900, line: "Your site showed up in Google 900 times, and people clicked through 40 times.", meaning: GLOSSARY.search.meaning, topQueries: ["planner", "wren planner"] });
   });
 
   it("our own name never reaches top searches, and is raised with the founder", () => {

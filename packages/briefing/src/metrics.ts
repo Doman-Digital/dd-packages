@@ -5,6 +5,7 @@
  */
 
 import { formatShort, londonDate, londonMidnight, nextDay } from "./dates";
+import { GLOSSARY, searchSentence, speedWords, uptimeHeadline } from "./glossary";
 import type { Flag, Incident, PageSpeedRun, Search, Speed, Uptime, Visits } from "./types";
 
 // ---------------------------------------------------------------- uptime
@@ -45,6 +46,8 @@ export function uptimeFromIncidents(
     failures,
     intervalMinutes: minutes,
     summary: failed === 0 ? "Every check passed" : `${failed} ${failed === 1 ? "check" : "checks"} failed`,
+    headline: uptimeHeadline({ failed, failures }, (iso) => formatShort(londonDate(iso))),
+    meaning: GLOSSARY.uptime.meaning,
     smallPrint: `Checked every ${minutes} minutes, ${formatShort(period.start)} to ${formatShort(londonDate(new Date(Math.max(from, to - 1))))}. Counted from the check schedule and the outage record.`,
   };
 }
@@ -97,7 +100,7 @@ export function speedFromRuns(runs: PageSpeedRun[], history: number[] = [], reco
   const now = median(scores);
   const days = [...new Set(distinct.map((r) => londonDate(r.fetchTime)))].sort();
   const when = days.length === 1 ? `on ${formatShort(days[0]!)}` : `from ${formatShort(days[0]!)} to ${formatShort(days[days.length - 1]!)}`;
-  const speed: Speed = { median: now, runs: distinct.length, spread, ...speedBand(now), smallPrint: `Median of ${distinct.length} phone tests ${when}.` };
+  const speed: Speed = { median: now, runs: distinct.length, spread, ...speedBand(now), headline: speedWords(speedBand(now).band).headline, meaning: `${speedWords(speedBand(now).band).sentence} ${GLOSSARY.speed.meaning}`, smallPrint: `Median of ${distinct.length} phone tests ${when}.` };
   if (history.length >= 2) {
     const baseline = history[history.length - 2]!;
     const previous = history[history.length - 1]!;
@@ -140,7 +143,7 @@ export function searchSummary(
     return { search: { state: "low-data", ...lowDataSentence(!!options.preLaunch) }, excluded, flags };
   }
   const topQueries = input.queries.map((q) => q.query).filter((q) => !excluded.includes(q)).slice(0, 3);
-  return { search: { state: "numbers", clicks: input.clicks, impressions: input.impressions, topQueries }, excluded, flags };
+  return { search: { state: "numbers", clicks: input.clicks, impressions: input.impressions, topQueries, line: searchSentence(input.clicks, input.impressions), meaning: GLOSSARY.search.meaning }, excluded, flags };
 }
 
 // ---------------------------------------------------------------- visits

@@ -68,6 +68,10 @@ export type Uptime = {
   intervalMinutes: number;
   /** "Every check passed" or "2 checks failed". */
   summary: string;
+  /** The answer in words: "Every check found your site working". */
+  headline: string;
+  /** What is being counted, from the glossary. */
+  meaning: string;
   /** Small print naming how the count was made. */
   smallPrint: string;
 };
@@ -79,6 +83,10 @@ export type Speed = {
   band: "fast" | "middle" | "slow";
   /** "Fast. 90 and above is the top band." */
   bandLine: string;
+  /** The answer in a word: "Fast", "Middling" or "Slow". */
+  headline: string;
+  /** What the word means for a visitor, then what is being measured, from the glossary. */
+  meaning: string;
   /** "Median of 5 phone tests on 8 October." */
   smallPrint: string;
   /** Present only when the move beats the site's spread and held for two sends. */
@@ -87,7 +95,7 @@ export type Speed = {
 
 export type Search =
   | { state: "low-data"; title: string; sentence: string }
-  | { state: "numbers"; clicks: number; impressions: number; topQueries: string[] };
+  | { state: "numbers"; clicks: number; impressions: number; topQueries: string[]; line: string; meaning: string };
 
 export type Visits = { sessions: number };
 
