@@ -51,6 +51,18 @@ describe("glossary", () => {
     expect(searchSentence(1, 241779)).toBe("Your site showed up in Google 241,779 times, and people clicked through 1 time.");
   });
 
+  it.each(["closing three serious security vulnerabilities", "your site now counts page views", "without cookies", "the privacy page names it", "we added analytics"])("flags jargon a client will not know: %s", (text) => {
+    expect(lintText(text, "changes[0].outcome").map((f) => f.rule)).toContain("jargon");
+  });
+
+  it("explains the replacement in the finding", () => {
+    expect(lintText("We added analytics.", "note")[0]!.message).toContain("how many people visit");
+  });
+
+  it("lets a client config allow a term the client uses", () => {
+    expect(lintText("We added analytics.", "note", { allowedTerms: ["analytics"] })).toEqual([]);
+  });
+
   it("flags the bare words a client asked about", () => {
     expect(lintText("Availability this fortnight was good.", "note").map((f) => f.rule)).toContain("jargon");
   });

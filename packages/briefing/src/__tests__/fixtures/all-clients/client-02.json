@@ -137,8 +137,8 @@
         "number": 48,
         "title": "Security: Next.js 16.3.8 (three critical advisories)",
         "mergedAt": "2026-10-05T07:49:26Z",
-        "forClient": "A security update to the framework the website runs on, closing three serious vulnerabilities. Nothing changes in how the site looks or works.",
-        "body": "## Briefing\ntitle: A security update\noutcome: We updated the software your website runs on, closing three serious security vulnerabilities.\n",
+        "forClient": "A security update to the framework the website runs on, closing three serious weak spots someone could have used to break in. Nothing changes in how the site looks or works.",
+        "body": "## Briefing\ntitle: A security update\noutcome: We updated the software your website runs on, closing three serious weak spots someone could have used to break in.\n",
         "repo": "example/site-1"
       },
       {
@@ -230,7 +230,7 @@
         "number": 63,
         "title": "Cloudflare Web Analytics once a visitor accepts analytics",
         "mergedAt": "2026-10-08T00:31:32Z",
-        "forClient": "If a visitor accepts analytics, your site now counts page views and how quickly pages load, without cookies, and the privacy page names it.",
+        "forClient": "If a visitor agrees, your site now counts visits and how quickly pages load, without leaving small files on their device, and the page about visitors' information says so.",
         "repo": "example/site-1"
       },
       {
@@ -292,7 +292,7 @@
     ],
     "notes": {
       "example/site-1#51": "Your contact form now works again so people can send you enquiries.",
-      "example/site-1#62": "Updated your privacy notice and cookie choices to show you now use Cloudflare to host the site instead of Vercel."
+      "example/site-1#62": "Updated your privacy notice and your visitors' choices to show you now use Cloudflare to host the site instead of Vercel."
     }
   },
   "config": {
@@ -309,7 +309,7 @@
       "webView": "https://example.invalid/view"
     }
   },
-  "expectedHash": "48c23803ae143b6ef411195e4fb7f8c0eff3959b4c951ecae9d7a7e6b5c84e09",
+  "expectedHash": "b3a8a39884cf9cb0deb059365b85857bfdf8ad344e0a4fdb0bba7343d56659b7",
   "expected": {
     "status": "ok",
     "sections": [

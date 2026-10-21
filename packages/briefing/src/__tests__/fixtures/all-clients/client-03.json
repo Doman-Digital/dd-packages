@@ -320,7 +320,7 @@
         "number": 670,
         "title": "fix(web): load Google Tag Manager once, allow Cloudflare Web Analytics in the CSP",
         "mergedAt": "2026-10-07T19:52:11Z",
-        "forClient": "Your site was loading Google's analytics twice on every visit. It now loads once, and Cloudflare's own visitor count starts working.",
+        "forClient": "Your site was loading Google's visitor counting twice on every visit. It now loads once, and Cloudflare's own visitor count starts working.",
         "repo": "example/site-1"
       },
       {
@@ -410,7 +410,7 @@
       }
     ],
     "notes": {
-      "example/site-1#655": "Fixed how your site tracks when people click to book, so you can now see which pages send the most bookings to Square, and sped up analytics tracking on your journal articles so Google counts those visits properly.",
+      "example/site-1#655": "Fixed how your site tracks when people click to book, so you can now see which pages send the most bookings to Square, and sped up visitor counting on your journal articles so Google counts those visits properly.",
       "example/site-1#662": "Your opening animation now loads faster on all devices, especially phones and tablets, so visitors see your hero right away instead of waiting for a curtain to fade.",
       "example/site-1#668": "Your website and booking portal are back online and working after the hosting issue took them down.",
       "example/site-1#673": "Your client form uploads now work properly again without needing manual review.",
@@ -434,7 +434,7 @@
       "webView": "https://example.invalid/view"
     }
   },
-  "expectedHash": "c76092481c77b14c958207e00b4c2ea5fe6ed97bf7482da4c6441fdd3665de6d",
+  "expectedHash": "aa2aae83006ea3fa26d6993b5ea3c4421ed75d0a341794b2a55b2095324ca0b2",
   "expected": {
     "status": "issue",
     "sections": [
