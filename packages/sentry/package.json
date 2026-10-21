@@ -84,14 +84,14 @@
   },
   "devDependencies": {
     "@sentry/browser": "^11.5.0",
-    "@sentry/browser-v10": "npm:@sentry/browser@^10.76.1",
+    "@sentry/browser-v10": "npm:@sentry/browser@^11.0.0",
     "@sentry/cloudflare": "^11.5.0",
     "@sentry/core": "^11.5.0",
-    "@sentry/core-v10": "npm:@sentry/core@^10.76.1",
-    "@types/node": "^20.19.43",
-    "tsup": "^8.3.5",
-    "typescript": "^5.6.3",
-    "vitest": "^4.0.0"
+    "@sentry/core-v10": "npm:@sentry/core@^11.0.0",
+    "@types/node": "^24.0.0",
+    "tsup": "^9.0.0",
+    "typescript": "^7.0.0",
+    "vitest": "^5.0.0"
   },
   "engines": {
     "node": ">=22.12"
