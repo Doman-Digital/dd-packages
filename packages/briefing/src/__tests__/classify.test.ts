@@ -52,7 +52,7 @@ describe("rules", () => {
 
   it("kinds: security, then privacy, then visible, then other", () => {
     expect(classifyEntry(entry(11, "fix(deps): update next", "This is a security update to the software.")).kind).toBe("security");
-    expect(classifyEntry(entry(12, "Web analytics behind consent", "If a visitor accepts analytics, your site measures page views without cookies.")).kind).toBe("privacy");
+    expect(classifyEntry(entry(12, "Web analytics behind consent", "If a visitor agrees, your site counts visits without small files on their device.")).kind).toBe("privacy");
     expect(classifyEntry(entry(13, "perf: planner intro desktop-only", "Phones load your home page faster.")).kind).toBe("visible");
     expect(classifyEntry(entry(14, "Daily reminder for orders", "Each morning you'll get one email listing orders waiting to be paid.")).kind).toBe("other");
   });

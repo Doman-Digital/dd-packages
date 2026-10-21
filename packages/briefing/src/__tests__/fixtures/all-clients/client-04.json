@@ -247,7 +247,7 @@
         "number": 66,
         "title": "Cloudflare Web Analytics behind the existing analytics consent",
         "mergedAt": "2026-10-08T00:31:24Z",
-        "forClient": "If a visitor accepts analytics, your site now also measures page views and how quickly pages load, without cookies, and the privacy and cookie pages say so.",
+        "forClient": "If a visitor agrees, your site now also counts visits and how quickly pages load, without leaving small files on their device, and the pages about visitors' information say so.",
         "repo": "example/site-1"
       },
       {
@@ -351,7 +351,7 @@
       ]
     }
   },
-  "expectedHash": "e4439a2c2dc9e8ee59edb7cea719f31d594115697a4c18977d5857fa0a57d14d",
+  "expectedHash": "b62bdf9f5e0453f3f491c9454abc256fd9dfe04a34a66ac12eadfaea433d0425",
   "expected": {
     "status": "attention",
     "sections": [

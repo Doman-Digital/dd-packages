@@ -227,9 +227,9 @@
       },
       {
         "number": 47,
-        "title": "Cloudflare Web Analytics, and the privacy notice says so",
+        "title": "Cloudflare visitor counting, and the privacy notice says so",
         "mergedAt": "2026-10-08T00:31:16Z",
-        "forClient": "Your site now measures how many people visit and how fast pages load for them, without cookies, and the privacy page says so.",
+        "forClient": "Your site now measures how many people visit and how fast pages load for them, without leaving small files on their device, and the page about visitors' information says so.",
         "repo": "example/site-1"
       },
       {
@@ -255,7 +255,7 @@
       "webView": "https://example.invalid/view"
     }
   },
-  "expectedHash": "12f5796f353b0558d19c1fbea8796d5453d9dc55183ae1f5964b74127880e90c",
+  "expectedHash": "7e8e444b72cadc80797fda91b163f8163830499cb28f47cbeb89bcd1b64e3b20",
   "expected": {
     "status": "ok",
     "sections": [
