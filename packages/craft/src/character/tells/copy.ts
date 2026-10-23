@@ -327,7 +327,49 @@ const NEGATION: RegExp[] = [
   /\bless\s+about\b[^.;]{2,50}\bmore\s+about\b/i,
   // parallel participle, no repeated subject: "dispatched from here, not shipped in from Seoul"
   /\b\w{3,}ed\b[^,.;:]{0,40},\s*not\s+\w{3,}ed\b/i,
+  // parallel gerund: "renting Microsoft's services, not running servers". The
+  // -thing pronouns and the -ing prepositions are not verbs.
+  /\b(?!(?:some|no|any|every)thing\b)\w{3,}ing\b[^,.;:]{0,40},\s*not\s+(?!(?:some|no|any|every)thing\b|(?:during|according|including|regarding|morning|evening)\b)\w{3,}ing\b/i,
 ];
+
+/**
+ * The softer contrasts: a noun after ", not", "not a legal one", "renting
+ * instead of owning". COPY.md left them to the read-through because a genuine
+ * disclaimer has the same shape ("general information, not a recommendation"),
+ * so they are reported for review and never block. A 92EL report passed the
+ * gate with three of them in October 2026.
+ */
+const SOFT_CONTRAST: RegExp[] = [
+  // ", not registration." closing the sentence. Not when "not" negates what follows.
+  /,\s*not\s+(?!(?:yet|least|only|just|merely|simply|to|all|always|even|ever|necessarily|really|quite|exactly|enough|sure|that|because|so|much|many|once|often|every|including|counting|unlike|until|if|when|unless|though|although|or|and|but)\b)(?:(?:a|an|the|your|our|their|its|his|her|my|any)\s+)?[\w'’-]+(?:\s+[\w'’-]+){0,3}(?=\s*(?:[.!?)"”]|$))/im,
+  // "the league's own threshold, not a legal one"
+  /,\s*not\s+(?:a|an|the)\s+(?:[\w'’-]+\s+)?one\b/i,
+  // "renting computing over the internet instead of owning it"
+  /\b(?!(?:some|no|any|every)thing\b)\w{3,}ing\b[^.;:!?]{0,60}?\binstead\s+of\s+(?!(?:some|no|any|every)thing\b)\w{3,}ing\b/i,
+];
+
+/**
+ * Verbless parallel pairs, the two-part cousin of the staccato triplet:
+ * "One form, seven workflows", "Same site, same £8,000." A short label on a
+ * slide is often fine, so this is for review. The whole-line shapes leave a
+ * sentence with a verb alone ("One form and seven workflows replace...").
+ */
+const PAIR_TOKEN = String.raw`(?:[£$€]?\d[\d,.]*%?|[\w'’£$€-]+)`;
+const PAIR_NUMBER = String.raw`(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\d[\d,]*)`;
+const PARALLEL_PAIR: RegExp[] = [
+  // anaphora: "same site, same £8,000", "per user, per month". "No X, no Y" is no-x-no-y's.
+  new RegExp(String.raw`\b(?!no\b)(\w+)[ \t]+${PAIR_TOKEN},[ \t]+\1[ \t]+${PAIR_TOKEN}(?=[ \t]*(?:[.!?]|$))`, "im"),
+  // isocolon on its own line: "One form, seven workflows"
+  new RegExp(String.raw`^[ \t]*(?:#{1,6}[ \t]+)?${PAIR_NUMBER}[ \t]+[\w'’-]+,[ \t]+${PAIR_NUMBER}[ \t]+[\w'’-]+[.!]?[ \t]*$`, "im"),
+  // a verbless list as a tagline: "Service account, match-day reminders, analytics."
+  /^[ \t]*(?:#{1,6}[ \t]+)?[A-Z][\w'’-]*(?:[ \t]+(?!(?:and|or)\b)[\w'’-]+){0,2}(?:,[ \t]+(?!(?:and|or)\b)[\w'’-]+(?:[ \t]+(?!(?:and|or)\b)[\w'’-]+){0,2}){2,3}\.[ \t]*$/m,
+];
+
+/** A soft contrast inside a sentence the blocking rule already reports. */
+const alreadyBlocked = (block: CopyBlock, match: string, index: number): boolean => {
+  const sentence = block.text.slice(Math.max(0, index - 80), index + match.length);
+  return NEGATION.some((pattern) => pattern.test(sentence));
+};
 
 /**
  * Empty-state and error text is functional UI, not a marketing tell. Either
@@ -738,7 +780,7 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "'It's not just a haircut, it's an experience', 'dispatched from here, not shipped in': the contrast-and-reveal template is the most recognisable construction in generated copy.",
+    why: "'It's not just a haircut, it's an experience', 'dispatched from here, not shipped in': the contrast-and-reveal template (correctio, antithesis: see COPY.md) is the most recognisable construction in generated copy.",
     fix: "Say the positive claim and drop the contrast.",
     detect: phrases(NEGATION, quoted, allText),
     fixtures: {
@@ -750,11 +792,53 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/home.md", "It is less about the tools and more about the eye."),
         f("content/home.md", "Order today and it's dispatched from here, not shipped in from Seoul."),
         f("app/offer.tsx", `export const outcome = "The whole path, not just the ads.";`),
+        // From a 92EL report that passed the gate, October 2026.
+        f("content/report.md", "These are reported, not assumed to pass."),
+        f("content/report.md", "The deletion is proposed, not automated."),
+        f("content/report.md", "For 92EL, that means renting Microsoft's services, not running servers."),
+        f("content/home.md", "Your team should spend time delivering services, not managing bookings."),
       ],
       pass: [
         f("content/home.md", "A haircut, a hot towel and a straight-razor finish."),
         f("content/home.md", "They are cosmetics, not medicines."),
         f("content/home.md", "The box arrived red, not led astray by a dented corner."),
+        f("content/home.md", "We fix boilers in the morning, not in the evening."),
+        f("content/report.md", "Players never open the lists."),
+        f("content/report.md", "It is not tested at national scale."),
+        f("content/report.md", "Do not invent anything."),
+        f("content/report.md", "Nothing is copied by hand."),
+        f("content/report.md", "Results are checked by a person and not yet automated."),
+      ],
+    },
+  },
+  {
+    id: "trailing-contrast",
+    name: "Trailing contrast",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'Edge matters for game servers, not registration', 'the league's own threshold, not a legal one', 'renting computing instead of owning it': the contrast template (correctio, antithesis: see COPY.md) in its softer forms. A genuine disclaimer has the same shape, so a person decides.",
+    fix: "Say the positive claim on its own: 'Edge matters for game servers.' Keep the contrast only where the reader would otherwise assume the other thing, such as a legal disclaimer.",
+    detect: phrases(SOFT_CONTRAST, quoted, allText, alreadyBlocked),
+    fixtures: {
+      flag: [
+        // From a 92EL report that passed the gate, October 2026.
+        f("content/report.md", "Edge matters for game servers, not registration."),
+        f("content/report.md", "Age 18 is the league's own threshold, not a legal one."),
+        f("content/report.md", "Cloud computing means renting computing over the internet instead of owning it."),
+        f("content/home.md", "Real Square data, not a vanity metric."),
+      ],
+      pass: [
+        f("content/home.md", "Rewire, retile and replumb a bathroom in five days."),
+        f("content/report.md", "Players never open the lists."),
+        f("content/report.md", "It is not tested at national scale."),
+        f("content/report.md", "Do not invent anything."),
+        f("content/report.md", "Nothing is copied by hand."),
+        f("content/report.md", "Results are checked by a person and not yet automated."),
+        f("content/home.md", "Pay by card, not to mention Apple Pay."),
+        f("content/home.md", "Card instead of cash is fine."),
+        // The blocking rule reports this one; it is not reported twice.
+        f("content/report.md", "The deletion is proposed, not automated."),
       ],
     },
   },
@@ -803,7 +887,7 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm.",
+    why: "Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') (a tricolon in asyndeton: see COPY.md) is the second wave's favourite rhythm.",
     fix: "Write one sentence that says which of the three is true, and how you know.",
     // The fragments share one paragraph: "You don't. Again.", a blank line, then "It's frustrating." is two beats, not three.
     detect: phrases([/(?:\b[A-Z][\w'’-]*(?:[ \t]+[\w'’-]+){0,2}[.!](?:[ \t]+|[ \t]*\n(?![ \t]*\n)[ \t]*)){2}[A-Z][\w'’-]*(?:[ \t]+[\w'’-]+){0,2}[.!](?=\s|$)/], quoted),
@@ -812,6 +896,36 @@ export const COPY_TELLS: CopyTell[] = [
       pass: [
         f("content/home.md", "We fix boilers the same day, and we tell you the price before we start."),
         f("content/guide.md", "Your competitor appears in the top three. You don't. Again.\n\nIt's frustrating."),
+      ],
+    },
+  },
+  {
+    id: "parallel-pair",
+    name: "Verbless parallel pair",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'One form, seven workflows', 'Same site, same £8,000': two matched fragments with no verb (isocolon, often with anaphora or asyndeton: see COPY.md), the staccato triplet's two-part cousin. It sounds decided and says less than a sentence would.",
+    fix: "Write the sentence the pair stands for: 'One form and seven workflows replace the spreadsheets.' A short label on a slide can stay if a person reads it and it earns its place.",
+    detect: phrases(PARALLEL_PAIR, quoted),
+    fixtures: {
+      flag: [
+        // From 92EL deliverables, October 2026.
+        f("content/deck.md", "# One form, seven workflows"),
+        f("content/deck.md", "One form, seven workflows."),
+        f("content/deck.md", "Same site, same £8,000."),
+        f("content/deck.md", "Pay per user, per month"),
+        f("content/deck.md", "Service account, match-day reminders, analytics."),
+      ],
+      pass: [
+        f("content/deck.md", "Forms, SharePoint, Outlook and Teams"),
+        f("content/deck.md", "One form and seven workflows replace 92EL's spreadsheets and email chains."),
+        f("content/deck.md", "PulseCloud Technologies, for 92EL senior management"),
+        f("content/deck.md", "41 of 50 passed, 12 after a fix."),
+        f("content/deck.md", "Pay monthly for each user"),
+        f("content/home.md", "We fix boilers the same day, and we tell you the price before we start."),
+        // The blocking no-x-no-y reports this one.
+        f("content/home.md", "We reply within a day. No obligation, no spam."),
       ],
     },
   },
