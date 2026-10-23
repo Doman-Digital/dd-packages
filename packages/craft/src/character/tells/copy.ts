@@ -367,7 +367,10 @@ const PARALLEL_PAIR: RegExp[] = [
 
 /** A soft contrast inside a sentence the blocking rule already reports. */
 const alreadyBlocked = (block: CopyBlock, match: string, index: number): boolean => {
-  const sentence = block.text.slice(Math.max(0, index - 80), index + match.length);
+  // Only the sentence the match sits in: a blocked sentence just before it is another finding.
+  const before = block.text.slice(0, index);
+  const start = Math.max(before.search(/[^.!?\n]*$/), 0);
+  const sentence = block.text.slice(start, index + match.length);
   return NEGATION.some((pattern) => pattern.test(sentence));
 };
 
@@ -827,6 +830,8 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/report.md", "Age 18 is the league's own threshold, not a legal one."),
         f("content/report.md", "Cloud computing means renting computing over the internet instead of owning it."),
         f("content/home.md", "Real Square data, not a vanity metric."),
+        // Reported even straight after a sentence the blocking rule reports.
+        f("content/report.md", "That means renting services, not running servers.\n\nEdge matters for game servers, not registration."),
       ],
       pass: [
         f("content/home.md", "Rewire, retile and replumb a bathroom in five days."),
