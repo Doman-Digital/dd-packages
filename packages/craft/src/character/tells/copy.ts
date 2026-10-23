@@ -348,6 +348,23 @@ const SOFT_CONTRAST: RegExp[] = [
   /\b(?!(?:some|no|any|every)thing\b)\w{3,}ing\b[^.;:!?]{0,60}?\binstead\s+of\s+(?!(?:some|no|any|every)thing\b)\w{3,}ing\b/i,
 ];
 
+/**
+ * Verbless parallel pairs, the two-part cousin of the staccato triplet:
+ * "One form, seven workflows", "Same site, same £8,000." A short label on a
+ * slide is often fine, so this is for review. The whole-line shapes leave a
+ * sentence with a verb alone ("One form and seven workflows replace...").
+ */
+const PAIR_TOKEN = String.raw`(?:[£$€]?\d[\d,.]*%?|[\w'’£$€-]+)`;
+const PAIR_NUMBER = String.raw`(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\d[\d,]*)`;
+const PARALLEL_PAIR: RegExp[] = [
+  // anaphora: "same site, same £8,000", "per user, per month". "No X, no Y" is no-x-no-y's.
+  new RegExp(String.raw`\b(?!no\b)(\w+)[ \t]+${PAIR_TOKEN},[ \t]+\1[ \t]+${PAIR_TOKEN}(?=[ \t]*(?:[.!?]|$))`, "im"),
+  // isocolon on its own line: "One form, seven workflows"
+  new RegExp(String.raw`^[ \t]*(?:#{1,6}[ \t]+)?${PAIR_NUMBER}[ \t]+[\w'’-]+,[ \t]+${PAIR_NUMBER}[ \t]+[\w'’-]+[.!]?[ \t]*$`, "im"),
+  // a verbless list as a tagline: "Service account, match-day reminders, analytics."
+  /^[ \t]*(?:#{1,6}[ \t]+)?[A-Z][\w'’-]*(?:[ \t]+(?!(?:and|or)\b)[\w'’-]+){0,2}(?:,[ \t]+(?!(?:and|or)\b)[\w'’-]+(?:[ \t]+(?!(?:and|or)\b)[\w'’-]+){0,2}){2,3}\.[ \t]*$/m,
+];
+
 /** A soft contrast inside a sentence the blocking rule already reports. */
 const alreadyBlocked = (block: CopyBlock, match: string, index: number): boolean => {
   const sentence = block.text.slice(Math.max(0, index - 80), index + match.length);
@@ -879,6 +896,36 @@ export const COPY_TELLS: CopyTell[] = [
       pass: [
         f("content/home.md", "We fix boilers the same day, and we tell you the price before we start."),
         f("content/guide.md", "Your competitor appears in the top three. You don't. Again.\n\nIt's frustrating."),
+      ],
+    },
+  },
+  {
+    id: "parallel-pair",
+    name: "Verbless parallel pair",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'One form, seven workflows', 'Same site, same £8,000': two matched fragments with no verb, the staccato triplet's two-part cousin. It sounds decided and says less than a sentence would.",
+    fix: "Write the sentence the pair stands for: 'One form and seven workflows replace the spreadsheets.' A short label on a slide can stay if a person reads it and it earns its place.",
+    detect: phrases(PARALLEL_PAIR, quoted),
+    fixtures: {
+      flag: [
+        // From 92EL deliverables, October 2026.
+        f("content/deck.md", "# One form, seven workflows"),
+        f("content/deck.md", "One form, seven workflows."),
+        f("content/deck.md", "Same site, same £8,000."),
+        f("content/deck.md", "Pay per user, per month"),
+        f("content/deck.md", "Service account, match-day reminders, analytics."),
+      ],
+      pass: [
+        f("content/deck.md", "Forms, SharePoint, Outlook and Teams"),
+        f("content/deck.md", "One form and seven workflows replace 92EL's spreadsheets and email chains."),
+        f("content/deck.md", "PulseCloud Technologies, for 92EL senior management"),
+        f("content/deck.md", "41 of 50 passed, 12 after a fix."),
+        f("content/deck.md", "Pay monthly for each user"),
+        f("content/home.md", "We fix boilers the same day, and we tell you the price before we start."),
+        // The blocking no-x-no-y reports this one.
+        f("content/home.md", "We reply within a day. No obligation, no spam."),
       ],
     },
   },

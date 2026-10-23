@@ -1470,7 +1470,7 @@ Generated from the package. Run `pnpm --filter @domandigital/craft run docs`
 after changing an entry; a test fails until you do.
 
 <!-- craft:catalogue:start -->
-Catalogue version `2026.10.6`, 75 tells.
+Catalogue version `2026.10.7`, 76 tells.
 
 | Id | Gen | Surface | Severity | Tell | Why it is a default |
 | --- | --- | --- | --- | --- | --- |
@@ -1519,6 +1519,7 @@ Catalogue version `2026.10.6`, 75 tells.
 | `no-x-no-y` | 2 | copy | warn | 'No X, no Y' list | 'No obligation, no spam.' Defining the business by what it is not, itemised, is the same template as contrastive negation. |
 | `no-x-badge` | 2 | copy | warn | 'No X' badge | 'No catch.', 'NO JARGON GUIDE': a short standalone 'No X' reads as a slapped-on kicker, and worse when the same one is reused across pieces. |
 | `staccato-triplet` | 2 | copy | warn | Staccato triplet | Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm. |
+| `parallel-pair` | 2 | copy | warn | Verbless parallel pair | 'One form, seven workflows', 'Same site, same £8,000': two matched fragments with no verb, the staccato triplet's two-part cousin. It sounds decided and says less than a sentence would. |
 | `where-x-meets-y` | 2 | copy | warn | 'Where X meets Y' | 'Where luxury meets comfort' is a tagline shape that fits every business and so describes none. |
 | `chatbot-residue` | 1 | copy | warn | Chatbot residue | 'Certainly! Here's a revised version', 'as an AI language model', a citeturn0search0 token, a link tracked utm_source=chatgpt.com: text that exists only because a chat reply was pasted whole. This is evidence, not style. |
 | `stock-email-line` | 1 | copy | warn | Stock email line | 'I hope this email finds you well', 'let me know if you have any questions', 'don't hesitate to contact us': the opener and closer of a form email. A client reads past them, and a model drafting an email writes them every time. |

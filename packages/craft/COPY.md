@@ -108,6 +108,7 @@ person reading decides which instance earns its place.
 | `hollow-imperative` | Discover, Experience, Transform, Elevate as the opening verb of a heading or button |
 | `rhetorical-opener` | "Looking for...?", "Tired of...?", "Ready to...?" |
 | `staccato-triplet` | "Fast. Friendly. Local." |
+| `parallel-pair` | the staccato triplet's two-part cousin, two matched fragments with no verb: "One form, seven workflows", "Same site, same £8,000.", "Pay per user, per month", and a verbless list used as a tagline ("Service account, match-day reminders, analytics."). A plain list of names ("Forms, SharePoint, Outlook and Teams") and a sentence with a verb pass. Write the sentence the pair stands for; a short slide label can stay once a person has read it |
 | `where-x-meets-y` | "Where luxury meets comfort" |
 | `ing-tail` | "..., ensuring peace of mind", "..., highlighting our commitment": significance claimed, no mechanism |
 | `vague-attribution` | "studies show", "experts agree", "it is widely known": a claim credited to nobody |
