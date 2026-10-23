@@ -59,6 +59,51 @@ describe("COPY.md is bound to the tells", () => {
     }
   });
 
+  it("catches every contrast a 92EL report passed the gate with, and no plain negation", () => {
+    const tells = (text: string): string[] =>
+      applyHouseGate(checkCopy([{ path: "content/x.md", text }])).findings.map((f) => `${f.tell}:${f.severity}`);
+    const cases: [string, string[]][] = [
+      ["These are reported, not assumed to pass.", ["not-just-but:block"]],
+      ["The deletion is proposed, not automated.", ["not-just-but:block"]],
+      ["For 92EL, that means renting Microsoft's services, not running servers.", ["not-just-but:block"]],
+      ["Edge matters for game servers, not registration.", ["trailing-contrast:warn"]],
+      ["Age 18 is the league's own threshold, not a legal one.", ["trailing-contrast:warn"]],
+      ["Cloud computing means renting computing over the internet instead of owning it.", ["trailing-contrast:warn"]],
+      ["Players never open the lists.", []],
+      ["It is not tested at national scale.", []],
+      ["Do not invent anything.", []],
+      ["Nothing is copied by hand.", []],
+      ["Results are checked by a person and not yet automated.", []],
+    ];
+    for (const [text, expected] of cases) {
+      expect(tells(text).filter((t) => t.startsWith("not-just-but") || t.startsWith("trailing-contrast")), text).toEqual(expected);
+    }
+  });
+
+  it("reports the verbless pairs from 92EL deliverables for review, and passes the plain copy beside them", () => {
+    const pairs = (text: string): string[] =>
+      applyHouseGate(checkCopy([{ path: "content/x.md", text }])).findings
+        .filter((f) => f.tell === "parallel-pair")
+        .map((f) => f.severity);
+    for (const text of [
+      "# One form, seven workflows",
+      "Same site, same £8,000.",
+      "Pay per user, per month",
+      "Service account, match-day reminders, analytics.",
+    ]) {
+      expect(pairs(text), text).toEqual(["warn"]);
+    }
+    for (const text of [
+      "Forms, SharePoint, Outlook and Teams",
+      "One form and seven workflows replace 92EL's spreadsheets and email chains.",
+      "PulseCloud Technologies, for 92EL senior management",
+      "41 of 50 passed, 12 after a fix.",
+      "Pay monthly for each user",
+    ]) {
+      expect(pairs(text), text).toEqual([]);
+    }
+  });
+
   it("does not block the en dash ranges it says are correct", () => {
     expect(blocks("Open Monday–Saturday, 9am–5pm.")).toBe(false);
   });
