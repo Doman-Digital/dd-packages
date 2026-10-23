@@ -21,7 +21,8 @@ name: starters
 # The rulebook comes from dd-ci-standards at v1, the same version the policy
 # check and the estate sweep run. On pull requests that touch create-site or
 # this file it runs without Slack, so a change that breaks a starter is red on
-# its own PR.
+# its own PR. A pull request installs this commit's house packages from a
+# registry on the runner; the nightly installs the published ones (DOM-1359).
 
 on:
   schedule:
@@ -31,6 +32,7 @@ on:
     paths:
       - "packages/create-site/**"
       - ".github/workflows/starters.yml"
+      - "scripts/house-registry.mjs"
       - "scripts/slack-post.mjs"
 
 concurrency:
@@ -71,6 +73,27 @@ jobs:
         run: |
           pnpm install --frozen-lockfile
           pnpm --filter @domandigital/create-site run build
+
+      # A pull request that moves a house package to a new minor also moves
+      # create-site's range to it, and npm does not have that version until
+      # the Version Packages PR publishes it. So on a pull request the starter
+      # gets this commit's house packages, at the versions their changesets
+      # will publish, from a registry on the runner (scripts/house-registry.mjs).
+      # Everything else still comes from npm. The nightly run skips this and
+      # installs the published packages, so a broken release stays red.
+      - name: Serve this commit's house packages (pull requests only)
+        if: github.event_name == 'pull_request'
+        run: |
+          pnpm changeset version
+          pnpm -r run build
+          nohup node scripts/house-registry.mjs 4873 > "$RUNNER_TEMP/house-registry.log" 2>&1 &
+          for _ in $(seq 1 120); do
+            curl -sf http://127.0.0.1:4873/@domandigital%2fcraft > /dev/null && break
+            sleep 1
+          done
+          curl -sf http://127.0.0.1:4873/@domandigital%2fcraft > /dev/null || { cat "$RUNNER_TEMP/house-registry.log"; echo "::error::The house registry did not start."; exit 1; }
+          cat "$RUNNER_TEMP/house-registry.log"
+          echo "@domandigital:registry=http://127.0.0.1:4873/" >> ~/.npmrc
 
       # The answers a builder would give. The site is never deployed; the
       # URL is a reserved example domain.
