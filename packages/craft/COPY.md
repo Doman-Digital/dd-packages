@@ -121,6 +121,23 @@ person reading decides which instance earns its place.
 | `placeholder` | "[Insert client name]", lorem ipsum, `TODO_PLACEHOLDER`. Fine in a draft commit; **zero in anything delivered** |
 | `generic-hero-claim` | on the home page (a root route file, a top-level `index.html`, or a hero or home component), a literal `<h1>` and the paragraph under it that name no place, person, number, price or job: "Quality you can trust", "Your vision, our expertise". One trade noun is not enough ("quality plumbing"); two are ("boiler and radiator repairs"). Also read on the rendered first screen by `craft audit` |
 
+### The figures these tells name
+
+Several tells are classical figures of speech used as a template. Before
+ruling on a finding you are unsure of, read the definition at the source:
+the figure is the shape, and a line is a hit only when it has the shape.
+Silva Rhetoricae (Brigham Young University) is the reference; Wikipedia
+gives more examples.
+
+| Figure | What it is | Tells | Sources |
+| --- | --- | --- | --- |
+| Correctio | defining a thing by saying what it is not, before or after naming it: "dispatched from here, not shipped in" | `not-just-but`, `trailing-contrast` | [Silva](http://rhetoric.byu.edu/Figures/C/correctio.htm) |
+| Antithesis | contrasting words or ideas set side by side, often in parallel structure: "renting services, not running servers" | `not-just-but`, `trailing-contrast` | [Silva](http://rhetoric.byu.edu/Figures/A/antithesis.htm), [Wikipedia](https://en.wikipedia.org/wiki/Antithesis) |
+| Isocolon | a series of elements with the same structure and length: "One form, seven workflows" | `parallel-pair` | [Silva](http://rhetoric.byu.edu/Figures/I/isocolon.htm), [Wikipedia](https://en.wikipedia.org/wiki/Isocolon) |
+| Anaphora | the same word or words opening each of successive phrases: "Same site, same £8,000" | `parallel-pair`, `no-x-no-y` | [Silva](http://rhetoric.byu.edu/Figures/A/anaphora.htm), [Wikipedia](https://en.wikipedia.org/wiki/Anaphora_(rhetoric)) |
+| Asyndeton | leaving out the conjunctions between items: "Service account, match-day reminders, analytics." | `parallel-pair`, `staccato-triplet` | [Silva](http://rhetoric.byu.edu/Figures/A/asyndeton.htm), [Wikipedia](https://en.wikipedia.org/wiki/Asyndeton) |
+| Tricolon | three parallel elements of the same length in a row: "Fast. Friendly. Local." | `staccato-triplet` | [Silva](http://rhetoric.byu.edu/Figures/T/tricolon.htm), [Wikipedia](https://en.wikipedia.org/wiki/Tricolon) |
+
 ### Style is not evidence
 
 Most tells here are house style: they make copy generic, whoever wrote it. The

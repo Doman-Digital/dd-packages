@@ -780,7 +780,7 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "'It's not just a haircut, it's an experience', 'dispatched from here, not shipped in': the contrast-and-reveal template is the most recognisable construction in generated copy.",
+    why: "'It's not just a haircut, it's an experience', 'dispatched from here, not shipped in': the contrast-and-reveal template (correctio, antithesis: see COPY.md) is the most recognisable construction in generated copy.",
     fix: "Say the positive claim and drop the contrast.",
     detect: phrases(NEGATION, quoted, allText),
     fixtures: {
@@ -817,7 +817,7 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "'Edge matters for game servers, not registration', 'the league's own threshold, not a legal one', 'renting computing instead of owning it': the contrast template in its softer forms. A genuine disclaimer has the same shape, so a person decides.",
+    why: "'Edge matters for game servers, not registration', 'the league's own threshold, not a legal one', 'renting computing instead of owning it': the contrast template (correctio, antithesis: see COPY.md) in its softer forms. A genuine disclaimer has the same shape, so a person decides.",
     fix: "Say the positive claim on its own: 'Edge matters for game servers.' Keep the contrast only where the reader would otherwise assume the other thing, such as a legal disclaimer.",
     detect: phrases(SOFT_CONTRAST, quoted, allText, alreadyBlocked),
     fixtures: {
@@ -887,7 +887,7 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') is the second wave's favourite rhythm.",
+    why: "Three fragments in a row ('Fast. Friendly. Local.' or 'No fuss. No jargon. Just results.') (a tricolon in asyndeton: see COPY.md) is the second wave's favourite rhythm.",
     fix: "Write one sentence that says which of the three is true, and how you know.",
     // The fragments share one paragraph: "You don't. Again.", a blank line, then "It's frustrating." is two beats, not three.
     detect: phrases([/(?:\b[A-Z][\w'’-]*(?:[ \t]+[\w'’-]+){0,2}[.!](?:[ \t]+|[ \t]*\n(?![ \t]*\n)[ \t]*)){2}[A-Z][\w'’-]*(?:[ \t]+[\w'’-]+){0,2}[.!](?=\s|$)/], quoted),
@@ -905,7 +905,7 @@ export const COPY_TELLS: CopyTell[] = [
     generation: 2,
     severity: "warn",
     surface: "copy",
-    why: "'One form, seven workflows', 'Same site, same £8,000': two matched fragments with no verb, the staccato triplet's two-part cousin. It sounds decided and says less than a sentence would.",
+    why: "'One form, seven workflows', 'Same site, same £8,000': two matched fragments with no verb (isocolon, often with anaphora or asyndeton: see COPY.md), the staccato triplet's two-part cousin. It sounds decided and says less than a sentence would.",
     fix: "Write the sentence the pair stands for: 'One form and seven workflows replace the spreadsheets.' A short label on a slide can stay if a person reads it and it earns its place.",
     detect: phrases(PARALLEL_PAIR, quoted),
     fixtures: {
