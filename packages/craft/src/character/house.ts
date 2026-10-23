@@ -61,6 +61,9 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "matey-register": { tier: "review", label: "matey register, write plain and complete British English" },
   // New 2026-10-20 (founder, from Eunice Ordor's review): review first, like every new tell.
   "confession-line": { tier: "review", label: "confession line, scope the work by saying precisely what is true" },
+  // New 2026-10-23 (a 92EL report passed the gate with three): review, because a
+  // genuine disclaimer has the same shape. The gerund pair joined not-just-but.
+  "trailing-contrast": { tier: "review", label: "trailing contrast. Say the positive claim, unless it is a disclaimer the reader needs" },
   "ai-vocabulary": { tier: "review", label: "AI vocabulary" },
   "stock-phrase": { tier: "review", label: "stock phrase" },
   "hollow-imperative": { tier: "review", label: "hollow imperative" },

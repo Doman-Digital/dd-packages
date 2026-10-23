@@ -59,6 +59,27 @@ describe("COPY.md is bound to the tells", () => {
     }
   });
 
+  it("catches every contrast a 92EL report passed the gate with, and no plain negation", () => {
+    const tells = (text: string): string[] =>
+      applyHouseGate(checkCopy([{ path: "content/x.md", text }])).findings.map((f) => `${f.tell}:${f.severity}`);
+    const cases: [string, string[]][] = [
+      ["These are reported, not assumed to pass.", ["not-just-but:block"]],
+      ["The deletion is proposed, not automated.", ["not-just-but:block"]],
+      ["For 92EL, that means renting Microsoft's services, not running servers.", ["not-just-but:block"]],
+      ["Edge matters for game servers, not registration.", ["trailing-contrast:warn"]],
+      ["Age 18 is the league's own threshold, not a legal one.", ["trailing-contrast:warn"]],
+      ["Cloud computing means renting computing over the internet instead of owning it.", ["trailing-contrast:warn"]],
+      ["Players never open the lists.", []],
+      ["It is not tested at national scale.", []],
+      ["Do not invent anything.", []],
+      ["Nothing is copied by hand.", []],
+      ["Results are checked by a person and not yet automated.", []],
+    ];
+    for (const [text, expected] of cases) {
+      expect(tells(text).filter((t) => t.startsWith("not-just-but") || t.startsWith("trailing-contrast")), text).toEqual(expected);
+    }
+  });
+
   it("does not block the en dash ranges it says are correct", () => {
     expect(blocks("Open Monday–Saturday, 9am–5pm.")).toBe(false);
   });

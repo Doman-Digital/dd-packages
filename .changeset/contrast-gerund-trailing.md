@@ -1,0 +1,5 @@
+---
+"@domandigital/craft": minor
+---
+
+<!-- copy-ok: names the shapes the release starts catching --> Contrastive negation catches the shapes a 92EL report passed the gate with (DOM-1358, catalogue 2026.10.6). **This tightens the gate:** `not-just-but`, which blocks, now covers the parallel gerund ("renting Microsoft's services, not running servers") as well as the parallel participle; its 45 estate hits were read first and every one in shipped copy is the real template. A new review-tier tell, `trailing-contrast`, reports the softer forms COPY.md had left to the read-through: a noun after ", not" closing a sentence ("Edge matters for game servers, not registration"), "not a legal one", and a gerund "instead of" a gerund ("renting computing instead of owning it"). It never blocks, because a genuine disclaimer has the same shape, and it stays quiet where `not-just-but` already reports. Plain negation is untouched: "It is not tested at national scale", "not yet automated", "Nothing is copied by hand".
