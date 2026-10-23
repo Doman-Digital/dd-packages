@@ -154,6 +154,14 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
 
 ## Baselines to read before anything blocks
 
+- Contrastive negation widened to the parallel gerund, 2026-10-23, after a
+  92EL report passed the gate with "renting Microsoft's services, not running <!-- copy-ok: quoting a finding -->
+  servers". Estate hits read first, over `~/GitHub` outside worktrees, fixtures
+  and calibration: 45, every one in shipped copy the real template (a DD blog
+  post, a live DD article, two Sensphere carousel cards, a DD proof line); the
+  rest internal docs and code comments. The noun and "instead of" forms went to
+  a new `trailing-contrast` tell at `review`, since a disclaimer has their shape.
+
 - DD live Sanity content, 2026-09-23: `sanity-copy` over all 137 published
   documents of project `6xogwbpo`. Two house-rule findings (a "No proof" card
   title on the homepage; "disciplined, not complicated" in an article) and 154 <!-- copy-ok: quoting a finding -->

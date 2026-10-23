@@ -38,7 +38,10 @@ A single hit fails the check. These are not judgment calls.
   - "less about X, more about Y"
   - parallel participle: "shipped from here, not imported from Seoul". Both
     sides must be real participles, so "cosmetics, not medicines" (a plain
-    factual contrast) passes.
+    factual contrast) passes here and is left to `trailing-contrast`.
+  - parallel gerund: "renting Microsoft's services, not running servers",
+    "delivering services, not managing bookings". "Something" and "nothing"
+    are not gerunds.
 - **A "No X" claim as the whole string.** "NO JARGON GUIDE", "No catch." A
   short standalone "No X" reads as a slapped-on badge. Empty-state and error
   text is exempt ("No results found", "No bookings yet"), as is anything under
@@ -97,6 +100,7 @@ person reading decides which instance earns its place.
 | `sales-tagline` | advert lines that say nothing a reader can check: "so your budget goes where it counts", "real results", "results that matter", "work harder for you", "pages that convert" |
 | `matey-register` | the put-on British voice: "Alright Dave,", "cheers mate", "no worries", "we'll get you sorted", "proper good", "give me a shout", "chuffed", "Right then,"; and clipped speech that drops the small words: "have look at", "give it go", "Quick one:", "built you a site". Write plain, complete British English |
 | `confession-line` | scoping the business by what it has not done, will not do or is not: "What this is and is not", "we have not yet built", "our clinic experience so far is one practice", "what we would and wouldn't take on", "who we don't work with". It's an open shop: be honest by being precise ("the portal we run for Sensphere") and keep the door open. Contractual facts (eligibility, who runs what) stay, said as what the buyer gets |
+| `trailing-contrast` | the softer contrast template: a noun or phrase after ", not" closing a sentence ("Edge matters for game servers, not registration"), "not a legal one", and "renting computing instead of owning it". A genuine disclaimer has the same shape ("general information, not a recommendation"), so it is reported, never blocked. Say the positive claim; keep the contrast only where the reader would otherwise assume the other thing |
 | `outcome-promise` | a hoped-for result written as delivered: "we'll turn that into enquiries", "once the first areas are working", "competitors you can outdo", "exactly what convinces", "guaranteed rankings", "you'll get more". Promise the work; measure and report the results |
 | `ai-vocabulary` | tapestry, testament, realm, elevate, nestled, meticulous, unparalleled, moreover; and underscore, showcasing, pivotal, measured 10 to 14 times over-used in post-2022 text |
 | `stock-email-line` | the form-email opener and closer: "I hope this email finds you well", "hope you're having a great week", "let me know if you have any questions", "don't hesitate to contact us". Start with the reason for writing; end with the next step and who to ask |
@@ -104,6 +108,7 @@ person reading decides which instance earns its place.
 | `hollow-imperative` | Discover, Experience, Transform, Elevate as the opening verb of a heading or button |
 | `rhetorical-opener` | "Looking for...?", "Tired of...?", "Ready to...?" |
 | `staccato-triplet` | "Fast. Friendly. Local." |
+| `parallel-pair` | the staccato triplet's two-part cousin, two matched fragments with no verb: "One form, seven workflows", "Same site, same £8,000.", "Pay per user, per month", and a verbless list used as a tagline ("Service account, match-day reminders, analytics."). A plain list of names ("Forms, SharePoint, Outlook and Teams") and a sentence with a verb pass. Write the sentence the pair stands for; a short slide label can stay once a person has read it |
 | `where-x-meets-y` | "Where luxury meets comfort" |
 | `ing-tail` | "..., ensuring peace of mind", "..., highlighting our commitment": significance claimed, no mechanism |
 | `vague-attribution` | "studies show", "experts agree", "it is widely known": a claim credited to nobody |
@@ -116,6 +121,23 @@ person reading decides which instance earns its place.
 | `placeholder` | "[Insert client name]", lorem ipsum, `TODO_PLACEHOLDER`. Fine in a draft commit; **zero in anything delivered** |
 | `generic-hero-claim` | on the home page (a root route file, a top-level `index.html`, or a hero or home component), a literal `<h1>` and the paragraph under it that name no place, person, number, price or job: "Quality you can trust", "Your vision, our expertise". One trade noun is not enough ("quality plumbing"); two are ("boiler and radiator repairs"). Also read on the rendered first screen by `craft audit` |
 
+### The figures these tells name
+
+Several tells are classical figures of speech used as a template. Before
+ruling on a finding you are unsure of, read the definition at the source:
+the figure is the shape, and a line is a hit only when it has the shape.
+Silva Rhetoricae (Brigham Young University) is the reference; Wikipedia
+gives more examples.
+
+| Figure | What it is | Tells | Sources |
+| --- | --- | --- | --- |
+| Correctio | defining a thing by saying what it is not, before or after naming it: "dispatched from here, not shipped in" | `not-just-but`, `trailing-contrast` | [Silva](http://rhetoric.byu.edu/Figures/C/correctio.htm) |
+| Antithesis | contrasting words or ideas set side by side, often in parallel structure: "renting services, not running servers" | `not-just-but`, `trailing-contrast` | [Silva](http://rhetoric.byu.edu/Figures/A/antithesis.htm), [Wikipedia](https://en.wikipedia.org/wiki/Antithesis) |
+| Isocolon | a series of elements with the same structure and length: "One form, seven workflows" | `parallel-pair` | [Silva](http://rhetoric.byu.edu/Figures/I/isocolon.htm), [Wikipedia](https://en.wikipedia.org/wiki/Isocolon) |
+| Anaphora | the same word or words opening each of successive phrases: "Same site, same £8,000" | `parallel-pair`, `no-x-no-y` | [Silva](http://rhetoric.byu.edu/Figures/A/anaphora.htm), [Wikipedia](https://en.wikipedia.org/wiki/Anaphora_(rhetoric)) |
+| Asyndeton | leaving out the conjunctions between items: "Service account, match-day reminders, analytics." | `parallel-pair`, `staccato-triplet` | [Silva](http://rhetoric.byu.edu/Figures/A/asyndeton.htm), [Wikipedia](https://en.wikipedia.org/wiki/Asyndeton) |
+| Tricolon | three parallel elements of the same length in a row: "Fast. Friendly. Local." | `staccato-triplet` | [Silva](http://rhetoric.byu.edu/Figures/T/tricolon.htm), [Wikipedia](https://en.wikipedia.org/wiki/Tricolon) |
+
 ### Style is not evidence
 
 Most tells here are house style: they make copy generic, whoever wrote it. The
@@ -126,12 +148,9 @@ was pasted. Report findings as an editorial diagnosis ("three benefit claims
 lack a mechanism; two stock phrases recur"), never as a score or an
 accusation.
 
-Two more review patterns no regex can separate from honest English, so they
-are for the read-through only:
+One more review pattern no regex can separate from honest English, so it is
+for the read-through only:
 
-- **Trailing contrastive negation**: "Real Square data, not a vanity metric."
-  The same shape is how a genuine disclaimer is written ("general information,
-  not a recommendation").
 - **Abstract noun triads** with no concrete referent: "clarity, consistency,
   confidence".
 
