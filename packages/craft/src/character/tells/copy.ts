@@ -365,6 +365,48 @@ const PARALLEL_PAIR: RegExp[] = [
   /^[ \t]*(?:#{1,6}[ \t]+)?[A-Z][\w'’-]*(?:[ \t]+(?!(?:and|or)\b)[\w'’-]+){0,2}(?:,[ \t]+(?!(?:and|or)\b)[\w'’-]+(?:[ \t]+(?!(?:and|or)\b)[\w'’-]+){0,2}){2,3}\.[ \t]*$/m,
 ];
 
+/**
+ * Absolute negation as a fragment: "never pre-ticked", "no servers", "nothing
+ * to buy or run", "Nothing on-site to join". A verbless clause that opens on
+ * never, nothing, nobody or "no" + noun, after a clause break, and runs to the
+ * next one. Read aloud it sounds rigid, and it promises an absolute the copy
+ * rarely means. A sentence with a subject and a verb ("Players never open the
+ * lists", "Nothing is copied by hand") is plain negation and passes. A 92EL
+ * deck passed the gate with three of them in October 2026.
+ */
+const CLAUSE_START = String.raw`(?<=^[ \t]*(?:[-*][ \t]+|#{1,6}[ \t]+)?|[;:,(—–][ \t]*|[.!?][ \t]+)`;
+const ABSOLUTE_NEGATION = new RegExp(
+  `${CLAUSE_START}(?:never|nothing|nobody|no[ \\t]+one|no)(?:[ \\t]+[\\w'’£$€-]+){1,6}(?=[ \\t]*(?:[.,;:!?)"”—–]|$))`,
+  "im",
+);
+
+/** Finite verbs and auxiliaries: a clause with one of these is a sentence, not a fragment. */
+const FINITE =
+  /^(?:is|are|was|were|am|be|been|being|has|have|had|do|does|did|can|could|will|would|shall|should|may|might|must|need|needs|gets|got|goes|went|comes|came|makes|means|matters|happens|stays|changes|works|takes|says|knows|seems|feels|looks|leaves|left|appears|uses|runs|shows|sends|holds|reads|writes|opens|stores|reaches|applies|isn['’]t|aren['’]t|wasn['’]t)$/i;
+/** Words after "no" that make an idiom or a citation, not an absolute: "no date", "no longer". */
+const NO_IDIOM = /^(?:date|longer|later|sooner|matter|more|less|fewer|other|one|doubt|wonder|thanks|problem)$/i;
+/** "never" + a participle: "never pre-ticked", "never shared". "Never share your password" is an instruction. */
+const PARTICIPLE = /^[\w-]*(?:ed|en|wn|ld|lt|nt|pt|ne|id)$/i;
+
+/** A fragment the blocking tells already report, or one with a finite verb in it. */
+function notAbsoluteFragment(block: CopyBlock, match: string, index: number): boolean {
+  const [head, ...rest] = match.trim().split(/[ \t]+/);
+  let words = rest;
+  const lead = head.toLowerCase();
+  if (lead === "no" && words[0]?.toLowerCase() === "one") words = words.slice(1);
+  else if (lead === "no" && NO_IDIOM.test(words[0] ?? "")) return true;
+  if (words.some((w) => FINITE.test(w) || /['’](?:s|re|ve|ll|d)$/i.test(w))) return true;
+  if (lead === "never" && !PARTICIPLE.test(words[0] ?? "")) return true;
+  // "Nothing changes", "Nobody chases": a present-tense verb straight after the subject.
+  if (lead !== "no" && lead !== "never" && /^(?!else$|less$|across$)[a-z]+s$/i.test(words[0] ?? "")) return true;
+  // Reported by the blocking tells: a "No X, no Y" list, a "No X" badge, a negative reassurance.
+  const sentence = lineAround(block.text, index);
+  const line = sentence.trim().replace(/^[-*]\s+/, "");
+  if (NO_X_NO_Y.test(sentence) || NO_X_BADGE.test(line)) return true;
+  if (NEGATIVE_REASSURANCE.some((p) => wordList([p]).test(match))) return true;
+  return emptyState(block, match, index);
+}
+
 /** A soft contrast inside a sentence the blocking rule already reports. */
 const alreadyBlocked = (block: CopyBlock, match: string, index: number): boolean => {
   // Only the sentence the match sits in: a blocked sentence just before it is another finding.
@@ -931,6 +973,46 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/home.md", "We fix boilers the same day, and we tell you the price before we start."),
         // The blocking no-x-no-y reports this one.
         f("content/home.md", "We reply within a day. No obligation, no spam."),
+      ],
+    },
+  },
+  {
+    id: "absolute-negation",
+    name: "Absolute negation fragment",
+    generation: 2,
+    severity: "warn",
+    surface: "copy",
+    why: "'never pre-ticked', 'no servers', 'nothing to buy or run': a verbless fragment that opens on never, nothing, nobody or 'no' + noun. Read aloud it sounds rigid, it promises an absolute the copy rarely means, and it defines the thing by what it is not.",
+    fix: "Say what happens, as a sentence: 'A guardian ticks the consent box in the email.', 'Microsoft runs the servers.' Keep the absolute only where it is literally true and the reader needs it, and give it a subject and a verb.",
+    detect: phrases([ABSOLUTE_NEGATION], quoted, allText, notAbsoluteFragment),
+    fixtures: {
+      flag: [
+        // From a 92EL deck that passed the gate, October 2026.
+        f("content/deck.md", "A guardian consents by email; never pre-ticked."),
+        f("content/deck.md", "Pay per user per month; no servers."),
+        f("content/deck.md", "Microsoft runs it, so there is less to manage: nothing to buy or run."),
+        f("content/deck.md", "Players register on their phone. Nothing on-site to join."),
+        f("content/deck.md", "Each player is checked against the list once, no duplicates."),
+        f("app/slide.tsx", `export const note = "Nobody to chase for a form.";`),
+      ],
+      pass: [
+        f("content/report.md", "Players never open the lists."),
+        f("content/report.md", "Nothing is copied by hand."),
+        f("content/report.md", "It is not tested at national scale."),
+        f("content/report.md", "Never share your password with anyone."),
+        f("content/report.md", "No one knows the password but the club secretary."),
+        // A Harvard citation with no date.
+        f("content/report.md", "Children's data needs a lawful basis (ICO, no date)."),
+        f("content/report.md", "- Information Commissioner's Office (ICO), no date. Children and the UK GDPR."),
+        // A form answer option.
+        f("content/form.md", "Is the player under 18?\n\n- Yes\n- No"),
+        f("app/form.tsx", `export const options = ["Yes", "No"];`),
+        f("content/form.md", "No, the player is 18 or over."),
+        f("content/home.md", "We no longer post paper forms."),
+        f("content/report.md", "If the check fails, nothing new appears in the list."),
+        // The blocking tells report these.
+        f("content/home.md", "We reply within a day. No obligation, no spam."),
+        f("app/list.tsx", `export const empty = "No results found.";`),
       ],
     },
   },
