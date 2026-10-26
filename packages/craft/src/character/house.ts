@@ -66,6 +66,8 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   // New 2026-10-23 (founder, from 92EL deliverables): review, since a short slide label is often fine.
   "parallel-pair": { tier: "review", label: "verbless parallel pair, write the sentence it stands for" },
   "trailing-contrast": { tier: "review", label: "trailing contrast. Say the positive claim, unless it is a disclaimer the reader needs" },
+  // New 2026-10-26 (founder, from a 92EL deck): review first, like every new tell, until estate hits are read.
+  "absolute-negation": { tier: "review", label: "absolute negation fragment. Say what happens, as a sentence with a subject and a verb" },
   "ai-vocabulary": { tier: "review", label: "AI vocabulary" },
   "stock-phrase": { tier: "review", label: "stock phrase" },
   "hollow-imperative": { tier: "review", label: "hollow imperative" },

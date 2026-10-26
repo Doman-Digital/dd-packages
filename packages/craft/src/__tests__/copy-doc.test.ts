@@ -104,6 +104,32 @@ describe("COPY.md is bound to the tells", () => {
     }
   });
 
+  it("reports the absolute negation fragments from a 92EL deck for review, and passes plain negation, citations and form answers", () => {
+    const absolutes = (path: string, text: string): string[] =>
+      applyHouseGate(checkCopy([{ path, text }])).findings
+        .filter((f) => f.tell === "absolute-negation")
+        .map((f) => `${f.severity}:${f.message}`);
+    for (const [text, fragment] of [
+      ["A guardian consents by email; never pre-ticked", "never pre-ticked"],
+      ["Pay per user per month; no servers", "no servers"],
+      ["Microsoft runs it: nothing to buy or run.", "nothing to buy or run"],
+      ["Nothing on-site to join", "Nothing on-site to join"],
+      ["Each player is checked once, no duplicates.", "no duplicates"],
+    ]) {
+      expect(absolutes("content/deck.md", text), text).toEqual([`warn:"${fragment}"`]);
+    }
+    for (const [path, text] of [
+      ["content/report.md", "Children's data needs a lawful basis (ICO, no date)."],
+      ["content/report.md", "Information Commissioner's Office (ICO), no date. Children and the UK GDPR."],
+      ["content/form.md", "Is the player under 18?\n\n- Yes\n- No"],
+      ["app/form.tsx", `export const options = ["Yes", "No"];`],
+      ["content/report.md", "Players never open the lists."],
+      ["content/report.md", "Nothing is copied by hand."],
+    ]) {
+      expect(absolutes(path, text), text).toEqual([]);
+    }
+  });
+
   it("does not block the en dash ranges it says are correct", () => {
     expect(blocks("Open Monday–Saturday, 9am–5pm.")).toBe(false);
   });
