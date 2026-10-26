@@ -154,6 +154,13 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
 
 ## Baselines to read before anything blocks
 
+- Absolute negation fragments, 2026-10-26, a new `absolute-negation` tell at
+  `review` after a 92EL deck passed the gate with "never pre-ticked" and "no <!-- copy-ok: quoting a finding -->
+  servers". First read: 55 hits over the 65 Markdown files of the 92EL project,
+  nearly all the real template in deck and report copy ("no servers to patch", <!-- copy-ok: quoting a finding -->
+  "No overengineering"); the rest status notes ("nothing posted"). Not read <!-- copy-ok: quoting a finding -->
+  across the estate yet, so it stays at `review`.
+
 - Contrastive negation widened to the parallel gerund, 2026-10-23, after a
   92EL report passed the gate with "renting Microsoft's services, not running <!-- copy-ok: quoting a finding -->
   servers". Estate hits read first, over `~/GitHub` outside worktrees, fixtures
