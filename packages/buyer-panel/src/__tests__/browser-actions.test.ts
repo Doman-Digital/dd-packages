@@ -61,6 +61,16 @@ describe.skipIf(!browser)("taps and scrolls in a real browser", () => {
     }
   });
 
+  it("types into a field whose label has a curly apostrophe when the buyer types a straight one", async () => {
+    const s = await session(`<label for="age">Your child’s age</label><input id="age">`);
+    try {
+      expect(await s.type("Your child's age", "6")).toBe(`Typed into "Your child's age".`);
+      expect(await s.page.inputValue("#age")).toBe("6");
+    } finally {
+      await s.context.close();
+    }
+  });
+
   it("scrolls the inner scroller when the window itself cannot scroll", async () => {
     const rows = Array.from({ length: 60 }, (_, i) => `<p style="height:40px;margin:0">Row ${i}</p>`).join("");
     const s = await session(`<div id="vp" style="height:100vh;overflow-y:auto">${rows}</div>`);

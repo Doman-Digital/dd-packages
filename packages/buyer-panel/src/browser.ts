@@ -261,7 +261,8 @@ export class BrowserSession {
 
   async type(field: string, text: string): Promise<string> {
     const p = this.page;
-    for (const cand of [p.getByLabel(field), p.getByPlaceholder(field), p.getByRole("textbox", { name: field }), p.getByRole("combobox", { name: field })]) {
+    const name = textPattern(field, false);
+    for (const cand of [p.getByLabel(name), p.getByPlaceholder(name), p.getByRole("textbox", { name }), p.getByRole("combobox", { name })]) {
       const n = Math.min(await cand.count().catch(() => 0), 5);
       for (let i = 0; i < n; i++) {
         const loc = cand.nth(i);
