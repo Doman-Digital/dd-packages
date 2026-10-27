@@ -71,6 +71,20 @@ describe.skipIf(!browser)("taps and scrolls in a real browser", () => {
     }
   });
 
+  it("picks an option of a native select by its label instead of tapping a link with the same text", async () => {
+    const s = await session(
+      `<label for="interest">Interested in</label><select id="interest"><option value="notsure">Not sure yet</option><option value="ass">Assessments</option></select>` +
+        `<footer><a href="#" onclick="document.title='footer';return false">Assessments</a></footer>`,
+    );
+    try {
+      expect(await s.click("Assessments")).toBe(`Chose "Assessments" in "Interested in".`);
+      expect(await s.page.inputValue("#interest")).toBe("ass");
+      expect(await s.page.title()).toBe("");
+    } finally {
+      await s.context.close();
+    }
+  });
+
   it("scrolls the inner scroller when the window itself cannot scroll", async () => {
     const rows = Array.from({ length: 60 }, (_, i) => `<p style="height:40px;margin:0">Row ${i}</p>`).join("");
     const s = await session(`<div id="vp" style="height:100vh;overflow-y:auto">${rows}</div>`);

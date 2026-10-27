@@ -154,6 +154,16 @@ export function textPattern(text: string, exact: boolean): RegExp {
   return new RegExp(exact ? `^\\s*${EDGE_GLYPH}*\\s*${body}\\s*${EDGE_GLYPH}*\\s*$` : body, "i");
 }
 
+/** The text a buyer means, without the screen text's [kind] tag, an edge arrow or chevron, or wrapping quotes. */
+function targetText(text: string): string {
+  return text
+    .trim()
+    .replace(/^\[[^\]]+\]\s*/, "")
+    .replace(/^[‹«<←]+\s*|\s*[→›»>‹«<←]+$/g, "")
+    .replace(/^["“'‘](.*)["”'’]$/, "$1")
+    .trim();
+}
+
 export class BrowserSession {
   private constructor(
     readonly browser: Browser,
@@ -205,12 +215,7 @@ export class BrowserSession {
   async resolve(text: string, prefer: "action" | "any" = "action"): Promise<Locator | undefined> {
     const p = this.page;
     // The screen text lists a card link with its arrow and full text; its accessible name often has neither.
-    const t = text
-      .trim()
-      .replace(/^\[[^\]]+\]\s*/, "")
-      .replace(/^[‹«<←]+\s*|\s*[→›»>‹«<←]+$/g, "")
-      .replace(/^["“'‘](.*)["”'’]$/, "$1")
-      .trim();
+    const t = targetText(text);
     if (!t) return undefined;
     const words = t.split(/\s+/);
     const heads = [...new Set([t.length > 40 ? t.slice(0, 40) : "", words.length > 5 ? words.slice(0, 4).join(" ") : ""].filter(Boolean))];
@@ -235,7 +240,41 @@ export class BrowserSession {
     return fallback;
   }
 
+  /**
+   * A native select's options are drawn by the phone, not the page, so tapping an option's text cannot choose it: the
+   * buyer's tap landed on another link with the same words, or on nothing, and was reported as a dropdown that would
+   * not save. When the text names an option of a select on screen, choose it by its label instead.
+   */
+  private async pickOption(text: string): Promise<string | undefined> {
+    const t = targetText(text);
+    if (!t) return undefined;
+    const pattern = textPattern(t, true);
+    const selects = this.page.locator("select");
+    const vh = this.page.viewportSize()?.height ?? 900;
+    const n = Math.min(await selects.count().catch(() => 0), 20);
+    for (let i = 0; i < n; i++) {
+      const sel = selects.nth(i);
+      if (!(await sel.isVisible().catch(() => false))) continue;
+      const box = await sel.boundingBox().catch(() => null);
+      if (!box || box.y + box.height <= 0 || box.y >= vh) continue;
+      const labels = await sel.evaluate((el) => Array.from((el as HTMLSelectElement).options, (o) => o.label)).catch(() => [] as string[]);
+      const label = labels.find((l) => pattern.test(l));
+      if (label === undefined) continue;
+      const name = await sel.evaluate((el) => ((el as HTMLSelectElement).labels?.[0]?.innerText ?? el.getAttribute("aria-label") ?? "").replace(/\s+/g, " ").trim()).catch(() => "");
+      try {
+        await sel.selectOption({ label }, { timeout: 5000 });
+      } catch (e) {
+        return `Could not choose "${label}": ${(e as Error).message.split("\n")[0]}`;
+      }
+      await this.settle();
+      return name ? `Chose "${label}" in "${name}".` : `Chose "${label}".`;
+    }
+    return undefined;
+  }
+
   async click(text: string): Promise<string> {
+    const picked = await this.pickOption(text);
+    if (picked) return picked;
     const loc = await this.resolve(text, "action");
     if (!loc) return `Nothing on the page matches "${text}".`;
     const before = this.page.url();
