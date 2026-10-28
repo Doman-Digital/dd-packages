@@ -94,6 +94,11 @@ describe("config", () => {
     expect(p.devices).toEqual(["desktop", "phone"]);
     expect(p.archive).toMatch(/dd-client-capsule$/);
   });
+  it("accepts http only on the loopback, for a prototype served on this machine", () => {
+    expect(validatePanel({ ...raw, target: { origin: "http://127.0.0.1:8741", start: "/" } }).target.origin).toBe("http://127.0.0.1:8741");
+    expect(() => validatePanel({ ...raw, target: { origin: "http://example.com", start: "/" } })).toThrow(/https origin/);
+    expect(() => validatePanel({ ...raw, target: { origin: "http://127.0.0.1.example.com", start: "/" } })).toThrow(/https origin/);
+  });
   it("refuses a panel with one variant, since nothing could reproduce within a profile", () => {
     expect(() => validatePanel({ ...raw, variants: [raw.variants[0]!] })).toThrow(/two variants/);
   });

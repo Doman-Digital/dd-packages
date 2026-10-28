@@ -80,7 +80,9 @@ export function loadPanel(path: string): Panel {
 export function validatePanel(p: Panel, base = process.cwd()): Panel {
   if (!p.name) fail("name is required");
   if (!p.client || /[^a-z0-9-]/.test(p.client)) fail("client must be a lower-case folder name");
-  if (!/^https:\/\//.test(p.target?.origin ?? "")) fail("target.origin must be an https origin");
+  // http only for this machine's loopback: a prototype served locally (DOM-1396) has no Access gate or certificate.
+  const origin = p.target?.origin ?? "";
+  if (!/^https:\/\//.test(origin) && !/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin)) fail("target.origin must be an https origin, or http on 127.0.0.1 or localhost");
   if (!p.target.start?.startsWith("/")) fail("target.start must be a path");
   if (!(p.stepBudget >= 5 && p.stepBudget <= 60)) fail("stepBudget must be between 5 and 60");
   if (!p.devices?.length || p.devices.some((d) => d !== "desktop" && d !== "phone")) fail("devices must be desktop and/or phone");
