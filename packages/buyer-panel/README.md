@@ -43,6 +43,9 @@ On dd-work-01, from this folder after `pnpm install && pnpm run build`:
 doppler run -p dd-work-box -c prd_buyer_panel -- node dist/cli.js run panels/dd-redesign.json --version auto
 ```
 
+A prototype that is not on the web can be served on this machine: `target.origin` may be `http://127.0.0.1:<port>` or
+`http://localhost:<port>`. Anywhere else the origin must be https.
+
 `--version auto` reads the version the Worker serves (`target.worker` in the panel) and checks it again at the
 end; a deploy during the run is recorded in the report. Otherwise `--version` takes the Worker version id, or any
 value that starts with at least 8 hex characters: for a target that is not a Worker (a live site on another host),
