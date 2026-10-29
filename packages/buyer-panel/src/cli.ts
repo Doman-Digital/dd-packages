@@ -33,7 +33,8 @@ Credentials come from the environment, never from flags:
   model    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BEDROCK_REGION (providers bedrock and bedrock-converse),
            ANTHROPIC_API_KEY (anthropic) or CLOUDFLARE_AI_TOKEN and CLOUDFLARE_ACCOUNT_ID (workers-ai)
   access   the env var names in the panel's target.access
-On dd-work-01:  doppler run -p dd-work-box -c prd_buyer_panel -- buyer-panel run panels/dd-redesign.json --version auto
+On the ops box:  doppler run -p <project> -c <config> -- buyer-panel run panels/dd-redesign.json --version auto
+                (the config is in dd-repo-registry docs/buyer-panel.md)
 
 A defect-finding layer, never validation: no finding means nothing was found.`;
 

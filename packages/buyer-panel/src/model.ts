@@ -40,7 +40,7 @@ function patient(inner: ModelClient): ModelClient {
  * A plain API client: never a Claude Code session, so the buyer sees nothing but its system prompt
  * (the persona) and what the browser shows it.
  *
- * bedrock and bedrock-converse: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_BEDROCK_REGION (dd-work-box/prd_buyer_panel on the box).
+ * bedrock and bedrock-converse: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_BEDROCK_REGION (the panel's Doppler config, dd-repo-registry docs/buyer-panel.md).
  * anthropic: ANTHROPIC_API_KEY.
  * workers-ai: CLOUDFLARE_AI_TOKEN and CLOUDFLARE_ACCOUNT_ID.
  */
@@ -65,7 +65,7 @@ export function clientFor(choice: ModelChoice): ModelClient {
 
 const need = (name: string): string => {
   const v = process.env[name];
-  if (!v) throw new Error(`${name} is not set: run under doppler run -p dd-work-box -c prd_buyer_panel`);
+  if (!v) throw new Error(`${name} is not set: run under the panel's Doppler config (dd-repo-registry docs/buyer-panel.md)`);
   return v;
 };
 
