@@ -84,10 +84,16 @@ AI its neurons.
   brand facts) is cached too, shared by every session graded in the run.
 - **`--max-usd <n>` (default 3).** Spend is estimated live from token usage. Past the cap no new session starts,
   running sessions end cleanly (`endReason: capped`), grading stops starting new sessions, and the report names the
-  sessions it cut, did not start, or left ungraded. On `evaluate` the cap covers the grading only.
-- **Kill switch.** An AWS budget action denies Bedrock to the panel's IAM user when account
-  spend passes $20 in the month. If Bedrock calls suddenly return AccessDenied, it has fired: stop and ask, do not
-  work around it.
+  sessions it cut, did not start, or left ungraded. On `evaluate` the cap covers the grading only. A full 20-session
+  DD redesign panel (Haiku buyers, Sonnet evaluator) costs about $5, so it needs `--max-usd 5` or more; the default
+  suits a narrowed panel (`--only`, `--device`, `--variant`) and stops a full one part-way, with the report saying so.
+- **The evaluator is Sonnet.** A panel that names no evaluator is graded by Sonnet 4.6, and so is the DD redesign
+  panel. A panel whose evaluator is an Opus model is refused when it loads, on `run` and `evaluate`, unless the
+  command passes `--allow-opus`; the report then says "Opus allowed with --allow-opus" beside the evaluator. Opus
+  grading cost about $13 of one month's Bedrock spend (DOM-1642).
+- **Kill switch.** An AWS budget denies Bedrock to the panel's IAM user when the month's Bedrock spend passes its
+  limit (name and limit in dd-repo-registry `docs/buyer-panel.md`). If Bedrock calls suddenly return AccessDenied, it
+  has fired: stop and ask, do not work around it. The `--max-usd` cap is the per-run guard.
 
 ### Providers
 
