@@ -91,8 +91,8 @@ AI its neurons.
   command passes `--allow-opus`; the report then says "Opus allowed with --allow-opus" beside the evaluator. Opus
   grading cost about $13 of one month's Bedrock spend (DOM-1642).
 - **Kill switch.** The AWS budget `dd-panel-stop-20usd` denies Bedrock to the panel's IAM user when it fires. Despite
-  its name its live limit is $50 a month with no cost filter, so it counts the whole AWS account (29 October 2026:
-  $45.60 actual, in STANDBY) and fires on that total. If Bedrock calls suddenly return AccessDenied, it has fired:
+  its name its live limit is $50 a month, counting Bedrock spend only (29 October 2026: $45.60 actual, in STANDBY),
+  and it fires at 100% of that. If Bedrock calls suddenly return AccessDenied, it has fired:
   stop and ask, do not work around it. The `--max-usd` cap is the per-run guard.
 
 ### Providers
