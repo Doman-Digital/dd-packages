@@ -40,8 +40,8 @@ export interface Panel {
     start: string;
     /** Env var names for a Cloudflare Access service token; sent only to the target origin. */
     access?: { idEnv: string; secretEnv: string };
-    /** A Cloudflare Worker serving the target: lets `--version auto` read the deployed version, and the run check it again at the end. */
-    worker?: { name: string; accountId: string };
+    /** A Cloudflare Worker serving the target: lets `--version auto` read the deployed version, and the run check it again at the end. accountId is optional: without it wrangler uses CLOUDFLARE_ACCOUNT_ID from the environment (the panel's Doppler config), which keeps account ids out of this public repo. */
+    worker?: { name: string; accountId?: string };
   };
   /** Archive root (the client-capsule pattern). Runs land in <archive>/<client>/panel/runs/<runId>. */
   archive: string;
