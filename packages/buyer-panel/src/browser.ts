@@ -30,6 +30,22 @@ export async function accessCookie(panel: Panel): Promise<string | undefined> {
 }
 
 /**
+ * The element a buyer's scroll moves. Usually the window; but a page laid out as a fixed-height box that scrolls inside
+ * (a phone mock-up, an app shell) leaves the window nothing to scroll, and the buyer was told it scrolled when nothing
+ * moved. Then it is the scrollable box under the middle of the screen, or failing that the tallest one on the page.
+ */
+const SCROLLER_FN = `function scroller() {
+  const root = document.scrollingElement || document.documentElement;
+  const shut = (el) => el && getComputedStyle(el).overflowY === 'hidden';
+  if (root.scrollHeight > innerHeight + 4 && !shut(document.documentElement) && !shut(document.body)) return null;
+  const able = (el) => { const o = getComputedStyle(el).overflowY; return (o === 'auto' || o === 'scroll' || o === 'overlay') && el.scrollHeight > el.clientHeight + 4; };
+  for (let el = document.elementFromPoint(innerWidth / 2, innerHeight / 2); el && el !== root; el = el.parentElement) if (able(el)) return el;
+  let best = null;
+  for (const el of document.querySelectorAll('body *')) if (able(el) && (!best || el.clientHeight > best.clientHeight)) best = el;
+  return best;
+}`;
+
+/**
  * The text a person can see on screen right now, in reading order, one element a line. Runs in the page.
  *
  * Text that sits in a plain div or span (a price and duration beside a treatment link, a tag, a card's blurb) belongs to
@@ -38,6 +54,7 @@ export async function accessCookie(panel: Panel): Promise<string | undefined> {
  * prices. Those lines are not de-duplicated: two rows with the same price are two rows.
  */
 export const VISIBLE_SCRIPT = `(() => {
+  ${SCROLLER_FN}
   const vh = innerHeight, vw = innerWidth, out = [], seen = new Set(), listed = new Set();
   const containers = 'p,li,h1,h2,h3,h4,h5,h6,td,dd,blockquote,figcaption';
   const blocks = containers + ',div,section,article,aside,ul,ol,table,form,header,footer,nav,main';
@@ -92,8 +109,10 @@ export const VISIBLE_SCRIPT = `(() => {
     listed.add(el);
     out.push('[' + kind + '] ' + text);
   }
-  const max = Math.max(1, document.documentElement.scrollHeight - vh);
-  return { lines: out, scrolledPct: Math.round(100 * Math.min(1, scrollY / max)), atBottom: scrollY + vh >= document.documentElement.scrollHeight - 4 };
+  const sc = scroller();
+  const top = sc ? sc.scrollTop : scrollY, seenH = sc ? sc.clientHeight : vh, fullH = sc ? sc.scrollHeight : document.documentElement.scrollHeight;
+  const max = Math.max(1, fullH - seenH);
+  return { lines: out, scrolledPct: Math.round(100 * Math.min(1, top / max)), atBottom: top + seenH >= fullH - 4 };
 })()`;
 
 export interface Observation {
@@ -110,6 +129,39 @@ export interface ElementEvidence {
   resolved: boolean;
   box?: { x: number; y: number; width: number; height: number };
   screenshot: Buffer;
+}
+
+const APOSTROPHES = "'‘’‚‛′`";
+const QUOTES = '"“”„‟″';
+const EDGE_GLYPH = "[→›»>‹«<←]";
+
+/**
+ * A pattern for text a buyer read off the screen. The model writes straight quotes where the page has curly ones, and
+ * runs of spaces collapse in its transcript, so a tap on "What's included" missed a button named "What’s included" and
+ * the buyer reported a dead control. Quotes of either kind, any whitespace and letter case all match; an exact pattern
+ * also allows the arrow or chevron a card or back link carries in its name.
+ */
+export function textPattern(text: string, exact: boolean): RegExp {
+  const body = text
+    .trim()
+    .split(/\s+/)
+    .map((word) =>
+      [...word]
+        .map((ch) => (APOSTROPHES.includes(ch) ? "['‘’‚‛′`]" : QUOTES.includes(ch) ? '["“”„‟″]' : ch.replace(/[.*+?^${}()|[\]\\/-]/g, "\\$&")))
+        .join(""),
+    )
+    .join("\\s+");
+  return new RegExp(exact ? `^\\s*${EDGE_GLYPH}*\\s*${body}\\s*${EDGE_GLYPH}*\\s*$` : body, "i");
+}
+
+/** The text a buyer means, without the screen text's [kind] tag, an edge arrow or chevron, or wrapping quotes. */
+function targetText(text: string): string {
+  return text
+    .trim()
+    .replace(/^\[[^\]]+\]\s*/, "")
+    .replace(/^[‹«<←]+\s*|\s*[→›»>‹«<←]+$/g, "")
+    .replace(/^["“'‘](.*)["”'’]$/, "$1")
+    .trim();
 }
 
 export class BrowserSession {
@@ -163,18 +215,15 @@ export class BrowserSession {
   async resolve(text: string, prefer: "action" | "any" = "action"): Promise<Locator | undefined> {
     const p = this.page;
     // The screen text lists a card link with its arrow and full text; its accessible name often has neither.
-    const t = text.trim().replace(/^\[[^\]]+\]\s*/, "").replace(/^["“]|["”]$/g, "").replace(/\s*[→›»>]+\s*$/, "").trim();
+    const t = targetText(text);
     if (!t) return undefined;
     const words = t.split(/\s+/);
     const heads = [...new Set([t.length > 40 ? t.slice(0, 40) : "", words.length > 5 ? words.slice(0, 4).join(" ") : ""].filter(Boolean))];
-    const action = [
-      p.getByRole("link", { name: t, exact: true }),
-      p.getByRole("button", { name: t, exact: true }),
-      p.getByRole("tab", { name: t, exact: true }),
-    ];
-    const loose = [p.getByRole("link", { name: t }), p.getByRole("button", { name: t }), p.getByLabel(t)];
-    for (const h of heads) loose.push(p.getByRole("link", { name: h }), p.getByRole("button", { name: h }));
-    const anyText = [p.getByText(t, { exact: true }), p.getByText(t), ...heads.map((h) => p.getByText(h))];
+    const exact = textPattern(t, true), near = textPattern(t, false);
+    const action = [p.getByRole("link", { name: exact }), p.getByRole("button", { name: exact }), p.getByRole("tab", { name: exact })];
+    const loose = [p.getByRole("link", { name: near }), p.getByRole("button", { name: near }), p.getByLabel(near)];
+    for (const h of heads) loose.push(p.getByRole("link", { name: textPattern(h, false) }), p.getByRole("button", { name: textPattern(h, false) }));
+    const anyText = [p.getByText(exact), p.getByText(near), ...heads.map((h) => p.getByText(textPattern(h, false)))];
     const order = prefer === "action" ? [...action, ...loose, ...anyText] : [...anyText, ...action, ...loose];
     const vh = p.viewportSize()?.height ?? 900;
     let fallback: Locator | undefined;
@@ -191,7 +240,41 @@ export class BrowserSession {
     return fallback;
   }
 
+  /**
+   * A native select's options are drawn by the phone, not the page, so tapping an option's text cannot choose it: the
+   * buyer's tap landed on another link with the same words, or on nothing, and was reported as a dropdown that would
+   * not save. When the text names an option of a select on screen, choose it by its label instead.
+   */
+  private async pickOption(text: string): Promise<string | undefined> {
+    const t = targetText(text);
+    if (!t) return undefined;
+    const pattern = textPattern(t, true);
+    const selects = this.page.locator("select");
+    const vh = this.page.viewportSize()?.height ?? 900;
+    const n = Math.min(await selects.count().catch(() => 0), 20);
+    for (let i = 0; i < n; i++) {
+      const sel = selects.nth(i);
+      if (!(await sel.isVisible().catch(() => false))) continue;
+      const box = await sel.boundingBox().catch(() => null);
+      if (!box || box.y + box.height <= 0 || box.y >= vh) continue;
+      const labels = await sel.evaluate((el) => Array.from((el as HTMLSelectElement).options, (o) => o.label)).catch(() => [] as string[]);
+      const label = labels.find((l) => pattern.test(l));
+      if (label === undefined) continue;
+      const name = await sel.evaluate((el) => ((el as HTMLSelectElement).labels?.[0]?.innerText ?? el.getAttribute("aria-label") ?? "").replace(/\s+/g, " ").trim()).catch(() => "");
+      try {
+        await sel.selectOption({ label }, { timeout: 5000 });
+      } catch (e) {
+        return `Could not choose "${label}": ${(e as Error).message.split("\n")[0]}`;
+      }
+      await this.settle();
+      return name ? `Chose "${label}" in "${name}".` : `Chose "${label}".`;
+    }
+    return undefined;
+  }
+
   async click(text: string): Promise<string> {
+    const picked = await this.pickOption(text);
+    if (picked) return picked;
     const loc = await this.resolve(text, "action");
     if (!loc) return `Nothing on the page matches "${text}".`;
     const before = this.page.url();
@@ -217,7 +300,8 @@ export class BrowserSession {
 
   async type(field: string, text: string): Promise<string> {
     const p = this.page;
-    for (const cand of [p.getByLabel(field), p.getByPlaceholder(field), p.getByRole("textbox", { name: field }), p.getByRole("combobox", { name: field })]) {
+    const name = textPattern(field, false);
+    for (const cand of [p.getByLabel(name), p.getByPlaceholder(name), p.getByRole("textbox", { name }), p.getByRole("combobox", { name })]) {
       const n = Math.min(await cand.count().catch(() => 0), 5);
       for (let i = 0; i < n; i++) {
         const loc = cand.nth(i);
@@ -236,7 +320,12 @@ export class BrowserSession {
   }
 
   async scroll(direction: "down" | "up"): Promise<string> {
-    await this.page.evaluate((d) => window.scrollBy({ top: (d === "down" ? 0.85 : -0.85) * window.innerHeight, behavior: "instant" }), direction);
+    await this.page.evaluate(`(() => {
+      ${SCROLLER_FN}
+      const sc = scroller(), d = ${direction === "down" ? 1 : -1};
+      if (sc) sc.scrollBy({ top: d * 0.85 * sc.clientHeight, behavior: "instant" });
+      else window.scrollBy({ top: d * 0.85 * innerHeight, behavior: "instant" });
+    })()`);
     await this.page.waitForTimeout(300);
     return `Scrolled ${direction}.`;
   }
