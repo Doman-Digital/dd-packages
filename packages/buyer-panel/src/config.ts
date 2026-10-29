@@ -31,6 +31,17 @@ export interface Profile {
   task: string;
 }
 
+/** What grades a run when the panel file names no evaluator. */
+export const DEFAULT_EVALUATOR: ModelChoice = { provider: "bedrock", model: "eu.anthropic.claude-sonnet-4-6", temperature: 0 };
+
+/** Opus grading cost about $13 of one month's Bedrock bill (DOM-1642), so it needs `--allow-opus` on every run. */
+export const isOpus = (model: string): boolean => /opus/i.test(model);
+
+export interface LoadOptions {
+  /** `--allow-opus`: lets a panel whose evaluator is an Opus model load. */
+  allowOpus?: boolean;
+}
+
 export interface Panel {
   name: string;
   /** Folder name in the archive, e.g. "dd-site-preview". */
@@ -48,7 +59,10 @@ export interface Panel {
   stepBudget: number;
   devices: Device[];
   variants: Variant[];
+  /** Defaults to Sonnet 4.6. An Opus model is refused unless the run passes `--allow-opus`. */
   evaluator: ModelChoice;
+  /** Set when `--allow-opus` let an Opus evaluator load; the report records it. */
+  allowOpus?: boolean;
   firstImpressionQuestion: string;
   profiles: Profile[];
   grading: {
@@ -71,13 +85,13 @@ const fail = (msg: string): never => {
 };
 
 /** Reads and checks a panel file. Relative paths inside it resolve against the file's own folder. */
-export function loadPanel(path: string): Panel {
+export function loadPanel(path: string, opts: LoadOptions = {}): Panel {
   const file = expandPath(path);
   const raw = JSON.parse(readFileSync(file, "utf8")) as Panel;
-  return validatePanel(raw, dirname(file));
+  return validatePanel(raw, dirname(file), opts);
 }
 
-export function validatePanel(p: Panel, base = process.cwd()): Panel {
+export function validatePanel(p: Panel, base = process.cwd(), opts: LoadOptions = {}): Panel {
   if (!p.name) fail("name is required");
   if (!p.client || /[^a-z0-9-]/.test(p.client)) fail("client must be a lower-case folder name");
   // http only for this machine's loopback: a prototype served locally (DOM-1396) has no Access gate or certificate.
@@ -88,8 +102,10 @@ export function validatePanel(p: Panel, base = process.cwd()): Panel {
   if (!p.devices?.length || p.devices.some((d) => d !== "desktop" && d !== "phone")) fail("devices must be desktop and/or phone");
   if ((p.variants?.length ?? 0) < 2) fail("at least two variants are needed for a finding to reproduce within a profile");
   if (new Set(p.variants.map((v) => v.id)).size !== p.variants.length) fail("variant ids must be unique");
-  if (!p.evaluator?.model) fail("evaluator.model is required");
-  for (const c of [p.evaluator, ...p.variants]) {
+  const evaluator = p.evaluator ?? DEFAULT_EVALUATOR;
+  if (!evaluator.model) fail("evaluator.model is required");
+  if (isOpus(evaluator.model) && !opts.allowOpus) fail(`evaluator ${evaluator.model} is an Opus model; pass --allow-opus to grade with it (Sonnet is the default)`);
+  for (const c of [evaluator, ...p.variants]) {
     if (c.provider && !PROVIDERS.includes(c.provider)) fail(`provider "${c.provider}" is not one of ${PROVIDERS.join(", ")}`);
     try {
       priceFor(c.model);
@@ -106,6 +122,8 @@ export function validatePanel(p: Panel, base = process.cwd()): Panel {
   if (!p.grading?.journeyMap || !p.grading.brandFacts?.path) fail("grading.journeyMap and grading.brandFacts.path are required");
   return {
     ...p,
+    evaluator,
+    ...(isOpus(evaluator.model) ? { allowOpus: true } : {}),
     archive: expandPath(p.archive, base),
     grading: {
       ...p.grading,
