@@ -18,6 +18,8 @@ export interface RunMeta {
   evaluator: Panel["evaluator"];
   /** Set when a re-grade used a different evaluator: the one that graded the run first. */
   firstEvaluator?: Panel["evaluator"];
+  /** Set when `--allow-opus` let an Opus model grade this report. */
+  allowOpus?: boolean;
   /** When the current grading was made. */
   gradedAt?: string;
   brandFactsVersion?: string;
@@ -38,9 +40,10 @@ export interface RunReport {
 }
 
 /** "model at temperature 0", plus the first evaluator when this is a re-grade by a different one. */
-export function evaluatorLine(m: Pick<RunMeta, "evaluator" | "firstEvaluator" | "gradedAt">): string {
+export function evaluatorLine(m: Pick<RunMeta, "evaluator" | "firstEvaluator" | "gradedAt" | "allowOpus">): string {
   const one = (e: RunMeta["evaluator"]) => `${e.model} at temperature ${e.temperature ?? "default"}`;
-  return m.firstEvaluator ? `${one(m.evaluator)} (re-graded${m.gradedAt ? ` ${m.gradedAt.slice(0, 10)}` : ""}; first graded by ${one(m.firstEvaluator)})` : one(m.evaluator);
+  const line = m.firstEvaluator ? `${one(m.evaluator)} (re-graded${m.gradedAt ? ` ${m.gradedAt.slice(0, 10)}` : ""}; first graded by ${one(m.firstEvaluator)})` : one(m.evaluator);
+  return m.allowOpus ? `${line} (Opus allowed with --allow-opus)` : line;
 }
 
 const esc = (s: string) => s.replace(/\|/g, "\\|").replace(/\n+/g, " ");

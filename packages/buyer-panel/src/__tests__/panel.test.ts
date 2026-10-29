@@ -99,6 +99,24 @@ describe("config", () => {
     expect(() => validatePanel({ ...raw, target: { origin: "http://example.com", start: "/" } })).toThrow(/https origin/);
     expect(() => validatePanel({ ...raw, target: { origin: "http://127.0.0.1.example.com", start: "/" } })).toThrow(/https origin/);
   });
+  it("grades with Sonnet when the panel names no evaluator", () => {
+    const { evaluator: _drop, ...noEvaluator } = raw;
+    const p = validatePanel(noEvaluator as Panel);
+    expect(p.evaluator.model).toBe("eu.anthropic.claude-sonnet-4-6");
+    expect(p.allowOpus).toBeUndefined();
+  });
+  it("refuses an Opus evaluator unless --allow-opus is passed, and records that it was", () => {
+    const opus = { ...raw, evaluator: { provider: "bedrock" as const, model: "eu.anthropic.claude-opus-4-6-v1", temperature: 0 } };
+    expect(() => validatePanel(opus)).toThrow(/Opus model; pass --allow-opus/);
+    const allowed = validatePanel(opus, process.cwd(), { allowOpus: true });
+    expect(allowed.allowOpus).toBe(true);
+    const m = recordEvaluator({ runId: "r", panel: "p", client: "c", target: "https://x.test/", version: "20261029", label: "", ranAt: "2026-10-29T11:00:00Z", stepBudget: 25, variants: [], evaluator: raw.evaluator, usage: { buyers: emptyU(), evaluator: emptyU() } } as RunMeta, allowed, new Date("2026-10-29T12:00:00Z"));
+    expect(m.allowOpus).toBe(true);
+    expect(renderReport({ meta: m, sessions: [], grades: [], clusters: [], findings: [], dropped: [] }, [])).toContain("(Opus allowed with --allow-opus)");
+  });
+  it("lets --allow-opus pass on a Sonnet panel without recording it", () => {
+    expect(validatePanel(raw, "/base", { allowOpus: true }).allowOpus).toBeUndefined();
+  });
   it("refuses a panel with one variant, since nothing could reproduce within a profile", () => {
     expect(() => validatePanel({ ...raw, variants: [raw.variants[0]!] })).toThrow(/two variants/);
   });

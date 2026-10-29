@@ -11,7 +11,7 @@ const HELP = `buyer-panel: AI buyers browse a site, a separate model grades the 
 
 Usage
   buyer-panel run <panel.json> --version <worker-version-id> [options]
-  buyer-panel evaluate <panel.json> <run-dir> [--max-usd <n>]
+  buyer-panel evaluate <panel.json> <run-dir> [--max-usd <n>] [--allow-opus]
   buyer-panel diff <panel.json> <earlier-run-dir> <later-run-dir>
 
 Run options
@@ -25,7 +25,9 @@ Run options
   --no-evaluate       Run the sessions only
   --max-usd <n>       Spend cap for the run, estimated live from token usage (default 3). Past it no new session starts,
                       running ones end cleanly, and the report says what was cut. Also on evaluate (grading only)
-  --into <run-id>     Finish an earlier run of the same version: run only its missing or failed sessions
+  --allow-opus        Let a panel whose evaluator is an Opus model load; without it that panel is refused. The
+                      evaluator defaults to Sonnet 4.6, and the report records when Opus was allowed. Also on evaluate
+  --into <run-id>    Finish an earlier run of the same version: run only its missing or failed sessions
 
 Credentials come from the environment, never from flags:
   model    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BEDROCK_REGION (providers bedrock and bedrock-converse),
@@ -49,6 +51,7 @@ async function main(argv: string[]): Promise<number> {
       "no-evaluate": { type: "boolean" },
       "max-usd": { type: "string" },
       into: { type: "string" },
+      "allow-opus": { type: "boolean" },
       help: { type: "boolean", short: "h" },
     },
   });
@@ -58,7 +61,7 @@ async function main(argv: string[]): Promise<number> {
     return 0;
   }
   if (!panelPath) throw new Error(`${cmd}: the panel file is required`);
-  const panel = loadPanel(panelPath);
+  const panel = loadPanel(panelPath, { allowOpus: values["allow-opus"] });
   const runDir = (p: string | undefined) => {
     if (!p) throw new Error(`${cmd}: a run directory is required`);
     const d = existsSync(expandPath(p)) ? expandPath(p) : join(panel.archive, panel.client, "panel", "runs", p);
