@@ -99,6 +99,7 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
       stepBudget: panel.stepBudget,
       variants,
       evaluator: { temperature: 0, ...panel.evaluator },
+      ...(panel.allowOpus ? { allowOpus: true } : {}),
       usage: { buyers: emptyUsage(), evaluator: emptyUsage() },
     };
     writeFileSync(join(runDir, "run.json"), JSON.stringify({ ...meta, plan: plan.map((x) => sessionId(x.profile.id, x.device, x.variant.id)) }, null, 1));
@@ -160,8 +161,8 @@ const sameModel = (a: ModelChoice, b: ModelChoice) => a.model === b.model && (a.
 export function recordEvaluator(meta: RunMeta, panel: Panel, at: Date): RunMeta {
   const evaluator: ModelChoice = { temperature: 0, ...panel.evaluator };
   const first = meta.firstEvaluator ?? meta.evaluator;
-  const { firstEvaluator: _drop, ...rest } = meta;
-  return { ...rest, evaluator, ...(first && !sameModel(first, evaluator) ? { firstEvaluator: first } : {}), gradedAt: at.toISOString() };
+  const { firstEvaluator: _drop, allowOpus: _opus, ...rest } = meta;
+  return { ...rest, evaluator, ...(panel.allowOpus ? { allowOpus: true } : {}), ...(first && !sameModel(first, evaluator) ? { firstEvaluator: first } : {}), gradedAt: at.toISOString() };
 }
 
 /** Grades every session, clusters the findings, applies the reproduction rule, writes the report and the archive index. */
