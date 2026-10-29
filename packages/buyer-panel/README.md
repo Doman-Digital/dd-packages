@@ -37,7 +37,8 @@ session in a repo, which would load the project's own documentation before readi
 
 ## Running it
 
-On the ops box, from this folder after `pnpm install && pnpm run build`:
+On the ops box, from this folder after `pnpm install && pnpm run build`, under the panel's Doppler config (see
+dd-repo-registry `docs/buyer-panel.md`):
 
 ```sh
 doppler run -p <project> -c <config> -- node dist/cli.js run panels/dd-redesign.json --version auto
@@ -90,10 +91,9 @@ AI its neurons.
   panel. A panel whose evaluator is an Opus model is refused when it loads, on `run` and `evaluate`, unless the
   command passes `--allow-opus`; the report then says "Opus allowed with --allow-opus" beside the evaluator. Opus
   grading cost about $13 of one month's Bedrock spend (DOM-1642).
-- **Kill switch.** The AWS budget `<budget>` denies Bedrock to the panel's IAM user when it fires. Despite
-  its name its live limit is $50 a month, counting Bedrock spend only (29 October 2026: <amount> actual, in STANDBY),
-  and it fires at 100% of that. If Bedrock calls suddenly return AccessDenied, it has fired:
-  stop and ask, do not work around it. The `--max-usd` cap is the per-run guard.
+- **Kill switch.** An AWS budget denies Bedrock to the panel's IAM user when the month's Bedrock spend passes its
+  limit (name and limit in dd-repo-registry `docs/buyer-panel.md`). If Bedrock calls suddenly return AccessDenied, it
+  has fired: stop and ask, do not work around it. The `--max-usd` cap is the per-run guard.
 
 ### Providers
 
@@ -117,20 +117,9 @@ bake-off report before changing a panel's models.
 
 ### Credentials
 
-- **Model:** Claude on Amazon Bedrock with `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_BEDROCK_REGION`.
-  Use Doppler config `the panel's Doppler config`: it inherits `prd` and swaps in the key of IAM user
-  `<panel-iam-user>`, which may call the EU inference profiles of Haiku 4.5, Sonnet 4.6 and Opus 4.6 and nothing else.
-  Plain `prd` holds the check-in user, which may call Haiku 4.5 only, so a Sonnet evaluator gets AccessDenied there.
-  The organisation allows Claude 4.6 on Bedrock, not 5.x. The DD redesign panel's buyers are Haiku 4.5 (variants a
-  and b) and its evaluator is `eu.anthropic.claude-sonnet-4-6` at temperature 0. A variant or the evaluator can set
-  `"provider": "anthropic"` to use `ANTHROPIC_API_KEY`. The same config holds `CLOUDFLARE_AI_TOKEN` (an
-  account-owned token with Workers AI Read and Write only) and `CLOUDFLARE_ACCOUNT_ID` for the `workers-ai`
-  provider, and the panel user may also call Qwen3-VL 235B and Kimi K2.5 on demand in eu-west-2.
-- **Cloudflare Access:** the preview sits behind Access. A service token (application `<id>`, policy
-  "<panel-iam-user> service token (DOM-642)", non-identity) lives in the box's Doppler config (and so <config>) as
-  `DD_SITE_PREVIEW_ACCESS_CLIENT_ID` and `DD_SITE_PREVIEW_ACCESS_CLIENT_SECRET`. The runner trades it for Access's
-  24-hour session cookie with one request outside the browser, so the token itself never reaches a page, a
-  screenshot or a Playwright trace. The token expires on 10 October 2027.
+From the environment, never from flags: the model provider's keys (table above) and the two Access service-token
+variables the panel names in `target.access`. Which Doppler config holds them, which IAM user and Access policy they
+belong to, and when the token expires are recorded in dd-repo-registry `docs/buyer-panel.md` (private), not in this public repo (DOM-1643).
 
 ## Where runs go
 

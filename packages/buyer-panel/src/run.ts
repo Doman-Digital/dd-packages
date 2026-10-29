@@ -50,7 +50,7 @@ export function deployedVersion(panel: Panel): string | undefined {
   const w = panel.target.worker;
   if (!w) return undefined;
   const out = execFileSync("wrangler", ["deployments", "status", "--name", w.name, "--json"], {
-    env: { ...process.env, CLOUDFLARE_ACCOUNT_ID: w.accountId },
+    env: w.accountId ? { ...process.env, CLOUDFLARE_ACCOUNT_ID: w.accountId } : process.env,
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
   });

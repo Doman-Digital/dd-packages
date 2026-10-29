@@ -5,7 +5,7 @@
     "origin": "https://dd-site-preview.domandigital.workers.dev",
     "start": "/",
     "access": { "idEnv": "DD_SITE_PREVIEW_ACCESS_CLIENT_ID", "secretEnv": "DD_SITE_PREVIEW_ACCESS_CLIENT_SECRET" },
-    "worker": { "name": "dd-site-preview", "accountId": "<account-id>" }
+    "worker": { "name": "dd-site-preview" }
   },
   "archive": "~/dd-client-capsule",
   "stepBudget": 25,
