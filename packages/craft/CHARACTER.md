@@ -286,7 +286,7 @@ the licensor's own page. It is not a shortlist, and nothing proposes from it.
 
 `craft direction init` writes what the site does today with every reason
 empty, so the first thing it produces is the list of things nobody decided.
-Run on RMP's live home page (2026-09-23) it records Fraunces, Manrope, a cream
+Run on an electrician client's live home page (2026-09-23) it records Fraunces, Manrope, a cream
 ground and pill buttons, three of them on the catalogue, and zero of seven
 choices decided.
 
@@ -302,8 +302,8 @@ A file from phase A that holds only exceptions stays valid.
 
 ### Decision confidence
 
-Attributed to Eunice Ordor, Client Relations & Operations at Doman Digital
-("Eunice's Lens"). The question it asks of every page:
+From a reviewer on the studio's team, whose question became the lens. The
+question it asks of every page:
 
 > What does this visitor need to see, understand and believe before they are
 > comfortable taking the next appropriate action?
@@ -409,15 +409,15 @@ slideshow; two have no phone action; none has a founder portrait; all validate.
 
 #### Where it came from
 
-On 15 October 2026 Eunice reviewed the phone layout of a UK plumbing
-business's homepage. She did not review the desktop. Four things came out of
+On 15 October 2026 a reviewer on the studio's team reviewed the phone layout
+of a UK plumbing business's homepage. The desktop was not reviewed. Four things came out of
 it, and they are kept apart on purpose:
 
-1. **Her observations.** The owner was introduced late. Information about the
+1. **The reviewer's observations.** The owner was introduced late. Information about the
    work, services, reviews and the owner felt fragmented. Visitors should be
    able to feel confident without searching. The site could show more
    personality. Trust signals should read as a set.
-2. **Her proposed solutions.** A hero slideshow. Removing some project
+2. **The reviewer's proposed solutions.** A hero slideshow. Removing some project
    captions.
 3. **An independent audit's conclusions.** It agreed with the underlying
    concerns, that the owner should be met earlier and credibility shown sooner.
@@ -526,7 +526,7 @@ A note in a review:
   "id": "owner-late",
   "lens": "identity",
   "observation": "The owner is introduced too far down the page.",
-  "raisedBy": "Eunice Ordor (stakeholder), agreed by the independent audit",
+  "raisedBy": "The reviewer (stakeholder), agreed by the independent audit",
   "problem": "A homeowner letting a stranger into the house cannot tell who is coming until well down the page.",
   "basis": "observed",
   "evidence": [
@@ -562,7 +562,7 @@ register numbers; a founder biography declined because booking comes first.
 #### Context and learning from a later result
 
 The 15 October calibration records the earlier audit's recommendation, not a
-permanent verdict. The later Bellerose mobile comparison on 18 October preferred
+permanent verdict. The later mobile comparison on the same plumbing site on 18 October preferred
 work photographs followed by a compact owner introduction, then trust and contact.
 The useful test is whether each alternative answers the visitor's question.
 Considering smaller edits remains required; fewer edits alone do not establish
@@ -597,7 +597,7 @@ Compare clarity, framing, visible completion, distracting surroundings and the
 visual standard set by the lead image. A technically sound carousel can still
 weaken the page when its later slides are noticeably poorer.
 
-On 18 October 2026, after approving Bellerose's mobile flow, Dmitri pointed out
+On 18 October 2026, after approving the plumbing site's mobile flow, the founder pointed out
 that the radiator and kitchen-tap slides did not compare with the first bathroom
 photograph. The initial selection had favoured showing different services. A
 review of the available photographs found that the radiator's unfinished edge
@@ -632,24 +632,23 @@ back as `change`, ask for what is `hold`, find out what is `gather-evidence`,
 and leave what is `no-change`. When a note names something that was not
 inspected, look before you act on it.
 
-### Eunice's review of the DD site, 2026-10-19
+### Review of the studio's own site, 2026-10-19
 
-Eunice Ordor reviewed the preview of Doman Digital's own new site on Pastel
-(canvas 986559) on 18 and 19 October 2026: 73 comments across the home,
-services, work, Sensphere case, clinics, who-we-help, process, pricing, plans
-and contact pages. The whole review is kept, note by note, in
-[`reviews/eunice-ordor/2026-10-19-dd-site.json`](https://github.com/Doman-Digital/dd-packages/blob/main/packages/craft/reviews/eunice-ordor/2026-10-19-dd-site.json)
-in the repository:
-her words as she wrote them, what she proposed, what was done with it, the
-founder's ruling where one was needed, and the principle each note teaches. The
+A reviewer on the studio's team reviewed the preview of the studio's own new
+site on Pastel (canvas 986559) on 18 and 19 October 2026: 73 comments across
+the home, services, work, a client case, clinics, who-we-help, process,
+pricing, plans and contact pages. The whole review is kept, note by note, in
+the studio's private reviewer corpus: the reviewer's words as written, what
+was proposed, what was done with it, the founder's ruling where one was
+needed, and the principle each note teaches. The
 founder went through it on 20 October 2026. As in "Where it came from" above,
 four things are kept apart.
 
-#### What she saw
+#### What the reviewer saw
 
 Twelve notes are praise, and they are a record of what to keep: the structure
 and type, the four routes in, the who-we-help page ("a site that reads as a van
-roof"), the Chair and Blade case, the six-step process and the responsibility
+roof"), a barber client's case, the six-step process and the responsibility
 matrix. The rest name problems. These matter beyond this one site:
 
 - Two equal buttons in the hero (#5), and again on the process page (#36).
@@ -669,17 +668,17 @@ matrix. The rest name problems. These matter beyond this one site:
   care and £70 of website (#43).
 - Closed lists where the work is open: the hero sub-line and route 3 narrowed
   to bookings and enquiries (#2, #6, #25).
-- A page that contradicts itself: the Sensphere form said both that enquiries
+- A page that contradicts itself: a client case's form said both that enquiries
   reach the inbox and that details stay out of one (#15), and a process step
   said "paid" for a product that had been retired (#22).
 - On a phone, the hero image crops badly (#55).
 
-#### What she proposed
+#### What the reviewer proposed
 
 Specific wording for most notes, and three larger changes: a hero slideshow of
 client systems (#3), a call to action after several sections (#50, #51, #70),
-and a social media card (#72). Her diagnoses were nearly all right. Her wording
-often used the patterns COPY.md blocks. Four of her comments blocked at
+and a social media card (#72). The diagnoses were nearly all right. The wording
+often used the patterns COPY.md blocks. Four of the comments blocked at
 <!-- copy-ok: quoting the reviewer's draft line -->
 catalogue 2026.10.4 ("No licence, no lock-in" in #42 is one), and eight do once
 the plain-English family is widened.
@@ -696,12 +695,12 @@ the plain-English family is widened.
 <!-- copy-ok: naming the banned adverb -->
 - The adverb "plainly" and its kin are banned, with "plain English".
 - Cut "Our clinic experience so far is one practice" (#8). On the clinics page
-  keep "Built and run by us", and describe what Sensphere is: a growing
-  practice whose clinicians work remotely (#13).
+  keep "Built and run by us", and describe what the client practice is: a
+  growing practice whose clinicians work remotely (#13).
 - A testimonial (#9) is reworded only once its author approves the new words.
 - Held for their own decisions: e-commerce as a sector (#27), a clinic
   subscription with its own price (#49), response times (#54) and social media
-  (#72). Verqan stays off /work (#59). Quarterly packs are declined for the
+  (#72). One product stays off /work (#59). Quarterly packs are declined for the
   site (#53).
 
 #### The principles
@@ -709,7 +708,7 @@ the plain-English family is widened.
 Each id is what a note's `principle` field names in the record.
 
 - `open-shop`: precise, never confessional or absolute. Scope is shown by
-  exact claims ("the portal we run for Sensphere"), and a contractual fact is
+  exact claims ("the portal we run for a children's therapy practice"), and a contractual fact is
   said as what the buyer gets. `confession-line` reports the shapes for
   review.
 - `summary-pages-carry-substance`: a page that summarises carries a sentence
@@ -739,27 +738,28 @@ Each id is what a note's `principle` field names in the record.
 
 #### The counter-lesson
 
-Her diagnoses beat Claude's defaults. Claude's first pass on this review would
+The reviewer's diagnoses beat Claude's defaults. Claude's first pass on this review would
 have kept the "What this is and is not" sentence, the two hero buttons, the
 noun-list service cards and three proof numbers in a row. Each is a default
 craft names (`confession-line`, `hero-cta-pair`, the summary-card pattern,
 `stats-row`). Where the question is "does this read as decided and generous to
-the buyer", she was right. Where it is "is it true, and is it allowed", the
-proof ledger and the house rules held: she asked for promises that are not
-live yet (#53, #54, #72), and her replacement wording goes through copy-check
-like anyone's. A reviewer's diagnosis is taken on its merits; her
-words are copy, and copy is checked.
+the buyer", the reviewer was right. Where it is "is it true, and is it
+allowed", the proof ledger and the house rules held: the review asked for
+promises that are not live yet (#53, #54, #72), and its replacement wording
+goes through copy-check like anyone's. A reviewer's diagnosis is taken on its
+merits; a reviewer's words are copy, and copy is checked.
 
 #### Feeding later reviews in
 
-Every later review, hers or another reviewer's, goes through the
+Every later review, from this reviewer or another, goes through the
 `reviewer-intake` skill in claude-kit: pull the canvas, keep each note whole,
 classify it, check its facts against the proof ledger, brand facts and Linear,
-write the record under `reviews/<reviewer>/`, and propose tells or fixtures for
-what recurs. `src/__tests__/reviews.test.ts` holds each record to the schema
-and to this file, and fires every tell a note taught on the words it flagged.
-See [reviews/README.md](https://github.com/Doman-Digital/dd-packages/blob/main/packages/craft/reviews/README.md);
-the corpus stays in the repository and is left out of the npm package.
+write the record in the studio's private reviewer corpus, and propose tells or
+fixtures for what recurs. `src/__tests__/reviews.test.ts` holds each record to
+the schema and to this file, and fires every tell a note taught on the words
+it flagged. This file names no reviewer and no client: a section is headed for
+what was reviewed and the date. The corpus is private and is not part of the
+npm package.
 
 ## Declaring an exception
 
@@ -864,7 +864,7 @@ rest are weighed over what remains, so older registers and null models
 compare without being re-snapshotted.
 
 **Ground temperature.** ΔE alone files every light neutral page as one
-paper: RMP's cream (`oklch(0.96 0.010 82)`) and Bellerose's porcelain
+paper: an electrician's cream (`oklch(0.96 0.010 82)`) and a plumber's porcelain
 (`#F1F3F4`, `oklch(0.96 0.003 229)`) are ΔE 0.013 apart, a tenth of the
 ground scale, and nobody takes them for the same page. A page ground is the
 largest area on the page and the eye adapts to it, so a tint far below what
@@ -1001,8 +1001,8 @@ A list of tells goes stale; the model does not. So signal 2 asks the model
 directly: given this brief and nothing else, what would you build?
 
 ```bash
-craft null build --brief "RMP Electrical, electricians based in Uxbridge ..." --out null/rmp
-craft audit https://www.rmp-electrical.co.uk --null null/rmp
+craft null build --brief "Example Electrical, electricians based in Reading ..." --out null/electrician
+craft audit https://www.example-electrical.co.uk --null null/electrician
 ```
 
 `null build` runs `claude -p` about 20 times (`--runs`), from an empty folder
@@ -1042,9 +1042,9 @@ The agency's biggest tell is not on any one site. It is its clients looking
 like each other. `estate.json` holds one fingerprint per shipped site:
 
 ```bash
-craft estate add https://www.rmp-electrical.co.uk --id rmp --client "RMP Electrical"
-craft estate compare            # every pair, closest first
-craft estate compare rmp        # one site against the rest
+craft estate add https://www.example-electrical.co.uk --id electrician --client "Example Electrical"
+craft estate compare                # every pair, closest first
+craft estate compare electrician    # one site against the rest
 craft estate compare https://staging.example.test   # a new build before it ships
 ```
 
@@ -1071,13 +1071,13 @@ Sites that share one component are rarer than siblings and easier to fix:
 ```bash
 craft estate compare --component cta-band    # every pair's closest CTA bands
 craft estate compare --component pricing --json
-craft estate compare rmp --component cta-band   # one site against the rest
+craft estate compare electrician --component cta-band   # one site against the rest
 ```
 
 Each pair lists what its two components share ("centred", "1 button", "same
 coloured band"), closest first. There is no sibling line for components yet:
 it needs a calibration set of real components (see the CTA collection in
-`calibration/idiom/cta/` once it exists), so this ranks and names, and judges
+`calibration/idiom/cta/` in the private corpus once it exists), so this ranks and names, and judges
 nothing. Only sites added with snapshot v2 have components to compare, and
 the command says so when fewer than two have the role. `--component` takes
 one of `cta-band`, `footer-cta`, `pricing`, `testimonials`, `faq`, `process`,
@@ -1094,8 +1094,8 @@ says so rather than printing nothing.
 `craft report` reads one site against everything above and gives a verdict:
 
 ```bash
-craft report https://www.rmp-electrical.co.uk --repo . --null null/rmp --estate ../estate.json
-craft retrofit https://www.rmp-electrical.co.uk --repo . --null null/rmp --estate ../estate.json --out RETROFIT.md
+craft report https://www.example-electrical.co.uk --repo . --null null/electrician --estate ../estate.json
+craft retrofit https://www.example-electrical.co.uk --repo . --null null/electrician --estate ../estate.json --out RETROFIT.md
 ```
 
 | Verdict | When |
@@ -1165,7 +1165,7 @@ measured colour only.
 Cells read *source findings / R if seen on the rendered page*. Nothing here
 blocks; it is for a person to read.
 
-| Tell | DD | MMM | Sensphere | Harrison James | HJ Beauty | Chair and Blade | RMP |
+| Tell | DD | Salon | Therapy | Accountant | Skincare | Barber | Electrician |
 |---|---|---|---|---|---|---|---|
 | `reflex-font` | 15 / · | 2 / · | 3 / R | 2 / R | 2 / · | 1 / · |  |
 | `reflex-font-2` | 7 / R | 34 / R | 2 / · | 1 / R | 3 / R | 4 / R | 12 / R |
@@ -1189,16 +1189,16 @@ blocks; it is for a person to read.
 
 What it shows:
 
-- **The three survey findings reproduce where they can.** Sensphere's violet
-  is found in source (18) and on its buttons; MMM's intro, glows and glass are
-  in source and its intro and glows on the page; MMM reveals 60% of the
+- **The three survey findings reproduce where they can.** Therapy's violet
+  is found in source (18) and on its buttons; Salon's intro, glows and glass are
+  in source and its intro and glows on the page; Salon reveals 60% of the
   sections below its fold on scroll, all three of them, one short of the
-  four the rendered rule needs, and its source is over the reveal limit. Rise & Bloom's glass
+  four the rendered rule needs, and its source is over the reveal limit. A journal client's glass
   hero and icon grid could not be checked: that repo is not attached to this
   session.
 - **Every site ships a reflex face.** Twelve of fourteen site-face pairs are
-  on one of the two lists. Fraunces sets the headline on DD, HJ Beauty and RMP.
-- **DD and RMP were read as the closest pair** (0.46) on the first run, with
+  on one of the two lists. Fraunces sets the headline on DD, Skincare and Electrician.
+- **DD and Electrician were read as the closest pair** (0.46) on the first run, with
   a green accent in common. DD's "green" was its floating WhatsApp button,
   48px square, the only saturated paint on a near-black and white page. The
   fingerprint now needs a panel's worth of area before a painted colour
@@ -1219,12 +1219,12 @@ False positives found and fixed in this run:
 - The rendered reveal check read only a section and its direct children.
   Found through the null models (below): a reveal on the cards two levels
   down read as a still page. It now reads the text blocks inside a section
-  too, ignoring anything fixed. Re-run the same day: Chair and Blade, which
+  too, ignoring anything fixed. Re-run the same day: Barber, which
   has a `RevealWrapper`, now shows `reveal-everywhere` on the page (six of
   nine sections below the fold).
 
-Not yet read by a person: the source counts for `icon-tile-stack` (MMM 93)
-and `glass-panel` (MMM 45) look high and are the first to check.
+Not yet read by a person: the source counts for `icon-tile-stack` (Salon 93)
+and `glass-panel` (Salon 45) look high and are the first to check.
 
 ### Signal 2 first read, 2026-09-23
 
@@ -1262,18 +1262,18 @@ most of the null.
 | Site | Score | Typical | Shares with the null |
 |---|---|---|---|
 | DD | 0.15 | yes | pill buttons (19 of 20), Fraunces headline (13 of 20) |
-| Harrison James | 0.10 | yes, at the line | Inter body (18 of 20), yellow accent (16 of 20), white ground |
-| MMM | 0.05 | no | white ground, radial glow (13 of 20), Cormorant Garamond (9 of 20) |
-| HJ Beauty | 0.05 | no | white ground, Fraunces (5 of 20), marquee (5 of 20) |
-| Chair and Blade | 0.05 | no | square buttons (18 of 20), Bebas Neue (9 of 20), dark ground |
-| RMP | 0.05 | no | eyebrow chip (14 of 20), Manrope body |
-| Sensphere | 0.00 | no | radial glow (10 of 20), Inter body |
+| Accountant | 0.10 | yes, at the line | Inter body (18 of 20), yellow accent (16 of 20), white ground |
+| Salon | 0.05 | no | white ground, radial glow (13 of 20), Cormorant Garamond (9 of 20) |
+| Skincare | 0.05 | no | white ground, Fraunces (5 of 20), marquee (5 of 20) |
+| Barber | 0.05 | no | square buttons (18 of 20), Bebas Neue (9 of 20), dark ground |
+| Electrician | 0.05 | no | eyebrow chip (14 of 20), Manrope body |
+| Therapy | 0.00 | no | radial glow (10 of 20), Inter body |
 
 Read with care: "not typical" says the site is not what Claude builds from
-the brief today. It does not say the site was decided. Sensphere scores 0.00
+the brief today. It does not say the site was decided. Therapy scores 0.00
 and still carries five catalogue tells on the page, violet among them: Claude
 no longer builds that look for this brief, but it is still a known tell. That
-is what signal 1 is for. DD and Harrison James are the
+is what signal 1 is for. DD and Accountant are the
 two a model would most nearly have built unprompted.
 
 **The harvest** (`calibration/null/harvest.txt`). No face outside the two
@@ -1302,11 +1302,11 @@ in `calibration/estate/`.
 
 | Pair | Distance | Shares |
 |---|---|---|
-| DD + HJ Beauty | **0.28, siblings** | no accent, Fraunces headline, no reveals |
-| DD + RMP | 0.49 | Fraunces headline, grey ground, pill buttons |
-| Harrison James + Sensphere | 0.50 | white ground, square buttons, no reveals |
-| HJ Beauty + RMP | 0.56 | Fraunces headline |
-| Chair and Blade + anything | 0.60 to 0.86 | at most a marquee (with HJ Beauty) |
+| DD + Skincare | **0.28, siblings** | no accent, Fraunces headline, no reveals |
+| DD + Electrician | 0.49 | Fraunces headline, grey ground, pill buttons |
+| Accountant + Therapy | 0.50 | white ground, square buttons, no reveals |
+| Skincare + Electrician | 0.56 | Fraunces headline |
+| Barber + anything | 0.60 to 0.86 | at most a marquee (with Skincare) |
 
 One sibling pair in twenty-one, and it is the agency's own site with one of
 its clients: the same Fraunces headline over a near-black and white page with
@@ -1400,13 +1400,13 @@ the register. Reports and retrofit plans are in `calibration/report/`.
 
 | Site | Verdict | Raised | Actions |
 |---|---|---|---|
-| DD | default | tells (12), typical (0.15), sibling of HJ Beauty | 26 |
-| HJ Beauty | default | tells (6), sibling of DD | 18 |
-| MMM | mixed | tells (18) | 27 |
-| Sensphere | mixed | tells (9) | 18 |
-| Chair and Blade | mixed | tells (7) | 11 |
-| RMP | mixed | tells (8) | 18 |
-| Harrison James | mixed | typical (0.10) | 9 |
+| DD | default | tells (12), typical (0.15), sibling of Skincare | 26 |
+| Skincare | default | tells (6), sibling of DD | 18 |
+| Salon | mixed | tells (18) | 27 |
+| Therapy | mixed | tells (9) | 18 |
+| Barber | mixed | tells (7) | 11 |
+| Electrician | mixed | tells (8) | 18 |
+| Accountant | mixed | typical (0.10) | 9 |
 
 No site has an `art-direction.json`, so the reasons are not measured on any of
 them and none can be *decided* yet. The first change after deciding is the
@@ -1420,15 +1420,15 @@ The estate and the seven null models were still on snapshot v1 (the AI set and t
 
 | Measure | Before (v1) | After (v2) |
 |---|---|---|
-| Estate typicality against its own brief's null (own): dd, mmm, sensphere, harrison-james, hj-beauty, chair-and-blade, rmp | 0.15, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 | 0.10, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 |
+| Estate typicality against its own brief's null (own): dd, salon, therapy, accountant, skincare, barber, electrician | 0.15, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 | 0.10, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 |
 | Estate typicality against all seven pooled (same order) | 0.01, 0.00, 0.00, 0.09, 0.00, 0.01, 0.26 | 0.01, 0.00, 0.00, 0.10, 0.00, 0.01, 0.21 |
 | Distance to own null (same order) | 0.340, 0.450, 0.503, 0.277, 0.442, 0.361, 0.518 | 0.443, 0.420, 0.530, 0.304, 0.479, 0.381, 0.558 |
-| Sibling pairs in the estate (below 0.31) | 1 (dd + hjbeauty, 0.28) | 0 (dd + hjbeauty is now 0.58; closest pair is dd + rmp, 0.48) |
-| Null pages flagged when scored against the other six briefs (dd, mmm, sensphere, harrison-james, hj-beauty, chair-and-blade, rmp) | 20, 20, 19, 20, 19, 18, 15 of 20 | 20, 20, 20, 20, 20, 18, 18 of 20 |
+| Sibling pairs in the estate (below 0.31) | 1 (dd + skincare, 0.28) | 0 (dd + skincare is now 0.58; closest pair is dd + electrician, 0.48) |
+| Null pages flagged when scored against the other six briefs (dd, salon, therapy, accountant, skincare, barber, electrician) | 20, 20, 19, 20, 19, 18, 15 of 20 | 20, 20, 20, 20, 20, 18, 18 of 20 |
 | Null pages typical against the other six (same order) | 13, 10, 10, 12, 10, 4, 2 | 14, 8, 9, 13, 6, 7, 3 |
 | AI set flagged against the pooled v2 null | 19 of 20 | 20 of 20 (typical 15, tell-heavy 20) |
 
-What moved: the estate is still atypical of what the model builds for its own brief (own typicality 0.10 or lower on all seven), and only RMP Electrical is close to the pooled null (0.21, down from 0.26; its shared traits are a hero eyebrow chip and pill buttons). The one sibling pair, Doman Digital and Harrisons Beauty, is no longer one; the pair that stays closest is Doman Digital and RMP Electrical (0.48). The AI set gained one flagged page (the 20 of 20 the flagged-rule decision records). Because the live sites were not frozen, the estate movement mixes the snapshot version with site changes, and this run cannot separate them.
+What moved: the estate is still atypical of what the model builds for its own brief (own typicality 0.10 or lower on all seven), and only Electrician is close to the pooled null (0.21, down from 0.26; its shared traits are a hero eyebrow chip and pill buttons). The one sibling pair, the studio's own site and the skincare shop, is no longer one; the pair that stays closest is the studio's own site and the electrician (0.48). The AI set gained one flagged page (the 20 of 20 the flagged-rule decision records). Because the live sites were not frozen, the estate movement mixes the snapshot version with site changes, and this run cannot separate them.
 
 `craft tells harvest` on the v2 models gives the same three candidates as before (red accent #e77a63, 66 of 140; square shape, 47 of 140; the opening `hero > hero > cards`, 54 of 140) and 40 recurring phrases (the same count as before; the list was not diffed line by line). The only difference is in the already-caught list, which now includes `no-real-imagery` (117 of 140), `hero-eyebrow-chip` (53), `stats-row` (42) and `unproven-claim` (35): tells that came in with snapshot v2 and later phases, which the v1 harvest could not see. Nothing was added to the catalogue, and no tell or threshold changed.
 
@@ -1450,19 +1450,19 @@ The board in question is the DD redesign's Stage 05 artefact (DOM-397, CRO-21); 
 
 ### Ground temperature and structure, 2026-10-09
 
-Bellerose Plumbing's light mode looked, to the founder, too much like RMP Electrical, and craft gave the pair 0.59 sharing only "grey ground". Bellerose then moved its light page from warm stone (`#EEEDE8`) to cool porcelain (`#F1F3F4`, bellerose-plumbing#32), and craft scored the two Bellerose pages 0.01 apart. Two things were missing: hue barely counts at a ground's chroma, and structure moved the score by a tenth at most. Fingerprint version 3 (DOM-637) adds ground temperature to the ground part, a rhythm part and a hero part, with the weights in *The rendered page* above. Measured on RMP live (2026-10-09) and Bellerose built locally at `c62590c` (stone, before #32) and `47f9d79` (porcelain), each snapshotted with `--scheme light` and `--scheme dark`; snapshots, a copy of the redesign workstream's register and the full tables are in `calibration/estate/2026-10-09-temperature/`. "Before" is craft 0.18.1's distance on the same snapshots.
+Plumber's light mode looked, to the founder, too much like Electrician, and craft gave the pair 0.59 sharing only "grey ground". Plumber then moved its light page from warm stone (`#EEEDE8`) to cool porcelain (`#F1F3F4`, the plumber's change), and craft scored the two Plumber pages 0.01 apart. Two things were missing: hue barely counts at a ground's chroma, and structure moved the score by a tenth at most. Fingerprint version 3 (DOM-637) adds ground temperature to the ground part, a rhythm part and a hero part, with the weights in *The rendered page* above. Measured on Electrician live (2026-10-09) and Plumber built locally at `c62590c` (stone, before #32) and `47f9d79` (porcelain), each snapshotted with `--scheme light` and `--scheme dark`; snapshots, a copy of the redesign workstream's register and the full tables are in `calibration/estate/2026-10-09-temperature/`. "Before" is craft 0.18.1's distance on the same snapshots.
 
 | Pair | Before | After | Shares after |
 |---|---|---|---|
-| RMP + Bellerose light on stone | 0.59 (cream ground) | **0.54** | warm ground, left-aligned serif hero, photo right, light hero then dark band |
-| RMP + Bellerose light on porcelain | 0.59 (cream ground) | 0.58 | left-aligned serif hero, photo right, light hero then dark band |
-| RMP + Bellerose dark (either) | 0.77 | 0.72 | left-aligned serif hero, photo right |
-| Bellerose stone light + porcelain light | 0.01 | 0.06 | everything but the ground |
-| RMP + RMP | 0.00 | 0.00 | |
+| Electrician + Plumber light on stone | 0.59 (cream ground) | **0.54** | warm ground, left-aligned serif hero, photo right, light hero then dark band |
+| Electrician + Plumber light on porcelain | 0.59 (cream ground) | 0.58 | left-aligned serif hero, photo right, light hero then dark band |
+| Electrician + Plumber dark (either) | 0.77 | 0.72 | left-aligned serif hero, photo right |
+| Plumber stone light + porcelain light | 0.01 | 0.06 | everything but the ground |
+| Electrician + Electrician | 0.00 | 0.00 | |
 
-Against the register as it stands (stored version 2 fingerprints, not re-added), the stone page's nearest site is RMP (0.54) and the porcelain page's is Harrison James (0.52) with RMP second (0.58): the move away from RMP that the founder made by eye now shows in the numbers, and both Bellerose light pages still share the opening with RMP, which is the next thing to pull apart. Neither pair is a sibling; the faces, the accent and the button shape are their own.
+Against the register as it stands (stored version 2 fingerprints, not re-added), the stone page's nearest site is Electrician (0.54) and the porcelain page's is Accountant (0.52) with Electrician second (0.58): the move away from Electrician that the founder made by eye now shows in the numbers, and both Plumber light pages still share the opening with Electrician, which is the next thing to pull apart. Neither pair is a sibling; the faces, the accent and the button shape are their own.
 
-The seven register pairs reshuffle little: Kendall tau 0.83 between the before and after orderings over 21 pairs, the closest pair is still DD + RMP (0.48 to 0.52, now "warm ground" rather than "grey ground"), and no pair crosses the sibling line. Pairs that shared "white ground" and little else move apart by 0.02 to 0.06 as the temperature counts (MMM + Sensphere keep "cool white ground"); Chair and Blade + HJ Beauty move closer (0.74 to 0.66) because both open dark then light. The sibling line measured again on the seven v2 null models is 0.337 with the old distance and 0.339 with the new, so the weights do not move it; `SIBLING_AT` stays at the 0.31 measured on the v1 models in September, and moving it to the v2 line is a separate decision.
+The seven register pairs reshuffle little: Kendall tau 0.83 between the before and after orderings over 21 pairs, the closest pair is still DD + Electrician (0.48 to 0.52, now "warm ground" rather than "grey ground"), and no pair crosses the sibling line. Pairs that shared "white ground" and little else move apart by 0.02 to 0.06 as the temperature counts (Salon + Therapy keep "cool white ground"); Barber + Skincare move closer (0.74 to 0.66) because both open dark then light. The sibling line measured again on the seven v2 null models is 0.337 with the old distance and 0.339 with the new, so the weights do not move it; `SIBLING_AT` stays at the 0.31 measured on the v1 models in September, and moving it to the v2 line is a separate decision.
 
 ## The catalogue
 

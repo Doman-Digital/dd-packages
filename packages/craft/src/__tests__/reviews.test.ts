@@ -4,12 +4,14 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { CATALOGUE, applyHouseGate, checkCopy, runTell, scanSource, tellById } from "../character/check.js";
 import { REVIEW_VERDICTS, type DesignReview } from "../direction/types.js";
+import { CORPUS, corpusPath, manifest } from "./corpus.js";
 
 /**
- * The reviewer corpus (`reviews/`): each file is one person's review, kept
- * whole, in the design-review shape. This binds it to the schema, to
- * CHARACTER.md, and to the tells it taught, so a review cannot be filed and
- * then forgotten.
+ * The reviewer corpus (`reviews/` in the private dd-craft-corpus repo): each
+ * file is one person's review, kept whole, in the design-review shape. This
+ * binds it to the schema, to CHARACTER.md, and to the tells it taught, so a
+ * review cannot be filed and then forgotten. Without the corpus, only the
+ * schema checks run.
  */
 
 const PKG = fileURLToPath(new URL("../../", import.meta.url));
@@ -55,9 +57,12 @@ function files(dir: string): string[] {
   });
 }
 
-const CORPUS = files(join(PKG, "reviews")).map((path) => ({ path, review: JSON.parse(readFileSync(path, "utf8")) as DesignReview }));
-const EUNICE = CORPUS.find((c) => c.path.endsWith("eunice-ordor/2026-10-19-dd-site.json"))!.review;
-const byComment = (n: number) => EUNICE.notes.find((x) => x.source?.comment === n)!;
+type ReviewRecord = DesignReview & { reviewer?: string; date?: string; source?: { canvas?: number } };
+const REVIEWS_DIR = CORPUS ? corpusPath(manifest().reviews) : null;
+const RECORDS = REVIEWS_DIR ? files(REVIEWS_DIR).map((path) => ({ path, review: JSON.parse(readFileSync(path, "utf8")) as ReviewRecord })) : [];
+/** The first review in the corpus: the studio's own site, 2026-10-19, Pastel canvas 986559. Found by date and canvas, not by name. */
+const FIRST = RECORDS.find((c) => c.review.date === "2026-10-19" && c.review.source?.canvas === 986559)?.review ?? null;
+const byComment = (n: number) => FIRST!.notes.find((x) => x.source?.comment === n)!;
 
 describe("design-review.schema.json, extended for a reviewer's own record", () => {
   it("still accepts the shipped review fixture, so the extension is compatible", () => {
@@ -78,7 +83,7 @@ describe("design-review.schema.json, extended for a reviewer's own record", () =
     expect(SCHEMA.$defs.note.properties.verdict.enum).toEqual([...REVIEW_VERDICTS]);
   });
 
-  it.each(CORPUS.map((c) => [c.path.replace(PKG, ""), c.review] as const))("%s is valid", (_path, review) => {
+  it.skipIf(!CORPUS).each(RECORDS.map((c) => [c.path.replace(REVIEWS_DIR ?? "", "reviews"), c.review] as const))("%s is valid", (_path, review) => {
     expect(validate(review, SCHEMA)).toEqual([]);
     const ids = review.notes.map((n) => n.id);
     expect(new Set(ids).size).toBe(ids.length);
@@ -86,19 +91,25 @@ describe("design-review.schema.json, extended for a reviewer's own record", () =
   });
 });
 
-describe("Eunice Ordor's review of the DD site, 2026-10-19 (Pastel 986559)", () => {
-  it("keeps all 73 comments, once each, as she wrote them", () => {
-    expect(EUNICE.notes).toHaveLength(73);
-    expect(EUNICE.notes.map((n) => n.source?.comment)).toEqual(Array.from({ length: 73 }, (_, i) => i + 1));
-    for (const n of EUNICE.notes) {
-      expect(n.raisedBy).toBe("Eunice Ordor");
+describe.skipIf(!CORPUS)("the review of the studio's own site, 2026-10-19 (Pastel 986559)", () => {
+  const REVIEW = FIRST!;
+  it("is in the corpus", () => {
+    expect(FIRST).not.toBeNull();
+  });
+
+  it("keeps all 73 comments, once each, as the reviewer wrote them", () => {
+    expect(REVIEW.notes).toHaveLength(73);
+    expect(REVIEW.notes.map((n) => n.source?.comment)).toEqual(Array.from({ length: 73 }, (_, i) => i + 1));
+    expect(REVIEW.reviewer).toBeTruthy();
+    for (const n of REVIEW.notes) {
+      expect(n.raisedBy).toBe(REVIEW.reviewer);
       expect(n.source).toMatchObject({ tool: "pastel", canvas: 986559 });
       expect(n.observation.length, n.id).toBeGreaterThan(0);
     }
   });
 
   it("records what was done with each note", () => {
-    const count = (v: string) => EUNICE.notes.filter((n) => n.verdict === v).length;
+    const count = (v: string) => REVIEW.notes.filter((n) => n.verdict === v).length;
     expect(Object.fromEntries(REVIEW_VERDICTS.map((v) => [v, count(v)]))).toEqual({
       praise: 12,
       take: 34,
@@ -109,18 +120,18 @@ describe("Eunice Ordor's review of the DD site, 2026-10-19 (Pastel 986559)", () 
       known: 2,
     });
     // A founder decision always carries the ruling.
-    for (const n of EUNICE.notes.filter((x) => x.verdict === "founder-decision")) expect(n.founderRuling, n.id).toBeDefined();
+    for (const n of REVIEW.notes.filter((x) => x.verdict === "founder-decision")) expect(n.founderRuling, n.id).toBeDefined();
   });
 
   it("writes up every principle it derives in CHARACTER.md", () => {
-    const section = CHARACTER.split("### Eunice's review of the DD site, 2026-10-19")[1]?.split("\n### ")[0] ?? "";
-    const principles = [...new Set(EUNICE.notes.flatMap((n) => (n.principle ? [n.principle] : [])))];
+    const section = CHARACTER.split("### Review of the studio's own site, 2026-10-19")[1]?.split("\n### ")[0] ?? "";
+    const principles = [...new Set(REVIEW.notes.flatMap((n) => (n.principle ? [n.principle] : [])))];
     expect(principles.length).toBeGreaterThanOrEqual(10);
     for (const p of principles) expect(section, p).toContain(`\`${p}\``);
   });
 
-  it("fires each tell it taught on the words she flagged", () => {
-    const taught = EUNICE.notes.flatMap((n) => (n.tells ?? []).map((t) => ({ ...t, note: n.id })));
+  it("fires each tell it taught on the words the reviewer flagged", () => {
+    const taught = REVIEW.notes.flatMap((n) => (n.tells ?? []).map((t) => ({ ...t, note: n.id })));
     expect(new Set(taught.map((t) => t.id))).toEqual(new Set(["hero-cta-pair", "confession-line", "plain-english", "no-x-no-y", "review-phrase"]));
     for (const t of taught) {
       const tell = tellById(t.id);
@@ -130,8 +141,8 @@ describe("Eunice Ordor's review of the DD site, 2026-10-19 (Pastel 986559)", () 
     expect(CATALOGUE.map((t) => t.id)).toEqual(expect.arrayContaining(["hero-cta-pair", "confession-line"]));
   });
 
-  it("still copy-checks her own wording: the diagnosis is taken, the words are not exempt", () => {
-    const blocked = EUNICE.notes
+  it("still copy-checks the reviewer's own wording: the diagnosis is taken, the words are not exempt", () => {
+    const blocked = REVIEW.notes
       .filter((n) => applyHouseGate(checkCopy([{ path: "content/x.md", text: n.observation }])).summary.blocking > 0)
       .map((n) => n.source!.comment);
     // Four blocked at catalogue 2026.10.4, when the review was read; the plain-English family adds four.
@@ -140,7 +151,7 @@ describe("Eunice Ordor's review of the DD site, 2026-10-19 (Pastel 986559)", () 
   });
 
   it("is right that the null build pairs two buttons in every hero (#5, #36)", () => {
-    const dir = join(PKG, "calibration/null");
+    const dir = corpusPath(manifest().nullPages);
     const pages = readdirSync(dir).flatMap((brief) => {
       const p = join(dir, brief, "pages");
       try {
