@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 
 /**
  * Signal 2. The null model is built from real `claude -p` pages in
- * calibration/; here it is built from fingerprints written by hand, so each
+ * the private corpus; here it is built from fingerprints written by hand, so each
  * property is proved against a difference that was put there on purpose.
  */
 

@@ -43,29 +43,29 @@ const BARBER = fp({
 
 describe("the register", () => {
   it("adds a site, replaces one with the same id, and keeps ids sorted", () => {
-    let r = addSite(emptyEstate(), site("rmp", ELECTRICIAN));
-    r = addSite(r, site("chair", BARBER));
-    r = addSite(r, site("rmp", SALON));
-    expect(r.sites.map((s) => s.id)).toEqual(["chair", "rmp"]);
+    let r = addSite(emptyEstate(), site("electrician", ELECTRICIAN));
+    r = addSite(r, site("barber", BARBER));
+    r = addSite(r, site("electrician", SALON));
+    expect(r.sites.map((s) => s.id)).toEqual(["barber", "electrician"]);
     expect(r.sites[1].fingerprint?.accent?.h).toBe(155);
   });
 
   it("refuses an id that is not short kebab-case", () => {
-    expect(() => addSite(emptyEstate(), site("RMP Electrical", ELECTRICIAN))).toThrow(/kebab-case/);
+    expect(() => addSite(emptyEstate(), site("Example Electrical", ELECTRICIAN))).toThrow(/kebab-case/);
   });
 });
 
 describe("siblings", () => {
-  const register = [site("rmp", ELECTRICIAN), site("mmm", SALON), site("chair", BARBER)].reduce(addSite, emptyEstate());
+  const register = [site("electrician", ELECTRICIAN), site("salon", SALON), site("barber", BARBER)].reduce(addSite, emptyEstate());
 
   it("marks two trades built from one template as siblings, and says what they share", () => {
-    const [nearest] = compareToEstate(ELECTRICIAN, register, { exclude: "rmp" });
-    expect(nearest).toMatchObject({ id: "mmm", sibling: true });
+    const [nearest] = compareToEstate(ELECTRICIAN, register, { exclude: "electrician" });
+    expect(nearest).toMatchObject({ id: "salon", sibling: true });
     expect(nearest.shared).toEqual(expect.arrayContaining(["green accent", "Fraunces headline", "Inter body", "pill buttons", "no reveals"]));
   });
 
   it("does not mark a site that decided its own look", () => {
-    const matches = compareToEstate(BARBER, register, { exclude: "chair" });
+    const matches = compareToEstate(BARBER, register, { exclude: "barber" });
     expect(matches.every((m) => !m.sibling)).toBe(true);
     expect(matches[0].distance).toBeGreaterThan(SIBLING_AT * 1.5);
   });
@@ -80,7 +80,7 @@ describe("siblings", () => {
     const pairs = estatePairs(register);
     expect(pairs).toHaveLength(3);
     expect(pairs[0]).toMatchObject({ sibling: true });
-    expect([pairs[0].a, pairs[0].b].sort()).toEqual(["mmm", "rmp"]);
+    expect([pairs[0].a, pairs[0].b].sort()).toEqual(["electrician", "salon"]);
     expect(pairs.filter((p) => p.sibling)).toHaveLength(1);
   });
 
@@ -91,7 +91,7 @@ describe("siblings", () => {
     expect(line).toBeGreaterThan(0);
     expect(line).toBeLessThan(0.26);
     // A tighter null draws a tighter line: the salon is no longer the electrician's sibling.
-    expect(compareToEstate(ELECTRICIAN, register, { exclude: "rmp", siblingAt: 0.001 })[0].sibling).toBe(false);
+    expect(compareToEstate(ELECTRICIAN, register, { exclude: "electrician", siblingAt: 0.001 })[0].sibling).toBe(false);
     expect(() => siblingLine([])).toThrow(/no null pages/);
   });
 });
@@ -109,24 +109,24 @@ describe("craft estate", () => {
   });
   afterEach(() => rmSync(dir, { recursive: true, force: true }));
 
-  const green = makeSnapshot({ url: "https://rmp.test/" });
+  const green = makeSnapshot({ url: "https://electrician.test/" });
   const alsoGreen = makeSnapshot({ url: "https://salon.test/" });
 
   it("adds sites from saved snapshots and finds the sibling", async () => {
-    writeFileSync(join(dir, "rmp.json"), JSON.stringify(green));
+    writeFileSync(join(dir, "electrician.json"), JSON.stringify(green));
     writeFileSync(join(dir, "salon.json"), JSON.stringify(alsoGreen));
-    expect(await run(["estate", "add", "rmp.json", "--id", "rmp", "--client", "RMP Electrical"], io())).toBe(0);
+    expect(await run(["estate", "add", "electrician.json", "--id", "electrician", "--client", "Example Electrical"], io())).toBe(0);
     expect(await run(["estate", "add", "salon.json", "--id", "salon"], io())).toBe(0);
     const saved = JSON.parse(readFileSync(join(dir, "estate.json"), "utf8"));
-    expect(saved.sites.map((s: EstateSite) => s.id)).toEqual(["rmp", "salon"]);
-    expect(saved.sites[0]).toMatchObject({ client: "RMP Electrical", url: "https://rmp.test/" });
-    expect(out.join("\n")).toMatch(/salon: nearest sites[\s\S]*rmp\s+0\.00\s+SIBLING/);
+    expect(saved.sites.map((s: EstateSite) => s.id)).toEqual(["electrician", "salon"]);
+    expect(saved.sites[0]).toMatchObject({ client: "Example Electrical", url: "https://electrician.test/" });
+    expect(out.join("\n")).toMatch(/salon: nearest sites[\s\S]*electrician\s+0\.00\s+SIBLING/);
 
     out = [];
     expect(await run(["estate", "compare"], io())).toBe(0);
-    expect(out.join("\n")).toMatch(/2 sites, 1 pair, 1 sibling pair[\s\S]*rmp \+ salon/);
+    expect(out.join("\n")).toMatch(/2 sites, 1 pair, 1 sibling pair[\s\S]*electrician \+ salon/);
     expect(await run(["estate", "compare", "--strict"], io())).toBe(1);
-    expect(await run(["estate", "compare", "rmp", "--json"], io())).toBe(0);
+    expect(await run(["estate", "compare", "electrician", "--json"], io())).toBe(0);
     expect(JSON.parse(out[out.length - 1]).matches[0]).toMatchObject({ id: "salon", sibling: true });
   });
 
@@ -142,12 +142,12 @@ describe("craft estate", () => {
   });
 
   it("feeds craft direction propose, so a proposal steers away from a sibling's accent", async () => {
-    // RMP's buttons are a strong green. The salon's fascia carries the same
+    // The electrician's buttons are a strong green. The salon's fascia carries the same
     // green and a muted red; on chroma alone the green would win.
     const base = makeSnapshot();
-    const rmp = makeSnapshot({ url: "https://rmp.test/", controls: base.controls.map((c) => ({ ...c, background: "rgb(22, 130, 70)" })) });
-    writeFileSync(join(dir, "rmp.json"), JSON.stringify(rmp));
-    await run(["estate", "add", "rmp.json", "--id", "rmp"], io());
+    const electrician = makeSnapshot({ url: "https://electrician.test/", controls: base.controls.map((c) => ({ ...c, background: "rgb(22, 130, 70)" })) });
+    writeFileSync(join(dir, "electrician.json"), JSON.stringify(electrician));
+    await run(["estate", "add", "electrician.json", "--id", "electrician"], io());
     writeFileSync(
       join(dir, "art-direction.json"),
       JSON.stringify({ version: 1, client: "Salon", brief: "A nail studio in Brackley, Northamptonshire, for gel nails and brows.", sources: [{ id: "fascia", kind: "shopfront", note: "The painted fascia over the door", colours: ["#168246", "#9a5a4e"] }], choices: {} }),

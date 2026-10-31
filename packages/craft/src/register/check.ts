@@ -2,7 +2,7 @@
  * `craft register check`: where a draft sits against the human baselines.
  *
  * A single short passage cannot be placed: at blurb length the registers
- * overlap too much (calibration/copy-shape/report-registers.md). Averaged over
+ * overlap too much (the register separation report in the private craft corpus). Averaged over
  * five paragraphs, every register pair separates on several features. So the
  * check reads documents only, measures each blurb-sized paragraph with the
  * same functions the baselines used, averages them, and compares the average

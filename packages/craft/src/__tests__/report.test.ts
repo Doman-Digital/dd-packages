@@ -124,14 +124,14 @@ describe("one change per choice", () => {
         site: "s",
         findings: findings([finding("reflex-font-2", 3), finding("reflex-font-2"), finding("italic-serif-display", 5)]),
         typicality: typical(0.4, [{ part: "display", value: "Fraunces", runs: 13, of: 20 }]),
-        estate: [{ id: "hjbeauty", distance: 0.28, sibling: true, shared: ["Fraunces headline"] }],
+        estate: [{ id: "skincare", distance: 0.28, sibling: true, shared: ["Fraunces headline"] }],
       },
       COPY,
     );
     const type = r.actions.filter((a) => a.area === "type");
     expect(type).toHaveLength(1);
     expect(type[0].what).toMatch(/^Pick the display face from the client's world/);
-    expect(type[0].why).toMatch(/reflex-font-2[\s\S]*Move off the model's pick for this brief: display Fraunces \(13 of 20[\s\S]*Differ from hjbeauty: both have Fraunces headline \(sibling at 0\.28\)/);
+    expect(type[0].why).toMatch(/reflex-font-2[\s\S]*Move off the model's pick for this brief: display Fraunces \(13 of 20[\s\S]*Differ from skincare: both have Fraunces headline \(sibling at 0\.28\)/);
     expect(type[0].priority).toBe(1);
     // A second tell on the same choice adds its name, not its fix again.
     expect(type[0].why).toMatch(/; Italic serif display \(italic-serif-display, gen 2\)/);
@@ -142,16 +142,16 @@ describe("one change per choice", () => {
 describe("the retrofit plan", () => {
   const direction: ArtDirection = {
     version: 1,
-    client: "RMP Electrical",
-    brief: "Electricians based in Uxbridge covering London and the Home Counties.",
-    sources: [{ id: "van", kind: "livery", note: "The vans parked at the Uxbridge yard" }],
+    client: "Example Electrical",
+    brief: "Electricians covering London and the Home Counties.",
+    sources: [{ id: "van", kind: "livery", note: "The vans parked at the yard" }],
     choices: { accent: { value: "#1f6f4a", because: "The green on the side of every van, the colour customers already know.", evidence: ["van"] } },
   };
 
   it("shows the decided value where there is one, and waits where there is not", () => {
-    const r = characterReport({ site: "https://rmp.test/", findings: findings([finding("ai-violet", 4), finding("reflex-font", 2)]) }, COPY);
+    const r = characterReport({ site: "https://electrician.test/", findings: findings([finding("ai-violet", 4), finding("reflex-font", 2)]) }, COPY);
     const plan = retrofitPlan(r, direction);
-    expect(plan).toMatch(/^# Retrofit: https:\/\/rmp\.test\//);
+    expect(plan).toMatch(/^# Retrofit: https:\/\/electrician\.test\//);
     expect(plan).toMatch(/## 1\. Decide first/);
     expect(plan).toMatch(/Use: \*\*#1f6f4a\*\* for accent\. The green on the side of every van/);
     expect(plan).toMatch(/Waits on: deciding \*\*display\*\*/);

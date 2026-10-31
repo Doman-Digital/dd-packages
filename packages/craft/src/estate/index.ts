@@ -26,7 +26,7 @@ export const ESTATE_VERSION = 1;
 
 /**
  * Median fingerprint distance between two null pages built from the same
- * brief, across seven briefs and 1,330 pairs (calibration/null, 2026-09-23).
+ * brief, across seven briefs and 1,330 pairs (the private corpus's calibration/null, 2026-09-23).
  */
 export const SIBLING_AT = 0.31;
 

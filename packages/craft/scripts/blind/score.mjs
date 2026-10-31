@@ -1,7 +1,10 @@
 // Scores a blind-test run as docs/blind-test.md describes. Run after the votes are in and the answer key
 // has been committed (or is on disk at <dir>/.key/key.json).
 //
-//   node scripts/blind/score.mjs calibration/blind/<date>
+//   node scripts/blind/score.mjs <corpus>/calibration/blind/<date>
+//
+// The run folder lives in the private corpus (dd-craft-corpus, normally checked out beside dd-packages,
+// so <corpus> is ../dd-craft-corpus from the repository root).
 //
 // Reads <dir>/votes.csv (judge,session,pair,kind,left,right,picked,excluded). If kind, left or right is empty
 // it is filled from the key by pair number, so judges only need to write judge, session, pair and picked.
