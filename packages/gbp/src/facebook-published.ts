@@ -39,7 +39,7 @@ export interface PublishedFacebookResult {
 }
 
 export interface GetPublishedFacebookOptions {
-  /** The client's slug, e.g. `"rmp-electrical"`. */
+  /** The client's slug, e.g. `"example-electrical"`. */
   client: string;
   /** Default: `GBP_REVIEWS_BASE_URL`, else the Doman Digital address. */
   baseUrl?: string;

@@ -56,7 +56,7 @@ describe("findGraphIssues", () => {
   it("flags two differently-typed nodes sharing the same @id", () => {
     const ids = createGraphIds(SITE_URL);
     const [organization, website] = buildSpine(ORG_INPUT, WEBSITE_INPUT, ids);
-    // Reproduces the live MMM-Beauty bug: an Organization and an unrelated
+    // Reproduces the live bug on a salon site: an Organization and an unrelated
     // node type emitted with the identical @id, which JSON-LD parsers merge
     // into one contradictory node.
     const impostor = { "@type": "NailSalon", "@id": ids.org, name: "Someone Else" };

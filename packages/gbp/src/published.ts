@@ -27,7 +27,7 @@ interface NextFetchInit extends RequestInit {
 }
 
 export interface GetPublishedReviewsOptions {
-  /** The client's slug, e.g. `"chair-and-blade"`. */
+  /** The client's slug, e.g. `"example-barber"`. */
   client: string;
   /** Default: `GBP_REVIEWS_BASE_URL` from the environment, else {@link DEFAULT_PUBLISHED_REVIEWS_BASE_URL}. */
   baseUrl?: string;

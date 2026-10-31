@@ -39,7 +39,7 @@ SEO comes up."
 4. **`findGraphIssues(graph)` must run somewhere your CI actually executes,
    against the graph a real page builds** — not just unit tests of the
    adapter functions that feed it. This is the current gap in both
-   `dd-templates` and `RMP-Electrical`: their local tests cover the
+   `dd-templates` and the single-business electrician site: their local tests cover the
    CMS-shape adapters (`site-adapter.ts`, `business-types.ts`) but nothing
    yet builds an actual page's graph and asserts it's clean end-to-end. Close
    this the next time either repo is touched substantially — extract each
@@ -140,7 +140,7 @@ Read `README.md` first for the API. Then:
   `speakable` block, whatever's already there for a real reason).
 - Map the site's `SiteSettings`-equivalent onto `OrganizationInput` in a
   local `lib/graph/site-adapter.ts` — see `dd-templates` or
-  `RMP-Electrical` for the pattern.
+  the single-business electrician site for the pattern.
 - Convert every existing flat "areaServed as strings" or "provider as a
   literal" into `@id` refs against nodes actually included in the graph.
 - Run `findGraphIssues` against representative fixture data before calling

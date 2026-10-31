@@ -70,7 +70,7 @@ export interface SyntheticContext {
 export interface VerifyConfig {
   /** Zero, one or two keys. Empty means the synthetic path is off. */
   keys: readonly SyntheticKey[];
-  /** The public host the form is served on, for example `www.sensphere.co.uk`. */
+  /** The public host the form is served on, for example `www.example.co.uk`. */
   host: string;
   /** The form's path or paths, for example `/api/enquiry`. Exact match, no query. */
   path: string | readonly string[];

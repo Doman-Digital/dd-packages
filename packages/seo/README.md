@@ -10,7 +10,7 @@ This README is the API reference.
 
 ## Why this exists
 
-Four properties (Doman Digital, RMP Electrical, MMM Beauty, Sensphere) each
+Four properties (the studio's own site and three client sites) each
 grew their own version of the same route bookkeeping: which pages are
 indexable, which belong in the sitemap, what a page is trying to rank for,
 which pages should link to which. The recurring defect: nothing checked that
@@ -227,7 +227,7 @@ a second consumer shows the shape.
 
 The metadata builder (title/description/OG/hreflang generation). Doman
 Digital's `lib/metadata.ts` is mature and shaped around its own CMS overlay;
-RMP Electrical has its own version tuned to location pages. Extracting a
+A client electrician site has its own version tuned to location pages. Extracting a
 shared metadata builder now would mean designing for two consumers whose
 needs haven't converged yet. Revisit once a second real consumer is on this
 package and the shape is clearer.

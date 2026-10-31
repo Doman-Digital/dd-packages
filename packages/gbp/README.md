@@ -6,7 +6,7 @@ including the business's own reply to each review.
 
 ## Why this exists
 
-Extracted from MMM Beauty's `packages/google-apis` (`business-profile.ts` +
+Extracted from a salon client's `packages/google-apis` (`business-profile.ts` +
 `oauth-client.ts`), which was already proven in production against the
 real GBP API's quirks -- star-rating enums, page-size caps, graceful
 degrade-to-empty when unconfigured. Six client sites need this, not one, so
@@ -73,7 +73,7 @@ import { getPublishedReviews } from "@domandigital/gbp";
 
 // Throws when the file is missing or malformed: keep the copy you already have.
 const { averageRating, totalReviewCount, reviews, syncedAt } = await getPublishedReviews({
-  client: "chair-and-blade",
+  client: "example-barber",
 });
 ```
 
@@ -99,7 +99,7 @@ the Google file, at `<client-slug>.facebook.json`:
 import { getPublishedFacebookRecommendations } from "@domandigital/gbp";
 
 const { rating, count, recommends, reviews } = await getPublishedFacebookRecommendations({
-  client: "rmp-electrical",
+  client: "example-electrical",
 });
 ```
 

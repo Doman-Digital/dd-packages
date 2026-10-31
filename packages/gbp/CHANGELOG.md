@@ -159,7 +159,7 @@ time.
 
 ### Added
 
-- Initial release, extracted from MMM Beauty's `packages/google-apis`. Zero
+- Initial release, extracted from a salon client's `packages/google-apis`. Zero
   runtime dependencies.
 - `getGoogleOAuthAccessToken` and `hasGoogleOAuthCredentials`: user
   refresh-token OAuth, with the access token cached in process and refreshed a

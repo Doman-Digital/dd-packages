@@ -9,20 +9,20 @@ describe("validateCoverage — the six-missing-case-studies regression", () => {
   const policy: RoutePolicyEntry[] = [
     { path: "/work", indexable: true, inSitemap: true },
     { path: "/work/beautyops", indexable: true, inSitemap: true },
-    { path: "/work/verqan", indexable: true, inSitemap: true },
-    { path: "/work/rise-bloom", indexable: true, inSitemap: true },
-    // sensphere, mmm-beauty, tardi-group etc deliberately absent, matching
+    { path: "/work/case-a", indexable: true, inSitemap: true },
+    { path: "/work/case-b", indexable: true, inSitemap: true },
+    // case-c, case-d, case-e etc deliberately absent, matching
     // the pre-fix state of lib/seo/routePolicy.ts.
   ];
 
   const routesOnDisk = [
     "/work",
     "/work/beautyops",
-    "/work/verqan",
-    "/work/rise-bloom",
-    "/work/sensphere",
-    "/work/mmm-beauty",
-    "/work/tardi-group",
+    "/work/case-a",
+    "/work/case-b",
+    "/work/case-c",
+    "/work/case-d",
+    "/work/case-e",
   ];
 
   test("flags every route on disk with no policy entry", () => {
@@ -31,15 +31,15 @@ describe("validateCoverage — the six-missing-case-studies regression", () => {
       .filter((i) => i.kind === "route-missing-policy")
       .map((i) => i.path)
       .sort();
-    expect(missing).toEqual(["/work/mmm-beauty", "/work/sensphere", "/work/tardi-group"]);
+    expect(missing).toEqual(["/work/case-c", "/work/case-d", "/work/case-e"]);
   });
 
   test("a fully covered set produces no issues", () => {
     const fullPolicy: RoutePolicyEntry[] = [
       ...policy,
-      { path: "/work/sensphere", indexable: true, inSitemap: true },
-      { path: "/work/mmm-beauty", indexable: true, inSitemap: true },
-      { path: "/work/tardi-group", indexable: true, inSitemap: true },
+      { path: "/work/case-c", indexable: true, inSitemap: true },
+      { path: "/work/case-d", indexable: true, inSitemap: true },
+      { path: "/work/case-e", indexable: true, inSitemap: true },
     ];
     expect(validateCoverage({ routesOnDisk, policy: fullPolicy })).toEqual([]);
   });
