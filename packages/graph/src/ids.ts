@@ -3,7 +3,7 @@
  *
  * Every id is root-anchored (`${siteUrl}/#kind-slug`) rather than built from
  * the entity's own page path. Two consuming sites (dd-templates,
- * Electrician) route the same entity kinds through different paths --
+ * a single-business electrician site) route the same entity kinds through different paths --
  * `/services/`, `/electrician/`, `/guides/`, `/team/` vs no team route at
  * all -- and `@id` only has to be a stable identifier, not a resolvable URL.
  * Anchoring at the root removes routing configuration from this package
@@ -14,8 +14,8 @@
  * not arbitrary.
  *
  * `org` and `website` keep the `#organization` / `#website` convention three
- * independent repos in the portfolio (Doman-Digital, therapy-practice,
- * Electrician) had already converged on before this package existed.
+ * independent repos in the portfolio (the studio's own site, a client
+ * portal and a single-business electrician site) had already converged on before this package existed.
  */
 export function createGraphIds(siteUrl: string) {
   const url = siteUrl.replace(/\/$/, "");

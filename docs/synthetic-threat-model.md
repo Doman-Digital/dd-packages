@@ -1,8 +1,8 @@
-# Threat model: `@domandigital/synthetic` and the Therapy wiring
+# Threat model: `@domandigital/synthetic` and the first client wiring
 
 DD Checks C38 (DOM-499). Scope: the signed-submission protocol in
-`packages/synthetic` (C7) and its first consumer, Therapy's forms (C15,
-therapy-practice #243) with the portal public-intake route. Reviewed 9 October 2026
+`packages/synthetic` (C7) and its first consumer, a client site's forms (C15,
+client repo #243) with the portal public-intake route. Reviewed 9 October 2026
 against the HMAC control list in "DD Checks: research (build vs adopt)".
 
 ## What is being protected
@@ -23,7 +23,7 @@ store. Everything below follows from that.
 | Nonce stored until the window expires | Met | 16-char run id, guard TTL 300 s, more than twice the window |
 | Constant-time compare | Met | `constantTimeEqual`; a mismatched pin takes the same path as a bad signature |
 | Reject unexpected path, host, content type, method | Met | shape check runs before anything is hashed |
-| Separate rate limit for signed traffic | Met in Therapy | `buildSyntheticIdentifier`: one bucket per form, apart from visitors |
+| Separate rate limit for signed traffic | Met in the client site | `buildSyntheticIdentifier`: one bucket per form, apart from visitors |
 | Key never in page JS | Met | server-only env; the checker signs, the page never sees a key |
 | No signatures or secrets in traces | Met, proof pending | see "Scrubbing" |
 | Context set only after verification, immutable | Met | frozen `SyntheticContext` built from verified headers only |
@@ -35,7 +35,7 @@ store. Everything below follows from that.
 `scrubHeaders` and `scrubSentryEvent` redact `X-DD-Synth*` values, and
 `@domandigital/sentry` runs them after PII scrubbing, including spans and
 transactions. The rejection beacon carries a reason code only. Errors raised in
-`verify` are caught and returned as a code, never as text. Therapy strips the
+`verify` are caught and returned as a code, never as text. The client site strips the
 synth headers before building request context. Open: the runner artefacts in
 dd-checks (traces, HAR, screenshots) must be redacted before R2, as the C9a
 decision records; that is owned by C9b/C21. Open: the live proof on staging
@@ -59,17 +59,17 @@ rejected without trying the other key. With no keys the path is off and
 requests are handled as ordinary. No finding.
 
 **The bypass becoming an unauthenticated form API.** What a verified request
-can do is bounded by the handler: Therapy runs the recipient lock, the config
+can do is bounded by the handler: the client site runs the recipient lock, the config
 self-check instead of the token, the real rate limiter and the real schema.
 Finding F1: `verifyRequest` read the whole body before checking the signature,
 so an unauthenticated caller could make a handler buffer an arbitrarily large
 body by adding the header. Fixed: `maxBodyBytes` (default 1 MiB), checked on
 `Content-Length` and again while streaming; over the cap is a `shape` rejection.
-Therapy passes its own limit (S1).
+The client site passes its own limit (S1).
 
 **The recipient lock.** `isCanaryRecipient` accepts one plain address at
 exactly `canary.domandigital.co.uk`: no display name, list, subdomain or
-look-alike. `canaryAddress` takes only a valid run id. Therapy sends staff
+look-alike. `canaryAddress` takes only a valid run id. The client site sends staff
 mail to the canary address and submitter mail only on the daily full run. No
 finding.
 
@@ -99,8 +99,8 @@ header gets past the WAF at worst and fails there. Accepted by design.
 ## Still open
 
 - Live proof that `X-DD-Synth-*` is absent from Sentry events and logs on
-  staging: Therapy staging does not exist (C15 DOM-497). Proved against a
-  local fixture in the Therapy test suite instead; repeat on staging when it
+  staging: the client staging site does not exist (C15 DOM-497). Proved against a
+  local fixture in the client test suite instead; repeat on staging when it
   lands.
 - Live canary arrival: waits on the canary mailbox DNS (DOM-495).
 - Redaction of runner artefacts before R2 (C9b/C21).
@@ -112,5 +112,5 @@ header gets past the WAF at worst and fails there. Accepted by design.
 | F1 | Body read and hashed without a size cap | `maxBodyBytes`, streamed cap (this PR) |
 | F2 | Replay store call had no timeout | 2 s timeout, fails closed (this PR) |
 | F3 | Rejection beacon unthrottled | per client/form/reason per minute (this PR) |
-| S1 | Therapy trusted `Content-Length` alone | pass `maxBodyBytes` (therapy-practice PR) |
-| S2 | No test proving scrubbing of synth headers end to end | fixture test (therapy-practice PR) |
+| S1 | The client site trusted `Content-Length` alone | pass `maxBodyBytes` (client repo PR) |
+| S2 | No test proving scrubbing of synth headers end to end | fixture test (client repo PR) |

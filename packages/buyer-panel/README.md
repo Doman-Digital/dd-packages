@@ -80,7 +80,7 @@ AI its neurons.
   conversation and just before the oldest screenshot still in full, so each step re-reads its history from cache at a
   tenth of the input price. Haiku 4.5 caches only from 4,096 tokens, so the first steps run uncached. The buyer prunes
   old screenshots in strides (up to five screens in full, then back to two) so the cache holds between prunes. On
-  the same four Salon sessions this cut input cost by about 40%. The evaluator's long system prompt (journey map and
+  the same four salon-site sessions this cut input cost by about 40%. The evaluator's long system prompt (journey map and
   brand facts) is cached too, shared by every session graded in the run.
 - **`--max-usd <n>` (default 3).** Spend is estimated live from token usage. Past the cap no new session starts,
   running sessions end cleanly (`endReason: capped`), grading stops starting new sessions, and the report names the

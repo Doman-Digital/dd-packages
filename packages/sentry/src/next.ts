@@ -4,7 +4,7 @@
  *
  * Next 16 with Turbopack loads only `instrumentation-client.ts` in the
  * browser. A `sentry.client.config.ts` is never read, and a site that keeps
- * its client init there reports nothing from the browser (Skincare and the
+ * its client init there reports nothing from the browser (a client e-commerce site and the
  * DD portal, 2026-10-08 audit).
  */
 

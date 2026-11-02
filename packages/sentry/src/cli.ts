@@ -2,7 +2,7 @@
 /// <reference types="node" />
 /**
  * dd-sentry-release: the release and source-map step for Worker and Astro
- * builds, modelled on Electrician's deploy-astro.yml. Two halves, because
+ * builds, modelled on a client Astro site's deploy-astro.yml. Two halves, because
  * the maps must be gone before the deploy and the deploy record must come
  * after it:
  *

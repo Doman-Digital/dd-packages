@@ -6,14 +6,14 @@ describe("nextBuildOptions", () => {
   it("names the org, the commit as the release and a deploy to the environment", () => {
     expect(
       nextBuildOptions({
-        project: "example-skincare",
+        project: "example-shop",
         env: { SENTRY_AUTH_TOKEN: "sntrys_x", VERCEL_GIT_COMMIT_SHA: "abc", VERCEL_ENV: "production", CI: "1" },
       }),
     ).toEqual({
       org: "domandigital",
-      project: "example-skincare",
+      project: "example-shop",
       authToken: "sntrys_x",
-      applicationKey: "dd-example-skincare",
+      applicationKey: "dd-example-shop",
       silent: false,
       widenClientFileUpload: true,
       sourcemaps: { deleteSourcemapsAfterUpload: true },
@@ -30,8 +30,8 @@ describe("nextBuildOptions", () => {
   });
 
   it("matches the third-party filter to the same key", () => {
-    expect(thirdPartyFilterOptions("example-skincare")).toEqual({
-      filterKeys: ["dd-example-skincare"],
+    expect(thirdPartyFilterOptions("example-shop")).toEqual({
+      filterKeys: ["dd-example-shop"],
       behaviour: "drop-error-if-exclusively-contains-third-party-frames",
     });
   });

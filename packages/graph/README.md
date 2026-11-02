@@ -24,8 +24,8 @@ JSON-LD kept shipping.
 
 Proven in production shape against two differently-structured sites before
 extraction: `dd-templates` (multi-niche template, per-author Person nodes,
-`/service-areas/` + `/blog/` routing) and `Electrician` (single business,
-one founder, `/electrician/` + `/guides/` routing). Both consume this package
+`/service-areas/` + `/blog/` routing) and a single-business electrician site
+(one founder, `/electrician/` + `/guides/` routing). Both consume this package
 with zero routing configuration -- every `@id` is root-anchored
 (`${siteUrl}/#kind-slug`), not built from the entity's own page path.
 

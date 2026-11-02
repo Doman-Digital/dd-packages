@@ -168,7 +168,7 @@ when they run.
 
 ## Release and source maps for Worker and Astro builds: `dd-sentry-release`
 
-The step from Electrician's `deploy-astro.yml`, as one command in two
+The step from a client Astro site's `deploy-astro.yml`, as one command in two
 halves. The maps go up and are deleted **before** the deploy, and the deploy
 record is written **after** it:
 

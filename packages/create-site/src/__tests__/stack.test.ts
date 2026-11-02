@@ -52,7 +52,7 @@ describe("toolName", () => {
 describe("siteSlug", () => {
   test("is the lowercase hyphenated trading name", () => {
     expect(siteSlug("Acme Electrical")).toBe("acme-electrical");
-    expect(siteSlug("Barber")).toBe("example-barber");
+    expect(siteSlug("Oak & Anvil")).toBe("oak-and-anvil");
     expect(siteSlug("  Fern, Moss!  ")).toBe("fern-moss");
   });
 });

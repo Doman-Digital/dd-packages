@@ -9,20 +9,20 @@ describe("validateCoverage — the six-missing-case-studies regression", () => {
   const policy: RoutePolicyEntry[] = [
     { path: "/work", indexable: true, inSitemap: true },
     { path: "/work/example-saas", indexable: true, inSitemap: true },
-    { path: "/work/example-product", indexable: true, inSitemap: true },
-    { path: "/work/fern-moss", indexable: true, inSitemap: true },
-    // therapy-practice, example-salon, example-group etc deliberately absent, matching
+    { path: "/work/case-a", indexable: true, inSitemap: true },
+    { path: "/work/case-b", indexable: true, inSitemap: true },
+    // case-c, case-d, case-e etc deliberately absent, matching
     // the pre-fix state of lib/seo/routePolicy.ts.
   ];
 
   const routesOnDisk = [
     "/work",
     "/work/example-saas",
-    "/work/example-product",
-    "/work/fern-moss",
-    "/work/therapy-practice",
-    "/work/example-salon",
-    "/work/example-group",
+    "/work/case-a",
+    "/work/case-b",
+    "/work/case-c",
+    "/work/case-d",
+    "/work/case-e",
   ];
 
   test("flags every route on disk with no policy entry", () => {
@@ -31,15 +31,15 @@ describe("validateCoverage — the six-missing-case-studies regression", () => {
       .filter((i) => i.kind === "route-missing-policy")
       .map((i) => i.path)
       .sort();
-    expect(missing).toEqual(["/work/example-salon", "/work/therapy-practice", "/work/example-group"]);
+    expect(missing).toEqual(["/work/case-c", "/work/case-d", "/work/case-e"]);
   });
 
   test("a fully covered set produces no issues", () => {
     const fullPolicy: RoutePolicyEntry[] = [
       ...policy,
-      { path: "/work/therapy-practice", indexable: true, inSitemap: true },
-      { path: "/work/example-salon", indexable: true, inSitemap: true },
-      { path: "/work/example-group", indexable: true, inSitemap: true },
+      { path: "/work/case-c", indexable: true, inSitemap: true },
+      { path: "/work/case-d", indexable: true, inSitemap: true },
+      { path: "/work/case-e", indexable: true, inSitemap: true },
     ];
     expect(validateCoverage({ routesOnDisk, policy: fullPolicy })).toEqual([]);
   });
