@@ -6,7 +6,7 @@ including the business's own reply to each review.
 
 ## Why this exists
 
-Extracted from Salon's `packages/google-apis` (`business-profile.ts` +
+Extracted from a salon client's `packages/google-apis` (`business-profile.ts` +
 `oauth-client.ts`), which was already proven in production against the
 real GBP API's quirks -- star-rating enums, page-size caps, graceful
 degrade-to-empty when unconfigured. Six client sites need this, not one, so

@@ -25,7 +25,7 @@ export const MODES: readonly SyntheticMode[] = ["probe", "full", "beacon", "rece
 export const FORM_MODES: readonly SyntheticMode[] = ["probe", "full"];
 
 export interface SyntheticKey {
-  /** Key id, for example `therapy-practice-2026-10`. */
+  /** Key id, for example `example-2026-10`. */
   kid: string;
   /** The 32-byte secret, base64url without padding. */
   secret: string;

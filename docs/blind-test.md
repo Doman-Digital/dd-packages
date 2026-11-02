@@ -80,10 +80,10 @@ One CSV per run, in `packages/craft/calibration/blind/<date>/votes.csv`:
 
 ```csv
 judge,session,pair,kind,left,right,picked,excluded
-J1,1,07,test,ours:skincare,human:salon-x,left,
-J2,1,07,test,ours:skincare,human:salon-x,right,
+J1,1,07,test,ours:site-a,human:salon-x,left,
+J2,1,07,test,ours:site-a,human:salon-x,right,
 J2,1,11,control,null:dd/14,human:agency-y,left,
-AD,1,07,test,ours:skincare,human:salon-x,left,directed this site
+AD,1,07,test,ours:site-a,human:salon-x,left,directed this site
 ```
 
 `picked` is the side the judge said was built by AI. `excluded` holds the

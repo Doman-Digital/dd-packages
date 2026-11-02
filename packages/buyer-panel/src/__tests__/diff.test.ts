@@ -14,7 +14,7 @@ vi.mock("../model.js", async (orig) => ({
   callForTool: async (_c: unknown, _b: unknown, _t: unknown, _u: unknown, validate: (input: unknown) => unknown) => validate(proposal),
 }));
 
-// Cluster keys from the Salon live run (20261014-2026-10-14T0808) and the redesign run (a5312e7d-2026-10-14T0819).
+// Cluster keys from a salon client live run (20261014-2026-10-14T0808) and the redesign run (a5312e7d-2026-10-14T0819).
 const before = ["opening-hours-buried-in-footer", "deposit-payment-terms-not-shown-before-checkout", "cancellation-policy-not-mentioned", "gift-card-square-page-loses-salon-context", "removal-add-on-vs-combined-service-inconsistency", "builder-gel-price-missing-from-qualifier", "hero-headline-no-service-names"];
 const after = ["opening-hours-not-surfaced-in-journey", "deposit-requirement-not-surfaced-early", "about-page-address-hours-below-fold-mobile", "prices-page-no-inline-prices", "removal-newset-price-format-inconsistency", "mobile-nav-menu-links-unclickable"];
 
