@@ -8,7 +8,7 @@ import type { RoutePolicyEntry } from "../policy";
 describe("validateCoverage — the six-missing-case-studies regression", () => {
   const policy: RoutePolicyEntry[] = [
     { path: "/work", indexable: true, inSitemap: true },
-    { path: "/work/beautyops", indexable: true, inSitemap: true },
+    { path: "/work/example-saas", indexable: true, inSitemap: true },
     { path: "/work/case-a", indexable: true, inSitemap: true },
     { path: "/work/case-b", indexable: true, inSitemap: true },
     // case-c, case-d, case-e etc deliberately absent, matching
@@ -17,7 +17,7 @@ describe("validateCoverage — the six-missing-case-studies regression", () => {
 
   const routesOnDisk = [
     "/work",
-    "/work/beautyops",
+    "/work/example-saas",
     "/work/case-a",
     "/work/case-b",
     "/work/case-c",
