@@ -1,5 +1,12 @@
 # @domandigital/create-site
 
+## 0.11.2
+
+### Patch Changes
+
+- 472408d: A new site installs `@domandigital/craft@^0.24.0`, the release that keeps client and staff names out of the package (DOM-1643).
+- e4db92a: The README examples, code comments and changelog entries no longer name clients. They describe the site instead, for example "a client electrician site". No runtime behaviour changes.
+
 ## 0.11.1
 
 ### Patch Changes

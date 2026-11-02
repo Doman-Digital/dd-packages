@@ -1,5 +1,13 @@
 # @domandigital/sentry
 
+## 0.1.3
+
+### Patch Changes
+
+- e4db92a: The README examples, code comments and changelog entries no longer name clients. They describe the site instead, for example "a client electrician site". No runtime behaviour changes.
+- Updated dependencies [e4db92a]
+  - @domandigital/synthetic@0.2.2
+
 ## 0.1.2
 
 ### Patch Changes
