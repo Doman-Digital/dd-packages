@@ -1310,8 +1310,8 @@ in `calibration/estate/`.
 
 One sibling pair in twenty-one, and it is the agency's own site with one of
 its clients: the same Fraunces headline over a near-black and white page with
-no colour of its own. Fraunces sets the headline on three of the seven. Chair
-and Blade shares nothing with anyone but a marquee. Not yet read by a person.
+no colour of its own. Fraunces sets the headline on three of the seven. The barber
+site shares nothing with anyone but a marquee. Not yet read by a person.
 
 ### Human set, 2026-09-23
 
