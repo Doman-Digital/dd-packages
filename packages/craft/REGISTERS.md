@@ -29,8 +29,8 @@ nominalisations, pronoun openers, paired phrases, contractions, person and
 passive voice. Names, figures and specifics are left out, because they say
 what a text is about, not how it is written.
 
-It needs five paragraphs of two to eight sentences each. In
-`calibration/copy-shape/report-registers.md`, single passages from different
+It needs five paragraphs of two to eight sentences each. In the register
+separation report (kept in the private craft corpus), single passages from different
 registers overlap too much to place (26 of 258 pair tests separate), while
 five-paragraph averages separate every register pair (78 of 258). Anything
 shorter gets the brief, not a measurement.
@@ -157,7 +157,7 @@ Generated from `src/register/registers.ts` by
 **Sources:**
 
 - house judgement: No public style authority exists for premium-brand prose. These directives are house judgement, to be revised as the estate grows.
-- [Register separation, 2026-09-29](calibration/copy-shape/report-registers.md): Literary prose (Gutenberg) carries about twice the comma density of the other human registers, the one feature that separated it from all four. Longer, jointed sentences are normal here.
+- Register separation, 2026-09-29 (report in the private craft corpus): Literary prose (Gutenberg) carries about twice the comma density of the other human registers, the one feature that separated it from all four. Longer, jointed sentences are normal here.
 
 **Always:** Every register keeps the COPY.md blocking tier and the proof rule. Draft first, then run `craft copy <file>` on the draft.
 <!-- craft:registers:end -->

@@ -218,7 +218,7 @@ export function characterReport(input: CharacterInputs, copyTells: Set<string> =
 
   const order: Area[] = ["direction", "type", "colour", "shape", "effects", "motion", "layout", "copy"];
   // One change per choice. "Pick a display face" for a reflex font, "move off
-  // Fraunces" from the null and "differ from Skincare's Fraunces" from the
+  // Fraunces" from the null and "differ from a sibling site's Fraunces" from the
   // estate are one change with three reasons, and a checklist should say so.
   const merged: Action[] = [];
   for (const a of actions) {

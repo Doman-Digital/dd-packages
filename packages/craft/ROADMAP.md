@@ -16,7 +16,7 @@ Update this file in the same PR that moves a phase.
 | D | Counterfactual null model (`claude -p`, about 20 runs a brief), `craft tells harvest` | Merged: dd-packages #21. |
 | E | Estate register, `craft estate add\|compare` | Merged: dd-packages #22. |
 | F | Character report, `craft retrofit`, the character skill, trawl and drift-guards switches | Merged: dd-packages #23, drift-guards #4, trawl #6, claude-kit #8. |
-| G | Visual review and retrofit decisions, one session per site | Reopened, 2026-09-27. All seven existing reports and decision packs are unvalidated drafts. Salon has a disputed image reference, and the saved report mixes public-site, portal and planning-file findings. Rebuild from current desktop/mobile screenshots and verify each asset reference before making recommendations. CRO-19 is still In Progress; J remains blocked. |
+| G | Visual review and retrofit decisions, one session per site | Reopened, 2026-09-27. All seven existing reports and decision packs are unvalidated drafts. The salon's pack has a disputed image reference, and the saved report mixes public-site, portal and planning-file findings. Rebuild from current desktop/mobile screenshots and verify each asset reference before making recommendations. CRO-19 is still In Progress; J remains blocked. |
 | H | The copy standard: `COPY.md` in craft, `craft copy --gate` and the house policy in `house.ts`, the density tier, eight research tells, the `craft copy compare` preservation gate, the copy-check skill rebuilt, and `@domandigital/sanity-copy` for the Studio | Merged: dd-packages #24 and #26, claude-kit #10 and #11. `sanity-copy` in review; installing it in the DD Studio waits on its first npm release. Runs alongside G and does not block it. |
 | I | Enterprise foundation: `craft.config.json` (ignore globs, `copyPaths`, severity changes with a reason), `--baseline`/`--update-baseline`, `--sarif`, `schemaVersion` on every `--json`, `craft audit --pages` and `--viewport`; `.claude`, `.agents` and `.cursor` never walked | Merged: dd-packages #41. |
 | J | `craft direction build` (tokens from decided choices), `craft brief` (instructions for an agent), `craft loop` (build, audit, change list), and the skill | Waiting on the art direction. Released by the first two or three decided `art-direction.json` files. |
@@ -35,9 +35,9 @@ The seven original reports and PDFs are historical drafts, not accepted
 client directions. Producing a pack did not finish a retrofit. On 2026-09-27,
 CRO-19 was In Progress, Doman Digital's decision issue was In Progress, and
 the other six were Todo. The user reported an unused picture being treated
-as Salon site-wide evidence. Its exact identity still needs verification.
+as the salon's site-wide evidence. Its exact identity still needs verification.
 
-The saved Salon report also cites portal routes and old planning files as
+The salon's saved report also cites portal routes and old planning files as
 copy findings while discussing the public site. A file in a repository does
 not prove that its code or image appears on a published page. The claim that
 soft-square nails are booked most has no supporting booking evidence in the
@@ -64,9 +64,9 @@ Completion needs checked visual evidence, client picks and reasons, v2
 validation, implementation and a fresh rendered review. A craft verdict is
 one input to that review, not proof that a pack's evidence is correct.
 
-Salon is the replacement-method pilot. Its visual pack covers home, treatments,
+The salon is the replacement-method pilot. Its visual pack covers home, treatments,
 gallery and contact on desktop/mobile; it does not certify the other six
-clients, every Salon route, the portal, or a completed retrofit.
+clients, every salon route, the portal, or a completed retrofit.
 
 ## Waiting on the art direction
 
@@ -122,7 +122,7 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   hits were read first, over `~/repos` outside craft's model drafts: 159 bare,
   58 "in plain ...", 17 of the forms it already blocked. 55 sit in shipped copy <!-- copy-ok -->
   in eight repos (DD social carousels 26, the DD site and marketing 10,
-  Therapy 8), nearly all the stock "stated plainly" or "we'll tell you <!-- copy-ok -->
+  the therapy practice 8), nearly all the stock "stated plainly" or "we'll tell you <!-- copy-ok -->
   plainly"; the rest are Markdown notes. The one fixed legitimate form, licence <!-- copy-ok -->
   text ("must be plainly marked"), is let through. The new `confession-line`
   and `hero-cta-pair` start in review.
@@ -165,7 +165,7 @@ tier does not block, or if a copy tell is not written up in `COPY.md`.
   92EL report passed the gate with "renting Microsoft's services, not running <!-- copy-ok: quoting a finding -->
   servers". Estate hits read first, over `~/GitHub` outside worktrees, fixtures
   and calibration: 45, every one in shipped copy the real template (a DD blog
-  post, a live DD article, two Therapy carousel cards, a DD proof line); the
+  post, a live DD article, two therapy-practice carousel cards, a DD proof line); the
   rest internal docs and code comments. The noun and "instead of" forms went to
   a new `trailing-contrast` tell at `review`, since a disclaimer has their shape.
 
@@ -206,11 +206,11 @@ Recorded with dates in `CHARACTER.md` under Calibration once run.
   client repos. 193 old findings; every one that is visitor copy is still found.
 - Signal 2, 2026-09-23: seven null models of 20 pages each. The AI set, 20
   unseen briefs, was 19 of 20 flagged (target 90%). Against their own brief,
-  DD (0.15) and Accountant (0.10) are typical; the other five are not.
+  DD (0.15) and the accountant (0.10) are typical; the other five are not.
 - Human set, 2026-09-23: the reference set's live pages, zero block hits,
   none typical. Linear, Stripe and DD are tell-heavy; two house demos were
   expired previews and are not measured.
-- Signal 3, 2026-09-23: one sibling pair in 21, DD and Skincare (0.28).
+- Signal 3, 2026-09-23: one sibling pair in 21, DD and the skincare site (0.28).
 - Character report, 2026-09-23: two sites *default*, five *mixed*, none
   *decided* because no site has an `art-direction.json`. The first change on
   all seven is the display face.
@@ -266,7 +266,7 @@ Seven-site proxy results, 2026-09-26:
 | Pair | Accent ΔE_OK | Ground ΔE_OK | Shared | Flag |
 | --- | --- | --- | --- | --- |
 | DD + Skincare | unmeasured on both | 0.03094 | Fraunces headline | no |
-| Chair + Electrician | 0.21531 | 0.80623 | none | no |
+| Barber + Electrician | 0.21531 | 0.80623 | none | no |
 
 The expected DD + Skincare colour flag was not reproduced: no accent was
 measured, and the ground sits just outside the existing 0.03 threshold. The

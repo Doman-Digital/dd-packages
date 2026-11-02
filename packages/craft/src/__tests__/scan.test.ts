@@ -46,7 +46,7 @@ describe("reading source", () => {
 });
 
 describe("findings the estate survey says a rule must reproduce", () => {
-  it("therapy-practice: a violet set in hex, which no class-name grep can see", () => {
+  it("a therapy practice: a violet set in hex, which no class-name grep can see", () => {
     const report = scanSource([
       { path: "src/app/globals.css", text: `:root {\n  --brand: #5a35d1;\n}` },
       { path: "src/components/Cta.tsx", text: `<a className="bg-[#5a35d1] text-white">Join</a>` },
@@ -58,8 +58,8 @@ describe("findings the estate survey says a rule must reproduce", () => {
     ]);
   });
 
-  it("Journal client: a glass hero and a three-column icon grid", () => {
-    const hero = `export function Hero() {\n  return <div className="rounded-3xl bg-white/20 p-10 backdrop-blur-lg"><h1>Journal client</h1></div>;\n}`;
+  it("a wellness studio: a glass hero and a three-column icon grid", () => {
+    const hero = `export function Hero() {\n  return <div className="rounded-3xl bg-white/20 p-10 backdrop-blur-lg"><h1>Example Studio</h1></div>;\n}`;
     const features = [
       `import { Leaf, Sun, Heart } from "lucide-react";`,
       `export function Features() {`,
@@ -73,7 +73,7 @@ describe("findings the estate survey says a rule must reproduce", () => {
     );
   });
 
-  it("Salon: reveal on nearly every section", () => {
+  it("a salon: reveal on nearly every section", () => {
     const page = Array.from({ length: 70 }, (_, i) => `<Reveal delay={${i}}><Section${i} /></Reveal>`).join("\n");
     const [finding] = scanSource([{ path: "app/page.tsx", text: page }]).findings.filter((f) => f.tell === "reveal-everywhere");
     expect(finding.message).toContain(`70 scroll reveals (limit ${REVEAL_LIMIT})`);

@@ -2,7 +2,9 @@
 //
 //   node scripts/shape/generate.mjs [--provider claude] [--parallel 4] [--only <genre>] [--limit N]
 //
-// One piece per call: every brief × genre × model in calibration/copy-shape/briefs.json,
+// Reads and writes the private corpus (dd-craft-corpus; lib.mjs finds it and stops if it is
+// missing). One piece per call: every brief × genre × model in its
+// calibration/copy-shape/briefs.json,
 // then each piece once more through the edit prompt ("edit this to sound more
 // human"), so measure.mjs can say which features survive light editing.
 // Resumable: a piece already written is not generated again.

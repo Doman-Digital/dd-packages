@@ -16,6 +16,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const root = resolve(import.meta.dirname, "..");
 const bin = (name) => join(root, "node_modules", ".bin", name);
@@ -24,6 +25,12 @@ const fail = (msg) => {
   failures.push(msg);
   console.error(`  FAIL ${msg}`);
 };
+
+/**
+ * Packages whose tarball must name no client, client person, staff member or
+ * reviewer, checked against the salted hashes the package keeps (DOM-1643).
+ */
+const NAME_GUARDED = { "@domandigital/craft": "packages/craft/scripts/deny-check.mjs" };
 
 /** CSS has no types, so attw reports it as unresolvable. Nothing else is excused. */
 const ATTW_EXCLUDE = { "@domandigital/craft": ["./craft.css", "./craft.tailwind.css"] };
@@ -62,6 +69,19 @@ try {
     const args = [file, "--profile", "node16", "--format", "ascii", ...(exclude.length ? ["--exclude-entrypoints", ...exclude] : [])];
     const r = spawnSync(bin("attw"), args, { encoding: "utf8" });
     if (r.status !== 0) fail(`attw ${manifest.name}\n${r.stdout}${r.stderr}`);
+    else console.log(`  ok ${manifest.name}`);
+  }
+
+  console.log("names");
+  for (const { manifest, file } of tarballs) {
+    const guard = NAME_GUARDED[manifest.name];
+    if (!guard) continue;
+    const { loadDenyList, scanFiles, walk, formatHit } = await import(pathToFileURL(join(root, guard)).href);
+    const unpacked = join(work, "names", manifest.name.replace(/[@/]/g, "_"));
+    mkdirSync(unpacked, { recursive: true });
+    execFileSync("tar", ["-xzf", file, "-C", unpacked]);
+    const hits = scanFiles(walk(unpacked), loadDenyList(), unpacked);
+    if (hits.length) fail(`${manifest.name} tarball names someone it must not\n${hits.map((h) => `    ${formatHit(h)}`).join("\n")}`);
     else console.log(`  ok ${manifest.name}`);
   }
 

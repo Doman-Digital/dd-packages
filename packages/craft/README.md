@@ -121,11 +121,11 @@ no change is needed. Evidence only reported by an audit or a stakeholder cannot
 make a problem observed, and a width nobody looked at stays unknown. See
 [Reviewing a proposed change](./CHARACTER.md#reviewing-a-proposed-change).
 
-A reviewer's own review is kept whole in the same shape, in the repository's
-reviewer corpus (`packages/craft/reviews/`, left out of the npm package), with
-what was done with each note and the principle it teaches. The reviewer's
-review of the DD site is the first. See
-[The reviewer's review of the DD site](./CHARACTER.md#eunices-review-of-the-dd-site-2026-10-19).
+A reviewer's own review is kept whole in the same shape, in a private
+reviewer corpus kept outside this repository, with what was done with each
+note and the principle it teaches. A studio reviewer's review of the studio's
+own site is the first. See
+[Review of the studio's own site](./CHARACTER.md#review-of-the-studios-own-site-2026-10-19).
 
 `--snapshot` accepts saved files and preview or production URLs. Drift fails
 with `--strict`; declared estate comparisons stay advisory. Version 1 files
@@ -378,8 +378,8 @@ the one loaded page in place:
 - **On a landscape phone (844 x 390):** header and fixed layers leave at least
   half the height.
 - **Page length (phone screens):** page height at 375 x 667 over 667, to the
-  footer (lazy images loaded). A phone page has a length budget (the Plumber
-  home page ran 12.7 screens against a target of 6.5). Set one per route or
+  footer (lazy images loaded). A phone page has a length budget (one client home
+  page ran 12.7 screens against a target of 6.5). Set one per route or
   route pattern with `screens`; a route over its budget fails the `screens`
   check, and with no budget the count is only reported. Keys are a route
   (`/`), a pattern (`/areas/[town]`), a prefix (`/services/*`, the route and
@@ -454,4 +454,4 @@ select a better design automatically. Protected staging reviews may reserve
 explicitly marked publication assets while reporting `publicationReady: false`.
 See CHARACTER.md, “Context and learning from a later result”.
 
-Opening photographs are selected as a rendered sequence: compare their quality and crop before filling a slide count or covering every service. See [Select photographs for their position in the sequence](./CHARACTER.md#select-photographs-for-their-position-in-the-sequence) for the Plumber follow-up and its limits.
+Opening photographs are selected as a rendered sequence: compare their quality and crop before filling a slide count or covering every service. See [Select photographs for their position in the sequence](./CHARACTER.md#select-photographs-for-their-position-in-the-sequence) for the follow-up on one client's opening photographs and its limits.

@@ -286,7 +286,7 @@ the licensor's own page. It is not a shortlist, and nothing proposes from it.
 
 `craft direction init` writes what the site does today with every reason
 empty, so the first thing it produces is the list of things nobody decided.
-Run on Electrician's live home page (2026-09-23) it records Fraunces, Manrope, a cream
+Run on an electrician client's live home page (2026-09-23) it records Fraunces, Manrope, a cream
 ground and pill buttons, three of them on the catalogue, and zero of seven
 choices decided.
 
@@ -302,8 +302,8 @@ A file from phase A that holds only exceptions stays valid.
 
 ### Decision confidence
 
-Attributed to The reviewer, Client Relations & Operations at Doman Digital
-("The reviewer's Lens"). The question it asks of every page:
+From a reviewer on the studio's team, whose question became the lens. The
+question it asks of every page:
 
 > What does this visitor need to see, understand and believe before they are
 > comfortable taking the next appropriate action?
@@ -409,15 +409,15 @@ slideshow; two have no phone action; none has a founder portrait; all validate.
 
 #### Where it came from
 
-On 15 October 2026 The reviewer reviewed the phone layout of a UK plumbing
-business's homepage. She did not review the desktop. Four things came out of
+On 15 October 2026 a reviewer on the studio's team reviewed the phone layout
+of a UK plumbing business's homepage. The desktop was not reviewed. Four things came out of
 it, and they are kept apart on purpose:
 
-1. **Her observations.** The owner was introduced late. Information about the
+1. **The reviewer's observations.** The owner was introduced late. Information about the
    work, services, reviews and the owner felt fragmented. Visitors should be
    able to feel confident without searching. The site could show more
    personality. Trust signals should read as a set.
-2. **Her proposed solutions.** A hero slideshow. Removing some project
+2. **The reviewer's proposed solutions.** A hero slideshow. Removing some project
    captions.
 3. **An independent audit's conclusions.** It agreed with the underlying
    concerns, that the owner should be met earlier and credibility shown sooner.
@@ -562,7 +562,7 @@ register numbers; a founder biography declined because booking comes first.
 #### Context and learning from a later result
 
 The 15 October calibration records the earlier audit's recommendation, not a
-permanent verdict. The later Plumber mobile comparison on 18 October preferred
+permanent verdict. The later mobile comparison on the same plumbing site on 18 October preferred
 work photographs followed by a compact owner introduction, then trust and contact.
 The useful test is whether each alternative answers the visitor's question.
 Considering smaller edits remains required; fewer edits alone do not establish
@@ -597,7 +597,7 @@ Compare clarity, framing, visible completion, distracting surroundings and the
 visual standard set by the lead image. A technically sound carousel can still
 weaken the page when its later slides are noticeably poorer.
 
-On 18 October 2026, after approving Plumber's mobile flow, Dmitri pointed out
+On 18 October 2026, after approving the plumbing site's mobile flow, the founder pointed out
 that the radiator and kitchen-tap slides did not compare with the first bathroom
 photograph. The initial selection had favoured showing different services. A
 review of the available photographs found that the radiator's unfinished edge
@@ -632,24 +632,23 @@ back as `change`, ask for what is `hold`, find out what is `gather-evidence`,
 and leave what is `no-change`. When a note names something that was not
 inspected, look before you act on it.
 
-### The reviewer's review of the DD site, 2026-10-19
+### Review of the studio's own site, 2026-10-19
 
-The reviewer reviewed the preview of Doman Digital's own new site on Pastel
-(canvas 986559) on 18 and 19 October 2026: 73 comments across the home,
-services, work, Therapy case, clinics, who-we-help, process, pricing, plans
-and contact pages. The whole review is kept, note by note, in
-[`reviews/reviewer/2026-10-19-dd-site.json`](https://github.com/Doman-Digital/dd-packages/blob/main/packages/craft/reviews/reviewer/2026-10-19-dd-site.json)
-in the repository:
-her words as she wrote them, what she proposed, what was done with it, the
-founder's ruling where one was needed, and the principle each note teaches. The
+A reviewer on the studio's team reviewed the preview of the studio's own new
+site on Pastel (canvas 986559) on 18 and 19 October 2026: 73 comments across
+the home, services, work, a client case, clinics, who-we-help, process,
+pricing, plans and contact pages. The whole review is kept, note by note, in
+the studio's private reviewer corpus: the reviewer's words as written, what
+was proposed, what was done with it, the founder's ruling where one was
+needed, and the principle each note teaches. The
 founder went through it on 20 October 2026. As in "Where it came from" above,
 four things are kept apart.
 
-#### What she saw
+#### What the reviewer saw
 
 Twelve notes are praise, and they are a record of what to keep: the structure
 and type, the four routes in, the who-we-help page ("a site that reads as a van
-roof"), the Barber case, the six-step process and the responsibility
+roof"), a barber client's case, the six-step process and the responsibility
 matrix. The rest name problems. These matter beyond this one site:
 
 - Two equal buttons in the hero (#5), and again on the process page (#36).
@@ -669,17 +668,17 @@ matrix. The rest name problems. These matter beyond this one site:
   care and £70 of website (#43).
 - Closed lists where the work is open: the hero sub-line and route 3 narrowed
   to bookings and enquiries (#2, #6, #25).
-- A page that contradicts itself: the Therapy form said both that enquiries
+- A page that contradicts itself: a client case's form said both that enquiries
   reach the inbox and that details stay out of one (#15), and a process step
   said "paid" for a product that had been retired (#22).
 - On a phone, the hero image crops badly (#55).
 
-#### What she proposed
+#### What the reviewer proposed
 
 Specific wording for most notes, and three larger changes: a hero slideshow of
 client systems (#3), a call to action after several sections (#50, #51, #70),
-and a social media card (#72). Her diagnoses were nearly all right. Her wording
-often used the patterns COPY.md blocks. Four of her comments blocked at
+and a social media card (#72). The diagnoses were nearly all right. The wording
+often used the patterns COPY.md blocks. Four of the comments blocked at
 <!-- copy-ok: quoting the reviewer's draft line -->
 catalogue 2026.10.4 ("No licence, no lock-in" in #42 is one), and eight do once
 the plain-English family is widened.
@@ -696,12 +695,12 @@ the plain-English family is widened.
 <!-- copy-ok: naming the banned adverb -->
 - The adverb "plainly" and its kin are banned, with "plain English".
 - Cut "Our clinic experience so far is one practice" (#8). On the clinics page
-  keep "Built and run by us", and describe what Therapy is: a growing
-  practice whose clinicians work remotely (#13).
+  keep "Built and run by us", and describe what the client practice is: a
+  growing practice whose clinicians work remotely (#13).
 - A testimonial (#9) is reworded only once its author approves the new words.
 - Held for their own decisions: e-commerce as a sector (#27), a clinic
   subscription with its own price (#49), response times (#54) and social media
-  (#72). Product client stays off /work (#59). Quarterly packs are declined for the
+  (#72). One product stays off /work (#59). Quarterly packs are declined for the
   site (#53).
 
 #### The principles
@@ -709,7 +708,7 @@ the plain-English family is widened.
 Each id is what a note's `principle` field names in the record.
 
 - `open-shop`: precise, never confessional or absolute. Scope is shown by
-  exact claims ("the portal we run for Therapy"), and a contractual fact is
+  exact claims ("the portal we run for a children's therapy practice"), and a contractual fact is
   said as what the buyer gets. `confession-line` reports the shapes for
   review.
 - `summary-pages-carry-substance`: a page that summarises carries a sentence
@@ -739,27 +738,28 @@ Each id is what a note's `principle` field names in the record.
 
 #### The counter-lesson
 
-Her diagnoses beat Claude's defaults. Claude's first pass on this review would
+The reviewer's diagnoses beat Claude's defaults. Claude's first pass on this review would
 have kept the "What this is and is not" sentence, the two hero buttons, the
 noun-list service cards and three proof numbers in a row. Each is a default
 craft names (`confession-line`, `hero-cta-pair`, the summary-card pattern,
 `stats-row`). Where the question is "does this read as decided and generous to
-the buyer", she was right. Where it is "is it true, and is it allowed", the
-proof ledger and the house rules held: she asked for promises that are not
-live yet (#53, #54, #72), and her replacement wording goes through copy-check
-like anyone's. A reviewer's diagnosis is taken on its merits; her
-words are copy, and copy is checked.
+the buyer", the reviewer was right. Where it is "is it true, and is it
+allowed", the proof ledger and the house rules held: the review asked for
+promises that are not live yet (#53, #54, #72), and its replacement wording
+goes through copy-check like anyone's. A reviewer's diagnosis is taken on its
+merits; a reviewer's words are copy, and copy is checked.
 
 #### Feeding later reviews in
 
-Every later review, hers or another reviewer's, goes through the
+Every later review, from this reviewer or another, goes through the
 `reviewer-intake` skill in claude-kit: pull the canvas, keep each note whole,
 classify it, check its facts against the proof ledger, brand facts and Linear,
-write the record under `reviews/<reviewer>/`, and propose tells or fixtures for
-what recurs. `src/__tests__/reviews.test.ts` holds each record to the schema
-and to this file, and fires every tell a note taught on the words it flagged.
-See [reviews/README.md](https://github.com/Doman-Digital/dd-packages/blob/main/packages/craft/reviews/README.md);
-the corpus stays in the repository and is left out of the npm package.
+write the record in the studio's private reviewer corpus, and propose tells or
+fixtures for what recurs. `src/__tests__/reviews.test.ts` holds each record to
+the schema and to this file, and fires every tell a note taught on the words
+it flagged. This file names no reviewer and no client: a section is headed for
+what was reviewed and the date. The corpus is private and is not part of the
+npm package.
 
 ## Declaring an exception
 
@@ -864,7 +864,7 @@ rest are weighed over what remains, so older registers and null models
 compare without being re-snapshotted.
 
 **Ground temperature.** ΔE alone files every light neutral page as one
-paper: Electrician's cream (`oklch(0.96 0.010 82)`) and Plumber's porcelain
+paper: an electrician's cream (`oklch(0.96 0.010 82)`) and a plumber's porcelain
 (`#F1F3F4`, `oklch(0.96 0.003 229)`) are ΔE 0.013 apart, a tenth of the
 ground scale, and nobody takes them for the same page. A page ground is the
 largest area on the page and the eye adapts to it, so a tint far below what
@@ -1001,7 +1001,7 @@ A list of tells goes stale; the model does not. So signal 2 asks the model
 directly: given this brief and nothing else, what would you build?
 
 ```bash
-craft null build --brief "Electrician, electricians based in Uxbridge ..." --out null/electrician
+craft null build --brief "Example Electrical, electricians based in Reading ..." --out null/electrician
 craft audit https://www.example-electrical.co.uk --null null/electrician
 ```
 
@@ -1042,9 +1042,9 @@ The agency's biggest tell is not on any one site. It is its clients looking
 like each other. `estate.json` holds one fingerprint per shipped site:
 
 ```bash
-craft estate add https://www.example-electrical.co.uk --id electrician --client "Electrician"
-craft estate compare            # every pair, closest first
-craft estate compare electrician        # one site against the rest
+craft estate add https://www.example-electrical.co.uk --id electrician --client "Example Electrical"
+craft estate compare                # every pair, closest first
+craft estate compare electrician    # one site against the rest
 craft estate compare https://staging.example.test   # a new build before it ships
 ```
 
@@ -1077,7 +1077,7 @@ craft estate compare electrician --component cta-band   # one site against the r
 Each pair lists what its two components share ("centred", "1 button", "same
 coloured band"), closest first. There is no sibling line for components yet:
 it needs a calibration set of real components (see the CTA collection in
-`calibration/idiom/cta/` once it exists), so this ranks and names, and judges
+`calibration/idiom/cta/` in the private corpus once it exists), so this ranks and names, and judges
 nothing. Only sites added with snapshot v2 have components to compare, and
 the command says so when fewer than two have the role. `--component` takes
 one of `cta-band`, `footer-cta`, `pricing`, `testimonials`, `faq`, `process`,
@@ -1193,7 +1193,7 @@ What it shows:
   is found in source (18) and on its buttons; Salon's intro, glows and glass are
   in source and its intro and glows on the page; Salon reveals 60% of the
   sections below its fold on scroll, all three of them, one short of the
-  four the rendered rule needs, and its source is over the reveal limit. Journal client's glass
+  four the rendered rule needs, and its source is over the reveal limit. A journal client's glass
   hero and icon grid could not be checked: that repo is not attached to this
   session.
 - **Every site ships a reflex face.** Twelve of fourteen site-face pairs are
@@ -1420,15 +1420,15 @@ The estate and the seven null models were still on snapshot v1 (the AI set and t
 
 | Measure | Before (v1) | After (v2) |
 |---|---|---|
-| Estate typicality against its own brief's null (own): dd, salon, therapy-practice, example-accountant, skincare, example-barber, electrician | 0.15, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 | 0.10, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 |
+| Estate typicality against its own brief's null (own): dd, salon, therapy, accountant, skincare, barber, electrician | 0.15, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 | 0.10, 0.05, 0.00, 0.10, 0.05, 0.05, 0.05 |
 | Estate typicality against all seven pooled (same order) | 0.01, 0.00, 0.00, 0.09, 0.00, 0.01, 0.26 | 0.01, 0.00, 0.00, 0.10, 0.00, 0.01, 0.21 |
 | Distance to own null (same order) | 0.340, 0.450, 0.503, 0.277, 0.442, 0.361, 0.518 | 0.443, 0.420, 0.530, 0.304, 0.479, 0.381, 0.558 |
 | Sibling pairs in the estate (below 0.31) | 1 (dd + skincare, 0.28) | 0 (dd + skincare is now 0.58; closest pair is dd + electrician, 0.48) |
-| Null pages flagged when scored against the other six briefs (dd, salon, therapy-practice, example-accountant, skincare, example-barber, electrician) | 20, 20, 19, 20, 19, 18, 15 of 20 | 20, 20, 20, 20, 20, 18, 18 of 20 |
+| Null pages flagged when scored against the other six briefs (dd, salon, therapy, accountant, skincare, barber, electrician) | 20, 20, 19, 20, 19, 18, 15 of 20 | 20, 20, 20, 20, 20, 18, 18 of 20 |
 | Null pages typical against the other six (same order) | 13, 10, 10, 12, 10, 4, 2 | 14, 8, 9, 13, 6, 7, 3 |
 | AI set flagged against the pooled v2 null | 19 of 20 | 20 of 20 (typical 15, tell-heavy 20) |
 
-What moved: the estate is still atypical of what the model builds for its own brief (own typicality 0.10 or lower on all seven), and only Electrician is close to the pooled null (0.21, down from 0.26; its shared traits are a hero eyebrow chip and pill buttons). The one sibling pair, Doman Digital and Skincare shop, is no longer one; the pair that stays closest is Doman Digital and Electrician (0.48). The AI set gained one flagged page (the 20 of 20 the flagged-rule decision records). Because the live sites were not frozen, the estate movement mixes the snapshot version with site changes, and this run cannot separate them.
+What moved: the estate is still atypical of what the model builds for its own brief (own typicality 0.10 or lower on all seven), and only Electrician is close to the pooled null (0.21, down from 0.26; its shared traits are a hero eyebrow chip and pill buttons). The one sibling pair, the studio's own site and the skincare shop, is no longer one; the pair that stays closest is the studio's own site and the electrician (0.48). The AI set gained one flagged page (the 20 of 20 the flagged-rule decision records). Because the live sites were not frozen, the estate movement mixes the snapshot version with site changes, and this run cannot separate them.
 
 `craft tells harvest` on the v2 models gives the same three candidates as before (red accent #e77a63, 66 of 140; square shape, 47 of 140; the opening `hero > hero > cards`, 54 of 140) and 40 recurring phrases (the same count as before; the list was not diffed line by line). The only difference is in the already-caught list, which now includes `no-real-imagery` (117 of 140), `hero-eyebrow-chip` (53), `stats-row` (42) and `unproven-claim` (35): tells that came in with snapshot v2 and later phases, which the v1 harvest could not see. Nothing was added to the catalogue, and no tell or threshold changed.
 
@@ -1450,7 +1450,7 @@ The board in question is the DD redesign's Stage 05 artefact (DOM-397, CRO-21); 
 
 ### Ground temperature and structure, 2026-10-09
 
-Plumber's light mode looked, to the founder, too much like Electrician, and craft gave the pair 0.59 sharing only "grey ground". Plumber then moved its light page from warm stone (`#EEEDE8`) to cool porcelain (`#F1F3F4`, example-plumbing#32), and craft scored the two Plumber pages 0.01 apart. Two things were missing: hue barely counts at a ground's chroma, and structure moved the score by a tenth at most. Fingerprint version 3 (DOM-637) adds ground temperature to the ground part, a rhythm part and a hero part, with the weights in *The rendered page* above. Measured on Electrician live (2026-10-09) and Plumber built locally at `c62590c` (stone, before #32) and `47f9d79` (porcelain), each snapshotted with `--scheme light` and `--scheme dark`; snapshots, a copy of the redesign workstream's register and the full tables are in `calibration/estate/2026-10-09-temperature/`. "Before" is craft 0.18.1's distance on the same snapshots.
+Plumber's light mode looked, to the founder, too much like Electrician, and craft gave the pair 0.59 sharing only "grey ground". Plumber then moved its light page from warm stone (`#EEEDE8`) to cool porcelain (`#F1F3F4`, the plumber's change), and craft scored the two Plumber pages 0.01 apart. Two things were missing: hue barely counts at a ground's chroma, and structure moved the score by a tenth at most. Fingerprint version 3 (DOM-637) adds ground temperature to the ground part, a rhythm part and a hero part, with the weights in *The rendered page* above. Measured on Electrician live (2026-10-09) and Plumber built locally at `c62590c` (stone, before #32) and `47f9d79` (porcelain), each snapshotted with `--scheme light` and `--scheme dark`; snapshots, a copy of the redesign workstream's register and the full tables are in `calibration/estate/2026-10-09-temperature/`. "Before" is craft 0.18.1's distance on the same snapshots.
 
 | Pair | Before | After | Shares after |
 |---|---|---|---|
@@ -1482,9 +1482,9 @@ Catalogue version `2026.10.9`, 77 tells.
 | `glass-panel` | 1 | source + rendered | warn | Glass panel | A translucent blurred card over a busy background is the stock way to put text on a hero image. It costs contrast and says nothing about the client. |
 | `hero-then-proof` | 1 | source + rendered | warn | Hero straight into a trust strip | Six of seven estate sites go hero, then logos or stats. It is the landing-page template's order, not the client's story. |
 | `icon-tile-grid` | 1 | source + rendered | warn | Three-column icon-card grid | Three cards, each an icon, a heading and two lines, is what a model builds for any list of services. |
-| `reveal-everywhere` | 1 | source + rendered | warn | Reveal on every section | When every block fades up on scroll, the motion stops meaning anything and the page feels slow. Salon had 70, DD 40, therapy-practice 27. |
-| `pill-everything` | 1 | source + rendered | warn | Pills everywhere | rounded-full on every button, badge and tag is the framework's friendliest default. Salon had 162, DD 125. A shape used everywhere is not a shape language. |
-| `shadcn-dump` | 1 | source | warn | Stock component dump | A generator exports the whole shadcn/ui kit whether the site uses it or not. Journal client ships a full set under its own book, vine and petal assets. |
+| `reveal-everywhere` | 1 | source + rendered | warn | Reveal on every section | When every block fades up on scroll, the motion stops meaning anything and the page feels slow. One salon client's site had 70, the studio's own 40, a therapy practice's 27. |
+| `pill-everything` | 1 | source + rendered | warn | Pills everywhere | rounded-full on every button, badge and tag is the framework's friendliest default. One salon client's site had 162, the studio's own 125. A shape used everywhere is not a shape language. |
+| `shadcn-dump` | 1 | source | warn | Stock component dump | A generator exports the whole shadcn/ui kit whether the site uses it or not. One client's journal site ships a full set under its own book, vine and petal assets. |
 | `shadcn-card-stock` | 1 | source | warn | Stock shadcn Card | The registry Card (bg-card, a plain border, rounded-lg or rounded-xl, shadow-sm) is the container every generated page is built from. Left as shipped, every card on the site looks like every other shadcn site's. |
 | `cream-palette` | 2 | source + rendered | warn | Cream ground | Once white-and-violet was named, models moved to a warm off-white: parchment, linen, oat. It reads as 'tasteful' in the same way everywhere. |
 | `italic-serif-display` | 2 | source + rendered | warn | Italic serif display | A serif heading with one italic word ('Beauty, reimagined') is the second wave's signature move. |

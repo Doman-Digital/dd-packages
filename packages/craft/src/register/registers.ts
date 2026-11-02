@@ -163,8 +163,7 @@ export const REGISTERS: readonly Register[] = [
         note: "No public style authority exists for premium-brand prose. These directives are house judgement, to be revised as the estate grows.",
       },
       {
-        name: "Register separation, 2026-09-29",
-        url: "calibration/copy-shape/report-registers.md",
+        name: "Register separation, 2026-09-29 (report in the private craft corpus)",
         note: "Literary prose (Gutenberg) carries about twice the comma density of the other human registers, the one feature that separated it from all four. Longer, jointed sentences are normal here.",
       },
     ],

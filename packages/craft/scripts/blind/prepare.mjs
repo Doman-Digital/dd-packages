@@ -24,7 +24,9 @@ if (!configPath) throw new Error("usage: node scripts/blind/prepare.mjs <config.
 const verify = rest.includes("--verify");
 const dir = dirname(resolve(configPath));
 const cfg = JSON.parse(readFileSync(configPath, "utf8"));
-const craft = resolve(dir, "..", "..", "..");
+// The config sits at calibration/blind/<date>/ in the private corpus (dd-craft-corpus), so three
+// levels up is the corpus root.
+const corpus = resolve(dir, "..", "..", "..");
 
 // Seeded, so the coin flips are reproducible and fixed before any session.
 function rng(seed) {
@@ -76,17 +78,20 @@ if (verify) {
 }
 
 // Test pairs: ours against each human of its trade. Control pairs: a null page for the same brief against the same human.
-const nullBrief = { dd: "dd", salon: "salon", therapy-practice: "therapy-practice", skincare: "example-accountant", skincare: "skincare", chair: "example-barber", electrician: "electrician" };
+// Which null-model brief stands for each site. It lives in the config, beside the site ids, so the
+// public script names no client; a site the config leaves out uses its own id.
+const nullBrief = cfg.nullBrief ?? {};
+const briefFor = (site) => nullBrief[site] ?? site;
 const pairs = [];
 for (const [site, humans] of Object.entries(cfg.humans)) {
   for (const h of humans) pairs.push({ kind: "test", site, ours: { kind: "ours", id: site, url: cfg.ours[site].url }, other: { kind: "human", id: h, url: `https://${h}/` } });
 }
 for (const [site, n] of Object.entries(cfg.controls)) {
   const humans = shuffle(cfg.humans[site]).slice(0, n);
-  const nullDir = join(craft, "calibration", "null", nullBrief[site], "pages");
+  const nullDir = join(corpus, "calibration", "null", briefFor(site), "pages");
   const pages = shuffle(readdirSync(nullDir).filter((f) => f.endsWith(".html")));
   humans.forEach((h, i) =>
-    pairs.push({ kind: "control", site, ours: { kind: "null", id: `${nullBrief[site]}/${pages[i].replace(".html", "")}`, url: pathToFileURL(join(nullDir, pages[i])).href }, other: { kind: "human", id: h, url: `https://${h}/` } }),
+    pairs.push({ kind: "control", site, ours: { kind: "null", id: `${briefFor(site)}/${pages[i].replace(".html", "")}`, url: pathToFileURL(join(nullDir, pages[i])).href }, other: { kind: "human", id: h, url: `https://${h}/` } }),
   );
 }
 const perSession = Math.ceil(pairs.length / cfg.sessions);

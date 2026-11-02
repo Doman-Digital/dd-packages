@@ -44,19 +44,19 @@ const BARBER = fp({
 describe("the register", () => {
   it("adds a site, replaces one with the same id, and keeps ids sorted", () => {
     let r = addSite(emptyEstate(), site("electrician", ELECTRICIAN));
-    r = addSite(r, site("chair", BARBER));
+    r = addSite(r, site("barber", BARBER));
     r = addSite(r, site("electrician", SALON));
-    expect(r.sites.map((s) => s.id)).toEqual(["chair", "electrician"]);
+    expect(r.sites.map((s) => s.id)).toEqual(["barber", "electrician"]);
     expect(r.sites[1].fingerprint?.accent?.h).toBe(155);
   });
 
   it("refuses an id that is not short kebab-case", () => {
-    expect(() => addSite(emptyEstate(), site("Electrician", ELECTRICIAN))).toThrow(/kebab-case/);
+    expect(() => addSite(emptyEstate(), site("Example Electrical", ELECTRICIAN))).toThrow(/kebab-case/);
   });
 });
 
 describe("siblings", () => {
-  const register = [site("electrician", ELECTRICIAN), site("salon", SALON), site("chair", BARBER)].reduce(addSite, emptyEstate());
+  const register = [site("electrician", ELECTRICIAN), site("salon", SALON), site("barber", BARBER)].reduce(addSite, emptyEstate());
 
   it("marks two trades built from one template as siblings, and says what they share", () => {
     const [nearest] = compareToEstate(ELECTRICIAN, register, { exclude: "electrician" });
@@ -65,7 +65,7 @@ describe("siblings", () => {
   });
 
   it("does not mark a site that decided its own look", () => {
-    const matches = compareToEstate(BARBER, register, { exclude: "chair" });
+    const matches = compareToEstate(BARBER, register, { exclude: "barber" });
     expect(matches.every((m) => !m.sibling)).toBe(true);
     expect(matches[0].distance).toBeGreaterThan(SIBLING_AT * 1.5);
   });
@@ -80,7 +80,7 @@ describe("siblings", () => {
     const pairs = estatePairs(register);
     expect(pairs).toHaveLength(3);
     expect(pairs[0]).toMatchObject({ sibling: true });
-    expect([pairs[0].a, pairs[0].b].sort()).toEqual(["salon", "electrician"]);
+    expect([pairs[0].a, pairs[0].b].sort()).toEqual(["electrician", "salon"]);
     expect(pairs.filter((p) => p.sibling)).toHaveLength(1);
   });
 
@@ -115,11 +115,11 @@ describe("craft estate", () => {
   it("adds sites from saved snapshots and finds the sibling", async () => {
     writeFileSync(join(dir, "electrician.json"), JSON.stringify(green));
     writeFileSync(join(dir, "salon.json"), JSON.stringify(alsoGreen));
-    expect(await run(["estate", "add", "electrician.json", "--id", "electrician", "--client", "Electrician"], io())).toBe(0);
+    expect(await run(["estate", "add", "electrician.json", "--id", "electrician", "--client", "Example Electrical"], io())).toBe(0);
     expect(await run(["estate", "add", "salon.json", "--id", "salon"], io())).toBe(0);
     const saved = JSON.parse(readFileSync(join(dir, "estate.json"), "utf8"));
     expect(saved.sites.map((s: EstateSite) => s.id)).toEqual(["electrician", "salon"]);
-    expect(saved.sites[0]).toMatchObject({ client: "Electrician", url: "https://electrician.test/" });
+    expect(saved.sites[0]).toMatchObject({ client: "Example Electrical", url: "https://electrician.test/" });
     expect(out.join("\n")).toMatch(/salon: nearest sites[\s\S]*electrician\s+0\.00\s+SIBLING/);
 
     out = [];
@@ -142,7 +142,7 @@ describe("craft estate", () => {
   });
 
   it("feeds craft direction propose, so a proposal steers away from a sibling's accent", async () => {
-    // Electrician's buttons are a strong green. The salon's fascia carries the same
+    // The electrician's buttons are a strong green. The salon's fascia carries the same
     // green and a muted red; on chroma alone the green would win.
     const base = makeSnapshot();
     const electrician = makeSnapshot({ url: "https://electrician.test/", controls: base.controls.map((c) => ({ ...c, background: "rgb(22, 130, 70)" })) });

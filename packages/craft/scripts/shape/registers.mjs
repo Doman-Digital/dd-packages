@@ -9,7 +9,8 @@
 // tuning half, with the bootstrap lower bound at 0.5 or more, and holds that on
 // the holdout half with the same sign. Same bar as the detection work.
 //
-// Reads numbers only. No prose exists in these files.
+// Reads numbers only. No prose exists in these files. They are in the private
+// corpus (dd-craft-corpus), which lib.mjs finds.
 //
 //   node scripts/shape/registers.mjs [--boot 200]
 

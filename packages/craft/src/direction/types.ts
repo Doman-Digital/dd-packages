@@ -259,7 +259,7 @@ export const CHANGE_CLASSES = ["confirmed-correction", "design-hypothesis", "opt
 export type ChangeClass = (typeof CHANGE_CLASSES)[number];
 
 /**
- * What was done with a note in a reviewer's own record (`reviews/`).
+ * What was done with a note in a reviewer's own record (kept in the private craft corpus).
  * take-reworded: the diagnosis is taken and the suggested wording rewritten,
  * because a reviewer's lines are copy-checked like anyone's. partly: the aim
  * is taken by a smaller or different change. known: already tracked.

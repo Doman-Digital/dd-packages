@@ -5,8 +5,9 @@
 // vector, and no sentence, name or address is ever written.
 
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, isAbsolute, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { LEXICAL_FEATURES, REGISTER_FEATURES, isBlurb, lexicalOf, registerOf, shapeOf, vocabularyCounts } from "../../dist/index.js";
 
 export const BASELINE_VERSION = 1;
@@ -39,7 +40,29 @@ export const SET = process.argv.includes("--lexical") ? "lexical" : process.argv
 export const featuresOf = (set = SET) => (set === "lexical" ? [...LEXICAL_FEATURES] : set === "register" ? [...REGISTER_FEATURES] : FEATURES);
 export const isLexicalFile = (name) => name.includes("-lexical-");
 
-export const CALIBRATION = resolve(new URL("../../calibration/copy-shape", import.meta.url).pathname);
+/**
+ * The private corpus (Doman-Digital/dd-craft-corpus) holds the copy-shape
+ * calibration: briefs, generated pieces, human baselines and reports. It is
+ * found the same way the tests find it (src/__tests__/corpus.ts): at
+ * CRAFT_CORPUS_DIR, or else at a dd-craft-corpus checkout beside dd-packages.
+ * These scripts cannot run without it, so they stop with a clear message.
+ */
+function locateCorpus() {
+  const repo = fileURLToPath(new URL("../../../../", import.meta.url));
+  const env = process.env.CRAFT_CORPUS_DIR?.trim();
+  const dir = env ? (isAbsolute(env) ? env : resolve(process.cwd(), env)) : resolve(repo, "..", "dd-craft-corpus");
+  if (existsSync(join(dir, "manifest.json"))) return dir;
+  console.error(
+    env
+      ? `craft shape: CRAFT_CORPUS_DIR is set to ${dir}, but there is no manifest.json there. Point it at a dd-craft-corpus checkout.`
+      : `craft shape: the private corpus is not at ${dir}. Clone Doman-Digital/dd-craft-corpus beside dd-packages, or set CRAFT_CORPUS_DIR to a checkout.`,
+  );
+  process.exit(2);
+}
+
+export const CORPUS = locateCorpus();
+const manifest = JSON.parse(readFileSync(join(CORPUS, "manifest.json"), "utf8"));
+export const CALIBRATION = join(CORPUS, manifest.copyShape ?? "calibration/copy-shape");
 
 const hash = (s) => createHash("sha256").update(s).digest("hex");
 

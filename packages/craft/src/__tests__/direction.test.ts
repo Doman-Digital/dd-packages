@@ -15,7 +15,7 @@ import { makeSnapshot } from "../snapshot/fixture.js";
 /** A direction every rule accepts. Each test below breaks exactly one thing. */
 const good = (): ArtDirection => ({
   version: 1,
-  client: "Electrician",
+  client: "Example Electrical",
   brief: "A two-person electrical contractor in Brackley doing rewires, fuse boards and EV chargers for homes.",
   sources: [
     { id: "van", kind: "livery", note: "The Transit van, bottle green with cream sign-writing on both doors.", colours: ["#1f4d3a"], lettering: "hand-painted sign-writing" },
@@ -217,7 +217,7 @@ describe("craft direction", () => {
 
   it("init, then propose from a photo, then validate until a person has written the reasons", async () => {
     writeFileSync(join(dir, "snap.json"), JSON.stringify(makeSnapshot()));
-    expect(await run(["direction", "init", "--snapshot", "snap.json", "--client", "Electrician"], io())).toBe(0);
+    expect(await run(["direction", "init", "--snapshot", "snap.json", "--client", "Example Electrical"], io())).toBe(0);
     expect(await run(["direction", "validate"], io())).toBe(1);
 
     writeFileSync(join(dir, "van.png"), png(8, 8, [31, 77, 58]));

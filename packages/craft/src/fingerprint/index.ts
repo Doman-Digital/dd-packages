@@ -219,8 +219,8 @@ const WARM_HUE: [number, number][] = [
 ];
 const COOL_HUE: [number, number][] = [[160, 310]];
 /**
- * Chroma at which a ground's tint is unmistakable. Electrician's cream sits at 0.010
- * and Plumber's stone at 0.007, both plainly warm paper; Plumber's
+ * Chroma at which a ground's tint is unmistakable. An electrician's cream sits at 0.010
+ * and a plumber's stone at 0.007, both warm paper; the plumber's
  * porcelain (#F1F3F4) at 0.003 is a cool hint. A page ground is the largest
  * area on the page and the eye adapts to it, so a tint far below what reads
  * as a difference between two buttons still reads as warm or cool paper.
