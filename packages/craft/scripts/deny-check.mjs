@@ -35,20 +35,30 @@ const hashOf = (salt, form) => createHash("sha256").update(`${salt}:${form}`).di
 
 /** Every form the recipe hashes for one line: each token, and each adjacent pair spaced and run together. */
 export function formsOf(line) {
-  const tokens = line
-    .toLowerCase()
-    .split(/[^a-z0-9]+/)
-    .filter((t) => t && !DROPPED.has(t));
+  const tokens = tokensOf(line);
   const forms = [...tokens];
   for (let i = 0; i + 1 < tokens.length; i++) forms.push(`${tokens[i]} ${tokens[i + 1]}`, `${tokens[i]}${tokens[i + 1]}`);
   return forms;
 }
 
-/** Hits in one text: line number (from 1) and the form that matched. */
+/** The kept words of one line, as formsOf reads them. */
+const tokensOf = (line) =>
+  line
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((t) => t && !DROPPED.has(t));
+
+/** Hits in one text: line number (from 1) and the form that matched. A two-word name wrapped across a line break counts, on the line it starts. */
 export function scanText(text, list) {
   const hits = [];
+  let last = null;
   text.split("\n").forEach((line, i) => {
+    const tokens = tokensOf(line);
+    if (last && tokens.length) {
+      for (const form of [`${last} ${tokens[0]}`, `${last}${tokens[0]}`]) if (list.hashes.has(hashOf(list.salt, form))) hits.push({ line: i, form });
+    }
     for (const form of formsOf(line)) if (list.hashes.has(hashOf(list.salt, form))) hits.push({ line: i + 1, form });
+    last = tokens.at(-1) ?? null;
   });
   return hits;
 }
