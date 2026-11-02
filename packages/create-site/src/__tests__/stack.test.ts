@@ -52,8 +52,8 @@ describe("toolName", () => {
 describe("siteSlug", () => {
   test("is the lowercase hyphenated trading name", () => {
     expect(siteSlug("Acme Electrical")).toBe("acme-electrical");
-    expect(siteSlug("Chair & Blade")).toBe("chair-and-blade");
-    expect(siteSlug("  Rise, Bloom!  ")).toBe("rise-bloom");
+    expect(siteSlug("Oak & Anvil")).toBe("oak-and-anvil");
+    expect(siteSlug("  Fern, Moss!  ")).toBe("fern-moss");
   });
 });
 

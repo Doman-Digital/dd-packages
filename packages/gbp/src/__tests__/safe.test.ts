@@ -77,11 +77,11 @@ describe("stable error messages", () => {
 
   it("names timeouts and published-file failures without varying detail", () => {
     expect(new GbpTimeoutError("reviews.list", 8000).message).toBe("GBP reviews.list timed out");
-    const published = new GbpPublishedError("http", "tardi-group", "503", 503, "<html>upstream</html>");
-    expect(published.message).toBe("Published reviews for tardi-group unusable (http): 503");
+    const published = new GbpPublishedError("http", "example-group", "503", 503, "<html>upstream</html>");
+    expect(published.message).toBe("Published reviews for example-group unusable (http): 503");
     expect(published.fingerprint).toEqual(["gbp", "published_http"]);
     expect(published.transient).toBe(true);
-    expect(new GbpPublishedError("http", "tardi-group", "404", 404).transient).toBe(false);
+    expect(new GbpPublishedError("http", "example-group", "404", 404).transient).toBe(false);
   });
 });
 
@@ -236,7 +236,7 @@ describe("getPublishedReviewsSafe", () => {
   it("serves an empty result when the file is missing", async () => {
     vi.spyOn(global, "fetch").mockResolvedValue(res(404, "Not Found"));
     const { calls, report } = recorder();
-    const result = await getPublishedReviewsSafe({ client: "tardi-group", report });
+    const result = await getPublishedReviewsSafe({ client: "example-group", report });
     expect(result).toMatchObject({ averageRating: null, totalReviewCount: null, reviews: [], source: "empty" });
     expect(calls[0]![1]).toMatchObject({ fingerprint: ["gbp", "published_http"], transient: false });
   });

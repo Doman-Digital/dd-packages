@@ -4,7 +4,7 @@ import { getPublishedReviews, parsePublishedReviews, publishedReviewsUrl } from 
 
 const FILE = {
   schema: 1,
-  client: "chair-and-blade",
+  client: "example-barber",
   rating: 4.7,
   count: 90,
   min_stars: 4,
@@ -29,8 +29,8 @@ afterEach(() => {
 describe("published reviews", () => {
   it("reads Google's own figures and the published reviews, skipping a malformed one", async () => {
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(res(200, FILE));
-    const r = await getPublishedReviews({ client: "chair-and-blade" });
-    expect(fetchMock.mock.calls[0]?.[0]).toBe("https://files.domandigital.co.uk/reviews/chair-and-blade.json");
+    const r = await getPublishedReviews({ client: "example-barber" });
+    expect(fetchMock.mock.calls[0]?.[0]).toBe("https://files.domandigital.co.uk/reviews/example-barber.json");
     expect(r.averageRating).toBe(4.7);
     expect(r.totalReviewCount).toBe(90);
     expect(r.syncedAt).toBe("2026-10-09T03:45:00.000Z");
@@ -41,15 +41,15 @@ describe("published reviews", () => {
   it("filters, limits and honours the base URL from the environment", async () => {
     process.env.GBP_REVIEWS_BASE_URL = "https://staging.example.test/reviews/";
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(res(200, FILE));
-    const r = await getPublishedReviews({ client: "chair-and-blade", filterMinStars: 5, limit: 1 });
-    expect(fetchMock.mock.calls[0]?.[0]).toBe("https://staging.example.test/reviews/chair-and-blade.json");
+    const r = await getPublishedReviews({ client: "example-barber", filterMinStars: 5, limit: 1 });
+    expect(fetchMock.mock.calls[0]?.[0]).toBe("https://staging.example.test/reviews/example-barber.json");
     expect(r.reviews.map((x) => x.id)).toEqual(["a"]);
     expect(r.totalReviewCount).toBe(90);
   });
 
   it("throws on a missing file so the caller keeps the copy it has, and retries a 503 first", async () => {
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValueOnce(res(503, "busy")).mockResolvedValue(res(404, "Not Found"));
-    const err = await getPublishedReviews({ client: "chair-and-blade", request: { baseDelayMs: 0 } }).catch((e: unknown) => e);
+    const err = await getPublishedReviews({ client: "example-barber", request: { baseDelayMs: 0 } }).catch((e: unknown) => e);
     expect(err).toBeInstanceOf(GbpPublishedError);
     expect((err as GbpPublishedError).reason).toBe("http");
     expect((err as GbpPublishedError).status).toBe(404);
@@ -57,12 +57,12 @@ describe("published reviews", () => {
   });
 
   it("refuses a file for another client, an unknown schema and a figure out of range", () => {
-    expect(() => parsePublishedReviews({ ...FILE, client: "mmm-beauty" }, "chair-and-blade")).toThrow(/for mmm-beauty/);
-    expect(() => parsePublishedReviews({ ...FILE, schema: 2 }, "chair-and-blade")).toThrow(/unknown_schema/);
-    expect(() => parsePublishedReviews({ ...FILE, rating: 7 }, "chair-and-blade")).toThrow(/rating/);
-    expect(() => parsePublishedReviews({ ...FILE, count: 1.5 }, "chair-and-blade")).toThrow(/count/);
+    expect(() => parsePublishedReviews({ ...FILE, client: "example-salon" }, "example-barber")).toThrow(/for example-salon/);
+    expect(() => parsePublishedReviews({ ...FILE, schema: 2 }, "example-barber")).toThrow(/unknown_schema/);
+    expect(() => parsePublishedReviews({ ...FILE, rating: 7 }, "example-barber")).toThrow(/rating/);
+    expect(() => parsePublishedReviews({ ...FILE, count: 1.5 }, "example-barber")).toThrow(/count/);
     // Null is Google giving no figure: allowed, and the site shows no number.
-    expect(parsePublishedReviews({ ...FILE, rating: null, count: null }, "chair-and-blade").averageRating).toBeNull();
+    expect(parsePublishedReviews({ ...FILE, rating: null, count: null }, "example-barber").averageRating).toBeNull();
   });
 
   it("only builds URLs from a slug", () => {

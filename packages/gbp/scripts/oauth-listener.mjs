@@ -10,7 +10,7 @@
  * client's own project/config via its local .doppler.yaml scoping), with
  * GBP_CLIENT_ID / GBP_CLIENT_SECRET already in the environment:
  *
- *   cd ~/code/personal/RMP-Electrical
+ *   cd ~/code/personal/<client-repo>
  *   GBP_CLIENT_ID=$(doppler secrets get GBP_CLIENT_ID --plain) \
  *   GBP_CLIENT_SECRET=$(doppler secrets get GBP_CLIENT_SECRET --plain) \
  *     node ~/code/personal/dd-gbp/scripts/oauth-listener.mjs

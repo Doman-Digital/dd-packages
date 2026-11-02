@@ -34,7 +34,7 @@ describe("isRouteIndexable", () => {
   });
 
   test("defaults to true for an unknown route — the bug this default caused belongs to validateCoverage, not this function", () => {
-    expect(isRouteIndexable(POLICY, "/work/sensphere")).toBe(true);
+    expect(isRouteIndexable(POLICY, "/work/case-c")).toBe(true);
   });
 });
 

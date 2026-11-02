@@ -3,16 +3,16 @@ import { getBreadcrumbTrail, type TrailLabel } from "../trail";
 
 const LABELS: TrailLabel[] = [
   { path: "/work", label: "Work" },
-  { path: "/work/sensphere", label: "Sensphere" },
+  { path: "/work/case-c", label: "Case C" },
   { path: "/electrician", label: "Electrician" },
   { path: "/electrician/high-wycombe", label: "High Wycombe" },
 ];
 
 describe("getBreadcrumbTrail", () => {
   test("builds a trail from registered labels at each segment", () => {
-    expect(getBreadcrumbTrail(LABELS, "/work/sensphere")).toEqual([
+    expect(getBreadcrumbTrail(LABELS, "/work/case-c")).toEqual([
       { path: "/work", label: "Work" },
-      { path: "/work/sensphere", label: "Sensphere" },
+      { path: "/work/case-c", label: "Case C" },
     ]);
   });
 

@@ -21,7 +21,7 @@ async function visible(html: string): Promise<string[]> {
   }
 }
 
-// The shape of the MMM prototype's /prices page: a name link, then the price and the blurb in plain divs.
+// The shape of a salon prototype's /prices page: a name link, then the price and the blurb in plain divs.
 const ROW = (name: string, price: string, blurb: string, tag = "") =>
   `<div class="row"><div class="n"><a href="#/t/x">${name}</a>${tag}</div><div class="pd">${price}</div><div class="d">${blurb}</div></div>`;
 

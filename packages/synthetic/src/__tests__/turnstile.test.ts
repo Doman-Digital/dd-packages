@@ -34,9 +34,9 @@ describe("turnstileConfigCheck outcomes", () => {
     expect(never).not.toHaveBeenCalled();
   });
 
-  it("hostname_mismatch: the Sensphere failure, caught before any network call", async () => {
+  it("hostname_mismatch: the real-world hostname failure, caught before any network call", async () => {
     const never = vi.fn();
-    const result = await turnstileConfigCheck({ ...base, expectedHostname: "sensphere.co.uk", publicHost: "www.sensphere.co.uk", fetch: never as unknown as typeof fetch });
+    const result = await turnstileConfigCheck({ ...base, expectedHostname: "example.co.uk", publicHost: "www.example.co.uk", fetch: never as unknown as typeof fetch });
     expect(result).toEqual({ ok: false, outcome: "hostname_mismatch" });
     expect(never).not.toHaveBeenCalled();
   });
@@ -105,8 +105,8 @@ describe("helpers", () => {
   });
 
   it("treats staging, local and preview hosts as non-production", () => {
-    for (const h of ["staging.sensphere.co.uk", "localhost", "127.0.0.1", "x.workers.dev", "x.vercel.app", "x.pages.dev", "a.test"]) expect(isProductionHost(h)).toBe(false);
-    for (const h of ["www.sensphere.co.uk", "sensphere.co.uk"]) expect(isProductionHost(h)).toBe(true);
+    for (const h of ["staging.example.co.uk", "localhost", "127.0.0.1", "x.workers.dev", "x.vercel.app", "x.pages.dev", "a.test"]) expect(isProductionHost(h)).toBe(false);
+    for (const h of ["www.example.co.uk", "example.co.uk"]) expect(isProductionHost(h)).toBe(true);
   });
 
   it("normaliseHostname keeps www", () => {

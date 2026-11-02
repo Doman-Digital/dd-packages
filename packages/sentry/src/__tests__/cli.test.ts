@@ -39,7 +39,7 @@ function run(args: string[], env: Record<string, string> = {}) {
   const r = spawnSync(process.execPath, [cli, ...args], {
     cwd: work,
     encoding: "utf8",
-    env: { PATH: `${join(work, "bin")}:${process.env.PATH}`, SENTRY_AUTH_TOKEN: "sntrys_test", SENTRY_PROJECT: "rmp-electrical", ...env } as Record<string, string> as unknown as NodeJS.ProcessEnv,
+    env: { PATH: `${join(work, "bin")}:${process.env.PATH}`, SENTRY_AUTH_TOKEN: "sntrys_test", SENTRY_PROJECT: "example-electrical", ...env } as Record<string, string> as unknown as NodeJS.ProcessEnv,
   });
   const log = existsSync(join(work, "calls.log")) ? readFileSync(join(work, "calls.log"), "utf8").trim().split("\n") : [];
   return { status: r.status, out: r.stdout + r.stderr, calls: log };
@@ -52,11 +52,11 @@ describe("dd-sentry-release upload", () => {
     const r = run(["upload", "dist/client", "dist/server", "--keep-maps", "dist/server"], { GITHUB_SHA: "abc123" });
     expect(r.status).toBe(0);
     expect(r.calls).toEqual([
-      "domandigital|rmp-electrical|release create domandigital/abc123 --project rmp-electrical",
-      "domandigital|rmp-electrical|sourcemap inject dist/client",
-      "domandigital|rmp-electrical|sourcemap upload dist/client --release abc123",
-      "domandigital|rmp-electrical|sourcemap inject dist/server",
-      "domandigital|rmp-electrical|sourcemap upload dist/server --release abc123",
+      "domandigital|example-electrical|release create domandigital/abc123 --project example-electrical",
+      "domandigital|example-electrical|sourcemap inject dist/client",
+      "domandigital|example-electrical|sourcemap upload dist/client --release abc123",
+      "domandigital|example-electrical|sourcemap inject dist/server",
+      "domandigital|example-electrical|sourcemap upload dist/server --release abc123",
     ]);
     expect(has("client/_astro/a.js.map")).toBe(false);
     expect(has("client/_astro/a.js")).toBe(true);
@@ -102,17 +102,17 @@ describe("dd-sentry-release finalize", () => {
     const r = run(["finalize"], { GITHUB_SHA: "abc", SENTRY_ENVIRONMENT: "production" });
     expect(r.status).toBe(0);
     expect(r.calls).toEqual([
-      "domandigital|rmp-electrical|release finalize domandigital/abc",
-      "domandigital|rmp-electrical|release deploy domandigital/abc production",
+      "domandigital|example-electrical|release finalize domandigital/abc",
+      "domandigital|example-electrical|release deploy domandigital/abc production",
     ]);
   });
 
   it("records no deploy rather than guess the environment", () => {
     const r = run(["finalize", "--release", "abc"]);
-    expect(r.calls).toEqual(["domandigital|rmp-electrical|release finalize domandigital/abc"]);
+    expect(r.calls).toEqual(["domandigital|example-electrical|release finalize domandigital/abc"]);
     expect(r.out).toContain("no deploy recorded");
     expect(run(["finalize", "--release", "abc", "--environment", "stg"]).calls.at(-1)).toBe(
-      "domandigital|rmp-electrical|release deploy domandigital/abc staging",
+      "domandigital|example-electrical|release deploy domandigital/abc staging",
     );
   });
 });

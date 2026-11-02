@@ -1,6 +1,6 @@
 /**
  * The Turnstile config self-check that replaces the token on a verified
- * synthetic request. It is the check that would have caught Sensphere, whose
+ * synthetic request. It is the check that would have caught a client site whose
  * forms rejected every submission for about 11 weeks because
  * `TURNSTILE_EXPECTED_HOSTNAME` was wrong.
  */

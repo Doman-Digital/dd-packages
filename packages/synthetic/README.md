@@ -85,11 +85,11 @@ node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'
 
 ```ts
 const { headers, runId } = await sign({
-  key: { kid: "sensphere-2026-10", secret },
-  url: "https://www.sensphere.co.uk/api/enquiry",
+  key: { kid: "example-2026-10", secret },
+  url: "https://www.example.co.uk/api/enquiry",
   contentType: "application/json",
   body: rawBodyString,
-  client: "sensphere", form: "enquiry", mode: "probe",
+  client: "example", form: "enquiry", mode: "probe",
 });
 ```
 
@@ -139,7 +139,7 @@ replaces the token on a verified synthetic request. It returns
 | -- | -- |
 | `ok` | keys present, hostname right, secret accepted by siteverify |
 | `missing_keys` | a key or `TURNSTILE_EXPECTED_HOSTNAME` is unset |
-| `hostname_mismatch` | `TURNSTILE_EXPECTED_HOSTNAME`, normalised, is not the public host (the Sensphere failure) |
+| `hostname_mismatch` | `TURNSTILE_EXPECTED_HOSTNAME`, normalised, is not the public host (the failure that went unnoticed for weeks on a client site) |
 | `test_key_on_production` | a Cloudflare test key on a production host |
 | `invalid-input-secret` | siteverify says the secret is wrong |
 | `siteverify_unexpected` | siteverify answered something else (for example `success` for a dummy token on production) |
@@ -152,7 +152,7 @@ keys, since staging browser journeys use Cloudflare's always-pass keys.
 ## Beacons and purge receipts
 
 ```ts
-const reporter = { key, client: "sensphere", waitUntil: ctx.waitUntil.bind(ctx) };
+const reporter = { key, client: "example", waitUntil: ctx.waitUntil.bind(ctx) };
 sendBeacon(reporter, { form: "enquiry", code: "accepted" });
 sendPurgeReceipt(reporter, { form: "enquiry", deleted: 24, remaining: 0 });
 ```
