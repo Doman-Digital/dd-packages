@@ -26,16 +26,16 @@ export const ESTATE_VERSION = 1;
 
 /**
  * Median fingerprint distance between two null pages built from the same
- * brief, across seven briefs and 1,330 pairs (calibration/null, 2026-09-23).
+ * brief, across seven briefs and 1,330 pairs (the private corpus's calibration/null, 2026-09-23).
  */
 export const SIBLING_AT = 0.31;
 
 export interface EstateSite {
-  /** Short kebab-case id: "rmp", "chair-and-blade". */
+  /** Short kebab-case id: "electrician", "barber-studio". */
   id: string;
   client: string;
   url: string;
-  /** Where the site's source lives, if known: "rmp474/RMP-Electrical". */
+  /** Where the site's source lives, if known: "client-org/site-repo". */
   repo?: string;
   /** Absent for a direction registered before the site is built. */
   fingerprint?: Fingerprint;

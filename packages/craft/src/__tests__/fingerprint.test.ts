@@ -10,10 +10,10 @@ describe("font names as a browser reports them", () => {
     expect(normaliseFamily("__Instrument_Serif_1a2b3c")).toBe("Instrument Serif");
     expect(normaliseFamily("'Fraunces Variable'")).toBe("Fraunces");
     expect(normaliseFamily("-apple-system")).toBe("system-ui");
-    // Seen live on MMM: the face arrives under its CSS variable's name.
+    // Seen live on a client salon site: the face arrives under its CSS variable's name.
     expect(normaliseFamily("cormorantGaramond")).toBe("Cormorant Garamond");
     expect(normaliseFamily("dm-sans")).toBe("DM Sans");
-    // A system keyword is not a CSS variable name. Seen on MMM through trawl.
+    // A system keyword is not a CSS variable name. Seen on the same site through trawl.
     expect(normaliseFamily("ui-monospace")).toBe("system-ui");
     expect(normaliseFamily("ui-serif")).toBe("system-ui");
   });

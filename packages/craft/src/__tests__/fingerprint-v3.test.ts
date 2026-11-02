@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { describeFingerprint } from "../audit/cli.js";
+import { CORPUS, corpusPath, manifest } from "./corpus.js";
 import { parseColour } from "../character/color.js";
 import { run } from "../character/cli.js";
 import { compareToEstate, estatePairs, sharedParts, SIBLING_AT, type EstateRegister } from "../estate/index.js";
@@ -25,15 +25,15 @@ import { readSnapshot } from "../snapshot/migrate.js";
 import type { SectionGeometry, Snapshot, SnapshotSection } from "../snapshot/types.js";
 
 /**
- * Two kinds of likeness the version 2 distance missed, found on Bellerose
- * Plumbing against RMP Electrical (DOM-637): a warm cream and a cool
+ * Two kinds of likeness the version 2 distance missed, found on a plumber's
+ * site against an electrician's (DOM-637): a warm cream and a cool
  * porcelain filed as the same "grey ground", and two pages that open the
  * same way (light hero, serif headline, photo right, then a near-black
  * band) scoring as if their structure had nothing in common.
  */
 
 const oklch = (css: string) => parseColour(css)!.oklch;
-/** RMP's live ground, Bellerose's stone (before PR #32), its porcelain (after) and its van black. */
+/** The electrician's live ground, the plumber's stone (before its fix), its porcelain (after) and its van black. */
 const CREAM = oklch("rgb(245, 241, 234)");
 const STONE = oklch("#eeede8");
 const PORCELAIN = oklch("#f1f3f4");
@@ -104,7 +104,7 @@ const section = (top: number, kind: SnapshotSection["kind"], role: NonNullable<S
   geometry: geo(background, patch),
 });
 
-/** Light hero, dark band, light features, dark closer: RMP's and Bellerose's opening. */
+/** Light hero, dark band, light features, dark closer: the electrician's and the plumber's opening. */
 function page(ground: string, band: string, patch: Partial<Snapshot> = {}): Snapshot {
   return makeSnapshot({
     ground,
@@ -127,12 +127,12 @@ describe("rhythm", () => {
   });
 
   it("is near zero for two pages that open light then dark, and far for dark mode of the same page", () => {
-    const rmp = fingerprint(page("rgb(245, 241, 234)", "rgb(40, 34, 28)"));
+    const electrician = fingerprint(page("rgb(245, 241, 234)", "rgb(40, 34, 28)"));
     const stone = fingerprint(page("#eeede8", "#151617"));
     const dark = fingerprint(page("#151617", "#eeede8"));
-    expect(rhythmDistance(rmp, stone)).toBe(0);
-    expect(rhythmDistance(rmp, dark)).toBeGreaterThan(0.5);
-    expect(rhythmDistance(rmp, fingerprint(makeSnapshot()))).toBeNull();
+    expect(rhythmDistance(electrician, stone)).toBe(0);
+    expect(rhythmDistance(electrician, dark)).toBeGreaterThan(0.5);
+    expect(rhythmDistance(electrician, fingerprint(makeSnapshot()))).toBeNull();
   });
 });
 
@@ -187,11 +187,11 @@ describe("the distance", () => {
   });
 
   it("names the shared paper, rhythm and hero in words a person would use", () => {
-    const rmp = fingerprint(page("rgb(245, 241, 234)", "rgb(40, 34, 28)"));
+    const electrician = fingerprint(page("rgb(245, 241, 234)", "rgb(40, 34, 28)"));
     const stone = fingerprint(page("#eeede8", "#151617"));
     const porcelain = fingerprint(page("#f1f3f4", "#151617"));
-    expect(sharedParts(rmp, stone)).toEqual(expect.arrayContaining(["warm ground", "light hero then dark band", "left-aligned serif hero, photo right", "same running order"]));
-    const shared = sharedParts(rmp, porcelain);
+    expect(sharedParts(electrician, stone)).toEqual(expect.arrayContaining(["warm ground", "light hero then dark band", "left-aligned serif hero, photo right", "same running order"]));
+    const shared = sharedParts(electrician, porcelain);
     expect(shared).toEqual(expect.arrayContaining(["light hero then dark band", "left-aligned serif hero, photo right"]));
     expect(shared.some((s) => /ground/.test(s))).toBe(false);
     expect(sharedParts(stone, stone)).toContain("warm grey ground");
@@ -215,28 +215,31 @@ describe("craft snapshot --scheme", () => {
   });
 });
 
-const fixture = (name: string): Snapshot => readSnapshot(JSON.parse(readFileSync(fileURLToPath(new URL(`../../calibration/estate/2026-10-09-temperature/${name}.snapshot.json`, import.meta.url)), "utf8")), name);
+const temperature = () => manifest().estateTemperature;
+const fixture = (rel: string, name: string): Snapshot => readSnapshot(JSON.parse(readFileSync(corpusPath(rel), "utf8")), name);
 
-describe("RMP Electrical against Bellerose Plumbing (DOM-637)", () => {
-  // RMP live on 2026-10-09; Bellerose built locally at c62590c (stone light
-  // mode, before bellerose-plumbing#32) and 47f9d79 (porcelain, after), each
-  // snapshotted with --scheme light and --scheme dark.
-  const rmp = fingerprint(fixture("rmp"));
-  const stone = fingerprint(fixture("bellerose-stone-light"));
-  const porcelain = fingerprint(fixture("bellerose-porcelain-light"));
-  const stoneDark = fingerprint(fixture("bellerose-stone-dark"));
-  const porcelainDark = fingerprint(fixture("bellerose-porcelain-dark"));
+// Read from the private corpus (manifest.json estateTemperature), skipped without it.
+describe.skipIf(!CORPUS)("an electrician's site against a plumber's, from the corpus (DOM-637)", () => {
+  // The electrician's site live on 2026-10-09; the plumber's built locally before
+  // and after its light-mode change (stone, then porcelain), each snapshotted with
+  // --scheme light and --scheme dark.
+  const t = CORPUS ? temperature() : null;
+  const electrician = t ? fingerprint(fixture(t.electrician, "electrician")) : null!;
+  const stone = t ? fingerprint(fixture(t.plumberStoneLight, "plumber-stone-light")) : null!;
+  const porcelain = t ? fingerprint(fixture(t.plumberPorcelainLight, "plumber-porcelain-light")) : null!;
+  const stoneDark = t ? fingerprint(fixture(t.plumberStoneDark, "plumber-stone-dark")) : null!;
+  const porcelainDark = t ? fingerprint(fixture(t.plumberPorcelainDark, "plumber-porcelain-dark")) : null!;
 
   it("files the grounds by temperature", () => {
-    expect(groundLabel(rmp.ground)).toBe("cream");
+    expect(groundLabel(electrician.ground)).toBe("cream");
     expect(groundLabel(stone.ground)).toBe("warm grey");
     expect(groundLabel(porcelain.ground)).toBe("cool grey");
     expect(groundLabel(stoneDark.ground)).toBe("cool dark");
   });
 
-  it("puts the stone page nearer RMP than the porcelain one, and names the rhythm both share", () => {
-    const toStone = fingerprintDistance(rmp, stone);
-    const toPorcelain = fingerprintDistance(rmp, porcelain);
+  it("puts the stone page nearer the electrician than the porcelain one, and names the rhythm both share", () => {
+    const toStone = fingerprintDistance(electrician, stone);
+    const toPorcelain = fingerprintDistance(electrician, porcelain);
     expect(toStone.total).toBeLessThan(toPorcelain.total);
     expect(toStone.parts.ground).toBeLessThanOrEqual(SHARED_PART);
     expect(toPorcelain.parts.ground).toBeGreaterThan(SHARED_PART * 2);
@@ -244,15 +247,15 @@ describe("RMP Electrical against Bellerose Plumbing (DOM-637)", () => {
       expect(d.parts.rhythm).toBeLessThanOrEqual(SHARED_PART);
       expect(d.parts.hero).toBeLessThanOrEqual(SHARED_PART);
     }
-    expect(sharedParts(rmp, stone, toStone)).toEqual(expect.arrayContaining(["warm ground", "light hero then dark band", "left-aligned serif hero, photo right"]));
-    expect(sharedParts(rmp, porcelain, toPorcelain)).toEqual(expect.arrayContaining(["light hero then dark band", "left-aligned serif hero, photo right"]));
-    expect(sharedParts(rmp, porcelain, toPorcelain).some((s) => /ground/.test(s))).toBe(false);
+    expect(sharedParts(electrician, stone, toStone)).toEqual(expect.arrayContaining(["warm ground", "light hero then dark band", "left-aligned serif hero, photo right"]));
+    expect(sharedParts(electrician, porcelain, toPorcelain)).toEqual(expect.arrayContaining(["light hero then dark band", "left-aligned serif hero, photo right"]));
+    expect(sharedParts(electrician, porcelain, toPorcelain).some((s) => /ground/.test(s))).toBe(false);
     // Neither is a sibling: different faces, accent and shape. The pair is named, not judged.
     expect(toStone.total).toBeGreaterThan(SIBLING_AT);
   });
 
-  it("does not share the rhythm with Bellerose in dark mode, which opens dark then light", () => {
-    const d = fingerprintDistance(rmp, porcelainDark);
+  it("does not share the rhythm with the plumber in dark mode, which opens dark then light", () => {
+    const d = fingerprintDistance(electrician, porcelainDark);
     expect(rhythmOf(porcelainDark)![0]).toBe("dark");
     expect(d.parts.rhythm).toBeGreaterThan(SHARED_PART);
     expect(d.parts.ground).toBe(1);
@@ -260,17 +263,17 @@ describe("RMP Electrical against Bellerose Plumbing (DOM-637)", () => {
   });
 
   it("is zero from itself, and reads a register of version 2 fingerprints without re-adding them", () => {
-    expect(fingerprintDistance(rmp, rmp).total).toBe(0);
-    // A copy of the redesign workstream's register (dd-ops/dd-redesign/estate-v2.json, 2026-10-09): seven
-    // sites with version 2 fingerprints, so rhythm is read from their sections and the hero from its geometry.
-    const register = JSON.parse(readFileSync(fileURLToPath(new URL("../../calibration/estate/2026-10-09-temperature/estate-v2-dd-ops-copy.json", import.meta.url)), "utf8")) as EstateRegister;
+    expect(fingerprintDistance(electrician, electrician).total).toBe(0);
+    // A copy of the redesign workstream's register (2026-10-09): seven sites with version 2
+    // fingerprints, so rhythm is read from their sections and the hero from its geometry.
+    const register = JSON.parse(readFileSync(corpusPath(t!.register), "utf8")) as EstateRegister;
     expect(register.sites.filter((s) => s.fingerprint).every((s) => s.fingerprint!.version === 2 && !s.fingerprint!.hero)).toBe(true);
-    // On stone, RMP is the nearest site in the estate; on porcelain it no longer is.
+    // On stone, the electrician is the nearest site in the estate; on porcelain it no longer is.
     const [nearestToStone] = compareToEstate(stone, register);
-    expect(nearestToStone.id).toBe("rmp");
+    expect(nearestToStone.id).toBe(t!.electricianId);
     expect(nearestToStone.shared).toEqual(expect.arrayContaining(["warm ground", "light hero then dark band"]));
-    expect(compareToEstate(porcelain, register)[0].id).not.toBe("rmp");
-    expect(compareToEstate(rmp, register)[0]).toMatchObject({ id: "rmp", sibling: true });
+    expect(compareToEstate(porcelain, register)[0].id).not.toBe(t!.electricianId);
+    expect(compareToEstate(electrician, register)[0]).toMatchObject({ id: t!.electricianId, sibling: true });
     // Nothing in the register became a sibling of anything.
     expect(estatePairs(register).filter((p) => p.sibling)).toEqual([]);
   });

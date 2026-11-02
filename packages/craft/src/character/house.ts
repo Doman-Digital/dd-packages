@@ -59,7 +59,7 @@ export const HOUSE: Readonly<Record<string, HouseRule>> = {
   "stock-email-line": { tier: "review", label: "stock email line, start with the reason for writing and end with the next step" },
   // New 2026-10-19 (founder): review first, like every new tell, until estate hits are read.
   "matey-register": { tier: "review", label: "matey register, write plain and complete British English" },
-  // New 2026-10-20 (founder, from Eunice Ordor's review): review first, like every new tell.
+  // New 2026-10-20 (founder, from a reviewer's notes): review first, like every new tell.
   "confession-line": { tier: "review", label: "confession line, scope the work by saying precisely what is true" },
   // New 2026-10-23 (a 92EL report passed the gate with three): review, because a
   // genuine disclaimer has the same shape. The gerund pair joined not-just-but.

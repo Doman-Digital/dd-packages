@@ -797,7 +797,7 @@ export const SOURCE_TELLS: SourceTell[] = [
     generation: 1,
     severity: "warn",
     surface: "source",
-    why: "When every block fades up on scroll, the motion stops meaning anything and the page feels slow. MMM had 70, DD 40, sen-sphere 27.",
+    why: "When every block fades up on scroll, the motion stops meaning anything and the page feels slow. One salon client's site had 70, the studio's own 40, a therapy practice's 27.",
     fix: `Keep one gated signature moment per page (STANDARD section 7) and let the rest arrive still. The limit here is ${REVEAL_LIMIT} per scan.`,
     detect: revealHits,
     fixtures: {
@@ -811,7 +811,7 @@ export const SOURCE_TELLS: SourceTell[] = [
     generation: 1,
     severity: "warn",
     surface: "source",
-    why: "rounded-full on every button, badge and tag is the framework's friendliest default. MMM had 162, DD 125. A shape used everywhere is not a shape language.",
+    why: "rounded-full on every button, badge and tag is the framework's friendliest default. One salon client's site had 162, the studio's own 125. A shape used everywhere is not a shape language.",
     fix: `Choose the shape language on purpose (and record it), then use the pill only where it means something. The limit here is ${PILL_LIMIT} per scan.`,
     detect: pillHits,
     fixtures: {
@@ -825,7 +825,7 @@ export const SOURCE_TELLS: SourceTell[] = [
     generation: 1,
     severity: "warn",
     surface: "source",
-    why: "A generator exports the whole shadcn/ui kit whether the site uses it or not. Rise & Bloom ships a full set under its own book, vine and petal assets.",
+    why: "A generator exports the whole shadcn/ui kit whether the site uses it or not. One client's journal site ships a full set under its own book, vine and petal assets.",
     fix: "Delete the primitives nothing imports. Restyle the ones that stay so they belong to this site.",
     detect: shadcnHits,
     fixtures: {
@@ -883,7 +883,7 @@ export const SOURCE_TELLS: SourceTell[] = [
         f("components/Hero.tsx", `<span className="font-serif italic">reimagined</span>`),
         f("app/globals.css", `.hero h1 { font-style: italic; }`),
       ],
-      pass: [f("components/Hero.tsx", `<h1 className="font-display text-6xl">Nails in Brackley</h1>\n<p><em>Walk-ins</em> welcome.</p>`)],
+      pass: [f("components/Hero.tsx", `<h1 className="font-display text-6xl">Nails in Kettering</h1>\n<p><em>Walk-ins</em> welcome.</p>`)],
     },
   },
   {
@@ -897,10 +897,10 @@ export const SOURCE_TELLS: SourceTell[] = [
     detect: eyebrowChipHits,
     fixtures: {
       flag: [
-        f("components/Hero.tsx", `<span className="inline-flex rounded-full border px-3 py-1 text-xs">Now booking</span>\n<h1>Nails in Brackley</h1>`),
+        f("components/Hero.tsx", `<span className="inline-flex rounded-full border px-3 py-1 text-xs">Now booking</span>\n<h1>Nails in Kettering</h1>`),
         f("components/Hero.tsx", `<span className={cn("rounded-full px-3 text-xs", "bg-rose-500/10")}>New</span>\n<h1>Nails</h1>`),
       ],
-      pass: [f("components/Hero.tsx", `<h1>Nails in Brackley</h1>\n<span className="inline-flex rounded-full border px-3 py-1 text-xs">Tag</span>`)],
+      pass: [f("components/Hero.tsx", `<h1>Nails in Kettering</h1>\n<span className="inline-flex rounded-full border px-3 py-1 text-xs">Tag</span>`)],
     },
   },
   {
@@ -914,19 +914,19 @@ export const SOURCE_TELLS: SourceTell[] = [
     detect: heroCtaPairHits,
     fixtures: {
       flag: [
-        // Eunice Ordor's #5 and #36 (Pastel 986559): the DD site's own hero and process close.
+        // A reviewer's #5 and #36 (Pastel 986559): the studio's own hero and process close.
         f(
           "src/components/Hero.astro",
           `<section class="hero">\n  <h1>We run the systems behind your website</h1>\n  <a href="/contact" class="btn btn-primary">Get in touch</a>\n  <a href="/work" class="btn btn-ghost">See our work</a>\n</section>`,
         ),
-        // The null build's hero, verbatim in shape (calibration/null/rmp/pages/05.html).
+        // The null build's hero, verbatim in shape (an electrician brief's null pages, in the private dd-craft-corpus).
         f(
           "index.html",
-          `<nav><a class="btn" href="#contact">Quote</a></nav>\n<section id="hero" class="hero">\n  <h1>Electricians in Uxbridge</h1>\n  <a href="#contact" class="btn btn-primary">Book a Free Quote</a>\n  <a href="tel:+441895555210" class="btn btn-outline">Call 01895 555 210</a>\n</section>`,
+          `<nav><a class="btn" href="#contact">Quote</a></nav>\n<section id="hero" class="hero">\n  <h1>Electricians in Reading</h1>\n  <a href="#contact" class="btn btn-primary">Book a Free Quote</a>\n  <a href="tel:+441632960210" class="btn btn-outline">Call 01632 960 210</a>\n</section>`,
         ),
         f(
           "app/page.tsx",
-          `<section className="relative py-24">\n  <h1 className="text-5xl">Nails in Brackley</h1>\n  <div className="flex gap-4">\n    <Button asChild><a href="/book">Book now</a></Button>\n    <Button variant="outline">View treatments</Button>\n  </div>\n</section>`,
+          `<section className="relative py-24">\n  <h1 className="text-5xl">Nails in Kettering</h1>\n  <div className="flex gap-4">\n    <Button asChild><a href="/book">Book now</a></Button>\n    <Button variant="outline">View treatments</Button>\n  </div>\n</section>`,
         ),
       ],
       pass: [
@@ -940,7 +940,7 @@ export const SOURCE_TELLS: SourceTell[] = [
           "index.html",
           `<header class="hero">\n  <nav><a class="btn" href="/book">Book</a></nav>\n  <h1>Barbers in Manchester</h1>\n  <a class="btn" href="/book">Book a cut</a>\n  <form><button class="btn" type="submit">Search</button></form>\n</header>`,
         ),
-        f("app/page.tsx", `<section className="py-24">\n  <h1 className="text-5xl">Nails in Brackley</h1>\n  <a className="rounded bg-ink px-5 py-3" href="/book">Book now</a>\n</section>\n<section><a className="rounded bg-ink px-5 py-3" href="/prices">Prices</a></section>`),
+        f("app/page.tsx", `<section className="py-24">\n  <h1 className="text-5xl">Nails in Kettering</h1>\n  <a className="rounded bg-ink px-5 py-3" href="/book">Book now</a>\n</section>\n<section><a className="rounded bg-ink px-5 py-3" href="/prices">Prices</a></section>`),
       ],
     },
   },

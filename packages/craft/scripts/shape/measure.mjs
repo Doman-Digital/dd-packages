@@ -3,6 +3,9 @@
 //
 //   pnpm --filter @domandigital/craft build && node scripts/shape/measure.mjs [--boot 300]
 //
+// Reads and writes calibration/copy-shape in the private corpus (dd-craft-corpus),
+// which lib.mjs finds at CRAFT_CORPUS_DIR or beside dd-packages.
+//
 // Effect sizes are register-matched: AI marketing genres against UK small-business
 // pages, AI email genres against Enron. Pooling every human register together
 // hides a real effect: literary and parliamentary prose are comma-heavy, AI
@@ -95,7 +98,7 @@ function loadAi() {
     const edited = path.endsWith(".edited.txt");
     for (const b of blurbVectors(paragraphs(readFileSync(path, "utf8")))) out.push({ provider, model, genre, edited, ...b });
   }
-  // The earlier generation: 160 landing pages under calibration/ (Opus 4.x era), body prose only.
+  // The earlier generation: 160 landing pages under the corpus's calibration/ (Opus 4.x era), body prose only.
   const legacy = [...walk(join(CALIBRATION, "..", "ai-set")), ...walk(join(CALIBRATION, "..", "null"))].filter((p) => p.endsWith(".html"));
   for (const path of legacy) {
     for (const b of blurbVectors(htmlProse(readFileSync(path, "utf8")))) out.push({ provider: "claude", model: "legacy-2026-09-23", genre: "landing-page", edited: false, ...b });
@@ -415,4 +418,4 @@ if (SET === "lexical") {
   writeFileSync(join(CALIBRATION, "report-lexical-words.json"), `${JSON.stringify({ measuredAt: new Date().toISOString().slice(0, 10), aiBlurbs: target.length, humanBlurbs: Object.fromEntries(Object.entries(humanWords).map(([r, h]) => [r, h.blurbs])), words }, null, 1)}\n`);
 }
 writeFileSync(join(CALIBRATION, `report${SUFFIX}.md`), `${lines.join("\n")}\n`);
-console.error(`measure: ${results.filter((r) => r.ships).map((r) => r.feature).join(", ") || "nothing"} ships. See calibration/copy-shape/report${SUFFIX}.md`);
+console.error(`measure: ${results.filter((r) => r.ships).map((r) => r.feature).join(", ") || "nothing"} ships. See ${join(CALIBRATION, `report${SUFFIX}.md`)}`);
