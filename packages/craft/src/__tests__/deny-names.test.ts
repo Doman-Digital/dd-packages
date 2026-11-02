@@ -35,6 +35,12 @@ describe("the deny list", () => {
     expect(scanText(`${a} and ${b}`, LIST).map((h) => h.form)).toEqual([CANARY]);
   });
 
+  it("goes red on a name wrapped across a line break, on the line it starts, and not across a blank line", () => {
+    const [a, b] = [CANARY.slice(0, 9), CANARY.slice(9)];
+    expect(scanText(`first line ${a}\nand ${b} goes on`, LIST)).toEqual([{ line: 1, form: CANARY }]);
+    expect(scanText(`${a}\n\n${b}`, LIST)).toEqual([]);
+  });
+
   it("passes ordinary words", () => {
     expect(scanText("A two-chair studio above the bakery, and a plumber on call until 10pm.", LIST)).toEqual([]);
   });
