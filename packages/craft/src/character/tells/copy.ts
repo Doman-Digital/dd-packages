@@ -276,10 +276,10 @@ const PLAIN_FAMILY: RegExp[] = [
  * Confession lines: copy that scopes the business by what it has not done,
  * will not do or is not. "What this is and is not", "We have not yet built",
  * "Our clinic experience so far is one practice", "what we would and wouldn't
- * take on". The reviewer's review of the DD site (Pastel 986559, 18 to 19
- * October 2026) found each one, and the founder ruled them out: "it's an open
- * shop". Precision is the honest way to scope ("the portal we run for
- * Therapy"); a disclaimer turns away a buyer who would have fitted. Held
+ * take on". A reviewer's notes on the studio's own site (Pastel 986559, 18
+ * to 19 October 2026) found each one, and the founder ruled them out: "it's an
+ * open shop". Precision is the honest way to scope ("the portal we run for a
+ * children's therapy practice"); a disclaimer turns away a buyer who would have fitted. Held
  * to the confession shapes, so a contract's eligibility line, "what it does
  * and does not cover" and a responsibility split all pass.
  */
@@ -565,7 +565,7 @@ export const COPY_TELLS: CopyTell[] = [
     fixtures: {
       flag: [
         f("content/home.md", "Your options, in plain English."),
-        // The reviewer's draft lines, Pastel 986559 #12 and #13 (her diagnosis taken, her wording not).
+        // A reviewer's draft lines, Pastel 986559 #12 and #13 (the diagnosis taken, the wording not).
         f("content/clinics.md", "Tell us what's happening and we'll say plainly what we would take on."),
         f("content/pricing.md", "DD's payment terms, plainly stated."),
         f("content/clinics.md", "We explain our findings in plain terms."),
@@ -691,7 +691,7 @@ export const COPY_TELLS: CopyTell[] = [
     fixtures: {
       flag: [
         // From the portal's seeded prospect follow-ups, 2026-10-19.
-        f("emails/followup.md", "Alright Dave, it's Dmitri. No pressure, have a look when you get a min."),
+        f("emails/followup.md", "Alright Dave, it's Sam. No pressure, have a look when you get a min."),
         f("emails/followup.md", "All good if you're not fussed mate, I'll leave it there."),
         f("emails/followup.md", "Carlo, built the shop a proper site."),
         f("content/contact.md", "No worries, we'll get you sorted."),
@@ -704,11 +704,11 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/home.md", "Proper planning saves a second visit."),
         f("content/certificates.md", "Download a sorted list of certificates, sorted by date."),
         f("content/directions.md", "At the junction, take the right then left turn."),
-        // Barber's own approved line, and "mate" as a noun.
+        // A barber client's own approved line, and "mate" as a noun.
         f("content/home.md", "Every cut starts with a proper chat about what you actually want."),
         f("content/home.md", "It feels like getting a cut from a mate who knows what he is doing."),
         f("emails/quote.md", "Have a look at the quote and ring me if Thursday does not work."),
-        f("content/contact.md", "Give us a ring on 01280 700123. We take a look at the fault before quoting."),
+        f("content/contact.md", "Give us a ring on 01632 960123. We take a look at the fault before quoting."),
         f("content/home.md", "Built to last, and made for older houses."),
       ],
     },
@@ -720,14 +720,14 @@ export const COPY_TELLS: CopyTell[] = [
     severity: "warn",
     surface: "copy",
     why: "'What this is and is not', 'we have not yet built', 'our experience so far is one practice', 'what we would and wouldn't take on': a model scopes a business by confessing its limits. It reads as small print, and it turns a buyer away before they make contact.",
-    fix: "Scope by being precise about what is true, and leave the door open: 'Built and run by us for Therapy, a practice whose clinicians work across several sites.' Keep contractual facts (eligibility, who runs what) and say them as what the buyer gets.",
+    fix: "Scope by being precise about what is true, and leave the door open: 'Built and run by us for a children's therapy practice whose clinicians work across several sites.' Keep contractual facts (eligibility, who runs what) and say them as what the buyer gets.",
     detect: phrases(CONFESSION, quoted),
     fixtures: {
       flag: [
-        // Each one from the DD site, as The reviewer flagged it (Pastel 986559 #8, #12, #13).
+        // Each one from the studio's own site, as a reviewer flagged it (Pastel 986559 #8, #12, #13).
         f("content/clinics.md", "What this is and is not: a practice portal we built and run for one practice."),
         f("content/clinics.md", "We have not yet built and run the digital systems of a practice with several clinicians."),
-        f("content/home.md", "Including the client portal we run for Therapy. Our clinic experience so far is one practice."),
+        f("content/home.md", "Including the client portal we run for a therapy practice. Our clinic experience so far is one practice."),
         f("content/clinics.md", "Tell us what's happening and we'll say what we would and wouldn't take on."),
         f("content/clinics.md", "We will say what carries over from this work and what we would need to learn first."),
         f("content/clinics.md", "We will tell you where our experience applies directly and where it is close."),
@@ -736,8 +736,8 @@ export const COPY_TELLS: CopyTell[] = [
         f("content/mobile.md", "Mobile is our newest line, so we tell you what we have and haven't done."),
       ],
       pass: [
-        f("content/clinics.md", "Built and run by us for Therapy, a growing practice whose clinicians work remotely."),
-        f("content/home.md", "The client portal we run for Therapy."),
+        f("content/clinics.md", "Built and run by us for a therapy practice, a growing one whose clinicians work remotely."),
+        f("content/home.md", "The client portal we run for a children's therapy practice."),
         // Contractual facts, said as they are.
         f("content/pricing.md", "Pay monthly is open to UK residents aged 18 and over, subject to status."),
         f("content/pricing.md", "Your monthly payments do not buy the site; the buy-out price does."),

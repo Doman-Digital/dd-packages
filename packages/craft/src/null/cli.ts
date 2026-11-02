@@ -55,7 +55,7 @@ export function nullPath(target: string, cwd: string): string {
 
 /**
  * Null model paths as given, with a directory of null models read whole:
- * calibration/null/ holds one per brief.
+ * the private craft corpus's calibration/null/ holds one per brief.
  */
 export function expandNullTargets(targets: string[], cwd: string): string[] {
   return targets.flatMap((t) => {

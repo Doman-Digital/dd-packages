@@ -176,7 +176,7 @@ export function groundName(o: Oklch): string {
 /**
  * The ground as a person would name it, with its temperature: "cream",
  * "cool grey", "warm white", "cool dark". Every light neutral page used to be
- * "grey", which put Electrician's cream and Plumber's porcelain under one word.
+ * "grey", which put an electrician's cream and a plumber's porcelain under one word.
  */
 export function groundLabel(o: Oklch): string {
   const name = groundName(o);

@@ -142,9 +142,9 @@ describe("one change per choice", () => {
 describe("the retrofit plan", () => {
   const direction: ArtDirection = {
     version: 1,
-    client: "Electrician",
-    brief: "Electricians based in Uxbridge covering London and the Home Counties.",
-    sources: [{ id: "van", kind: "livery", note: "The vans parked at the Uxbridge yard" }],
+    client: "Example Electrical",
+    brief: "Electricians covering London and the Home Counties.",
+    sources: [{ id: "van", kind: "livery", note: "The vans parked at the yard" }],
     choices: { accent: { value: "#1f6f4a", because: "The green on the side of every van, the colour customers already know.", evidence: ["van"] } },
   };
 

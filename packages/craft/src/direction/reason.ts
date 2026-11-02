@@ -3,7 +3,7 @@
  *
  * A reason has to be specific enough that whoever reads the file next (a
  * person, Claude, a future tool) cannot drift back to the category default
- * while following it. "Freight Display, because Salon's photography needs to be
+ * while following it. "Freight Display, because the salon's photography needs to be
  * the hero and the type needs to recede" passes. "Freight Display" does not,
  * and neither does "a familiar structure so visitors feel comfortable".
  *

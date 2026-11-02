@@ -32,7 +32,7 @@
     },
     "source": {
       "type": "object",
-      "description": "Where the review came from, when it is a reviewer's own record (a reviewer corpus under reviews/).",
+      "description": "Where the review came from, when it is a reviewer's own record (a reviewer corpus, such as the one kept in the private craft corpus).",
       "required": [
         "tool"
       ],

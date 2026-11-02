@@ -4,7 +4,7 @@
  * prompt alone. Set CRAFT_CLAUDE to use another binary.
  *
  * Shared by `craft null build` and the shape calibration scripts, so every
- * generated sample in `calibration/` comes from the same call.
+ * generated sample in the private corpus's `calibration/` comes from the same call.
  */
 
 import { spawn } from "node:child_process";

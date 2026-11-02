@@ -121,7 +121,7 @@ the client or a test, and at which widths each was looked at. The phone is
 where this is examined first; a finding made there is not assumed to hold on a
 desktop. See [CHARACTER.md](./CHARACTER.md#decision-confidence).
 
-The principle is The reviewer's, from a review of a phone layout on 15 October 2026,
+The principle comes from a studio reviewer's review of a phone layout on 15 October 2026,
 and its question is: what does this visitor need to see, understand and believe
 before they are comfortable taking the next appropriate action? It adds to the
 standards above and replaces none of them. It also sets how a change is chosen:
@@ -130,11 +130,11 @@ the evidence are judged apart, and the smallest change that answers the problem
 wins. "The existing design is already appropriate" is a result. See
 [Reviewing a proposed change](./CHARACTER.md#reviewing-a-proposed-change).
 
-Her review of Doman Digital's own new site (18 and 19 October 2026, 73 notes)
+A review of Doman Digital's own new site (18 and 19 October 2026, 73 notes)
 is kept whole in the reviewer corpus, with the founder's rulings of 20 October,
 and it adds eleven principles and two tells. The main ones: an open shop is honest
 by being precise, never by confessing what it has not done; a summary page
 carries the substance; a case line ends on its result; a hero has one button;
-and the first screen on a phone belongs to the business. Every later review of
-hers feeds craft the same way. See
-[The reviewer's review of the DD site](./CHARACTER.md#eunices-review-of-the-dd-site-2026-10-19).
+and the first screen on a phone belongs to the business. Every later review
+feeds craft the same way. See
+[Review of the studio's own site](./CHARACTER.md#review-of-the-studios-own-site-2026-10-19).
