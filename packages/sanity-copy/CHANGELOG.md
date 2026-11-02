@@ -1,5 +1,12 @@
 # @domandigital/sanity-copy
 
+## 0.4.13
+
+### Patch Changes
+
+- Updated dependencies [472408d]
+  - @domandigital/craft@0.24.0
+
 ## 0.4.12
 
 ### Patch Changes
