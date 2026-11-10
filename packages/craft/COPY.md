@@ -105,7 +105,7 @@ person reading decides which instance earns its place.
 | `outcome-promise` | a hoped-for result written as delivered: "we'll turn that into enquiries", "once the first areas are working", "competitors you can outdo", "exactly what convinces", "guaranteed rankings", "you'll get more". Promise the work; measure and report the results |
 | `ai-vocabulary` | tapestry, testament, realm, elevate, nestled, meticulous, unparalleled, moreover; and underscore, showcasing, pivotal, measured 10 to 14 times over-used in post-2022 text |
 | `stock-email-line` | the form-email opener and closer: "I hope this email finds you well", "hope you're having a great week", "let me know if you have any questions", "don't hesitate to contact us". Start with the reason for writing; end with the next step and who to ask |
-| `stock-phrase` | to the next level, one-stop shop, we pride ourselves, passionate about, peace of mind, "so here's", a journey used as a metaphor |
+| `stock-phrase` | to the next level, one-stop shop, under one roof, we pride ourselves, passionate about, peace of mind, "so here's", a journey used as a metaphor |
 | `hollow-imperative` | Discover, Experience, Transform, Elevate as the opening verb of a heading or button |
 | `rhetorical-opener` | "Looking for...?", "Tired of...?", "Ready to...?" |
 | `staccato-triplet` | "Fast. Friendly. Local." |

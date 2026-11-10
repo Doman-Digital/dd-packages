@@ -112,6 +112,7 @@ export const STOCK_PHRASES = [
   "in today's digital age",
   "to the next level",
   "one-stop shop",
+  "under one roof",
   "second to none",
   "we pride ourselves",
   "passionate about",
