@@ -98,3 +98,8 @@ jobs:
             exit 1
           fi
           echo "$ran buyer-panel browser tests passed"
+          taps=$(sed 's/\x1b\[[0-9;]*m//g' vitest.log | grep -c "✓ .*taps and scrolls in a real browser" || true)
+          if [ "$taps" -eq 0 ]; then
+            echo "The buyer-panel tap and scroll tests did not run." >&2
+            exit 1
+          fi
