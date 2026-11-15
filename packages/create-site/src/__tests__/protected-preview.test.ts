@@ -77,11 +77,12 @@ describe("protected staging boundaries", () => {
   });
 
   test("requires live readback of both alternate Worker URLs disabled", () => {
-    const worker = { name: protection.workerName, subdomain: { enabled: false, previews_enabled: false } };
+    const worker = { name: protection.workerName, subdomain: { enabled: false, previews_enabled: false }, references: { domains: [{ hostname: protection.hostname }] } };
     expect(validateWorkerProtection(protection, worker)).toEqual(worker.subdomain);
     for (const subdomain of [{ enabled: true, previews_enabled: false }, { enabled: false, previews_enabled: true }, { enabled: false }, undefined]) {
       expect(() => validateWorkerProtection(protection, { ...worker, subdomain })).toThrow();
     }
+    expect(() => validateWorkerProtection(protection, { ...worker, references: { domains: [{ hostname: "example.com" }] } })).toThrow();
   });
 
   test("reads all pages and rejects repeated pagination", () => {
@@ -114,7 +115,8 @@ describe("protected staging boundaries", () => {
 const roots: string[] = [];
 afterAll(() => roots.forEach(root => rmSync(root, { recursive: true, force: true })));
 test("deployment refuses unsafe live Access before build or upload, and dry-run still measures a valid gate", () => {
-  for (const valid of [false, true]) {
+  for (const mode of ["invalid", "dry-run", "drift"]) {
+    const valid = mode !== "invalid";
     const root = mkdtempSync(join(tmpdir(), "protected-preview-")); roots.push(root);
     mkdirSync(join(root, "scripts/gates"), { recursive: true });
     const templates = fileURLToPath(new URL("../../templates/shared/scripts/gates/", import.meta.url));
@@ -126,10 +128,13 @@ test("deployment refuses unsafe live Access before build or upload, and dry-run 
     mkdirSync(join(root, "bin"));
     writeFileSync(join(root, "bin/git"), `#!/usr/bin/env node\nconsole.log(${JSON.stringify(JSON.stringify(registry))});`, { mode: 0o755 });
     const s = state(); if (!valid) s.applications[0].policies[0].decision = "bypass";
-    writeFileSync(join(root, "bin/cf"), `#!/usr/bin/env node\nconst s=${JSON.stringify(s)}; const args=process.argv.join(' '); console.log(JSON.stringify(args.includes('organization')?s.organization:args.includes('applications')?s.applications:args.includes('rule-groups')?s.groups:s.identityProviders));`, { mode: 0o755 });
-    const r = spawnSync(process.execPath, [join(root, "scripts/gates/deploy-preview.mjs"), "--dry-run"], { cwd: root, encoding: "utf8", env: { ...process.env, PATH: `${join(root, "bin")}:${process.env.PATH}`, npm_execpath: join(root, "pm.js") } });
-    expect(r.status, r.stdout + r.stderr).toBe(valid ? 0 : 1);
+    writeFileSync(join(root, "bin/cf"), `#!/usr/bin/env node\nconst s=${JSON.stringify(s)}; if (${mode === "drift"} && require('fs').existsSync('built')) s.applications[0].policies[0].decision='bypass'; const args=process.argv.join(' '); console.log(JSON.stringify(args.includes('organization')?s.organization:args.includes('applications')?s.applications:args.includes('rule-groups')?s.groups:s.identityProviders));`, { mode: 0o755 });
+    mkdirSync(join(root, "node_modules/.bin"), { recursive: true });
+    writeFileSync(join(root, "node_modules/.bin/wrangler"), "#!/usr/bin/env node\nrequire('fs').writeFileSync('deployed','yes');", { mode: 0o755 });
+    const r = spawnSync(process.execPath, [join(root, "scripts/gates/deploy-preview.mjs"), ...(mode === "drift" ? [] : ["--dry-run"])], { cwd: root, encoding: "utf8", env: { ...process.env, PATH: `${join(root, "bin")}:${process.env.PATH}`, npm_execpath: join(root, "pm.js") } });
+    expect(r.status, r.stdout + r.stderr).toBe(mode === "dry-run" ? 0 : 1);
     expect(existsSync(join(root, "built"))).toBe(valid);
     expect(existsSync(join(root, "measured"))).toBe(valid);
+    expect(existsSync(join(root, "deployed"))).toBe(false);
   }
 });

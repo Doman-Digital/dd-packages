@@ -146,6 +146,8 @@ export function assertAccessProtection(protection) {
 
 export function validateWorkerProtection(protection, worker) {
   if (worker.name !== protection.workerName || worker.subdomain?.enabled !== false || worker.subdomain?.previews_enabled !== false) fail("the live Worker still exposes workers.dev or version preview URLs");
+  const domains = worker.references?.domains;
+  if (!Array.isArray(domains) || domains.some(domain => (domain.hostname ?? domain.domain ?? domain.name) !== protection.hostname)) fail("the live Worker has an unexpected custom domain, or domain readback is missing");
   return worker.subdomain;
 }
 
