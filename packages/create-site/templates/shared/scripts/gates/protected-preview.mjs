@@ -45,6 +45,17 @@ export function parseJsonc(source) {
   return JSON.parse(clean);
 }
 
+// Select only a named staging environment, retaining Wrangler's non-inherited bindings.
+export function stagingConfig(config, environment) {
+  if (environment == null) return config;
+  if (environment !== "staging" || !config.env?.staging) fail("only an existing staging environment is supported");
+  const { env, ...base } = config;
+  const selected = env.staging;
+  for (const key of ["vars", "d1_databases", "kv_namespaces", "r2_buckets", "services", "queues", "durable_objects", "triggers"]) delete base[key];
+  if (selected.vars?.ENVIRONMENT !== "staging" || selected.vars?.REVIEW_INVITATIONS_ENABLED === "true" || selected.triggers?.crons?.length) fail("staging must disable production mode, invitations and scheduled jobs");
+  return { ...base, ...selected };
+}
+
 export function validateProtectedConfig(wrangler, protection) {
   if (!protection || typeof protection !== "object") fail("missing Access settings");
   const { hostname, accountId, appName, teamDomain, reviewerGroupId, probePaths } = protection;
@@ -65,7 +76,9 @@ export function canonicalReviewers(protection, registry) {
   const gate = registry.gates?.[protection.gateKey];
   if (!gate || !gate.worker || gate.worker !== protection.workerName || gate.account !== protection.accountId || gate.app !== protection.appName || `${gate.team}.cloudflareaccess.com` !== protection.teamDomain || !same(gate.hosts, [protection.hostname]) || gate.session !== "24h") fail("settings do not match the merged canonical Access registry");
   const groups = [...new Set([...(registry.default_groups || []), ...(gate.groups || [])])];
-  if (!same(groups, ["Doman Digital reviewers"]) || !empty(gate.allow) || !empty(gate.bypass) || !empty(gate.service_tokens)) fail("the registered gate must allow only the DD reviewer group");
+  if (!same(groups, ["Doman Digital reviewers"]) || !empty(gate.allow)  || !empty(gate.service_tokens)) fail("the registered gate must allow only the DD reviewer group");
+  const callbacks = gate.bypass || [];
+  if (callbacks.some(b => !/^\/api\/(?:webhooks\/[a-z0-9-]+|revalidate)$/.test(b.path || "") || !b.why || !b.authProbe || b.authProbe.method !== "POST" || ![400, 401, 403].includes(b.authProbe.status))) fail("callback exceptions require exact API paths and an unsigned POST rejection probe");
   const reviewers = registry.groups?.[groups[0]];
   if (!Array.isArray(reviewers) || !reviewers.length || reviewers.some(email => typeof email !== "string" || !email.endsWith("@domandigital.co.uk"))) fail("the canonical reviewer group is missing or invalid");
   return [...reviewers].sort();
@@ -94,8 +107,19 @@ export function validateAccessState(protection, state, registry) {
   const { hostname, appName, reviewerGroupId, teamDomain } = protection;
   if (state.organization.auth_domain !== teamDomain) fail("the live Zero Trust team does not match");
   const apps = state.applications.filter(app => publicDestinations(app).some(d => matchesHost(d, hostname)));
-  if (apps.length !== 1) fail("the hostname needs exactly one Access app, with no overlapping or path-specific apps");
-  const app = apps[0];
+  const callbacks = registry.gates[protection.gateKey].bypass || [];
+  if (apps.length !== 1 + callbacks.length) fail("unexpected overlapping or path-specific Access app");
+  for (const callback of callbacks) {
+    const domain = `${hostname}${callback.path}`;
+    const match = apps.filter(a => a.domain === domain);
+    const bypass = match[0];
+    if (match.length !== 1 || bypass.type !== "self_hosted" || !same(bypass.destinations, [{type: "public", uri: domain}]) || bypass.policies?.length !== 1) fail("callback Access app does not match the canonical exact path");
+    const policy = bypass.policies[0];
+    if (policy.decision !== "bypass" || !same(policy.include, [{everyone: {}}]) || !empty(policy.exclude) || !empty(policy.require)) fail("callback must carry only its registered bypass policy");
+  }
+  const rootApps = apps.filter(a => a.domain === hostname);
+  if (rootApps.length !== 1) fail("exactly one root reviewer app is required");
+  const app = rootApps[0];
   if (app.name !== appName || app.type !== "self_hosted" || app.domain !== hostname || !same(app.destinations, [{ type: "public", uri: hostname }]) || app.session_duration !== "24h") fail("live Access app does not match the exact staging hostname and 24h session");
   if (!Array.isArray(app.policies) || app.policies.length !== 1) fail("exactly one reviewer allow policy is required");
   const policy = app.policies[0];
@@ -167,5 +191,13 @@ export async function probeProtectedPreview(protection, fetcher = fetch) {
     try { location = new URL(response.headers.get("location")); } catch { fail(`anonymous ${path} did not redirect to Access`); }
     if (response.status !== 302 || location.protocol !== "https:" || location.hostname !== protection.teamDomain || !location.pathname.startsWith("/cdn-cgi/access/login")) fail(`anonymous ${path} was not protected by the expected Access login`);
     console.log(`protected preview: anonymous ${path} -> Access login (302).`);
+  }
+}
+
+export async function probeCallbacks(protection, registry = readCanonicalRegistry(), fetcher = fetch) {
+  canonicalReviewers(protection, registry);
+  for (const callback of registry.gates[protection.gateKey].bypass || []) {
+    const response = await fetcher(`https://${protection.hostname}${callback.path}`, {method: "POST", body: "{}", headers: {"Content-Type": "application/json"}, redirect: "manual", signal: AbortSignal.timeout(20000)});
+    if (response.status !== callback.authProbe.status) fail(`unsigned callback ${callback.path} did not reject with ${callback.authProbe.status}`);
   }
 }

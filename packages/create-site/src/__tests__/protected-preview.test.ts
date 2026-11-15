@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { afterAll, describe, expect, test } from "vitest";
 // Generated gates are plain JS, shared with the deployed sites.
 // @ts-expect-error template module is intentionally untyped
-import { parseJsonc, validateProtectedConfig, validateAccessState, probeProtectedPreview, readAccessState, canonicalReviewers, validateWorkerProtection } from "../../templates/shared/scripts/gates/protected-preview.mjs";
+import { stagingConfig, probeCallbacks, parseJsonc, validateProtectedConfig, validateAccessState, probeProtectedPreview, readAccessState, canonicalReviewers, validateWorkerProtection } from "../../templates/shared/scripts/gates/protected-preview.mjs";
 
 const protection = {
   gateKey: "fixture-preview",
@@ -137,4 +137,34 @@ test("deployment refuses unsafe live Access before build or upload, and dry-run 
     expect(existsSync(join(root, "measured"))).toBe(valid);
     expect(existsSync(join(root, "deployed"))).toBe(false);
   }
+});
+
+
+describe("existing application staging", () => {
+  test("selects staging without production bindings or scheduled jobs", () => {
+    const selected = {...wrangler(), vars: {ENVIRONMENT: "staging", REVIEW_INVITATIONS_ENABLED: "false"}, triggers: {crons: []}};
+    const config = {...wrangler(), name: "live", vars: {ENVIRONMENT: "production"}, d1_databases: [{database_id: "production"}], triggers: {crons: ["0 8 * * *"]}, env: {staging: selected}};
+    expect(stagingConfig(config, "staging")).toEqual(selected);
+    expect(() => stagingConfig(config, "production")).toThrow();
+    expect(() => stagingConfig({...config, env: {staging: {...selected, vars: {ENVIRONMENT: "production"}}}}, "staging")).toThrow();
+    expect(() => stagingConfig({...config, env: {staging: {...selected, triggers: {crons: ["* * * * *"]}}}}, "staging")).toThrow();
+    validateProtectedConfig(stagingConfig(config, "staging"), protection);
+  });
+  test("allows only canonical exact signed callback exceptions and verifies rejection", async () => {
+    const callback = {path: "/api/webhooks/stripe", why: "Existing Stripe sandbox callback verifies its signature", authProbe: {method: "POST", status: 400}};
+    const registered = structuredClone(registry) as any;
+    registered.gates[protection.gateKey].bypass = [callback];
+    const live = state() as any;
+    const domain = protection.hostname + callback.path;
+    live.applications.push({domain, type: "self_hosted", destinations: [{type: "public", uri: domain}], policies: [{decision: "bypass", include: [{everyone: {}}]}]});
+    expect(validateAccessState(protection, live, registered)).toMatchObject({reviewers: 3});
+    await expect(probeCallbacks(protection, registered, async () => new Response("Invalid signature", {status: 400}))).resolves.toBeUndefined();
+    await expect(probeCallbacks(protection, registered, async () => new Response("accepted", {status: 200}))).rejects.toThrow();
+    live.applications[1].domain += "/*";
+    expect(() => validateAccessState(protection, live, registered)).toThrow();
+    for (const path of ["/", "/api/*", "/journal", "/api/webhooks/stripe/*"]) {
+      registered.gates[protection.gateKey].bypass[0].path = path;
+      expect(() => canonicalReviewers(protection, registered)).toThrow();
+    }
+  });
 });
