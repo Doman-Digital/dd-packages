@@ -170,3 +170,42 @@ describe("declared estate and CLI", () => {
     expect(out[0]).toContain("Do not suggest colours");
   });
 });
+
+describe("explicit provisional evidence", () => {
+  const provisional = () => {
+    const d = good();
+    for (const s of d.sources) if (["review", "enquiry", "conversation", "search"].includes(s.kind)) s.kind = "founder";
+    d.job!.language = [];
+    d.job!.evidenceBasis = {
+      kind: "founder-reviewed-hypothesis", reviewer: "Project owner", acceptedAt: "2026-11-15",
+      decision: "Proceed using the recorded job hypotheses while retaining all customer research gaps as untested.",
+      source: d.job!.evidence[0], limitations: ["Direct buyer interviews have not been conducted"],
+    };
+    return d;
+  };
+  it("permits explicit provisional decisions but reports their evidence limits", () => {
+    const r = validateDirection(provisional());
+    expect(r.valid).toBe(true);
+    expect(r.layers.complete).toBe(true);
+    expect(r.problems.some(p => p.at === "job.evidenceBasis" && p.severity === "warn")).toBe(true);
+  });
+  it("does not relax the default customer-voice requirement", () => {
+    const d = provisional(); delete d.job!.evidenceBasis;
+    expect(validateDirection(d).valid).toBe(false);
+  });
+  it.each(["reviewer", "acceptedAt", "decision", "source", "limitations"])("rejects an incomplete %s", key => {
+    const d = provisional(); delete (d.job!.evidenceBasis as unknown as Record<string, unknown>)[key];
+    expect(validateDirection(d).valid).toBe(false);
+  });
+  it("still rejects missing source references and malformed jobs", () => {
+    const d = provisional(); d.job!.functional.evidence = ["missing"];
+    expect(validateDirection(d).valid).toBe(false);
+    d.job!.statement.verb = "";
+    expect(problems(d).some(p => p.at === "job.statement.verb")).toBe(true);
+  });
+  it("still rejects broken hierarchy and visual reasons", () => {
+    const d = provisional(); d.hierarchy!.home!.lead.because = ""; d.choices.accent!.because = "";
+    const r = validateDirection(d);
+    expect(r.valid).toBe(false); expect(r.layers.complete).toBe(false);
+  });
+});

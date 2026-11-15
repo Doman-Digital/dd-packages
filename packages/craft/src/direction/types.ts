@@ -89,6 +89,15 @@ export type Consideration = (typeof CONSIDERATION)[number];
  * trade do" as the starting point.
  */
 export interface JobMap {
+  /** Explicit human acceptance of provisional hypotheses; never customer validation. */
+  evidenceBasis?: {
+    kind: "founder-reviewed-hypothesis";
+    reviewer: string;
+    acceptedAt: string;
+    decision: string;
+    source: string;
+    limitations: string[];
+  };
   /** Verb + object + context: "find" / "an electrician they can trust with a dangerous fault" / "today, without being overcharged". */
   statement: { verb: string; object: string; context: string };
   functional: JobPart;
