@@ -21,12 +21,13 @@ import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { programme, root, stop } from "./programme.mjs";
-import { parseJsonc, validateProtectedConfig, assertAccessProtection, assertWorkerProtection, probeProtectedPreview } from "./protected-preview.mjs";
+import { stagingConfig, probeCallbacks, parseJsonc, validateProtectedConfig, assertAccessProtection, assertWorkerProtection, probeProtectedPreview } from "./protected-preview.mjs";
 
 const GATE = "deploy-preview";
 if (process.argv.includes("--prod")) stop(GATE, "09", "this script never deploys to production. Going live is the Stage 09 release decision.");
 const dryRun = process.argv.includes("--dry-run");
 const { preview = {} } = programme();
+if (preview.environment && !preview.protected) stop(GATE, "06", "named environments require protected staging settings");
 const env = { ...process.env, PUBLIC_PREVIEW: "1", NEXT_PUBLIC_PREVIEW: "1" };
 const bin = (name) => join(root, "node_modules", ".bin", name);
 
@@ -39,7 +40,7 @@ if (host === "cloudflare") {
   if (preview.protected) {
     try {
       if (wranglerFile.endsWith(".toml")) throw new Error("protected staging requires wrangler.json or wrangler.jsonc");
-      validateProtectedConfig(parseJsonc(readFileSync(join(root, wranglerFile), "utf8")), preview.protected);
+      validateProtectedConfig(stagingConfig(parseJsonc(readFileSync(join(root, wranglerFile), "utf8")), preview.environment), preview.protected);
       assertAccessProtection(preview.protected);
     } catch (error) { stop(GATE, "06", error.message); }
   } else {
@@ -71,17 +72,19 @@ if (dryRun) {
 // Re-read immediately before uploading: the build and measurement can take time.
 if (preview.protected) {
   try {
-    validateProtectedConfig(parseJsonc(readFileSync(join(root, wranglerFile), "utf8")), preview.protected);
+    validateProtectedConfig(stagingConfig(parseJsonc(readFileSync(join(root, wranglerFile), "utf8")), preview.environment), preview.protected);
     assertAccessProtection(preview.protected);
   } catch (error) { stop(GATE, "06", error.message); }
 }
-const deploy = spawnSync(existsSync(bin("wrangler")) ? bin("wrangler") : "npx", existsSync(bin("wrangler")) ? ["deploy"] : ["wrangler", "deploy"], { cwd: root, env, stdio: "inherit" });
+const environmentArgs = preview.environment ? ["--env", preview.environment] : [];
+const deploy = spawnSync(existsSync(bin("wrangler")) ? bin("wrangler") : "npx", existsSync(bin("wrangler")) ? ["deploy", ...environmentArgs] : ["wrangler", "deploy", ...environmentArgs], { cwd: root, env, stdio: "inherit" });
 if (deploy.status !== 0) stop(GATE, "06", `the ${host} deploy failed.`);
 if (preview.protected) {
   try {
     assertAccessProtection(preview.protected);
     assertWorkerProtection(preview.protected);
     await probeProtectedPreview(preview.protected);
+    await probeCallbacks(preview.protected);
   } catch (error) { stop(GATE, "06", `${error.message}. Upload completed but protection verification failed; this preview is not ready to share.`); }
 }
 console.log(`${GATE}: measured and deployed to a ${host} preview. The live site is untouched.`);
