@@ -55,7 +55,10 @@ if (host === "cloudflare") {
 
 // The package manager that ran this script, so the build is the one `build` names.
 const pm = process.env.npm_execpath;
-const build = pm ? spawnSync(process.execPath, [pm, "run", "build"], { cwd: root, env, stdio: "inherit" }) : spawnSync("npm", ["run", "build"], { cwd: root, env, stdio: "inherit" });
+const isJsEntry = pm && /\.[cm]?js$/i.test(pm);
+const command = isJsEntry ? process.execPath : (pm || "npm");
+const args = isJsEntry ? [pm, "run", "build"] : ["run", "build"];
+const build = spawnSync(command, args, { cwd: root, env, stdio: "inherit" });
 if (build.status !== 0) stop(GATE, "06", "the preview build failed. Nothing was deployed.");
 
 const measured = spawnSync(process.execPath, [join(root, "scripts", "gates", "measure.mjs"), "--serve", "--preview"], { cwd: root, env, stdio: "inherit" });
