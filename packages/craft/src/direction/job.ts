@@ -54,7 +54,25 @@ export function validateJob(job: unknown, sources: DirectionSource[], ctx: JobCo
     return { problems, decided: false };
   }
   const j = job as Partial<JobMap>;
-  const ids = new Map(sources.map((s) => [s.id, s]));
+  const sourcesById = new Map(sources.map((s) => [s.id, s]));
+  let provisional = false;
+  if (j.evidenceBasis !== undefined) {
+    const b = j.evidenceBasis;
+    const decisionSource = b && typeof b === "object" ? sourcesById.get(b.source) : undefined;
+    if (!b || b.kind !== "founder-reviewed-hypothesis" ||
+        typeof b.reviewer !== "string" || !b.reviewer.trim() ||
+        typeof b.acceptedAt !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(b.acceptedAt) ||
+        !Number.isFinite(Date.parse(b.acceptedAt)) ||
+        typeof b.decision !== "string" || words(b.decision).length < 8 ||
+        !decisionSource || decisionSource.kind !== "founder" ||
+        !Array.isArray(b.limitations) || !b.limitations.length ||
+        b.limitations.some((x) => typeof x !== "string" || words(x).length < 3)) {
+      err(".evidenceBasis", "a provisional job needs a named reviewer, dated decision, founder source and explicit untested limitations");
+    } else {
+      provisional = true;
+      warn(".evidenceBasis", `Provisional hypotheses accepted by ${b.reviewer} on ${b.acceptedAt}; customer research remains untested: ${b.limitations.join("; ")}`);
+    }
+  }
 
   // The statement: verb + object + context.
   const st = j.statement;
@@ -78,14 +96,14 @@ export function validateJob(job: unknown, sources: DirectionSource[], ctx: JobCo
       continue;
     }
     if (typeof p.value !== "string" || words(p.value).length < 6) err(`.${part}.value`, "a sentence: what they need, in the terms they would use");
-    else problems.push(...checkReason({ at: `job.${part}`, because: p.value, evidence: p.evidence, sources, tie: "customer" }).map((x) => ({ ...x, at: x.at.replace(/\.because$/, ".value") })));
+    else problems.push(...checkReason({ at: `job.${part}`, because: p.value, evidence: p.evidence, sources, tie: provisional ? "source" : "customer" }).map((x) => ({ ...x, at: x.at.replace(/\.because$/, ".value") })));
   }
 
   const c = j.consideration;
   if (!c || typeof c !== "object") err(".consideration", `how long and how carefully they decide: ${CONSIDERATION.join(", ")}`);
   else {
     if (!(CONSIDERATION as readonly string[]).includes(c.value)) err(".consideration.value", `one of ${CONSIDERATION.join(", ")}`);
-    problems.push(...checkReason({ at: "job.consideration", because: c.because, evidence: c.evidence, sources, tie: "customer" }));
+    problems.push(...checkReason({ at: "job.consideration", because: c.because, evidence: c.evidence, sources, tie: provisional ? "source" : "customer" }));
   }
 
   const objections = Array.isArray(j.objections) ? j.objections : [];
@@ -95,12 +113,12 @@ export function validateJob(job: unknown, sources: DirectionSource[], ctx: JobCo
   });
 
   const evidence = Array.isArray(j.evidence) ? j.evidence : [];
-  const voice = evidence.map((id) => ids.get(id)).filter(isCustomerVoice);
-  if (evidence.length === 0 || voice.length === 0) err(".evidence", "cite the reviews, enquiries or conversations the job comes from");
-  for (const id of evidence) if (!ids.has(id)) err(".evidence", `no source called "${id}"`);
+  const voice = evidence.map((id) => sourcesById.get(id)).filter(isCustomerVoice);
+  if (evidence.length === 0 || (!provisional && voice.length === 0)) err(".evidence", "cite the reviews, enquiries or conversations the job comes from");
+  for (const id of evidence) if (!sourcesById.has(id)) err(".evidence", `no source called "${id}"`);
 
   const language = Array.isArray(j.language) ? j.language : [];
-  if (language.length === 0) err(".language", "quote the customer: the words they use for the problem");
+  if (!provisional && language.length === 0) err(".language", "quote the customer: the words they use for the problem");
   const texts = voice.map((s) => normalise(`${s!.note} ${ctx.readSource?.(s!) ?? ""}`));
   language.forEach((q, i) => {
     if (typeof q !== "string" || !q.trim()) return err(`.language[${i}]`, "an empty quote");
