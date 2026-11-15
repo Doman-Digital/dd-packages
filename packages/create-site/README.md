@@ -87,9 +87,33 @@ fixed layers over half the height; at 1440 and 1920, on body lines over 80
 characters. `measure.baseline` lists known failures so they stay visible.
 `pnpm deploy:preview` is the only deploy: it sets `PUBLIC_PREVIEW` itself,
 builds, measures with noindex required, and deploys a preview to Cloudflare;
-it refuses a route, a custom domain or `--prod`. So a site made
+it refuses `--prod` and public custom domains. A private custom staging
+address is allowed only when the exact hostname and Worker are registered
+in the merged DD Access registry, the live Access policy allows only the
+registered DD reviewers for 24 hours, and both Worker preview URLs are
+disabled. So a site made
 with create-site cannot build until its programme exists and Stages 05 and 06
 are done, and cannot reach a URL unmeasured.
+
+For private staging, register the gate with `dd-access-gate` first and apply
+it before the first upload. Set `preview.protected` in `site.programme.json`
+with `gateKey`, `workerName`, `hostname`, `accountId`, `appName`, `teamDomain`,
+`reviewerGroupId` and `probePaths` (the root, a real page and a real asset).
+The hostname must start with `staging.`. The Wrangler JSON or JSONC config
+must name that exact Worker and account, set `workers_dev: false` and
+`preview_urls: false`, and contain only one route:
+`{ "pattern": "staging.example.com", "custom_domain": true }`.
+Named Wrangler environments are refused for this path.
+
+The guard reads `config/access-gates.json` from `origin/main` in
+`~/GitHub/dd-agent-kit`, so another session's local kit edits cannot change
+the approved policy. Fetch that repo when adopting a new gate. Missing
+registry data or a failed Cloudflare read stops deployment. The guard uses
+the existing `cf` login, checks every page of Access apps, groups and identity
+providers, refuses overlapping apps and bypass rules, and repeats the check
+immediately before uploading. After upload it checks the live Worker URL
+settings and anonymous redirects for all probe paths. A failed final check
+means the upload happened but the preview is not ready to share.
 
 The gate scripts are house files, identical on every site and reported by
 `--check` when they drift. Everything that differs between sites is in
