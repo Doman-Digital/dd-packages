@@ -5,7 +5,9 @@
 // 390 with --preview (noindex required); and only then deploys, preview only:
 //
 // Cloudflare: wrangler deploy, refused while the wrangler config carries a
-// route, a custom domain or workers_dev: false.
+// route, a custom domain or workers_dev: false unless the exact staging
+// hostname is protected by a verified Cloudflare Access app. Public Worker
+// and version URLs must be disabled for that protected staging route.
 //
 // The host is preview.host in site.programme.json, or found from the
 // wrangler config. Going live is a separate,
@@ -19,6 +21,7 @@ import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { programme, root, stop } from "./programme.mjs";
+import { parseJsonc, validateProtectedConfig, assertAccessProtection, assertWorkerProtection, probeProtectedPreview } from "./protected-preview.mjs";
 
 const GATE = "deploy-preview";
 if (process.argv.includes("--prod")) stop(GATE, "09", "this script never deploys to production. Going live is the Stage 09 release decision.");
@@ -33,18 +36,29 @@ if (!host) stop(GATE, "06", "no preview host. Set preview.host in site.programme
 
 if (host === "cloudflare") {
   if (!wranglerFile) stop(GATE, "06", "preview.host is cloudflare but there is no wrangler config.");
+  if (preview.protected) {
+    try {
+      if (wranglerFile.endsWith(".toml")) throw new Error("protected staging requires wrangler.json or wrangler.jsonc");
+      validateProtectedConfig(parseJsonc(readFileSync(join(root, wranglerFile), "utf8")), preview.protected);
+      assertAccessProtection(preview.protected);
+    } catch (error) { stop(GATE, "06", error.message); }
+  } else {
   // Comments out, so a commented-out route still counts as no route.
   const text = readFileSync(join(root, wranglerFile), "utf8").replace(/^\s*(\/\/|#).*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, "");
   if (/["']?\broutes?\b["']?\s*[:=]/.test(text)) stop(GATE, "06", `${wranglerFile} carries a route. A preview has none: the live domain is attached only by the Stage 09 release.`);
   if (/custom_domain/.test(text)) stop(GATE, "06", `${wranglerFile} carries a custom domain. A preview has none.`);
   if (/workers_dev["']?\s*[:=]\s*false/.test(text)) stop(GATE, "06", `${wranglerFile} sets workers_dev to false, so a preview would have no address.`);
+  }
 } else {
   stop(GATE, "06", `preview.host is ${host}; this script knows cloudflare.`);
 }
 
 // The package manager that ran this script, so the build is the one `build` names.
 const pm = process.env.npm_execpath;
-const build = pm ? spawnSync(process.execPath, [pm, "run", "build"], { cwd: root, env, stdio: "inherit" }) : spawnSync("npm", ["run", "build"], { cwd: root, env, stdio: "inherit" });
+const isJsEntry = pm && /\.[cm]?js$/i.test(pm);
+const command = isJsEntry ? process.execPath : (pm || "npm");
+const args = isJsEntry ? [pm, "run", "build"] : ["run", "build"];
+const build = spawnSync(command, args, { cwd: root, env, stdio: "inherit" });
 if (build.status !== 0) stop(GATE, "06", "the preview build failed. Nothing was deployed.");
 
 const measured = spawnSync(process.execPath, [join(root, "scripts", "gates", "measure.mjs"), "--serve", "--preview"], { cwd: root, env, stdio: "inherit" });
@@ -54,6 +68,20 @@ if (dryRun) {
   console.log(`${GATE}: built and measured; --dry-run, so nothing was deployed.`);
   process.exit(0);
 }
+// Re-read immediately before uploading: the build and measurement can take time.
+if (preview.protected) {
+  try {
+    validateProtectedConfig(parseJsonc(readFileSync(join(root, wranglerFile), "utf8")), preview.protected);
+    assertAccessProtection(preview.protected);
+  } catch (error) { stop(GATE, "06", error.message); }
+}
 const deploy = spawnSync(existsSync(bin("wrangler")) ? bin("wrangler") : "npx", existsSync(bin("wrangler")) ? ["deploy"] : ["wrangler", "deploy"], { cwd: root, env, stdio: "inherit" });
 if (deploy.status !== 0) stop(GATE, "06", `the ${host} deploy failed.`);
+if (preview.protected) {
+  try {
+    assertAccessProtection(preview.protected);
+    assertWorkerProtection(preview.protected);
+    await probeProtectedPreview(preview.protected);
+  } catch (error) { stop(GATE, "06", `${error.message}. Upload completed but protection verification failed; this preview is not ready to share.`); }
+}
 console.log(`${GATE}: measured and deployed to a ${host} preview. The live site is untouched.`);
