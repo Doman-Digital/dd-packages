@@ -45,6 +45,12 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Install and verify the locked Chromium revision
+        working-directory: packages/craft
+        run: |
+          pnpm exec playwright install chromium
+          node --input-type=module -e 'import { existsSync } from "node:fs"; import { chromium } from "playwright"; if (!existsSync(chromium.executablePath())) process.exit(1);'
+
       - name: Point craft at the image's Chromium
         working-directory: packages/craft
         shell: bash
