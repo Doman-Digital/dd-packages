@@ -455,3 +455,14 @@ explicitly marked publication assets while reporting `publicationReady: false`.
 See CHARACTER.md, “Context and learning from a later result”.
 
 Opening photographs are selected as a rendered sequence: compare their quality and crop before filling a slide count or covering every service. See [Select photographs for their position in the sequence](./CHARACTER.md#select-photographs-for-their-position-in-the-sequence) for the follow-up on one client's opening photographs and its limits.
+
+### Explicitly accepted provisional jobs
+
+When a human reviewer authorises proceeding without direct customer research,
+`job.evidenceBasis` can record `kind: "founder-reviewed-hypothesis"`, `reviewer`,
+`acceptedAt` (YYYY-MM-DD), a substantive `decision`, a founder `source` ID and
+non-empty `limitations`. The caller must obtain and record that decision; this
+field is not an automatic permission mechanism. The job remains provisional and
+validation always reports its untested limitations. Default customer-voice
+requirements remain unchanged, and source, reason, hierarchy and visual checks
+still apply. Leave `language` empty when there are no actual customer quotes.

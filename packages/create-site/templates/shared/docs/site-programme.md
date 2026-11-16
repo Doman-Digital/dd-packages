@@ -104,4 +104,4 @@ pricing modules and writes the facts the redesign renders.
 | `nullCheck` | `harvest` (a path, `~/` allowed) and `justified` (phrase to reason) |
 | `facts` | `importer`: the site's importer script, or null |
 | `mobileFirst` | `exceptions`: the files allowed a `max-width` query or `max-*:` variant, each `{ "file": "src/styles/print.css", "reason": "..." }` |
-| `preview` | `host`: `cloudflare`, or null to find it from the config |
+| `preview` | `host`: `cloudflare`, or null to find it from the config. Optional `protected`: an exact staging hostname and Worker registered in the merged DD Access registry; see create-site's private staging setup. The gate verifies the live reviewer policy before upload and anonymous denial afterwards |

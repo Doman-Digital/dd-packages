@@ -30,6 +30,7 @@ export const GATES = [
   "mobile-first.mjs",
   "measure.mjs",
   "deploy-preview.mjs",
+  "protected-preview.mjs",
 ] as const;
 
 export function layoutFor(project: Project): Layout {

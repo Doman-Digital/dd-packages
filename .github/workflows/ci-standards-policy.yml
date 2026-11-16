@@ -11,6 +11,9 @@ on:
 # The gate holds itself to its own [missing-concurrency] rule. Without this
 # block the policy workflow flagged its own file on every PR, which is the
 # fastest way to teach people the gate is noise.
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
