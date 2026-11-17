@@ -1,5 +1,14 @@
 # @domandigital/create-site
 
+## 0.11.3
+
+### Patch Changes
+
+- 6ca7b22: Allow registered private staging domains after checking the live Cloudflare Access policy. Keep public Worker and version URLs disabled, require the canonical reviewer group, and check anonymous denial after upload.
+  
+  Run native package managers directly while retaining Node for JavaScript launchers, so the preview build works with either pnpm installation.
+- 745de2a: Support an existing staging environment behind Access while retaining registered, signature-checked callback routes. Reject production settings and unregistered exceptions.
+
 ## 0.11.2
 
 ### Patch Changes
