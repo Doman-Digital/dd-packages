@@ -81,10 +81,19 @@ jobs:
       # will publish, from a registry on the runner (scripts/house-registry.mjs).
       # Everything else still comes from npm. The nightly run skips this and
       # installs the published packages, so a broken release stays red.
+      #
+      # A pull request with no changesets (the Version Packages PR, which has
+      # already applied them) carries its release versions in package.json, so
+      # it skips `changeset version`, which exits 1 when it finds nothing, and
+      # serves the packages as they stand.
       - name: Serve this commit's house packages (pull requests only)
         if: github.event_name == 'pull_request'
         run: |
-          pnpm changeset version
+          if find .changeset -maxdepth 1 -name "*.md" ! -name README.md | grep -q .; then
+            pnpm changeset version
+          else
+            echo "No changesets on this pull request: serving the versions in package.json."
+          fi
           pnpm -r run build
           nohup node scripts/house-registry.mjs 4873 > "$RUNNER_TEMP/house-registry.log" 2>&1 &
           for _ in $(seq 1 120); do
