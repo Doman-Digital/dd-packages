@@ -74,7 +74,14 @@ export const BUYER_TOOLS: Anthropic.Tool[] = [
   {
     name: "click",
     description: "Click or tap a link, button, menu or anything else on screen, named by its visible text.",
-    input_schema: { type: "object", properties: { target: str("The visible text of what you click, exactly as shown.") }, required: ["target"] },
+    input_schema: {
+      type: "object",
+      properties: {
+        target: str("The visible text of what you click, exactly as shown."),
+        which: { type: "integer", minimum: 1, description: "Only when several things on screen say the same: which one, counting from the top of the screen (1 is the highest)." },
+      },
+      required: ["target"],
+    },
   },
   {
     name: "scroll",
@@ -326,7 +333,7 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
 
       steps++;
       let result: string;
-      if (use.name === "click") result = await session.click(String(input.target ?? ""));
+      if (use.name === "click") result = await session.click(String(input.target ?? ""), typeof input.which === "number" ? input.which : Number(input.which) || undefined);
       else if (use.name === "scroll") result = await session.scroll(input.direction === "up" ? "up" : "down");
       else if (use.name === "back") result = await session.back();
       else result = await session.type(String(input.field ?? ""), String(input.text ?? ""));
