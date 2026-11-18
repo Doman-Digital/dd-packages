@@ -72,11 +72,25 @@ export function validateProtectedConfig(wrangler, protection) {
   return protection;
 }
 
+// Registered named exceptions: exact lower-case addresses, each with a reason.
+export function outsideAddresses(gate) {
+  const rows = gate.allow_outside_domain ?? [];
+  if (!Array.isArray(rows)) fail("allow_outside_domain must be a list");
+  const emails = rows.map(row => {
+    if (!row || typeof row.email !== "string" || row.email !== row.email.toLowerCase() || !/^[^\s@*]+@[^\s@*]+\.[^\s@*]+$/.test(row.email)) fail("each allow_outside_domain entry needs one exact lower-case email");
+    if (typeof row.why !== "string" || !row.why.trim()) fail(`allow_outside_domain ${row.email} has no reason`);
+    return row.email;
+  });
+  if (new Set(emails).size !== emails.length) fail("allow_outside_domain repeats an address");
+  return emails.sort();
+}
+
 export function canonicalReviewers(protection, registry) {
   const gate = registry.gates?.[protection.gateKey];
   if (!gate || !gate.worker || gate.worker !== protection.workerName || gate.account !== protection.accountId || gate.app !== protection.appName || `${gate.team}.cloudflareaccess.com` !== protection.teamDomain || !same(gate.hosts, [protection.hostname]) || gate.session !== "24h") fail("settings do not match the merged canonical Access registry");
   const groups = [...new Set([...(registry.default_groups || []), ...(gate.groups || [])])];
-  if (!same(groups, ["Doman Digital reviewers"]) || !empty(gate.allow)  || !empty(gate.service_tokens)) fail("the registered gate must allow only the DD reviewer group");
+  if (!same(groups, ["Doman Digital reviewers"]) || !empty(gate.allow)  || !empty(gate.service_tokens)) fail("the registered gate must allow only the DD reviewer group and its registered outside-domain addresses");
+  outsideAddresses(gate);
   const callbacks = gate.bypass || [];
   if (callbacks.some(b => !/^\/api\/(?:webhooks\/[a-z0-9-]+|revalidate)$/.test(b.path || "") || !b.why || !b.authProbe || b.authProbe.method !== "POST" || ![400, 401, 403].includes(b.authProbe.status))) fail("callback exceptions require exact API paths and an unsigned POST rejection probe");
   const reviewers = registry.groups?.[groups[0]];
@@ -123,7 +137,10 @@ export function validateAccessState(protection, state, registry) {
   if (app.name !== appName || app.type !== "self_hosted" || app.domain !== hostname || !same(app.destinations, [{ type: "public", uri: hostname }]) || app.session_duration !== "24h") fail("live Access app does not match the exact staging hostname and 24h session");
   if (!Array.isArray(app.policies) || app.policies.length !== 1) fail("exactly one reviewer allow policy is required");
   const policy = app.policies[0];
-  if (policy.decision !== "allow" || !same(policy.include, [{ group: { id: reviewerGroupId } }]) || !empty(policy.exclude) || !empty(policy.require) || policy.session_duration !== "24h") fail("live policy must allow only the reviewer group for 24h; no bypass or service token");
+  const outside = outsideAddresses(registry.gates[protection.gateKey]);
+  const wanted = [JSON.stringify({ group: { id: reviewerGroupId } }), ...outside.map(email => JSON.stringify({ email: { email } }))].sort();
+  const have = Array.isArray(policy.include) ? policy.include.map(rule => JSON.stringify(rule)).sort() : null;
+  if (policy.decision !== "allow" || !same(have, wanted) || !empty(policy.exclude) || !empty(policy.require) || policy.session_duration !== "24h") fail("live policy must allow only the reviewer group and registered outside-domain addresses for 24h; no bypass or service token");
   const group = state.groups.find(g => g.id === reviewerGroupId);
   const expected = reviewers.map(email => ({ email: { email } }));
   if (!group || group.name !== "Doman Digital reviewers" || !empty(group.require) || !empty(group.exclude) || !Array.isArray(group.include) || !same([...group.include].sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))), expected)) fail("the live reviewer group differs from the canonical named DD reviewers");
