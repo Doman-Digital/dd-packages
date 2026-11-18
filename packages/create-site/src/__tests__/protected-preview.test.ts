@@ -76,6 +76,38 @@ describe("protected staging boundaries", () => {
     expect(() => validateAccessState(protection, state(), changed)).toThrow();
   });
 
+  test("registered outside-domain addresses: exact match passes, anything else fails", () => {
+    const outside = { email: "guest@example.org", why: "Founder asked in chat for this reviewer" };
+    const withOutside = (rows: unknown) => { const r = structuredClone(registry) as any; r.gates[protection.gateKey].allow_outside_domain = rows; return r; };
+    const live = (extra: unknown[]) => { const s = state() as any; s.applications[0].policies[0].include.push(...extra); return s; };
+    const guest = { email: { email: "guest@example.org" } };
+    const other = { email: { email: "other@example.org" } };
+    expect(validateAccessState(protection, live([guest]), withOutside([outside]))).toMatchObject({ reviewers: 3 });
+    const reversed = live([guest]) as any; reversed.applications[0].policies[0].include.reverse();
+    expect(validateAccessState(protection, reversed, withOutside([outside]))).toMatchObject({ reviewers: 3 });
+    // live has the address but the register does not, or the reverse
+    expect(() => validateAccessState(protection, live([guest]), registry)).toThrow();
+    expect(() => validateAccessState(protection, state(), withOutside([outside]))).toThrow();
+    // a different or additional live address, or a broad rule
+    expect(() => validateAccessState(protection, live([other]), withOutside([outside]))).toThrow();
+    expect(() => validateAccessState(protection, live([guest, other]), withOutside([outside]))).toThrow();
+    expect(() => validateAccessState(protection, live([guest, { email_domain: { domain: "example.org" } }]), withOutside([outside]))).toThrow();
+    expect(() => validateAccessState(protection, live([guest, { everyone: {} }]), withOutside([outside]))).toThrow();
+    // a bypass, a service token, a bare allow list
+    const bypass = live([guest]) as any; bypass.applications[0].policies[0].decision = "bypass";
+    expect(() => validateAccessState(protection, bypass, withOutside([outside]))).toThrow();
+    const token = live([guest]) as any; token.applications[0].policies.push({ decision: "non_identity" });
+    expect(() => validateAccessState(protection, token, withOutside([outside]))).toThrow();
+    const bare = withOutside([outside]); bare.gates[protection.gateKey].allow = ["guest@example.org"];
+    expect(() => validateAccessState(protection, live([guest]), bare)).toThrow();
+    const tokens = withOutside([outside]); tokens.gates[protection.gateKey].service_tokens = ["ci"];
+    expect(() => validateAccessState(protection, live([guest]), tokens)).toThrow();
+    // register entries must be exact, lower-case, reasoned and unique
+    for (const rows of [[{ email: "Guest@example.org", why: "x" }], [{ email: "guest@example.org", why: "" }], [{ email: "guest@example.org" }], [{ email: "*@example.org", why: "x" }], [outside, outside], "guest@example.org"]) {
+      expect(() => canonicalReviewers(protection, withOutside(rows))).toThrow();
+    }
+  });
+
   test("requires live readback of both alternate Worker URLs disabled", () => {
     const worker = { name: protection.workerName, subdomain: { enabled: false, previews_enabled: false }, references: { domains: [{ hostname: protection.hostname }] } };
     expect(validateWorkerProtection(protection, worker)).toEqual(worker.subdomain);
