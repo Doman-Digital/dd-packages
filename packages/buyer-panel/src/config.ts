@@ -11,6 +11,9 @@ export type Device = "desktop" | "phone";
 export type Provider = "bedrock" | "anthropic" | "bedrock-converse" | "workers-ai";
 export const PROVIDERS: Provider[] = ["bedrock", "anthropic", "bedrock-converse", "workers-ai"];
 
+/** The archive token for the cloud client capsule (R2, through dd-storage). Any other archive is a folder path. */
+export const CAPSULE_ARCHIVE = "storage:capsule";
+
 export interface ModelChoice {
   provider?: Provider;
   model: string;
@@ -64,7 +67,11 @@ export interface Panel {
     /** A Cloudflare Worker serving the target: lets `--version auto` read the deployed version, and the run check it again at the end. accountId is optional: without it wrangler uses CLOUDFLARE_ACCOUNT_ID from the environment (the panel's Doppler config), which keeps account ids out of this public repo. */
     worker?: { name: string; accountId?: string };
   };
-  /** Archive root (the client-capsule pattern). Runs land in <archive>/<client>/panel/runs/<runId>. */
+  /**
+   * Where runs are kept, in the client-capsule pattern: runs land in <archive>/<client>/panel/runs/<runId>.
+   * `storage:capsule` (the default) is the cloud capsule: its local working copy is resolved with `dd-storage`
+   * at run time and each run is published to R2. A folder path is an offline working copy, reported as local only.
+   */
   archive: string;
   stepBudget: number;
   devices: Device[];
@@ -138,11 +145,13 @@ export function validatePanel(p: Panel, base = process.cwd(), opts: LoadOptions 
   }
   if (new Set(p.profiles.map((x) => x.id)).size !== p.profiles.length) fail("profile ids must be unique");
   if (!p.grading?.journeyMap || !p.grading.brandFacts?.path) fail("grading.journeyMap and grading.brandFacts.path are required");
+  if (!p.archive) fail(`archive is required: ${CAPSULE_ARCHIVE} for the cloud capsule, or a folder path for an offline working copy`);
+  if (p.archive.startsWith("storage:") && p.archive !== CAPSULE_ARCHIVE) fail(`archive "${p.archive}" is not a storage token; use ${CAPSULE_ARCHIVE} or a folder path`);
   return {
     ...p,
     evaluator,
     ...(isOpus(evaluator.model) ? { allowOpus: true } : {}),
-    archive: expandPath(p.archive, base),
+    archive: p.archive === CAPSULE_ARCHIVE ? CAPSULE_ARCHIVE : expandPath(p.archive, base),
     grading: {
       ...p.grading,
       journeyMap: expandPath(p.grading.journeyMap, base),

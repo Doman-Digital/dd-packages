@@ -3,6 +3,7 @@ import { parseArgs } from "node:util";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { expandPath, loadPanel, type Device } from "./config.js";
+import { archiveRoot, storeRun } from "./archive.js";
 import { diffRuns } from "./diff.js";
 import { SpendMeter } from "./pricing.js";
 import { DEFAULT_MAX_USD, evaluateRun, runPanel } from "./run.js";
@@ -28,6 +29,7 @@ Run options
   --allow-opus        Let a panel whose evaluator is an Opus model load; without it that panel is refused. The
                       evaluator defaults to Sonnet 4.6, and the report records when Opus was allowed. Also on evaluate
   --into <run-id>    Finish an earlier run of the same version: run only its missing or failed sessions
+  --no-publish        Keep the run in the local working copy only; do not publish it to R2 with dd-storage. Also on evaluate
 
 Credentials come from the environment, never from flags:
   model    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BEDROCK_REGION (providers bedrock and bedrock-converse),
@@ -53,6 +55,7 @@ async function main(argv: string[]): Promise<number> {
       "max-usd": { type: "string" },
       into: { type: "string" },
       "allow-opus": { type: "boolean" },
+      "no-publish": { type: "boolean" },
       help: { type: "boolean", short: "h" },
     },
   });
@@ -65,7 +68,7 @@ async function main(argv: string[]): Promise<number> {
   const panel = loadPanel(panelPath, { allowOpus: values["allow-opus"] });
   const runDir = (p: string | undefined) => {
     if (!p) throw new Error(`${cmd}: a run directory is required`);
-    const d = existsSync(expandPath(p)) ? expandPath(p) : join(panel.archive, panel.client, "panel", "runs", p);
+    const d = existsSync(expandPath(p)) ? expandPath(p) : join(archiveRoot(panel), panel.client, "panel", "runs", p);
     if (!existsSync(join(d, "run.json"))) throw new Error(`${p}: not a run directory`);
     return d;
   };
@@ -85,11 +88,14 @@ async function main(argv: string[]): Promise<number> {
       evaluate: !values["no-evaluate"],
       maxUsd,
       into: values.into ? runDir(values.into) : undefined,
+      publish: !values["no-publish"],
     });
     return 0;
   }
   if (cmd === "evaluate") {
-    await evaluateRun(panel, runDir(rest[0]), console.log, new SpendMeter(maxUsd ?? DEFAULT_MAX_USD));
+    const dir = runDir(rest[0]);
+    await evaluateRun(panel, dir, console.log, new SpendMeter(maxUsd ?? DEFAULT_MAX_USD));
+    storeRun(panel, dir, { publish: !values["no-publish"] });
     return 0;
   }
   if (cmd === "diff") {

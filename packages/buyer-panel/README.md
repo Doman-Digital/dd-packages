@@ -123,11 +123,22 @@ belong to, and when the token expires are recorded in dd-repo-registry `docs/buy
 
 ## Where runs go
 
-The client-capsule archive, as the portal teardowns do: `~/dd-client-capsule/<client>/panel/runs/<runId>/` with
-`runId` = the first eight characters of the version and the minute. Each run holds `run.json`, `report.md`,
-`report.json` and one folder per session (`session.json` with every step, thought, screen text and problem; the
-screenshots; `grade.json`; `trace.zip` for `npx playwright show-trace`). `<client>/index.json` lists the runs under
-`panel`, keyed by version, so the next version diffs against this one.
+The client capsule is the cloud home for runs: the panel's `archive` is `storage:capsule` (the default in
+`panels/dd-redesign.json`). The package does not know the bucket or the folders. It asks `dd-storage` (claude-kit's
+resolver) for `local.capsule_dir`, the capsule's local working copy, and writes each run to
+`<capsule>/<client>/panel/runs/<runId>/`, with `runId` = the first eight characters of the version and the minute.
+Each run holds `run.json`, `report.md`, `report.json` and one folder per session (`session.json` with every step,
+thought, screen text and problem; the screenshots; `grade.json`; `trace.zip` for `npx playwright show-trace`).
+`<client>/index.json` lists the runs under `panel`, keyed by version, so the next version diffs against this one.
+
+When a run finishes it is published with `dd-storage publish <client>`. If `dd-storage` is not on PATH the run fails
+before any session starts. If the cloud cannot be reached (`dd-storage` exits 3, for example with no R2 token), the
+run stays in the working copy and the package prints a `NOTICE` on stderr and writes "Local only" at the foot of
+`report.md`; `dd-capsule-push` then carries it to R2. `run.json` records the outcome under `storage`. Pass
+`--no-publish` to keep a run local on purpose.
+
+A panel's `archive` may also be a folder path, as an offline working copy (`~` and relative paths resolve as usual).
+Such a run is reported as local only and `dd-storage` is never called.
 
 ## A panel file
 
