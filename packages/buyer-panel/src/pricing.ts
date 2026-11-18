@@ -25,6 +25,8 @@ export const PRICES: Price[] = [
   claude(/claude-haiku-4-5/, "Claude Haiku 4.5", 1, 5),
   claude(/claude-sonnet-4-6/, "Claude Sonnet 4.6", 3, 15),
   claude(/claude-opus-4-6/, "Claude Opus 4.6", 5, 25),
+  // First-party API list price, checked 2026-11-18. Opus 5.5 reads its cache at 0.05x, not the helper's 0.1x.
+  { match: /claude-opus-5-5/, label: "Claude Opus 5.5", input: 4, output: 20, cacheRead: 0.2, cacheWrite: 5 },
   { match: /qwen\.qwen3-vl-235b/, label: "Qwen3-VL 235B", input: 0.82, output: 4.12 },
   { match: /moonshotai\.kimi-k2/, label: "Kimi K2.5", input: 0.93, output: 4.65 },
   { match: /@cf\/meta\/llama-4-scout/, label: "Llama 4 Scout 17B", input: 0.27, output: 0.85 },

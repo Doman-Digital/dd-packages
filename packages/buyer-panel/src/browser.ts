@@ -9,6 +9,16 @@ export const DEVICE_OPTIONS: Record<Device, Parameters<Browser["newContext"]>[0]
   phone: IPHONE,
 };
 
+/** The context options for a device, with the panel's own phone viewport when it names one. */
+export function deviceOptions(panel: Pick<Panel, "phoneViewport">, device: Device): Parameters<Browser["newContext"]>[0] {
+  const base = DEVICE_OPTIONS[device];
+  if (device !== "phone" || !panel.phoneViewport) return base;
+  return { ...base, viewport: { ...panel.phoneViewport }, screen: { ...panel.phoneViewport } };
+}
+
+/** How wide the phone is, for the prompts and the report. */
+export const phoneWidth = (panel: Pick<Panel, "phoneViewport">): number => panel.phoneViewport?.width ?? IPHONE.viewport?.width ?? 390;
+
 /**
  * Exchanges the Access service token for Access's own session cookie, outside the browser. The browser only
  * ever holds the cookie (24 hours, this application only), so the service token never reaches a page, a
@@ -122,7 +132,7 @@ export class BrowserSession {
 
   static async open(panel: Panel, device: Device, cookie: string | undefined, trace: boolean): Promise<BrowserSession> {
     const browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({ ...DEVICE_OPTIONS[device], locale: "en-GB", timezoneId: "Europe/London" });
+    const context = await browser.newContext({ ...deviceOptions(panel, device), locale: "en-GB", timezoneId: "Europe/London" });
     const origin = new URL(panel.target.origin).origin;
     if (cookie) {
       await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);

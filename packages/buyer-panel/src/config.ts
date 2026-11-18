@@ -31,6 +31,16 @@ export interface Profile {
   task: string;
 }
 
+/**
+ * Claude models from Opus 4.7 on (Opus 5.x, Sonnet 5.x, Haiku 5.5, Fable, Mythos) reject temperature with a 400 and
+ * always think. For them the panel sends no temperature and gives each call room to think.
+ */
+export const rejectsSampling = (model: string): boolean => /claude-(opus-(4-[7-9]|[5-9])|sonnet-[5-9]|haiku-[5-9]|fable|mythos)/i.test(model);
+
+/** The temperature to send, if any: none for a model that rejects sampling, whatever a default says. */
+export const samplingFor = (c: ModelChoice): { temperature?: number } =>
+  c.temperature === undefined || rejectsSampling(c.model) ? {} : { temperature: c.temperature };
+
 /** What grades a run when the panel file names no evaluator. */
 export const DEFAULT_EVALUATOR: ModelChoice = { provider: "bedrock", model: "eu.anthropic.claude-sonnet-4-6", temperature: 0 };
 
@@ -58,6 +68,8 @@ export interface Panel {
   archive: string;
   stepBudget: number;
   devices: Device[];
+  /** The phone's viewport in CSS pixels, for a test plan that names one. Defaults to a 390-wide iPhone 14. */
+  phoneViewport?: { width: number; height: number };
   variants: Variant[];
   /** Defaults to Sonnet 4.6. An Opus model is refused unless the run passes `--allow-opus`. */
   evaluator: ModelChoice;
@@ -100,11 +112,17 @@ export function validatePanel(p: Panel, base = process.cwd(), opts: LoadOptions 
   if (!p.target.start?.startsWith("/")) fail("target.start must be a path");
   if (!(p.stepBudget >= 5 && p.stepBudget <= 60)) fail("stepBudget must be between 5 and 60");
   if (!p.devices?.length || p.devices.some((d) => d !== "desktop" && d !== "phone")) fail("devices must be desktop and/or phone");
+  const vp = p.phoneViewport;
+  if (vp && !(vp.width >= 320 && vp.width <= 480 && vp.height >= 480 && vp.height <= 1000)) fail("phoneViewport must be 320 to 480 wide and 480 to 1000 high");
   if ((p.variants?.length ?? 0) < 2) fail("at least two variants are needed for a finding to reproduce within a profile");
   if (new Set(p.variants.map((v) => v.id)).size !== p.variants.length) fail("variant ids must be unique");
   const evaluator = p.evaluator ?? DEFAULT_EVALUATOR;
   if (!evaluator.model) fail("evaluator.model is required");
   if (isOpus(evaluator.model) && !opts.allowOpus) fail(`evaluator ${evaluator.model} is an Opus model; pass --allow-opus to grade with it (Sonnet is the default)`);
+  // A temperature the panel names but cannot send would be reported as if it ran, so it is refused here.
+  for (const c of [...(p.evaluator ? [p.evaluator] : []), ...p.variants]) {
+    if (c.temperature !== undefined && rejectsSampling(c.model)) fail(`${c.model} rejects temperature; leave temperature out`);
+  }
   for (const c of [evaluator, ...p.variants]) {
     if (c.provider && !PROVIDERS.includes(c.provider)) fail(`provider "${c.provider}" is not one of ${PROVIDERS.join(", ")}`);
     try {
