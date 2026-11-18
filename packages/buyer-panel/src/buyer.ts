@@ -2,8 +2,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type Anthropic from "@anthropic-ai/sdk";
 import { chromium } from "playwright";
-import { BrowserSession, DEVICE_OPTIONS, type Observation } from "./browser.js";
-import type { Device, Panel, Profile, Variant } from "./config.js";
+import { BrowserSession, deviceOptions, type Observation } from "./browser.js";
+import { rejectsSampling, samplingFor, type Device, type Panel, type Profile, type Variant } from "./config.js";
 import { addUsage, cachesPrompts, clientFor, emptyUsage, textOf, withCaching, type Usage } from "./model.js";
 import type { SpendMeter } from "./pricing.js";
 
@@ -74,7 +74,14 @@ export const BUYER_TOOLS: Anthropic.Tool[] = [
   {
     name: "click",
     description: "Click or tap a link, button, menu or anything else on screen, named by its visible text.",
-    input_schema: { type: "object", properties: { target: str("The visible text of what you click, exactly as shown.") }, required: ["target"] },
+    input_schema: {
+      type: "object",
+      properties: {
+        target: str("The visible text of what you click, exactly as shown."),
+        which: { type: "integer", minimum: 1, description: "Only when several things on screen say the same: which one, counting from the top of the screen (1 is the highest)." },
+      },
+      required: ["target"],
+    },
   },
   {
     name: "scroll",
@@ -173,7 +180,7 @@ export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2, slack
 async function foldScreenshot(panel: Panel, cookie: string | undefined): Promise<Buffer> {
   const browser = await chromium.launch({ headless: true });
   try {
-    const context = await browser.newContext({ ...DEVICE_OPTIONS.phone, locale: "en-GB", timezoneId: "Europe/London" });
+    const context = await browser.newContext({ ...deviceOptions(panel, "phone"), locale: "en-GB", timezoneId: "Europe/London" });
     if (cookie) await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(panel.target.origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);
     const page = await context.newPage();
     await page.goto(new URL(panel.target.start, panel.target.origin).toString(), { waitUntil: "load" });
@@ -225,8 +232,10 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
   const call = async (messages: Anthropic.MessageParam[], tools?: Anthropic.Tool[]): Promise<Anthropic.Message> => {
     const body = {
       model: variant.model,
-      max_tokens: 1500,
-      ...(variant.temperature === undefined ? {} : { temperature: variant.temperature }),
+      // A thinking model spends max_tokens on thinking first, and 1500 can leave a step with no action. Output is
+      // billed as generated, so the higher cap costs nothing unless it is used.
+      max_tokens: rejectsSampling(variant.model) ? 16000 : 1500,
+      ...samplingFor(variant),
       system: SYSTEM(profile.persona, device),
       messages,
       ...(tools ? { tools, tool_choice: { type: "auto" as const, disable_parallel_tool_use: true } } : {}),
@@ -324,7 +333,7 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
 
       steps++;
       let result: string;
-      if (use.name === "click") result = await session.click(String(input.target ?? ""));
+      if (use.name === "click") result = await session.click(String(input.target ?? ""), typeof input.which === "number" ? input.which : Number(input.which) || undefined);
       else if (use.name === "scroll") result = await session.scroll(input.direction === "up" ? "up" : "down");
       else if (use.name === "back") result = await session.back();
       else result = await session.type(String(input.field ?? ""), String(input.text ?? ""));

@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { AnthropicBedrock } from "@anthropic-ai/bedrock-sdk";
-import type { ModelChoice, Provider } from "./config.js";
+import { samplingFor, type ModelChoice, type Provider } from "./config.js";
 import { costOf, type SpendMeter } from "./pricing.js";
 import { converseClient } from "./providers/converse.js";
 import { workersAiClient } from "./providers/workers-ai.js";
@@ -174,7 +174,7 @@ export async function callForTool<T>(
       ...(cachesPrompts(choice) ? withCaching(body, "system") : body),
       messages,
       model: choice.model,
-      ...(choice.temperature === undefined ? {} : { temperature: choice.temperature }),
+      ...samplingFor(choice),
       tools: [tool],
       tool_choice: { type: "auto" },
     });

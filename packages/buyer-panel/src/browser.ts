@@ -9,6 +9,16 @@ export const DEVICE_OPTIONS: Record<Device, Parameters<Browser["newContext"]>[0]
   phone: IPHONE,
 };
 
+/** The context options for a device, with the panel's own phone viewport when it names one. */
+export function deviceOptions(panel: Pick<Panel, "phoneViewport">, device: Device): Parameters<Browser["newContext"]>[0] {
+  const base = DEVICE_OPTIONS[device];
+  if (device !== "phone" || !panel.phoneViewport) return base;
+  return { ...base, viewport: { ...panel.phoneViewport }, screen: { ...panel.phoneViewport } };
+}
+
+/** How wide the phone is, for the prompts and the report. */
+export const phoneWidth = (panel: Pick<Panel, "phoneViewport">): number => panel.phoneViewport?.width ?? IPHONE.viewport?.width ?? 390;
+
 /**
  * Exchanges the Access service token for Access's own session cookie, outside the browser. The browser only
  * ever holds the cookie (24 hours, this application only), so the service token never reaches a page, a
@@ -122,7 +132,7 @@ export class BrowserSession {
 
   static async open(panel: Panel, device: Device, cookie: string | undefined, trace: boolean): Promise<BrowserSession> {
     const browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({ ...DEVICE_OPTIONS[device], locale: "en-GB", timezoneId: "Europe/London" });
+    const context = await browser.newContext({ ...deviceOptions(panel, device), locale: "en-GB", timezoneId: "Europe/London" });
     const origin = new URL(panel.target.origin).origin;
     if (cookie) {
       await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);
@@ -161,38 +171,29 @@ export class BrowserSession {
 
   /** Finds what a buyer means by a piece of visible text: an exact link or button first, then looser matches. */
   async resolve(text: string, prefer: "action" | "any" = "action"): Promise<Locator | undefined> {
-    const p = this.page;
-    // The screen text lists a card link with its arrow and full text; its accessible name often has neither.
-    const t = text.trim().replace(/^\[[^\]]+\]\s*/, "").replace(/^["“]|["”]$/g, "").replace(/\s*[→›»>]+\s*$/, "").trim();
-    if (!t) return undefined;
-    const words = t.split(/\s+/);
-    const heads = [...new Set([t.length > 40 ? t.slice(0, 40) : "", words.length > 5 ? words.slice(0, 4).join(" ") : ""].filter(Boolean))];
-    const action = [
-      p.getByRole("link", { name: t, exact: true }),
-      p.getByRole("button", { name: t, exact: true }),
-      p.getByRole("tab", { name: t, exact: true }),
-    ];
-    const loose = [p.getByRole("link", { name: t }), p.getByRole("button", { name: t }), p.getByLabel(t)];
-    for (const h of heads) loose.push(p.getByRole("link", { name: h }), p.getByRole("button", { name: h }));
-    const anyText = [p.getByText(t, { exact: true }), p.getByText(t), ...heads.map((h) => p.getByText(h))];
-    const order = prefer === "action" ? [...action, ...loose, ...anyText] : [...anyText, ...action, ...loose];
-    const vh = p.viewportSize()?.height ?? 900;
-    let fallback: Locator | undefined;
-    for (const cand of order) {
-      const n = Math.min(await cand.count().catch(() => 0), 12);
-      for (let i = 0; i < n; i++) {
-        const loc = cand.nth(i);
-        if (!(await loc.isVisible().catch(() => false))) continue;
-        const box = await loc.boundingBox().catch(() => null);
-        if (box && box.y + box.height > 0 && box.y < vh) return loc;
-        fallback ??= loc;
-      }
-    }
-    return fallback;
+    const m = await findOnScreen(this.page, text, prefer);
+    return m.onScreen[0] ?? m.fallback;
   }
 
-  async click(text: string): Promise<string> {
-    const loc = await this.resolve(text, "action");
+  /**
+   * Taps what the buyer names. When more than one thing on screen carries that text (a sticky header button and a
+   * form's own button with the same label), the first in the page used to win, which is not what a person looking
+   * at the lower one would tap. Now the buyer is told what is there and says which, counting from the top.
+   */
+  async click(text: string, which?: number): Promise<string> {
+    const m = await findOnScreen(this.page, text, "action");
+    let loc: Locator | undefined;
+    if (m.onScreen.length > 1) {
+      if (!which) {
+        const where = await Promise.all(m.onScreen.map((l, i) => describePlace(l).then((d) => `${i + 1}. ${d}`)));
+        return `${m.onScreen.length} things on screen say "${text}": ${where.join("; ")}. Nothing was tapped. Tap again and say which one (1 is the highest on screen).`;
+      }
+      loc = m.onScreen[Math.min(Math.max(1, Math.round(which)), m.onScreen.length) - 1];
+    } else loc = m.onScreen[0] ?? m.fallback;
+    return this.tap(loc, text);
+  }
+
+  private async tap(loc: Locator | undefined, text: string): Promise<string> {
     if (!loc) return `Nothing on the page matches "${text}".`;
     const before = this.page.url();
     const popup = this.context.waitForEvent("page", { timeout: 1500 }).catch(() => null);
@@ -277,4 +278,49 @@ export class BrowserSession {
     await this.context.close().catch(() => undefined);
     await this.browser.close().catch(() => undefined);
   }
+}
+
+/** Where an element sits, in words a buyer can use: header, form or page, and how far down the screen. */
+async function describePlace(loc: Locator): Promise<string> {
+  return loc
+    .evaluate((el) => {
+      const r = el.getBoundingClientRect();
+      const part = el.closest("header, [role=banner]") ? "in the header" : el.closest("footer") ? "in the footer" : el.closest("nav") ? "in the menu" : el.closest("form, .form") ? "in the form" : "on the page";
+      const vh = window.innerHeight || 1;
+      const band = r.top < vh / 3 ? "near the top" : r.top < (2 * vh) / 3 ? "in the middle" : "near the bottom";
+      return `${part}, ${band} of the screen`;
+    })
+    .catch(() => "on the page");
+}
+
+/**
+ * Every visible match for a buyer's text that is on screen now, top to bottom, from the strictest kind of match that
+ * finds any (exact link or button first, then looser), and the first visible match off screen as a fallback.
+ */
+export async function findOnScreen(p: Page, text: string, prefer: "action" | "any" = "action"): Promise<{ onScreen: Locator[]; fallback?: Locator }> {
+  // The screen text lists a card link with its arrow and full text; its accessible name often has neither.
+  const t = text.trim().replace(/^\[[^\]]+\]\s*/, "").replace(/^["“]|["”]$/g, "").replace(/\s*[→›»>]+\s*$/, "").trim();
+  if (!t) return { onScreen: [] };
+  const words = t.split(/\s+/);
+  const heads = [...new Set([t.length > 40 ? t.slice(0, 40) : "", words.length > 5 ? words.slice(0, 4).join(" ") : ""].filter(Boolean))];
+  const action = [p.getByRole("link", { name: t, exact: true }), p.getByRole("button", { name: t, exact: true }), p.getByRole("tab", { name: t, exact: true })];
+  const loose = [p.getByRole("link", { name: t }), p.getByRole("button", { name: t }), p.getByLabel(t)];
+  for (const h of heads) loose.push(p.getByRole("link", { name: h }), p.getByRole("button", { name: h }));
+  const anyText = [p.getByText(t, { exact: true }), p.getByText(t), ...heads.map((h) => p.getByText(h))];
+  const order = prefer === "action" ? [...action, ...loose, ...anyText] : [...anyText, ...action, ...loose];
+  const vh = p.viewportSize()?.height ?? 900;
+  let fallback: Locator | undefined;
+  for (const cand of order) {
+    const n = Math.min(await cand.count().catch(() => 0), 12);
+    const here: { loc: Locator; y: number }[] = [];
+    for (let i = 0; i < n; i++) {
+      const loc = cand.nth(i);
+      if (!(await loc.isVisible().catch(() => false))) continue;
+      const box = await loc.boundingBox().catch(() => null);
+      if (box && box.y + box.height > 0 && box.y < vh) here.push({ loc, y: box.y });
+      else fallback ??= loc;
+    }
+    if (here.length) return { onScreen: here.sort((a, b) => a.y - b.y).map((h) => h.loc), fallback };
+  }
+  return { onScreen: [], fallback };
 }

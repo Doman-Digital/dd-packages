@@ -136,6 +136,11 @@ devices, two or more variants (model and temperature: real variation, so a findi
 evaluator, the profiles (persona and task, in the buyer's own terms, with none of the business's facts) and the
 grading material. Relative paths resolve against the panel file; `~` is the home folder.
 
+A test plan that names its own phone size sets `"phoneViewport": { "width": 375, "height": 667 }`; without it the
+phone is the 390-wide iPhone. A model that rejects sampling (Claude Opus 4.7 on, Sonnet 5.x, Haiku 5.5, Fable) gets
+no temperature: leave it out of the variants and the evaluator, and the panel refuses a file that names one. Such a
+model always thinks, so each buyer step gets room for it (`max_tokens` 16000, billed only as used).
+
 ## The trap it is built around
 
 A model recognises a design pattern from thousands of sites; a real owner may not. Simulated users are patient and
