@@ -1,4 +1,5 @@
 import { chromium, devices, type Browser, type BrowserContext, type Locator, type Page } from "playwright";
+import { applyHeaderAccess, headerAccess, probeHeaderAccess, waitOutBounces } from "./access.js";
 import type { Device, Panel } from "./config.js";
 
 const { defaultBrowserType: _ignored, ...IPHONE } = devices["iPhone 14"];
@@ -17,6 +18,12 @@ export const DEVICE_OPTIONS: Record<Device, Parameters<Browser["newContext"]>[0]
 export async function accessCookie(panel: Panel): Promise<string | undefined> {
   const a = panel.target.access;
   if (!a) return undefined;
+  const headers = headerAccess(panel);
+  if (headers) {
+    // Headers mode has no cookie: check the token once, and each session routes it (access.ts).
+    await probeHeaderAccess(panel, headers);
+    return undefined;
+  }
   const id = process.env[a.idEnv];
   const secret = process.env[a.secretEnv];
   if (!id || !secret) throw new Error(`Access token missing: set ${a.idEnv} and ${a.secretEnv} (run under the panel's Doppler config: dd-repo-registry docs/buyer-panel.md)`);
@@ -112,35 +119,64 @@ export interface ElementEvidence {
   screenshot: Buffer;
 }
 
+/**
+ * A browser context on the target, signed in to Access by either mode. `problems` is set in headers mode only, and
+ * fills as the routing finds them.
+ */
+export async function openContext(
+  browser: Browser,
+  panel: Panel,
+  device: Device,
+  cookie: string | undefined,
+): Promise<{ context: BrowserContext; problems?: string[] }> {
+  const context = await browser.newContext({ ...DEVICE_OPTIONS[device], locale: "en-GB", timezoneId: "Europe/London" });
+  const origin = new URL(panel.target.origin).origin;
+  if (cookie) {
+    await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);
+  }
+  const headers = headerAccess(panel);
+  if (!headers) return { context };
+  return { context, problems: await applyHeaderAccess(context, headers) };
+}
+
+/** Fails at once on Access's login page, or on a problem the headers-mode routing found, rather than letting the buyer browse it. */
+export function checkPage(page: Page, problems: string[] | undefined): void {
+  if (problems?.length) throw new Error(`Access routing: ${problems.join("; ")}`);
+  if (new URL(page.url()).hostname.endsWith("cloudflareaccess.com")) throw new Error("Cloudflare Access login page shown: the service token or session cookie was refused");
+}
+
 export class BrowserSession {
   private constructor(
     readonly browser: Browser,
     readonly context: BrowserContext,
     public page: Page,
     readonly origin: string,
+    /** Headers mode only: problems the Access routing found; any one ends the session. */
+    private readonly accessProblems: string[] | undefined,
+    /** Whether a trace is being recorded (never in headers mode). */
+    readonly tracing: boolean,
   ) {}
 
+  /** Opens a browser on the target. In headers mode the trace is never started, because a trace records request headers. */
   static async open(panel: Panel, device: Device, cookie: string | undefined, trace: boolean): Promise<BrowserSession> {
     const browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({ ...DEVICE_OPTIONS[device], locale: "en-GB", timezoneId: "Europe/London" });
-    const origin = new URL(panel.target.origin).origin;
-    if (cookie) {
-      await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);
-    }
-    if (trace) await context.tracing.start({ screenshots: true, snapshots: true });
+    const { context, problems } = await openContext(browser, panel, device, cookie);
+    const tracing = trace && !problems;
+    if (tracing) await context.tracing.start({ screenshots: true, snapshots: true });
     const page = await context.newPage();
-    return new BrowserSession(browser, context, page, origin);
+    return new BrowserSession(browser, context, page, new URL(panel.target.origin).origin, problems, tracing);
   }
 
   async goto(path: string): Promise<void> {
     await this.page.goto(new URL(path, this.origin).toString(), { waitUntil: "domcontentloaded" });
     await this.settle();
-    if (new URL(this.page.url()).hostname.endsWith("cloudflareaccess.com")) throw new Error("Cloudflare Access login page shown: the session cookie was refused");
   }
 
   private async settle(): Promise<void> {
     await this.page.waitForLoadState("load", { timeout: 8000 }).catch(() => undefined);
+    if (this.accessProblems) await waitOutBounces(this.page);
     await this.page.waitForTimeout(400);
+    checkPage(this.page, this.accessProblems);
   }
 
   async shot(): Promise<Buffer> {
@@ -148,7 +184,7 @@ export class BrowserSession {
   }
 
   async observe(): Promise<Observation> {
-    const v = (await this.page.evaluate(VISIBLE_SCRIPT)) as { lines: string[]; scrolledPct: number; atBottom: boolean };
+    const v = await this.readScreen();
     return {
       url: this.page.url(),
       title: await this.page.title(),
@@ -157,6 +193,23 @@ export class BrowserSession {
       atBottom: v.atBottom,
       screenshot: await this.shot(),
     };
+  }
+
+  /**
+   * Reads the screen text. A click can start a navigation after the click's own wait has given up (a slow hop, such as
+   * one fetched through the Access route), and then the page is replaced mid-read. That is a page still loading, not an
+   * error: wait for it to land and read again.
+   */
+  private async readScreen(): Promise<{ lines: string[]; scrolledPct: number; atBottom: boolean }> {
+    for (let attempt = 1; ; attempt++) {
+      try {
+        return (await this.page.evaluate(VISIBLE_SCRIPT)) as { lines: string[]; scrolledPct: number; atBottom: boolean };
+      } catch (e) {
+        if (attempt >= 4 || !/Execution context was destroyed|navigat/i.test((e as Error).message)) throw e;
+        await this.page.waitForLoadState("domcontentloaded").catch(() => undefined);
+        await this.settle();
+      }
+    }
   }
 
   /** Finds what a buyer means by a piece of visible text: an exact link or button first, then looser matches. */
@@ -273,7 +326,7 @@ export class BrowserSession {
   }
 
   async close(tracePath?: string): Promise<void> {
-    if (tracePath) await this.context.tracing.stop({ path: tracePath }).catch(() => undefined);
+    if (tracePath && this.tracing) await this.context.tracing.stop({ path: tracePath }).catch(() => undefined);
     await this.context.close().catch(() => undefined);
     await this.browser.close().catch(() => undefined);
   }
