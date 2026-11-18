@@ -184,7 +184,7 @@ export class BrowserSession {
   }
 
   async observe(): Promise<Observation> {
-    const v = (await this.page.evaluate(VISIBLE_SCRIPT)) as { lines: string[]; scrolledPct: number; atBottom: boolean };
+    const v = await this.readScreen();
     return {
       url: this.page.url(),
       title: await this.page.title(),
@@ -193,6 +193,23 @@ export class BrowserSession {
       atBottom: v.atBottom,
       screenshot: await this.shot(),
     };
+  }
+
+  /**
+   * Reads the screen text. A click can start a navigation after the click's own wait has given up (a slow hop, such as
+   * one fetched through the Access route), and then the page is replaced mid-read. That is a page still loading, not an
+   * error: wait for it to land and read again.
+   */
+  private async readScreen(): Promise<{ lines: string[]; scrolledPct: number; atBottom: boolean }> {
+    for (let attempt = 1; ; attempt++) {
+      try {
+        return (await this.page.evaluate(VISIBLE_SCRIPT)) as { lines: string[]; scrolledPct: number; atBottom: boolean };
+      } catch (e) {
+        if (attempt >= 4 || !/Execution context was destroyed|navigat/i.test((e as Error).message)) throw e;
+        await this.page.waitForLoadState("domcontentloaded").catch(() => undefined);
+        await this.settle();
+      }
+    }
   }
 
   /** Finds what a buyer means by a piece of visible text: an exact link or button first, then looser matches. */
