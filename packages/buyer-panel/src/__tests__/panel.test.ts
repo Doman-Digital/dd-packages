@@ -92,7 +92,15 @@ describe("config", () => {
     expect(p.profiles).toHaveLength(5);
     expect(p.variants).toHaveLength(2);
     expect(p.devices).toEqual(["desktop", "phone"]);
-    expect(p.archive).toMatch(/dd-client-capsule$/);
+    expect(p.archive).toBe("storage:capsule");
+  });
+  it("refuses an archive that is a storage token other than the capsule, or none at all", () => {
+    expect(() => validatePanel({ ...raw, archive: "storage:metrics" })).toThrow(/not a storage token/);
+    expect(() => validatePanel({ ...raw, archive: "" })).toThrow(/archive is required/);
+  });
+  it("keeps a folder archive as a path resolved against the panel file", () => {
+    expect(validatePanel({ ...raw, archive: "~/runs-here" }).archive).toMatch(/\/runs-here$/);
+    expect(validatePanel({ ...raw, archive: "runs-here" }, "/base").archive).toBe("/base/runs-here");
   });
   it("accepts http only on the loopback, for a prototype served on this machine", () => {
     expect(validatePanel({ ...raw, target: { origin: "http://127.0.0.1:8741", start: "/" } }).target.origin).toBe("http://127.0.0.1:8741");

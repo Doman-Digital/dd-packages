@@ -3,6 +3,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync
 import { dirname, join } from "node:path";
 import type { Device, ModelChoice, Panel } from "./config.js";
 import { accessCookie } from "./browser.js";
+import { archiveRoot, storeRun } from "./archive.js";
 import { runSession, sessionId, type SessionRecord } from "./buyer.js";
 import { clusterFindings, gradeSession, type SessionGrade, type SessionRef } from "./evaluate.js";
 import { loadGradingContext } from "./grading-context.js";
@@ -22,6 +23,8 @@ export interface RunOptions {
   maxUsd?: number;
   /** An existing run directory to finish instead of starting a new run. */
   into?: string;
+  /** false (--no-publish): keep a cloud-archive run in the local working copy instead of publishing it to R2. */
+  publish?: boolean;
   log?: (line: string) => void;
 }
 
@@ -29,7 +32,7 @@ export const DEFAULT_MAX_USD = 3;
 
 export const runIdFor = (version: string, at: Date): string => `${version.slice(0, 8)}-${at.toISOString().slice(0, 16).replace(/:/g, "")}`;
 
-export const panelRoot = (panel: Panel): string => join(panel.archive, panel.client, "panel");
+export const panelRoot = (panel: Panel): string => join(archiveRoot(panel), panel.client, "panel");
 
 /** Runs tasks with at most `limit` in flight; results keep the input order. */
 export async function pool<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
@@ -67,6 +70,7 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
     o = { ...o, version: v };
   }
   if (!/^[0-9a-f]{8}/i.test(o.version)) throw new Error("--version must start with 8 hex characters: the Worker version id, auto, or for a target that is not a Worker a date such as 20261014");
+  archiveRoot(panel); // fails here, before any session is paid for, when the cloud capsule's working copy cannot be found
   const at = new Date();
   const profiles = panel.profiles.filter((p) => !o.only?.length || o.only.includes(p.id));
   const devices = panel.devices.filter((d) => !o.devices?.length || o.devices.includes(d));
@@ -138,6 +142,7 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
   }
 
   if (o.evaluate !== false) await evaluateRun(panel, runDir, log, meter);
+  storeRun(panel, runDir, { publish: o.publish, log });
   return runDir;
 }
 
@@ -226,7 +231,7 @@ export async function evaluateRun(panel: Panel, runDir: string, log: (line: stri
 
 /** The client-capsule index: one entry per run under "panel", keyed by the Worker version it ran against. */
 export function updateIndex(panel: Panel, report: RunReport): void {
-  const file = join(panel.archive, panel.client, "index.json");
+  const file = join(archiveRoot(panel), panel.client, "index.json");
   mkdirSync(dirname(file), { recursive: true });
   const index = existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as Record<string, unknown>) : { schemaVersion: 1, client: panel.client };
   const section = (index.panel as { origin?: string; runs?: unknown[] } | undefined) ?? {};

@@ -28,6 +28,8 @@ export interface RunMeta {
   usage: { buyers: Usage; evaluator: Usage };
   /** The run's spend cap (--max-usd) and what it cut. Absent in runs from before the cap existed. */
   cap?: { maxUsd: number; hit: boolean; spentUsd: number; cut: string[]; notStarted: string[]; notGraded: string[] };
+  /** Where the run is stored: published to R2 (cloud), or only in the local working copy, with why. */
+  storage?: { cloud: boolean; reason?: string };
 }
 
 export interface RunReport {

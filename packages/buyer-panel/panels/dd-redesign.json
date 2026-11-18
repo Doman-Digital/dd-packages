@@ -7,7 +7,7 @@
     "access": { "idEnv": "DD_SITE_PREVIEW_ACCESS_CLIENT_ID", "secretEnv": "DD_SITE_PREVIEW_ACCESS_CLIENT_SECRET" },
     "worker": { "name": "dd-site-preview" }
   },
-  "archive": "~/dd-client-capsule",
+  "archive": "storage:capsule",
   "stepBudget": 25,
   "devices": ["desktop", "phone"],
   "variants": [
