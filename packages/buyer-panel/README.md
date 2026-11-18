@@ -128,8 +128,8 @@ belong to, and when the token expires are recorded in dd-repo-registry `docs/buy
 - **`cookie` (the default).** One request outside the browser trades the token for Access's session cookie, and the
   browser only ever holds the cookie. This needs an Access organisation that gives service tokens a cookie.
 - **`headers`.** For an organisation that gives them none. The token goes on every request to `target.access.origins`
-  (the target origin unless more are listed: a site whose booking lives on another host lists both) and to no other
-  origin. A sign-in provider that bounces the browser away and back goes in `followHosts`, as a host or a `.suffix`:
+  (the target origin when the list is absent) and to no other origin. A site whose booking lives on another host lists
+  both; a local copy of a site, which needs no token, lists only the booking host. A sign-in provider that bounces the browser away and back goes in `followHosts`, as a host or a `.suffix`:
   its redirects are followed one hop at a time so the hop back keeps the token, and it never receives the token.
   Sessions keep no `trace.zip` in this mode, because a trace records request headers; `run.json` says so under
   `traces`. `src/__tests__/access.test.ts` checks, with two local servers, that the token never reaches another
