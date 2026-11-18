@@ -67,7 +67,7 @@ describe("refusals write nothing", () => {
       breakIt(root);
       const before = snapshotTree(root);
       const { io, err, execs } = captureIo(root);
-      const code = await run(["--yes", "--skip-install", "--answers", writeAnswers(root)], io);
+      const code = await run(["--yes", "--no-gate", "--skip-install", "--answers", writeAnswers(root)], io);
       expect(code).toBe(1);
       expect(err.join("\n")).toMatch(message);
       expect(snapshotTree(root)).toEqual(before);

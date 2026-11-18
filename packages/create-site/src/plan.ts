@@ -8,6 +8,9 @@ import type { Answers } from "./answers.js";
 import { layoutFor } from "./adapters.js";
 import { MANUAL_INSTRUCTIONS, patchConfig } from "./config-patch.js";
 import type { Project } from "./detect.js";
+import { installs, VISIBLE_PIECES } from "./handover.js";
+import { LABEL_PATH, renderLabel } from "./label.js";
+import type { StartInfo } from "./label.js";
 import { hasDependency, patchPackageJson } from "./package-json.js";
 import { renderFacts, renderLinks, renderProgramme, renderRedirects, renderRoutes, renderSheets } from "./render/data.js";
 import { renderBaseline, renderChecklist, renderDirection, renderHouseMd, renderWorkflow } from "./render/docs.js";
@@ -46,7 +49,7 @@ export type Plan = {
   notes: string[];
 };
 
-export type PlanOptions = { force: boolean; skipInstall: boolean; today: string; visibility?: Visibility };
+export type PlanOptions = { force: boolean; skipInstall: boolean; today: string; visibility?: Visibility; start?: StartInfo };
 
 const PM_ADD: Record<Project["packageManager"], { add: string[]; dev: string }> = {
   pnpm: { add: ["add"], dev: "-D" },
@@ -65,7 +68,7 @@ function hasWorkflows(root: string): boolean {
 }
 
 /** The programme issue an existing site.programme.json already names, if any. */
-function programmeIssueIn(root: string): string | null {
+export function programmeIssueIn(root: string): string | null {
   try {
     const issue = (JSON.parse(readFileSync(join(root, "site.programme.json"), "utf8")) as { issue?: unknown }).issue;
     return typeof issue === "string" && issue ? issue : null;
@@ -92,8 +95,15 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
   );
 
   const files: Omit<PlannedFile, "action">[] = [];
+  const start: StartInfo = options.start ?? { mode: "programme", with: [], version: "0.0.0" };
+  const handover = start.mode === "handover" ? { with: start.with } : null;
+  if (handover) {
+    const left = VISIBLE_PIECES.filter((p) => !start.with.includes(p));
+    if (left.length) notes.push(`handover: nothing a visitor can see was added (${left.join(", ")}). Each needs the founder's yes for this site, then --with <piece>.`);
+  }
 
   for (const t of layout.templates) {
+    if (!installs(t.template, handover)) continue;
     if (t.template.endsWith("config.test.ts") && !project.configFile) {
       notes.push(`no ${project.framework} config file, so tests/seo/config.test.ts was not written: ${MANUAL_INSTRUCTIONS[project.framework]}`);
       continue;
@@ -113,7 +123,8 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
     { path: "docs/seo-launch-checklist.md", contents: renderChecklist(answers), data: true },
     { path: "docs/seo-baseline.md", contents: renderBaseline(answers, options.today), data: true },
     { path: "docs/client-facts.entry.json", contents: renderStackEntry(answers, project.framework, options.today), data: true },
-    { path: "site.programme.json", contents: renderProgramme(answers, project), data: true },
+    { path: "site.programme.json", contents: renderProgramme(answers, project, start.mode), data: true },
+    { path: LABEL_PATH, contents: renderLabel(start, answers.programme ?? programmeIssueIn(root), options.today), data: true },
     { path: "art-direction.sheets.json", contents: renderSheets(), data: true },
   );
   if (!answers.programme && !programmeIssueIn(root)) {

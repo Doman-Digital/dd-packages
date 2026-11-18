@@ -20,7 +20,7 @@ async function generate(kind: Kind): Promise<string> {
   const root = makeProject(kind);
   roots.push(root);
   const { io } = captureIo(root);
-  expect(await run(["--yes", "--skip-install", "--answers", writeAnswers(root)], io)).toBe(0);
+  expect(await run(["--yes", "--no-gate", "--skip-install", "--answers", writeAnswers(root)], io)).toBe(0);
   return root;
 }
 
@@ -124,3 +124,16 @@ for (const kind of ["next-root", "next-src", "astro"] as const) {
     });
   });
 }
+
+describe("a generated handover site", () => {
+  test("typechecks with only the invisible layers, and again with every piece added", async () => {
+    for (const extra of [[], ["--with", "credit,consent,analytics,legal,press,resources"]]) {
+      const root = makeProject("astro");
+      roots.push(root);
+      const { io } = captureIo(root, { gate: async () => ({ ok: true, message: "" }) });
+      const args = ["--yes", "--skip-install", "--handover", "--reason", "the client already has an Astro site", "--answers", writeAnswers(root, { programme: "DOM-999" }), ...extra];
+      expect(await run(args, io)).toBe(0);
+      expect(typeErrors(root)).toEqual([]);
+    }
+  }, 180_000);
+});

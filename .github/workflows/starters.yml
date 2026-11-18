@@ -109,6 +109,9 @@ jobs:
       - name: Make the starter with dd new --local
         env:
           FRAMEWORK: ${{ matrix.framework }}
+          # No dd-programme on the runner: the starter skips the programme gate, and its start
+          # label records that, so the estate sweep never counts it as a started site.
+          DD_CREATE_SITE_NO_GATE: "1"
         run: |
           cat > "$RUNNER_TEMP/answers.json" <<'JSON'
           {"legalName":"DD Starter Ltd","tradingName":"DD Starter","siteUrl":"https://starter.example","sector":"trades","description":"A starter made every night to prove the house foundation builds and passes the rulebook."}

@@ -14,7 +14,7 @@ afterEach(() => roots.splice(0).forEach(cleanup));
 
 const scaffold = async (root: string, extra: string[] = []) => {
   const captured = captureIo(root);
-  const code = await run(["--yes", "--skip-install", "--answers", writeAnswers(root), ...extra], captured.io);
+  const code = await run(["--yes", "--no-gate", "--skip-install", "--answers", writeAnswers(root), ...extra], captured.io);
   return { code, ...captured };
 };
 
@@ -104,7 +104,7 @@ describe("a first run", () => {
   test("records the facts it was given, and null for what it was not", async () => {
     const root = project("astro");
     const captured = captureIo(root);
-    await run(["--yes", "--skip-install", "--answers", writeAnswers(root, { phone: undefined, email: null })], captured.io);
+    await run(["--yes", "--no-gate", "--skip-install", "--answers", writeAnswers(root, { phone: undefined, email: null })], captured.io);
     const facts = readFileSync(join(root, "site.facts.ts"), "utf8");
     expect(facts).toContain('legalName: "Acme Electrical Ltd"');
     expect(facts).toContain("phone: null");
@@ -115,7 +115,7 @@ describe("a first run", () => {
   test("with --yes and a required answer missing, exits 2 and names the flag", async () => {
     const root = project("next-root");
     const { io, err } = captureIo(root);
-    expect(await run(["--yes", "--skip-install", "--client", "Acme Ltd"], io)).toBe(2);
+    expect(await run(["--yes", "--no-gate", "--skip-install", "--client", "Acme Ltd"], io)).toBe(2);
     expect(err.join("\n")).toMatch(/--site-url, --sector, --description/);
     expect(existsSync(join(root, "site.facts.ts"))).toBe(false);
   });
@@ -166,7 +166,7 @@ describe("installing", () => {
     mkdirSync(craft, { recursive: true });
     writeFileSync(join(craft, "package.json"), JSON.stringify({ name: "@domandigital/craft", bin: { craft: "dist/cli.js" } }));
     const captured = captureIo(root);
-    expect(await run(["--yes", "--answers", writeAnswers(root)], captured.io)).toBe(0);
+    expect(await run(["--yes", "--no-gate", "--answers", writeAnswers(root)], captured.io)).toBe(0);
     expect(captured.execs[0]!.slice(0, 2)).toEqual(["pnpm", "add"]);
     expect(captured.execs[1]!.slice(0, 3)).toEqual(["pnpm", "add", "-D"]);
     expect(captured.execs[2]).toEqual([process.execPath, join(craft, "dist/cli.js"), "direction", "init", "--client", "Acme Electrical"]);
@@ -175,7 +175,7 @@ describe("installing", () => {
   test("never runs craft over an existing art-direction.json", async () => {
     const root = project("next-root", { "art-direction.json": '{"version":1}\n' });
     const captured = captureIo(root);
-    await run(["--yes", "--answers", writeAnswers(root)], captured.io);
+    await run(["--yes", "--no-gate", "--answers", writeAnswers(root)], captured.io);
     expect(captured.execs.some((e) => e.includes("direction"))).toBe(false);
   });
 });

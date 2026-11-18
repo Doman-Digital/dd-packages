@@ -8,7 +8,10 @@ import { applyPlan } from "./apply.js";
 import type { Exec } from "./apply.js";
 import { USAGE, parseOptions } from "./args.js";
 import { detectProject } from "./detect.js";
-import { formatPlan, hasWork, pendingWork, planScaffold } from "./plan.js";
+import { VISIBLE_PIECES } from "./handover.js";
+import { readLabel, toolVersion } from "./label.js";
+import type { StartInfo } from "./label.js";
+import { formatPlan, hasWork, pendingWork, planScaffold, programmeIssueIn } from "./plan.js";
 import { TEMPLATE_ROOT } from "./templates.js";
 
 export type Io = {
@@ -20,6 +23,13 @@ export type Io = {
   exec: Exec;
   now: () => Date;
   userAgent?: string;
+  /** The value of DD_CREATE_SITE_NO_GATE: the same as --no-gate, for a job that cannot pass the flag through. */
+  noGateEnv?: string;
+  /**
+   * Asks the programme gate (dd-programme) whether the site may be scaffolded.
+   * undefined when dd-programme is not installed, which refuses a real run.
+   */
+  gate?: (programme: string, kind: "stage05" | "handover") => Promise<{ ok: boolean; message: string }>;
 };
 
 export async function run(argv: string[], io: Io): Promise<number> {
@@ -62,8 +72,58 @@ export async function run(argv: string[], io: Io): Promise<number> {
     return 2;
   }
 
+  // A site that carries a label keeps its mode: --check and a re-run do not need the flags again.
+  const existing = readLabel(root);
+  const handover = options.handover || existing?.mode === "handover";
+  const reason = options.reason ?? existing?.reason;
+  const withPieces = options.handover ? options.with : (existing?.with ?? []);
+  const programme = answers.programme ?? programmeIssueIn(root);
+  const readOnly = options.check || options.dryRun;
+
+  if (handover && !readOnly) {
+    if (!reason || reason.trim().length < 10) {
+      io.err('create-site: --handover needs --reason "<why this site is copied in, in a sentence>".');
+      return 2;
+    }
+    if (!programme) {
+      io.err("create-site: --handover needs --programme DOM-123, the Site handover programme in Linear.");
+      return 2;
+    }
+  }
+
+  // The gate: no scaffold before the programme says so. A dry run and --check never need it.
+  let gateResult: boolean | undefined;
+  if (!readOnly && !existing) {
+    const kind = handover ? "handover" : "stage05";
+    // The nightly starter job runs where dd-programme is not installed and sets the variable;
+    // the label records the skip either way, so the registry sweep never counts it as started.
+    if (options.noGate || io.noGateEnv === "1") {
+      gateResult = false;
+      io.err(`create-site: --no-gate skips the programme gate. The start label records it, and the estate sweep does not count this site as started.`);
+    } else if (!programme) {
+      io.err("create-site: name the programme with --programme DOM-123. Nothing is scaffolded before the programme gate passes.");
+      return 1;
+    } else if (!io.gate) {
+      io.err(`create-site: cannot run the programme gate here (dd-programme is not installed). Run it where dd-programme is, or pass --no-gate and accept that the site is not counted as started.`);
+      return 1;
+    } else {
+      const result = await io.gate(programme, kind);
+      if (!result.ok) {
+        io.err(`create-site: the programme gate for ${programme} did not pass, so nothing was written.\n${result.message}`);
+        return 1;
+      }
+      gateResult = true;
+    }
+  }
+  const start: StartInfo = {
+    mode: handover ? "handover" : "programme",
+    ...(handover ? { reason: reason?.trim(), handoverGate: gateResult } : { stage05Gate: gateResult }),
+    with: withPieces.filter((w) => (VISIBLE_PIECES as readonly string[]).includes(w)),
+    version: toolVersion(),
+  };
+
   const today = io.now().toISOString().slice(0, 10);
-  const plan = planScaffold(project, answers, { force: options.force, skipInstall: options.skipInstall, today, visibility: options.visibility });
+  const plan = planScaffold(project, answers, { force: options.force, skipInstall: options.skipInstall, today, visibility: options.visibility, start });
   io.out(formatPlan(plan, answers.tradingName));
   if (options.check) {
     const work = pendingWork(plan);
@@ -78,6 +138,23 @@ export async function run(argv: string[], io: Io): Promise<number> {
 
   const pending = applyPlan(plan, answers.tradingName, io.exec);
   const pm = project.packageManager === "npm" ? "npm run" : project.packageManager;
+  if (handover) {
+    io.out(
+      [
+        "",
+        "Next (handover):",
+        "  1. Fill in site.facts.ts from the live site: contact details, hours, accreditations, profiles. Unknown stays null.",
+        "  2. Capture the live site's claims with dd-claims before anything else changes; keep every one.",
+        "  3. Put <JsonLd graph={buildPageGraph(...)} /> on every page. That is invisible to visitors.",
+        "  4. Redirects: every old URL that moved goes in redirects.json; run seo:check.",
+        "  5. The build runs in handover mode: facts is blocking; the direction and mobile-first checks report only.",
+        "     Anything a visitor can see (credit, cookie banner, analytics, legal pages, /press, /resources) needs the founder's yes",
+        "     for this site, then re-run with --with <piece>.",
+        ...pending.map((p) => `  Still to run: ${p}`),
+      ].join("\n"),
+    );
+    return 0;
+  }
   io.out(
     [
       "",

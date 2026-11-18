@@ -11,6 +11,13 @@ import { spawnSync } from "node:child_process";
 import { join } from "node:path";
 import { programme, root, stop } from "./programme.mjs";
 
+// A handover (an existing live site copied in) keeps the client's look and copy.
+// Facts still block the build. The direction and mobile-first checks report and
+// never stop it. Tokens, night contrast, the copy deck and the null check do not
+// run: they build a new design, and the design is the client's.
+const HANDOVER_BLOCKING = [["facts.mjs"]];
+const HANDOVER_ADVISORY = [["check-direction.mjs"], ["mobile-first.mjs"]];
+
 const GATES = [
   ["check-direction.mjs"],
   ["tokens.mjs"],
@@ -22,9 +29,24 @@ const GATES = [
 ];
 
 // Stage 01: the site has a programme in Linear before anything is built.
-const { issue } = programme();
+const { issue, mode } = programme();
 if (typeof issue !== "string" || !/^[A-Z]+-\d+$/.test(issue)) {
   stop("programme", "01", "site.programme.json names no programme issue. Open the programme from the Site programme template in Linear and put its id (DOM-123) in issue.");
+}
+
+if (mode === "handover") {
+  for (const [script, ...args] of HANDOVER_ADVISORY) {
+    const run = spawnSync(process.execPath, [join(root, "scripts", "gates", script), ...args], { cwd: root, stdio: "inherit" });
+    if (run.status !== 0) console.error(`\nHandover: ${script} reports a problem. It does not stop this build; docs/site-programme.md says what it checks.`);
+  }
+  for (const [script, ...args] of HANDOVER_BLOCKING) {
+    const run = spawnSync(process.execPath, [join(root, "scripts", "gates", script), ...args], { cwd: root, stdio: "inherit" });
+    if (run.status !== 0) {
+      console.error(`\nThe build stops at ${script}. docs/site-programme.md says what it needs.`);
+      process.exit(run.status || 1);
+    }
+  }
+  process.exit(0);
 }
 
 for (const [script, ...args] of GATES) {

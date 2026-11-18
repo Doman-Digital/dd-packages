@@ -1,4 +1,5 @@
 import { parseArgs } from "node:util";
+import { VISIBLE_PIECES } from "./handover.js";
 
 export type Options = {
   dir: string | undefined;
@@ -9,6 +10,12 @@ export type Options = {
   description: string | undefined;
   programme: string | undefined;
   answers: string | undefined;
+  handover: boolean;
+  reason: string | undefined;
+  /** Visible pieces a handover adds (--with credit,consent,...). Empty: invisible layers only. */
+  with: string[];
+  /** Skip the programme gate. Recorded in the start label, and the registry sweep treats it as not started. */
+  noGate: boolean;
   dryRun: boolean;
   check: boolean;
   visibility: "private" | "public";
@@ -30,10 +37,23 @@ Usage
               [--site-url <https://...>] [--sector trades|beauty|clinics|professional]
               [--description "<one or two sentences>"] [--programme DOM-123]
               [--answers <file.json>] [--visibility private|public]
-              [--dry-run] [--check] [--force] [--skip-install] [--yes] [--help] [--version]
+              [--handover --reason "<why>" [--with credit,consent,analytics,legal,press,resources]]
+              [--no-gate] [--dry-run] [--check] [--force] [--skip-install] [--yes] [--help] [--version]
 
 --programme     The site's programme issue in Linear, opened from the Site programme
                 template. The build refuses to run until site.programme.json names it.
+                A real run first passes the programme gate: Stage 05 accepted
+                (dd-programme gate DOM-123 --stage 05), so nothing is scaffolded early.
+--handover      Start an existing live site that is being copied in (an Astro handover).
+                Needs --programme (a Site handover programme) and --reason. It adds the
+                invisible layers only (facts, routes, redirects, JSON-LD, SEO tests, gates
+                in advisory mode) and keeps the client's look and copy. Anything a visitor
+                can see is added only when named in --with, one site at a time.
+--with          A handover's visible pieces: credit (Website by Doman Digital), consent
+                (cookie banner), analytics (Cloudflare Web Analytics), legal (privacy,
+                cookies, terms, accessibility), press, resources.
+--no-gate       Skip the programme gate (the nightly starter check and tests). The start
+                label records it, and the estate sweep does not count the site as started.
 --dry-run       Print the plan and stop. Writes nothing, runs nothing.
 --check         Like --dry-run, never prompts, and exits 3 when there is work to do,
                 a house file that differs from its template included. For CI.
@@ -61,6 +81,10 @@ export function parseOptions(argv: string[]): Options | string {
         description: { type: "string" },
         programme: { type: "string" },
         answers: { type: "string" },
+        handover: { type: "boolean", default: false },
+        reason: { type: "string" },
+        with: { type: "string" },
+        "no-gate": { type: "boolean", default: false },
         "dry-run": { type: "boolean", default: false },
         check: { type: "boolean", default: false },
         visibility: { type: "string", default: "private" },
@@ -73,6 +97,11 @@ export function parseOptions(argv: string[]): Options | string {
     });
     if (positionals.length > 1) return `one directory at most, got ${positionals.length}`;
     if (values.visibility !== "private" && values.visibility !== "public") return `--visibility is private or public, not ${values.visibility}`;
+    const withList = values.with ? values.with.split(",").map((w) => w.trim()).filter(Boolean) : [];
+    const bad = withList.filter((w) => !(VISIBLE_PIECES as readonly string[]).includes(w));
+    if (bad.length) return `--with takes ${VISIBLE_PIECES.join(", ")}, not ${bad.join(", ")}`;
+    if (withList.length && !values.handover) return "--with is for --handover: a new build adds every piece";
+    if (values.reason && !values.handover) return "--reason is for --handover";
     return {
       dir: positionals[0],
       client: values.client,
@@ -82,6 +111,10 @@ export function parseOptions(argv: string[]): Options | string {
       description: values.description,
       programme: values.programme,
       answers: values.answers,
+      handover: values.handover ?? false,
+      reason: values.reason,
+      with: [...new Set(withList)],
+      noGate: values["no-gate"] ?? false,
       dryRun: values["dry-run"] ?? false,
       check: values.check ?? false,
       visibility: values.visibility,

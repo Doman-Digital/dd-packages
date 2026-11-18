@@ -25,7 +25,7 @@ const STACK = {
 
 const scaffold = async (root: string, overrides: Record<string, unknown> = {}, extra: string[] = []) => {
   const captured = captureIo(root);
-  const code = await run(["--yes", "--skip-install", "--answers", writeAnswers(root, overrides), ...extra], captured.io);
+  const code = await run(["--yes", "--no-gate", "--skip-install", "--answers", writeAnswers(root, overrides), ...extra], captured.io);
   return { code, ...captured };
 };
 

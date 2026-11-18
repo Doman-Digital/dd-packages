@@ -18,7 +18,7 @@ async function generate(overrides: Record<string, unknown> = {}): Promise<string
   const root = makeProject("astro");
   roots.push(root);
   const { io } = captureIo(root);
-  expect(await run(["--yes", "--skip-install", "--answers", writeAnswers(root, overrides)], io)).toBe(0);
+  expect(await run(["--yes", "--no-gate", "--skip-install", "--answers", writeAnswers(root, overrides)], io)).toBe(0);
   return root;
 }
 
@@ -92,8 +92,43 @@ describe("the scaffold writes the programme", () => {
     const root = makeProject("astro");
     roots.push(root);
     const { io, err } = captureIo(root);
-    expect(await run(["--yes", "--skip-install", "--answers", writeAnswers(root, { programme: "the redesign" })], io)).toBe(2);
+    expect(await run(["--yes", "--no-gate", "--skip-install", "--answers", writeAnswers(root, { programme: "the redesign" })], io)).toBe(2);
     expect(err.join("\n")).toContain("DOM-123");
+  });
+});
+
+describe("prebuild in handover mode", () => {
+  async function handover(extra: string[] = []): Promise<string> {
+    const root = makeProject("astro");
+    roots.push(root);
+    const { io } = captureIo(root, { gate: async () => ({ ok: true, message: "" }) });
+    const args = ["--yes", "--skip-install", "--handover", "--reason", "the client already has an Astro site", "--answers", writeAnswers(root, { programme: "DOM-999" }), ...extra];
+    expect(await run(args, io)).toBe(0);
+    return root;
+  }
+
+  test("builds with no art direction: the direction check reports and does not stop the build", async () => {
+    const root = await handover();
+    const r = gate(root, "prebuild.mjs");
+    expect(r.out).toContain("check-direction");
+    expect(r.out).toContain("does not stop this build");
+    expect(r.status).toBe(0);
+  });
+
+  test("still refuses a handover with no programme issue (Stage 01)", async () => {
+    const root = await handover();
+    edit(root, "site.programme.json", (p) => (p.issue = null));
+    const r = gate(root, "prebuild.mjs");
+    expect(r.status).toBe(1);
+    expect(r.out).toContain("(Stage 01)");
+  });
+
+  test("facts still block the build", async () => {
+    const root = await handover();
+    write(root, "src/pages/index.astro", "<h1>Rewires from £2400</h1>\n");
+    const r = gate(root, "prebuild.mjs");
+    expect(r.status).toBe(1);
+    expect(r.out).toContain("facts");
   });
 });
 

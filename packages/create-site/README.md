@@ -119,6 +119,28 @@ The gate scripts are house files, identical on every site and reported by
 `--check` when they drift. Everything that differs between sites is in
 `site.programme.json`.
 
+## Starting is mandatory: the programme gate, the label and handover
+
+A real run first asks `dd-programme gate DOM-123 --stage 05`, so nothing is scaffolded before the
+programme has accepted Stage 05. If the gate fails, or `dd-programme` is not installed, the run is refused and writes
+nothing. `--no-gate` (or `DD_CREATE_SITE_NO_GATE=1`, which the nightly starter job uses) skips it; the label records the skip.
+
+`.dd/site-start.json` says how the site was started: `mode` (`programme` or `handover`), the programme issue, the
+gate result, and for a handover the reason and the visible pieces added. It describes; it is not the proof. The proof is
+`create-site --check` passing, which the estate sweep in dd-repo-registry runs against every site, in any GitHub account.
+
+A site copied in from a client's live build is started with:
+
+```bash
+create-site --handover --reason "client's existing Astro site, copied in" --programme DOM-123
+```
+
+It adds the invisible layers only: the facts file, routes, redirects, JSON-LD, the SEO tests and the gates. It keeps the client's
+look and copy. The build then blocks on `facts.mjs`, reports `check-direction.mjs` and `mobile-first.mjs` without stopping, and skips tokens,
+night contrast, the copy deck and the null check. Nothing a visitor can see is added until the founder says yes for that site; then
+re-run with `--with credit,consent,analytics,legal,press,resources` for the pieces agreed. `--check` reads the mode from the label.
+Capture the live site's claims with `dd-claims` before anything else changes.
+
 ## What it never does
 
 - Write outside the project, or anything at all when it refuses.
@@ -139,7 +161,7 @@ The gate scripts are house files, identical on every site and reported by
 create-site [dir] [--client <legal name>] [--trading-name <name>]
             [--site-url <https://...>] [--sector trades|beauty|clinics|professional]
             [--description "<one or two sentences>"] [--programme DOM-123]
-            [--answers <file.json>]
+            [--answers <file.json>] [--handover --reason "<why>" [--with <pieces>]] [--no-gate]
             [--visibility private|public] [--dry-run] [--check] [--force]
             [--skip-install] [--yes] [--help] [--version]
 ```
