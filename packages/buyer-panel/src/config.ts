@@ -57,7 +57,7 @@ export interface AccessConfig {
   idEnv: string;
   secretEnv: string;
   mode?: "cookie" | "headers";
-  /** headers mode: exact origins (scheme, host, port) that receive the token. Must include the target origin. */
+  /** headers mode: exact origins (scheme, host, port) that receive the token; default the target origin. The target may be left out, as when a local copy of a site needs no token but its booking host does. */
   origins?: string[];
   /** headers mode: hosts whose redirects are followed one hop at a time but which never receive the token. "a.example" is that host; ".example" is any host under it. */
   followHosts?: string[];
@@ -107,14 +107,14 @@ const fail = (msg: string): never => {
 
 const ORIGIN = /^(https:\/\/[a-z0-9.-]+(:\d+)?|http:\/\/(127\.0\.0\.1|localhost)(:\d+)?)$/;
 
-function validateAccess(a: AccessConfig, targetOrigin: string): void {
+function validateAccess(a: AccessConfig): void {
   if (!a.idEnv || !a.secretEnv) fail("target.access needs idEnv and secretEnv");
   const mode = a.mode ?? "cookie";
   if (mode !== "cookie" && mode !== "headers") fail(`target.access.mode must be "cookie" or "headers", not "${String(a.mode)}"`);
   if (mode === "cookie" && (a.origins || a.followHosts)) fail('target.access.origins and followHosts need mode "headers"');
   for (const o of a.origins ?? []) if (!ORIGIN.test(o)) fail(`target.access.origins: "${o}" must be a bare origin (scheme and host, no path), https or loopback http`);
   for (const h of a.followHosts ?? []) if (!/^\.?[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(h)) fail(`target.access.followHosts: "${h}" must be a host name or a ".suffix", with no scheme or path`);
-  if (a.origins?.length && !a.origins.includes(targetOrigin)) fail("target.access.origins must include target.origin");
+  if (a.origins && !a.origins.length) fail("target.access.origins, when given, must list at least one origin");
 }
 
 /** Reads and checks a panel file. Relative paths inside it resolve against the file's own folder. */
@@ -131,7 +131,7 @@ export function validatePanel(p: Panel, base = process.cwd(), opts: LoadOptions 
   const origin = p.target?.origin ?? "";
   if (!/^https:\/\//.test(origin) && !/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin)) fail("target.origin must be an https origin, or http on 127.0.0.1 or localhost");
   if (!p.target.start?.startsWith("/")) fail("target.start must be a path");
-  if (p.target.access) validateAccess(p.target.access, new URL(origin).origin);
+  if (p.target.access) validateAccess(p.target.access);
   if (!(p.stepBudget >= 5 && p.stepBudget <= 60)) fail("stepBudget must be between 5 and 60");
   if (!p.devices?.length || p.devices.some((d) => d !== "desktop" && d !== "phone")) fail("devices must be desktop and/or phone");
   if ((p.variants?.length ?? 0) < 2) fail("at least two variants are needed for a finding to reproduce within a profile");

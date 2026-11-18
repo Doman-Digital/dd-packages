@@ -51,8 +51,9 @@ describe("Access headers mode: panel config", () => {
     expect(() => validatePanel(target({ ...env, mode: "headers", origins: ["http://site.example"] }))).toThrow(/bare origin/);
     expect(() => validatePanel(target({ ...env, mode: "headers", followHosts: ["https://signin.example"] }))).toThrow(/host name/);
   });
-  it("requires the target origin among the token origins", () => {
-    expect(() => validatePanel(target({ ...env, mode: "headers", origins: ["https://book.example"] }))).toThrow(/must include target.origin/);
+  it("lets the token origins leave out the target, for a local copy whose booking host is behind Access", () => {
+    expect(validatePanel(target({ ...env, mode: "headers", origins: ["https://book.example"] })).target.access?.origins).toEqual(["https://book.example"]);
+    expect(() => validatePanel(target({ ...env, mode: "headers", origins: [] }))).toThrow(/at least one origin/);
   });
 });
 
