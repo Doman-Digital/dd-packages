@@ -2,7 +2,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type Anthropic from "@anthropic-ai/sdk";
 import { chromium } from "playwright";
-import { BrowserSession, DEVICE_OPTIONS, type Observation } from "./browser.js";
+import { waitOutBounces } from "./access.js";
+import { BrowserSession, checkPage, openContext, type Observation } from "./browser.js";
 import type { Device, Panel, Profile, Variant } from "./config.js";
 import { addUsage, cachesPrompts, clientFor, emptyUsage, textOf, withCaching, type Usage } from "./model.js";
 import type { SpendMeter } from "./pricing.js";
@@ -173,11 +174,12 @@ export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2, slack
 async function foldScreenshot(panel: Panel, cookie: string | undefined): Promise<Buffer> {
   const browser = await chromium.launch({ headless: true });
   try {
-    const context = await browser.newContext({ ...DEVICE_OPTIONS.phone, locale: "en-GB", timezoneId: "Europe/London" });
-    if (cookie) await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(panel.target.origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);
+    const { context, problems } = await openContext(browser, panel, "phone", cookie);
     const page = await context.newPage();
     await page.goto(new URL(panel.target.start, panel.target.origin).toString(), { waitUntil: "load" });
+    if (problems) await waitOutBounces(page);
     await page.waitForTimeout(500);
+    checkPage(page, problems); // never grade a first impression of Access's login page
     return await page.screenshot({ type: "jpeg", quality: 70, scale: "css" });
   } finally {
     await browser.close();

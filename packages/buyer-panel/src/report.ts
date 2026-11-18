@@ -28,6 +28,8 @@ export interface RunMeta {
   usage: { buyers: Usage; evaluator: Usage };
   /** The run's spend cap (--max-usd) and what it cut. Absent in runs from before the cap existed. */
   cap?: { maxUsd: number; hit: boolean; spentUsd: number; cut: string[]; notStarted: string[]; notGraded: string[] };
+  /** Set when sessions keep no trace.zip, and why (Access headers mode: a trace records request headers). */
+  traces?: string;
 }
 
 export interface RunReport {

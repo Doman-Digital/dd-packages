@@ -42,6 +42,27 @@ export interface LoadOptions {
   allowOpus?: boolean;
 }
 
+/**
+ * A Cloudflare Access service token, by env var name. The token itself never reaches a page, a screenshot or a trace.
+ *
+ * cookie (the default): one request outside the browser trades the token for Access's session cookie, and the browser
+ * holds only the cookie. Needs an Access organisation that issues a cookie to service tokens.
+ *
+ * headers: for an organisation that issues none. The token headers go on every request to `origins` (default: the
+ * target origin alone) and nowhere else, and every navigation to those origins or to `followHosts` (a sign-in
+ * provider's handshake, say) is fetched one hop at a time, so a redirect back to the target keeps the token. Tracing is
+ * off in this mode, because a trace records request headers.
+ */
+export interface AccessConfig {
+  idEnv: string;
+  secretEnv: string;
+  mode?: "cookie" | "headers";
+  /** headers mode: exact origins (scheme, host, port) that receive the token. Must include the target origin. */
+  origins?: string[];
+  /** headers mode: hosts whose redirects are followed one hop at a time but which never receive the token. "a.example" is that host; ".example" is any host under it. */
+  followHosts?: string[];
+}
+
 export interface Panel {
   name: string;
   /** Folder name in the archive, e.g. "dd-site-preview". */
@@ -49,8 +70,8 @@ export interface Panel {
   target: {
     origin: string;
     start: string;
-    /** Env var names for a Cloudflare Access service token; sent only to the target origin. */
-    access?: { idEnv: string; secretEnv: string };
+    /** A Cloudflare Access service token, by env var name. See AccessConfig for the two modes. */
+    access?: AccessConfig;
     /** A Cloudflare Worker serving the target: lets `--version auto` read the deployed version, and the run check it again at the end. accountId is optional: without it wrangler uses CLOUDFLARE_ACCOUNT_ID from the environment (the panel's Doppler config), which keeps account ids out of this public repo. */
     worker?: { name: string; accountId?: string };
   };
@@ -84,6 +105,18 @@ const fail = (msg: string): never => {
   throw new Error(`panel config: ${msg}`);
 };
 
+const ORIGIN = /^(https:\/\/[a-z0-9.-]+(:\d+)?|http:\/\/(127\.0\.0\.1|localhost)(:\d+)?)$/;
+
+function validateAccess(a: AccessConfig, targetOrigin: string): void {
+  if (!a.idEnv || !a.secretEnv) fail("target.access needs idEnv and secretEnv");
+  const mode = a.mode ?? "cookie";
+  if (mode !== "cookie" && mode !== "headers") fail(`target.access.mode must be "cookie" or "headers", not "${String(a.mode)}"`);
+  if (mode === "cookie" && (a.origins || a.followHosts)) fail('target.access.origins and followHosts need mode "headers"');
+  for (const o of a.origins ?? []) if (!ORIGIN.test(o)) fail(`target.access.origins: "${o}" must be a bare origin (scheme and host, no path), https or loopback http`);
+  for (const h of a.followHosts ?? []) if (!/^\.?[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(h)) fail(`target.access.followHosts: "${h}" must be a host name or a ".suffix", with no scheme or path`);
+  if (a.origins?.length && !a.origins.includes(targetOrigin)) fail("target.access.origins must include target.origin");
+}
+
 /** Reads and checks a panel file. Relative paths inside it resolve against the file's own folder. */
 export function loadPanel(path: string, opts: LoadOptions = {}): Panel {
   const file = expandPath(path);
@@ -98,6 +131,7 @@ export function validatePanel(p: Panel, base = process.cwd(), opts: LoadOptions 
   const origin = p.target?.origin ?? "";
   if (!/^https:\/\//.test(origin) && !/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin)) fail("target.origin must be an https origin, or http on 127.0.0.1 or localhost");
   if (!p.target.start?.startsWith("/")) fail("target.start must be a path");
+  if (p.target.access) validateAccess(p.target.access, new URL(origin).origin);
   if (!(p.stepBudget >= 5 && p.stepBudget <= 60)) fail("stepBudget must be between 5 and 60");
   if (!p.devices?.length || p.devices.some((d) => d !== "desktop" && d !== "phone")) fail("devices must be desktop and/or phone");
   if ((p.variants?.length ?? 0) < 2) fail("at least two variants are needed for a finding to reproduce within a profile");

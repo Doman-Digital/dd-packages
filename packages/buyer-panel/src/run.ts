@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import type { Device, ModelChoice, Panel } from "./config.js";
+import { isHeaderMode } from "./access.js";
 import { accessCookie } from "./browser.js";
 import { runSession, sessionId, type SessionRecord } from "./buyer.js";
 import { clusterFindings, gradeSession, type SessionGrade, type SessionRef } from "./evaluate.js";
@@ -100,6 +101,7 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
       variants,
       evaluator: { temperature: 0, ...panel.evaluator },
       ...(panel.allowOpus ? { allowOpus: true } : {}),
+      ...(isHeaderMode(panel.target.access) ? { traces: "off: Access headers mode, because a trace records the request headers that carry the token" } : {}),
       usage: { buyers: emptyUsage(), evaluator: emptyUsage() },
     };
     writeFileSync(join(runDir, "run.json"), JSON.stringify({ ...meta, plan: plan.map((x) => sessionId(x.profile.id, x.device, x.variant.id)) }, null, 1));

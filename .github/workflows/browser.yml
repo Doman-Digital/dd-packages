@@ -104,3 +104,8 @@ jobs:
             exit 1
           fi
           echo "$ran buyer-panel browser tests passed"
+          access=$(sed 's/\x1b\[[0-9;]*m//g' vitest.log | grep -c "✓ .*Access header mode in a real browser" || true)
+          if [ "$access" -eq 0 ]; then
+            echo "The Access header mode browser test did not run." >&2
+            exit 1
+          fi

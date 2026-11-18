@@ -121,6 +121,27 @@ From the environment, never from flags: the model provider's keys (table above) 
 variables the panel names in `target.access`. Which Doppler config holds them, which IAM user and Access policy they
 belong to, and when the token expires are recorded in dd-repo-registry `docs/buyer-panel.md` (private), not in this public repo (DOM-1643).
 
+### Access modes
+
+`target.access.mode` says how the service token gets the browser past Cloudflare Access:
+
+- **`cookie` (the default).** One request outside the browser trades the token for Access's session cookie, and the
+  browser only ever holds the cookie. This needs an Access organisation that gives service tokens a cookie.
+- **`headers`.** For an organisation that gives them none. The token goes on every request to `target.access.origins`
+  (the target origin unless more are listed: a site whose booking lives on another host lists both) and to no other
+  origin. A sign-in provider that bounces the browser away and back goes in `followHosts`, as a host or a `.suffix`:
+  its redirects are followed one hop at a time so the hop back keeps the token, and it never receives the token.
+  Sessions keep no `trace.zip` in this mode, because a trace records request headers; `run.json` says so under
+  `traces`. `src/__tests__/access.test.ts` checks, with two local servers, that the token never reaches another
+  origin.
+
+```json
+"access": {
+  "idEnv": "ACCESS_CLIENT_ID", "secretEnv": "ACCESS_CLIENT_SECRET", "mode": "headers",
+  "origins": ["https://preview.example.com", "https://book.example.com"], "followHosts": [".signin.example"]
+}
+```
+
 ## Where runs go
 
 The client-capsule archive, as the portal teardowns do: `~/dd-client-capsule/<client>/panel/runs/<runId>/` with
