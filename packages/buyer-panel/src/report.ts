@@ -120,7 +120,9 @@ export function renderReport(r: RunReport, records: SessionRecord[]): string {
     "",
     `Estimated total ${usd(total)}${m.cap ? ` against a cap of ${usd(m.cap.maxUsd)}` : ""}, from list prices checked ${PRICES_CHECKED} (src/pricing.ts). Input is what was billed at the full input price; cache reads cost a tenth of it and cache writes 1.25 times.`,
     "",
-    "Each session folder holds session.json (every step, thought, screen text and problem), the screenshots, grade.json and trace.zip (Playwright trace: `npx playwright show-trace trace.zip`).",
+    m.traces
+      ? `Each session folder holds session.json (every step, thought, screen text and problem), the screenshots and grade.json. Traces ${m.traces}.`
+      : "Each session folder holds session.json (every step, thought, screen text and problem), the screenshots, grade.json and trace.zip (Playwright trace: `npx playwright show-trace trace.zip`).",
     "",
   );
   return out.join("\n");
