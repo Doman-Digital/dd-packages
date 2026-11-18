@@ -6,6 +6,8 @@ import { chromium, type Browser } from "playwright";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { applyHeaderAccess, probeHeaderAccess, routed, tokenFor, waitOutBounces, type HeaderAccess } from "../access.js";
 import { validatePanel, type Panel } from "../config.js";
+import { emptyUsage } from "../model.js";
+import { renderReport, type RunMeta } from "../report.js";
 
 const TOKEN = { "CF-Access-Client-Id": "test-id", "CF-Access-Client-Secret": "test-secret" };
 const access = (origins: string[], followHosts: string[] = []): HeaderAccess => ({ headers: TOKEN, origins: new Set(origins), followHosts });
@@ -54,6 +56,20 @@ describe("Access headers mode: panel config", () => {
   it("lets the token origins leave out the target, for a local copy whose booking host is behind Access", () => {
     expect(validatePanel(target({ ...env, mode: "headers", origins: ["https://book.example"] })).target.access?.origins).toEqual(["https://book.example"]);
     expect(() => validatePanel(target({ ...env, mode: "headers", origins: [] }))).toThrow(/at least one origin/);
+  });
+});
+
+describe("Access headers mode: the report", () => {
+  const meta = (traces?: string): RunMeta =>
+    ({ runId: "r", panel: "p", client: "c", target: "http://127.0.0.1:1/", version: "20261118", label: "", ranAt: "2026-11-18T00:00:00Z", stepBudget: 25, variants: [], evaluator: { model: "m" }, usage: { buyers: emptyUsage(), evaluator: emptyUsage() }, ...(traces ? { traces } : {}) }) as RunMeta;
+  const render = (m: RunMeta) => renderReport({ meta: m, sessions: [], grades: [], clusters: [], findings: [], dropped: [] }, []);
+  it("does not promise a trace.zip when the run kept none", () => {
+    const md = render(meta("off: Access headers mode"));
+    expect(md).not.toContain("trace.zip");
+    expect(md).toContain("Traces off: Access headers mode.");
+  });
+  it("still points to trace.zip in cookie mode", () => {
+    expect(render(meta())).toContain("trace.zip");
   });
 });
 
