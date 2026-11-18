@@ -20,8 +20,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@anthropic-ai/bedrock-sdk": "^0.34.2",
-    "@anthropic-ai/sdk": "^0.132.1",
+    "@anthropic-ai/bedrock-sdk": "^0.36.0",
+    "@anthropic-ai/sdk": "^0.137.0",
     "@aws-sdk/client-bedrock-runtime": "^3.1150.0",
     "playwright": "^1.63.0"
   },
