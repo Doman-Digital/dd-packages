@@ -48,24 +48,38 @@ describe("the facts file is the single source of contact details", () => {
   });
 });
 
+// .dd/site-start.json says how the site was started. A handover keeps the
+// client's look and copy, so it only has to place the visible pieces it was
+// started with (create-site --handover --with <piece>). A new build places all.
+function startedWith(): { handover: boolean; pieces: string[] } {
+  try {
+    const label = JSON.parse(readFileSync(join(ROOT, ".dd", "site-start.json"), "utf8")) as { mode?: string; with?: unknown };
+    return { handover: label.mode === "handover", pieces: Array.isArray(label.with) ? label.with.filter((w): w is string => typeof w === "string") : [] };
+  } catch {
+    return { handover: false, pieces: [] };
+  }
+}
+const started = startedWith();
+const places = (piece: string) => !started.handover || started.pieces.includes(piece);
+
 describe.runIf(mode === "launch")("ready to launch", () => {
-  test("the designer credit is placed on the site", () => {
+  test.runIf(places("credit"))("the designer credit is placed on the site", () => {
     const placed = sourceFiles().some((file) => !/DesignerCredit\.(tsx|astro)$/.test(file) && readFileSync(file, "utf8").includes("<DesignerCredit"));
     expect(placed).toBe(true);
   });
 
-  test("the cookie banner is placed on the site", () => {
+  test.runIf(places("consent"))("the cookie banner is placed on the site", () => {
     const placed = sourceFiles().some((file) => !/CookieBanner\.(tsx|astro)$/.test(file) && readFileSync(file, "utf8").includes("<CookieBanner"));
     expect(placed).toBe(true);
   });
 
-  test("Cloudflare Web Analytics is placed on the site and has its token", () => {
+  test.runIf(places("analytics"))("Cloudflare Web Analytics is placed on the site and has its token", () => {
     const placed = sourceFiles().some((file) => !/WebAnalytics\.(tsx|astro)$/.test(file) && readFileSync(file, "utf8").includes("<WebAnalytics"));
     expect(placed).toBe(true);
     expect(facts.webAnalytics?.token ?? null).not.toBeNull();
   });
 
-  test("the legal pages have what every site needs: retention, the processors, the governing law, a review date", () => {
+  test.runIf(places("legal"))("the legal pages have what every site needs: retention, the processors, the governing law, a review date", () => {
     const missing = [
       legal.retention ? null : "legal.retention",
       legal.processors.length > 0 ? null : "legal.processors (the host at least)",

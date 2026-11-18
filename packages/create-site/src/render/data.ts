@@ -160,13 +160,14 @@ export function renderRedirects(): string {
  * how a preview is deployed. The gate scripts are identical on every site;
  * everything that differs between sites is here.
  */
-export function renderProgramme(a: Answers, project: Pick<Project, "srcBase">): string {
+export function renderProgramme(a: Answers, project: Pick<Project, "srcBase">, mode: "programme" | "handover" = "programme"): string {
   const base = project.srcBase;
   const source = base ? [base.replace(/\/$/, "")] : ["app", "components", "lib", "content"];
   const host = a.stack.host === "cloudflare" ? a.stack.host : null;
   const programme = {
     $comment:
       "Read by scripts/gates/ before every build and preview deploy. docs/site-programme.md says what each key is for. Written by @domandigital/create-site; yours to edit, never overwritten.",
+    mode,
     issue: a.programme,
     registeredDirection: null,
     paths: {

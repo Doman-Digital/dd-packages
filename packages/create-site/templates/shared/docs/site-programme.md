@@ -93,6 +93,18 @@ the governed file holds. `apps/site/scripts/facts.ts` in Doman-Digital is the
 worked example: it imports `docs/brand-facts.json` and the marketing app's
 pricing modules and writes the facts the redesign renders.
 
+## Handover sites
+
+A site copied in from a client's live build is started with `create-site --handover` and has
+`"mode": "handover"` in `site.programme.json` and `.dd/site-start.json`. It keeps the client's look and
+copy, so the build runs differently:
+
+- `facts.mjs` still blocks the build.
+- `check-direction.mjs` and `mobile-first.mjs` report and never stop it.
+- `tokens.mjs`, `night-contrast.mjs`, `copy-deck.mjs` and `null-check.mjs` do not run.
+- Nothing a visitor can see is added unless the founder said yes for this site: re-run with
+  `--with credit,consent,analytics,legal,press,resources` for the pieces agreed.
+
 ## site.programme.json
 
 | Key | What it is |
