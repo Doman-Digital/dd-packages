@@ -63,6 +63,7 @@ Rules:
 - Check what the buyer concluded about prices, payment, terms and services against the brand facts. A price, term or promise the buyer states that the facts do not support is an invented assumption. Record it under pricing.invented. Where the site's wording or layout plausibly caused it, also file a pricing finding citing the screen the buyer was reading and the element the misreading came from: a misunderstanding a model buyer makes from the page is the panel's most useful signal. The buyer's finish (what it will cost, what happens next, whether to trust them) is where misunderstandings show; read it against the facts line by line.
 - The known preview-only states listed below are expected on this preview. A finding that is only one of them gets the verdict expected_preview_state, never defect.
 - The buyer is a model and may misbehave: click at random, misread a screenshot, invent things. Where the buyer rather than the site caused a problem, the verdict is not_a_defect.
+- The panel is read-only: its browser never sends a form, a POST or a payment request (every one is blocked and listed in the trace). A form that did not send, a missing confirmation screen or a checkout that did not open is the panel, never a defect. Judge what the buyer could see and decide before sending.
 - Judge the site as a real owner of this kind of business would meet it, not as a designer. Plain words; no marketing language.
 - Titles name the defect on the site in a short sentence, e.g. "Pricing page does not say what the monthly plan includes".
 
@@ -98,6 +99,8 @@ export function traceContent(panel: Panel, rec: SessionRecord, dir: string, maxI
   for (const s of rec.steps) {
     lines.push("", `Step ${s.n}. Buyer thought: ${s.thought || "(nothing said)"}`, `Action: ${s.action} ${JSON.stringify(s.input)} → ${s.result}`, `S${s.n} screen: ${s.title} (${s.url}), ${s.scrolledPct}% down`, clip(s.visible, 2500));
   }
+  const stopped = (rec.blocked ?? []).filter((b) => b.kind === "form" || b.reason === "payment-host" || b.reason === "write-method");
+  if (rec.blockedTotal) lines.push("", `Write guard: the panel stopped ${rec.blockedTotal} send attempt${rec.blockedTotal === 1 ? "" : "s"} in this session${stopped.length ? `, among them: ${stopped.slice(0, 8).map((b) => `${b.reason} ${b.method} ${b.url.slice(0, 80)} (step ${b.step})`).join("; ")}` : ""}. A send that did not happen is the panel, not the site.`);
   lines.push("", "Problems the buyer noted:");
   if (!rec.problems.length) lines.push("(none)");
   for (const p of rec.problems) lines.push(`P${p.n} (on S${p.step}, ${p.kind}, element ${p.resolved ? "found on the page" : "NOT found on the page"}): "${p.element}": ${p.what} [${p.url}]`);
