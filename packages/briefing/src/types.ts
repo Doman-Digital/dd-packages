@@ -194,6 +194,33 @@ export type RawEntry = {
   body?: string;
 };
 
+/** Where a work log event happened. The closed list matches the relay's `work_event.source` check (dd-relay migration 088). */
+export type WorkEventSource = "github" | "linear" | "gsc" | "cloudflare" | "gbp" | "psi" | "deploy" | "workspace" | "claude";
+
+/**
+ * One thing done for a client, as the relay's work log holds it (dd-relay `work_event`, DOM-18253). The briefing seam turns each
+ * `visibility: "client"` event into a synthetic `RawEntry` (DOM-18255); an `internal` event never reaches a briefing. `detail` is
+ * internal and a client cannot see it. `summary` is one sentence a client can read and passes the briefing's copy rules.
+ */
+export type WorkEvent = {
+  /** Unique per tenant. Replaying the same id adds nothing. */
+  eventId: string;
+  /** ISO 8601. */
+  occurredAt: string;
+  /** The dd-repo-registry slug (`clients[].id`). */
+  client: string;
+  source: WorkEventSource;
+  actor: string;
+  action: string;
+  target: string;
+  summary: string;
+  detail: Record<string, unknown>;
+  link: string | null;
+  visibility: "client" | "internal";
+  /** May hold personal data (a Workspace sign-in). Always `internal`, kept 90 days and never briefed. */
+  personal: boolean;
+};
+
 export type Incident = { startedAt: string; resolvedAt: string | null; reason?: string };
 
 export type PageSpeedRun = { score: number; fetchTime: string; url: string; strategy: "mobile" | "desktop" };
