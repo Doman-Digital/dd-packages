@@ -115,7 +115,7 @@ export function planScaffold(project: Project, answers: Answers, options: PlanOp
   const enumerate = project.framework === "next" ? nextRoutes : astroRoutes;
   files.push(
     { path: "site.facts.ts", contents: renderFacts(answers, adapterSpec), data: true },
-    { path: "site.routes.ts", contents: renderRoutes(enumerate.routesOnDisk(root), enumerate.dynamicRoutesOnDisk(root)), data: true },
+    { path: "site.routes.ts", contents: renderRoutes(enumerate.routesOnDisk(root), enumerate.dynamicRoutesOnDisk(root), handover), data: true },
     { path: "links.json", contents: renderLinks(), data: true },
     { path: "redirects.json", contents: renderRedirects(), data: true },
     { path: "docs/HOUSE.md", contents: renderHouseMd(answers, project), data: false },
