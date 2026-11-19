@@ -1,5 +1,11 @@
 # @domandigital/create-site
 
+## 0.12.2
+
+### Patch Changes
+
+- 7534441: The protected-preview gate matches Access destination hosts without building a regular expression from registry data, so semgrep's `detect-non-literal-regexp` rule no longer blocks the pull request of every site that installs the gate. Matching is unchanged.
+
 ## 0.12.1
 
 ### Patch Changes
