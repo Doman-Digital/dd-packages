@@ -85,9 +85,9 @@ describe("pruneHistory", () => {
 });
 
 describe("config", () => {
-  const panelFile = fileURLToPath(new URL("../../panels/dd-redesign.json", import.meta.url));
+  const panelFile = fileURLToPath(new URL("../../panels/dd-live-build.json", import.meta.url));
   const raw = JSON.parse(readFileSync(panelFile, "utf8")) as Panel;
-  it("accepts the DD redesign panel: five profiles, two variants, both devices", () => {
+  it("accepts the DD live-build panel: five profiles, two variants, both devices", () => {
     const p = validatePanel(raw, "/base");
     expect(p.profiles).toHaveLength(5);
     expect(p.variants).toHaveLength(2);

@@ -43,7 +43,11 @@ aborted before it leaves the machine, and every form submission is stopped in th
 `session.json` (`blocked`, `blockedTotal`) and summarised in the report's "Write guard" section. The buyer is told, after
 an action that tripped the guard, that the panel did not send and that this is not a fault in the site; the evaluator
 is told the same. The cost: buyers never see a post-submit state (a thank-you screen, a checkout), so a panel for a
-live site should list "forms do not send in this run" in `knownStates`. There is no switch to turn the guard off.
+live site should list "forms do not send in this run" in `knownStates`. There is no switch to turn the guard off, and
+staging is no exception: a staging copy can still mail a real inbox or reach a real third party, so the panel treats
+every target the same. A test that a write reaching the server fails the build is in `src/__tests__/guard.test.ts`,
+and the Browser workflow requires it to have run by name. The panel that first sent a real enquiry form, the
+19 November 2026 run on the DD staging copy, started 16 seconds before the guard merged (DOM-18300).
 
 ## Running it
 
@@ -51,7 +55,7 @@ On the ops box, from this folder after `pnpm install && pnpm run build`, under t
 dd-repo-registry `docs/buyer-panel.md`):
 
 ```sh
-doppler run -p <project> -c <config> -- node dist/cli.js run panels/dd-redesign.json --version auto
+doppler run -p <project> -c <config> -- node dist/cli.js run panels/dd-live-build.json --version auto
 ```
 
 A prototype that is not on the web can be served on this machine: `target.origin` may be `http://127.0.0.1:<port>` or
@@ -64,8 +68,8 @@ a date such as `20261014` works and keys the run as `20261014-<minute>`. Narrow 
 `--device phone`, `--variant a`. Re-grade an existing run with `evaluate`, and compare two runs with `diff`:
 
 ```sh
-doppler run -p <project> -c <config> -- node dist/cli.js evaluate panels/dd-redesign.json <run-id>
-doppler run -p <project> -c <config> -- node dist/cli.js diff panels/dd-redesign.json <earlier-run-id> <later-run-id>
+doppler run -p <project> -c <config> -- node dist/cli.js evaluate panels/dd-live-build.json <run-id>
+doppler run -p <project> -c <config> -- node dist/cli.js diff panels/dd-live-build.json <earlier-run-id> <later-run-id>
 ```
 
 `evaluate` grades with the panel's current evaluator, so changing the evaluator and re-running `evaluate` re-grades
@@ -134,7 +138,7 @@ belong to, and when the token expires are recorded in dd-repo-registry `docs/buy
 ## Where runs go
 
 The client capsule is the cloud home for runs: the panel's `archive` is `storage:capsule` (the default in
-`panels/dd-redesign.json`). The package does not know the bucket or the folders. It asks `dd-storage` (claude-kit's
+`panels/dd-live-build.json`). The package does not know the bucket or the folders. It asks `dd-storage` (claude-kit's
 resolver) for `local.capsule_dir`, the capsule's local working copy, and writes each run to
 `<capsule>/<client>/panel/runs/<runId>/`, with `runId` = the first eight characters of the version and the minute.
 Each run holds `run.json`, `report.md`, `report.json` and one folder per session (`session.json` with every step,
@@ -152,10 +156,19 @@ Such a run is reported as local only and `dd-storage` is never called.
 
 ## A panel file
 
-`panels/dd-redesign.json` is the DD redesign panel. A panel names the target, the archive, the step budget, the
+`panels/dd-live-build.json` is DD's own panel, on the staging copy of the live build (the retired preview panel,
+`dd-redesign.json`, graded against a map that no longer exists and was removed in DOM-18300). A panel names the target, the archive, the step budget, the
 devices, two or more variants (model and temperature: real variation, so a finding has to survive it), the
 evaluator, the profiles (persona and task, in the buyer's own terms, with none of the business's facts) and the
 grading material. Relative paths resolve against the panel file; `~` is the home folder.
+
+The grading files are named so the panel works on any machine. A journey map lives in the client's capsule folder
+and is named as `storage:capsule/<client>/panel/inputs/<file>`, resolved at run time in the working copy `dd-storage`
+names; the brand facts are named in the repo's own checkout (`~/GitHub/<repo>/...`). A path inside a git worktree is
+refused, because worktrees are removed when their session ends. At the start of a run, before any buyer session is
+paid for, the panel checks that the map is a file with something in it and that the brand facts hold every section in
+`include`, and stops with the reason if not (`checkGrading`, tested in `src/__tests__/panels.test.ts` with each panel
+file in `panels/`).
 
 A test plan that names its own phone size sets `"phoneViewport": { "width": 375, "height": 667 }`; without it the
 phone is the 390-wide iPhone. A model that rejects sampling (Claude Opus 4.7 on, Sonnet 5.x, Haiku 5.5, Fable) gets

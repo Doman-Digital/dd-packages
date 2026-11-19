@@ -14,6 +14,15 @@ export const PROVIDERS: Provider[] = ["bedrock", "anthropic", "bedrock-converse"
 /** The archive token for the cloud client capsule (R2, through dd-storage). Any other archive is a folder path. */
 export const CAPSULE_ARCHIVE = "storage:capsule";
 
+/**
+ * A grading file kept in the cloud capsule: `storage:capsule/<client>/panel/inputs/<file>`, resolved at run time
+ * against the capsule's working copy that dd-storage names. It keeps machine paths (a home folder, a worktree) out of
+ * a panel file, and the file itself in the one store that is backed up (DOM-18300).
+ */
+export const CAPSULE_FILE_PREFIX = `${CAPSULE_ARCHIVE}/`;
+
+export const isCapsuleFile = (p: string): boolean => p.startsWith(CAPSULE_FILE_PREFIX);
+
 export interface ModelChoice {
   provider?: Provider;
   model: string;
@@ -85,8 +94,12 @@ export interface Panel {
   firstImpressionQuestion: string;
   profiles: Profile[];
   grading: {
-    /** The journey map: an HTML or text file holding each door's expected answers. */
+    /**
+     * The journey map: an HTML or text file holding each door's expected answers. A `storage:capsule/...` path (the
+     * default for a client's map) is resolved in the capsule's working copy; any other path is a file on this machine.
+     */
     journeyMap: string;
+    /** The brand facts file and the top-level sections the evaluator gets. Same path forms as journeyMap. */
     brandFacts: { path: string; include: string[] };
     /** States that are true of the preview only and are filed as expected, never as defects. */
     knownStates: string[];
@@ -102,6 +115,22 @@ export function expandPath(p: string, base = process.cwd()): string {
 const fail = (msg: string): never => {
   throw new Error(`panel config: ${msg}`);
 };
+
+/**
+ * Checks a grading path's form and expands it. A capsule path stays a token (it is resolved at run time, so a panel
+ * parses where there is no capsule, as in CI). A git worktree path is refused: worktrees are removed when their session
+ * ends, so a panel naming one stops working without saying why.
+ */
+function gradingPath(field: string, p: string, base: string): string {
+  if (p.startsWith("storage:")) {
+    if (!isCapsuleFile(p)) fail(`${field} "${p}" is not a capsule path; use ${CAPSULE_FILE_PREFIX}<client>/...`);
+    const rel = p.slice(CAPSULE_FILE_PREFIX.length);
+    if (!rel || rel.startsWith("/") || rel.split("/").some((seg) => seg === ".." || seg === "")) fail(`${field} "${p}" must name a file inside the capsule`);
+    return p;
+  }
+  if (/(^|\/)\.claude\/worktrees\//.test(p)) fail(`${field} "${p}" is inside a git worktree, which is removed when its session ends; name the repo's own checkout (~/GitHub/<repo>/...) or a ${CAPSULE_FILE_PREFIX} path`);
+  return expandPath(p, base);
+}
 
 /** Reads and checks a panel file. Relative paths inside it resolve against the file's own folder. */
 export function loadPanel(path: string, opts: LoadOptions = {}): Panel {
@@ -145,6 +174,9 @@ export function validatePanel(p: Panel, base = process.cwd(), opts: LoadOptions 
   }
   if (new Set(p.profiles.map((x) => x.id)).size !== p.profiles.length) fail("profile ids must be unique");
   if (!p.grading?.journeyMap || !p.grading.brandFacts?.path) fail("grading.journeyMap and grading.brandFacts.path are required");
+  if (!Array.isArray(p.grading.brandFacts.include) || !p.grading.brandFacts.include.length) fail("grading.brandFacts.include must list the sections the evaluator gets");
+  const journeyMap = gradingPath("grading.journeyMap", p.grading.journeyMap, base);
+  const factsPath = gradingPath("grading.brandFacts.path", p.grading.brandFacts.path, base);
   if (!p.archive) fail(`archive is required: ${CAPSULE_ARCHIVE} for the cloud capsule, or a folder path for an offline working copy`);
   if (p.archive.startsWith("storage:") && p.archive !== CAPSULE_ARCHIVE) fail(`archive "${p.archive}" is not a storage token; use ${CAPSULE_ARCHIVE} or a folder path`);
   return {
@@ -154,8 +186,8 @@ export function validatePanel(p: Panel, base = process.cwd(), opts: LoadOptions 
     archive: p.archive === CAPSULE_ARCHIVE ? CAPSULE_ARCHIVE : expandPath(p.archive, base),
     grading: {
       ...p.grading,
-      journeyMap: expandPath(p.grading.journeyMap, base),
-      brandFacts: { ...p.grading.brandFacts, path: expandPath(p.grading.brandFacts.path, base) },
+      journeyMap,
+      brandFacts: { ...p.grading.brandFacts, path: factsPath },
       knownStates: p.grading.knownStates ?? [],
     },
   };

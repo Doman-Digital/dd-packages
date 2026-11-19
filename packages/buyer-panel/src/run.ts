@@ -6,7 +6,7 @@ import { accessCookie } from "./browser.js";
 import { archiveRoot, storeRun } from "./archive.js";
 import { runSession, sessionId, type SessionRecord } from "./buyer.js";
 import { clusterFindings, gradeSession, type SessionGrade, type SessionRef } from "./evaluate.js";
-import { loadGradingContext } from "./grading-context.js";
+import { checkGrading, loadGradingContext } from "./grading-context.js";
 import { emptyUsage, mergeUsage, type Usage } from "./model.js";
 import { costOf, SpendMeter } from "./pricing.js";
 import { renderReport, type RunMeta, type RunReport } from "./report.js";
@@ -71,6 +71,7 @@ export async function runPanel(panel: Panel, o: RunOptions): Promise<string> {
   }
   if (!/^[0-9a-f]{8}/i.test(o.version)) throw new Error("--version must start with 8 hex characters: the Worker version id, auto, or for a target that is not a Worker a date such as 20261014");
   archiveRoot(panel); // fails here, before any session is paid for, when the cloud capsule's working copy cannot be found
+  checkGrading(panel); // and here, when the journey map or a brand-facts section the evaluator needs is missing
   const at = new Date();
   const profiles = panel.profiles.filter((p) => !o.only?.length || o.only.includes(p.id));
   const devices = panel.devices.filter((d) => !o.devices?.length || o.devices.includes(d));
