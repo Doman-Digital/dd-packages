@@ -4,6 +4,8 @@
 import type { Answers } from "../answers.js";
 import type { Project } from "../detect.js";
 import { policyPatternsFor } from "../patterns.js";
+import { pieceInstalled } from "../handover.js";
+import type { VisiblePiece } from "../handover.js";
 import { SECTORS } from "../sectors.js";
 
 /** The pages create-site writes from dd-base's legal set. */
@@ -73,12 +75,24 @@ export const facts: SiteFacts = {
 `;
 }
 
-export function renderRoutes(routesOnDisk: string[], dynamicRoutesOnDisk: string[] = []): string {
-  // /resources is added below as noindex, and the legal pages out of the
-  // sitemap, whatever is on disk.
-  const routes = [...new Set([...routesOnDisk, "/press"])].filter((r) => r !== "/resources" && !LEGAL_ROUTES.includes(r)).sort();
+export function renderRoutes(
+  routesOnDisk: string[],
+  dynamicRoutesOnDisk: string[] = [],
+  handover: { with: readonly string[] } | null = null,
+): string {
+  // The press, legal and resources entries are written only when their piece is
+  // installed (a new build installs all of them; a handover only the pieces in
+  // --with), or when a page already sits on disk at that path: a handed-over
+  // site's own page still needs an entry. /resources is noindex, and the legal
+  // pages stay out of the sitemap, whatever is on disk.
+  const onDisk = new Set(routesOnDisk);
+  const listed = (piece: VisiblePiece, path: string) => pieceInstalled(piece, handover) || onDisk.has(path);
+  const routes = [...new Set([...routesOnDisk, ...(listed("press", "/press") ? ["/press"] : [])])]
+    .filter((r) => r !== "/resources" && !LEGAL_ROUTES.includes(r))
+    .sort();
   const entries = routes.map((path) => `  { path: ${JSON.stringify(path)}, indexable: true, inSitemap: true },`);
   for (const path of LEGAL_ROUTES) {
+    if (!listed("legal", path)) continue;
     entries.push(`  { path: ${JSON.stringify(path)}, indexable: true, inSitemap: false, reason: "Legal page: linked from every page's footer, not a search landing page." },`);
   }
   const patterns = new Map<string, string>();
@@ -92,9 +106,9 @@ export function renderRoutes(routesOnDisk: string[], dynamicRoutesOnDisk: string
       )} },`,
     );
   }
-  entries.push(
-    `  { path: "/resources", indexable: false, inSitemap: false, reason: "Empty until the first linkable asset ships. Index it then." },`,
-  );
+  if (listed("resources", "/resources")) {
+    entries.push(`  { path: "/resources", indexable: false, inSitemap: false, reason: "Empty until the first linkable asset ships. Index it then." },`);
+  }
   return `// Every page on the site, what it is trying to rank for, and how pages
 // link to each other. Add a policy entry in the same change that adds a
 // page: tests/seo/coverage.test.ts fails until you do. Every path and

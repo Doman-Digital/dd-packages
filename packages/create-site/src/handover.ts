@@ -28,9 +28,13 @@ export function pieceOf(template: string): VisiblePiece | null {
   return null;
 }
 
+/** Whether a visible piece is installed. A new build installs every piece. */
+export function pieceInstalled(piece: VisiblePiece, handover: { with: readonly string[] } | null): boolean {
+  return !handover || handover.with.includes(piece);
+}
+
 /** Whether a template is installed. A new build installs everything. */
 export function installs(template: string, handover: { with: readonly string[] } | null): boolean {
-  if (!handover) return true;
   const piece = pieceOf(template);
-  return piece === null || handover.with.includes(piece);
+  return piece === null || pieceInstalled(piece, handover);
 }
