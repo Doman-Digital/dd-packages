@@ -5,7 +5,7 @@ import { deviceOptions, phoneWidth } from "../browser.js";
 import { rejectsSampling, samplingFor, validatePanel, type Panel } from "../config.js";
 import { priceFor } from "../pricing.js";
 
-const raw = JSON.parse(readFileSync(fileURLToPath(new URL("../../panels/dd-redesign.json", import.meta.url)), "utf8")) as Panel;
+const raw = JSON.parse(readFileSync(fileURLToPath(new URL("../../panels/dd-live-build.json", import.meta.url)), "utf8")) as Panel;
 const opus55 = (extra: object = {}) => ({ id: "a", provider: "anthropic" as const, model: "claude-opus-5-5", ...extra });
 
 describe("Opus 5.5 and other models that reject sampling", () => {

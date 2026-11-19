@@ -19,7 +19,7 @@ case "$1" in
 esac
 `;
 
-const panelFile = fileURLToPath(new URL("../../panels/dd-redesign.json", import.meta.url));
+const panelFile = fileURLToPath(new URL("../../panels/dd-live-build.json", import.meta.url));
 const basePanel = validatePanel(JSON.parse(readFileSync(panelFile, "utf8")) as Panel, "/base");
 
 let dir: string;
@@ -88,10 +88,10 @@ describe("the cloud capsule archive", () => {
     const notice = vi.spyOn(process.stderr, "write").mockImplementation(() => true);
     const record = storeRun(basePanel, run, { log: () => {} });
     expect(record).toEqual({ cloud: true });
-    expect(calls()).toContain("publish dd-site-preview");
+    expect(calls()).toContain("publish doman-digital");
     expect(notice).not.toHaveBeenCalled();
     expect(JSON.parse(readFileSync(join(run, "run.json"), "utf8")).storage).toEqual({ cloud: true });
-    expect(readFileSync(join(run, "report.md"), "utf8")).toContain("Published to R2 with `dd-storage publish dd-site-preview`.");
+    expect(readFileSync(join(run, "report.md"), "utf8")).toContain("Published to R2 with `dd-storage publish doman-digital`.");
   });
 
   it("prints a loud notice and reports local only when the cloud cannot be reached (exit 3)", () => {
