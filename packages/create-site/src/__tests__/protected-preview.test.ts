@@ -47,7 +47,7 @@ describe("protected staging boundaries", () => {
       ["*", "anything.at.all", true],
       ["staging.example.com", "stagingXexample.com", false],
     ];
-    for (const [destination, hostname, expected] of cases) expect(matchesHost(destination, hostname), ` vs `).toBe(expected);
+    for (const [destination, hostname, expected] of cases) expect(matchesHost(destination, hostname), `${destination} vs ${hostname}`).toBe(expected);
   });
   test("parses JSONC without corrupting URLs and rejects malformed comments", () => {
     expect(parseJsonc('{ // comment\n "url":"https://example.com/a/*b*/,}", /* comment */ "items":[1,], }')).toEqual({ url: "https://example.com/a/*b*/,}", items: [1] });
