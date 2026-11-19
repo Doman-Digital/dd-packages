@@ -107,6 +107,14 @@ export function renderReport(r: RunReport, records: SessionRecord[]): string {
   for (const f of expected) out.push(`- ${f.id} ${f.ref}: ${f.title}`);
   out.push("", `## Dropped for want of evidence (${r.dropped.length})`, "");
   for (const d of r.dropped) out.push(`- ${d.session}: ${d.title} (${d.ref}, ${d.reason})`);
+  const attempts = records.flatMap((rec) => (rec.blocked ?? []).filter((b) => b.kind === "form" || b.reason === "payment-host" || b.reason === "write-method").map((b) => ({ ...b, session: rec.id })));
+  out.push(
+    "",
+    "## Write guard",
+    "",
+    `The panel's browser is read-only (src/guard.ts): every non-GET/HEAD request, form submission, beacon, WebSocket and payment-host request is blocked and recorded. ${records.reduce((n, rec) => n + (rec.blockedTotal ?? 0), 0)} attempts blocked in all (mostly background analytics); ${attempts.length} were sends a person would notice.`,
+  );
+  for (const a of attempts.slice(0, 30)) out.push(`- ${a.session} step ${a.step}: ${a.reason} ${a.method} ${esc(a.url.slice(0, 100))}`);
   const u = m.usage;
   const tok = (x: Usage) => `${x.calls} calls; ${x.input} input, ${x.cacheRead} cache-read, ${x.cacheWrite} cache-write and ${x.output} output tokens${x.usd === undefined ? "" : `; about ${usd(x.usd)}`}${x.neurons === undefined ? "" : `; ${Math.round(x.neurons)} Workers AI neurons`}`;
   const total = (u.buyers.usd ?? 0) + (u.evaluator.usd ?? 0);

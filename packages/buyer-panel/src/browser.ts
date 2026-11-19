@@ -1,5 +1,6 @@
 import { chromium, devices, type Browser, type BrowserContext, type Locator, type Page } from "playwright";
 import type { Device, Panel } from "./config.js";
+import { WriteGuard } from "./guard.js";
 
 const { defaultBrowserType: _ignored, ...IPHONE } = devices["iPhone 14"];
 
@@ -128,18 +129,22 @@ export class BrowserSession {
     readonly context: BrowserContext,
     public page: Page,
     readonly origin: string,
+    /** Every request that is not a GET or HEAD, every payment host and every form send is stopped here, and kept. */
+    readonly guard: WriteGuard,
   ) {}
 
-  static async open(panel: Panel, device: Device, cookie: string | undefined, trace: boolean): Promise<BrowserSession> {
+  static async open(panel: Panel, device: Device, cookie: string | undefined, trace: boolean, guard: WriteGuard): Promise<BrowserSession> {
     const browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({ ...deviceOptions(panel, device), locale: "en-GB", timezoneId: "Europe/London" });
+    // Service workers are blocked so that every request passes the guard's route.
+    const context = await browser.newContext({ ...deviceOptions(panel, device), locale: "en-GB", timezoneId: "Europe/London", serviceWorkers: "block" });
     const origin = new URL(panel.target.origin).origin;
+    await guard.install(context);
     if (cookie) {
       await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);
     }
     if (trace) await context.tracing.start({ screenshots: true, snapshots: true });
     const page = await context.newPage();
-    return new BrowserSession(browser, context, page, origin);
+    return new BrowserSession(browser, context, page, origin, guard);
   }
 
   async goto(path: string): Promise<void> {

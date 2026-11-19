@@ -3,6 +3,7 @@ import { join } from "node:path";
 import type Anthropic from "@anthropic-ai/sdk";
 import { chromium } from "playwright";
 import { BrowserSession, deviceOptions, type Observation } from "./browser.js";
+import { WriteGuard, type BlockedRequest } from "./guard.js";
 import { rejectsSampling, samplingFor, type Device, type Panel, type Profile, type Variant } from "./config.js";
 import { addUsage, cachesPrompts, clientFor, emptyUsage, textOf, withCaching, type Usage } from "./model.js";
 import type { SpendMeter } from "./pricing.js";
@@ -57,6 +58,12 @@ export interface SessionRecord {
   endReason: "finished" | "budget" | "turns" | "capped" | "error";
   error?: string;
   usage: Usage;
+  /**
+   * What the write guard stopped (src/guard.ts): the panel is read-only, so no form, POST, beacon, WebSocket or payment
+   * host request ever leaves the browser. `blockedTotal` counts every attempt; `blocked` keeps the first 300.
+   */
+  blocked?: BlockedRequest[];
+  blockedTotal?: number;
 }
 
 export const sessionId = (profile: string, device: Device, variant: string): string => `${profile}-${device}-${variant}`;
@@ -177,10 +184,11 @@ export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2, slack
   }
 }
 
-async function foldScreenshot(panel: Panel, cookie: string | undefined): Promise<Buffer> {
+async function foldScreenshot(panel: Panel, cookie: string | undefined, guard: WriteGuard): Promise<Buffer> {
   const browser = await chromium.launch({ headless: true });
   try {
-    const context = await browser.newContext({ ...deviceOptions(panel, "phone"), locale: "en-GB", timezoneId: "Europe/London" });
+    const context = await browser.newContext({ ...deviceOptions(panel, "phone"), locale: "en-GB", timezoneId: "Europe/London", serviceWorkers: "block" });
+    await guard.install(context);
     if (cookie) await context.addCookies([{ name: "CF_Authorization", value: cookie, domain: new URL(panel.target.origin).hostname, path: "/", secure: true, httpOnly: true, sameSite: "None" }]);
     const page = await context.newPage();
     await page.goto(new URL(panel.target.start, panel.target.origin).toString(), { waitUntil: "load" });
@@ -246,9 +254,11 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
   };
 
   let session: BrowserSession | undefined;
+  // One write guard per session, for the fold's browser and the session's own, so the record is in one place.
+  const guard = new WriteGuard(new URL(panel.target.origin).origin);
   try {
     // 1. First impression, from the 390 fold alone, before any scrolling and before the task.
-    const fold = await foldScreenshot(panel, o.cookie);
+    const fold = await foldScreenshot(panel, o.cookie, guard);
     writeFileSync(join(dir, "fold-390.jpg"), fold);
     const messages: Anthropic.MessageParam[] = [
       {
@@ -265,7 +275,7 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
     log(`${id}: first impression recorded`);
 
     // 2. The task, on the session's own device, from the start page.
-    session = await BrowserSession.open(panel, device, o.cookie, true);
+    session = await BrowserSession.open(panel, device, o.cookie, true, guard);
     await session.goto(panel.target.start);
     const startObs = await session.observe();
     writeFileSync(join(dir, "step-00.jpg"), startObs.screenshot);
@@ -332,11 +342,16 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
       }
 
       steps++;
+      guard.step = steps;
+      const mark = guard.blocked.length;
       let result: string;
       if (use.name === "click") result = await session.click(String(input.target ?? ""), typeof input.which === "number" ? input.which : Number(input.which) || undefined);
       else if (use.name === "scroll") result = await session.scroll(input.direction === "up" ? "up" : "down");
       else if (use.name === "back") result = await session.back();
       else result = await session.type(String(input.field ?? ""), String(input.text ?? ""));
+      // Give a blocked send a moment to be reported, then tell the buyer it was the panel, not the site.
+      await session.page.waitForTimeout(150);
+      result += guard.note(mark);
       lastObs = await session.observe();
       const file = `step-${String(steps).padStart(2, "0")}.jpg`;
       writeFileSync(join(dir, file), lastObs.screenshot);
@@ -357,6 +372,8 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
     log(`${id}: error ${rec.error}`);
   } finally {
     await session?.close(join(dir, "trace.zip"));
+    rec.blocked = guard.blocked;
+    rec.blockedTotal = guard.total;
     rec.durationMs = Date.now() - t0;
     save();
   }

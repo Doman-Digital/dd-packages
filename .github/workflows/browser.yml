@@ -104,3 +104,9 @@ jobs:
             exit 1
           fi
           echo "$ran buyer-panel browser tests passed"
+          # The write guard keeps a simulated buyer from sending a form, a POST or a payment on a live site (DOM-18298).
+          guard=$(sed 's/\x1b\[[0-9;]*m//g' vitest.log | grep -c "✓ .*the write guard in a real browser" || true)
+          if [ "$guard" -eq 0 ]; then
+            echo "The buyer-panel write guard browser test did not run." >&2
+            exit 1
+          fi

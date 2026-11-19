@@ -35,6 +35,16 @@ For each profile × device × variant (5 × 2 × 2 = 20 sessions in the DD redes
 The buyer is a plain API call with a system prompt holding the persona and nothing else: never a Claude Code
 session in a repo, which would load the project's own documentation before reading a page.
 
+## Read-only by construction
+
+The panel's browser cannot write to the site it browses (`src/guard.ts`). Every request that is not a GET or HEAD,
+every beacon, every WebSocket and every request to a payment host (Stripe, PayPal, Klarna and others, even a GET) is
+aborted before it leaves the machine, and every form submission is stopped in the page. Each attempt is kept in
+`session.json` (`blocked`, `blockedTotal`) and summarised in the report's "Write guard" section. The buyer is told, after
+an action that tripped the guard, that the panel did not send and that this is not a fault in the site; the evaluator
+is told the same. The cost: buyers never see a post-submit state (a thank-you screen, a checkout), so a panel for a
+live site should list "forms do not send in this run" in `knownStates`. There is no switch to turn the guard off.
+
 ## Running it
 
 On the ops box, from this folder after `pnpm install && pnpm run build`, under the panel's Doppler config (see
