@@ -90,7 +90,10 @@ export const VISIBLE_SCRIPT = `(() => {
       if (type === 'hidden') continue;
       const label = (el.labels && el.labels[0] && el.labels[0].innerText) || el.getAttribute('aria-label') || el.getAttribute('placeholder') || el.getAttribute('name') || '';
       kind = 'field ' + type;
-      text = label.replace(/\\s+/g, ' ').trim() + (el.value ? ' = "' + String(el.value).slice(0, 80) + '"' : '');
+      // A checkbox or radio has a value ("on") whether or not it is ticked, and listing that as its state made the
+      // evaluator report an unticked consent box as pre-ticked. What a person sees is ticked or not.
+      const state = (type === 'checkbox' || type === 'radio') ? (el.checked ? ' [ticked]' : ' [not ticked]') : (el.value ? ' = "' + String(el.value).slice(0, 80) + '"' : '');
+      text = label.replace(/\\s+/g, ' ').trim() + state;
     } else if (!text) {
       if (kind === 'text' && el.querySelector(containers)) continue;
       text = (el.getAttribute('aria-label') || el.innerText || '').replace(/\\s+/g, ' ').trim();

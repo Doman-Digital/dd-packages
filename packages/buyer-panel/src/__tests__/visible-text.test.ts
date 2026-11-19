@@ -79,4 +79,12 @@ describe.skipIf(!browser)("screen text in a real browser", () => {
     expect(lines).toContain("[image] Salon front");
     expect(lines).toContain("[text] Date");
   });
+
+  it("lists a checkbox as ticked or not ticked, never by its value (an unticked consent box has the value on)", async () => {
+    const lines = await visible(`<label for="c">I agree to receive emails</label><input id="c" type="checkbox" name="consent"><label for="d">Already on</label><input id="d" type="checkbox" checked><label for="r">Pick</label><input id="r" type="radio">`);
+    expect(lines).toContain("[field checkbox] I agree to receive emails [not ticked]");
+    expect(lines).toContain("[field checkbox] Already on [ticked]");
+    expect(lines).toContain("[field radio] Pick [not ticked]");
+    expect(lines.join("\n")).not.toContain('= "on"');
+  });
 });
