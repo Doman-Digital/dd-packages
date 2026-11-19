@@ -1,5 +1,11 @@
 # @domandigital/briefing
 
+## 0.5.0
+
+### Minor Changes
+
+- 3378882: Add the `WorkEvent` and `WorkEventSource` types, the shape of one row in the relay's client work log (`work_event`), beside `RawEntry`. Types only: the build does not change.
+
 ## 0.4.0
 
 ### Minor Changes
