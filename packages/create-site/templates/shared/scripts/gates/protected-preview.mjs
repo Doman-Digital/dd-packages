@@ -110,10 +110,22 @@ function publicDestinations(app) {
   return [app.domain, ...(app.destinations || []).filter(d => d.type === "public").map(d => d.uri)].filter(Boolean);
 }
 
-function matchesHost(destination, hostname) {
+export function matchesHost(destination, hostname) {
   const host = destination.split("/")[0].toLowerCase();
-  const escaped = host.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*");
-  return new RegExp(`^${escaped}$`).test(hostname);
+  // A `*` matches any run of characters. Done by hand, not with a RegExp built
+  // from the registry, so no pattern is ever compiled from data.
+  const parts = host.split("*");
+  if (parts.length === 1) return host === hostname;
+  const first = parts[0];
+  const last = parts[parts.length - 1];
+  if (!hostname.startsWith(first)) return false;
+  let at = first.length;
+  for (const part of parts.slice(1, -1)) {
+    const found = hostname.indexOf(part, at);
+    if (found < 0) return false;
+    at = found + part.length;
+  }
+  return hostname.length - last.length >= at && hostname.endsWith(last);
 }
 
 export function validateAccessState(protection, state, registry) {

@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { afterAll, describe, expect, test } from "vitest";
 // Generated gates are plain JS, shared with the deployed sites.
 // @ts-expect-error template module is intentionally untyped
-import { stagingConfig, probeCallbacks, parseJsonc, validateProtectedConfig, validateAccessState, probeProtectedPreview, readAccessState, canonicalReviewers, validateWorkerProtection } from "../../templates/shared/scripts/gates/protected-preview.mjs";
+import { stagingConfig, probeCallbacks, parseJsonc, validateProtectedConfig, validateAccessState, probeProtectedPreview, readAccessState, canonicalReviewers, validateWorkerProtection, matchesHost } from "../../templates/shared/scripts/gates/protected-preview.mjs";
 
 const protection = {
   gateKey: "fixture-preview",
@@ -32,6 +32,23 @@ const state = () => ({
 });
 
 describe("protected staging boundaries", () => {
+  test("matches a destination host with * for any run of characters, as the old pattern did", () => {
+    const cases: [string, string, boolean][] = [
+      ["staging.example.com", "staging.example.com", true],
+      ["staging.example.com/path", "staging.example.com", true],
+      ["Staging.Example.com", "staging.example.com", true],
+      ["staging.example.com", "staging.example.com.evil", false],
+      ["*.example.com", "a.b.example.com", true],
+      ["*.example.com", "example.com", false],
+      ["staging.*", "staging.example.com", true],
+      ["a*b*c", "aXXbYYc", true],
+      ["a*b*c", "aXXcYYb", false],
+      ["a*b*b", "ab", false],
+      ["*", "anything.at.all", true],
+      ["staging.example.com", "stagingXexample.com", false],
+    ];
+    for (const [destination, hostname, expected] of cases) expect(matchesHost(destination, hostname), ` vs `).toBe(expected);
+  });
   test("parses JSONC without corrupting URLs and rejects malformed comments", () => {
     expect(parseJsonc('{ // comment\n "url":"https://example.com/a/*b*/,}", /* comment */ "items":[1,], }')).toEqual({ url: "https://example.com/a/*b*/,}", items: [1] });
     expect(() => parseJsonc('{/* missing')).toThrow();
