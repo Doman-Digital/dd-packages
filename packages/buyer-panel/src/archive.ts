@@ -1,7 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { CAPSULE_ARCHIVE, type Panel } from "./config.js";
+import { CAPSULE_ARCHIVE, expandPath, type Panel } from "./config.js";
 import type { RunMeta } from "./report.js";
 
 /** Where a run is kept. `cloud` is true only when `dd-storage publish` returned 0 for it. */
@@ -37,7 +37,9 @@ export function capsuleWorkingCopy(): string {
   }
   const dir = r.stdout.trim();
   if (r.status !== 0 || !dir) throw new Error(`dd-storage get local.capsule_dir failed${r.status ? ` (exit ${r.status})` : ""}: ${r.stderr.trim() || "no folder returned"}`);
-  return dir;
+  // dd-storage prints the folder as the registry writes it, "~/dd-client-capsule": a shell would expand that, this does not.
+  // Unexpanded, the run was written into a folder literally named "~" in the current directory and never reached the capsule.
+  return expandPath(dir);
 }
 
 /** The folder runs are written into: the capsule's working copy, or the panel's own folder. */

@@ -1,5 +1,5 @@
 import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { homedir, tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -69,6 +69,12 @@ describe("the cloud capsule archive", () => {
     expect(capsuleWorkingCopy()).toBe(capsule);
     expect(archiveRoot(basePanel)).toBe(capsule);
     expect(calls()).toEqual(["get local.capsule_dir", "get local.capsule_dir"]);
+  });
+
+  it("expands a leading ~ in the folder dd-storage names, so runs never land in a folder called ~", () => {
+    process.env.FAKE_CAPSULE = "~/dd-client-capsule";
+    expect(capsuleWorkingCopy()).toBe(join(homedir(), "dd-client-capsule"));
+    expect(archiveRoot(basePanel)).toBe(join(homedir(), "dd-client-capsule"));
   });
 
   it("fails clearly, before any session, when dd-storage is not on PATH", () => {
