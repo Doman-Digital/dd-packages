@@ -10,7 +10,8 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm run build && changeset publish",
-    "check:tarballs": "node scripts/check-tarballs.mjs"
+    "check:tarballs": "node scripts/check-tarballs.mjs",
+    "check:changesets": "node scripts/check-changesets.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
