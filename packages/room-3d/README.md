@@ -4,7 +4,7 @@ Walk mode and a "Download for an AI" pack for three.js room models. Written once
 room models Doman Digital builds (each a private, no-build page behind Cloudflare Access), so they all
 move and export the same way.
 
-Plain ES modules, no build step. `three` is imported as a bare specifier, so the page's import map
+Plain ES modules that run as they are. `three` is imported as a bare specifier, so the page's import map
 supplies its own copy (one three.js instance per page).
 
 | Module | What it does |
@@ -12,7 +12,7 @@ supplies its own copy (one three.js instance per page).
 | `src/walk.js` | `createNav()`: eye-height walking (drag to look, pinch or wheel to step, tap to walk there, W A S D and arrow keys, an on-screen pad with `PAD_HTML`), and the same keys and pad spinning, tilting and sliding an OrbitControls view when not walking. |
 | `src/colliders.js` | What stops you: axis-aligned rectangles (hand-built walls) or segments sliced from scanned wall meshes at a low and a waist height, so doorways stay open and window walls stay shut. Pure maths. |
 | `src/agent-pack.js` | `buildAgentPack()`: one zip with the page's walk-through (`<name>.md`), its data files, labelled PNG views rendered from the live scene (to-scale plans with a 1 m bar, eye-height room views) and a GLB. `renderView()`, `exportGlb()`, `download()`, `md` table helpers. |
-| `src/zip.js` | A stored (uncompressed) zip writer with CRC-32, no dependencies. |
+| `src/zip.js` | A stored (uncompressed) zip writer with CRC-32, written here in full. |
 
 ## Using it from a no-build page
 
