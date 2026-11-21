@@ -1,0 +1,34 @@
+{
+  "name": "@domandigital/room-3d",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Walk mode (eye height, drag to look, on-screen arrows, tap to walk, keyboard, wall colliders) and a download-for-an-AI pack (walk-through, data, labelled views and GLB in one zip) for three.js room models. Plain ES modules with no build; three comes from the page's import map.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./walk": "./src/walk.js",
+    "./colliders": "./src/colliders.js",
+    "./agent-pack": "./src/agent-pack.js",
+    "./zip": "./src/zip.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "src"
+  ],
+  "scripts": {
+    "build": "node -e \"\"",
+    "typecheck": "node --check src/colliders.js && node --check src/zip.js && node --check src/walk.js && node --check src/agent-pack.js && node --check src/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doman-Digital/dd-packages.git",
+    "directory": "packages/room-3d"
+  }
+}
