@@ -16,6 +16,7 @@ Doman Digital's public npm packages, in one repo.
 | [`@domandigital/seo`](packages/seo) | Route policy, link graph, coverage and redirect validators | [npm](https://www.npmjs.com/package/@domandigital/seo) |
 | [`@domandigital/sentry`](packages/sentry) | One Sentry setup for browser, Worker and Next.js sites, and the release and source-map step | [npm](https://www.npmjs.com/package/@domandigital/sentry) |
 | [`@domandigital/synthetic`](packages/synthetic) | Signed synthetic-submission protocol for client forms | [npm](https://www.npmjs.com/package/@domandigital/synthetic) |
+| [`@domandigital/room-3d`](packages/room-3d) | Walk mode and the download-for-an-AI pack for three.js room models; served from a pinned commit through jsDelivr (private, no build) | not published |
 | [`@domandigital/buyer-panel`](packages/buyer-panel) | Synthetic buyer panel: AI buyers browse a site, a separate model grades the traces (private, run from the box) | not published |
 
 Each package versions and publishes independently (see `.changeset/config.json`),
