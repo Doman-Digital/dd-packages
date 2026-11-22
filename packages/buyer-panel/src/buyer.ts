@@ -199,6 +199,15 @@ async function foldScreenshot(panel: Panel, cookie: string | undefined, guard: W
   }
 }
 
+/**
+ * The first-impression reply as it is carried into the task conversation. That call had no tools, and the API binds a
+ * thinking block's signature to the tools list it was made with, so the same block sent back alongside BUYER_TOOLS is
+ * refused ("Invalid `signature` in `thinking` block ... The `tools` list differs"). A finished turn's thinking may be
+ * left out, so only its text goes forward.
+ */
+export const carriedForward = (content: Anthropic.ContentBlock[]): Anthropic.ContentBlockParam[] =>
+  content.filter((b) => b.type !== "thinking" && b.type !== "redacted_thinking") as Anthropic.ContentBlockParam[];
+
 export interface RunSessionOptions {
   panel: Panel;
   profile: Profile;
@@ -271,7 +280,7 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
     ];
     const first = await call(messages);
     rec.firstImpression.answer = textOf(first);
-    messages.push({ role: "assistant", content: first.content });
+    messages.push({ role: "assistant", content: carriedForward(first.content) });
     log(`${id}: first impression recorded`);
 
     // 2. The task, on the session's own device, from the start page.
