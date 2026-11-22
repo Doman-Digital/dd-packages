@@ -158,9 +158,19 @@ const hasShot = (m: Anthropic.MessageParam): boolean =>
  * Rewriting an old turn changes everything after it, which a prompt cache cannot reuse. With `slack` above 0 the
  * history is pruned in strides instead of every step: up to `keep + slack` screens stay in full, and once there are
  * more the oldest are pruned down to `keep`, so the cache holds for `slack` steps between rewrites.
+ *
+ * The API binds a thinking block's signature to the conversation before it, so a block sent back after an earlier
+ * turn was rewritten is refused ("Invalid `signature` in `thinking` block ... bound to a different conversation").
+ * A prune rewrites screens before every assistant turn, the latest included, so it drops the thinking of all of
+ * them. The buyer's spoken thoughts are text blocks and stay.
  */
 export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2, slack = 0): void {
   if (messages.filter(hasShot).length <= keep + slack) return;
+  messages.forEach((m) => {
+    if (m.role === "assistant" && Array.isArray(m.content)) {
+      m.content = m.content.filter((b) => b.type !== "thinking" && b.type !== "redacted_thinking");
+    }
+  });
   let seen = 0;
   for (let i = messages.length - 1; i >= 0; i--) {
     const m = messages[i]!;
@@ -198,6 +208,15 @@ async function foldScreenshot(panel: Panel, cookie: string | undefined, guard: W
     await browser.close();
   }
 }
+
+/**
+ * The first-impression reply as it is carried into the task conversation. That call had no tools, and the API binds a
+ * thinking block's signature to the tools list it was made with, so the same block sent back alongside BUYER_TOOLS is
+ * refused ("Invalid `signature` in `thinking` block ... The `tools` list differs"). A finished turn's thinking may be
+ * left out, so only its text goes forward.
+ */
+export const carriedForward = (content: Anthropic.ContentBlock[]): Anthropic.ContentBlockParam[] =>
+  content.filter((b) => b.type !== "thinking" && b.type !== "redacted_thinking") as Anthropic.ContentBlockParam[];
 
 export interface RunSessionOptions {
   panel: Panel;
@@ -271,7 +290,7 @@ export async function runSession(o: RunSessionOptions): Promise<SessionRecord> {
     ];
     const first = await call(messages);
     rec.firstImpression.answer = textOf(first);
-    messages.push({ role: "assistant", content: first.content });
+    messages.push({ role: "assistant", content: carriedForward(first.content) });
     log(`${id}: first impression recorded`);
 
     // 2. The task, on the session's own device, from the start page.
