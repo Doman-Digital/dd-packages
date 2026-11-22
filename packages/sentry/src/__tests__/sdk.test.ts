@@ -18,6 +18,7 @@ import * as v10server from "@sentry/core-v10/server";
 import { describe, expect, it, vi } from "vitest";
 import { browserOptions } from "../browser";
 import { cloudflareOptions } from "../cloudflare";
+import { criticalReporter } from "../critical";
 import { nextClientOptions, nextServerOptions } from "../next";
 
 const DSN = "https://public@o4511927792238592.ingest.de.sentry.io/1";
@@ -89,6 +90,17 @@ describe.each(sdks)("through a real Sentry $major client", ({ core, server }) =>
       warn.mockRestore();
       await stop();
     }
+  });
+
+  it("sends a critical failure as fatal, with the tags the per-project alert filters on, past the scrubber", async () => {
+    const { sent } = start(cloudflareOptions({ dsn: DSN, environment: "production" }));
+    const critical = criticalReporter((e, ctx) => core.captureException(e, ctx));
+    critical.criticalFailure("checkout", "tokenize", new Error("Square tokenize Invalid"), { errors: ["card declined"] });
+    await core.flush(1000);
+    await stop();
+    expect(sent).toHaveLength(1);
+    expect(sent[0]).toMatchObject({ level: "fatal", fingerprint: ["critical", "checkout", "tokenize"] });
+    expect(sent[0]?.tags).toMatchObject({ critical_path: "checkout", critical_stage: "tokenize" });
   });
 
   it("sends nothing when the environment is a developer's machine", async () => {

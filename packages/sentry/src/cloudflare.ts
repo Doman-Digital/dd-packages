@@ -27,3 +27,17 @@ export function cloudflareOptions<I extends PresetInput>(input: I = {} as I): Pr
 }
 
 export type { Preset, PresetDefaults, PresetInput, ScrubbingHook, SpanScrubbingHook } from "./preset";
+export {
+  blockedOrigin,
+  type CaptureException,
+  CRITICAL_PATH_TAG,
+  CRITICAL_STAGE_TAG,
+  criticalContext,
+  type CriticalCaptureContext,
+  type CriticalReporter,
+  criticalReporter,
+  type CspViolation,
+  type ViolationTarget,
+  type WatchCspOptions,
+  watchCriticalCsp,
+} from "./critical";

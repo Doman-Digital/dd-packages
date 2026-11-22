@@ -25,3 +25,17 @@ export function browserOptions<I extends PresetInput>(input: I = {} as I): Brows
 
 export { thirdPartyFilterOptions } from "./third-party";
 export type { BrowserPreset, BrowserPresetDefaults, PresetInput, ScrubbingHook, SpanScrubbingHook } from "./preset";
+export {
+  blockedOrigin,
+  type CaptureException,
+  CRITICAL_PATH_TAG,
+  CRITICAL_STAGE_TAG,
+  criticalContext,
+  type CriticalCaptureContext,
+  type CriticalReporter,
+  criticalReporter,
+  type CspViolation,
+  type ViolationTarget,
+  type WatchCspOptions,
+  watchCriticalCsp,
+} from "./critical";

@@ -35,3 +35,17 @@ export {
 } from "./preset";
 export { REDACTED, scrubEvent, scrubSpan, scrubString, scrubValue } from "./scrub";
 export { applicationKey, thirdPartyFilterOptions } from "./third-party";
+export {
+  blockedOrigin,
+  type CaptureException,
+  CRITICAL_PATH_TAG,
+  CRITICAL_STAGE_TAG,
+  criticalContext,
+  type CriticalCaptureContext,
+  type CriticalReporter,
+  criticalReporter,
+  type CspViolation,
+  type ViolationTarget,
+  type WatchCspOptions,
+  watchCriticalCsp,
+} from "./critical";
