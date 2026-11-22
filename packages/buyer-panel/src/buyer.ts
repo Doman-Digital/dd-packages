@@ -158,9 +158,20 @@ const hasShot = (m: Anthropic.MessageParam): boolean =>
  * Rewriting an old turn changes everything after it, which a prompt cache cannot reuse. With `slack` above 0 the
  * history is pruned in strides instead of every step: up to `keep + slack` screens stay in full, and once there are
  * more the oldest are pruned down to `keep`, so the cache holds for `slack` steps between rewrites.
+ *
+ * The API binds a thinking block's signature to the conversation before it, so a block sent back after an earlier
+ * turn was rewritten is refused ("Invalid `signature` in `thinking` block ... bound to a different conversation").
+ * A prune therefore also drops the thinking of every assistant turn but the latest, whose thinking the open tool
+ * call needs. The buyer's spoken thoughts are text blocks and stay.
  */
 export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2, slack = 0): void {
   if (messages.filter(hasShot).length <= keep + slack) return;
+  const lastAssistant = messages.map((m) => m.role).lastIndexOf("assistant");
+  messages.forEach((m, i) => {
+    if (m.role === "assistant" && i !== lastAssistant && Array.isArray(m.content)) {
+      m.content = m.content.filter((b) => b.type !== "thinking" && b.type !== "redacted_thinking");
+    }
+  });
   let seen = 0;
   for (let i = messages.length - 1; i >= 0; i--) {
     const m = messages[i]!;
