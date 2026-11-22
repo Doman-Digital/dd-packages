@@ -13,14 +13,13 @@ const assistant = (n: number): Anthropic.MessageParam => ({
 });
 
 describe("pruneHistory and thinking", () => {
-  it("drops thinking from every assistant turn but the latest once it rewrites an earlier screen", () => {
+  it("drops thinking from every assistant turn, the latest included, once it rewrites an earlier screen", () => {
     const messages: Anthropic.MessageParam[] = [];
     for (let n = 0; n < 6; n++) messages.push(userShot(), assistant(n));
     pruneHistory(messages, 2, 3);
     const assistants = messages.filter((m) => m.role === "assistant");
     const kinds = assistants.map((m) => (m.content as Anthropic.ContentBlockParam[]).map((b) => b.type));
-    expect(kinds.slice(0, -1).every((k) => k.length === 1 && k[0] === "text")).toBe(true);
-    expect(kinds.at(-1)).toEqual(["thinking", "text"]);
+    expect(kinds.every((k) => k.length === 1 && k[0] === "text")).toBe(true);
   });
 
   it("leaves thinking alone while nothing is pruned", () => {

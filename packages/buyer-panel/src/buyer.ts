@@ -161,14 +161,13 @@ const hasShot = (m: Anthropic.MessageParam): boolean =>
  *
  * The API binds a thinking block's signature to the conversation before it, so a block sent back after an earlier
  * turn was rewritten is refused ("Invalid `signature` in `thinking` block ... bound to a different conversation").
- * A prune therefore also drops the thinking of every assistant turn but the latest, whose thinking the open tool
- * call needs. The buyer's spoken thoughts are text blocks and stay.
+ * A prune rewrites screens before every assistant turn, the latest included, so it drops the thinking of all of
+ * them. The buyer's spoken thoughts are text blocks and stay.
  */
 export function pruneHistory(messages: Anthropic.MessageParam[], keep = 2, slack = 0): void {
   if (messages.filter(hasShot).length <= keep + slack) return;
-  const lastAssistant = messages.map((m) => m.role).lastIndexOf("assistant");
-  messages.forEach((m, i) => {
-    if (m.role === "assistant" && i !== lastAssistant && Array.isArray(m.content)) {
+  messages.forEach((m) => {
+    if (m.role === "assistant" && Array.isArray(m.content)) {
       m.content = m.content.filter((b) => b.type !== "thinking" && b.type !== "redacted_thinking");
     }
   });
