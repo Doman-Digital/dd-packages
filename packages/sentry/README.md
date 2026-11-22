@@ -166,6 +166,41 @@ made only of third-party frames is dropped. Use the same project slug in both.
 `onRequestError` and `captureGlobalError` load the site's own `@sentry/nextjs`
 when they run.
 
+## Critical paths: checkout, booking, enquiries
+
+A failure where a customer pays or leaves their details is reported at level
+`fatal` with two tags, `critical_path` (`checkout`, `booking`, `enquiry`) and
+`critical_stage` (`card-load`, `tokenize`, `confirm`, `csp`). Each Sentry
+project has one alert that fires on every event carrying `critical_path`,
+emails, and posts to the relay, which pages the founder. The alert is created
+from the site's `critical:` row in the estate registry, so nothing here
+creates it.
+
+```ts
+import * as Sentry from "@sentry/browser";
+import { criticalReporter, watchCriticalCsp } from "@domandigital/sentry/browser";
+
+const critical = criticalReporter(Sentry.captureException);
+watchCriticalCsp(document, critical); // CSP blocks count only while a step is marked
+
+critical.enter("checkout", "card"); // the card form is open
+try {
+  await card.tokenize();
+} catch (error) {
+  critical.criticalFailure("checkout", "tokenize", error, { status });
+}
+critical.leave();
+```
+
+The same import works on a Worker (`@domandigital/sentry/cloudflare`), handing
+it `Sentry.captureException` from `@sentry/cloudflare`. A site that loads
+Sentry lazily can build the event itself with `criticalContext(path, stage,
+extra)`. Names are lower case letters, digits and hyphens. A report never
+throws, so a broken SDK cannot break the checkout it is describing. Events are
+grouped by path and stage, which is why the alert fires on every event rather
+than only on a new issue: the second customer to hit the same failure matters
+as much as the first.
+
 ## Release and source maps for Worker and Astro builds: `dd-sentry-release`
 
 The step from a client Astro site's `deploy-astro.yml`, as one command in two
