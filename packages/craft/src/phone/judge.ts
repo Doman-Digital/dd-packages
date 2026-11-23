@@ -252,6 +252,7 @@ const LABEL: Record<PhoneCheck, string> = {
   tel: "phone number is not a link",
   linelength: "line too long",
   screens: "page too long for a phone",
+  rowscroll: "sideways row scrolls up and down",
 };
 
 /** The baseline that makes this run pass: what is there now, counted. */

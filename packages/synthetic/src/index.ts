@@ -50,3 +50,6 @@ export { DEFAULT_ENDPOINT, BEACON_PATH, RECEIPT_PATH, BEACON_CODES, resetRejectB
 export type { BeaconCode, BeaconEvent, PurgeReceipt, ReporterOptions } from "./beacon";
 
 export { REDACTED, scrubHeaders, scrubText, scrubSentryEvent } from "./scrub";
+
+export { fakeResend, memoryStore, parseCanary, canaryRows } from "./fake-resend";
+export type { FakeEmail, FakeResendOptions, FakeResendStore, CanaryRow } from "./fake-resend";
