@@ -46,8 +46,15 @@ export type PhoneCheck =
   | "autocomplete"
   | "tel"
   | "linelength"
-  | "screens";
+  | "screens"
+  | "rowscroll";
 
+/**
+ * A sideways row (a carousel, a strip of chips or cards) that also scrolls up and down. Setting overflow-x to auto
+ * makes a visible overflow-y compute to auto too, so a row whose items are a few pixels taller than the row (a focus
+ * ring, a shadow, a descender) takes the thumb's vertical swipe instead of the page (DOM-18589, the founder's ask of
+ * 23 November 2026). Self-contained, like the measures that call it, so it can be pasted into both.
+ */
 export interface RawPhoneFinding {
   check: PhoneCheck;
   /** `<tag> "text"`: what a person looks for on the page. */
@@ -99,6 +106,15 @@ export function measurePhoneInPage(floors: PhoneFloors & { only?: PhoneCheck[] }
       .slice(0, 3)
       .map(describe);
     out.push({ check: "scroll", element: "<html>", detail: `the page is ${document.documentElement.scrollWidth}px wide at ${vw}px${wide.length ? `; widest: ${wide.join(", ")}` : ""}` });
+  }
+
+  // A sideways row that also scrolls up and down: the thumb's vertical swipe moves the row, not the page.
+  for (const e of on("rowscroll") ? Array.from(document.body.querySelectorAll("*")) : []) {
+    if (!shown(e) || quiet(e)) continue;
+    const s = getComputedStyle(e);
+    const sideways = ["auto", "scroll"].includes(s.overflowX) && e.scrollWidth > e.clientWidth + 1;
+    const spare = e.scrollHeight - e.clientHeight;
+    if (sideways && ["auto", "scroll"].includes(s.overflowY) && spare > 1) out.push({ check: "rowscroll", element: describe(e), detail: `a sideways row that also scrolls ${spare}px up and down. Set overflow-y: hidden (or clip) on it, and pad the row for its items' focus rings and shadows` });
   }
 
   // Targets. A link inside a sentence is sized by its line (WCAG 2.5.5's inline exception); a field's label is a hit target too.

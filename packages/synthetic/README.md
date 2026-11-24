@@ -178,3 +178,30 @@ const safe = scrubHeaders(request.headers);
 ```sh
 pnpm --filter @domandigital/synthetic test    # Node, then workerd
 ```
+
+## The fake Resend, for a client's own test runs
+
+Synthetic standard section O2 (Doman-Digital `services/checks/docs/synthetic-standard.md`): a pull request or deploy run of a client's test suite sends no real email. The site posts to `fakeResend()` instead, through `RESEND_BASE_URL` (Resend's Node SDK reads it; a site that calls the API with `fetch` reads the same variable, and only off production). The suite then checks every email against it in the shapes it already reads: Resend's `GET /emails/<id>` for the body, and DD Checks' canary read (`GET /messages?runId=<run>`, the same answer as `/admin/canary/messages`) for "arrived once". Only the nightly run sends real mail, to the canary inbox.
+
+```ts
+import { fakeResend } from "@domandigital/synthetic";
+
+const resend = fakeResend();            // in memory; pass { store } to keep sends in a Worker's own storage
+const res = await resend.fetch(request); // POST /emails, GET /emails/<id>, GET /messages?runId=<run>
+```
+
+It refuses any recipient, cc, bcc or reply-to that is not a canary address (as a receiver must, N3), so a test that types a real address fails on the pull request, before the nightly run could mail anyone. `fakeResend({ quota: n })` answers 429 `daily_quota_exceeded` after `n` sends, to test the site's allowance alert (O2.4).
+
+In Node, behind `node:http`:
+
+```js
+import { createServer } from "node:http";
+import { fakeResend } from "@domandigital/synthetic";
+
+const resend = fakeResend();
+createServer(async (req, res) => {
+  const body = req.method === "POST" ? await new Response(req).arrayBuffer() : undefined;
+  const answer = await resend.fetch(new Request(`http://localhost${req.url}`, { method: req.method, headers: req.headers, body }));
+  res.writeHead(answer.status, Object.fromEntries(answer.headers)).end(await answer.text());
+}).listen(8790, "localhost"); // RESEND_BASE_URL=http://localhost:8790
+```

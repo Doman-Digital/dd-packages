@@ -8,8 +8,9 @@
  * page to settle and scrolled to the top; the function judges the page as it
  * stands, for whichever groups of checks it is asked for:
  *
- * - `sweep`: at any width, the page does not scroll sideways, no visible text
- *   sits on other visible text, and no page title is cut off.
+ * - `sweep`: at any width, the page does not scroll sideways, no sideways row
+ *   also scrolls up and down, no visible text sits on other visible text, and
+ *   no page title is cut off.
  * - `optimise`: on the short phone (375 x 667), the main action is on the
  *   first screen or pinned, fixed and sticky layers leave the screen to the
  *   page, images are sized for the phone, fields use the right keyboard and
@@ -198,6 +199,15 @@ export function measureViewportInPage(arg: ViewportArg): RawPhoneFinding[] {
         .slice(0, 3)
         .map(describe);
       add("scroll", "<html>", `the page is ${document.documentElement.scrollWidth}px wide at ${vw}px${wide.length ? `; widest: ${wide.join(", ")}` : ""}`);
+    }
+
+    // A sideways row that also scrolls up and down (measure-in-page.ts, "rowscroll"), at every width.
+    for (const e of Array.from(document.body.querySelectorAll("*"))) {
+      if (!shown(e) || hiddenByMarkup(e)) continue;
+      const s = getComputedStyle(e);
+      const sideways = ["auto", "scroll"].includes(s.overflowX) && e.scrollWidth > e.clientWidth + 1;
+      const spare = e.scrollHeight - e.clientHeight;
+      if (sideways && ["auto", "scroll"].includes(s.overflowY) && spare > 1) add("rowscroll", describe(e), `a sideways row that also scrolls ${spare}px up and down. Set overflow-y: hidden (or clip) on it, and pad the row for its items' focus rings and shadows`);
     }
 
     // Text on text. Sorted by top edge, so each box meets only the ones that start above its bottom.

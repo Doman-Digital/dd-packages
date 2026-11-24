@@ -505,6 +505,24 @@ describe.skipIf(!chromium)("craft phone-first in a real browser", () => {
       rmSync(outDir, { recursive: true, force: true });
     }
   });
+  it("fails a sideways row that also scrolls up and down, and passes one clipped to its height", async () => {
+    const { chromium: browserType } = await import("playwright");
+    const browser = await browserType.launch({ executablePath: chromium });
+    const outDir = mkdtempSync(join(tmpdir(), "craft-phone-measured-"));
+    try {
+      const page = await (await browser.newContext(PHONE)).newPage();
+      // Each card is 4px taller than its row: overflow-x auto makes overflow-y auto, so the row scrolls 4px vertically.
+      const row = (label: string, extra: string) => `<div aria-label="${label}" style="display:flex;gap:8px;height:100px;overflow-x:auto;${extra}">${"<div style='flex:0 0 200px;height:104px;background:#ccc'></div>".repeat(4)}</div>`;
+      await page.setContent(`<!doctype html><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0;font:16px/1.5 sans-serif}</style>
+<main>${row("Loose", "")}${row("Clipped", "overflow-y:hidden")}${row("Short", "height:auto")}</main>`);
+      const rows = (await measurePhone(page, { route: "/rows", out: outDir })).findings.filter((f) => f.check === "rowscroll");
+      expect(rows.map((f) => f.element)).toEqual(['<div> "Loose"']);
+      expect(rows[0].detail).toMatch(/scrolls 4px up and down/);
+    } finally {
+      await browser.close();
+      rmSync(outDir, { recursive: true, force: true });
+    }
+  });
   it("holds a text field to 48px: 44px passes the target floor and still fails the field floor", async () => {
     const { chromium: browserType } = await import("playwright");
     const browser = await browserType.launch({ executablePath: chromium });
