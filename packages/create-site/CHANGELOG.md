@@ -1,5 +1,11 @@
 # @domandigital/create-site
 
+## 0.12.3
+
+### Patch Changes
+
+- c31349e: New sites install craft ^0.25.0, which adds the sideways-row check to the phone measure.
+
 ## 0.12.2
 
 ### Patch Changes
