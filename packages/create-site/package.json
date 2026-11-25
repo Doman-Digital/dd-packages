@@ -46,10 +46,10 @@
     "@domandigital/craft": "workspace:^",
     "@domandigital/graph": "workspace:^",
     "@domandigital/seo": "workspace:^",
-    "@types/node": "^20.17.0",
-    "tsup": "^8.3.5",
-    "typescript": "^5.6.3",
-    "vitest": "^4.0.0"
+    "@types/node": "^20.19.43",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12"
   },
   "publishConfig": {
     "access": "public",
